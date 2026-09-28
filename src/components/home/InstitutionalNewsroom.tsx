@@ -176,13 +176,9 @@ export function InstitutionalNewsroom() {
                     </span>
                   </div>
 
-                  <h4 className="font-serif text-lg font-normal text-white group-hover:text-gold-300 transition-colors line-clamp-2 leading-snug">
+                  <h4 className="font-serif text-lg font-normal text-white group-hover:text-gold-300 transition-colors line-clamp-3 leading-snug">
                     {item.title}
                   </h4>
-
-                  <p className="mt-2 text-xs text-slate-400 leading-relaxed line-clamp-2">
-                    {item.excerpt}
-                  </p>
                 </div>
 
                 <div className="mt-5 flex items-center justify-between border-t border-white/10 pt-4 font-mono text-[10px] text-slate-400">
