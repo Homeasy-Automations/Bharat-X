@@ -28,14 +28,14 @@ export function NotFoundPage() {
             <Icon name="arrow-right" width={16} height={16} className="transition-transform group-hover:translate-x-1" />
           </Link>
           <Link
-            to="/ecosystem"
+            to="/services"
             className="inline-flex w-full sm:w-auto items-center justify-center gap-3 rounded-full border border-white/15 px-8 py-4 text-[15px] font-semibold text-ink-100 transition-colors hover:border-white/35 hover:bg-white/5"
           >
-            Explore the ecosystem
+            Explore our services
           </Link>
         </div>
         <div className="mt-16 flex flex-wrap items-center justify-center gap-x-6 gap-y-3 font-mono text-[10px] uppercase tracking-[0.24em] text-ink-600">
-          <Link to="/companies" className="transition-colors hover:text-ink-300">Companies</Link>
+          <Link to="/services" className="transition-colors hover:text-ink-300">Services</Link>
           <span aria-hidden>·</span>
           <Link to="/industries" className="transition-colors hover:text-ink-300">Industries</Link>
           <span aria-hidden>·</span>

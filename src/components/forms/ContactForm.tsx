@@ -1,7 +1,6 @@
 import { AnimatePresence, motion } from "framer-motion";
 import { useEffect, useMemo, useState } from "react";
 import { Link } from "react-router-dom";
-import { companies } from "../../data/companies";
 import { ApiError, submitContact } from "../../services/api";
 import { track } from "../../services/analytics";
 import type { ContactPayload } from "../../types";
@@ -19,9 +18,14 @@ export const inquiryTypes = [
   { value: "careers", label: "Careers" },
 ];
 
-const companyOptions = [
-  { value: "", label: "BharatX Group (general)" },
-  ...companies.map((c) => ({ value: c.id, label: c.name })),
+export const sectorOptions = [
+  { value: "", label: "BharatX Group (Corporate Secretariat)" },
+  { value: "tech-ai", label: "Technology & AI Sector" },
+  { value: "infrastructure", label: "Infrastructure Sector" },
+  { value: "manufacturing", label: "Manufacturing Sector" },
+  { value: "agriculture", label: "Agriculture Sector" },
+  { value: "climate-sustainability", label: "Climate & Sustainability Sector" },
+  { value: "finance", label: "Finance & Capital Sector" },
 ];
 
 const initial: ContactPayload = {
@@ -216,8 +220,8 @@ export function ContactForm({
           error={errors.inquiryType}
         />
         <Select
-          label="Company / Business"
-          options={companyOptions}
+          label="Operating Sector"
+          options={sectorOptions}
           value={form.company}
           onChange={(e) => set("company")(e.target.value)}
         />

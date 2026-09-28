@@ -1,13 +1,9 @@
-import { Route, Routes } from "react-router-dom";
+import { Navigate, Route, Routes } from "react-router-dom";
 import { Layout } from "../components/layout/Layout";
 import AboutPage from "../pages/AboutPage";
 import AdminPage from "../pages/AdminPage";
-import BharatXLabsPage from "../pages/BharatXLabsPage";
 import CareersPage from "../pages/CareersPage";
-import CompanyDetailsPage from "../pages/CompanyDetailsPage";
-import CompaniesPage from "../pages/CompaniesPage";
 import ContactPage from "../pages/ContactPage";
-import EcosystemPage from "../pages/EcosystemPage";
 import HomePage from "../pages/HomePage";
 import ImpactPage from "../pages/ImpactPage";
 import IndustriesPage from "../pages/IndustriesPage";
@@ -15,6 +11,7 @@ import InnovationPage from "../pages/InnovationPage";
 import LeadershipPage from "../pages/LeadershipPage";
 import NotFoundPage from "../pages/NotFoundPage";
 import PrivacyPage from "../pages/PrivacyPage";
+import ServicesPage from "../pages/ServicesPage";
 import TermsPage from "../pages/TermsPage";
 
 export function AppRoutes() {
@@ -24,10 +21,11 @@ export function AppRoutes() {
         {/* Layout renders <Outlet> via children — see Layout usage in App.tsx */}
         <Route index element={<HomePage />} />
         <Route path="about" element={<AboutPage />} />
-        <Route path="companies" element={<CompaniesPage />} />
-        <Route path="companies/:slug" element={<CompanyDetailsPage />} />
-        <Route path="bharatx-labs" element={<BharatXLabsPage />} />
-        <Route path="ecosystem" element={<EcosystemPage />} />
+        <Route path="services" element={<ServicesPage />} />
+        <Route path="companies" element={<Navigate to="/services" replace />} />
+        <Route path="companies/:slug" element={<Navigate to="/services" replace />} />
+        <Route path="bharatx-labs" element={<Navigate to="/services" replace />} />
+        <Route path="ecosystem" element={<Navigate to="/services" replace />} />
         <Route path="industries" element={<IndustriesPage />} />
         <Route path="innovation" element={<InnovationPage />} />
         <Route path="impact" element={<ImpactPage />} />

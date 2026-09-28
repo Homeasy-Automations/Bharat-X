@@ -1,9 +1,9 @@
-import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 import { useEffect } from "react";
 import { Link, NavLink, useLocation } from "react-router-dom";
 import { cn } from "../../utils/cn";
 import { Icon } from "../../utils/icons";
-import { companies } from "../../data/companies";
+import { servicesData } from "../../data/servicesData";
 import { brandConfig } from "../../config/brand";
 import { navigation } from "../../data/navigation";
 import { Logo } from "./Logo";
@@ -16,9 +16,7 @@ const socialIcons: Record<string, string> = {
   X: "arrow-up-right",
 };
 
-/** Full-screen mobile navigation with staggered link reveal (Section 39). */
 export function MobileMenu({ open, onClose }: { open: boolean; onClose: () => void }) {
-  const reduced = useReducedMotion();
   const location = useLocation();
 
   useEffect(() => {
@@ -65,7 +63,7 @@ export function MobileMenu({ open, onClose }: { open: boolean; onClose: () => vo
               </div>
             </div>
 
-            <nav aria-label="Mobile" className="mt-12 flex flex-col">
+            <nav aria-label="Mobile" className="mt-10 flex flex-col">
               <NavLink
                 to="/"
                 end
@@ -93,48 +91,38 @@ export function MobileMenu({ open, onClose }: { open: boolean; onClose: () => vo
               </NavLink>
             </nav>
 
+            {/* Core Sectors */}
             <div className="mt-10">
-              <div className="mb-3 font-mono text-[10px] uppercase tracking-[0.28em] text-ink-500">
-                The six businesses
+              <div className="mb-3 font-mono text-[10px] uppercase tracking-[0.28em] text-gold-400">
+                Core Operating Sectors
               </div>
               <div className="grid grid-cols-2 gap-2">
-                {companies.map((c) => (
+                {servicesData.map((svc, i) => (
                   <Link
-                    key={c.id}
-                    to={`/companies/${c.slug}`}
+                    key={svc.id}
+                    to={`/services#${svc.id}`}
                     onClick={onClose}
-                    className="flex items-center gap-2.5 rounded-lg border border-slate-200/90 bg-white/80 p-2.5 shadow-xs transition-all hover:border-gold-300 dark:border-white/10 dark:bg-night-850/80 dark:hover:border-white/20 dark:hover:bg-night-800"
+                    className="flex flex-col gap-1 rounded-xl border border-white/10 bg-white/[0.03] p-3 text-left transition-all hover:border-gold-400/50 hover:bg-white/[0.06]"
                   >
-                    {c.logo ? (
-                      <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-md bg-white p-0.5 shadow-sm border border-slate-100 dark:border-white/10">
-                        <img src={c.logo} alt={c.name} className="h-full w-full object-contain" />
-                      </span>
-                    ) : (
-                      <span
-                        className="flex h-7 w-7 items-center justify-center font-mono text-[10px] font-semibold"
-                        style={{ color: c.accentColor }}
-                      >
-                        {c.monogram}
-                      </span>
-                    )}
-                    <span className="truncate text-[12.5px] font-medium text-ink-200 dark:text-ink-100">
-                      {c.shortName}
+                    <span className="font-mono text-[9px] text-gold-400">0{i + 1}</span>
+                    <span className="truncate text-[13px] font-medium text-white">
+                      {svc.name}
                     </span>
                   </Link>
                 ))}
               </div>
             </div>
 
-            <div className="mt-auto pt-12">
+            <div className="mt-auto pt-10">
               <Link
-                to="/ecosystem"
+                to="/services"
                 onClick={onClose}
-                className="flex items-center justify-center gap-2 rounded-full bg-gold-500 px-6 py-3.5 text-sm font-semibold text-white shadow-md shadow-gold-500/25 transition-all hover:bg-gold-600"
+                className="flex items-center justify-center gap-2 rounded-full bg-gold-500 px-6 py-3.5 text-sm font-semibold text-night-950 shadow-md shadow-gold-500/25 transition-all hover:bg-gold-400"
               >
-                Explore the Ecosystem
+                Explore All Services
                 <Icon name="arrow-right" width={15} height={15} />
               </Link>
-              <div className="mt-8 flex items-center justify-center gap-5">
+              <div className="mt-6 flex items-center justify-center gap-5">
                 {brandConfig.social.map((s) => (
                   <a
                     key={s.label}
@@ -142,13 +130,13 @@ export function MobileMenu({ open, onClose }: { open: boolean; onClose: () => vo
                     target="_blank"
                     rel="noreferrer"
                     aria-label={s.label}
-                    className="flex h-9 w-9 items-center justify-center rounded-full border border-slate-200/90 bg-white text-ink-400 shadow-xs transition-colors hover:border-gold-400 hover:text-gold-600"
+                    className="flex h-9 w-9 items-center justify-center rounded-full border border-white/10 bg-white/5 text-ink-400 shadow-xs transition-colors hover:border-gold-400 hover:text-gold-400"
                   >
                     <Icon name={socialIcons[s.label] ?? "arrow-up-right"} width={14} height={14} />
                   </a>
                 ))}
               </div>
-              <p className="mt-6 text-center font-mono text-[10px] uppercase tracking-[0.2em] text-ink-600">
+              <p className="mt-5 text-center font-mono text-[10px] uppercase tracking-[0.2em] text-ink-500">
                 BharatX Group — {location.pathname}
               </p>
             </div>
@@ -161,7 +149,7 @@ export function MobileMenu({ open, onClose }: { open: boolean; onClose: () => vo
 
 function mobileLinkClass(isActive: boolean): string {
   return cn(
-    "flex items-center gap-3.5 border-b border-slate-200/60 py-3 sm:py-4 font-display text-[19px] sm:text-[22px] font-medium tracking-tight transition-colors",
-    isActive ? "text-gold-400" : "text-ink-100 hover:text-pulse-400",
+    "flex items-center gap-3.5 border-b border-white/10 py-3 sm:py-3.5 font-display text-[17px] sm:text-[19px] font-medium tracking-tight transition-colors",
+    isActive ? "text-gold-400" : "text-white hover:text-gold-300",
   );
 }

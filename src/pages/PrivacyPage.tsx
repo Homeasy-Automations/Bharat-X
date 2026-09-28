@@ -19,8 +19,8 @@ const sections = [
     d: "Inquiries are stored in the group's database (MongoDB) with access restricted to the teams that need it to respond. The database is hosted with a reputable provider under commercial terms that include security and backup obligations.",
   },
   {
-    t: "4. Embedded websites",
-    d: "The ecosystem viewer loads the websites of the group's six businesses inside this site. When a website is displayed in the viewer, that website's own privacy practices apply to your interaction with it. We recommend opening any business website directly if you prefer its privacy terms to govern your session.",
+    t: "4. External services and platforms",
+    d: "Our platform provides references and connections across our core operating sectors. When you navigate to external partner or client portals linked from this site, that portal's own privacy practices apply to your interaction with it. We recommend reviewing their privacy policies upon arrival.",
   },
   {
     t: "5. Cookies and analytics",
@@ -67,8 +67,7 @@ export default function PrivacyPage() {
           <Reveal>
             <p className="mb-10 rounded-xl border border-white/8 bg-night-850/70 p-5 text-[13.5px] leading-relaxed text-ink-400">
               Last updated: 25 September 2026. This policy applies to the BharatX
-              Group website. Each company in the ecosystem maintains its own
-              privacy terms on its own website where applicable.
+              Group corporate web platform and its operating sectors.
             </p>
           </Reveal>
           <div className="flex flex-col gap-8">

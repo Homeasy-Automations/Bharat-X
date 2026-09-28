@@ -2,8 +2,7 @@ import type { NavItem } from "../types";
 
 export const navigation: NavItem[] = [
   { label: "About", to: "/about", icon: "info" },
-  { label: "Companies", to: "/companies", icon: "building-2", mega: "companies" },
-  { label: "Ecosystem", to: "/ecosystem", icon: "orbit", mega: "ecosystem" },
+  { label: "Services", to: "/services", icon: "layers", mega: "services" },
   { label: "Industries", to: "/industries", icon: "factory" },
   { label: "Innovation", to: "/innovation", icon: "sparkles" },
   { label: "Impact", to: "/impact", icon: "leaf" },
@@ -19,17 +18,24 @@ export const contactRoute = {
 
 export const footerColumns = {
   explore: [
-    { label: "About", to: "/about" },
-    { label: "Companies", to: "/companies" },
-    { label: "Ecosystem", to: "/ecosystem" },
+    { label: "About Group", to: "/about" },
+    { label: "Our Services", to: "/services" },
     { label: "Industries", to: "/industries" },
     { label: "Innovation", to: "/innovation" },
-    { label: "Impact", to: "/impact" },
+    { label: "Impact & ESG", to: "/impact" },
+  ],
+  services: [
+    { label: "Technology & AI", to: "/services#tech-ai" },
+    { label: "Infrastructure", to: "/services#infrastructure" },
+    { label: "Manufacturing", to: "/services#manufacturing" },
+    { label: "Agriculture", to: "/services#agriculture" },
+    { label: "Climate & Sustainability", to: "/services#climate-sustainability" },
+    { label: "Finance", to: "/services#finance" },
   ],
   company: [
     { label: "Leadership", to: "/leadership" },
     { label: "Careers", to: "/careers" },
-    { label: "Start an inquiry", to: "/contact" },
+    { label: "Start an Inquiry", to: "/contact" },
   ],
   legal: [
     { label: "Privacy Policy", to: "/privacy" },

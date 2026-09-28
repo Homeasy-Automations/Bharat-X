@@ -1,38 +1,30 @@
 import { Fragment } from "react";
-import { companies } from "../../data/companies";
+import { servicesData } from "../../data/servicesData";
 
 /**
- * Signature marquee strip: the six businesses scrolling in a hairline band.
+ * Signature marquee strip: the six core operating sectors scrolling in a hairline band.
  */
-export function CompanyMarquee() {
-  const items = [...companies, ...companies];
+export function SectorMarquee() {
+  const items = [...servicesData, ...servicesData];
   return (
     <div
       aria-hidden
       className="marquee relative overflow-hidden border-y border-slate-200/80 bg-white/50 backdrop-blur-sm dark:border-white/5 dark:bg-night-950/60 py-5"
     >
       <div className="marquee-track items-center gap-10 pr-10">
-        {items.map((c, i) => (
-          <Fragment key={`${c.id}-${i}`}>
-            <span className="flex items-center gap-3 whitespace-nowrap">
-              {c.logo ? (
-                <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-white p-1 shadow-sm">
-                  <img
-                    src={c.logo}
-                    alt={c.name}
-                    className="h-full w-full object-contain"
-                    loading="lazy"
-                  />
+        {items.map((s, i) => (
+          <Fragment key={`${s.id}-${i}`}>
+            <span className="flex items-center gap-3.5 whitespace-nowrap">
+              <span className="flex h-7 w-7 items-center justify-center rounded-lg bg-white p-1 shadow-sm shrink-0">
+                <img src={s.companyLogo} alt={s.companyName} className="h-full w-full object-contain" />
+              </span>
+              <span className="flex items-center gap-2">
+                <span className="font-display text-sm font-semibold tracking-wide text-ink-100">
+                  {s.companyName}
                 </span>
-              ) : (
-                <span
-                  className="flex h-8 w-8 items-center justify-center font-mono text-[11px] font-semibold text-ink-300"
-                >
-                  {c.monogram}
+                <span className="font-mono text-[10px] uppercase text-gold-400 font-medium">
+                  · {s.name}
                 </span>
-              )}
-              <span className="font-display text-sm font-medium tracking-[0.14em] text-ink-300">
-                {c.name.toUpperCase()}
               </span>
             </span>
             <svg width="10" height="10" viewBox="0 0 10 10" aria-hidden className="shrink-0 text-gold-400/60">
@@ -46,3 +38,6 @@ export function CompanyMarquee() {
     </div>
   );
 }
+
+export const CompanyMarquee = SectorMarquee;
+

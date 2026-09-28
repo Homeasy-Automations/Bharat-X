@@ -2,7 +2,7 @@ import { useState, useEffect, useMemo } from "react";
 import { useNavigate } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { Icon } from "../../utils/icons";
-import { companies } from "../../data/companies";
+import { servicesData } from "../../data/servicesData";
 import { navigation } from "../../data/navigation";
 
 interface SearchModalProps {
@@ -42,17 +42,18 @@ export function SearchModal({ open, onClose }: SearchModalProps) {
     const q = query.trim().toLowerCase();
     if (!q) {
       return {
-        companies: companies.slice(0, 4),
+        services: servicesData.slice(0, 4),
         pages: navigation.slice(0, 5),
       };
     }
 
     return {
-      companies: companies.filter(
-        (c) =>
-          c.name.toLowerCase().includes(q) ||
-          c.category.toLowerCase().includes(q) ||
-          c.description.toLowerCase().includes(q),
+      services: servicesData.filter(
+        (s) =>
+          s.name.toLowerCase().includes(q) ||
+          s.shortLabel.toLowerCase().includes(q) ||
+          s.descriptor.toLowerCase().includes(q) ||
+          s.capabilities.some((c) => c.toLowerCase().includes(q)),
       ),
       pages: navigation.filter((p) => p.label.toLowerCase().includes(q)),
     };
@@ -92,7 +93,7 @@ export function SearchModal({ open, onClose }: SearchModalProps) {
                 autoFocus
                 value={query}
                 onChange={(e) => setQuery(e.target.value)}
-                placeholder="Search BharatX enterprises, industries, capabilities..."
+                placeholder="Search BharatX sectors, services, capabilities..."
                 className="w-full bg-transparent text-[15px] font-medium text-ink-100 placeholder:text-ink-400 focus:outline-none"
               />
               {query && (
@@ -111,35 +112,29 @@ export function SearchModal({ open, onClose }: SearchModalProps) {
 
             {/* Content Results */}
             <div className="max-h-[60vh] overflow-y-auto p-4 space-y-6">
-              {/* Companies Section */}
-              {results.companies.length > 0 && (
+              {/* Services Section */}
+              {results.services.length > 0 && (
                 <div>
                   <div className="mb-2.5 px-2 font-mono text-[10.5px] uppercase tracking-[0.2em] text-ink-500">
-                    Enterprises & Subsidiaries
+                    Sectors &amp; Services
                   </div>
                   <div className="grid gap-1.5 sm:grid-cols-2">
-                    {results.companies.map((c) => (
+                    {results.services.map((s, i) => (
                       <button
-                        key={c.id}
+                        key={s.id}
                         type="button"
-                        onClick={() => handleSelect(`/companies/${c.slug}`)}
+                        onClick={() => handleSelect(`/services#${s.id}`)}
                         className="group flex items-center gap-3 rounded-xl p-2.5 text-left transition-colors hover:bg-slate-100/80 dark:hover:bg-white/[0.05]"
                       >
-                        {c.logo ? (
-                          <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-white p-1 shadow-sm border border-slate-100 dark:border-white/10">
-                            <img src={c.logo} alt={c.name} className="h-full w-full object-contain" />
-                          </span>
-                        ) : (
-                          <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-gold-400/15 font-mono text-[11px] font-bold text-gold-500">
-                            {c.monogram}
-                          </span>
-                        )}
+                        <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-gold-400/15 font-mono text-[11px] font-bold text-gold-500">
+                          0{i + 1}
+                        </span>
                         <div className="min-w-0 flex-1">
                           <div className="font-display text-[13.5px] font-semibold text-ink-100 group-hover:text-gold-500 dark:group-hover:text-gold-400 truncate">
-                            {c.name}
+                            {s.name}
                           </div>
                           <div className="text-[11px] text-ink-400 truncate">
-                            {c.category}
+                            {s.descriptor}
                           </div>
                         </div>
                         <Icon
@@ -158,7 +153,7 @@ export function SearchModal({ open, onClose }: SearchModalProps) {
               {results.pages.length > 0 && (
                 <div>
                   <div className="mb-2.5 px-2 font-mono text-[10.5px] uppercase tracking-[0.2em] text-ink-500">
-                    Corporate Navigation & Portals
+                    Corporate Navigation
                   </div>
                   <div className="grid gap-1.5 sm:grid-cols-2">
                     {results.pages.map((p) => (
@@ -180,22 +175,17 @@ export function SearchModal({ open, onClose }: SearchModalProps) {
                 </div>
               )}
 
-              {results.companies.length === 0 && results.pages.length === 0 && (
-                <div className="py-12 text-center">
-                  <p className="font-mono text-xs uppercase tracking-widest text-ink-400">
-                    No matching results found for "{query}"
-                  </p>
+              {results.services.length === 0 && results.pages.length === 0 && (
+                <div className="py-8 text-center text-sm text-ink-400">
+                  No matching services or portals found for "{query}"
                 </div>
               )}
             </div>
 
-            {/* Modal Footer */}
-            <div className="flex items-center justify-between border-t border-slate-200/80 bg-slate-50/70 px-4 py-2.5 font-mono text-[10px] text-ink-500 dark:border-white/10 dark:bg-white/[0.02]">
-              <div className="flex items-center gap-4">
-                <span>Select ↵</span>
-                <span>Navigate ↑↓</span>
-              </div>
-              <span>BharatX Group Unified Search</span>
+            {/* Modal Footer Key Hints */}
+            <div className="border-t border-slate-200/80 bg-slate-50/50 px-4 py-2 text-[11px] font-mono text-ink-400 flex items-center justify-between dark:border-white/10 dark:bg-white/[0.02]">
+              <span>Search BharatX Group</span>
+              <span>Press ESC to dismiss</span>
             </div>
           </motion.div>
         </div>

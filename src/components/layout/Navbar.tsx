@@ -11,20 +11,19 @@ import { cn } from "../../utils/cn";
 import { Icon } from "../../utils/icons";
 import { Logo, LogoMark } from "./Logo";
 import { MobileMenu } from "./MobileMenu";
-import { companies } from "../../data/companies";
-import { ecosystemSites } from "../../data/ecosystem";
 import { contactRoute, navigation } from "../../data/navigation";
+import { servicesData } from "../../data/servicesData";
 import { MagneticButton } from "../common/MagneticButton";
 import { ThemeToggle } from "../common/ThemeToggle";
 import { SearchModal } from "../common/SearchModal";
 
-type MegaKey = "companies" | "ecosystem" | null;
+type MegaKey = "services" | "companies" | "ecosystem" | null;
 
 const liveMetrics = [
-  "36+ ACTIVE SERVICES • 1 CONNECTED ECOSYSTEM",
-  "SECTORS: AI • INFRASTRUCTURE • AGRI-TECH • VENTURES • MOBILITY",
-  "99.98% UNIFIED NETWORK UPTIME",
-  "GLOBAL VALUE CHAINS & INDUSTRIAL EXCELLENCE",
+  "6 CORE INDUSTRIAL SECTORS • SOVEREIGN ASSETS",
+  "OPERATING IN AI • INFRASTRUCTURE • MANUFACTURING • AGRI • FOOD",
+  "NATION-FIRST SCALE & COMPOUND ENTERPRISE VALUE",
+  "COMMITTED TO ADVANCING BHARAT'S INDUSTRIAL CORE",
 ];
 
 export function Navbar() {
@@ -125,11 +124,11 @@ export function Navbar() {
                 {/* Right Corporate Utility Portals */}
                 <div className="flex items-center gap-5 text-ink-500 dark:text-ink-400">
                   <Link
-                    to="/ecosystem"
+                    to="/services"
                     className="hover:text-gold-600 dark:hover:text-gold-400 transition-colors flex items-center gap-1.5"
                   >
-                    <Icon name="orbit" width={11} height={11} />
-                    <span>Ecosystem Hub</span>
+                    <Icon name="layers" width={11} height={11} />
+                    <span>Our Services</span>
                   </Link>
 
                   <Link
@@ -332,75 +331,58 @@ function NavItem({
 function MegaPanel({ kind, className }: { kind: Exclude<MegaKey, null>; className?: string }) {
   return (
     <div className={className}>
-      {kind === "companies" ? <CompaniesMega /> : <EcosystemMega />}
+      <ServicesMega />
     </div>
   );
 }
 
-function CompaniesMega() {
+function ServicesMega() {
   const [preview, setPreview] = useState(0);
+  const activeSvc = servicesData[preview] ?? servicesData[0];
+
   return (
-    <div className="container-x grid grid-cols-[1fr_300px] gap-10 py-8" onMouseLeave={() => { }}>
-      <div className="grid grid-cols-2 gap-1.5">
-        {companies.map((c, i) => (
+    <div className="container-x grid grid-cols-[1fr_340px] gap-8 py-8">
+      <div className="grid grid-cols-2 gap-2">
+        {servicesData.map((svc, i) => (
           <Link
-            key={c.id}
-            to={c.slug === "bharatx-labs" ? "/bharatx-labs" : `/companies/${c.slug}`}
+            key={svc.id}
+            to={`/services#${svc.id}`}
             onMouseEnter={() => setPreview(i)}
             onFocus={() => setPreview(i)}
-            className="group flex items-start gap-3.5 rounded-xl border border-transparent p-3.5 transition-all duration-300 hover:border-slate-200/90 hover:bg-slate-100/80 hover:shadow-sm dark:hover:border-white/15 dark:hover:bg-night-800/80 dark:hover:shadow-[0_12px_28px_-8px_rgba(0,0,0,0.7),0_0_24px_-4px_rgba(0,240,255,0.14)]"
+            className="group flex items-start gap-3.5 rounded-xl border border-transparent p-3.5 transition-all duration-300 hover:border-slate-200/90 hover:bg-slate-100/80 hover:shadow-sm dark:hover:border-white/15 dark:hover:bg-night-800/80 dark:hover:shadow-lg"
           >
-            {c.logo ? (
-              <span className="mt-0.5 flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-white p-1 shadow-sm border border-slate-100 dark:border-white/10 transition-transform duration-300 group-hover:scale-105">
-                <img
-                  src={c.logo}
-                  alt={c.name}
-                  className="h-full w-full object-contain"
-                />
-              </span>
-            ) : (
-              <span
-                className="mt-0.5 flex h-10 w-10 shrink-0 items-center justify-center font-mono text-[12px] font-semibold rounded-lg bg-white dark:bg-night-900 border border-slate-100 dark:border-white/10"
-                style={{ color: c.accentColor }}
-              >
-                {c.monogram}
-              </span>
-            )}
+            <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-lg bg-white p-1 shadow-sm mt-0.5">
+              <img src={svc.companyLogo} alt={svc.companyName} className="h-full w-full object-contain" />
+            </span>
             <span className="min-w-0 flex-1">
-              <span className="flex items-center gap-2">
-                <span className="font-mono text-[9px] text-ink-600">
-                  {String(c.order).padStart(2, "0")}
+              <div className="flex items-center gap-2">
+                <span className="truncate font-display text-[14px] font-semibold text-ink-50 transition-colors group-hover:text-gold-500 dark:group-hover:text-gold-400 block">
+                  {svc.name}
                 </span>
-                <span className="truncate font-display text-[15px] font-semibold text-ink-50 transition-colors group-hover:text-ink-50 dark:group-hover:text-white">
-                  {c.name}
+                <span className="font-mono text-[9.5px] text-gold-400/90 font-medium hidden sm:inline">
+                  · {svc.companyName}
                 </span>
-                {c.isUpcoming && (
-                  <span className="rounded-full bg-gold-400/10 border border-gold-400/30 px-1.5 py-0.5 font-mono text-[8px] font-semibold uppercase tracking-wider text-gold-400">
-                    Upcoming
-                  </span>
-                )}
-              </span>
-              <span className="mt-0.5 block font-mono text-[10px] uppercase tracking-[0.14em]" style={{ color: c.accentColor }}>
-                {c.category}
-              </span>
-              <span className="mt-1.5 line-clamp-1 block text-[12.5px] text-ink-500 transition-colors group-hover:text-ink-400">
-                {c.description}
+              </div>
+              <span className="mt-0.5 line-clamp-1 block text-[11.5px] text-ink-500">
+                {svc.descriptor}
               </span>
             </span>
             <Icon
               name="arrow-up-right"
-              width={15}
-              height={15}
-              className="mt-1 shrink-0 text-ink-600 transition-all duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 group-hover:text-gold-500 dark:group-hover:text-gold-400"
+              width={14}
+              height={14}
+              className="mt-1 shrink-0 text-ink-500 transition-all duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 group-hover:text-gold-500"
             />
           </Link>
         ))}
       </div>
-      <div className="relative hidden h-[290px] overflow-hidden rounded-xl border border-slate-200/90 shadow-sm lg:block dark:border-white/10">
-        {companies.map((c, i) => (
+
+      {/* Right Image Preview Deck */}
+      <div className="relative hidden h-[260px] overflow-hidden rounded-2xl border border-slate-200/90 shadow-sm lg:block dark:border-white/10">
+        {servicesData.map((svc, i) => (
           <img
-            key={c.id}
-            src={c.heroImage}
+            key={svc.id}
+            src={svc.image}
             alt=""
             aria-hidden
             loading="lazy"
@@ -410,74 +392,15 @@ function CompaniesMega() {
             )}
           />
         ))}
-        <div className="absolute inset-0 bg-gradient-to-t from-slate-900/70 via-slate-900/20 to-transparent" />
-        <div className="absolute bottom-3 left-4 font-mono text-[10px] uppercase tracking-[0.2em] text-white">
-          {companies[preview].domain}
+        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent" />
+        <div className="absolute bottom-3 left-4 right-4">
+          <span className="font-mono text-[10px] uppercase tracking-[0.2em] text-gold-400 block">
+            {activeSvc.shortLabel}
+          </span>
+          <span className="text-white text-xs line-clamp-1 mt-0.5 font-medium">
+            {activeSvc.descriptor}
+          </span>
         </div>
-      </div>
-    </div>
-  );
-}
-
-function EcosystemMega() {
-  return (
-    <div className="container-x py-8">
-      <div className="mb-5 flex items-center gap-3 font-mono text-[10px] uppercase tracking-[0.26em] text-ink-500">
-        <LogoMark size={20} />
-        The ecosystem viewer — every business, one place
-      </div>
-      <div className="grid grid-cols-2 gap-1.5 md:grid-cols-3">
-        {ecosystemSites.map((s) => {
-          const c = companies.find((x) => x.id === s.id);
-          return (
-            <Link
-              key={s.id}
-              to={`/ecosystem?company=${s.id}`}
-              className="group flex items-center gap-3 rounded-xl border border-transparent p-3.5 transition-all duration-300 hover:border-slate-200/90 hover:bg-slate-100/80 hover:shadow-sm dark:hover:border-white/15 dark:hover:bg-night-800/80 dark:hover:shadow-[0_12px_28px_-8px_rgba(0,0,0,0.7),0_0_24px_-4px_rgba(0,240,255,0.14)]"
-            >
-              {c?.logo ? (
-                <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-white p-1 shadow-sm border border-slate-100 dark:border-white/10 transition-transform duration-300 group-hover:scale-105">
-                  <img
-                    src={c.logo}
-                    alt={s.name}
-                    className="h-full w-full object-contain"
-                  />
-                </span>
-              ) : (
-                <span
-                  className="flex h-9 w-9 shrink-0 items-center justify-center font-mono text-[11px] font-semibold rounded-lg bg-white dark:bg-night-900 border border-slate-100 dark:border-white/10"
-                  style={{ color: c?.accentColor ?? "#93a1ad" }}
-                >
-                  {c?.monogram ?? "•"}
-                </span>
-              )}
-              <span className="min-w-0">
-                <span className="block truncate text-[14px] font-semibold text-ink-100 transition-colors group-hover:text-ink-50 dark:group-hover:text-white">
-                  {s.name}
-                </span>
-                <span className="block font-mono text-[10px] text-ink-500">{s.url.replace("https://", "")}</span>
-              </span>
-              <Icon
-                name="orbit"
-                width={14}
-                height={14}
-                className="ml-auto shrink-0 text-ink-600 transition-colors group-hover:text-pulse-400"
-              />
-            </Link>
-          );
-        })}
-        <Link
-          to="/ecosystem"
-          className="group flex items-center gap-3 rounded-xl border border-gold-400/40 bg-gold-400/10 p-3.5 transition-all duration-300 hover:border-gold-400/70 hover:bg-gold-400/20"
-        >
-          <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-gold-500/20 text-gold-600 dark:text-gold-400">
-            <Icon name="arrow-up-right" width={15} height={15} />
-          </span>
-          <span>
-            <span className="block text-[14px] font-semibold text-gold-700 dark:text-gold-300">Open the Ecosystem Hub</span>
-            <span className="block font-mono text-[10px] text-ink-500">All six websites, live</span>
-          </span>
-        </Link>
       </div>
     </div>
   );

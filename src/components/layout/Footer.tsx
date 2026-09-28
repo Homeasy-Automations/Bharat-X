@@ -1,15 +1,14 @@
 import { Link } from "react-router-dom";
 import { brandConfig } from "../../config/brand";
-import { companies } from "../../data/companies";
 import { footerColumns } from "../../data/navigation";
 import { Icon } from "../../utils/icons";
 import { Logo } from "./Logo";
 import FooterOrbScene from "../three/FooterOrbScene";
 
-const columnMeta: { key: "explore" | "company" | "ecosystem"; icon: string; title: string }[] = [
+const columnMeta: { key: "explore" | "services" | "company"; icon: string; title: string }[] = [
   { key: "explore", icon: "compass", title: "Explore" },
-  { key: "company", icon: "users", title: "Company" },
-  { key: "ecosystem", icon: "orbit", title: "Ecosystem" },
+  { key: "services", icon: "layers", title: "Capabilities" },
+  { key: "company", icon: "users", title: "Corporate" },
 ];
 
 const socialIcons: Record<string, string> = {
@@ -27,17 +26,17 @@ export function FooterCTA() {
         <div className="max-w-2xl text-center lg:text-left">
           <div className="mb-4 inline-flex items-center gap-2.5 rounded-full border border-gold-500/20 bg-gold-500/10 px-3.5 py-1 font-mono text-[11px] uppercase tracking-[0.28em] text-gold-600 dark:text-gold-400">
             <Icon name="sparkles" width={12} height={12} />
-            <span>Connect with the ecosystem</span>
+            <span>Connect with BharatX Group</span>
           </div>
-          <h2 className="font-display text-3xl font-bold uppercase leading-[1.05] tracking-tight text-ink-900 dark:text-ink-50 sm:text-4xl md:text-5xl lg:text-6xl">
-            READY TO BUILD
+          <h2 className="font-serif text-3xl font-normal leading-[1.05] tracking-tight text-ink-900 dark:text-ink-50 sm:text-4xl md:text-5xl lg:text-6xl">
+            BUILDING THE FOUNDATIONS
             <br />
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-gold-500 via-amber-400 to-pulse-400">
-              WHAT COMES NEXT?
+              OF MODERN BHARAT.
             </span>
           </h2>
           <p className="mt-5 text-[15px] sm:text-base leading-relaxed text-ink-600 dark:text-ink-400">
-            Ventures, technology systems, infrastructure, industrial mobility, advanced agro &amp; deeptech — start a conversation with the group.
+            For sector partnerships, infrastructure development, industrial mobility, advanced agriculture and sovereign technology — connect with the group.
           </p>
           <div className="mt-8 flex flex-col sm:flex-row flex-wrap items-center justify-center lg:justify-start gap-4">
             <Link
@@ -53,15 +52,15 @@ export function FooterCTA() {
               />
             </Link>
             <Link
-              to="/ecosystem"
+              to="/services"
               className="inline-flex w-full sm:w-auto items-center justify-center gap-3 rounded-full border border-slate-300/80 bg-white/70 px-8 py-4 text-[15px] font-semibold text-ink-900 shadow-sm transition-all duration-300 hover:border-slate-400 hover:bg-white hover:shadow-md dark:border-white/15 dark:bg-transparent dark:text-ink-100 dark:hover:border-white/35 dark:hover:bg-white/5 dark:shadow-none"
             >
-              Explore Ecosystem
+              Explore Services
             </Link>
           </div>
         </div>
 
-        {/* 3D Footer ecosystem scene (Section 33 & 34) */}
+        {/* 3D Footer ecosystem scene */}
         <div className="relative flex w-full shrink-0 items-center justify-center lg:w-[480px] xl:w-[560px] 2xl:w-[620px]">
           <FooterOrbScene className="h-[340px] w-full sm:h-[400px] md:h-[440px] lg:h-[480px]" />
         </div>
@@ -82,10 +81,7 @@ export function Footer() {
               <Logo />
             </Link>
             <p className="mt-5 text-sm leading-relaxed text-ink-400">
-              BharatX Group is a connected ecosystem of six businesses
-              operating across technology, AI, infrastructure, manufacturing,
-              agriculture, food systems and venture building — one group, one
-              shared direction.
+              BharatX Group is a diversified conglomerate operating across technology &amp; AI, infrastructure, manufacturing, agriculture, food systems, and venture building.
             </p>
             <div className="mt-6 flex items-center gap-3">
               {brandConfig.social.map((s) => (
@@ -124,10 +120,7 @@ export function Footer() {
           <div className="grid flex-1 grid-cols-2 gap-6 sm:grid-cols-3 lg:gap-8 xl:gap-12">
             {/* Nav Columns */}
             {columnMeta.map((col) => {
-              const items =
-                col.key === "ecosystem"
-                  ? companies.map((c) => ({ label: c.name, to: `/companies/${c.slug}` }))
-                  : footerColumns[col.key];
+              const items = footerColumns[col.key] || [];
               return (
                 <nav key={col.key} aria-label={col.title}>
                   <div className="mb-4 flex items-center gap-2.5 font-mono text-[10px] uppercase tracking-[0.26em] text-ink-500">

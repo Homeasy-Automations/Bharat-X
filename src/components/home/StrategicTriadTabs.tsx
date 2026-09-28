@@ -2,9 +2,6 @@ import { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { Icon } from "../../utils/icons";
-import { Button } from "../common/Button";
-import { Reveal } from "../common/Reveal";
-import { SectionHeader } from "../common/SectionHeader";
 
 interface TriadItem {
   id: string;
@@ -14,262 +11,250 @@ interface TriadItem {
   description: string[];
   metrics: { label: string; value: string }[];
   image: string;
+  fallbackImage: string;
+  companyName: string;
+  companyLogo: string;
   route: string;
   cta: string;
-  accent: string;
 }
 
 const triadData: TriadItem[] = [
   {
-    id: "deep-tech",
-    tabTitle: "Deep-Tech & AI",
-    badge: "SOVEREIGN INTELLIGENCE",
-    headline: "Building India's Sovereign AI & Autonomous Software Infrastructure.",
+    id: "sustainability",
+    tabTitle: "Sustainability",
+    badge: "CIRCULAR DEEP-TECH & NET-ZERO",
+    headline: "Ecological Stewardship & Sovereign Circular Systems.",
     description: [
-      "Innovation at BharatX Group is engineered from the ground up for real-world reliability. We build foundational AI workflows, multilingual intelligence systems, and agentic decision engines that operate directly within core enterprise operations.",
-      "By eliminating dependence on imported black-box models, we guarantee complete data sovereignty, cryptographic security, and sub-millisecond production inference tailored to India's diverse operational landscape.",
+      "Our sustainability strategy is anchored in hands-on decarbonisation and sovereign circularity. Through BharatX Labs and BharatX Agro, we pioneer circular compound synthesis, sovereign carbon telemetry, and origin-traceable agricultural commodity supply chains.",
+      "BharatX Group is committed to achieving net-zero carbon operations across its industrial footprint by 2035, integrating low-carbon concrete formulations, recycled compounds, and solar-supported processing corridors.",
     ],
     metrics: [
-      { label: "Multilingual Intelligence", value: "22+ Dialects" },
-      { label: "Production Reliability", value: "99.98% SLA" },
-      { label: "Inference Latency", value: "< 28ms" },
+      { label: "Commodities Processed", value: "5,000+ MT" },
+      { label: "Circular Compounds", value: "100%" },
+      { label: "Net-Zero Target", value: "2035" },
     ],
-    image: "/assets/backgrounds/ai-circuit.jpg",
-    route: "/innovation",
-    cta: "Explore Innovation & R&D",
-    accent: "#00f0ff",
+    image: "/assets/backgrounds/sustainability-story.jpg",
+    fallbackImage: "/assets/backgrounds/hero-field.jpg",
+    companyName: "BharatX Labs & BharatX Agro",
+    companyLogo: "/Bharatxlabs_logo.svg",
+    route: "/impact",
+    cta: "explore sustainability charter",
   },
   {
-    id: "sustainability",
-    tabTitle: "Sustainability & Net-Zero",
-    badge: "ECOLOGICAL RESPONSIBILITY",
-    headline: "Engineering Sustainable Physical Assets & Circular Manufacturing.",
+    id: "innovation",
+    tabTitle: "Innovation",
+    badge: "SOVEREIGN DEEP-TECH & AI",
+    headline: "Engineering India's Sovereign Multilingual Intelligence Layer.",
     description: [
-      "Our growth philosophy is inseparable from environmental stewardship. Across our civil projects and precision manufacturing lines, BharatX Group integrates carbon-conscious materials, recycled feedstocks, and energy-efficient lifecycle protocols.",
-      "From regenerative circular agri-processing that nourishes rural soils to long-lifecycle heavy caster alloys, we engineer products and infrastructure built to outlast economic and climate cycles.",
+      "Innovation is our core operating doctrine. Through AIxperts Labs, we engineer production neural architectures natively capable across 22 regional Indian languages, eliminating black-box cloud dependence for sovereign enterprises.",
+      "From sub-micron precision manufacturing tooling at Casters Global to autonomous edge document processing with 99.8% accuracy, we build deep-tech tailored to the operational demands of the subcontinent.",
     ],
     metrics: [
-      { label: "Recyclable Compounds", value: "100% Certified" },
-      { label: "Lifecycle Durability", value: "10+ Years" },
-      { label: "Circular Operations", value: "Zero-Waste" },
+      { label: "Indic Languages", value: "22 Dialects" },
+      { label: "AI Workflows", value: "45+ Deployed" },
+      { label: "Document Precision", value: "99.8%" },
     ],
-    image: "/assets/backgrounds/craft-metal.jpg",
-    route: "/about",
-    cta: "Discover Sustainability Standards",
-    accent: "#10b981",
+    image: "/assets/backgrounds/innovation-story.jpg",
+    fallbackImage: "/assets/backgrounds/ai-circuit.jpg",
+    companyName: "AIxperts Labs",
+    companyLogo: "/Ai-Experts_logo.png",
+    route: "/innovation",
+    cta: "discover innovation agenda",
   },
   {
     id: "impact",
-    tabTitle: "Societal Impact",
-    badge: "NATION BUILDING",
-    headline: "Creating Durable Livelihoods & Empowering Grassroots Producers.",
+    tabTitle: "Our Impact",
+    badge: "NATIONAL VALUE CREATION",
+    headline: "Institutional Scale Grounded in Real Physical Delivery.",
     description: [
-      "At BharatX, corporate success is measured by the tangible prosperity created across communities. We partner directly with smallholder farmers, local fabricators, and regional artisans, converting informal labor into formalized, high-yielding micro-enterprises.",
-      "Through farm-in-a-box incubation, cold-chain market access, and technical upskilling, we build economic self-reliance that compounds across generations.",
+      "At BharatX, we align every enterprise with national resilience. Through BharatX Infratech, we have engineered over 150+ kilometers of arterial roadways, civil works, and industrial corridors designed for enduring 50-year service lifecycles.",
+      "Backed by BharatX Ventures, our founder-led ecosystem now holds over ₹180 Cr+ in cumulative portfolio value, combining precision fabrication, export food terminals, and indigenous engineering.",
     ],
     metrics: [
-      { label: "Farmer Networks", value: "50,000+ Reach" },
-      { label: "Rural Micro-Enterprises", value: "100+ Incubated" },
-      { label: "Export Traceability", value: "100% Origin" },
+      { label: "Ecosystem Portfolio", value: "₹180 Cr+" },
+      { label: "Road & Civil Works", value: "150+ KM" },
+      { label: "Precision Casters Built", value: "500,000+" },
     ],
-    image: "/assets/backgrounds/agri-dusk.jpg",
+    image: "/assets/backgrounds/impact-story.jpg",
+    fallbackImage: "/assets/backgrounds/infrastructure-real.jpg",
+    companyName: "BharatX Infratech & Casters Global",
+    companyLogo: "/Infra_logo1.png",
     route: "/impact",
-    cta: "View Impact Reports",
-    accent: "#f5b84d",
+    cta: "view societal impact report",
   },
 ];
 
 export function StrategicTriadTabs() {
-  const [activeId, setActiveId] = useState<string>("deep-tech");
+  const [activeId, setActiveId] = useState<string>("sustainability");
   const current = triadData.find((t) => t.id === activeId) ?? triadData[0];
 
   return (
-    <section className="relative overflow-hidden py-16 md:py-24 border-t border-slate-200/80 dark:border-white/5">
-      <div className="container-x relative">
-        <SectionHeader
-          icon="orbit"
-          eyebrow="Strategic Pillars"
-          title={
-            <>
-              Deep-tech. Sustainability.
-              <br />
-              <span className="text-gold-400">National impact.</span>
-            </>
-          }
-          lede="How BharatX aligns technological ambition with ecological responsibility and national development."
+    <section className="relative overflow-hidden py-20 sm:py-28 border-t border-white/10 bg-night-950 text-white">
+      {/* ── 1. CINEMATIC ATMOSPHERIC SECTION BACKGROUND ─────────────────── */}
+      <div className="absolute inset-0 z-0 pointer-events-none">
+        <img
+          src="/assets/backgrounds/strategic-story-panorama.jpg"
+          alt=""
+          className="h-full w-full object-cover filter brightness-[0.32] contrast-[1.15] saturate-[1.15]"
+          loading="lazy"
         />
+        <div className="absolute inset-0 bg-gradient-to-b from-night-950/85 via-night-950/65 to-night-950/90" />
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-gold-500/15 via-transparent to-transparent opacity-60" />
+      </div>
 
-        {/* Tab Navigation Pill Bar (RIL Triad Style) */}
-        <div className="mt-8 flex justify-center">
-          <div className="inline-flex rounded-full border border-slate-200/90 dark:border-white/10 bg-white/70 dark:bg-night-850/80 p-1.5 shadow-md backdrop-blur-md">
-            {triadData.map((item) => {
-              const active = item.id === activeId;
-              return (
-                <button
-                  key={item.id}
-                  onClick={() => setActiveId(item.id)}
-                  className={`relative rounded-full px-5 py-2.5 font-display text-sm font-semibold transition-all duration-300 ${
-                    active
-                      ? "text-ink-900 dark:text-ink-50 shadow-sm"
-                      : "text-ink-400 hover:text-ink-200"
-                  }`}
-                  role="tab"
-                  aria-selected={active}
-                >
-                  {active && (
-                    <motion.div
-                      layoutId="triad-tab-pill"
-                      className="absolute inset-0 rounded-full bg-slate-200 dark:bg-white/10 border border-slate-300/80 dark:border-white/15"
-                      transition={{ type: "spring", stiffness: 400, damping: 32 }}
-                    />
-                  )}
-                  <span className="relative z-10 flex items-center gap-2">
-                    <span
-                      className="h-2 w-2 rounded-full"
-                      style={{ backgroundColor: item.accent }}
-                    />
-                    {item.tabTitle}
-                  </span>
-                </button>
-              );
-            })}
+      <div className="container-x relative z-10">
+        {/* RIL-Style Horizontal Story Tab Navigation Header */}
+        <div className="border-b border-white/10 pb-6 mb-12 sm:mb-16">
+          <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-6">
+            <div>
+              <div className="flex items-center gap-2 font-mono text-[11px] uppercase tracking-[0.28em] text-gold-400 mb-2">
+                <span>◆</span>
+                <span>STRATEGIC STORY</span>
+              </div>
+              <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-normal text-white">
+                Sovereign Commitment
+              </h2>
+            </div>
+
+            {/* RIL Styled Tab Link Buttons */}
+            <div className="flex items-center gap-2 sm:gap-4 overflow-x-auto pb-2 sm:pb-0">
+              {triadData.map((tab) => {
+                const isActive = activeId === tab.id;
+                return (
+                  <button
+                    key={tab.id}
+                    type="button"
+                    onClick={() => setActiveId(tab.id)}
+                    className={`relative rounded-full px-5 sm:px-6 py-2.5 font-serif text-sm sm:text-base transition-all duration-300 ${
+                      isActive
+                        ? "bg-white text-black shadow-lg font-medium"
+                        : "border border-white/20 text-slate-300 hover:border-white/40 hover:text-white"
+                    }`}
+                  >
+                    {tab.tabTitle}
+                  </button>
+                );
+              })}
+            </div>
           </div>
         </div>
 
-        {/* Tab Content Display Area */}
-        <div className="mt-10">
-          <AnimatePresence mode="wait">
-            <motion.div
-              key={current.id}
-              initial={{ opacity: 0, y: 16 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -16 }}
-              transition={{ duration: 0.35 }}
-              className="grid gap-10 lg:grid-cols-2 lg:items-center rounded-3xl border border-slate-200/90 dark:border-white/10 bg-white dark:bg-night-850/90 p-8 md:p-12 shadow-xl backdrop-blur-md"
-            >
-              {/* Left Details */}
-              <div>
-                <div className="flex items-center gap-2.5">
-                  <span
-                    className="font-mono text-[11px] font-semibold uppercase tracking-[0.25em]"
-                    style={{ color: current.accent }}
-                  >
-                    {current.badge}
-                  </span>
-                  <span className="h-px w-8 bg-slate-300 dark:bg-white/20" />
-                </div>
+        {/* Tab Content Panel */}
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={current.id}
+            initial={{ opacity: 0, y: 16 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -16 }}
+            transition={{ duration: 0.4 }}
+            className="grid grid-cols-1 lg:grid-cols-12 gap-8 sm:gap-12 items-center"
+          >
+            {/* Left Narrative (7 cols) */}
+            <div className="lg:col-span-6 xl:col-span-7">
+              <span className="font-mono text-[10.5px] uppercase tracking-[0.25em] text-gold-400 font-semibold">
+                {current.badge}
+              </span>
 
-                <h3 className="mt-4 font-display text-2xl font-bold tracking-tight text-ink-100 dark:text-ink-50 sm:text-3xl md:text-[2.1rem] leading-tight">
-                  {current.headline}
-                </h3>
+              <h3 className="mt-3 font-serif text-2xl sm:text-3xl lg:text-4xl font-normal text-white leading-tight">
+                {current.headline}
+              </h3>
 
-                <div className="mt-5 space-y-3.5 text-[15px] leading-relaxed text-ink-300 dark:text-ink-300">
-                  {current.description.map((p, i) => (
-                    <p key={i}>{p}</p>
-                  ))}
-                </div>
-
-                {/* Quantitative Metric Badges */}
-                <div className="mt-8 grid grid-cols-3 gap-3 border-y border-slate-200/70 dark:border-white/8 py-5">
-                  {current.metrics.map((m) => (
-                    <div key={m.label}>
-                      <span
-                        className="text-xl font-bold text-ink-100 dark:text-ink-50 md:text-2xl tracking-tight"
-                        style={{ fontFamily: "'Outfit', 'Space Grotesk', system-ui, sans-serif" }}
-                      >
-                        {m.value}
-                      </span>
-                      <span className="mt-1 block font-display text-[11px] font-medium uppercase tracking-wider text-ink-400">
-                        {m.label}
-                      </span>
-                    </div>
-                  ))}
-                </div>
-
-                {/* BharatX Labs Spotlight for Deep-Tech */}
-                {current.id === "deep-tech" && (
-                  <div className="mt-6 rounded-2xl border border-pulse-400/30 bg-pulse-400/5 dark:bg-pulse-400/10 p-4.5 backdrop-blur-md">
-                    <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
-                      <div className="flex items-center gap-3">
-                        <span className="relative flex h-2.5 w-2.5 shrink-0">
-                          <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-pulse-400 opacity-75" />
-                          <span className="relative inline-flex h-2.5 w-2.5 rounded-full bg-pulse-400" />
-                        </span>
-                        <div>
-                          <div className="flex items-center gap-2">
-                            <span className="font-display text-sm font-bold text-ink-900 dark:text-ink-50">
-                              BharatX Labs
-                            </span>
-                            <span className="rounded-full bg-gold-400/15 border border-gold-400/40 px-2 py-0.5 font-mono text-[9px] font-semibold uppercase tracking-wider text-gold-400">
-                              Upcoming · Stealth R&D
-                            </span>
-                          </div>
-                          <p className="mt-0.5 text-xs text-ink-600 dark:text-ink-300">
-                            Frontier sovereign AI, neural compute architecture, and autonomous reasoning agents.
-                          </p>
-                        </div>
-                      </div>
-                      <Link to="/bharatx-labs" className="shrink-0">
-                        <span className="inline-flex items-center gap-1.5 rounded-xl border border-pulse-400/40 bg-pulse-400/15 px-3 py-1.5 font-mono text-xs font-semibold text-pulse-400 hover:bg-pulse-400/25 transition-all">
-                          Preview Labs <span>→</span>
-                        </span>
-                      </Link>
-                    </div>
-                  </div>
-                )}
-
-                {/* CTA Action */}
-                <div className="mt-8 flex flex-wrap items-center gap-3">
-                  <Link to={current.route}>
-                    <Button variant="primary" size="lg" withArrow>
-                      {current.cta}
-                    </Button>
-                  </Link>
-                  {current.id === "deep-tech" && (
-                    <Link to="/bharatx-labs">
-                      <Button variant="secondary" size="lg">
-                        BharatX Labs (Upcoming)
-                      </Button>
-                    </Link>
-                  )}
-                </div>
+              <div className="mt-5 space-y-4 text-sm sm:text-base text-slate-300 leading-relaxed font-body">
+                {current.description.map((paragraph, idx) => (
+                  <p key={idx}>{paragraph}</p>
+                ))}
               </div>
 
-              {/* Right Visual / Cinematic Showcase with Overlay Badge */}
-              <div className="relative overflow-hidden rounded-2xl border border-slate-200/90 dark:border-white/10 shadow-2xl h-[340px] sm:h-[420px] lg:h-[480px]">
+              {/* Metrics Row */}
+              <div className="mt-8 grid grid-cols-3 gap-4 border-t border-white/10 pt-6">
+                {current.metrics.map((m) => (
+                  <div key={m.label}>
+                    <span className="block font-stat text-xl sm:text-2xl font-bold text-white">
+                      {m.value}
+                    </span>
+                    <span className="block font-mono text-[9.5px] uppercase tracking-wider text-slate-400 mt-0.5">
+                      {m.label}
+                    </span>
+                  </div>
+                ))}
+              </div>
+
+              {/* Action Buttons */}
+              <div className="mt-8 flex flex-wrap items-center gap-4">
+                <Link
+                  to={current.route}
+                  className="group inline-flex items-center gap-3 rounded-full border border-white/30 bg-white/5 hover:bg-white hover:text-black px-7 py-3 text-sm font-medium text-white transition-all duration-300"
+                >
+                  <span className="capitalize">{current.cta}</span>
+                  <Icon
+                    name="arrow-right"
+                    width={14}
+                    height={14}
+                    className="transition-transform group-hover:translate-x-1"
+                  />
+                </Link>
+
+                {/* Operating Enterprise badge */}
+                <div className="inline-flex items-center gap-2.5 px-4 py-2 rounded-full border border-white/10 bg-white/[0.03]">
+                  <div className="w-5 h-5 rounded bg-white p-0.5 flex items-center justify-center">
+                    <img
+                      src={current.companyLogo}
+                      alt={current.companyName}
+                      className="max-h-full max-w-full object-contain"
+                    />
+                  </div>
+                  <span className="font-mono text-xs text-slate-300">
+                    {current.companyName}
+                  </span>
+                </div>
+              </div>
+            </div>
+
+            {/* Right Cinematic Card (5 cols) */}
+            <div className="lg:col-span-6 xl:col-span-5">
+              <div className="relative h-80 sm:h-96 lg:h-[480px] w-full overflow-hidden rounded-3xl border border-white/15 shadow-2xl bg-night-900 group">
                 <img
                   src={current.image}
                   alt={current.headline}
-                  className="h-full w-full object-cover transition-transform duration-700 hover:scale-105"
+                  className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105 filter brightness-[0.95] contrast-[1.05]"
+                  loading="eager"
+                  onError={(e) => {
+                    const target = e.currentTarget;
+                    if (target.src !== current.fallbackImage) {
+                      target.src = current.fallbackImage;
+                    }
+                  }}
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-night-950/90 via-night-950/20 to-transparent" />
 
-                {/* Floating Status Chip */}
-                <div className="absolute bottom-6 left-6 right-6 flex items-center justify-between rounded-xl border border-white/10 bg-night-950/80 p-4 backdrop-blur-md">
-                  <div className="flex items-center gap-3">
-                    <span
-                      className="flex h-3 w-3 items-center justify-center rounded-full"
-                      style={{ backgroundColor: `${current.accent}33` }}
-                    >
-                      <span
-                        className="h-1.5 w-1.5 rounded-full"
-                        style={{ backgroundColor: current.accent }}
-                      />
-                    </span>
-                    <span className="font-mono text-[11px] uppercase tracking-wider text-white">
-                      {current.id === "deep-tech"
-                        ? "BharatX Labs · Frontier R&D"
-                        : "BharatX Active Protocol"}
-                    </span>
+                {/* Ambient vignette gradient with reduced darkness */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/65 via-transparent to-black/20" />
+
+                {/* Top badge with Operating Company logo */}
+                <div className="absolute top-5 left-5 flex items-center gap-2.5 bg-black/75 backdrop-blur-md px-3.5 py-1.5 rounded-full border border-white/15">
+                  <div className="w-5 h-5 rounded bg-white p-0.5 flex items-center justify-center">
+                    <img
+                      src={current.companyLogo}
+                      alt=""
+                      className="max-h-full max-w-full object-contain"
+                    />
                   </div>
-                  <span className="font-mono text-[10px] uppercase text-gold-400">
-                    {current.id === "deep-tech" ? "Upcoming Phase" : "Verified"}
+                  <span className="font-mono text-[10.5px] uppercase tracking-wider text-slate-200 font-semibold">
+                    {current.companyName}
                   </span>
                 </div>
+
+                {/* Bottom glassmorphic info bar */}
+                <div className="absolute bottom-5 left-5 right-5 flex items-center justify-between text-xs font-mono uppercase tracking-wider text-gold-400 bg-black/75 backdrop-blur-md px-4 py-2.5 rounded-full border border-white/15">
+                  <span className="flex items-center gap-2">
+                    <span className="h-1.5 w-1.5 rounded-full bg-gold-400 animate-pulse" />
+                    <span>SOVEREIGNTY CHARTER</span>
+                  </span>
+                  <span className="text-white font-semibold">{current.tabTitle}</span>
+                </div>
               </div>
-            </motion.div>
-          </AnimatePresence>
-        </div>
+            </div>
+          </motion.div>
+        </AnimatePresence>
       </div>
     </section>
   );

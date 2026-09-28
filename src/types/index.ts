@@ -66,7 +66,7 @@ export interface NavItem {
   label: string;
   to: string;
   icon: string;
-  mega?: "companies" | "ecosystem";
+  mega?: "services" | "companies" | "ecosystem";
 }
 
 export type InquiryStatus = "new" | "contacted" | "closed";

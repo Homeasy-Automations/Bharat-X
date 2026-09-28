@@ -8,7 +8,7 @@ const SecurityShield = lazy(() => import("../components/three/objects/SecuritySh
 const sections = [
   {
     t: "1. The service",
-    d: "This website presents the BharatX Group ecosystem: the group's six businesses, their capabilities, and the ecosystem viewer that embeds their websites. It is an information platform. Nothing on the site constitutes an offer of securities, investment advice or a binding commercial commitment.",
+    d: "This website presents the BharatX Group conglomerate: our six core operating sectors, institutional capabilities, and strategic initiatives across India. It is an information platform. Nothing on the site constitutes an offer of securities, investment advice or a binding commercial commitment.",
   },
   {
     t: "2. Use of the site",
@@ -16,15 +16,15 @@ const sections = [
   },
   {
     t: "3. Intellectual property",
-    d: "The site's design, text, graphics and the BharatX Group branding are owned by BharatX Group or its respective companies. Company logos, product names and website content shown in the ecosystem viewer remain the property of each business. You may not reproduce this material commercially without permission.",
+    d: "The site's design, text, graphics, data architectures and the BharatX Group branding are owned by BharatX Group. Trademarks, sector marks, and visual assets remain the property of the Group. You may not reproduce this material commercially without prior written permission.",
   },
   {
-    t: "4. Embedded websites",
-    d: "The ecosystem viewer displays third-party websites operated by the group's companies. You are subject to each website's own terms when you interact with it. We do not control and are not responsible for the content, availability or security practices of embedded sites beyond the fallback behaviour described on the ecosystem page.",
+    t: "4. External integrations",
+    d: "This platform may reference external institutional systems, partner networks, and operational dashboards. You are subject to each system's own terms when you access them directly. We do not control external network availability beyond our standard integrations.",
   },
   {
     t: "5. No warranties",
-    d: "The site is provided on an as-is and as-available basis. We work to keep information accurate and current, but we do not warrant that the site will be uninterrupted, error-free, or that all details about the businesses are complete at any moment. Business information is subject to change as the ecosystem grows.",
+    d: "The site is provided on an as-is and as-available basis. We work to keep information accurate and current, but we do not warrant that the site will be uninterrupted, error-free, or that all details about the operating sectors are complete at any moment. Institutional information is subject to change as operations expand.",
   },
   {
     t: "6. Limitation of liability",
@@ -48,7 +48,7 @@ export default function TermsPage() {
   usePageMeta({
     title: "Terms & Conditions",
     description:
-      "The terms governing use of the BharatX Group website and its ecosystem viewer.",
+      "The terms governing use of the BharatX Group corporate website and services platform.",
     path: "/terms",
   });
   return (
@@ -57,7 +57,7 @@ export default function TermsPage() {
         icon="scale"
         eyebrow="Legal"
         title="Terms & Conditions"
-        lede="The ground rules for using this site and its ecosystem viewer. Short, readable, and without surprises."
+        lede="The ground rules for using this site and its digital services. Short, readable, and without surprises."
         breadcrumbs={[{ label: "Home", to: "/" }, { label: "Terms & Conditions" }]}
         visual={<SecurityShield />}
         visualPlacement="right"
