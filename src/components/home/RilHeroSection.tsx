@@ -1,6 +1,5 @@
 import { useCallback, useEffect, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
-import { Link } from "react-router-dom";
 import { servicesData } from "../../data/servicesData";
 import { Icon } from "../../utils/icons";
 
@@ -42,13 +41,6 @@ export function RilHeroSection() {
   }, [isPaused, currentIndex, handleNext]);
 
   const current = servicesData[currentIndex];
-
-  const scrollToServices = () => {
-    const el = document.getElementById("services");
-    if (el) {
-      el.scrollIntoView({ behavior: "smooth" });
-    }
-  };
 
   return (
     <section
@@ -92,9 +84,9 @@ export function RilHeroSection() {
         <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-night-950/80 via-night-950/30 to-transparent" />
       </div>
 
-      {/* ── HERO CONTENT (RIL Conglomerate Style) ──────────────────────── */}
-      <div className="container-x relative z-10 w-full pt-28 pb-20 sm:pt-36 sm:pb-24 lg:pt-32 lg:pb-28">
-        <div className="max-w-3xl">
+      {/* ── HERO CONTENT (Dynamic 3-4 Word Tagline, Nothing Else) ─────── */}
+      <div className="container-x relative z-10 w-full pt-40 pb-12 sm:pt-50 sm:pb-16 lg:pt-60 lg:pb-20 translate-y-6 sm:translate-y-10 lg:translate-y-14">
+        <div className="max-w-4xl">
           {/* Subtle Conglomerate Eyebrow */}
           <motion.div
             initial={{ opacity: 0, y: 14 }}
@@ -107,68 +99,30 @@ export function RilHeroSection() {
             <span aria-hidden className="h-px w-10 sm:w-16 bg-gold-400/40" />
           </motion.div>
 
-          {/* 3-5 Words Punchy Headline in Majestic Serif */}
-          <motion.h1
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.1 }}
-            className="font-serif text-5xl sm:text-6xl md:text-7xl lg:text-[5.4rem] xl:text-[5.9rem] font-normal leading-[1.02] tracking-tight text-white drop-shadow-[0_4px_24px_rgba(0,0,0,0.8)]"
-          >
-            Building Bharat's Future
-          </motion.h1>
+          {/* Three or four word Hero Tagline that changes dynamically with images */}
+          <div className="min-h-[140px] sm:min-h-[170px] md:min-h-[190px] flex flex-col justify-start">
+            <AnimatePresence mode="wait">
+              <motion.h1
+                key={current.id}
+                initial={{ opacity: 0, y: 22, filter: "blur(4px)" }}
+                animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+                exit={{ opacity: 0, y: -20, filter: "blur(4px)" }}
+                transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+                className="font-serif text-5xl sm:text-6xl md:text-7xl lg:text-[5.4rem] xl:text-[6.2rem] font-normal leading-[1.04] tracking-tight text-white drop-shadow-[0_4px_30px_rgba(0,0,0,0.85)]"
+              >
+                {current.heroTagline}
+              </motion.h1>
+            </AnimatePresence>
 
-          {/* RIL Signature Warm Gold Accent Underline */}
-          <motion.div
-            initial={{ scaleX: 0 }}
-            animate={{ scaleX: 1 }}
-            transition={{ duration: 0.8, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
-            className="origin-left mt-5 sm:mt-6 h-[3.5px] w-28 sm:w-36 md:w-44 rounded-full bg-gradient-to-r from-gold-400 via-amber-400 to-gold-500 shadow-[0_0_12px_rgba(234,179,8,0.5)]"
-          />
-
-          {/* Punchy Sub-Lead with Minimal Text */}
-          <motion.p
-            initial={{ opacity: 0, y: 15 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.4 }}
-            className="mt-6 sm:mt-8 max-w-xl text-base sm:text-lg text-slate-200/90 leading-relaxed font-body font-normal drop-shadow-md"
-          >
-            Scaling sovereign technology, infrastructure, manufacturing, and food systems across India.
-          </motion.p>
-
-          {/* RIL Style Clean Pill Buttons with Arrow */}
-          <motion.div
-            initial={{ opacity: 0, y: 15 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.5 }}
-            className="mt-8 sm:mt-10 flex flex-wrap items-center gap-4"
-          >
-            <button
-              type="button"
-              onClick={scrollToServices}
-              className="group inline-flex items-center gap-3 rounded-full border border-white/40 bg-black/40 backdrop-blur-md px-6 sm:px-7 py-3 text-[14px] sm:text-[15px] font-medium text-white transition-all duration-300 hover:border-white hover:bg-white hover:text-black hover:shadow-[0_10px_30px_rgba(255,255,255,0.18)]"
-            >
-              <span>explore services</span>
-              <Icon
-                name="arrow-right"
-                width={15}
-                height={15}
-                className="transition-transform duration-300 group-hover:translate-x-1"
-              />
-            </button>
-
-            <Link
-              to="/about"
-              className="group inline-flex items-center gap-3 rounded-full border border-white/20 bg-white/5 backdrop-blur-md px-6 sm:px-7 py-3 text-[14px] sm:text-[15px] font-medium text-white/90 transition-all duration-300 hover:border-gold-400/80 hover:bg-gold-400/10 hover:text-gold-300"
-            >
-              <span>our vision</span>
-              <Icon
-                name="arrow-right"
-                width={15}
-                height={15}
-                className="transition-transform duration-300 group-hover:translate-x-1"
-              />
-            </Link>
-          </motion.div>
+            {/* Signature Warm Gold Accent Underline */}
+            <motion.div
+              key={`underline-${current.id}`}
+              initial={{ scaleX: 0 }}
+              animate={{ scaleX: 1 }}
+              transition={{ duration: 0.7, delay: 0.15, ease: [0.22, 1, 0.36, 1] }}
+              className="origin-left mt-5 sm:mt-6 h-[3.5px] w-28 sm:w-36 md:w-44 rounded-full bg-gradient-to-r from-gold-400 via-amber-400 to-gold-500 shadow-[0_0_12px_rgba(234,179,8,0.5)]"
+            />
+          </div>
         </div>
       </div>
 
@@ -183,9 +137,8 @@ export function RilHeroSection() {
             className="flex h-5 w-5 items-center justify-center rounded-full text-gold-400 hover:scale-110 transition-transform"
           >
             <span
-              className={`block h-2 w-2 rounded-full bg-gold-400 ${
-                isPaused ? "opacity-40" : "animate-pulse"
-              }`}
+              className={`block h-2 w-2 rounded-full bg-gold-400 ${isPaused ? "opacity-40" : "animate-pulse"
+                }`}
             />
           </button>
 
@@ -246,11 +199,10 @@ export function RilHeroSection() {
                 type="button"
                 onClick={() => handleSelect(idx)}
                 aria-label={`Jump to ${s.name}`}
-                className={`h-1.5 rounded-full transition-all duration-300 ${
-                  idx === currentIndex
-                    ? "w-6 bg-gold-400 shadow-[0_0_8px_#f5b84d]"
-                    : "w-2 bg-white/30 hover:bg-white/60"
-                }`}
+                className={`h-1.5 rounded-full transition-all duration-300 ${idx === currentIndex
+                  ? "w-6 bg-gold-400 shadow-[0_0_8px_#f5b84d]"
+                  : "w-2 bg-white/30 hover:bg-white/60"
+                  }`}
               />
             ))}
           </div>

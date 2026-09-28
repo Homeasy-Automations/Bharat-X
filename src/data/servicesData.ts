@@ -12,6 +12,7 @@ export interface ServiceItem {
   website: string;
   stats: { value: string; label: string }[];
   capabilities: string[];
+  heroTagline: string;
 }
 
 export const servicesData: ServiceItem[] = [
@@ -39,6 +40,7 @@ export const servicesData: ServiceItem[] = [
       "Computer Vision & Inspection",
       "Automated Workflow Pipelines",
     ],
+    heroTagline: "Powering Sovereign Intelligence",
   },
   {
     id: "infrastructure",
@@ -64,6 +66,7 @@ export const servicesData: ServiceItem[] = [
       "Civil & Structural Works",
       "Utility & Drainage Networks",
     ],
+    heroTagline: "Building Arteries Of Bharat",
   },
   {
     id: "manufacturing",
@@ -89,6 +92,7 @@ export const servicesData: ServiceItem[] = [
       "Automated Guided Vehicle (AGV) Mounts",
       "Custom Swivel & Brake Geometries",
     ],
+    heroTagline: "Precision Engineering At Scale",
   },
   {
     id: "agriculture",
@@ -114,6 +118,7 @@ export const servicesData: ServiceItem[] = [
       "Phytosanitary & Food Safety",
       "Global Container Freight",
     ],
+    heroTagline: "Securing Sovereign Food Systems",
   },
   {
     id: "climate-sustainability",
@@ -139,6 +144,7 @@ export const servicesData: ServiceItem[] = [
       "Zero-Effluent Water Systems",
       "Solar Microgrid Optimization",
     ],
+    heroTagline: "Pioneering Sustainable Horizons",
   },
   {
     id: "finance",
@@ -164,5 +170,6 @@ export const servicesData: ServiceItem[] = [
       "Operating System & Cadence",
       "Institutional Capital Advisory",
     ],
+    heroTagline: "Deploying Strategic Capital",
   },
 ];
