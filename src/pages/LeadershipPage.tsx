@@ -60,16 +60,16 @@ export default function LeadershipPage() {
       <section className="py-20 sm:py-28 border-b border-white/10">
         <div className="container-x">
           <div className="relative overflow-hidden rounded-3xl border border-white/10 bg-white/[0.02] backdrop-blur-xl shadow-2xl p-6 sm:p-10 lg:p-12">
-            <div className="grid items-center gap-10 lg:grid-cols-12">
+            <div className="grid items-stretch gap-10 lg:grid-cols-12">
               {/* Portrait */}
-              <div className="lg:col-span-5 relative h-80 sm:h-96 lg:h-[460px] rounded-2xl overflow-hidden border border-white/10">
+              <div className="lg:col-span-5 relative min-h-[360px] sm:min-h-[400px] lg:h-[610px] rounded-2xl overflow-hidden border border-white/10">
                 <img
                   src="/leadership/pradeep-kumar.png"
                   alt="Pradeep Kumar — Founder & Leader, BharatX Group"
                   className="h-full w-full object-cover object-top filter brightness-[0.98]"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-night-950/80 via-night-950/15 to-transparent" />
-                <div className="absolute bottom-5 left-5 right-5 p-4 rounded-xl bg-black/70 backdrop-blur-md border border-white/10">
+                {/* <div className="absolute bottom-5 left-5 right-5 p-4 rounded-xl bg-black/70 backdrop-blur-md border border-white/10">
                   <span className="font-mono text-[10px] uppercase tracking-wider text-gold-400 block font-semibold">
                     INSTITUTIONAL FOUNDER
                   </span>
@@ -79,7 +79,7 @@ export default function LeadershipPage() {
                   <span className="text-xs text-slate-400 block font-mono">
                     BharatX Group
                   </span>
-                </div>
+                </div> */}
               </div>
 
               {/* Narrative & Quote */}

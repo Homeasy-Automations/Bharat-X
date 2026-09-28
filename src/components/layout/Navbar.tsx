@@ -359,9 +359,6 @@ function ServicesMega() {
                 <span className="truncate font-display text-[14px] font-semibold text-ink-50 transition-colors group-hover:text-gold-500 dark:group-hover:text-gold-400 block">
                   {svc.name}
                 </span>
-                <span className="font-mono text-[9.5px] text-gold-400/90 font-medium hidden sm:inline">
-                  · {svc.companyName}
-                </span>
               </div>
               <span className="mt-0.5 line-clamp-1 block text-[11.5px] text-ink-500">
                 {svc.descriptor}

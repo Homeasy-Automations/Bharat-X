@@ -14,13 +14,13 @@ const THEME_STORAGE_KEY = "bharatx-theme";
 
 export function ThemeProvider({ children }: { children: ReactNode }) {
   const [theme, setThemeState] = useState<Theme>(() => {
-    if (typeof window === "undefined") return "light";
+    if (typeof window === "undefined") return "dark";
     try {
       const saved = localStorage.getItem(THEME_STORAGE_KEY) as Theme | null;
       if (saved === "light" || saved === "dark") return saved;
-      return "light";
+      return "dark";
     } catch {
-      return "light";
+      return "dark";
     }
   });
 
