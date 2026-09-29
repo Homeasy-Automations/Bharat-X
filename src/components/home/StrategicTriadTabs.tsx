@@ -104,8 +104,8 @@ export function StrategicTriadTabs() {
               </h2>
             </div>
 
-            {/* Tab Link Buttons — horizontally scrollable on mobile */}
-            <div className="flex items-center gap-2 sm:gap-4 overflow-x-auto pb-2 sm:pb-0 [-webkit-overflow-scrolling:touch] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden" style={{ touchAction: 'pan-x' }}>
+            {/* Tab Link Buttons */}
+            <div className="flex items-center gap-2 sm:gap-4 overflow-x-auto pb-2 sm:pb-0">
               {triadData.map((tab) => {
                 const isActive = activeId === tab.id;
                 return (
