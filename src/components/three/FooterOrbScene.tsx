@@ -246,7 +246,7 @@ export default function FooterOrbScene({ className }: { className?: string }) {
       {/* High-contrast ambient glow pedestal */}
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 h-[320px] w-[320px] sm:h-[420px] sm:w-[420px] rounded-full blur-3xl opacity-75 dark:opacity-30 transition-opacity"
+        className="orb-pedestal pointer-events-none absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 h-[320px] w-[320px] sm:h-[420px] sm:w-[420px] rounded-full blur-3xl opacity-75 dark:opacity-75 transition-opacity"
         style={{
           background:
             "radial-gradient(circle, rgba(255,255,255,0.85) 0%, rgba(224,242,254,0.55) 45%, rgba(245,184,77,0.18) 70%, transparent 85%)",

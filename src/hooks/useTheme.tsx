@@ -41,7 +41,7 @@ export function ThemeProvider({ children }: { children: ReactNode }) {
     // Dynamic meta tags
     const metaThemeColor = document.querySelector('meta[name="theme-color"]');
     if (metaThemeColor) {
-      metaThemeColor.setAttribute("content", theme === "dark" ? "#070a0f" : "#eef2f8");
+      metaThemeColor.setAttribute("content", theme === "dark" ? "#0e2060" : "#eef2f8");
     }
 
     const metaStatus = document.querySelector('meta[name="apple-mobile-web-app-status-bar-style"]');

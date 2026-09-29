@@ -112,13 +112,13 @@ export function ExecutiveAtmosphereCanvas() {
 
         const isMajor = i % 4 === 0;
         const alpha = isDark
-          ? (depth * 0.16 + 0.04).toFixed(3)
+          ? (depth * 0.22 + 0.08).toFixed(3)
           : (depth * 0.22 + 0.07).toFixed(3);
 
         ctx.strokeStyle = isDark
           ? isMajor
-            ? "rgba(0, 240, 255, 0.35)"
-            : `rgba(0, 240, 255, ${alpha})`
+            ? "rgba(255, 255, 0, 0.55)"
+            : `rgba(0, 85, 255, ${alpha})`
           : isMajor
             ? "rgba(2, 132, 199, 0.32)"
             : `rgba(30, 41, 59, ${alpha})`;
@@ -140,10 +140,12 @@ export function ExecutiveAtmosphereCanvas() {
         radialXAtBottom.push(bottomX);
 
         const isMajorRay = i % 5 === 0;
-        const alpha = isDark ? (isMajorRay ? 0.22 : 0.09) : (isMajorRay ? 0.24 : 0.12);
+        const alpha = isDark ? (isMajorRay ? 0.35 : 0.15) : (isMajorRay ? 0.24 : 0.12);
 
         ctx.strokeStyle = isDark
-          ? `rgba(0, 240, 255, ${alpha})`
+          ? isMajorRay
+            ? `rgba(0, 230, 38, ${alpha})`
+            : `rgba(168, 0, 255, ${alpha})`
           : `rgba(30, 41, 59, ${alpha})`;
         ctx.lineWidth = isMajorRay ? 1.2 : 0.85;
 
@@ -155,7 +157,7 @@ export function ExecutiveAtmosphereCanvas() {
 
       // CAD Crosshairs (+) at key ray/rail intersections
       const arm = 3.5;
-      ctx.strokeStyle = isDark ? "rgba(0, 240, 255, 0.45)" : "rgba(2, 132, 199, 0.45)";
+      ctx.strokeStyle = isDark ? "rgba(255, 255, 0, 0.85)" : "rgba(2, 132, 199, 0.45)";
       ctx.lineWidth = 1;
 
       for (let r = 0; r < radialXAtBottom.length; r += 3) {
@@ -181,7 +183,7 @@ export function ExecutiveAtmosphereCanvas() {
       ctx.setLineDash([4, 7]);
       radarRadii.forEach((r, idx) => {
         ctx.strokeStyle = isDark
-          ? `rgba(0, 240, 255, ${0.18 - idx * 0.03})`
+          ? `rgba(255, 255, 0, ${0.4 - idx * 0.06})`
           : `rgba(2, 132, 199, ${0.24 - idx * 0.04})`;
         ctx.lineWidth = 1;
         ctx.beginPath();
@@ -191,14 +193,14 @@ export function ExecutiveAtmosphereCanvas() {
         // Technical range tag
         if (!isMobile) {
           ctx.font = "9px 'JetBrains Mono', monospace";
-          ctx.fillStyle = isDark ? "rgba(0, 240, 255, 0.4)" : "rgba(14, 116, 144, 0.55)";
+          ctx.fillStyle = isDark ? "rgba(255, 255, 0, 0.9)" : "rgba(14, 116, 144, 0.55)";
           ctx.fillText(`R-${r}M`, perspectiveOriginX + r + 6, horizonY + 3);
         }
       });
       ctx.setLineDash([]);
 
       // Horizon line with subtle datum ticks
-      ctx.strokeStyle = isDark ? "rgba(255, 184, 0, 0.35)" : "rgba(217, 119, 6, 0.38)";
+      ctx.strokeStyle = isDark ? "rgba(255, 30, 39, 0.75)" : "rgba(217, 119, 6, 0.38)";
       ctx.lineWidth = 1.2;
       ctx.beginPath();
       ctx.moveTo(0, horizonY);
@@ -208,7 +210,7 @@ export function ExecutiveAtmosphereCanvas() {
       // Technical blueprint legend
       if (!isMobile) {
         ctx.font = "9.5px 'JetBrains Mono', monospace";
-        ctx.fillStyle = isDark ? "rgba(0, 240, 255, 0.4)" : "rgba(14, 116, 144, 0.65)";
+        ctx.fillStyle = isDark ? "rgba(255, 255, 255, 0.85)" : "rgba(14, 116, 144, 0.65)";
         ctx.fillText("GRID // 28.5355° N 77.2289° E // ARCHITECTURAL SCALE", width * 0.04, horizonY - 10);
         ctx.fillText("BHARATX SOVEREIGN HORIZON // SYS.06", width * 0.68, horizonY - 10);
       }
@@ -223,6 +225,16 @@ export function ExecutiveAtmosphereCanvas() {
          - Smooth cursor repulsion
          ═══════════════════════════════════════════════════════════════ */
       const maxConnectDist = isMobile ? 100 : 150;
+
+      // 5-color vibrant combination theme (Yellow #FFFF00, Electric Blue, Red, Green, Purple)
+      const vibrantColors = [
+        "#ffff00", // Vivid Yellow (FFFF00)
+        "#0055ff", // Electric Blue
+        "#00e626", // Neon Green
+        "#ff1e27", // Electric Red
+        "#a800ff", // Vivid Purple
+      ];
+      const darkThreadColors = ["#ffff00", "#0055ff", "#00e626", "#ff1e27", "#a800ff"];
 
       // Update and draw particles
       particles.forEach((p, idx) => {
@@ -245,24 +257,26 @@ export function ExecutiveAtmosphereCanvas() {
         if (p.y < 0) p.y = height;
         if (p.y > height) p.y = 0;
 
+        const nodeColor = isDark ? vibrantColors[idx % vibrantColors.length] : p.color;
+
         // Outer glow halo around node
         ctx.beginPath();
-        ctx.arc(p.x, p.y, p.size * 2.4, 0, Math.PI * 2);
-        ctx.fillStyle = isDark ? p.color : p.color;
-        ctx.globalAlpha = isDark ? 0.18 : 0.22;
+        ctx.arc(p.x, p.y, p.size * 3.0, 0, Math.PI * 2);
+        ctx.fillStyle = nodeColor;
+        ctx.globalAlpha = isDark ? 0.45 : 0.22;
         ctx.fill();
 
         // Inner solid core node
         ctx.beginPath();
-        ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
+        ctx.arc(p.x, p.y, p.size * 1.1, 0, Math.PI * 2);
         ctx.fillStyle = isDark
-          ? p.color
+          ? nodeColor
           : p.color === "#d97706"
             ? "#d97706"
             : p.color === "#0284c7"
               ? "#0284c7"
               : p.color;
-        ctx.globalAlpha = isDark ? p.baseAlpha : Math.min(1, p.baseAlpha * 1.1);
+        ctx.globalAlpha = isDark ? 1.0 : Math.min(1, p.baseAlpha * 1.1);
         ctx.fill();
         ctx.globalAlpha = 1;
 
@@ -271,14 +285,14 @@ export function ExecutiveAtmosphereCanvas() {
           const p2 = particles[j];
           const dist = Math.hypot(p.x - p2.x, p.y - p2.y);
           if (dist < maxConnectDist) {
-            const lineAlpha = (1 - dist / maxConnectDist) * (isDark ? 0.18 : 0.28);
+            const lineAlpha = (1 - dist / maxConnectDist) * (isDark ? 0.35 : 0.28);
             ctx.strokeStyle = isDark
-              ? "#00f0ff"
+              ? darkThreadColors[(idx + j) % darkThreadColors.length]
               : idx % 2 === 0
                 ? "#0284c7"
                 : "#d97706";
             ctx.globalAlpha = lineAlpha;
-            ctx.lineWidth = isDark ? 0.9 : 1.1;
+            ctx.lineWidth = isDark ? 0.95 : 1.1;
             ctx.beginPath();
             ctx.moveTo(p.x, p.y);
             ctx.lineTo(p2.x, p2.y);
