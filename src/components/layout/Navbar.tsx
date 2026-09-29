@@ -155,12 +155,13 @@ export function Navbar() {
           <Link
             to="/"
             aria-label="BharatX Group — home"
-            className="group relative z-10 flex items-center gap-3 rounded-md transition-transform duration-300 hover:scale-[1.02]"
+            className="group relative z-10 flex items-center rounded-md transition-transform duration-300 hover:scale-[1.02]"
           >
             <img
               src="/bharatxgroup.png"
               alt="BharatX Group"
-              className="h-10 sm:h-11 w-auto object-contain"
+              className="h-12 sm:h-14 w-auto object-contain"
+              style={{ filter: "drop-shadow(0 1px 6px rgba(0,0,0,0.45))" }}
             />
           </Link>
 
