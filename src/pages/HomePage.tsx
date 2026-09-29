@@ -19,7 +19,7 @@ export default function HomePage() {
   });
 
   return (
-    <main className="w-full bg-night-950 text-white min-h-screen">
+    <main className="w-full bg-night-950 text-ink-100 min-h-screen">
       {/* ── 1. RIL-STYLE FULL-BLEED HERO (3-5 words, 4-5s image crossfade) ── */}
       <RilHeroSection />
 

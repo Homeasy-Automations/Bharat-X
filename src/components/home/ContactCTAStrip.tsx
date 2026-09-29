@@ -34,7 +34,7 @@ export function ContactCTAStrip() {
           <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4 shrink-0">
             <Link
               to="/contact"
-              className="inline-flex items-center gap-3 rounded-full bg-gold-500 hover:bg-gold-400 px-8 py-3.5 text-sm font-semibold text-night-950 transition-all shadow-[0_0_20px_rgba(234,179,8,0.3)] hover:shadow-[0_0_30px_rgba(234,179,8,0.5)]"
+              className="inline-flex items-center gap-3 rounded-full bg-[#3026B3] hover:bg-[#211B72] px-8 py-3.5 text-sm font-semibold text-white transition-all shadow-[0_4px_20px_rgba(48,38,179,0.3)] hover:shadow-[0_4px_30px_rgba(48,38,179,0.5)]"
             >
               <span>Start an Inquiry</span>
               <Icon name="arrow-right" width={15} height={15} />

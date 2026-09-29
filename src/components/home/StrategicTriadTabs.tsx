@@ -89,34 +89,22 @@ export function StrategicTriadTabs() {
   const current = triadData.find((t) => t.id === activeId) ?? triadData[0];
 
   return (
-    <section className="relative overflow-hidden py-20 sm:py-28 border-t border-white/10 bg-night-950 text-white">
-      {/* ── 1. CINEMATIC ATMOSPHERIC SECTION BACKGROUND ─────────────────── */}
-      <div className="absolute inset-0 z-0 pointer-events-none">
-        <img
-          src="/assets/backgrounds/strategic-story-panorama.jpg"
-          alt=""
-          className="h-full w-full object-cover filter brightness-[0.32] contrast-[1.15] saturate-[1.15]"
-          loading="lazy"
-        />
-        <div className="absolute inset-0 bg-gradient-to-b from-night-950/85 via-night-950/65 to-night-950/90" />
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-gold-500/15 via-transparent to-transparent opacity-60" />
-      </div>
-
+    <section className="relative overflow-hidden py-20 sm:py-28 border-t border-[#E3E5EF] bg-[#F1F6FF] text-[#111827] dark:bg-night-950 dark:text-white">
       <div className="container-x relative z-10">
         {/* RIL-Style Horizontal Story Tab Navigation Header */}
-        <div className="border-b border-white/10 pb-6 mb-12 sm:mb-16">
+        <div className="border-b border-[#E3E5EF] dark:border-white/10 pb-6 mb-12 sm:mb-16">
           <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-6">
             <div>
-              <div className="flex items-center gap-2 font-mono text-[11px] uppercase tracking-[0.28em] text-gold-400 mb-2">
-                <span>◆</span>
+              <div className="flex items-center gap-2 font-mono text-[11px] uppercase tracking-[0.28em] text-[#3026B3] dark:text-gold-400 mb-2">
+                <span className="text-[#FFB000]">◆</span>
                 <span>STRATEGIC STORY</span>
               </div>
-              <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-normal text-white">
+              <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-normal text-[#111827] dark:text-white">
                 Sovereign Commitment
               </h2>
             </div>
 
-            {/* RIL Styled Tab Link Buttons */}
+            {/* Tab Link Buttons */}
             <div className="flex items-center gap-2 sm:gap-4 overflow-x-auto pb-2 sm:pb-0">
               {triadData.map((tab) => {
                 const isActive = activeId === tab.id;
@@ -127,8 +115,8 @@ export function StrategicTriadTabs() {
                     onClick={() => setActiveId(tab.id)}
                     className={`relative rounded-full px-5 sm:px-6 py-2.5 font-serif text-sm sm:text-base transition-all duration-300 ${
                       isActive
-                        ? "bg-white text-black shadow-lg font-medium"
-                        : "border border-white/20 text-slate-300 hover:border-white/40 hover:text-white"
+                        ? "bg-[#3026B3] text-white shadow-md font-semibold"
+                        : "border border-[#E3E5EF] bg-white text-[#596579] hover:border-[#3026B3] hover:text-[#3026B3] dark:border-white/20 dark:bg-transparent dark:text-slate-300"
                     }`}
                   >
                     {tab.tabTitle}
@@ -151,28 +139,28 @@ export function StrategicTriadTabs() {
           >
             {/* Left Narrative (7 cols) */}
             <div className="lg:col-span-6 xl:col-span-7">
-              <span className="font-mono text-[10.5px] uppercase tracking-[0.25em] text-gold-400 font-semibold">
+              <span className="font-mono text-[10.5px] uppercase tracking-[0.25em] text-[#3026B3] dark:text-gold-400 font-semibold">
                 {current.badge}
               </span>
 
-              <h3 className="mt-3 font-serif text-2xl sm:text-3xl lg:text-4xl font-normal text-white leading-tight">
+              <h3 className="mt-3 font-serif text-2xl sm:text-3xl lg:text-4xl font-normal text-[#111827] dark:text-white leading-tight">
                 {current.headline}
               </h3>
 
-              <div className="mt-5 space-y-4 text-sm sm:text-base text-slate-300 leading-relaxed font-body">
+              <div className="mt-5 space-y-4 text-sm sm:text-base text-[#596579] dark:text-slate-300 leading-relaxed font-body">
                 {current.description.map((paragraph, idx) => (
                   <p key={idx}>{paragraph}</p>
                 ))}
               </div>
 
               {/* Metrics Row */}
-              <div className="mt-8 grid grid-cols-3 gap-4 border-t border-white/10 pt-6">
+              <div className="mt-8 grid grid-cols-3 gap-4 border-t border-[#E3E5EF] dark:border-white/10 pt-6">
                 {current.metrics.map((m) => (
                   <div key={m.label}>
-                    <span className="block font-stat text-xl sm:text-2xl font-bold text-white">
+                    <span className="block font-stat text-xl sm:text-2xl font-bold text-[#3026B3] dark:text-white">
                       {m.value}
                     </span>
-                    <span className="block font-mono text-[9.5px] uppercase tracking-wider text-slate-400 mt-0.5">
+                    <span className="block font-mono text-[9.5px] uppercase tracking-wider text-[#596579] dark:text-slate-400 mt-0.5">
                       {m.label}
                     </span>
                   </div>
@@ -183,7 +171,7 @@ export function StrategicTriadTabs() {
               <div className="mt-8 flex flex-wrap items-center gap-4">
                 <Link
                   to={current.route}
-                  className="group inline-flex items-center gap-3 rounded-full border border-white/30 bg-white/5 hover:bg-white hover:text-black px-7 py-3 text-sm font-medium text-white transition-all duration-300"
+                  className="group inline-flex items-center gap-3 rounded-full bg-[#3026B3] hover:bg-[#211B72] px-7 py-3 text-sm font-semibold text-white shadow-sm transition-all duration-300"
                 >
                   <span className="capitalize">{current.cta}</span>
                   <Icon
@@ -195,7 +183,7 @@ export function StrategicTriadTabs() {
                 </Link>
 
                 {/* Operating Enterprise badge */}
-                <div className="inline-flex items-center gap-2.5 px-4 py-2 rounded-full border border-white/10 bg-white/[0.03]">
+                <div className="inline-flex items-center gap-2.5 px-4 py-2 rounded-full border border-[#E3E5EF] bg-white shadow-xs dark:border-white/10 dark:bg-white/[0.03]">
                   <div className="w-5 h-5 rounded bg-white p-0.5 flex items-center justify-center">
                     <img
                       src={current.companyLogo}
@@ -203,7 +191,7 @@ export function StrategicTriadTabs() {
                       className="max-h-full max-w-full object-contain"
                     />
                   </div>
-                  <span className="font-mono text-xs text-slate-300">
+                  <span className="font-mono text-xs text-[#596579] dark:text-slate-300">
                     {current.companyName}
                   </span>
                 </div>
@@ -244,9 +232,9 @@ export function StrategicTriadTabs() {
                 </div>
 
                 {/* Bottom glassmorphic info bar */}
-                <div className="absolute bottom-5 left-5 right-5 flex items-center justify-between text-xs font-mono uppercase tracking-wider text-gold-400 bg-black/75 backdrop-blur-md px-4 py-2.5 rounded-full border border-white/15">
+                <div className="absolute bottom-5 left-5 right-5 flex items-center justify-between text-xs font-mono uppercase tracking-wider text-[#FFB000] bg-black/75 backdrop-blur-md px-4 py-2.5 rounded-full border border-white/15">
                   <span className="flex items-center gap-2">
-                    <span className="h-1.5 w-1.5 rounded-full bg-gold-400 animate-pulse" />
+                    <span className="h-1.5 w-1.5 rounded-full bg-[#FFB000] animate-pulse" />
                     <span>SOVEREIGNTY CHARTER</span>
                   </span>
                   <span className="text-white font-semibold">{current.tabTitle}</span>

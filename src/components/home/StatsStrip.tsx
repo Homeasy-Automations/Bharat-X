@@ -19,17 +19,7 @@ const operatingCompanies = [
 
 export function StatsStrip() {
   return (
-    <section className="relative overflow-hidden border-y border-white/10 bg-night-950 py-12 md:py-16">
-      {/* Background Texture & Gradient */}
-      <div className="absolute inset-0 z-0">
-        <img
-          src="/assets/backgrounds/craft-metal.jpg"
-          alt=""
-          className="h-full w-full object-cover filter brightness-[0.24] contrast-[1.2]"
-          loading="lazy"
-        />
-        <div className="absolute inset-0 bg-gradient-to-r from-night-950/85 via-night-950/60 to-night-950/85" />
-      </div>
+    <section className="relative overflow-hidden border-y border-[#E3E5EF] bg-[#F1F6FF] dark:bg-night-900 py-12 md:py-16">
       <div className="container-x relative z-10">
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 md:gap-12">
           {stats.map((item, index) => (
@@ -39,12 +29,12 @@ export function StatsStrip() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: index * 0.1 }}
-              className="flex flex-col items-start lg:items-center text-left lg:text-center border-l lg:border-l-0 lg:border-r last:border-r-0 border-white/10 pl-5 lg:pl-0 lg:px-6"
+              className="flex flex-col items-start lg:items-center text-left lg:text-center border-l lg:border-l-0 lg:border-r last:border-r-0 border-[#E3E5EF] dark:border-white/10 pl-5 lg:pl-0 lg:px-6"
             >
-              <span className="font-serif text-3xl sm:text-4xl md:text-5xl font-normal tracking-tight text-white">
+              <span className="font-serif text-3xl sm:text-4xl md:text-5xl font-normal tracking-tight text-[#3026B3] dark:text-white">
                 {item.value}
               </span>
-              <span className="mt-2 font-mono text-[10.5px] uppercase tracking-[0.22em] text-slate-400 max-w-[200px]">
+              <span className="mt-2 font-mono text-[10.5px] uppercase tracking-[0.22em] text-[#596579] dark:text-ink-400 max-w-[200px]">
                 {item.label}
               </span>
             </motion.div>

@@ -93,7 +93,7 @@ export function MobileMenu({ open, onClose }: { open: boolean; onClose: () => vo
 
             {/* Core Sectors */}
             <div className="mt-10">
-              <div className="mb-3 font-mono text-[10px] uppercase tracking-[0.28em] text-gold-400">
+              <div className="mb-3 font-mono text-[10px] uppercase tracking-[0.28em] text-[#3026B3] dark:text-gold-400 font-semibold">
                 Core Operating Sectors
               </div>
               <div className="grid grid-cols-2 gap-2">
@@ -102,10 +102,10 @@ export function MobileMenu({ open, onClose }: { open: boolean; onClose: () => vo
                     key={svc.id}
                     to={`/services#${svc.id}`}
                     onClick={onClose}
-                    className="flex flex-col gap-1 rounded-xl border border-white/10 bg-white/[0.03] p-3 text-left transition-all hover:border-gold-400/50 hover:bg-white/[0.06]"
+                    className="flex flex-col gap-1 rounded-xl border border-[#E3E5EF] bg-white dark:border-white/10 dark:bg-white/[0.03] p-3 text-left transition-all hover:border-[#3026B3] shadow-xs"
                   >
-                    <span className="font-mono text-[9px] text-gold-400">0{i + 1}</span>
-                    <span className="truncate text-[13px] font-medium text-white">
+                    <span className="font-mono text-[9px] text-[#3026B3] dark:text-gold-400 font-semibold">0{i + 1}</span>
+                    <span className="truncate text-[13px] font-medium text-ink-900 dark:text-white">
                       {svc.name}
                     </span>
                   </Link>
@@ -117,7 +117,7 @@ export function MobileMenu({ open, onClose }: { open: boolean; onClose: () => vo
               <Link
                 to="/services"
                 onClick={onClose}
-                className="flex items-center justify-center gap-2 rounded-full bg-gold-500 px-6 py-3.5 text-sm font-semibold text-night-950 shadow-md shadow-gold-500/25 transition-all hover:bg-gold-400"
+                className="flex items-center justify-center gap-2 rounded-full bg-[#3026B3] px-6 py-3.5 text-sm font-semibold text-white shadow-md shadow-[#3026B3]/25 transition-all hover:bg-[#211B72] dark:bg-gold-500 dark:text-night-950 dark:hover:bg-gold-400"
               >
                 Explore All Services
                 <Icon name="arrow-right" width={15} height={15} />
@@ -130,13 +130,13 @@ export function MobileMenu({ open, onClose }: { open: boolean; onClose: () => vo
                     target="_blank"
                     rel="noreferrer"
                     aria-label={s.label}
-                    className="flex h-9 w-9 items-center justify-center rounded-full border border-white/10 bg-white/5 text-ink-400 shadow-xs transition-colors hover:border-gold-400 hover:text-gold-400"
+                    className="flex h-9 w-9 items-center justify-center rounded-full border border-[#E3E5EF] bg-white dark:border-white/10 dark:bg-white/5 text-[#596579] shadow-xs transition-colors hover:border-[#3026B3] hover:text-[#3026B3]"
                   >
                     <Icon name={socialIcons[s.label] ?? "arrow-up-right"} width={14} height={14} />
                   </a>
                 ))}
               </div>
-              <p className="mt-5 text-center font-mono text-[10px] uppercase tracking-[0.2em] text-ink-500">
+              <p className="mt-5 text-center font-mono text-[10px] uppercase tracking-[0.2em] text-[#596579]">
                 BharatX Group — {location.pathname}
               </p>
             </div>
@@ -149,7 +149,7 @@ export function MobileMenu({ open, onClose }: { open: boolean; onClose: () => vo
 
 function mobileLinkClass(isActive: boolean): string {
   return cn(
-    "flex items-center gap-3.5 border-b border-white/10 py-3 sm:py-3.5 font-display text-[17px] sm:text-[19px] font-medium tracking-tight transition-colors",
-    isActive ? "text-gold-400" : "text-white hover:text-gold-300",
+    "flex items-center gap-3.5 border-b border-[#E3E5EF] dark:border-white/10 py-3 sm:py-3.5 font-display text-[17px] sm:text-[19px] font-medium tracking-tight transition-colors",
+    isActive ? "text-[#3026B3] dark:text-gold-400 font-semibold" : "text-ink-900 dark:text-white hover:text-[#3026B3] dark:hover:text-gold-300",
   );
 }

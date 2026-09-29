@@ -217,7 +217,7 @@ export function Navbar() {
             {/* Talk to BharatX / Contact CTA Button */}
             <MagneticButton
               as="Link"
-              className="hidden lg:!inline-flex !flex-row flex-nowrap items-center justify-center whitespace-nowrap gap-2 rounded-full border border-gold-500/40 bg-gold-400/15 px-4 lg:px-5 py-2 text-[13px] font-semibold text-gold-600 transition-all hover:border-gold-500/70 hover:bg-gold-400/25 dark:border-gold-400/30 dark:bg-gold-400/10 dark:text-gold-300 dark:hover:border-gold-400/60 dark:hover:bg-gold-400/20 shrink-0"
+              className="hidden lg:!inline-flex !flex-row flex-nowrap items-center justify-center whitespace-nowrap gap-2 rounded-full bg-[#3026B3] hover:bg-[#211B72] text-white px-4 lg:px-5 py-2 text-[13px] font-semibold transition-all shadow-sm shrink-0"
               buttonProps={{
                 to: contactRoute.to,
               }}

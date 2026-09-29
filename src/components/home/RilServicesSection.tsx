@@ -105,7 +105,7 @@ export function RilServicesSection() {
                   <button
                     type="button"
                     onClick={() => setSelectedModal(activeService)}
-                    className="group inline-flex items-center gap-3 rounded-full border border-white/40 bg-black/40 backdrop-blur-md px-7 py-3 text-[14px] font-medium text-white transition-all duration-300 hover:border-white hover:bg-white hover:text-black hover:shadow-lg"
+                    className="group inline-flex items-center gap-3 rounded-full bg-[#3026B3] hover:bg-[#211B72] px-7 py-3 text-[14px] font-semibold text-white shadow-lg transition-all duration-300"
                   >
                     <span>read more</span>
                     <Icon
@@ -118,7 +118,7 @@ export function RilServicesSection() {
 
                   <Link
                     to="/contact"
-                    className="group inline-flex items-center gap-2 text-[14px] text-slate-400 hover:text-gold-400 transition-colors"
+                    className="group inline-flex items-center gap-2 text-[14px] text-white/90 hover:text-[#FFB000] transition-colors"
                   >
                     <span>Inquire for sector partnership</span>
                     <Icon
@@ -174,16 +174,16 @@ export function RilServicesSection() {
                         height={15}
                         className={`transition-all duration-300 ${
                           isActive
-                            ? "text-gold-400 translate-x-1 opacity-100"
+                            ? "text-[#FFB000] translate-x-1 opacity-100"
                             : "opacity-0 group-hover:opacity-60"
                         }`}
                       />
 
-                      {/* RIL Signature Solid Gold Line Underneath Active Item */}
+                      {/* Signature Saffron Line Underneath Active Item */}
                       {isActive && (
                         <motion.div
                           layoutId="ril-active-bar"
-                          className="absolute inset-x-0 bottom-0 h-[3px] bg-gradient-to-r from-gold-400 via-amber-400 to-gold-500 shadow-[0_0_10px_#f5b84d]"
+                          className="absolute inset-x-0 bottom-0 h-[3px] bg-[#FFB000] shadow-[0_0_10px_#FFB000]"
                           transition={{ type: "spring", stiffness: 380, damping: 32 }}
                         />
                       )}
@@ -215,7 +215,7 @@ export function RilServicesSection() {
           {servicesData.map((svc, idx) => (
             <div
               key={svc.id}
-              className="relative overflow-hidden rounded-2xl border border-white/10 bg-night-900 shadow-2xl"
+              className="relative overflow-hidden rounded-2xl border border-[#E3E5EF] bg-white shadow-sm dark:border-white/10 dark:bg-night-900"
             >
               {/* Full-bleed card image */}
               <div className="relative h-64 w-full overflow-hidden">
@@ -225,31 +225,31 @@ export function RilServicesSection() {
                   className="h-full w-full object-cover filter brightness-[0.92] contrast-[1.05]"
                   loading="lazy"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-night-950 via-night-950/30 to-transparent" />
-                <span className="absolute top-4 left-4 rounded-full bg-black/60 backdrop-blur-md px-3 py-1 font-mono text-[10px] uppercase tracking-wider text-gold-400 border border-white/10">
+                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent" />
+                <span className="absolute top-4 left-4 rounded-full bg-white/95 backdrop-blur-md px-3 py-1 font-mono text-[10px] uppercase tracking-wider text-[#3026B3] border border-[#E3E5EF] font-semibold dark:bg-black/60 dark:text-gold-400">
                   0{idx + 1} · {svc.shortLabel}
                 </span>
               </div>
 
               {/* Card Body */}
               <div className="p-6">
-                <h3 className="font-serif text-2xl font-normal text-white">
+                <h3 className="font-serif text-2xl font-normal text-[#111827] dark:text-white">
                   {svc.name}
                 </h3>
-                <p className="mt-2 text-sm font-medium text-gold-200">
+                <p className="mt-2 text-sm font-medium text-[#3026B3] dark:text-gold-200">
                   {svc.descriptor}
                 </p>
-                <p className="mt-2 text-xs text-slate-400 leading-relaxed">
+                <p className="mt-2 text-xs text-[#596579] dark:text-slate-400 leading-relaxed">
                   {svc.fullNarrative}
                 </p>
 
-                <div className="mt-5 grid grid-cols-2 gap-3 border-t border-white/10 pt-4">
+                <div className="mt-5 grid grid-cols-2 gap-3 border-t border-[#E3E5EF] dark:border-white/10 pt-4">
                   {svc.stats.slice(0, 2).map((st) => (
                     <div key={st.label}>
-                      <span className="block font-stat text-lg font-bold text-white">
+                      <span className="block font-stat text-lg font-bold text-[#3026B3] dark:text-white">
                         {st.value}
                       </span>
-                      <span className="block font-mono text-[9.5px] uppercase tracking-wider text-slate-400">
+                      <span className="block font-mono text-[9.5px] uppercase tracking-wider text-[#596579] dark:text-slate-400">
                         {st.label}
                       </span>
                     </div>
@@ -259,7 +259,7 @@ export function RilServicesSection() {
                 <button
                   type="button"
                   onClick={() => setSelectedModal(svc)}
-                  className="mt-6 inline-flex w-full items-center justify-center gap-2 rounded-full border border-white/30 bg-white/5 py-3 text-sm font-medium text-white transition-colors hover:bg-white hover:text-black"
+                  className="mt-6 inline-flex w-full items-center justify-center gap-2 rounded-full bg-[#3026B3] hover:bg-[#211B72] py-3 text-sm font-semibold text-white shadow-sm transition-colors"
                 >
                   <span>read more</span>
                   <Icon name="arrow-right" width={14} height={14} />
@@ -289,13 +289,13 @@ export function RilServicesSection() {
               animate={{ opacity: 1, scale: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.95, y: 20 }}
               transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
-              className="relative w-full max-w-2xl max-h-[90vh] overflow-y-auto rounded-3xl border border-white/15 bg-night-900 shadow-2xl p-6 sm:p-8 text-white z-10"
+              className="relative w-full max-w-2xl max-h-[90vh] overflow-y-auto rounded-3xl border border-[#E3E5EF] bg-white shadow-2xl p-6 sm:p-8 text-[#111827] dark:border-white/15 dark:bg-night-900 dark:text-white z-10"
             >
               {/* Close Button */}
               <button
                 type="button"
                 onClick={() => setSelectedModal(null)}
-                className="absolute top-5 right-5 flex h-9 w-9 items-center justify-center rounded-full bg-white/10 text-white hover:bg-white/20 transition-colors"
+                className="absolute top-5 right-5 flex h-9 w-9 items-center justify-center rounded-full bg-slate-100 text-[#111827] hover:bg-slate-200 dark:bg-white/10 dark:text-white dark:hover:bg-white/20 transition-colors"
                 aria-label="Close dialog"
               >
                 <Icon name="x" width={18} height={18} />
@@ -303,57 +303,57 @@ export function RilServicesSection() {
 
               {/* Operating Enterprise Header with Logo */}
               <div className="flex items-center gap-3 mb-4">
-                <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-white p-1.5 shadow-md">
+                <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-[#F1F6FF] border border-[#E3E5EF] p-1.5 shadow-xs">
                   <img src={selectedModal.companyLogo} alt={selectedModal.companyName} className="h-full w-full object-contain" />
                 </span>
                 <div>
-                  <span className="font-mono text-[9px] uppercase tracking-[0.24em] text-gold-400 font-semibold block">
+                  <span className="font-mono text-[9px] uppercase tracking-[0.24em] text-[#3026B3] dark:text-gold-400 font-semibold block">
                     OPERATING ENTERPRISE
                   </span>
                   <a
                     href={selectedModal.website}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="font-serif text-base text-white hover:text-gold-300 transition-colors inline-flex items-center gap-1.5 font-medium"
+                    className="font-serif text-base text-[#111827] hover:text-[#3026B3] dark:text-white dark:hover:text-gold-300 transition-colors inline-flex items-center gap-1.5 font-medium"
                   >
                     <span>{selectedModal.companyName}</span>
-                    <Icon name="arrow-up-right" width={13} height={13} className="text-gold-400" />
+                    <Icon name="arrow-up-right" width={13} height={13} className="text-[#3026B3] dark:text-gold-400" />
                   </a>
                 </div>
               </div>
 
               {/* Eyebrow */}
-              <div className="font-mono text-[11px] uppercase tracking-[0.25em] text-gold-400">
+              <div className="font-mono text-[11px] uppercase tracking-[0.25em] text-[#FFB000] font-semibold">
                 {selectedModal.eyebrow}
               </div>
 
               {/* Title in Serif */}
-              <h3 className="mt-2 font-serif text-3xl sm:text-4xl text-white">
+              <h3 className="mt-2 font-serif text-3xl sm:text-4xl text-[#111827] dark:text-white">
                 {selectedModal.name}
               </h3>
 
               {/* Descriptor */}
-              <p className="mt-3 text-base text-gold-200 font-medium">
+              <p className="mt-3 text-base text-[#3026B3] dark:text-gold-200 font-medium">
                 {selectedModal.descriptor}
               </p>
 
               {/* Detailed Narrative */}
-              <p className="mt-4 text-sm text-slate-300 leading-relaxed">
+              <p className="mt-4 text-sm text-[#596579] dark:text-slate-300 leading-relaxed font-body">
                 {selectedModal.fullNarrative}
               </p>
 
               {/* Key Capabilities */}
               <div className="mt-6">
-                <span className="block font-mono text-[11px] uppercase tracking-[0.2em] text-slate-400 mb-3">
+                <span className="block font-mono text-[11px] uppercase tracking-[0.2em] text-[#596579] dark:text-slate-400 mb-3">
                   Core Technical Capabilities
                 </span>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
                   {selectedModal.capabilities.map((cap) => (
                     <div
                       key={cap}
-                      className="flex items-center gap-2.5 rounded-xl border border-white/10 bg-white/5 px-3.5 py-2.5 text-xs text-slate-200"
+                      className="flex items-center gap-2.5 rounded-xl border border-[#E3E5EF] bg-[#F1F6FF] px-3.5 py-2.5 text-xs text-[#111827] dark:border-white/10 dark:bg-white/5 dark:text-slate-200"
                     >
-                      <span className="h-1.5 w-1.5 rounded-full bg-gold-400" />
+                      <span className="h-1.5 w-1.5 rounded-full bg-[#3026B3] dark:bg-gold-400" />
                       <span>{cap}</span>
                     </div>
                   ))}
@@ -361,13 +361,13 @@ export function RilServicesSection() {
               </div>
 
               {/* Metrics */}
-              <div className="mt-6 grid grid-cols-3 gap-3 border-t border-white/10 pt-5">
+              <div className="mt-6 grid grid-cols-3 gap-3 border-t border-[#E3E5EF] dark:border-white/10 pt-5">
                 {selectedModal.stats.map((st) => (
                   <div key={st.label} className="text-center sm:text-left">
-                    <span className="block font-stat text-xl sm:text-2xl font-bold text-white">
+                    <span className="block font-stat text-xl sm:text-2xl font-bold text-[#3026B3] dark:text-white">
                       {st.value}
                     </span>
-                    <span className="block font-mono text-[10px] uppercase tracking-wider text-slate-400">
+                    <span className="block font-mono text-[10px] uppercase tracking-wider text-[#596579] dark:text-slate-400">
                       {st.label}
                     </span>
                   </div>
@@ -375,11 +375,11 @@ export function RilServicesSection() {
               </div>
 
               {/* Actions */}
-              <div className="mt-8 flex flex-wrap items-center justify-between gap-4 border-t border-white/10 pt-5">
+              <div className="mt-8 flex flex-wrap items-center justify-between gap-4 border-t border-[#E3E5EF] dark:border-white/10 pt-5">
                 <Link
                   to="/contact"
                   onClick={() => setSelectedModal(null)}
-                  className="inline-flex items-center gap-2 rounded-full bg-gold-500 hover:bg-gold-400 px-6 py-2.5 text-sm font-semibold text-night-950 transition-colors"
+                  className="inline-flex items-center gap-2 rounded-full bg-[#3026B3] hover:bg-[#211B72] px-6 py-2.5 text-sm font-semibold text-white shadow-sm transition-colors"
                 >
                   <span>Inquire for {selectedModal.name}</span>
                   <Icon name="arrow-right" width={14} height={14} />
@@ -388,7 +388,7 @@ export function RilServicesSection() {
                 <button
                   type="button"
                   onClick={() => setSelectedModal(null)}
-                  className="text-xs font-mono uppercase tracking-wider text-slate-400 hover:text-white transition-colors"
+                  className="text-xs font-mono uppercase tracking-wider text-[#596579] hover:text-[#111827] dark:text-slate-400 dark:hover:text-white transition-colors"
                 >
                   Close Window
                 </button>

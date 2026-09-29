@@ -47,36 +47,25 @@ export function LeadershipKeynote() {
   const [activeChapter, setActiveChapter] = useState(0);
 
   return (
-    <section className="relative overflow-hidden py-20 sm:py-28 border-t border-white/10 bg-night-950 text-white">
-      {/* Full-bleed Executive Assembly Backdrop */}
-      <div className="absolute inset-0 z-0">
-        <img
-          src="/assets/backgrounds/strategic-story-panorama.jpg"
-          alt=""
-          className="h-full w-full object-cover filter brightness-[0.35] contrast-[1.15]"
-          loading="lazy"
-        />
-        <div className="absolute inset-0 bg-gradient-to-t from-night-950/90 via-night-950/60 to-night-950/85" />
-      </div>
-
+    <section className="relative overflow-hidden py-20 sm:py-28 border-t border-[#E3E5EF] bg-[#FAF9F6] text-[#111827] dark:bg-night-950 dark:text-white">
       <div className="container-x relative z-10">
         {/* Section Tag */}
         <div className="mx-auto max-w-4xl text-center">
           <Reveal>
-            <div className="inline-flex items-center gap-2 rounded-full border border-gold-400/30 bg-gold-400/10 px-4 py-1.5 font-mono text-[11px] uppercase tracking-[0.26em] text-gold-400 backdrop-blur-md">
-              <span>◆</span>
+            <div className="inline-flex items-center gap-2 rounded-full border border-[#3026B3]/20 bg-[#F1F6FF] px-4 py-1.5 font-mono text-[11px] uppercase tracking-[0.26em] text-[#3026B3] dark:border-gold-400/30 dark:bg-gold-400/10 dark:text-gold-400 backdrop-blur-md">
+              <span className="text-[#FFB000]">◆</span>
               <span>ANNUAL EXECUTIVE ADDRESS</span>
             </div>
           </Reveal>
 
           <Reveal delay={0.1}>
-            <h2 className="mt-6 font-serif text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-normal tracking-tight text-white">
+            <h2 className="mt-6 font-serif text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-normal tracking-tight text-[#111827] dark:text-white">
               “Building sovereign industrial depth for a Viksit Bharat.”
             </h2>
           </Reveal>
 
           <Reveal delay={0.2}>
-            <p className="mx-auto mt-5 max-w-2xl text-base sm:text-lg text-slate-300 font-body">
+            <p className="mx-auto mt-5 max-w-2xl text-base sm:text-lg text-[#596579] dark:text-slate-300 font-body">
               Executive address on technological self-reliance, capital discipline, and our 2035 national milestones.
             </p>
           </Reveal>
@@ -84,34 +73,34 @@ export function LeadershipKeynote() {
 
         {/* Widescreen Keynote Card (RIL AGM Presentation Style) */}
         <div className="mt-14 max-w-5xl mx-auto">
-          <div className="relative overflow-hidden rounded-3xl border border-white/10 bg-night-900 shadow-2xl">
+          <div className="relative overflow-hidden rounded-3xl border border-[#E3E5EF] bg-white shadow-lg dark:border-white/10 dark:bg-night-900">
             {/* Visual Header / Banner */}
             <div className="relative h-64 sm:h-80 md:h-96 w-full overflow-hidden">
               <img
                 src="/assets/backgrounds/conglomerate-panorama.jpg"
                 alt="BharatX Annual Executive Keynote"
-                className="h-full w-full object-cover filter brightness-[0.90] contrast-[1.05]"
+                className="h-full w-full object-cover filter brightness-[0.88] contrast-[1.05]"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-night-900/80 via-night-900/25 to-transparent" />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent" />
 
               <div className="absolute inset-0 flex flex-col items-center justify-center p-6 text-center">
-                <span className="font-mono text-xs uppercase tracking-[0.3em] text-gold-400 mb-3">
+                <span className="font-mono text-xs uppercase tracking-[0.3em] text-[#FFB000] mb-3">
                   CONGLOMERATE STEWARDSHIP
                 </span>
                 <h3 className="font-serif text-2xl sm:text-3xl md:text-4xl text-white font-normal max-w-2xl">
                   Chairman's Statement &amp; Institutional Charter
                 </h3>
-                <span className="mt-2 text-xs font-mono text-slate-400">
+                <span className="mt-2 text-xs font-mono text-slate-200">
                   Annual General Assembly · New Delhi
                 </span>
               </div>
             </div>
 
             {/* Action Bar */}
-            <div className="flex flex-wrap items-center justify-between gap-4 p-6 sm:p-8 border-t border-white/10 bg-white/[0.02]">
+            <div className="flex flex-wrap items-center justify-between gap-4 p-6 sm:p-8 border-t border-[#E3E5EF] bg-[#F7F7FC] dark:border-white/10 dark:bg-white/[0.02]">
               <div className="flex items-center gap-3">
-                <span className="h-2.5 w-2.5 rounded-full bg-gold-400 animate-pulse" />
-                <span className="font-mono text-xs uppercase tracking-wider text-slate-300 font-semibold">
+                <span className="h-2.5 w-2.5 rounded-full bg-[#15966B] animate-pulse" />
+                <span className="font-mono text-xs uppercase tracking-wider text-[#596579] dark:text-slate-300 font-semibold">
                   Official Public Disclosure
                 </span>
               </div>
@@ -120,7 +109,7 @@ export function LeadershipKeynote() {
               <button
                 type="button"
                 onClick={() => setShowTranscript((v) => !v)}
-                className="inline-flex items-center gap-3 rounded-full border border-white/30 bg-white/5 hover:bg-white hover:text-black px-6 py-2.5 text-xs sm:text-sm font-medium text-white transition-all"
+                className="inline-flex items-center gap-3 rounded-full bg-[#3026B3] hover:bg-[#211B72] px-6 py-2.5 text-xs sm:text-sm font-semibold text-white transition-all shadow-sm"
               >
                 <span>{showTranscript ? "Hide Transcript" : "View Official Transcript"}</span>
                 <Icon
@@ -139,11 +128,11 @@ export function LeadershipKeynote() {
                   animate={{ height: "auto", opacity: 1 }}
                   exit={{ height: 0, opacity: 0 }}
                   transition={{ duration: 0.35, ease: "easeInOut" }}
-                  className="overflow-hidden border-t border-white/10 bg-black/50"
+                  className="overflow-hidden border-t border-[#E3E5EF] bg-[#FAF9F6] dark:border-white/10 dark:bg-black/50"
                 >
                   <div className="p-6 sm:p-10">
                     {/* Chapter selector tabs */}
-                    <div className="flex flex-wrap gap-2 border-b border-white/10 pb-5 mb-8">
+                    <div className="flex flex-wrap gap-2 border-b border-[#E3E5EF] dark:border-white/10 pb-5 mb-8">
                       {transcriptChapters.map((ch, idx) => (
                         <button
                           key={ch.id}
@@ -151,8 +140,8 @@ export function LeadershipKeynote() {
                           onClick={() => setActiveChapter(idx)}
                           className={`rounded-full px-4 py-1.5 font-mono text-xs transition-colors ${
                             activeChapter === idx
-                              ? "bg-gold-500 text-night-950 font-semibold"
-                              : "border border-white/10 text-slate-400 hover:text-white"
+                              ? "bg-[#3026B3] text-white font-semibold"
+                              : "border border-[#E3E5EF] text-[#596579] hover:text-[#111827] hover:border-[#3026B3] dark:border-white/10 dark:text-slate-400 dark:hover:text-white"
                           }`}
                         >
                           {ch.number}. {ch.title}
@@ -162,13 +151,13 @@ export function LeadershipKeynote() {
 
                     {/* Chapter Content */}
                     <div>
-                      <span className="font-mono text-xs text-gold-400 font-semibold uppercase tracking-widest">
+                      <span className="font-mono text-xs text-[#FFB000] font-semibold uppercase tracking-widest">
                         CHAPTER {transcriptChapters[activeChapter].number}
                       </span>
-                      <h4 className="mt-2 font-serif text-2xl text-white">
+                      <h4 className="mt-2 font-serif text-2xl text-[#111827] dark:text-white">
                         {transcriptChapters[activeChapter].title}
                       </h4>
-                      <div className="mt-4 space-y-4 text-sm sm:text-base text-slate-300 leading-relaxed font-body">
+                      <div className="mt-4 space-y-4 text-sm sm:text-base text-[#596579] dark:text-slate-300 leading-relaxed font-body">
                         {transcriptChapters[activeChapter].content.map((p, i) => (
                           <p key={i}>{p}</p>
                         ))}

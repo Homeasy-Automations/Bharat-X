@@ -14,13 +14,13 @@ const THEME_STORAGE_KEY = "bharatx-theme";
 
 export function ThemeProvider({ children }: { children: ReactNode }) {
   const [theme, setThemeState] = useState<Theme>(() => {
-    if (typeof window === "undefined") return "dark";
+    if (typeof window === "undefined") return "light";
     try {
       const saved = localStorage.getItem(THEME_STORAGE_KEY) as Theme | null;
       if (saved === "light" || saved === "dark") return saved;
-      return "dark";
+      return "light";
     } catch {
-      return "dark";
+      return "light";
     }
   });
 
@@ -41,7 +41,7 @@ export function ThemeProvider({ children }: { children: ReactNode }) {
     // Dynamic meta tags
     const metaThemeColor = document.querySelector('meta[name="theme-color"]');
     if (metaThemeColor) {
-      metaThemeColor.setAttribute("content", theme === "dark" ? "#0e2060" : "#eef2f8");
+      metaThemeColor.setAttribute("content", theme === "dark" ? "#211B72" : "#FAF9F6");
     }
 
     const metaStatus = document.querySelector('meta[name="apple-mobile-web-app-status-bar-style"]');

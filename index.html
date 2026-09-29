@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en" class="dark">
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
@@ -8,18 +8,18 @@
       name="description"
       content="BharatX Group is a diversified conglomerate building foundational capabilities across Technology & AI, Infrastructure, Manufacturing, Agriculture, Food Systems, and Venture Building."
     />
-    <meta name="theme-color" content="#060b17" />
+    <meta name="theme-color" content="#FAF9F6" />
     <meta name="apple-mobile-web-app-capable" content="yes" />
-    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="default" />
     <script>
       (function() {
         try {
           var saved = localStorage.getItem("bharatx-theme");
-          if (saved === "light") {
-            document.documentElement.classList.remove("dark");
-          } else {
-            // Default to premium dark mode like RIL
+          if (saved === "dark") {
             document.documentElement.classList.add("dark");
+          } else {
+            // Default to Ivory / Soft Lavender White light mode
+            document.documentElement.classList.remove("dark");
           }
         } catch (e) {}
       })();

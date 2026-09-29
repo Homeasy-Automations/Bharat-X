@@ -9,7 +9,7 @@ export function SectorMarquee() {
   return (
     <div
       aria-hidden
-      className="marquee relative overflow-hidden border-y border-slate-200/80 bg-white/50 backdrop-blur-sm dark:border-white/5 dark:bg-night-950/60 py-5"
+      className="marquee relative overflow-hidden border-y border-[#E3E5EF] bg-[#F7F7FC] dark:border-white/5 dark:bg-night-950/60 py-5"
     >
       <div className="marquee-track items-center gap-10 pr-10">
         {items.map((s, i) => (
@@ -19,15 +19,15 @@ export function SectorMarquee() {
                 <img src={s.companyLogo} alt={s.companyName} className="h-full w-full object-contain" />
               </span>
               <span className="flex items-center gap-2">
-                <span className="font-display text-sm font-semibold tracking-wide text-ink-100">
+                <span className="font-display text-sm font-semibold tracking-wide text-[#111827] dark:text-white">
                   {s.companyName}
                 </span>
-                <span className="font-mono text-[10px] uppercase text-gold-400 font-medium">
+                <span className="font-mono text-[10px] uppercase text-[#3026B3] dark:text-[#FFB000] font-semibold">
                   · {s.name}
                 </span>
               </span>
             </span>
-            <svg width="10" height="10" viewBox="0 0 10 10" aria-hidden className="shrink-0 text-gold-400/60">
+            <svg width="10" height="10" viewBox="0 0 10 10" aria-hidden className="shrink-0 text-[#FFB000]">
               <path d="M1 1 L9 9 M9 1 L1 9" stroke="currentColor" strokeWidth="1.2" />
             </svg>
           </Fragment>

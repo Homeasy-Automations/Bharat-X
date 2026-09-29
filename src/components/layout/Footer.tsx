@@ -24,24 +24,24 @@ export function FooterCTA() {
       <div aria-hidden className="grid-bg grid-bg-fade absolute inset-0 opacity-40 dark:opacity-60" />
       <div className="container-x relative flex flex-col items-center justify-between gap-10 lg:flex-row">
         <div className="max-w-2xl text-center lg:text-left">
-          <div className="mb-4 inline-flex items-center gap-2.5 rounded-full border border-gold-500/20 bg-gold-500/10 px-3.5 py-1 font-mono text-[11px] uppercase tracking-[0.28em] text-gold-600 dark:text-gold-400">
+          <div className="mb-4 inline-flex items-center gap-2.5 rounded-full border border-[#FFB000]/30 bg-[#FFB000]/10 px-3.5 py-1 font-mono text-[11px] uppercase tracking-[0.28em] text-[#FFB000]">
             <Icon name="sparkles" width={12} height={12} />
             <span>Connect with BharatX Group</span>
           </div>
           <h2 className="font-serif text-3xl font-normal leading-[1.05] tracking-tight text-ink-900 dark:text-ink-50 sm:text-4xl md:text-5xl lg:text-6xl">
             BUILDING THE FOUNDATIONS
             <br />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-gold-500 via-amber-400 to-pulse-400">
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#3026B3] via-[#FFB000] to-[#00B8D9]">
               OF MODERN BHARAT.
             </span>
           </h2>
-          <p className="mt-5 text-[15px] sm:text-base leading-relaxed text-ink-600 dark:text-ink-400">
+          <p className="mt-5 text-[15px] sm:text-base leading-relaxed text-[#596579] dark:text-ink-300">
             For sector partnerships, infrastructure development, industrial mobility, advanced agriculture and sovereign technology — connect with the group.
           </p>
           <div className="mt-8 flex flex-col sm:flex-row flex-wrap items-center justify-center lg:justify-start gap-4">
             <Link
               to="/contact"
-              className="group inline-flex w-full sm:w-auto items-center justify-center gap-3 rounded-full bg-gold-500 px-8 py-4 text-[15px] font-semibold text-white shadow-md shadow-gold-500/25 transition-all duration-300 hover:bg-gold-600 hover:shadow-[0_10px_35px_-8px_rgba(217,119,6,0.45)] dark:bg-gold-400 dark:text-night-950 dark:hover:bg-gold-300 dark:hover:shadow-[0_10px_44px_-10px_rgba(245,184,77,0.55)]"
+              className="group inline-flex w-full sm:w-auto items-center justify-center gap-3 rounded-full bg-[#3026B3] px-8 py-4 text-[15px] font-semibold text-white shadow-md shadow-[#3026B3]/25 transition-all duration-300 hover:bg-[#211B72] hover:shadow-[0_10px_35px_-8px_rgba(48,38,179,0.45)] dark:bg-[#FFB000] dark:text-[#111827] dark:hover:bg-[#e69e00]"
             >
               Talk to BharatX
               <Icon
@@ -53,7 +53,7 @@ export function FooterCTA() {
             </Link>
             <Link
               to="/services"
-              className="inline-flex w-full sm:w-auto items-center justify-center gap-3 rounded-full border border-slate-300/80 bg-white/70 px-8 py-4 text-[15px] font-semibold text-ink-900 shadow-sm transition-all duration-300 hover:border-slate-400 hover:bg-white hover:shadow-md dark:border-white/15 dark:bg-transparent dark:text-ink-100 dark:hover:border-white/35 dark:hover:bg-white/5 dark:shadow-none"
+              className="inline-flex w-full sm:w-auto items-center justify-center gap-3 rounded-full border border-[#E3E5EF] bg-white px-8 py-4 text-[15px] font-semibold text-[#111827] shadow-sm transition-all duration-300 hover:border-[#3026B3] hover:text-[#3026B3] hover:shadow-md dark:border-white/15 dark:bg-white/[0.06] dark:text-white dark:hover:border-[#FFB000]"
             >
               Explore Services
             </Link>

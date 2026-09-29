@@ -92,11 +92,11 @@ export function RilHeroSection() {
             initial={{ opacity: 0, y: 14 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7 }}
-            className="mb-4 sm:mb-6 flex items-center gap-3 font-mono text-[11px] sm:text-[12px] uppercase tracking-[0.32em] text-gold-400"
+            className="mb-4 sm:mb-6 flex items-center gap-3 font-mono text-[11px] sm:text-[12px] uppercase tracking-[0.32em] text-[#FFB000]"
           >
-            <span className="h-1.5 w-1.5 rounded-full bg-gold-400 shadow-[0_0_8px_#f5b84d]" />
+            <span className="h-1.5 w-1.5 rounded-full bg-[#FFB000] shadow-[0_0_8px_#FFB000]" />
             <span>BHARATX GROUP</span>
-            <span aria-hidden className="h-px w-10 sm:w-16 bg-gold-400/40" />
+            <span aria-hidden className="h-px w-10 sm:w-16 bg-[#FFB000]/40" />
           </motion.div>
 
           {/* Three or four word Hero Tagline that changes dynamically with images */}
@@ -120,7 +120,7 @@ export function RilHeroSection() {
               initial={{ scaleX: 0 }}
               animate={{ scaleX: 1 }}
               transition={{ duration: 0.7, delay: 0.15, ease: [0.22, 1, 0.36, 1] }}
-              className="origin-left mt-5 sm:mt-6 h-[3.5px] w-28 sm:w-36 md:w-44 rounded-full bg-gradient-to-r from-gold-400 via-amber-400 to-gold-500 shadow-[0_0_12px_rgba(234,179,8,0.5)]"
+              className="origin-left mt-5 sm:mt-6 h-[3.5px] w-28 sm:w-36 md:w-44 rounded-full bg-[#FFB000] shadow-[0_0_12px_rgba(255,176,0,0.5)]"
             />
           </div>
         </div>
@@ -134,15 +134,15 @@ export function RilHeroSection() {
             type="button"
             onClick={() => setIsPaused((p) => !p)}
             aria-label={isPaused ? "Play slide rotation" : "Pause slide rotation"}
-            className="flex h-5 w-5 items-center justify-center rounded-full text-gold-400 hover:scale-110 transition-transform"
+            className="flex h-5 w-5 items-center justify-center rounded-full text-[#FFB000] hover:scale-110 transition-transform"
           >
             <span
-              className={`block h-2 w-2 rounded-full bg-gold-400 ${isPaused ? "opacity-40" : "animate-pulse"
+              className={`block h-2 w-2 rounded-full bg-[#FFB000] ${isPaused ? "opacity-40" : "animate-pulse"
                 }`}
             />
           </button>
 
-          <span className="font-mono text-[11px] font-bold text-gold-400 tracking-wider">
+          <span className="font-mono text-[11px] font-bold text-[#FFB000] tracking-wider">
             0{currentIndex + 1} / 0{servicesData.length}
           </span>
 
@@ -177,7 +177,7 @@ export function RilHeroSection() {
                 handleNext();
               }
             }}
-            className="h-full bg-gradient-to-r from-gold-400 via-amber-300 to-gold-500 shadow-[0_0_8px_rgba(234,179,8,0.6)]"
+            className="h-full bg-[#FFB000] shadow-[0_0_8px_rgba(255,176,0,0.6)]"
           />
         </div>
 
@@ -200,7 +200,7 @@ export function RilHeroSection() {
                 onClick={() => handleSelect(idx)}
                 aria-label={`Jump to ${s.name}`}
                 className={`h-1.5 rounded-full transition-all duration-300 ${idx === currentIndex
-                  ? "w-6 bg-gold-400 shadow-[0_0_8px_#f5b84d]"
+                  ? "w-6 bg-[#FFB000] shadow-[0_0_8px_#FFB000]"
                   : "w-2 bg-white/30 hover:bg-white/60"
                   }`}
               />

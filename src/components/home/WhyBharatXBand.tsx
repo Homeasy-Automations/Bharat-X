@@ -4,23 +4,16 @@ import { Icon } from "../../utils/icons";
 
 export function WhyBharatXBand() {
   return (
-    <section className="relative overflow-hidden py-24 sm:py-32 bg-black text-white">
-      {/* Full-Bleed Atmospheric Background Image */}
-      <div className="absolute inset-0 z-0">
-        <img
-          src="/assets/backgrounds/sovereign-conglomerate.jpg"
-          alt=""
-          className="h-full w-full object-cover filter brightness-[0.45] contrast-[1.15]"
-          loading="lazy"
-        />
-        <div className="absolute inset-0 bg-gradient-to-r from-night-950/85 via-night-950/45 to-transparent" />
-        <div className="absolute inset-0 bg-gradient-to-t from-night-950/80 via-transparent to-night-950/60" />
+    <section className="relative overflow-hidden py-24 sm:py-32 bg-[#211B72] text-white">
+      {/* Subtle Atmospheric Gradient */}
+      <div className="absolute inset-0 z-0 opacity-20">
+        <div className="absolute inset-0 bg-radial-at-c from-[#3026B3] via-transparent to-transparent" />
       </div>
 
       <div className="container-x relative z-10">
         <div className="max-w-3xl">
           {/* Eyebrow */}
-          <div className="flex items-center gap-2.5 font-mono text-[11px] uppercase tracking-[0.28em] text-gold-400">
+          <div className="flex items-center gap-2.5 font-mono text-[11px] uppercase tracking-[0.28em] text-[#FFB000]">
             <span>◆</span>
             <span>WHY BHARATX</span>
           </div>
@@ -29,10 +22,10 @@ export function WhyBharatXBand() {
           <h2 className="mt-4 font-serif text-4xl sm:text-5xl md:text-6xl font-normal leading-[1.08] tracking-tight text-white">
             Built for Scale.
             <br />
-            <span className="text-slate-300">Engineered for Sovereignty.</span>
+            <span className="text-[#E3E5EF]">Engineered for Sovereignty.</span>
           </h2>
 
-          <p className="mt-6 text-base sm:text-lg text-slate-300 leading-relaxed font-body">
+          <p className="mt-6 text-base sm:text-lg text-[#E3E5EF]/90 leading-relaxed font-body">
             We build foundational capabilities that outlast short-term cycles — governed like institutions, capitalized for decades, and focused purely on India's core industrial sovereignty.
           </p>
         </div>
@@ -64,13 +57,13 @@ export function WhyBharatXBand() {
               transition={{ duration: 0.6, delay: i * 0.12 }}
               className="flex flex-col pr-4"
             >
-              <span className="font-mono text-xs text-gold-400 font-bold tracking-widest">
+              <span className="font-mono text-xs text-[#FFB000] font-bold tracking-widest">
                 {pillar.num}
               </span>
               <h3 className="mt-3 font-serif text-xl sm:text-2xl font-normal text-white">
                 {pillar.title}
               </h3>
-              <p className="mt-2 text-sm text-slate-400 leading-relaxed">
+              <p className="mt-2 text-sm text-[#E3E5EF]/80 leading-relaxed">
                 {pillar.desc}
               </p>
             </motion.div>
@@ -80,9 +73,9 @@ export function WhyBharatXBand() {
         <div className="mt-12">
           <Link
             to="/about"
-            className="group inline-flex items-center gap-3 rounded-full border border-white/30 bg-white/5 backdrop-blur-md px-6 py-2.5 text-sm font-medium text-white transition-all hover:bg-white hover:text-black"
+            className="group inline-flex items-center gap-3 rounded-full bg-[#FFB000] px-6 py-2.5 text-sm font-semibold text-[#111827] shadow-sm transition-all hover:bg-[#e69e00]"
           >
-            <span>read our institutional charter</span>
+            <span>Read Our Institutional Charter</span>
             <Icon
               name="arrow-right"
               width={14}

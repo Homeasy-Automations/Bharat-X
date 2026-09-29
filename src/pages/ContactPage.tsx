@@ -62,30 +62,30 @@ export default function ContactPage() {
   };
 
   return (
-    <main className="min-h-screen bg-night-950 text-white pt-24 pb-20">
+    <main className="min-h-screen bg-night-950 text-ink-900 dark:text-white pt-24 pb-20">
       {/* ── 1. RIL-STYLE CONTACT HERO ───────────────────────────────────── */}
-      <section className="relative overflow-hidden py-20 sm:py-28 border-b border-white/10">
+      <section className="relative overflow-hidden py-20 sm:py-28 border-b border-[#E3E5EF] dark:border-white/10">
         <div className="absolute inset-0 z-0">
           <img
             src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=2400&q=85"
             alt=""
-            className="h-full w-full object-cover filter brightness-[0.55] contrast-[1.1]"
+            className="h-full w-full object-cover filter brightness-[0.92] dark:brightness-[0.55] contrast-[1.1]"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-night-950 via-night-950/40 to-night-950/20" />
+          <div className="absolute inset-0 bg-gradient-to-t from-night-950 via-night-950/80 to-night-950/40 dark:from-night-950 dark:via-night-950/40 dark:to-night-950/20" />
         </div>
 
         <div className="container-x relative z-10">
           <div className="max-w-3xl">
-            <div className="flex items-center gap-2.5 font-mono text-[11px] uppercase tracking-[0.28em] text-gold-400 mb-4">
+            <div className="flex items-center gap-2.5 font-mono text-[11px] uppercase tracking-[0.28em] text-[#3026B3] dark:text-gold-400 mb-4">
               <span>◆</span>
               <span>INSTITUTIONAL RELATIONS</span>
             </div>
-            <h1 className="font-serif text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-normal leading-[1.06] text-white">
+            <h1 className="font-serif text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-normal leading-[1.06] text-ink-900 dark:text-white">
               Partner with BharatX.
               <br />
-              <span className="italic text-slate-300">Executive Secretariat.</span>
+              <span className="italic text-[#596579] dark:text-slate-300">Executive Secretariat.</span>
             </h1>
-            <p className="mt-6 text-base sm:text-lg text-slate-300 leading-relaxed font-body">
+            <p className="mt-6 text-base sm:text-lg text-[#596579] dark:text-slate-300 leading-relaxed font-body">
               Connect with our corporate office and sector directorships for strategic partnerships, capital deployment, infrastructure tenders, and institutional inquiries.
             </p>
           </div>
@@ -93,16 +93,16 @@ export default function ContactPage() {
       </section>
 
       {/* ── 2. SECTOR INQUIRY DESKS ─────────────────────────────────────── */}
-      <section className="py-20 sm:py-28 border-b border-white/10">
+      <section className="py-20 sm:py-28 border-b border-[#E3E5EF] dark:border-white/10">
         <div className="container-x">
           <div className="max-w-2xl mb-12 sm:mb-16">
-            <span className="font-mono text-[10.5px] uppercase tracking-[0.24em] text-gold-400">
+            <span className="font-mono text-[10.5px] uppercase tracking-[0.24em] text-[#3026B3] dark:text-gold-400 font-semibold">
               COMMUNICATION CHANNELS
             </span>
-            <h2 className="mt-2 font-serif text-3xl sm:text-4xl lg:text-5xl font-normal text-white">
+            <h2 className="mt-2 font-serif text-3xl sm:text-4xl lg:text-5xl font-normal text-ink-900 dark:text-white">
               Sector Desks
             </h2>
-            <p className="mt-3 text-slate-400 text-sm sm:text-base font-body">
+            <p className="mt-3 text-[#596579] dark:text-slate-400 text-sm sm:text-base font-body">
               Select a specialized desk below to pre-configure your inquiry.
             </p>
           </div>
@@ -113,20 +113,20 @@ export default function ContactPage() {
                 key={desk.t}
                 type="button"
                 onClick={() => handleSelectDesk(desk.sector, desk.type)}
-                className="group flex flex-col justify-between text-left rounded-2xl border border-white/10 bg-white/[0.02] p-5 sm:p-6 transition-all duration-300 hover:border-gold-400/50 hover:bg-white/[0.05]"
+                className="group flex flex-col justify-between text-left rounded-2xl border border-[#E3E5EF] bg-white dark:border-white/10 dark:bg-white/[0.02] p-5 sm:p-6 transition-all duration-300 hover:border-[#3026B3] hover:shadow-md dark:hover:border-gold-400/50 dark:hover:bg-white/[0.05]"
               >
                 <div>
-                  <span className="flex h-9 w-9 items-center justify-center rounded-xl bg-gold-400/10 text-gold-400 mb-4">
+                  <span className="flex h-9 w-9 items-center justify-center rounded-xl bg-[#F1F6FF] dark:bg-gold-400/10 text-[#3026B3] dark:text-gold-400 mb-4">
                     <Icon name={desk.icon} width={18} height={18} />
                   </span>
-                  <h3 className="font-serif text-lg text-white font-normal group-hover:text-gold-300 transition-colors">
+                  <h3 className="font-serif text-lg text-ink-900 dark:text-white font-normal group-hover:text-[#3026B3] dark:group-hover:text-gold-300 transition-colors">
                     {desk.t}
                   </h3>
-                  <p className="mt-2 text-xs text-slate-400 leading-relaxed font-body">
+                  <p className="mt-2 text-xs text-[#596579] dark:text-slate-400 leading-relaxed font-body">
                     {desk.d}
                   </p>
                 </div>
-                <span className="mt-4 font-mono text-[10.5px] text-gold-400 group-hover:translate-x-1 transition-transform inline-flex items-center gap-1">
+                <span className="mt-4 font-mono text-[10.5px] text-[#3026B3] dark:text-gold-400 group-hover:translate-x-1 transition-transform inline-flex items-center gap-1 font-semibold">
                   Connect →
                 </span>
               </button>

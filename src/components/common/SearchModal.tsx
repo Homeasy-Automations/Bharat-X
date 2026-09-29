@@ -83,29 +83,29 @@ export function SearchModal({ open, onClose }: SearchModalProps) {
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.96, y: -10 }}
             transition={{ duration: 0.2, ease: [0.22, 1, 0.36, 1] }}
-            className="relative z-10 w-full max-w-2xl overflow-hidden rounded-2xl border border-slate-200/90 bg-white/95 shadow-2xl backdrop-blur-2xl dark:border-white/10 dark:bg-night-900/95"
+            className="relative z-10 w-full max-w-2xl overflow-hidden rounded-2xl border border-[#E3E5EF] bg-white shadow-2xl backdrop-blur-2xl dark:border-white/10 dark:bg-night-900/95"
           >
             {/* Input Bar */}
-            <div className="flex items-center gap-3 border-b border-slate-200/80 px-4 py-3.5 dark:border-white/10">
-              <Icon name="search" width={18} height={18} className="text-gold-500 dark:text-gold-400 shrink-0" />
+            <div className="flex items-center gap-3 border-b border-[#E3E5EF] px-4 py-3.5 dark:border-white/10">
+              <Icon name="search" width={18} height={18} className="text-[#3026B3] dark:text-gold-400 shrink-0" />
               <input
                 type="text"
                 autoFocus
                 value={query}
                 onChange={(e) => setQuery(e.target.value)}
                 placeholder="Search BharatX sectors, services, capabilities..."
-                className="w-full bg-transparent text-[15px] font-medium text-ink-100 placeholder:text-ink-400 focus:outline-none"
+                className="w-full bg-transparent text-[15px] font-medium text-[#111827] placeholder:text-[#596579] focus:outline-none dark:text-white"
               />
               {query && (
                 <button
                   type="button"
                   onClick={() => setQuery("")}
-                  className="rounded-full p-1 text-ink-400 hover:text-ink-100"
+                  className="rounded-full p-1 text-[#596579] hover:text-[#111827]"
                 >
                   <Icon name="x" width={14} height={14} />
                 </button>
               )}
-              <kbd className="hidden sm:inline-block rounded border border-slate-200 px-2 py-0.5 font-mono text-[10px] text-ink-400 dark:border-white/15">
+              <kbd className="hidden sm:inline-block rounded border border-[#E3E5EF] px-2 py-0.5 font-mono text-[10px] text-[#596579] dark:border-white/15">
                 ESC
               </kbd>
             </div>
@@ -115,7 +115,7 @@ export function SearchModal({ open, onClose }: SearchModalProps) {
               {/* Services Section */}
               {results.services.length > 0 && (
                 <div>
-                  <div className="mb-2.5 px-2 font-mono text-[10.5px] uppercase tracking-[0.2em] text-ink-500">
+                  <div className="mb-2.5 px-2 font-mono text-[10.5px] uppercase tracking-[0.2em] text-[#596579]">
                     Sectors &amp; Services
                   </div>
                   <div className="grid gap-1.5 sm:grid-cols-2">
@@ -124,16 +124,16 @@ export function SearchModal({ open, onClose }: SearchModalProps) {
                         key={s.id}
                         type="button"
                         onClick={() => handleSelect(`/services#${s.id}`)}
-                        className="group flex items-center gap-3 rounded-xl p-2.5 text-left transition-colors hover:bg-slate-100/80 dark:hover:bg-white/[0.05]"
+                        className="group flex items-center gap-3 rounded-xl p-2.5 text-left transition-colors hover:bg-[#F1F6FF] dark:hover:bg-white/[0.05]"
                       >
-                        <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-gold-400/15 font-mono text-[11px] font-bold text-gold-500">
+                        <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-[#F1F6FF] border border-[#E3E5EF] font-mono text-[11px] font-bold text-[#3026B3]">
                           0{i + 1}
                         </span>
                         <div className="min-w-0 flex-1">
-                          <div className="font-display text-[13.5px] font-semibold text-ink-100 group-hover:text-gold-500 dark:group-hover:text-gold-400 truncate">
+                          <div className="font-display text-[13.5px] font-semibold text-[#111827] group-hover:text-[#3026B3] dark:text-white dark:group-hover:text-gold-400 truncate">
                             {s.name}
                           </div>
-                          <div className="text-[11px] text-ink-400 truncate">
+                          <div className="text-[11px] text-[#596579] truncate">
                             {s.descriptor}
                           </div>
                         </div>
@@ -141,7 +141,7 @@ export function SearchModal({ open, onClose }: SearchModalProps) {
                           name="arrow-up-right"
                           width={14}
                           height={14}
-                          className="shrink-0 text-ink-400 opacity-0 group-hover:opacity-100 transition-opacity"
+                          className="shrink-0 text-[#3026B3] opacity-0 group-hover:opacity-100 transition-opacity"
                         />
                       </button>
                     ))}
@@ -152,7 +152,7 @@ export function SearchModal({ open, onClose }: SearchModalProps) {
               {/* Pages & Portals */}
               {results.pages.length > 0 && (
                 <div>
-                  <div className="mb-2.5 px-2 font-mono text-[10.5px] uppercase tracking-[0.2em] text-ink-500">
+                  <div className="mb-2.5 px-2 font-mono text-[10.5px] uppercase tracking-[0.2em] text-[#596579]">
                     Corporate Navigation
                   </div>
                   <div className="grid gap-1.5 sm:grid-cols-2">
@@ -161,12 +161,12 @@ export function SearchModal({ open, onClose }: SearchModalProps) {
                         key={p.to}
                         type="button"
                         onClick={() => handleSelect(p.to)}
-                        className="group flex items-center gap-3 rounded-xl p-2.5 text-left transition-colors hover:bg-slate-100/80 dark:hover:bg-white/[0.05]"
+                        className="group flex items-center gap-3 rounded-xl p-2.5 text-left transition-colors hover:bg-[#F1F6FF] dark:hover:bg-white/[0.05]"
                       >
-                        <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-slate-100 text-ink-500 group-hover:text-pulse-500 dark:bg-white/[0.06] dark:text-ink-400">
+                        <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-[#F1F6FF] border border-[#E3E5EF] text-[#3026B3] dark:bg-white/[0.06] dark:text-ink-400">
                           <Icon name={p.icon} width={15} height={15} />
                         </span>
-                        <div className="font-display text-[13.5px] font-medium text-ink-100 group-hover:text-pulse-500 truncate">
+                        <div className="font-display text-[13.5px] font-medium text-[#111827] group-hover:text-[#3026B3] dark:text-white truncate">
                           {p.label}
                         </div>
                       </button>
@@ -176,14 +176,14 @@ export function SearchModal({ open, onClose }: SearchModalProps) {
               )}
 
               {results.services.length === 0 && results.pages.length === 0 && (
-                <div className="py-8 text-center text-sm text-ink-400">
+                <div className="py-8 text-center text-sm text-[#596579]">
                   No matching services or portals found for "{query}"
                 </div>
               )}
             </div>
 
             {/* Modal Footer Key Hints */}
-            <div className="border-t border-slate-200/80 bg-slate-50/50 px-4 py-2 text-[11px] font-mono text-ink-400 flex items-center justify-between dark:border-white/10 dark:bg-white/[0.02]">
+            <div className="border-t border-[#E3E5EF] bg-[#F7F7FC] px-4 py-2 text-[11px] font-mono text-[#596579] flex items-center justify-between dark:border-white/10 dark:bg-white/[0.02]">
               <span>Search BharatX Group</span>
               <span>Press ESC to dismiss</span>
             </div>

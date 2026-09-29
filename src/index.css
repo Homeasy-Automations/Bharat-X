@@ -26,6 +26,13 @@
   --color-ember-300: var(--color-ember-300);
   --color-ember-400: var(--color-ember-400);
   --color-ember-500: var(--color-ember-500);
+  --color-ember-600: var(--color-ember-600);
+
+  --color-primary: var(--color-primary);
+  --color-primary-dark: var(--color-primary-dark);
+  --color-accent-saffron: var(--color-accent-saffron);
+  --color-accent-cyan: var(--color-accent-cyan);
+  --color-success: var(--color-success);
 
   --color-fog-100: var(--color-fog-100);
   --color-fog-200: var(--color-fog-200);
@@ -53,91 +60,104 @@
   --container-8xl: 90rem;
 }
 
-/* ── Light Mode Theme (Option 1: Sovereign Conglomerate Horizon - Executive Titanium & Travertine) ─────── */
+/* ── Light White / Ivory Soft Lavender Theme ─────── */
 :root {
-  --color-night-950: #f8fafc; /* Executive titanium & travertine bone base */
-  --color-night-900: #f1f5f9; /* Grounded architectural surface */
-  --color-night-850: #ffffff; /* Crisp elevated card surface */
-  --color-night-800: #e2e8f0; /* Executive sub-surface */
-  --color-night-700: #cbd5e1; /* Subtle architectural border */
-  --color-night-600: #94a3b8; /* Crisp structural divider */
+  --color-night-950: #FAF9F6; /* Light ivory / soft warm white background */
+  --color-night-900: #F7F7FC; /* Soft Lavender White (Main Background) */
+  --color-night-850: #FFFFFF; /* Pure White (Card) */
+  --color-night-800: #F1F6FF; /* Cool Blue White (Alternate Background) */
+  --color-night-700: #E3E5EF; /* Soft Lavender Gray (Border) */
+  --color-night-600: #CBD1E1; /* Architectural structural divider */
 
-  /* High-Vibrancy Electric Cyan & Laser Glow */
-  --color-pulse-200: #cffafe;
-  --color-pulse-300: #67e8f9;
-  --color-pulse-400: #00bcd4;
-  --color-pulse-500: #0891b2;
-  --color-pulse-600: #0e7490;
+  /* Accent 2: Electric Cyan (#00B8D9) */
+  --color-pulse-200: #C7F6FD;
+  --color-pulse-300: #5EE4F8;
+  --color-pulse-400: #00B8D9;
+  --color-pulse-500: #0092B0;
+  --color-pulse-600: #006E85;
 
-  /* Neon Gold & Radiant Sunburst */
-  --color-gold-200: #fef08a;
-  --color-gold-300: #fde047;
-  --color-gold-400: #eab308;
-  --color-gold-500: #ca8a04;
-  --color-gold-600: #a16207;
+  /* Accent 1: Vibrant Saffron (#FFB000) */
+  --color-gold-200: #FFECC2;
+  --color-gold-300: #FFD470;
+  --color-gold-400: #FFB000;
+  --color-gold-500: #E09800;
+  --color-gold-600: #B87B00;
 
-  /* Vivid Electric Violet & Cyber-Purple */
-  --color-ember-300: #ddd6fe;
-  --color-ember-400: #8b5cf6;
-  --color-ember-500: #7c3aed;
+  /* Primary: Deep Indigo (#3026B3) & Midnight Indigo (#211B72) */
+  --color-ember-300: #D2CFFE;
+  --color-ember-400: #4B40D4;
+  --color-ember-500: #3026B3;
+  --color-ember-600: #211B72;
+
+  --color-primary: #3026B3;
+  --color-primary-dark: #211B72;
+  --color-accent-saffron: #FFB000;
+  --color-accent-cyan: #00B8D9;
+  --color-success: #15966B;
 
   /* Frosted White & Ice Overlays */
-  --color-fog-100: #ffffff;
-  --color-fog-200: #f8fafc;
-  --color-fog-300: #e2e8f0;
+  --color-fog-100: #FFFFFF;
+  --color-fog-200: #F7F7FC;
+  --color-fog-300: #F1F6FF;
 
-  /* High-Contrast Bold Inks */
-  --color-ink-50: #060b17;
-  --color-ink-100: #0f172a;
-  --color-ink-200: #1e293b;
-  --color-ink-300: #334155;
-  --color-ink-400: #475569;
-  --color-ink-500: #64748b;
-  --color-ink-600: #94a3b8;
+  /* High-Contrast Bold Inks (Main Text: Almost Black #111827, Secondary: Slate #596579) */
+  --color-ink-50: #0B0F19;
+  --color-ink-100: #111827;
+  --color-ink-200: #1F2937;
+  --color-ink-300: #374151;
+  --color-ink-400: #596579;
+  --color-ink-500: #6B788E;
+  --color-ink-600: #8C9BB0;
 }
 
-/* ── Vibrant Color Combination Theme (Electric Blue, Yellow #FFFF00, Red, Green, Purple) ─── */
+/* ── Midnight Indigo Dark Counterpart ─────────────────────────── */
 html.dark {
-  /* Vibrant Electric Royal Blue Base (Completely non-dark/non-black!) */
-  --color-night-950: #0e2060; /* Deep electric royal blue */
-  --color-night-900: #142d82; /* Rich saturated electric blue canvas */
-  --color-night-850: #1b3aa5; /* Vibrant elevated card surface */
-  --color-night-800: #2449c4; /* Vibrant electric sub-surface */
-  --color-night-700: #3862e0; /* Vibrant structural border */
-  --color-night-600: #5b82f6; /* Crisp bright border highlight */
+  --color-night-950: #181350; /* Deep Midnight Indigo base */
+  --color-night-900: #211B72; /* Midnight Indigo */
+  --color-night-850: #2A2388; /* Elevated Card */
+  --color-night-800: #332B9C; /* Sub-surface */
+  --color-night-700: #463CAE; /* Border */
+  --color-night-600: #5D52C5; /* Divider */
 
-  /* Electric Blue & Green Accents (#0055ff & #00e626 from user images) */
-  --color-pulse-200: #bbf7d0;
-  --color-pulse-300: #00e626; /* Neon Green from Image 2 */
-  --color-pulse-400: #0088ff; /* Bright Electric Blue */
-  --color-pulse-500: #0055ff; /* Electric Royal Blue from Image 1 & 2 */
-  --color-pulse-600: #003cd6;
+  /* Accent 2: Electric Cyan (#00B8D9) */
+  --color-pulse-200: #C7F6FD;
+  --color-pulse-300: #5EE4F8;
+  --color-pulse-400: #00B8D9;
+  --color-pulse-500: #00CDEB;
+  --color-pulse-600: #5EE4F8;
 
-  /* Vivid Yellow (#FFFF00) & Electric Red (#ff1e27) Accents from user images */
-  --color-gold-200: #fffec4;
-  --color-gold-300: #fffb66;
-  --color-gold-400: #ffff00; /* Exact #FFFF00 from Image 2 */
-  --color-gold-500: #ff1e27; /* Electric Red from Image 1 & 2 */
-  --color-gold-600: #d60010;
+  /* Accent 1: Vibrant Saffron (#FFB000) */
+  --color-gold-200: #FFECC2;
+  --color-gold-300: #FFD470;
+  --color-gold-400: #FFB000;
+  --color-gold-500: #FFC033;
+  --color-gold-600: #FFD470;
 
-  /* Vivid Purple Accents (#a800ff from user image 1) */
-  --color-ember-300: #f0b8ff;
-  --color-ember-400: #c938ff;
-  --color-ember-500: #a800ff; /* Vivid Purple from Image 1 */
+  /* Primary: Deep Indigo (#3026B3) */
+  --color-ember-300: #D2CFFE;
+  --color-ember-400: #6255F5;
+  --color-ember-500: #3026B3;
+  --color-ember-600: #211B72;
 
-  /* Ice Glass Overlays */
-  --color-fog-100: #ffffff;
-  --color-fog-200: #f0f6ff;
-  --color-fog-300: #dbeafe;
+  --color-primary: #4E42EC;
+  --color-primary-dark: #211B72;
+  --color-accent-saffron: #FFB000;
+  --color-accent-cyan: #00B8D9;
+  --color-success: #15966B;
 
-  /* Brilliant High-Contrast Readability on Vibrant Blue */
-  --color-ink-50: #ffffff;
-  --color-ink-100: #ffffff;
-  --color-ink-200: #ffff80;
-  --color-ink-300: #e0ecff;
-  --color-ink-400: #b8d2ff;
-  --color-ink-500: #93b7ff;
-  --color-ink-600: #6b9cff;
+  /* Overlays */
+  --color-fog-100: #FFFFFF;
+  --color-fog-200: #F7F7FC;
+  --color-fog-300: #F1F6FF;
+
+  /* High-Contrast Readability */
+  --color-ink-50: #FFFFFF;
+  --color-ink-100: #FFFFFF;
+  --color-ink-200: #F7F7FC;
+  --color-ink-300: #E3E5EF;
+  --color-ink-400: #B4BCCE;
+  --color-ink-500: #8D97AB;
+  --color-ink-600: #6B788E;
 }
 
 /* ── Base ────────────────────────────────────────────────────── */
@@ -168,12 +188,12 @@ a, button, [role="button"], input, select, textarea {
 }
 
 ::selection {
-  background: rgba(245, 158, 11, 0.3);
-  color: #090e17;
+  background: #FFB000;
+  color: #111827;
 }
 .dark ::selection {
-  background: #ffff00;
-  color: #0e2060;
+  background: #FFB000;
+  color: #111827;
 }
 
 /* Scrollbar */
@@ -184,16 +204,16 @@ a, button, [role="button"], input, select, textarea {
   background: var(--color-night-950);
 }
 ::-webkit-scrollbar-thumb {
-  background: var(--color-night-600);
+  background: #CBD1E1;
   border-radius: 8px;
   border: 2px solid var(--color-night-950);
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #64748b;
+  background: #596579;
 }
 
 :focus-visible {
-  outline: 2px solid rgba(6, 182, 212, 0.7);
+  outline: 2px solid #00B8D9;
   outline-offset: 2px;
 }
 
@@ -232,93 +252,93 @@ a, button, [role="button"], input, select, textarea {
 
 /* ── Surfaces ────────────────────────────────────────────────── */
 .hairline {
-  border: 1px solid rgba(15, 23, 42, 0.08);
+  border: 1px solid #E3E5EF;
 }
 .dark .hairline {
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(227, 229, 239, 0.2);
 }
 
 .glass {
-  background: rgba(255, 255, 255, 0.75);
+  background: rgba(255, 255, 255, 0.88);
   backdrop-filter: blur(20px) saturate(1.4);
   -webkit-backdrop-filter: blur(20px) saturate(1.4);
-  border: 1px solid rgba(255, 255, 255, 0.9);
-  box-shadow: 0 10px 30px -10px rgba(15, 23, 42, 0.05), 0 1px 3px 0 rgba(15, 23, 42, 0.03);
+  border: 1px solid #E3E5EF;
+  box-shadow: 0 10px 30px -10px rgba(48, 38, 179, 0.05), 0 1px 3px 0 rgba(17, 24, 39, 0.02);
 }
 .dark .glass {
-  background: rgba(27, 58, 165, 0.82);
-  backdrop-filter: blur(20px) saturate(1.6);
-  -webkit-backdrop-filter: blur(20px) saturate(1.6);
-  border: 1px solid rgba(255, 255, 255, 0.22);
+  background: rgba(33, 27, 114, 0.85);
+  backdrop-filter: blur(20px) saturate(1.5);
+  -webkit-backdrop-filter: blur(20px) saturate(1.5);
+  border: 1px solid rgba(227, 229, 239, 0.2);
   box-shadow:
-    0 16px 40px -12px rgba(10, 24, 80, 0.4),
-    0 0 24px -4px rgba(255, 255, 0, 0.18),
-    inset 0 1px 0 0 rgba(255, 255, 255, 0.25);
+    0 16px 40px -12px rgba(17, 24, 39, 0.45),
+    0 0 24px -4px rgba(0, 184, 217, 0.12),
+    inset 0 1px 0 0 rgba(255, 255, 255, 0.1);
 }
 
 .glass-nav {
-  background: rgba(255, 255, 255, 0.82);
+  background: rgba(255, 255, 255, 0.94);
   backdrop-filter: blur(20px) saturate(1.4);
   -webkit-backdrop-filter: blur(20px) saturate(1.4);
-  border: none !important;
-  border-bottom: none !important;
-  box-shadow: 0 10px 30px -15px rgba(15, 23, 42, 0.06);
+  border-bottom: 1px solid #E3E5EF !important;
+  box-shadow: 0 4px 20px -5px rgba(48, 38, 179, 0.04);
 }
 .dark .glass-nav {
-  background: rgba(18, 41, 120, 0.92);
-  backdrop-filter: blur(20px) saturate(1.6);
-  -webkit-backdrop-filter: blur(20px) saturate(1.6);
-  border: none !important;
-  border-bottom: 2px solid rgba(255, 255, 0, 0.35) !important;
-  box-shadow: 0 12px 36px -12px rgba(0, 30, 110, 0.6), 0 0 24px -6px rgba(0, 85, 255, 0.3);
+  background: rgba(33, 27, 114, 0.95);
+  backdrop-filter: blur(20px) saturate(1.5);
+  -webkit-backdrop-filter: blur(20px) saturate(1.5);
+  border-bottom: 1px solid rgba(227, 229, 239, 0.2) !important;
+  box-shadow: 0 10px 30px -10px rgba(17, 24, 39, 0.5);
 }
 
 .tint-panel {
   background: linear-gradient(
     135deg,
-    rgba(0, 188, 212, 0.12),
-    rgba(139, 92, 246, 0.09) 50%,
-    rgba(255, 255, 255, 0.9) 100%
+    rgba(241, 246, 255, 0.95),
+    rgba(247, 247, 252, 0.9) 50%,
+    rgba(255, 255, 255, 0.98) 100%
   );
-  border: 1px solid rgba(0, 188, 212, 0.18);
+  border: 1px solid #E3E5EF;
+  box-shadow: 0 8px 24px -8px rgba(48, 38, 179, 0.04);
 }
 .dark .tint-panel {
   background: linear-gradient(
     135deg,
-    rgba(0, 85, 255, 0.4),
-    rgba(168, 0, 255, 0.35) 45%,
-    rgba(255, 30, 39, 0.28) 100%
+    rgba(48, 38, 179, 0.28),
+    rgba(33, 27, 114, 0.55) 50%,
+    rgba(17, 24, 39, 0.45) 100%
   );
-  border: 1.5px solid rgba(255, 255, 0, 0.45);
+  border: 1.5px solid rgba(227, 229, 239, 0.22);
   box-shadow:
-    0 16px 40px -12px rgba(10, 24, 80, 0.5),
-    0 0 28px -6px rgba(255, 255, 0, 0.25),
-    inset 0 1px 0 0 rgba(255, 255, 255, 0.25);
+    0 16px 40px -12px rgba(17, 24, 39, 0.5),
+    0 0 28px -6px rgba(0, 184, 217, 0.15);
 }
 
 .paper {
   background: #ffffff;
-  color: #0f172a;
+  color: #111827;
+  border: 1px solid #E3E5EF;
 }
 .paper .text-ink-300,
 .paper .text-ink-400 {
-  color: #475569;
+  color: #596579;
 }
 .dark .paper {
-  background: var(--color-fog-100);
-  color: #131a22;
+  background: #211B72;
+  color: #FFFFFF;
+  border: 1px solid rgba(227, 229, 239, 0.2);
 }
 .dark .paper .text-ink-300,
 .dark .paper .text-ink-400 {
-  color: #4e5b67;
+  color: #CBD1E1;
 }
 
 /* Card subtle depth */
 .rounded-2xl, .rounded-3xl, .rounded-xl {
-  box-shadow: 0 8px 30px -6px rgba(15, 23, 42, 0.05), 0 1px 3px 0 rgba(15, 23, 42, 0.02);
+  box-shadow: 0 8px 30px -6px rgba(48, 38, 179, 0.04), 0 1px 3px 0 rgba(17, 24, 39, 0.02);
 }
 .dark .rounded-2xl, .dark .rounded-3xl, .dark .rounded-xl {
-  box-shadow: 0 16px 40px -15px rgba(8, 20, 70, 0.35), 0 0 0 1.5px rgba(255, 255, 255, 0.18);
+  box-shadow: 0 16px 40px -15px rgba(17, 24, 39, 0.4), 0 0 0 1px rgba(227, 229, 239, 0.15);
 }
 
 /* Film-grain overlay */
@@ -330,7 +350,7 @@ a, button, [role="button"], input, select, textarea {
   position: absolute;
   inset: 0;
   pointer-events: none;
-  opacity: 0.03;
+  opacity: 0.025;
   background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 240 240' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
   background-size: 240px 240px;
   z-index: 1;
@@ -342,14 +362,14 @@ a, button, [role="button"], input, select, textarea {
 /* Fine engineering grid */
 .grid-bg {
   background-image:
-    linear-gradient(rgba(15, 23, 42, 0.085) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(15, 23, 42, 0.085) 1px, transparent 1px);
+    linear-gradient(rgba(227, 229, 239, 0.8) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(227, 229, 239, 0.8) 1px, transparent 1px);
   background-size: 64px 64px;
 }
 .dark .grid-bg {
   background-image:
-    linear-gradient(rgba(255, 255, 0, 0.12) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(0, 230, 38, 0.1) 1px, transparent 1px);
+    linear-gradient(rgba(227, 229, 239, 0.08) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(227, 229, 239, 0.08) 1px, transparent 1px);
 }
 
 .grid-bg-fade {
@@ -368,17 +388,16 @@ a, button, [role="button"], input, select, textarea {
 /* Aurora mesh glow */
 .aurora {
   background:
-    radial-gradient(55rem 32rem at 12% -5%, rgba(0, 188, 212, 0.22), transparent 60%),
-    radial-gradient(48rem 28rem at 88% 6%, rgba(139, 92, 246, 0.18), transparent 62%),
-    radial-gradient(60rem 38rem at 50% 115%, rgba(234, 179, 8, 0.18), transparent 70%);
+    radial-gradient(55rem 32rem at 12% -5%, rgba(0, 184, 217, 0.12), transparent 60%),
+    radial-gradient(48rem 28rem at 88% 6%, rgba(48, 38, 179, 0.08), transparent 62%),
+    radial-gradient(60rem 38rem at 50% 115%, rgba(255, 176, 0, 0.1), transparent 70%);
 }
 .dark .aurora {
   background:
-    radial-gradient(55rem 32rem at 10% -6%, rgba(0, 85, 255, 0.55), transparent 65%),
-    radial-gradient(50rem 30rem at 90% 5%, rgba(168, 0, 255, 0.5), transparent 65%),
-    radial-gradient(45rem 28rem at 18% 70%, rgba(0, 230, 38, 0.42), transparent 65%),
-    radial-gradient(40rem 26rem at 86% 78%, rgba(255, 30, 39, 0.45), transparent 65%),
-    radial-gradient(60rem 38rem at 50% 115%, rgba(255, 255, 0, 0.5), transparent 72%);
+    radial-gradient(55rem 32rem at 10% -6%, rgba(48, 38, 179, 0.4), transparent 65%),
+    radial-gradient(50rem 30rem at 90% 5%, rgba(0, 184, 217, 0.3), transparent 65%),
+    radial-gradient(45rem 28rem at 18% 70%, rgba(21, 150, 107, 0.25), transparent 65%),
+    radial-gradient(60rem 38rem at 50% 115%, rgba(255, 176, 0, 0.25), transparent 72%);
 }
 
 /* ── Static Global Background ────────────────────────────────── */
@@ -401,7 +420,7 @@ a, button, [role="button"], input, select, textarea {
   background-size: cover;
   background-position: center top;
   background-repeat: no-repeat;
-  opacity: 0.18;
+  opacity: 0.12;
   mix-blend-mode: multiply;
   transition: opacity 0.4s ease;
 }
@@ -409,7 +428,7 @@ a, button, [role="button"], input, select, textarea {
   background-image:
     radial-gradient(ellipse 90% 70% at 50% 30%, transparent 15%, var(--color-night-950) 85%),
     url("/assets/backgrounds/ai-circuit.jpg");
-  opacity: 0.22;
+  opacity: 0.15;
   mix-blend-mode: screen;
 }
 
@@ -417,22 +436,19 @@ a, button, [role="button"], input, select, textarea {
   position: absolute;
   inset: 0;
   background:
-    radial-gradient(75rem 48rem at 50% -5%, rgba(217, 119, 6, 0.22), transparent 70%),
-    radial-gradient(60rem 40rem at 88% 22%, rgba(2, 132, 199, 0.18), transparent 65%),
-    radial-gradient(65rem 45rem at 12% 40%, rgba(124, 58, 237, 0.14), transparent 70%),
-    radial-gradient(85rem 55rem at 50% 105%, rgba(5, 150, 105, 0.14), transparent 75%);
+    radial-gradient(75rem 48rem at 50% -5%, rgba(48, 38, 179, 0.07), transparent 70%),
+    radial-gradient(60rem 40rem at 88% 22%, rgba(0, 184, 217, 0.08), transparent 65%),
+    radial-gradient(65rem 45rem at 12% 40%, rgba(255, 176, 0, 0.06), transparent 70%),
+    radial-gradient(85rem 55rem at 50% 105%, rgba(21, 150, 107, 0.06), transparent 75%);
   transition: background 0.4s ease;
 }
 .dark .global-static-bg-aurora {
   background:
-    radial-gradient(75rem 48rem at 10% -5%, rgba(0, 85, 255, 0.5), transparent 68%),
-    radial-gradient(65rem 42rem at 90% 8%, rgba(168, 0, 255, 0.45), transparent 68%),
-    radial-gradient(60rem 38rem at 50% 38%, rgba(255, 255, 0, 0.35), transparent 70%),
-    radial-gradient(55rem 35rem at 8% 68%, rgba(0, 230, 38, 0.38), transparent 70%),
-    radial-gradient(68rem 44rem at 92% 75%, rgba(255, 30, 39, 0.4), transparent 70%),
-    radial-gradient(50rem 32rem at 25% 95%, rgba(168, 0, 255, 0.35), transparent 72%),
-    radial-gradient(85rem 55rem at 75% 105%, rgba(255, 30, 39, 0.38), transparent 75%),
-    radial-gradient(80rem 50rem at 50% 115%, rgba(255, 255, 0, 0.45), transparent 78%);
+    radial-gradient(75rem 48rem at 10% -5%, rgba(48, 38, 179, 0.4), transparent 68%),
+    radial-gradient(65rem 42rem at 90% 8%, rgba(0, 184, 217, 0.3), transparent 68%),
+    radial-gradient(60rem 38rem at 50% 38%, rgba(255, 176, 0, 0.22), transparent 70%),
+    radial-gradient(55rem 35rem at 8% 68%, rgba(21, 150, 107, 0.25), transparent 70%),
+    radial-gradient(80rem 50rem at 50% 115%, rgba(255, 176, 0, 0.3), transparent 78%);
   transition: background 0.4s ease;
 }
 
@@ -441,17 +457,17 @@ a, button, [role="button"], input, select, textarea {
   inset: 0;
   background: radial-gradient(
     ellipse at 50% 40%,
-    transparent 20%,
-    rgba(226, 232, 240, 0.15) 60%,
-    rgba(203, 213, 225, 0.35) 100%
+    transparent 40%,
+    rgba(241, 246, 255, 0.4) 75%,
+    rgba(227, 229, 239, 0.6) 100%
   );
 }
 .dark .global-static-bg-vignette {
   background: radial-gradient(
     ellipse at 50% 45%,
-    transparent 20%,
-    rgba(255, 255, 0, 0.06) 60%,
-    rgba(168, 0, 255, 0.15) 100%
+    transparent 30%,
+    rgba(48, 38, 179, 0.12) 65%,
+    rgba(17, 24, 39, 0.4) 100%
   );
 }
 
@@ -462,47 +478,46 @@ a, button, [role="button"], input, select, textarea {
     to bottom,
     transparent 0%,
     transparent 50%,
-    rgba(248, 250, 252, 0.25) 80%,
-    rgba(248, 250, 252, 0.5) 100%
+    rgba(247, 247, 252, 0.4) 80%,
+    rgba(241, 246, 255, 0.6) 100%
   );
 }
 .dark .global-static-bg-gradient {
   background: linear-gradient(
     to bottom,
-    rgba(0, 85, 255, 0.12) 0%,
+    rgba(48, 38, 179, 0.12) 0%,
     transparent 35%,
-    rgba(168, 0, 255, 0.18) 75%,
-    rgba(255, 30, 39, 0.22) 100%
+    rgba(33, 27, 114, 0.3) 75%,
+    rgba(17, 24, 39, 0.4) 100%
   );
 }
 
 .gold-glow {
   background: radial-gradient(
     42rem 24rem at 50% 10%,
-    rgba(234, 179, 8, 0.2),
-    rgba(139, 92, 246, 0.15) 50%,
+    rgba(255, 176, 0, 0.18),
+    rgba(48, 38, 179, 0.12) 50%,
     transparent 72%
   );
 }
 .dark .gold-glow {
   background: radial-gradient(
     48rem 28rem at 50% 0%,
-    rgba(255, 255, 0, 0.5),
-    rgba(255, 30, 39, 0.35) 35%,
-    rgba(168, 0, 255, 0.25) 65%,
+    rgba(255, 176, 0, 0.35),
+    rgba(48, 38, 179, 0.3) 45%,
+    rgba(0, 184, 217, 0.2) 70%,
     transparent 78%
   );
 }
 
-/* 3D Orb ambient glow pedestal in vibrant mode */
+/* 3D Orb ambient glow pedestal */
 .dark .orb-pedestal {
   opacity: 0.85 !important;
   background: radial-gradient(
     circle,
-    rgba(255, 255, 0, 0.55) 0%,
-    rgba(0, 85, 255, 0.45) 35%,
-    rgba(168, 0, 255, 0.35) 60%,
-    rgba(255, 30, 39, 0.3) 80%,
+    rgba(255, 176, 0, 0.45) 0%,
+    rgba(48, 38, 179, 0.4) 35%,
+    rgba(0, 184, 217, 0.3) 60%,
     transparent 90%
   ) !important;
 }
@@ -510,10 +525,10 @@ a, button, [role="button"], input, select, textarea {
 /* Ghost outline display text */
 .text-ghost {
   color: transparent;
-  -webkit-text-stroke: 1px rgba(15, 23, 42, 0.12);
+  -webkit-text-stroke: 1px rgba(17, 24, 39, 0.15);
 }
 .dark .text-ghost {
-  -webkit-text-stroke: 1px rgba(255, 255, 255, 0.1);
+  -webkit-text-stroke: 1px rgba(227, 229, 239, 0.25);
 }
 
 /* ── Marquee ─────────────────────────────────────────────────── */

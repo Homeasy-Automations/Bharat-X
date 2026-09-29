@@ -18,16 +18,16 @@ const base =
 
 const variants: Record<ButtonVariant, string> = {
   primary:
-    "bg-gold-500 text-white font-semibold shadow-md shadow-gold-500/25 hover:bg-gold-600 hover:shadow-[0_8px_30px_-4px_rgba(234,179,8,0.5)] dark:bg-gold-400 dark:text-night-950 dark:hover:bg-gold-300 dark:hover:shadow-[0_8px_40px_-6px_rgba(255,184,0,0.65)]",
+    "bg-[#3026B3] text-white font-semibold shadow-md shadow-[#3026B3]/25 hover:bg-[#211B72] hover:shadow-[0_8px_30px_-4px_rgba(48,38,179,0.4)] dark:bg-[#FFB000] dark:text-[#111827] dark:hover:bg-[#e69e00] dark:hover:shadow-[0_8px_35px_-4px_rgba(255,176,0,0.5)]",
   secondary:
-    "border border-slate-300/90 bg-white/90 text-ink-900 font-semibold shadow-sm hover:border-gold-400 hover:text-gold-600 hover:shadow-md dark:border-white/15 dark:bg-white/[0.06] dark:text-ink-50 dark:hover:border-gold-400/40 dark:hover:text-gold-400 dark:hover:bg-white/[0.1]",
-  teal: "bg-pulse-500 text-white font-semibold shadow-md shadow-pulse-500/25 hover:bg-pulse-600 hover:shadow-[0_8px_30px_-4px_rgba(0,188,212,0.5)] dark:bg-pulse-400 dark:text-night-950 dark:hover:bg-pulse-300 dark:hover:shadow-[0_8px_40px_-6px_rgba(0,240,255,0.65)]",
+    "border border-[#E3E5EF] bg-white text-[#111827] font-semibold shadow-sm hover:border-[#3026B3] hover:text-[#3026B3] hover:shadow-md dark:border-white/20 dark:bg-white/[0.08] dark:text-white dark:hover:border-[#FFB000] dark:hover:text-[#FFB000] dark:hover:bg-white/[0.12]",
+  teal: "bg-[#00B8D9] text-white font-semibold shadow-md shadow-[#00B8D9]/25 hover:bg-[#009eb8] hover:shadow-[0_8px_30px_-4px_rgba(0,184,217,0.4)] dark:bg-[#00B8D9] dark:text-white dark:hover:bg-[#00c9ec]",
   ghost:
-    "border border-slate-300/80 bg-white/80 text-ink-100 backdrop-blur-sm shadow-sm hover:border-slate-400 hover:bg-white hover:shadow-md dark:border-white/15 dark:bg-white/[0.04] dark:hover:border-white/40 dark:hover:bg-white/[0.08] dark:shadow-none",
+    "border border-[#E3E5EF] bg-white/80 text-[#596579] backdrop-blur-sm shadow-sm hover:border-[#3026B3] hover:text-[#111827] hover:bg-white dark:border-white/15 dark:bg-white/[0.04] dark:text-ink-200 dark:hover:border-[#FFB000] dark:hover:text-white",
   ember:
-    "bg-ember-500 text-white font-semibold shadow-md shadow-ember-500/25 hover:bg-ember-600 hover:shadow-[0_8px_30px_-4px_rgba(139,92,246,0.5)] dark:bg-ember-400 dark:text-night-950 dark:hover:bg-ember-300 dark:hover:shadow-[0_8px_40px_-6px_rgba(192,132,252,0.65)]",
+    "bg-[#FFB000] text-[#111827] font-semibold shadow-md shadow-[#FFB000]/25 hover:bg-[#e69e00] hover:shadow-[0_8px_30px_-4px_rgba(255,176,0,0.4)] dark:bg-[#FFB000] dark:text-[#111827] dark:hover:bg-[#ffd054]",
   paper:
-    "bg-slate-900 text-white font-semibold shadow-md hover:bg-slate-800 hover:shadow-lg dark:bg-night-900 dark:text-fog-100 dark:hover:bg-night-700",
+    "bg-[#111827] text-white font-semibold shadow-md hover:bg-[#211B72] hover:shadow-lg dark:bg-[#F1F6FF] dark:text-[#111827] dark:hover:bg-white",
 };
 
 const sizes: Record<ButtonSize, string> = {

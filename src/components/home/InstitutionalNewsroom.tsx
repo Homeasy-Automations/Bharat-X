@@ -69,34 +69,23 @@ export function InstitutionalNewsroom() {
   const listItems = pressReleases.slice(1);
 
   return (
-    <section className="relative overflow-hidden py-20 sm:py-28 border-t border-white/10 bg-night-950 text-white">
-      {/* Full-bleed Corporate Headquarters Backdrop */}
-      <div className="absolute inset-0 z-0">
-        <img
-          src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=2400&q=85"
-          alt=""
-          className="h-full w-full object-cover filter brightness-[0.32] contrast-[1.15]"
-          loading="lazy"
-        />
-        <div className="absolute inset-0 bg-gradient-to-t from-night-950/90 via-night-950/60 to-night-950/85" />
-      </div>
-
+    <section className="relative overflow-hidden py-20 sm:py-28 border-t border-[#E3E5EF] bg-[#F7F7FC] text-[#111827] dark:bg-night-950 dark:text-white">
       <div className="container-x relative z-10">
         {/* Header */}
         <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-6 mb-12 sm:mb-16">
           <div>
-            <div className="flex items-center gap-2 font-mono text-[11px] uppercase tracking-[0.28em] text-gold-400 mb-2">
-              <span>◆</span>
+            <div className="flex items-center gap-2 font-mono text-[11px] uppercase tracking-[0.28em] text-[#3026B3] dark:text-[#FFB000] mb-2">
+              <span className="text-[#FFB000]">◆</span>
               <span>CORPORATE DISCLOSURES</span>
             </div>
-            <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-normal text-white">
+            <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-normal text-[#111827] dark:text-white">
               Announcements &amp; News
             </h2>
           </div>
 
           <Link
             to="/contact"
-            className="group inline-flex items-center gap-2 font-mono text-[11px] uppercase tracking-[0.2em] text-gold-400 hover:text-gold-300 transition-colors"
+            className="group inline-flex items-center gap-2 font-mono text-[11px] uppercase tracking-[0.2em] text-[#3026B3] hover:text-[#211B72] dark:text-gold-400 dark:hover:text-gold-300 transition-colors"
           >
             <span>Media Relations Desk</span>
             <Icon
@@ -110,23 +99,23 @@ export function InstitutionalNewsroom() {
 
         {/* Featured Lead Announcement (RIL Style) */}
         <Reveal>
-          <div className="group relative overflow-hidden rounded-3xl border border-white/10 bg-white/[0.02] transition-all hover:border-white/20 mb-8 sm:mb-12">
+          <div className="group relative overflow-hidden rounded-3xl border border-[#E3E5EF] bg-white shadow-sm transition-all hover:border-[#3026B3]/40 hover:shadow-md mb-8 sm:mb-12 dark:border-white/10 dark:bg-white/[0.02]">
             <div className="grid grid-cols-1 lg:grid-cols-12 items-stretch">
               <div className="lg:col-span-7 p-6 sm:p-10 lg:p-12 flex flex-col justify-between">
                 <div>
-                  <div className="flex items-center gap-3 font-mono text-[10.5px] uppercase tracking-wider text-slate-400 mb-4">
-                    <span className="text-gold-400 font-semibold">{lead.category}</span>
+                  <div className="flex items-center gap-3 font-mono text-[10.5px] uppercase tracking-wider text-[#596579] mb-4">
+                    <span className="text-[#3026B3] dark:text-gold-400 font-semibold">{lead.category}</span>
                     <span>·</span>
                     <span>{lead.publisher}</span>
                     <span>·</span>
                     <span>{lead.date}</span>
                   </div>
 
-                  <h3 className="font-serif text-2xl sm:text-3xl lg:text-4xl font-normal text-white leading-tight">
+                  <h3 className="font-serif text-2xl sm:text-3xl lg:text-4xl font-normal text-[#111827] dark:text-white leading-tight">
                     {lead.title}
                   </h3>
 
-                  <p className="mt-4 text-sm sm:text-base text-slate-300 leading-relaxed font-body">
+                  <p className="mt-4 text-sm sm:text-base text-[#596579] dark:text-slate-300 leading-relaxed font-body">
                     {lead.excerpt}
                   </p>
                 </div>
@@ -134,7 +123,7 @@ export function InstitutionalNewsroom() {
                 <div className="mt-8">
                   <Link
                     to={lead.link}
-                    className="inline-flex items-center gap-2 text-sm font-semibold text-gold-400 hover:text-gold-300 transition-colors"
+                    className="inline-flex items-center gap-2 text-sm font-semibold text-[#3026B3] hover:text-[#211B72] dark:text-gold-400 dark:hover:text-gold-300 transition-colors"
                   >
                     <span>Read official release</span>
                     <Icon name="arrow-right" width={14} height={14} />
@@ -149,7 +138,7 @@ export function InstitutionalNewsroom() {
                   className="h-full w-full object-cover filter brightness-[0.95] contrast-[1.05] transition-transform duration-700 group-hover:scale-105"
                   loading="lazy"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-night-950 via-transparent to-transparent lg:bg-gradient-to-r lg:from-night-950/60 lg:to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent lg:bg-gradient-to-r lg:from-black/20 lg:to-transparent" />
               </div>
             </div>
           </div>
@@ -161,7 +150,7 @@ export function InstitutionalNewsroom() {
             <Reveal key={item.id} delay={idx * 0.1}>
               <Link
                 to={item.link}
-                className="group flex flex-col justify-between h-full rounded-2xl border border-white/10 bg-white/[0.02] p-6 transition-all duration-300 hover:border-white/25 hover:bg-white/[0.04]"
+                className="group flex flex-col justify-between h-full rounded-2xl border border-[#E3E5EF] bg-white p-6 shadow-sm transition-all duration-300 hover:border-[#3026B3]/40 hover:shadow-md dark:border-white/10 dark:bg-white/[0.02]"
               >
                 <div>
                   <div className="relative h-44 w-full overflow-hidden rounded-xl mb-5">
@@ -171,19 +160,19 @@ export function InstitutionalNewsroom() {
                       className="h-full w-full object-cover filter brightness-[0.95] transition-transform duration-500 group-hover:scale-105"
                       loading="lazy"
                     />
-                    <span className="absolute top-3 left-3 rounded-full bg-black/60 backdrop-blur-md px-2.5 py-0.5 font-mono text-[9px] uppercase tracking-wider text-gold-400 border border-white/10">
+                    <span className="absolute top-3 left-3 rounded-full bg-white/95 backdrop-blur-md px-2.5 py-0.5 font-mono text-[9px] uppercase tracking-wider text-[#3026B3] border border-[#E3E5EF] font-semibold dark:bg-black/60 dark:text-gold-400 dark:border-white/10">
                       {item.category}
                     </span>
                   </div>
 
-                  <h4 className="font-serif text-lg font-normal text-white group-hover:text-gold-300 transition-colors line-clamp-3 leading-snug">
+                  <h4 className="font-serif text-lg font-normal text-[#111827] group-hover:text-[#3026B3] dark:text-white dark:group-hover:text-gold-300 transition-colors line-clamp-3 leading-snug">
                     {item.title}
                   </h4>
                 </div>
 
-                <div className="mt-5 flex items-center justify-between border-t border-white/10 pt-4 font-mono text-[10px] text-slate-400">
+                <div className="mt-5 flex items-center justify-between border-t border-[#E3E5EF] pt-4 font-mono text-[10px] text-[#596579] dark:border-white/10 dark:text-slate-400">
                   <span>{item.date}</span>
-                  <span className="text-gold-400 group-hover:translate-x-1 transition-transform inline-flex items-center gap-1">
+                  <span className="text-[#3026B3] dark:text-gold-400 font-semibold group-hover:translate-x-1 transition-transform inline-flex items-center gap-1">
                     Details →
                   </span>
                 </div>
