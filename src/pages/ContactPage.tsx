@@ -62,30 +62,30 @@ export default function ContactPage() {
   };
 
   return (
-    <main className="min-h-screen bg-night-950 text-ink-900 dark:text-white pt-24 pb-20">
+    <main className="min-h-screen bg-[#FAF9F6] text-[#111827] pt-24 pb-20">
       {/* ── 1. RIL-STYLE CONTACT HERO ───────────────────────────────────── */}
-      <section className="relative overflow-hidden py-20 sm:py-28 border-b border-[#E3E5EF] dark:border-white/10">
+      <section className="relative overflow-hidden py-20 sm:py-28 border-b border-[#E3E5EF]">
         <div className="absolute inset-0 z-0">
           <img
             src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=2400&q=85"
             alt=""
-            className="h-full w-full object-cover filter brightness-[0.92] dark:brightness-[0.55] contrast-[1.1]"
+            className="h-full w-full object-cover filter brightness-[0.8] contrast-[1.1]"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-night-950 via-night-950/80 to-night-950/40 dark:from-night-950 dark:via-night-950/40 dark:to-night-950/20" />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/55 to-black/35" />
         </div>
 
         <div className="container-x relative z-10">
           <div className="max-w-3xl">
-            <div className="flex items-center gap-2.5 font-mono text-[11px] uppercase tracking-[0.28em] text-[#3026B3] dark:text-gold-400 mb-4">
+            <div className="flex items-center gap-2.5 font-mono text-[11px] uppercase tracking-[0.28em] text-[#FFB000] mb-4">
               <span>◆</span>
-              <span>INSTITUTIONAL RELATIONS</span>
+              <span className="text-white">INSTITUTIONAL RELATIONS</span>
             </div>
-            <h1 className="font-serif text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-normal leading-[1.06] text-ink-900 dark:text-white">
+            <h1 className="font-serif text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-normal leading-[1.06] text-white">
               Partner with BharatX.
               <br />
-              <span className="italic text-[#596579] dark:text-slate-300">Executive Secretariat.</span>
+              <span className="italic text-[#FFB000]">Executive Secretariat.</span>
             </h1>
-            <p className="mt-6 text-base sm:text-lg text-[#596579] dark:text-slate-300 leading-relaxed font-body">
+            <p className="mt-6 text-base sm:text-lg text-slate-200 leading-relaxed font-body">
               Connect with our corporate office and sector directorships for strategic partnerships, capital deployment, infrastructure tenders, and institutional inquiries.
             </p>
           </div>
@@ -93,68 +93,67 @@ export default function ContactPage() {
       </section>
 
       {/* ── 2. SECTOR INQUIRY DESKS ─────────────────────────────────────── */}
-      <section className="py-20 sm:py-28 border-b border-[#E3E5EF] dark:border-white/10">
+      <section className="py-12 sm:py-16 border-b border-[#E3E5EF]">
         <div className="container-x">
-          <div className="max-w-2xl mb-12 sm:mb-16">
-            <span className="font-mono text-[10.5px] uppercase tracking-[0.24em] text-[#3026B3] dark:text-gold-400 font-semibold">
+          <div className="max-w-2xl mb-7 sm:mb-10">
+            <span className="font-mono text-[10.5px] uppercase tracking-[0.24em] text-[#3026B3] font-semibold">
               COMMUNICATION CHANNELS
             </span>
-            <h2 className="mt-2 font-serif text-3xl sm:text-4xl lg:text-5xl font-normal text-ink-900 dark:text-white">
+            <h2 className="mt-2 font-serif text-3xl sm:text-4xl lg:text-5xl font-normal text-[#111827]">
               Sector Desks
             </h2>
-            <p className="mt-3 text-[#596579] dark:text-slate-400 text-sm sm:text-base font-body">
+            <p className="mt-3 text-[#596579] text-sm sm:text-base font-body">
               Select a specialized desk below to pre-configure your inquiry.
             </p>
           </div>
 
           <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-            {inquiryDesks.map((desk) => (
-              <button
-                key={desk.t}
-                type="button"
-                onClick={() => handleSelectDesk(desk.sector, desk.type)}
-                className="group flex flex-col justify-between text-left rounded-2xl border border-[#E3E5EF] bg-white dark:border-white/10 dark:bg-white/[0.02] p-5 sm:p-6 transition-all duration-300 hover:border-[#3026B3] hover:shadow-md dark:hover:border-gold-400/50 dark:hover:bg-white/[0.05]"
-              >
-                <div>
-                  <span className="flex h-9 w-9 items-center justify-center rounded-xl bg-[#F1F6FF] dark:bg-gold-400/10 text-[#3026B3] dark:text-gold-400 mb-4">
-                    <Icon name={desk.icon} width={18} height={18} />
+            {inquiryDesks.map((desk, idx) => {
+              const deskColors = ["#3026B3", "#FFB000", "#00B8D9", "#15966B"];
+              const color = deskColors[idx % deskColors.length];
+              return (
+                <button
+                  key={desk.t}
+                  type="button"
+                  onClick={() => handleSelectDesk(desk.sector, desk.type)}
+                  className="group flex flex-col justify-between text-left rounded-2xl border border-[#E3E5EF] bg-white p-5 sm:p-6 transition-all duration-300 hover:border-[#3026B3] hover:shadow-md"
+                >
+                  <div>
+                    <span
+                      className="flex h-9 w-9 items-center justify-center rounded-xl bg-[#FAF9F6] border border-[#E3E5EF] mb-4"
+                      style={{ color }}
+                    >
+                      <Icon name={desk.icon} width={18} height={18} />
+                    </span>
+                    <h3 className="font-serif text-lg text-[#111827] font-normal group-hover:text-[#3026B3] transition-colors">
+                      {desk.t}
+                    </h3>
+                    <p className="mt-2 text-xs text-[#596579] leading-relaxed font-body">
+                      {desk.d}
+                    </p>
+                  </div>
+                  <span
+                    className="mt-4 font-mono text-[10.5px] group-hover:translate-x-1 transition-transform inline-flex items-center gap-1 font-semibold"
+                    style={{ color }}
+                  >
+                    Connect →
                   </span>
-                  <h3 className="font-serif text-lg text-ink-900 dark:text-white font-normal group-hover:text-[#3026B3] dark:group-hover:text-gold-300 transition-colors">
-                    {desk.t}
-                  </h3>
-                  <p className="mt-2 text-xs text-[#596579] dark:text-slate-400 leading-relaxed font-body">
-                    {desk.d}
-                  </p>
-                </div>
-                <span className="mt-4 font-mono text-[10.5px] text-[#3026B3] dark:text-gold-400 group-hover:translate-x-1 transition-transform inline-flex items-center gap-1 font-semibold">
-                  Connect →
-                </span>
-              </button>
-            ))}
+                </button>
+              );
+            })}
           </div>
         </div>
       </section>
 
       {/* ── 3. FORM & HEADQUARTERS COORDINATES ───────────────────────────── */}
-      <section id="contact-form-section" className="relative overflow-hidden py-20 sm:py-28 border-b border-white/10">
-        {/* Full-bleed Corporate Headquarters Backdrop */}
-        <div className="absolute inset-0 z-0">
-          <img
-            src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=2400&q=85"
-            alt=""
-            className="h-full w-full object-cover filter brightness-[0.30] contrast-[1.2]"
-            loading="lazy"
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-night-950/90 via-night-950/60 to-night-950/85" />
-        </div>
-
+      <section id="contact-form-section" className="relative py-20 sm:py-28 bg-white border-b border-[#E3E5EF]">
         <div className="container-x relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-12">
           {/* Left Form (7 cols) */}
           <div className="lg:col-span-7">
-            <span className="font-mono text-[10.5px] uppercase tracking-[0.24em] text-gold-400">
+            <span className="font-mono text-[10.5px] uppercase tracking-[0.24em] text-[#3026B3] font-semibold">
               OFFICIAL TRANSMISSION
             </span>
-            <h2 className="mt-2 font-serif text-3xl sm:text-4xl text-white font-normal mb-8">
+            <h2 className="mt-2 font-serif text-3xl sm:text-4xl text-[#111827] font-normal mb-8">
               Submit Institutional Inquiry
             </h2>
             <ContactForm
@@ -165,38 +164,38 @@ export default function ContactPage() {
 
           {/* Right Headquarters Coordinates (5 cols) */}
           <div className="lg:col-span-5 space-y-6">
-            <div className="rounded-3xl border border-white/10 bg-white/[0.02] p-8 backdrop-blur-md">
-              <span className="font-mono text-[11px] uppercase tracking-wider text-gold-400 font-semibold block mb-4">
+            <div className="rounded-3xl border border-[#E3E5EF] bg-[#FAF9F6] p-8 shadow-xs">
+              <span className="font-mono text-[11px] uppercase tracking-wider text-[#3026B3] font-semibold block mb-4">
                 Corporate Headquarters
               </span>
-              <h3 className="font-serif text-2xl text-white font-normal mb-4">
+              <h3 className="font-serif text-2xl text-[#111827] font-normal mb-4">
                 BharatX Group
               </h3>
-              <div className="space-y-4 text-sm text-slate-300 font-body">
+              <div className="space-y-4 text-sm text-[#596579] font-body">
                 <div className="flex items-start gap-3">
-                  <Icon name="map-pin" width={18} height={18} className="text-gold-400 shrink-0 mt-0.5" />
+                  <Icon name="map-pin" width={18} height={18} className="text-[#3026B3] shrink-0 mt-0.5" />
                   <span>{brandConfig.address.full}</span>
                 </div>
                 <div className="flex items-center gap-3">
-                  <Icon name="phone" width={18} height={18} className="text-gold-400 shrink-0" />
-                  <a href={`tel:${brandConfig.contact.phoneTel}`} className="hover:text-gold-400 transition-colors">
+                  <Icon name="phone" width={18} height={18} className="text-[#00B8D9] shrink-0" />
+                  <a href={`tel:${brandConfig.contact.phoneTel}`} className="hover:text-[#3026B3] transition-colors">
                     {brandConfig.contact.phoneFormatted}
                   </a>
                 </div>
                 <div className="flex items-center gap-3">
-                  <Icon name="mail" width={18} height={18} className="text-gold-400 shrink-0" />
-                  <a href={`mailto:${brandConfig.contact.email}`} className="hover:text-gold-400 transition-colors">
+                  <Icon name="mail" width={18} height={18} className="text-[#15966B] shrink-0" />
+                  <a href={`mailto:${brandConfig.contact.email}`} className="hover:text-[#3026B3] transition-colors">
                     {brandConfig.contact.email}
                   </a>
                 </div>
               </div>
             </div>
 
-            <div className="rounded-3xl border border-white/10 bg-white/[0.02] p-8 backdrop-blur-md">
-              <span className="font-mono text-[11px] uppercase tracking-wider text-gold-400 font-semibold block mb-4">
+            <div className="rounded-3xl border border-[#E3E5EF] bg-[#FAF9F6] p-8 shadow-xs">
+              <span className="font-mono text-[11px] uppercase tracking-wider text-[#15966B] font-semibold block mb-4">
                 Security &amp; Data Residency
               </span>
-              <p className="text-xs sm:text-sm text-slate-400 leading-relaxed font-body">
+              <p className="text-xs sm:text-sm text-[#596579] leading-relaxed font-body">
                 All communications sent to BharatX Group are strictly confidential and archived under domestic cryptographic data protection standards. We do not transmit or process corporate inquiries on foreign cloud infrastructure.
               </p>
             </div>
@@ -205,31 +204,35 @@ export default function ContactPage() {
       </section>
 
       {/* ── 4. FREQUENTLY ASKED QUESTIONS ───────────────────────────────── */}
-      <section className="py-20 sm:py-28">
+      <section className="py-12 sm:py-16 bg-[#FAF9F6]">
         <div className="container-x">
           <div className="max-w-2xl mb-12">
-            <span className="font-mono text-[10.5px] uppercase tracking-[0.24em] text-gold-400">
+            <span className="font-mono text-[10.5px] uppercase tracking-[0.24em] text-[#3026B3] font-semibold">
               DISCLOSURES
             </span>
-            <h2 className="mt-2 font-serif text-3xl sm:text-4xl lg:text-5xl font-normal text-white">
+            <h2 className="mt-2 font-serif text-3xl sm:text-4xl lg:text-5xl font-normal text-[#111827]">
               Institutional FAQs
             </h2>
           </div>
 
           <div className="grid gap-6 sm:grid-cols-2">
-            {faqs.map((faq) => (
-              <div
-                key={faq.q}
-                className="rounded-2xl border border-white/10 bg-white/[0.02] p-7"
-              >
-                <h3 className="font-serif text-xl text-white font-normal mb-3">
-                  {faq.q}
-                </h3>
-                <p className="text-xs sm:text-sm text-slate-400 leading-relaxed font-body">
-                  {faq.a}
-                </p>
-              </div>
-            ))}
+            {faqs.map((faq, idx) => {
+              const borderAccent = ["border-l-[#3026B3]", "border-l-[#00B8D9]", "border-l-[#FFB000]", "border-l-[#15966B]"][idx % 4];
+              const qColor = ["text-[#3026B3]", "text-[#211B72]", "text-[#111827]", "text-[#211B72]"][idx % 4];
+              return (
+                <div
+                  key={faq.q}
+                  className={`rounded-2xl border border-[#E3E5EF] border-l-4 ${borderAccent} bg-white p-7 shadow-xs`}
+                >
+                  <h3 className={`font-serif text-xl ${qColor} font-normal mb-3`}>
+                    {faq.q}
+                  </h3>
+                  <p className="text-xs sm:text-sm text-[#596579] leading-relaxed font-body">
+                    {faq.a}
+                  </p>
+                </div>
+              );
+            })}
           </div>
         </div>
       </section>

@@ -62,7 +62,7 @@ export default function TermsPage() {
         visual={<SecurityShield />}
         visualPlacement="right"
       />
-      <section className="py-20 md:py-24">
+      <section className="py-12 sm:py-16">
         <div className="container-x max-w-3xl">
           <Reveal>
             <p className="mb-10 rounded-xl border border-white/8 bg-night-850/70 p-5 text-[13.5px] leading-relaxed text-ink-400">

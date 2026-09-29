@@ -72,7 +72,7 @@ export function InstitutionalNewsroom() {
     <section className="relative overflow-hidden py-20 sm:py-28 border-t border-[#E3E5EF] bg-[#F7F7FC] text-[#111827] dark:bg-night-950 dark:text-white">
       <div className="container-x relative z-10">
         {/* Header */}
-        <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-6 mb-12 sm:mb-16">
+        <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-6 mb-7 sm:mb-10">
           <div>
             <div className="flex items-center gap-2 font-mono text-[11px] uppercase tracking-[0.28em] text-[#3026B3] dark:text-[#FFB000] mb-2">
               <span className="text-[#FFB000]">◆</span>

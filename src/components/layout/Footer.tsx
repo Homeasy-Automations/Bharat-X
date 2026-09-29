@@ -71,8 +71,8 @@ export function FooterCTA() {
 
 export function Footer() {
   return (
-    <footer className="relative overflow-hidden border-t border-slate-200/80 dark:border-white/5 bg-night-950/60">
-      <div aria-hidden className="grid-bg grid-bg-fade absolute inset-0 opacity-30" />
+    <footer className="relative overflow-hidden border-t border-[#E3E5EF] bg-[#FAF9F6]">
+      <div aria-hidden className="grid-bg grid-bg-fade absolute inset-0 opacity-20" />
       <div className="container-x relative z-10 pb-[calc(2rem+env(safe-area-inset-bottom,0px))] pt-8 md:pt-10">
         <div className="flex flex-col gap-8 lg:flex-row lg:items-start lg:gap-12 xl:gap-16">
           {/* Brand */}
@@ -80,7 +80,7 @@ export function Footer() {
             <Link to="/" aria-label="BharatX Group home">
               <Logo />
             </Link>
-            <p className="mt-5 text-sm leading-relaxed text-ink-400">
+            <p className="mt-5 text-sm leading-relaxed text-[#596579]">
               BharatX Group is a diversified conglomerate operating across technology &amp; AI, infrastructure, manufacturing, agriculture, food systems, and venture building.
             </p>
             <div className="mt-6 flex items-center gap-3">
@@ -91,7 +91,7 @@ export function Footer() {
                   target="_blank"
                   rel="noreferrer"
                   aria-label={s.label}
-                  className="flex h-9 w-9 items-center justify-center rounded-full border border-slate-200/90 text-slate-500 bg-white/60 transition-all duration-300 hover:border-gold-400 hover:text-gold-600 hover:bg-white shadow-sm dark:border-white/10 dark:text-ink-400 dark:bg-transparent dark:hover:border-white/30 dark:hover:text-ink-100 dark:shadow-none"
+                  className="flex h-9 w-9 items-center justify-center rounded-full border border-[#E3E5EF] text-[#596579] bg-white transition-all duration-300 hover:border-[#3026B3] hover:text-[#3026B3] hover:shadow-xs"
                 >
                   <Icon name={socialIcons[s.label] ?? "arrow-up-right"} width={14} height={14} />
                 </a>
@@ -99,16 +99,16 @@ export function Footer() {
             </div>
 
             {/* Location & Contact */}
-            <div className="mt-5 space-y-2 border-t border-slate-200/70 dark:border-white/5 pt-4 font-mono text-[11px] text-ink-400">
+            <div className="mt-5 space-y-2 border-t border-[#E3E5EF] pt-4 font-mono text-[11px] text-[#596579]">
               <div className="flex items-start gap-2">
-                <Icon name="map-pin" width={13} height={13} className="shrink-0 mt-0.5 text-gold-400" />
+                <Icon name="map-pin" width={13} height={13} className="shrink-0 mt-0.5 text-[#3026B3]" />
                 <span className="leading-snug">{brandConfig.address.full}</span>
               </div>
               <div className="flex items-center gap-2">
-                <Icon name="phone" width={13} height={13} className="shrink-0 text-gold-400" />
+                <Icon name="phone" width={13} height={13} className="shrink-0 text-[#00B8D9]" />
                 <a
                   href={`tel:${brandConfig.contact.phoneTel}`}
-                  className="transition-colors hover:text-gold-400"
+                  className="transition-colors hover:text-[#3026B3]"
                 >
                   {brandConfig.contact.phoneFormatted}
                 </a>
@@ -123,8 +123,8 @@ export function Footer() {
               const items = footerColumns[col.key] || [];
               return (
                 <nav key={col.key} aria-label={col.title}>
-                  <div className="mb-4 flex items-center gap-2.5 font-mono text-[10px] uppercase tracking-[0.26em] text-ink-500">
-                    <Icon name={col.icon} width={13} height={13} className="text-gold-400" />
+                  <div className="mb-4 flex items-center gap-2.5 font-mono text-[10px] uppercase tracking-[0.26em] text-[#111827] font-semibold">
+                    <Icon name={col.icon} width={13} height={13} className="text-[#3026B3]" />
                     {col.title}
                   </div>
                   <ul className="flex flex-col gap-2.5">
@@ -132,11 +132,11 @@ export function Footer() {
                       <li key={item.to}>
                         <Link
                           to={item.to}
-                          className="group inline-flex items-center gap-2 text-[13.5px] text-ink-400 transition-colors hover:text-ink-50"
+                          className="group inline-flex items-center gap-2 text-[13.5px] text-[#596579] transition-colors hover:text-[#3026B3]"
                         >
                           <span
                             aria-hidden
-                            className="h-px w-0 bg-pulse-400 transition-all duration-300 group-hover:w-3"
+                            className="h-px w-0 bg-[#3026B3] transition-all duration-300 group-hover:w-3"
                           />
                           {item.label}
                         </Link>
@@ -154,24 +154,24 @@ export function Footer() {
           aria-hidden
           className="pointer-events-none mt-12 select-none overflow-hidden"
         >
-          <div className="whitespace-nowrap text-center font-display text-[15vw] font-extrabold leading-[0.85] tracking-tight text-transparent bg-clip-text bg-gradient-to-b from-slate-900/15 via-slate-900/6 to-transparent dark:from-white/25 dark:via-pulse-300/15 dark:to-transparent lg:text-[10.5rem] transition-all duration-300">
+          <div className="whitespace-nowrap text-center font-display text-[15vw] font-extrabold leading-[0.85] tracking-tight text-transparent bg-clip-text bg-gradient-to-b from-[#3026B3]/15 via-[#3026B3]/5 to-transparent lg:text-[10.5rem] transition-all duration-300">
             BHARATX GROUP
           </div>
         </div>
 
-        <div className="mt-4 flex flex-col items-center justify-between gap-4 border-t border-slate-200/80 dark:border-white/5 pt-6 md:flex-row">
-          <p className="text-center sm:text-left font-mono text-[10.5px] uppercase tracking-[0.18em] text-ink-500 dark:text-ink-400">
+        <div className="mt-4 flex flex-col items-center justify-between gap-4 border-t border-[#E3E5EF] pt-6 md:flex-row">
+          <p className="text-center sm:text-left font-mono text-[10.5px] uppercase tracking-[0.18em] text-[#596579]">
             © {new Date().getFullYear()} BharatX Group. All rights reserved.
           </p>
           <div className="flex flex-wrap items-center justify-center gap-6">
-            <Link to="/privacy" className="font-mono text-[10.5px] uppercase tracking-[0.18em] text-ink-500 transition-colors hover:text-ink-200">
+            <Link to="/privacy" className="font-mono text-[10.5px] uppercase tracking-[0.18em] text-[#596579] transition-colors hover:text-[#3026B3]">
               Privacy
             </Link>
-            <Link to="/terms" className="font-mono text-[10.5px] uppercase tracking-[0.18em] text-ink-500 transition-colors hover:text-ink-200">
+            <Link to="/terms" className="font-mono text-[10.5px] uppercase tracking-[0.18em] text-[#596579] transition-colors hover:text-[#3026B3]">
               Terms
             </Link>
-            <span className="flex items-center gap-2 font-mono text-[10.5px] uppercase tracking-[0.18em] text-ink-500 dark:text-ink-400">
-              <span className="h-1.5 w-1.5 rounded-full bg-pulse-400/70" />
+            <span className="flex items-center gap-2 font-mono text-[10.5px] uppercase tracking-[0.18em] text-[#596579]">
+              <span className="h-1.5 w-1.5 rounded-full bg-[#15966B]" />
               Made in India
             </span>
           </div>

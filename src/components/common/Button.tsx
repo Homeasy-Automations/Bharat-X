@@ -27,7 +27,7 @@ const variants: Record<ButtonVariant, string> = {
   ember:
     "bg-[#FFB000] text-[#111827] font-semibold shadow-md shadow-[#FFB000]/25 hover:bg-[#e69e00] hover:shadow-[0_8px_30px_-4px_rgba(255,176,0,0.4)] dark:bg-[#FFB000] dark:text-[#111827] dark:hover:bg-[#ffd054]",
   paper:
-    "bg-[#111827] text-white font-semibold shadow-md hover:bg-[#211B72] hover:shadow-lg dark:bg-[#F1F6FF] dark:text-[#111827] dark:hover:bg-white",
+    "bg-[#111827] text-white font-semibold shadow-md hover:bg-[#211B72] hover:shadow-lg dark:bg-[#FAF9F6] dark:text-[#111827] dark:hover:bg-white",
 };
 
 const sizes: Record<ButtonSize, string> = {

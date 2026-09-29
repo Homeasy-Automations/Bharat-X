@@ -9,7 +9,7 @@ interface TriadItem {
   badge: string;
   headline: string;
   description: string[];
-  metrics: { label: string; value: string }[];
+  metrics: { label: string; value: string; color?: string }[];
   image: string;
   fallbackImage: string;
   companyName: string;
@@ -29,9 +29,9 @@ const triadData: TriadItem[] = [
       "BharatX Group is committed to achieving net-zero carbon operations across its industrial footprint by 2035, integrating low-carbon concrete formulations, recycled compounds, and solar-supported processing corridors.",
     ],
     metrics: [
-      { label: "Commodities Processed", value: "5,000+ MT" },
-      { label: "Circular Compounds", value: "100%" },
-      { label: "Net-Zero Target", value: "2035" },
+      { label: "Commodities Processed", value: "5,000+ MT", color: "#3026B3" },
+      { label: "Circular Compounds", value: "100%", color: "#15966B" },
+      { label: "Net-Zero Target", value: "2035", color: "#00B8D9" },
     ],
     image: "/assets/backgrounds/sustainability-story.jpg",
     fallbackImage: "/assets/backgrounds/hero-field.jpg",
@@ -50,9 +50,9 @@ const triadData: TriadItem[] = [
       "From sub-micron precision manufacturing tooling at Casters Global to autonomous edge document processing with 99.8% accuracy, we build deep-tech tailored to the operational demands of the subcontinent.",
     ],
     metrics: [
-      { label: "Indic Languages", value: "22 Dialects" },
-      { label: "AI Workflows", value: "45+ Deployed" },
-      { label: "Document Precision", value: "99.8%" },
+      { label: "Indic Languages", value: "22 Dialects", color: "#3026B3" },
+      { label: "AI Workflows", value: "45+ Deployed", color: "#00B8D9" },
+      { label: "Document Precision", value: "99.8%", color: "#15966B" },
     ],
     image: "/assets/backgrounds/innovation-story.jpg",
     fallbackImage: "/assets/backgrounds/ai-circuit.jpg",
@@ -71,9 +71,9 @@ const triadData: TriadItem[] = [
       "Backed by BharatX Ventures, our founder-led ecosystem now holds over ₹180 Cr+ in cumulative portfolio value, combining precision fabrication, export food terminals, and indigenous engineering.",
     ],
     metrics: [
-      { label: "Ecosystem Portfolio", value: "₹180 Cr+" },
-      { label: "Road & Civil Works", value: "150+ KM" },
-      { label: "Precision Casters Built", value: "500,000+" },
+      { label: "Ecosystem Portfolio", value: "₹180 Cr+", color: "#3026B3" },
+      { label: "Road & Civil Works", value: "150+ KM", color: "#00B8D9" },
+      { label: "Precision Casters Built", value: "500,000+", color: "#FFB000" },
     ],
     image: "/assets/backgrounds/impact-story.jpg",
     fallbackImage: "/assets/backgrounds/infrastructure-real.jpg",
@@ -89,10 +89,10 @@ export function StrategicTriadTabs() {
   const current = triadData.find((t) => t.id === activeId) ?? triadData[0];
 
   return (
-    <section className="relative overflow-hidden py-20 sm:py-28 border-t border-[#E3E5EF] bg-[#F1F6FF] text-[#111827] dark:bg-night-950 dark:text-white">
+    <section className="relative overflow-hidden py-20 sm:py-28 border-t border-[#E3E5EF] bg-[#FAF9F6] text-[#111827] dark:bg-night-950 dark:text-white">
       <div className="container-x relative z-10">
         {/* RIL-Style Horizontal Story Tab Navigation Header */}
-        <div className="border-b border-[#E3E5EF] dark:border-white/10 pb-6 mb-12 sm:mb-16">
+        <div className="border-b border-[#E3E5EF] dark:border-white/10 pb-6 mb-7 sm:mb-10">
           <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-6">
             <div>
               <div className="flex items-center gap-2 font-mono text-[11px] uppercase tracking-[0.28em] text-[#3026B3] dark:text-gold-400 mb-2">
@@ -154,13 +154,16 @@ export function StrategicTriadTabs() {
               </div>
 
               {/* Metrics Row */}
-              <div className="mt-8 grid grid-cols-3 gap-4 border-t border-[#E3E5EF] dark:border-white/10 pt-6">
+              <div className="mt-8 grid grid-cols-3 gap-4 border-t border-[#E3E5EF] pt-6">
                 {current.metrics.map((m) => (
                   <div key={m.label}>
-                    <span className="block font-stat text-xl sm:text-2xl font-bold text-[#3026B3] dark:text-white">
+                    <span
+                      className="block font-stat text-xl sm:text-2xl font-bold"
+                      style={{ color: m.color || "#3026B3" }}
+                    >
                       {m.value}
                     </span>
-                    <span className="block font-mono text-[9.5px] uppercase tracking-wider text-[#596579] dark:text-slate-400 mt-0.5">
+                    <span className="block font-mono text-[9.5px] uppercase tracking-wider text-[#596579] mt-0.5">
                       {m.label}
                     </span>
                   </div>

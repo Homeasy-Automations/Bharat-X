@@ -2,10 +2,10 @@ import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 
 const stats = [
-  { value: "₹180 Cr+", label: "Ecosystem Portfolio Valuation" },
-  { value: "6", label: "Operating Enterprises" },
-  { value: "150+", label: "Completed Projects & Deployments" },
-  { value: "100%", label: "Founder-Led & Sovereign" },
+  { value: "₹180 Cr+", label: "Ecosystem Portfolio Valuation", color: "#3026B3" },
+  { value: "6", label: "Operating Enterprises", color: "#00B8D9" },
+  { value: "150+", label: "Completed Projects & Deployments", color: "#FFB000" },
+  { value: "100%", label: "Founder-Led & Sovereign", color: "#15966B" },
 ];
 
 const operatingCompanies = [
@@ -19,7 +19,7 @@ const operatingCompanies = [
 
 export function StatsStrip() {
   return (
-    <section className="relative overflow-hidden border-y border-[#E3E5EF] bg-[#F1F6FF] dark:bg-night-900 py-12 md:py-16">
+    <section className="relative overflow-hidden border-y border-[#E3E5EF] bg-[#FAF9F6] py-12 md:py-16">
       <div className="container-x relative z-10">
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 md:gap-12">
           {stats.map((item, index) => (
@@ -29,12 +29,15 @@ export function StatsStrip() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: index * 0.1 }}
-              className="flex flex-col items-start lg:items-center text-left lg:text-center border-l lg:border-l-0 lg:border-r last:border-r-0 border-[#E3E5EF] dark:border-white/10 pl-5 lg:pl-0 lg:px-6"
+              className="flex flex-col items-start lg:items-center text-left lg:text-center border-l lg:border-l-0 lg:border-r last:border-r-0 border-[#E3E5EF] pl-5 lg:pl-0 lg:px-6"
             >
-              <span className="font-serif text-3xl sm:text-4xl md:text-5xl font-normal tracking-tight text-[#3026B3] dark:text-white">
+              <span
+                className="font-serif text-3xl sm:text-4xl md:text-5xl font-normal tracking-tight"
+                style={{ color: item.color }}
+              >
                 {item.value}
               </span>
-              <span className="mt-2 font-mono text-[10.5px] uppercase tracking-[0.22em] text-[#596579] dark:text-ink-400 max-w-[200px]">
+              <span className="mt-2 font-mono text-[10.5px] uppercase tracking-[0.22em] text-[#596579] max-w-[200px]">
                 {item.label}
               </span>
             </motion.div>

@@ -86,30 +86,30 @@ export default function ImpactPage() {
   });
 
   return (
-    <main className="min-h-screen bg-night-950 text-ink-900 dark:text-white pt-24 pb-20">
+    <main className="min-h-screen bg-[#FAF9F6] text-[#111827] pt-24 pb-20">
       {/* ── 1. RIL-STYLE IMPACT HERO ────────────────────────────────────── */}
-      <section className="relative overflow-hidden py-20 sm:py-28 border-b border-[#E3E5EF] dark:border-white/10">
+      <section className="relative overflow-hidden py-20 sm:py-28 border-b border-[#E3E5EF]">
         <div className="absolute inset-0 z-0">
           <img
             src="https://images.unsplash.com/photo-1625246333195-78d9c38ad449?auto=format&fit=crop&w=2400&q=85"
             alt=""
-            className="h-full w-full object-cover filter brightness-[0.92] dark:brightness-[0.55] contrast-[1.1]"
+            className="h-full w-full object-cover filter brightness-[0.92] contrast-[1.1]"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-night-950 via-night-950/80 to-night-950/40 dark:from-night-950 dark:via-night-950/40 dark:to-night-950/20" />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/40 to-black/20" />
         </div>
 
         <div className="container-x relative z-10">
           <div className="max-w-3xl">
-            <div className="flex items-center gap-2.5 font-mono text-[11px] uppercase tracking-[0.28em] text-[#3026B3] dark:text-gold-400 mb-4">
+            <div className="flex items-center gap-2.5 font-mono text-[11px] uppercase tracking-[0.28em] text-[#FFB000] mb-4">
               <span>◆</span>
-              <span>SUSTAINABILITY &amp; IMPACT</span>
+              <span className="text-white">SUSTAINABILITY &amp; IMPACT</span>
             </div>
-            <h1 className="font-serif text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-normal leading-[1.06] text-ink-900 dark:text-white">
+            <h1 className="font-serif text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-normal leading-[1.06] text-white">
               Growth That Enriches Lives.
               <br />
-              <span className="italic text-[#596579] dark:text-slate-300">Measured by National Resilience.</span>
+              <span className="italic text-[#FFB000]">Measured by National Resilience.</span>
             </h1>
-            <p className="mt-6 text-base sm:text-lg text-[#596579] dark:text-slate-300 leading-relaxed font-body">
+            <p className="mt-6 text-base sm:text-lg text-slate-200 leading-relaxed font-body">
               True conglomerate scale is proven by the enduring prosperity generated across communities. We measure impact through tangible agrarian livelihood security, circular carbon transition, and sovereign physical infrastructure.
             </p>
           </div>
@@ -117,30 +117,30 @@ export default function ImpactPage() {
       </section>
 
       {/* ── 2. METRICS BANNER ───────────────────────────────────────────── */}
-      <section className="border-b border-[#E3E5EF] dark:border-white/10 py-12 bg-[#F1F6FF] dark:bg-black/40">
+      <section className="border-b border-[#E3E5EF] py-12 bg-[#FAF9F6]">
         <div className="container-x">
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 text-center">
             <div>
-              <span className="font-serif text-3xl sm:text-4xl font-bold text-[#3026B3] dark:text-white block">₹180 Cr+</span>
-              <span className="font-mono text-[10px] uppercase tracking-wider text-[#596579] dark:text-slate-400 mt-1 block">
+              <span className="font-serif text-3xl sm:text-4xl font-bold text-[#3026B3] block">₹180 Cr+</span>
+              <span className="font-mono text-[10px] uppercase tracking-wider text-[#596579] mt-1 block">
                 Portfolio Enterprise Valuation
               </span>
             </div>
             <div>
-              <span className="font-serif text-3xl sm:text-4xl font-bold text-[#FFB000] dark:text-gold-400 block">1,200+</span>
-              <span className="font-mono text-[10px] uppercase tracking-wider text-[#596579] dark:text-slate-400 mt-1 block">
+              <span className="font-serif text-3xl sm:text-4xl font-bold text-[#FFB000] block">1,200+</span>
+              <span className="font-mono text-[10px] uppercase tracking-wider text-[#596579] mt-1 block">
                 Rural Growers &amp; Producers
               </span>
             </div>
             <div>
-              <span className="font-serif text-3xl sm:text-4xl font-bold text-[#15966B] dark:text-emerald-400 block">150+ KM</span>
-              <span className="font-mono text-[10px] uppercase tracking-wider text-[#596579] dark:text-slate-400 mt-1 block">
+              <span className="font-serif text-3xl sm:text-4xl font-bold text-[#15966B] block">150+ KM</span>
+              <span className="font-mono text-[10px] uppercase tracking-wider text-[#596579] mt-1 block">
                 Arterial Roadways &amp; Civil Works
               </span>
             </div>
             <div>
-              <span className="font-serif text-3xl sm:text-4xl font-bold text-[#00B8D9] dark:text-pulse-400 block">100%</span>
-              <span className="font-mono text-[10px] uppercase tracking-wider text-[#596579] dark:text-slate-400 mt-1 block">
+              <span className="font-serif text-3xl sm:text-4xl font-bold text-[#00B8D9] block">100%</span>
+              <span className="font-mono text-[10px] uppercase tracking-wider text-[#596579] mt-1 block">
                 Founder-Led Domestic Value Creation
               </span>
             </div>
@@ -149,79 +149,93 @@ export default function ImpactPage() {
       </section>
 
       {/* ── 3. SIX IMPACT PILLARS ───────────────────────────────────────── */}
-      <section className="py-20 sm:py-28 border-b border-[#E3E5EF] dark:border-white/10">
+      <section className="py-12 sm:py-16 border-b border-[#E3E5EF]">
         <div className="container-x">
-          <div className="max-w-2xl mb-12 sm:mb-16">
-            <span className="font-mono text-[10.5px] uppercase tracking-[0.24em] text-[#3026B3] dark:text-gold-400 font-semibold">
+          <div className="max-w-2xl mb-7 sm:mb-10">
+            <span className="font-mono text-[10.5px] uppercase tracking-[0.24em] text-[#3026B3] font-semibold">
               NATIONAL VALUE CREATION
             </span>
-            <h2 className="mt-2 font-serif text-3xl sm:text-4xl lg:text-5xl font-normal text-ink-900 dark:text-white">
+            <h2 className="mt-2 font-serif text-3xl sm:text-4xl lg:text-5xl font-normal text-[#111827]">
               Six Dimensions of Impact
             </h2>
-            <p className="mt-3 text-[#596579] dark:text-slate-400 text-sm sm:text-base font-body">
+            <p className="mt-3 text-[#596579] text-sm sm:text-base font-body">
               How our operating companies create tangible, quantifiable progress across India.
             </p>
           </div>
 
           <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {impactPillars.map((p, i) => (
-              <Reveal key={p.title} delay={i * 0.08}>
-                <div className="flex flex-col justify-between h-full rounded-2xl border border-[#E3E5EF] bg-white dark:border-white/10 dark:bg-white/[0.02] p-7 transition-all duration-300 hover:border-[#3026B3] hover:shadow-lg dark:hover:border-white/25 dark:hover:bg-white/[0.04]">
-                  <div>
-                    {/* Operating Company Header */}
-                    <div className="flex items-center justify-between pb-4 mb-5 border-b border-[#E3E5EF] dark:border-white/10">
-                      <div className="flex items-center gap-2.5">
-                        <div className="w-7 h-7 rounded-md bg-[#F1F6FF] dark:bg-white p-1 flex items-center justify-center shadow-sm border border-[#E3E5EF] dark:border-transparent">
-                          <img
-                            src={p.companyLogo}
-                            alt={p.companyName}
-                            className="max-h-full max-w-full object-contain"
-                          />
+            {impactPillars.map((p, i) => {
+              const pillColors = ["#15966B", "#3026B3", "#00B8D9", "#3026B3", "#00B8D9", "#15966B"];
+              const pColor = pillColors[i % pillColors.length];
+              return (
+                <Reveal key={p.title} delay={i * 0.08}>
+                  <div className="flex flex-col justify-between h-full rounded-2xl border border-[#E3E5EF] bg-white p-7 transition-all duration-300 hover:border-[#3026B3] hover:shadow-lg">
+                    <div>
+                      {/* Operating Company Header */}
+                      <div className="flex items-center justify-between pb-4 mb-5 border-b border-[#E3E5EF]">
+                        <div className="flex items-center gap-2.5">
+                          <div className="w-7 h-7 rounded-md bg-[#FAF9F6] p-1 flex items-center justify-center shadow-sm border border-[#E3E5EF]">
+                            <img
+                              src={p.companyLogo}
+                              alt={p.companyName}
+                              className="max-h-full max-w-full object-contain"
+                            />
+                          </div>
+                          <span className="font-mono text-xs uppercase tracking-wider text-[#111827] font-semibold">
+                            {p.companyName}
+                          </span>
                         </div>
-                        <span className="font-mono text-xs uppercase tracking-wider text-ink-900 dark:text-slate-300 font-semibold">
-                          {p.companyName}
+                        <span
+                          className="font-mono text-[11px] font-bold px-2 py-0.5 rounded border"
+                          style={{
+                            borderColor: `${pColor}40`,
+                            backgroundColor: `${pColor}10`,
+                            color: pColor,
+                          }}
+                        >
+                          {p.stat}
                         </span>
                       </div>
-                      <span className="font-mono text-[11px] text-[#FFB000] dark:text-gold-400 font-bold px-2 py-0.5 rounded border border-[#FFB000]/25 bg-[#FFB000]/10">
-                        {p.stat}
-                      </span>
+
+                      <div className="flex items-center gap-2 mb-3">
+                        <span
+                          className="flex h-8 w-8 items-center justify-center rounded-lg border border-[#E3E5EF]"
+                          style={{ backgroundColor: `${pColor}15`, color: pColor }}
+                        >
+                          <Icon name={p.icon} width={16} height={16} />
+                        </span>
+                        <h3 className="font-serif text-xl text-[#211B72] font-normal">
+                          {p.title}
+                        </h3>
+                      </div>
+
+                      <p className="text-xs sm:text-sm text-[#596579] leading-relaxed font-body">
+                        {p.desc}
+                      </p>
                     </div>
 
-                    <div className="flex items-center gap-2 mb-3">
-                      <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-[#F1F6FF] dark:bg-gold-400/10 text-[#3026B3] dark:text-gold-400">
-                        <Icon name={p.icon} width={16} height={16} />
+                    <div className="mt-6 border-t border-[#E3E5EF] pt-4 flex items-center justify-between">
+                      <span className="font-mono text-[10px] uppercase text-[#596579] tracking-wider">
+                        {p.statLabel}
                       </span>
-                      <h3 className="font-serif text-xl text-ink-900 dark:text-white font-normal">
-                        {p.title}
-                      </h3>
+                      <Link
+                        to={`/services#${p.companySlug}`}
+                        className="font-mono text-[10px] text-[#3026B3] hover:text-[#211B72] uppercase tracking-widest inline-flex items-center gap-1 font-semibold"
+                      >
+                        <span>Explore</span>
+                        <Icon name="arrow-right" width={10} height={10} />
+                      </Link>
                     </div>
-
-                    <p className="text-xs sm:text-sm text-[#596579] dark:text-slate-400 leading-relaxed font-body">
-                      {p.desc}
-                    </p>
                   </div>
-
-                  <div className="mt-6 border-t border-[#E3E5EF] dark:border-white/10 pt-4 flex items-center justify-between">
-                    <span className="font-mono text-[10px] uppercase text-[#596579] dark:text-slate-400 tracking-wider">
-                      {p.statLabel}
-                    </span>
-                    <Link
-                      to={`/services#${p.companySlug}`}
-                      className="font-mono text-[10px] text-[#3026B3] dark:text-gold-400 hover:text-[#211B72] uppercase tracking-widest inline-flex items-center gap-1 font-semibold"
-                    >
-                      <span>Explore</span>
-                      <Icon name="arrow-right" width={10} height={10} />
-                    </Link>
-                  </div>
-                </div>
-              </Reveal>
-            ))}
+                </Reveal>
+              );
+            })}
           </div>
         </div>
       </section>
 
       {/* ── 4. SUSTAINABILITY CHARTER CALLOUT ────────────────────────────── */}
-      <section className="py-20 sm:py-28">
+      <section className="py-12 sm:py-16">
         <div className="container-x">
           <div className="relative overflow-hidden rounded-3xl border border-[#E3E5EF] dark:border-white/10 bg-white dark:bg-night-900 p-8 sm:p-14 shadow-xl">
             {/* Full-bleed Renewable Ecology Backdrop */}

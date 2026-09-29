@@ -132,18 +132,18 @@ export function ContactForm({
       <motion.div
         initial={{ opacity: 0, y: 16 }}
         animate={{ opacity: 1, y: 0 }}
-        className="flex min-h-[420px] flex-col items-center justify-center rounded-2xl border border-pulse-400/25 bg-pulse-400/[0.04] p-10 text-center"
+        className="flex min-h-[420px] flex-col items-center justify-center rounded-2xl border border-[#15966B]/25 bg-[#15966B]/[0.04] p-10 text-center"
       >
         <motion.span
           initial={{ scale: 0.6, opacity: 0 }}
           animate={{ scale: 1, opacity: 1 }}
           transition={{ type: "spring", stiffness: 260, damping: 18, delay: 0.1 }}
-          className="flex h-16 w-16 items-center justify-center rounded-full border border-pulse-400/40 bg-pulse-400/10 text-pulse-300"
+          className="flex h-16 w-16 items-center justify-center rounded-full border border-[#15966B]/40 bg-[#15966B]/10 text-[#15966B]"
         >
           <Icon name="check" width={28} height={28} strokeWidth={2} />
         </motion.span>
-        <h3 className="mt-6 font-display text-2xl font-semibold text-ink-50">Thank you.</h3>
-        <p className="mt-3 max-w-sm text-[14.5px] leading-relaxed text-ink-400">
+        <h3 className="mt-6 font-display text-2xl font-semibold text-[#111827]">Thank you.</h3>
+        <p className="mt-3 max-w-sm text-[14.5px] leading-relaxed text-[#596579]">
           Your inquiry has been received. Our team will review it and get back
           to you.
         </p>
@@ -153,7 +153,7 @@ export function ContactForm({
             setForm(initial);
             setSubmitted(false);
           }}
-          className="mt-8 rounded-full border border-white/15 px-6 py-3 text-[13.5px] font-semibold text-ink-100 transition-colors hover:border-white/35"
+          className="mt-8 rounded-full border border-[#E3E5EF] bg-white px-6 py-3 text-[13.5px] font-semibold text-[#111827] transition-colors hover:border-[#3026B3] hover:text-[#3026B3]"
         >
           Submit another inquiry
         </button>
@@ -162,7 +162,7 @@ export function ContactForm({
   }
 
   return (
-    <form onSubmit={handleSubmit} noValidate className="rounded-2xl border border-white/8 bg-night-850/80 p-5 sm:p-6 md:p-9">
+    <form onSubmit={handleSubmit} noValidate className="rounded-2xl border border-[#E3E5EF] bg-white p-5 sm:p-6 md:p-9 shadow-sm">
       <div className="grid gap-6 sm:grid-cols-2">
         <Input
           label="Full Name"
@@ -258,16 +258,16 @@ export function ContactForm({
       </AnimatePresence>
 
       <div className="mt-8 flex flex-col-reverse sm:flex-row sm:items-center sm:justify-between gap-4">
-        <p className="max-w-xs text-[12px] leading-relaxed text-ink-500">
+        <p className="max-w-xs text-[12px] leading-relaxed text-[#596579]">
           Your details are used only to respond to this inquiry. See our{" "}
-          <Link to="/privacy" className="text-ink-300 underline decoration-white/20 underline-offset-2 hover:text-pulse-300">
+          <Link to="/privacy" className="text-[#3026B3] underline decoration-[#3026B3]/30 underline-offset-2 hover:text-[#211B72] font-medium">
             privacy policy
           </Link>.
         </p>
         <button
           type="submit"
           disabled={submitting}
-          className="group inline-flex w-full sm:w-auto items-center justify-center gap-3 rounded-full bg-gold-400 px-8 py-4 text-[15px] font-semibold text-night-950 transition-all duration-300 hover:bg-gold-300 hover:shadow-[0_10px_44px_-10px_rgba(245,184,77,0.55)] disabled:cursor-not-allowed disabled:opacity-60"
+          className="group inline-flex w-full sm:w-auto items-center justify-center gap-3 rounded-full bg-[#3026B3] px-8 py-4 text-[15px] font-semibold text-white transition-all duration-300 hover:bg-[#211B72] hover:shadow-lg disabled:cursor-not-allowed disabled:opacity-60"
         >
           {submitting ? (
             <>

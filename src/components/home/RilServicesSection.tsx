@@ -37,9 +37,9 @@ export function RilServicesSection() {
             </motion.div>
           </AnimatePresence>
 
-          {/* Cinematic Vignette & Scrim Gradient Overlays with balanced clarity */}
-          <div className="absolute inset-0 bg-gradient-to-r from-night-950/70 via-night-950/40 to-night-950/10" />
-          <div className="absolute inset-0 bg-gradient-to-t from-night-950/65 via-transparent to-night-950/25" />
+          {/* Cinematic Vignette & Scrim Gradient Overlays — stronger for text legibility */}
+          <div className="absolute inset-0 bg-gradient-to-r from-black/82 via-black/55 to-black/15" />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-black/30" />
         </div>
 
         {/* Inner Content Grid */}
@@ -77,23 +77,23 @@ export function RilServicesSection() {
                 </h2>
 
                 {/* 1-Line Punchy Descriptor */}
-                <p className="mt-4 text-lg xl:text-xl font-medium text-gold-200/90 leading-snug">
+                <p className="mt-4 text-lg xl:text-xl font-semibold text-[#FFB000] leading-snug drop-shadow-sm">
                   {activeService.descriptor}
                 </p>
 
                 {/* Short Impactful Narrative */}
-                <p className="mt-4 text-[15px] xl:text-base text-slate-300/85 leading-relaxed max-w-xl">
+                <p className="mt-4 text-[15px] xl:text-base text-white/90 leading-relaxed max-w-xl drop-shadow-sm">
                   {activeService.fullNarrative}
                 </p>
 
                 {/* Mini Stats Row */}
-                <div className="mt-7 flex flex-wrap items-center gap-6 border-y border-white/10 py-4">
+                <div className="mt-7 flex flex-wrap items-center gap-6 border-y border-white/20 py-4 bg-black/20 backdrop-blur-sm rounded-lg px-4">
                   {activeService.stats.map((st) => (
                     <div key={st.label} className="flex flex-col">
                       <span className="font-stat text-xl xl:text-2xl font-bold tracking-tight text-white">
                         {st.value}
                       </span>
-                      <span className="font-mono text-[10px] uppercase tracking-[0.16em] text-slate-400">
+                      <span className="font-mono text-[10px] uppercase tracking-[0.16em] text-slate-300 font-medium">
                         {st.label}
                       </span>
                     </div>
@@ -101,24 +101,24 @@ export function RilServicesSection() {
                 </div>
 
                 {/* RIL Style Pill Button: "read more →" */}
-                <div className="mt-8 flex items-center gap-4">
+                <div className="mt-8 flex flex-wrap items-center gap-4">
                   <button
                     type="button"
                     onClick={() => setSelectedModal(activeService)}
-                    className="group inline-flex items-center gap-3 rounded-full bg-[#3026B3] hover:bg-[#211B72] px-7 py-3 text-[14px] font-semibold text-white shadow-lg transition-all duration-300"
+                    className="group inline-flex items-center gap-3 rounded-full bg-white text-[#111827] hover:bg-[#FAF9F6] px-7 py-3.5 text-[14px] font-bold shadow-lg transition-all duration-300 hover:scale-105 hover:shadow-xl"
                   >
                     <span>read more</span>
                     <Icon
                       name="arrow-right"
                       width={15}
                       height={15}
-                      className="transition-transform duration-300 group-hover:translate-x-1"
+                      className="transition-transform duration-300 group-hover:translate-x-1 text-[#3026B3]"
                     />
                   </button>
 
                   <Link
                     to="/contact"
-                    className="group inline-flex items-center gap-2 text-[14px] text-white/90 hover:text-[#FFB000] transition-colors"
+                    className="group inline-flex items-center gap-2 text-[14px] text-white font-medium underline-offset-2 hover:text-[#FFB000] transition-colors duration-300"
                   >
                     <span>Inquire for sector partnership</span>
                     <Icon
@@ -146,8 +146,8 @@ export function RilServicesSection() {
                       onMouseEnter={() => setActiveIndex(idx)}
                       className={`group relative w-full text-left py-4 sm:py-5 px-5 transition-all duration-300 flex items-center justify-between ${
                         isActive
-                          ? "bg-white/10 backdrop-blur-md border border-white/20 text-white shadow-xl"
-                          : "border-b border-white/10 text-slate-400 hover:text-white hover:bg-white/[0.03]"
+                          ? "bg-white/15 backdrop-blur-md border border-[#FFB000]/30 text-white shadow-xl rounded-lg"
+                          : "border-b border-white/15 text-slate-300 hover:text-white hover:bg-white/10 hover:border-[#FFB000]/20"
                       }`}
                     >
                       <div className="flex items-center gap-3">
@@ -156,13 +156,13 @@ export function RilServicesSection() {
                         </span>
                         <div className="flex flex-col">
                           <span
-                            className={`font-mono text-xs sm:text-[13px] tracking-[0.16em] font-medium uppercase transition-colors ${
-                              isActive ? "text-white font-bold" : "text-slate-300"
+                            className={`font-mono text-xs sm:text-[13px] tracking-[0.16em] font-semibold uppercase transition-colors ${
+                              isActive ? "text-[#FFB000]" : "text-slate-200 group-hover:text-white"
                             }`}
                           >
                             {svc.shortLabel}
                           </span>
-                          <span className="font-mono text-[9px] text-slate-400">
+                          <span className={`font-mono text-[9px] ${isActive ? "text-slate-200" : "text-slate-400"}`}>
                             {svc.companyName}
                           </span>
                         </div>
@@ -259,10 +259,10 @@ export function RilServicesSection() {
                 <button
                   type="button"
                   onClick={() => setSelectedModal(svc)}
-                  className="mt-6 inline-flex w-full items-center justify-center gap-2 rounded-full bg-[#3026B3] hover:bg-[#211B72] py-3 text-sm font-semibold text-white shadow-sm transition-colors"
+                  className="group mt-6 inline-flex w-full items-center justify-center gap-2 rounded-full bg-[#3026B3] hover:bg-[#211B72] py-3 text-sm font-semibold text-white shadow-sm transition-all duration-300 hover:scale-[1.02] hover:shadow-md"
                 >
                   <span>read more</span>
-                  <Icon name="arrow-right" width={14} height={14} />
+                  <Icon name="arrow-right" width={14} height={14} className="transition-transform duration-300 group-hover:translate-x-1" />
                 </button>
               </div>
             </div>
@@ -303,7 +303,7 @@ export function RilServicesSection() {
 
               {/* Operating Enterprise Header with Logo */}
               <div className="flex items-center gap-3 mb-4">
-                <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-[#F1F6FF] border border-[#E3E5EF] p-1.5 shadow-xs">
+                <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-[#FAF9F6] border border-[#E3E5EF] p-1.5 shadow-xs">
                   <img src={selectedModal.companyLogo} alt={selectedModal.companyName} className="h-full w-full object-contain" />
                 </span>
                 <div>
@@ -351,7 +351,7 @@ export function RilServicesSection() {
                   {selectedModal.capabilities.map((cap) => (
                     <div
                       key={cap}
-                      className="flex items-center gap-2.5 rounded-xl border border-[#E3E5EF] bg-[#F1F6FF] px-3.5 py-2.5 text-xs text-[#111827] dark:border-white/10 dark:bg-white/5 dark:text-slate-200"
+                      className="flex items-center gap-2.5 rounded-xl border border-[#E3E5EF] bg-[#FAF9F6] px-3.5 py-2.5 text-xs text-[#111827] dark:border-white/10 dark:bg-white/5 dark:text-slate-200"
                     >
                       <span className="h-1.5 w-1.5 rounded-full bg-[#3026B3] dark:bg-gold-400" />
                       <span>{cap}</span>

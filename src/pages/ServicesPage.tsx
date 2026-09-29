@@ -13,30 +13,30 @@ export default function ServicesPage() {
   });
 
   return (
-    <main className="min-h-screen bg-night-950 text-ink-900 dark:text-white pt-24 pb-20">
+    <main className="min-h-screen bg-[#FAF9F6] text-[#111827] pt-24 pb-20">
       {/* ── 1. RIL-STYLE CAPABILITIES HERO ────────────────────────────── */}
-      <section className="relative overflow-hidden py-20 sm:py-28 border-b border-[#E3E5EF] dark:border-white/10 mb-16 sm:mb-24">
+      <section className="relative overflow-hidden py-20 sm:py-28 border-b border-[#E3E5EF] mb-16 sm:mb-24">
         <div className="absolute inset-0 z-0">
           <img
             src="/assets/backgrounds/conglomerate-panorama.jpg"
             alt=""
-            className="h-full w-full object-cover filter brightness-[0.92] dark:brightness-[0.55] contrast-[1.08]"
+            className="h-full w-full object-cover filter brightness-[0.92] contrast-[1.08]"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-night-950 via-night-950/80 to-night-950/40 dark:from-night-950 dark:via-night-950/40 dark:to-night-950/20" />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/40 to-black/20" />
         </div>
 
         <div className="container-x relative z-10">
           <div className="max-w-3xl">
-            <div className="flex items-center gap-2.5 font-mono text-[11px] uppercase tracking-[0.28em] text-[#3026B3] dark:text-gold-400 mb-4">
+            <div className="flex items-center gap-2.5 font-mono text-[11px] uppercase tracking-[0.28em] text-[#FFB000] mb-4">
               <span>◆</span>
-              <span>CONGLOMERATE CAPABILITIES</span>
+              <span className="text-white">CONGLOMERATE CAPABILITIES</span>
             </div>
-            <h1 className="font-serif text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-normal leading-[1.06] text-ink-900 dark:text-white">
+            <h1 className="font-serif text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-normal leading-[1.06] text-white">
               Sovereign Services.
               <br />
-              <span className="italic text-[#596579] dark:text-slate-300">National Priority.</span>
+              <span className="italic text-[#FFB000]">National Priority.</span>
             </h1>
-            <p className="mt-6 text-base sm:text-lg text-[#596579] dark:text-slate-300 leading-relaxed font-body">
+            <p className="mt-6 text-base sm:text-lg text-slate-200 leading-relaxed font-body">
               We operate across six mission-critical sectors powering India's sovereign growth — combining patient balance sheet capital, advanced engineering, and deep execution discipline.
             </p>
           </div>
@@ -49,7 +49,7 @@ export default function ServicesPage() {
           <section
             key={svc.id}
             id={svc.id}
-            className="group relative overflow-hidden rounded-3xl border border-[#E3E5EF] bg-white dark:border-white/10 dark:bg-night-900/60 shadow-xl transition-all hover:border-[#3026B3]/40 dark:hover:border-white/20"
+            className="group relative overflow-hidden rounded-3xl border border-[#E3E5EF] bg-white shadow-xl transition-all hover:border-[#3026B3]/40"
           >
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-0 items-stretch">
               {/* Image side (7 cols) */}
@@ -67,25 +67,25 @@ export default function ServicesPage() {
               </div>
 
               {/* Text side (5 cols) */}
-              <div className="lg:col-span-5 p-6 sm:p-8 lg:p-10 flex flex-col justify-between bg-white dark:bg-transparent">
+              <div className="lg:col-span-5 p-6 sm:p-8 lg:p-10 flex flex-col justify-between bg-white">
                 <div>
                   <div className="flex items-center justify-between gap-4 mb-4">
                     <div className="flex items-center gap-3">
-                      <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-[#F1F6FF] dark:bg-white p-1.5 shadow-sm border border-[#E3E5EF] dark:border-transparent">
+                      <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-[#FAF9F6] p-1.5 shadow-sm border border-[#E3E5EF]">
                         <img src={svc.companyLogo} alt={svc.companyName} className="h-full w-full object-contain" />
                       </span>
                       <div>
-                        <span className="font-mono text-[9px] uppercase tracking-[0.22em] text-[#3026B3] dark:text-gold-400 font-semibold block">
+                        <span className="font-mono text-[9px] uppercase tracking-[0.22em] text-[#3026B3] font-semibold block">
                           OPERATING ENTERPRISE
                         </span>
                         <a
                           href={svc.website}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="font-serif text-sm sm:text-base text-ink-900 dark:text-white hover:text-[#3026B3] dark:hover:text-gold-300 transition-colors inline-flex items-center gap-1 font-medium"
+                          className="font-serif text-sm sm:text-base text-[#111827] hover:text-[#3026B3] transition-colors inline-flex items-center gap-1 font-medium"
                         >
                           <span>{svc.companyName}</span>
-                          <Icon name="arrow-up-right" width={12} height={12} className="text-[#3026B3] dark:text-gold-400" />
+                          <Icon name="arrow-up-right" width={12} height={12} className="text-[#3026B3]" />
                         </a>
                       </div>
                     </div>
@@ -95,26 +95,26 @@ export default function ServicesPage() {
                     </span>
                   </div>
 
-                  <h2 className="mt-2 font-serif text-3xl sm:text-4xl text-ink-900 dark:text-white">
+                  <h2 className="mt-2 font-serif text-3xl sm:text-4xl text-[#111827]">
                     {svc.name}
                   </h2>
-                  <p className="mt-2 text-base font-semibold text-[#3026B3] dark:text-gold-200">
+                  <p className="mt-2 text-base font-semibold text-[#3026B3]">
                     {svc.descriptor}
                   </p>
-                  <p className="mt-3 text-sm text-[#596579] dark:text-slate-300 leading-relaxed font-body">
+                  <p className="mt-3 text-sm text-[#596579] leading-relaxed font-body">
                     {svc.fullNarrative}
                   </p>
 
                   {/* Capabilities chips */}
                   <div className="mt-6">
-                    <span className="block font-mono text-[10px] uppercase tracking-wider text-[#596579] dark:text-slate-400 mb-2.5 font-semibold">
+                    <span className="block font-mono text-[10px] uppercase tracking-wider text-[#596579] mb-2.5 font-semibold">
                       Core Disciplines
                     </span>
                     <div className="flex flex-wrap gap-2">
                       {svc.capabilities.map((cap) => (
                         <span
                           key={cap}
-                          className="rounded-lg border border-[#E3E5EF] bg-[#F1F6FF] dark:border-white/10 dark:bg-white/5 px-2.5 py-1 text-xs text-[#596579] dark:text-slate-300 font-medium"
+                          className="rounded-lg border border-[#E3E5EF] bg-[#FAF9F6] px-2.5 py-1 text-xs text-[#211B72] font-medium"
                         >
                           {cap}
                         </span>
@@ -124,23 +124,30 @@ export default function ServicesPage() {
                 </div>
 
                 {/* Metrics + Action */}
-                <div className="mt-8 border-t border-[#E3E5EF] dark:border-white/10 pt-6">
+                <div className="mt-8 border-t border-[#E3E5EF] pt-6">
                   <div className="grid grid-cols-3 gap-2 mb-6">
-                    {svc.stats.map((st) => (
-                      <div key={st.label}>
-                        <span className="block font-stat text-lg font-bold text-[#3026B3] dark:text-white">
-                          {st.value}
-                        </span>
-                        <span className="block font-mono text-[9px] uppercase tracking-wider text-[#596579] dark:text-slate-400">
-                          {st.label}
-                        </span>
-                      </div>
-                    ))}
+                    {svc.stats.map((st, sIdx) => {
+                      const statColors = ["#3026B3", "#00B8D9", "#15966B"];
+                      const statColor = statColors[sIdx % statColors.length];
+                      return (
+                        <div key={st.label}>
+                          <span
+                            className="block font-stat text-lg font-bold"
+                            style={{ color: statColor }}
+                          >
+                            {st.value}
+                          </span>
+                          <span className="block font-mono text-[9px] uppercase tracking-wider text-[#596579]">
+                            {st.label}
+                          </span>
+                        </div>
+                      );
+                    })}
                   </div>
 
                   <Link
                     to="/contact"
-                    className="inline-flex items-center gap-2 rounded-full bg-[#3026B3] text-white hover:bg-[#211B72] dark:border dark:border-white/30 dark:bg-white/5 dark:hover:bg-white dark:hover:text-black px-6 py-2.5 text-xs font-semibold shadow-md transition-all"
+                    className="inline-flex items-center gap-2 rounded-full bg-[#3026B3] text-white hover:bg-[#211B72] px-6 py-2.5 text-xs font-semibold shadow-md transition-all"
                   >
                     <span>Partner in {svc.name}</span>
                     <Icon name="arrow-right" width={13} height={13} />

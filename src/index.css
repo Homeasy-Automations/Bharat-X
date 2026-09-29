@@ -60,12 +60,14 @@
   --container-8xl: 90rem;
 }
 
-/* ── Light White / Ivory Soft Lavender Theme ─────── */
-:root {
+/* ── Unified Ivory & Soft Lavender Theme (Single Theme Across Modes) ─────── */
+:root,
+html,
+html.dark {
   --color-night-950: #FAF9F6; /* Light ivory / soft warm white background */
   --color-night-900: #F7F7FC; /* Soft Lavender White (Main Background) */
   --color-night-850: #FFFFFF; /* Pure White (Card) */
-  --color-night-800: #F1F6FF; /* Cool Blue White (Alternate Background) */
+  --color-night-800: #FAF9F6; /* Ivory White (Replaced Blue Background) */
   --color-night-700: #E3E5EF; /* Soft Lavender Gray (Border) */
   --color-night-600: #CBD1E1; /* Architectural structural divider */
 
@@ -98,7 +100,7 @@
   /* Frosted White & Ice Overlays */
   --color-fog-100: #FFFFFF;
   --color-fog-200: #F7F7FC;
-  --color-fog-300: #F1F6FF;
+  --color-fog-300: #FAF9F6;
 
   /* High-Contrast Bold Inks (Main Text: Almost Black #111827, Secondary: Slate #596579) */
   --color-ink-50: #0B0F19;
@@ -108,56 +110,6 @@
   --color-ink-400: #596579;
   --color-ink-500: #6B788E;
   --color-ink-600: #8C9BB0;
-}
-
-/* ── Midnight Indigo Dark Counterpart ─────────────────────────── */
-html.dark {
-  --color-night-950: #181350; /* Deep Midnight Indigo base */
-  --color-night-900: #211B72; /* Midnight Indigo */
-  --color-night-850: #2A2388; /* Elevated Card */
-  --color-night-800: #332B9C; /* Sub-surface */
-  --color-night-700: #463CAE; /* Border */
-  --color-night-600: #5D52C5; /* Divider */
-
-  /* Accent 2: Electric Cyan (#00B8D9) */
-  --color-pulse-200: #C7F6FD;
-  --color-pulse-300: #5EE4F8;
-  --color-pulse-400: #00B8D9;
-  --color-pulse-500: #00CDEB;
-  --color-pulse-600: #5EE4F8;
-
-  /* Accent 1: Vibrant Saffron (#FFB000) */
-  --color-gold-200: #FFECC2;
-  --color-gold-300: #FFD470;
-  --color-gold-400: #FFB000;
-  --color-gold-500: #FFC033;
-  --color-gold-600: #FFD470;
-
-  /* Primary: Deep Indigo (#3026B3) */
-  --color-ember-300: #D2CFFE;
-  --color-ember-400: #6255F5;
-  --color-ember-500: #3026B3;
-  --color-ember-600: #211B72;
-
-  --color-primary: #4E42EC;
-  --color-primary-dark: #211B72;
-  --color-accent-saffron: #FFB000;
-  --color-accent-cyan: #00B8D9;
-  --color-success: #15966B;
-
-  /* Overlays */
-  --color-fog-100: #FFFFFF;
-  --color-fog-200: #F7F7FC;
-  --color-fog-300: #F1F6FF;
-
-  /* High-Contrast Readability */
-  --color-ink-50: #FFFFFF;
-  --color-ink-100: #FFFFFF;
-  --color-ink-200: #F7F7FC;
-  --color-ink-300: #E3E5EF;
-  --color-ink-400: #B4BCCE;
-  --color-ink-500: #8D97AB;
-  --color-ink-600: #6B788E;
 }
 
 /* ── Base ────────────────────────────────────────────────────── */

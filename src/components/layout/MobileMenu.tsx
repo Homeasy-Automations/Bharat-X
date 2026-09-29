@@ -7,7 +7,6 @@ import { servicesData } from "../../data/servicesData";
 import { brandConfig } from "../../config/brand";
 import { navigation } from "../../data/navigation";
 import { Logo } from "./Logo";
-import { ThemeToggle } from "../common/ThemeToggle";
 
 const socialIcons: Record<string, string> = {
   LinkedIn: "arrow-up-right",
@@ -51,7 +50,6 @@ export function MobileMenu({ open, onClose }: { open: boolean; onClose: () => vo
             <div className="flex items-center justify-between">
               <Logo />
               <div className="flex items-center gap-2">
-                <ThemeToggle />
                 <button
                   type="button"
                   onClick={onClose}

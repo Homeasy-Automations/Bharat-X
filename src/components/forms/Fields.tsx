@@ -20,10 +20,10 @@ export function FieldLabel({
   return (
     <label
       htmlFor={htmlFor}
-      className="mb-2 flex items-center gap-1.5 font-mono text-[10.5px] uppercase tracking-[0.2em] text-ink-400"
+      className="mb-2 flex items-center gap-1.5 font-mono text-[10.5px] uppercase tracking-[0.2em] text-[#596579] font-medium"
     >
       {children}
-      {required && <span className="text-gold-400">*</span>}
+      {required && <span className="text-[#FFB000] font-bold">*</span>}
     </label>
   );
 }
@@ -93,7 +93,7 @@ export function Textarea({
           {label}
         </FieldLabel>
         {counterMax && (
-          <span className="mb-2 font-mono text-[10px] tabular-nums text-ink-600">
+          <span className="mb-2 font-mono text-[10px] tabular-nums text-[#596579]">
             {len}/{counterMax}
           </span>
         )}
@@ -145,7 +145,7 @@ export function Select({
           className={cn(
             baseField,
             "appearance-none pr-10",
-            !rest.value && "text-ink-500",
+            !rest.value && "text-[#596579]/70",
             error ? errBorder : okBorder,
           )}
           {...rest}
@@ -156,7 +156,7 @@ export function Select({
             </option>
           )}
           {options.map((o) => (
-            <option key={o.value} value={o.value} className="bg-white text-ink-100 dark:bg-night-800 dark:text-ink-100">
+            <option key={o.value} value={o.value} className="bg-white text-[#111827]">
               {o.label}
             </option>
           ))}
@@ -165,7 +165,7 @@ export function Select({
           name="chevron-down"
           width={15}
           height={15}
-          className="pointer-events-none absolute right-4 top-1/2 -translate-y-1/2 text-ink-500"
+          className="pointer-events-none absolute right-4 top-1/2 -translate-y-1/2 text-[#596579]"
         />
       </div>
       <FieldError id={errorId} message={error} />
