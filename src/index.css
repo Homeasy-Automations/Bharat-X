@@ -633,37 +633,41 @@ a, button, [role="button"], input, select, textarea {
   }
 }
 
-/* ── Heading hover: colour shift + subtle lift ───────────────── */
+/* ── Heading hover: colour shift (hover-capable devices only) ── */
 h1, h2, h3, h4, h5, h6 {
-  transition: color 0.25s ease, letter-spacing 0.25s ease;
+  transition: color 0.25s ease;
 }
-h1:hover { color: #3026B3; }
-h2:hover { color: #211B72; }
-h3:hover { color: #3026B3; }
+@media (hover: hover) {
+  h1:hover { color: #3026B3; }
+  h2:hover { color: #211B72; }
+  h3:hover { color: #3026B3; }
 
-/* But headings inside hero/dark sections (over images) stay white */
-section:has(> .absolute) h1:hover,
-section:has(> .absolute) h2:hover,
-section:has(> .absolute) h3:hover {
-  color: #FFB000;
+  /* Headings inside dark hero sections (over images) use saffron */
+  section:has(> .absolute) h1:hover,
+  section:has(> .absolute) h2:hover,
+  section:has(> .absolute) h3:hover {
+    color: #FFB000;
+  }
 }
 
-/* ── Interactive card: lift, border glow, shadow escalation ──── */
+/* ── Interactive card: lift, border glow (hover-capable only) ── */
 .cursor-card,
 [data-cursor="card"] {
   transition: transform 0.3s cubic-bezier(0.22,1,0.36,1),
               box-shadow 0.3s cubic-bezier(0.22,1,0.36,1),
               border-color 0.25s ease;
 }
-.cursor-card:hover,
-[data-cursor="card"]:hover {
-  transform: translateY(-4px) scale(1.012);
-  box-shadow: 0 12px 40px -8px rgba(48,38,179,0.15),
-              0 4px 16px -4px rgba(0,184,217,0.10);
-  border-color: rgba(48,38,179,0.25) !important;
+@media (hover: hover) {
+  .cursor-card:hover,
+  [data-cursor="card"]:hover {
+    transform: translateY(-4px) scale(1.012);
+    box-shadow: 0 12px 40px -8px rgba(48,38,179,0.15),
+                0 4px 16px -4px rgba(0,184,217,0.10);
+    border-color: rgba(48,38,179,0.25) !important;
+  }
 }
 
-/* ── Button: scale + shadow pulse ────────────────────────────── */
+/* ── Button: scale + shadow pulse (hover-capable devices only) ── */
 button,
 [role="button"],
 [data-cursor="button"] {
@@ -672,10 +676,12 @@ button,
               background-color 0.25s ease,
               color 0.2s ease;
 }
-button:hover:not(:disabled),
-[role="button"]:hover,
-[data-cursor="button"]:hover {
-  transform: scale(1.04);
+@media (hover: hover) {
+  button:hover:not(:disabled),
+  [role="button"]:hover,
+  [data-cursor="button"]:hover {
+    transform: scale(1.04);
+  }
 }
 button:active:not(:disabled),
 [role="button"]:active {
@@ -687,23 +693,34 @@ a {
   transition: color 0.2s ease;
 }
 
-/* ── Inline text emphasis hover ─────────────────────────────── */
+/* ── Inline text emphasis hover (hover-capable only) ────────── */
 .hover-accent {
   transition: color 0.2s ease, text-shadow 0.25s ease;
 }
-.hover-accent:hover {
-  color: #3026B3;
-  text-shadow: 0 0 20px rgba(48,38,179,0.18);
+@media (hover: hover) {
+  .hover-accent:hover {
+    color: #3026B3;
+    text-shadow: 0 0 20px rgba(48,38,179,0.18);
+  }
 }
 
-/* ── Image hover: scale + desaturation lift ──────────────────── */
+/* ── Image: only transition filter, NOT transform (prevents scroll jank) */
 img {
-  transition: filter 0.35s ease, transform 0.35s cubic-bezier(0.22,1,0.36,1);
+  transition: filter 0.35s ease;
 }
-a:hover img,
-button:hover img,
-.cursor-card:hover img {
-  filter: brightness(1.06) saturate(1.12) !important;
+@media (hover: hover) {
+  a:hover img,
+  button:hover img,
+  .cursor-card:hover img {
+    filter: brightness(1.06) saturate(1.12) !important;
+  }
+}
+
+/* ── touch-action: allow horizontal scroll on tab rows ──────── */
+[role="tablist"],
+.tabs-scroll {
+  touch-action: pan-x pan-y;
+  -webkit-overflow-scrolling: touch;
 }
 
 /* ── Reduced motion: disable custom cursor extras ────────────── */
