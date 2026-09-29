@@ -39,13 +39,13 @@ export function ContactCTAStrip() {
             </p>
 
             {/* Trust indicators */}
-            <div className="mt-6 flex flex-wrap gap-4">
+            <div className="mt-6 flex flex-nowrap items-center gap-3">
               {[
                 { icon: "shield-check", label: "Sovereign Partnerships" },
                 { icon: "globe", label: "Global Corridors" },
                 { icon: "landmark", label: "Institutional Grade" },
               ].map((badge) => (
-                <span key={badge.label} className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-3 py-1 text-xs text-slate-200 font-mono tracking-wider">
+                <span key={badge.label} className="inline-flex shrink-0 items-center gap-2 rounded-full border border-white/20 bg-white/10 px-3 py-1 text-xs text-slate-200 font-mono tracking-wider whitespace-nowrap">
                   <Icon name={badge.icon} width={12} height={12} className="text-[#FFB000]" />
                   {badge.label}
                 </span>
