@@ -32,7 +32,7 @@ export function RilServicesSection() {
               <img
                 src={activeService.image}
                 alt=""
-                className="h-full w-full object-cover object-center filter brightness-[0.95] contrast-[1.04]"
+                className="h-full w-full object-cover object-top object-center filter brightness-[0.95] contrast-[1.04]"
               />
             </motion.div>
           </AnimatePresence>
@@ -222,7 +222,7 @@ export function RilServicesSection() {
                 <img
                   src={svc.image}
                   alt=""
-                  className="h-full w-full object-cover filter brightness-[0.92] contrast-[1.05]"
+                  className="h-full w-full object-cover object-top filter brightness-[0.92] contrast-[1.05]"
                   loading="lazy"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent" />

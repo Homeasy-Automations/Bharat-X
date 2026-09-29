@@ -20,7 +20,7 @@ export default function IndustriesPage() {
           <img
             src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=2400&q=85"
             alt=""
-            className="h-full w-full object-cover filter brightness-[0.92] contrast-[1.1]"
+            className="h-full w-full object-cover object-top filter brightness-[0.92] contrast-[1.1]"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/40 to-black/20" />
         </div>
@@ -56,7 +56,7 @@ export default function IndustriesPage() {
                       <img
                         src={svc.image}
                         alt={svc.name}
-                        className="h-full w-full object-cover filter brightness-[0.98] contrast-[1.05] transition-transform duration-700 group-hover:scale-105"
+                        className="h-full w-full object-cover object-top filter brightness-[0.98] contrast-[1.05] transition-transform duration-700 group-hover:scale-105"
                         loading="lazy"
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
@@ -142,7 +142,7 @@ export default function IndustriesPage() {
               <img
                 src="/assets/backgrounds/infrastructure-real.jpg"
                 alt=""
-                className="h-full w-full object-cover filter brightness-[0.92] dark:brightness-[0.45] contrast-[1.15]"
+                className="h-full w-full object-cover object-top filter brightness-[0.92] dark:brightness-[0.45] contrast-[1.15]"
                 loading="lazy"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-white via-white/80 to-transparent dark:from-night-950/85 dark:via-night-950/55 dark:to-night-950/75" />

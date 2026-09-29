@@ -53,7 +53,7 @@ export function RilHeroSection() {
         <img
           src={current.image}
           alt=""
-          className="absolute inset-0 h-full w-full object-cover object-center filter brightness-[0.98] contrast-[1.04]"
+          className="absolute inset-0 h-full w-full object-cover object-top object-center filter brightness-[0.98] contrast-[1.04]"
         />
 
         {/* Smooth animated crossfade layer */}
@@ -72,7 +72,7 @@ export function RilHeroSection() {
             <img
               src={current.image}
               alt={current.name}
-              className="h-full w-full object-cover object-center filter brightness-[0.98] contrast-[1.04]"
+              className="h-full w-full object-cover object-top object-center filter brightness-[0.98] contrast-[1.04]"
               loading="eager"
             />
           </motion.div>

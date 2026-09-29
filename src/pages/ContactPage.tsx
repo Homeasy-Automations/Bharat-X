@@ -69,7 +69,7 @@ export default function ContactPage() {
           <img
             src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=2400&q=85"
             alt=""
-            className="h-full w-full object-cover filter brightness-[0.8] contrast-[1.1]"
+            className="h-full w-full object-cover object-top filter brightness-[0.8] contrast-[1.1]"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/55 to-black/35" />
         </div>

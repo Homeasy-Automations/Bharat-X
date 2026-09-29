@@ -93,7 +93,7 @@ export default function ImpactPage() {
           <img
             src="https://images.unsplash.com/photo-1625246333195-78d9c38ad449?auto=format&fit=crop&w=2400&q=85"
             alt=""
-            className="h-full w-full object-cover filter brightness-[0.92] contrast-[1.1]"
+            className="h-full w-full object-cover object-top filter brightness-[0.92] contrast-[1.1]"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/40 to-black/20" />
         </div>
@@ -243,7 +243,7 @@ export default function ImpactPage() {
               <img
                 src="/assets/backgrounds/hero-field.jpg"
                 alt=""
-                className="h-full w-full object-cover filter brightness-[0.9] dark:brightness-[0.45] contrast-[1.15]"
+                className="h-full w-full object-cover object-top filter brightness-[0.9] dark:brightness-[0.45] contrast-[1.15]"
                 loading="lazy"
               />
               <div className="absolute inset-0 bg-gradient-to-r from-white via-white/80 to-transparent dark:from-night-950/90 dark:via-night-950/50 dark:to-transparent" />

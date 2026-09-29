@@ -157,7 +157,11 @@ export function Navbar() {
             aria-label="BharatX Group — home"
             className="group relative z-10 flex items-center gap-3 rounded-md transition-transform duration-300 hover:scale-[1.02]"
           >
-            <Logo />
+            <img
+              src="/bharatxgroup.png"
+              alt="BharatX Group"
+              className="h-10 sm:h-11 w-auto object-contain"
+            />
           </Link>
 
           {/* Desktop nav with dropdown chevrons */}

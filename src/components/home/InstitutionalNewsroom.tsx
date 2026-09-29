@@ -135,7 +135,7 @@ export function InstitutionalNewsroom() {
                 <img
                   src={lead.image}
                   alt=""
-                  className="h-full w-full object-cover filter brightness-[0.95] contrast-[1.05] transition-transform duration-700 group-hover:scale-105"
+                  className="h-full w-full object-cover object-top filter brightness-[0.95] contrast-[1.05] transition-transform duration-700 group-hover:scale-105"
                   loading="lazy"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent lg:bg-gradient-to-r lg:from-black/20 lg:to-transparent" />
@@ -157,7 +157,7 @@ export function InstitutionalNewsroom() {
                     <img
                       src={item.image}
                       alt=""
-                      className="h-full w-full object-cover filter brightness-[0.95] transition-transform duration-500 group-hover:scale-105"
+                      className="h-full w-full object-cover object-top filter brightness-[0.95] transition-transform duration-500 group-hover:scale-105"
                       loading="lazy"
                     />
                     <span className="absolute top-3 left-3 rounded-full bg-white/95 backdrop-blur-md px-2.5 py-0.5 font-mono text-[9px] uppercase tracking-wider text-[#3026B3] border border-[#E3E5EF] font-semibold dark:bg-black/60 dark:text-gold-400 dark:border-white/10">

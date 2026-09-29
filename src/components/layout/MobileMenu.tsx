@@ -48,7 +48,7 @@ export function MobileMenu({ open, onClose }: { open: boolean; onClose: () => vo
           <div aria-hidden className="grid-bg grid-bg-fade absolute inset-0 opacity-40" />
           <div className="container-x relative flex min-h-full flex-col pt-[calc(1.5rem+env(safe-area-inset-top,0px))] pb-[calc(2.5rem+env(safe-area-inset-bottom,0px))]">
             <div className="flex items-center justify-between">
-              <Logo />
+              <img src="/bharatxgroup.png" alt="BharatX Group" className="h-10 w-auto object-contain" />
               <div className="flex items-center gap-2">
                 <button
                   type="button"

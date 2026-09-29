@@ -76,11 +76,15 @@ export function Footer() {
       <div className="container-x relative z-10 pb-[calc(2rem+env(safe-area-inset-bottom,0px))] pt-8 md:pt-10">
         <div className="flex flex-col gap-8 lg:flex-row lg:items-start lg:gap-12 xl:gap-16">
           {/* Brand */}
-          <div className="w-full max-w-sm lg:w-[280px] xl:w-[320px] shrink-0">
-            <Link to="/" aria-label="BharatX Group home">
-              <Logo />
+          <div className="w-full max-w-sm lg:w-[280px] xl:w-[320px] shrink-0 flex flex-col items-center text-center lg:items-center lg:text-center">
+            <Link to="/" aria-label="BharatX Group home" className="mb-2">
+              <img
+                src="/bharatxgroup.png"
+                alt="BharatX Group"
+                className="h-16 w-auto object-contain"
+              />
             </Link>
-            <p className="mt-5 text-sm leading-relaxed text-[#596579]">
+            <p className="mt-4 text-sm leading-relaxed text-[#596579]">
               BharatX Group is a diversified conglomerate operating across technology &amp; AI, infrastructure, manufacturing, agriculture, food systems, and venture building.
             </p>
             <div className="mt-6 flex items-center gap-3">

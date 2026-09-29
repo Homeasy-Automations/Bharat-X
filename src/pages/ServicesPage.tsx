@@ -20,7 +20,7 @@ export default function ServicesPage() {
           <img
             src="/assets/backgrounds/conglomerate-panorama.jpg"
             alt=""
-            className="h-full w-full object-cover filter brightness-[0.92] contrast-[1.08]"
+            className="h-full w-full object-cover object-top filter brightness-[0.92] contrast-[1.08]"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/40 to-black/20" />
         </div>
@@ -57,7 +57,7 @@ export default function ServicesPage() {
                 <img
                   src={svc.image}
                   alt={svc.name}
-                  className="h-full w-full object-cover object-center filter brightness-[0.98] contrast-[1.04] transition-transform duration-700 group-hover:scale-105"
+                  className="h-full w-full object-cover object-top object-center filter brightness-[0.98] contrast-[1.04] transition-transform duration-700 group-hover:scale-105"
                   loading="lazy"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent lg:bg-gradient-to-r lg:from-transparent lg:via-black/20 lg:to-black/40" />
@@ -166,7 +166,7 @@ export default function ServicesPage() {
             <img
               src="/assets/backgrounds/infrastructure-real.jpg"
               alt=""
-              className="h-full w-full object-cover filter brightness-[0.45] contrast-[1.15]"
+              className="h-full w-full object-cover object-top filter brightness-[0.45] contrast-[1.15]"
               loading="lazy"
             />
             <div className="absolute inset-0 bg-gradient-to-r from-night-950 via-night-950/60 to-transparent" />

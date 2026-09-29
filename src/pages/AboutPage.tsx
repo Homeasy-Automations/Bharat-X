@@ -36,7 +36,7 @@ export default function AboutPage() {
           <img
             src="/assets/backgrounds/infrastructure-real.jpg"
             alt=""
-            className="h-full w-full object-cover filter brightness-[0.92] contrast-[1.15]"
+            className="h-full w-full object-cover object-top filter brightness-[0.92] contrast-[1.15]"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/40 to-black/20" />
         </div>
@@ -132,7 +132,7 @@ export default function AboutPage() {
                       <img
                         src={svc.image}
                         alt={svc.name}
-                        className="h-full w-full object-cover filter brightness-[0.98] transition-transform duration-500 group-hover:scale-105"
+                        className="h-full w-full object-cover object-top filter brightness-[0.98] transition-transform duration-500 group-hover:scale-105"
                         loading="lazy"
                       />
                       <span className="absolute top-3 left-3 rounded-full bg-black/70 backdrop-blur-md px-3 py-1 font-mono text-[9px] uppercase tracking-wider text-[#FFB000] border border-white/10">

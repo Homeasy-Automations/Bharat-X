@@ -60,7 +60,7 @@ function CompanyProfile({ company }: { company: (typeof companies)[number] }) {
         <img
           src={company.heroImage}
           alt={`${company.name} — ${company.category}`}
-          className="absolute inset-0 h-full w-full object-cover"
+          className="absolute inset-0 h-full w-full object-cover object-top"
         />
         <div className="absolute inset-0 bg-night-950/60" />
         <div className="absolute inset-0 bg-gradient-to-t from-night-900 via-night-950/50 to-night-950/70" />

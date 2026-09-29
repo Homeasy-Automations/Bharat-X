@@ -207,7 +207,7 @@ export function StrategicTriadTabs() {
                 <img
                   src={current.image}
                   alt={current.headline}
-                  className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105 filter brightness-[0.95] contrast-[1.05]"
+                  className="h-full w-full object-cover object-top transition-transform duration-700 group-hover:scale-105 filter brightness-[0.95] contrast-[1.05]"
                   loading="eager"
                   onError={(e) => {
                     const target = e.currentTarget;

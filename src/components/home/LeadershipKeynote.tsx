@@ -79,7 +79,7 @@ export function LeadershipKeynote() {
               <img
                 src="/assets/backgrounds/conglomerate-panorama.jpg"
                 alt="BharatX Annual Executive Keynote"
-                className="h-full w-full object-cover filter brightness-[0.88] contrast-[1.05]"
+                className="h-full w-full object-cover object-top filter brightness-[0.88] contrast-[1.05]"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent" />
 

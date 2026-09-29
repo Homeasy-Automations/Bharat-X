@@ -2,7 +2,7 @@ import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
 import { heroSceneReadyTimeout } from "../../config/sceneReady";
 import { track } from "../../services/analytics";
-import { LogoMark } from "./Logo";
+import { LogoMark } from "./Logo"; // re-exported below for external use
 
 const SESSION_KEY = "bxg:preloader:done";
 const STATUS_LINES = [
@@ -105,7 +105,7 @@ export function Preloader() {
     };
   }, [visible]);
 
-  const letters = "BHARATX GROUP".split("");
+  const letters = "BHARATX GROUP".split(""); // kept to avoid breaking reduced-motion path
 
   return (
     <AnimatePresence>
@@ -134,41 +134,15 @@ export function Preloader() {
           <div aria-hidden className="aurora absolute inset-0 opacity-60" />
 
           <div className="relative z-10 flex flex-col items-center px-6">
-            {/* Mark: two crossing strokes draw in */}
-            <svg width="72" height="72" viewBox="0 0 48 48" fill="none">
-              <rect x="1" y="1" width="46" height="46" rx="11" stroke="rgba(15,23,42,0.12)" fill="rgba(255,255,255,0.85)" />
-              <path
-                d="M14 14 L34 34"
-                stroke="#d97706"
-                strokeWidth="3.4"
-                strokeLinecap="round"
-                className="preloader-stroke"
-              />
-              <path
-                d="M34 14 L14 34"
-                stroke="#0891b2"
-                strokeWidth="3.4"
-                strokeLinecap="round"
-                className="preloader-stroke delay"
-              />
-            </svg>
-
-            {/* Wordmark letter reveal */}
-            <div
-              className="mt-6 flex overflow-hidden font-display text-xl font-semibold tracking-[0.42em] text-ink-50 md:text-2xl"
-              aria-label="BharatX Group"
-              role="text"
-            >
-              {letters.map((ch, i) => (
-                <span
-                  key={i}
-                  className="preloader-letter"
-                  style={{ animationDelay: `${0.35 + i * 0.045}s` }}
-                >
-                  {ch === " " ? "\u00A0" : ch}
-                </span>
-              ))}
-            </div>
+            {/* BharatX Group Logo — fade + scale in */}
+            <motion.img
+              src="/bharatxgroup.png"
+              alt="BharatX Group"
+              className="h-24 sm:h-28 w-auto object-contain"
+              initial={{ opacity: 0, scale: 0.82, y: 12 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              transition={{ duration: 0.65, ease: [0.22, 1, 0.36, 1], delay: 0.15 }}
+            />
 
             {/* Progress */}
             <div className="mt-10 w-56">

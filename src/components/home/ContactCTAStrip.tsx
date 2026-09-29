@@ -10,7 +10,7 @@ export function ContactCTAStrip() {
         <img
           src="/assets/backgrounds/conglomerate-panorama.jpg"
           alt=""
-          className="h-full w-full object-cover filter brightness-[0.22] contrast-[1.2] saturate-[0.9]"
+          className="h-full w-full object-cover object-top filter brightness-[0.22] contrast-[1.2] saturate-[0.9]"
           loading="lazy"
         />
         {/* multi-layer overlay for max readability */}
