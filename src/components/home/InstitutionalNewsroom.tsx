@@ -150,7 +150,7 @@ export function InstitutionalNewsroom() {
             <Reveal key={item.id} delay={idx * 0.1}>
               <Link
                 to={item.link}
-                className="group flex flex-col justify-between h-full rounded-2xl border border-[#E3E5EF] bg-white p-6 shadow-sm transition-all duration-300 hover:border-[#3026B3]/40 hover:shadow-md dark:border-white/10 dark:bg-white/[0.02]"
+                className="group flex flex-col justify-between h-full rounded-2xl border border-[#E3E5EF] bg-white p-6 shadow-sm cursor-card transition-all duration-300 hover:border-[#3026B3]/40 hover:shadow-md dark:border-white/10 dark:bg-white/[0.02]"
               >
                 <div>
                   <div className="relative h-44 w-full overflow-hidden rounded-xl mb-5">

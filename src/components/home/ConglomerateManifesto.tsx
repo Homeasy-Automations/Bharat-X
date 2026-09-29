@@ -63,7 +63,7 @@ export function ConglomerateManifesto() {
             },
           ].map((item, idx) => (
             <Reveal key={item.badge} delay={0.15 + idx * 0.08}>
-              <div className="group relative h-full rounded-2xl border border-[#E3E5EF] bg-white p-5 sm:p-6 shadow-sm transition-all duration-300 hover:border-[#3026B3]/40 hover:shadow-md hover:-translate-y-1 dark:border-white/15 dark:bg-night-900">
+              <div className="group relative h-full rounded-2xl border border-[#E3E5EF] bg-white p-5 sm:p-6 shadow-sm cursor-card transition-all duration-300 hover:border-[#3026B3]/40 hover:shadow-md hover:-translate-y-1 dark:border-white/15 dark:bg-night-900">
                 <div className="flex items-center justify-between">
                   <span
                     className="font-mono text-[10px] font-semibold uppercase tracking-[0.2em]"

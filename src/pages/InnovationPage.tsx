@@ -216,7 +216,7 @@ export default function InnovationPage() {
               return (
                 <div
                   key={phase.number}
-                  className="rounded-2xl border border-[#E3E5EF] bg-white p-6 flex flex-col justify-between shadow-sm hover:border-[#3026B3]/40 transition-all"
+                  className="rounded-2xl border border-[#E3E5EF] bg-white p-6 flex flex-col justify-between shadow-sm cursor-card hover:border-[#3026B3]/40 transition-all"
                 >
                   <div>
                     <div className="flex items-center justify-between mb-4">

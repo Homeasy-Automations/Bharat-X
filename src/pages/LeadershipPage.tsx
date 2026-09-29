@@ -150,7 +150,7 @@ export default function LeadershipPage() {
             {governance.map((g) => (
               <div
                 key={g.t}
-                className="rounded-2xl border border-[#E3E5EF] bg-white p-7 flex gap-4 items-start shadow-sm hover:border-[#3026B3]/40 transition-all"
+                className="rounded-2xl border border-[#E3E5EF] bg-white p-7 flex gap-4 items-start shadow-sm cursor-card hover:border-[#3026B3]/40 transition-all"
               >
                 <span
                   className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl border border-[#E3E5EF]"
@@ -184,7 +184,7 @@ export default function LeadershipPage() {
             {operating.map((op) => (
               <div
                 key={op.n}
-                className="rounded-2xl border border-[#E3E5EF] bg-white p-6 flex flex-col justify-between shadow-sm hover:border-[#3026B3]/40 transition-all"
+                className="rounded-2xl border border-[#E3E5EF] bg-white p-6 flex flex-col justify-between shadow-sm cursor-card hover:border-[#3026B3]/40 transition-all"
               >
                 <div>
                   <span

@@ -215,7 +215,7 @@ export function RilServicesSection() {
           {servicesData.map((svc, idx) => (
             <div
               key={svc.id}
-              className="relative overflow-hidden rounded-2xl border border-[#E3E5EF] bg-white shadow-sm dark:border-white/10 dark:bg-night-900"
+              className="relative overflow-hidden rounded-2xl border border-[#E3E5EF] bg-white shadow-sm cursor-card dark:border-white/10 dark:bg-night-900"
             >
               {/* Full-bleed card image */}
               <div className="relative h-64 w-full overflow-hidden">

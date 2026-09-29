@@ -619,3 +619,103 @@ a, button, [role="button"], input, select, textarea {
     stroke-dashoffset: 0;
   }
 }
+
+/* ═══════════════════════════════════════════════════════════════
+   CUSTOM CURSOR SYSTEM
+   Hides the native cursor on non-touch devices and enables
+   the JS-powered magnetic cursor. Touch devices keep default.
+═══════════════════════════════════════════════════════════════ */
+@media (pointer: fine) {
+  *,
+  *::before,
+  *::after {
+    cursor: none !important;
+  }
+}
+
+/* ── Heading hover: colour shift + subtle lift ───────────────── */
+h1, h2, h3, h4, h5, h6 {
+  transition: color 0.25s ease, letter-spacing 0.25s ease;
+}
+h1:hover { color: #3026B3; }
+h2:hover { color: #211B72; }
+h3:hover { color: #3026B3; }
+
+/* But headings inside hero/dark sections (over images) stay white */
+section:has(> .absolute) h1:hover,
+section:has(> .absolute) h2:hover,
+section:has(> .absolute) h3:hover {
+  color: #FFB000;
+}
+
+/* ── Interactive card: lift, border glow, shadow escalation ──── */
+.cursor-card,
+[data-cursor="card"] {
+  transition: transform 0.3s cubic-bezier(0.22,1,0.36,1),
+              box-shadow 0.3s cubic-bezier(0.22,1,0.36,1),
+              border-color 0.25s ease;
+}
+.cursor-card:hover,
+[data-cursor="card"]:hover {
+  transform: translateY(-4px) scale(1.012);
+  box-shadow: 0 12px 40px -8px rgba(48,38,179,0.15),
+              0 4px 16px -4px rgba(0,184,217,0.10);
+  border-color: rgba(48,38,179,0.25) !important;
+}
+
+/* ── Button: scale + shadow pulse ────────────────────────────── */
+button,
+[role="button"],
+[data-cursor="button"] {
+  transition: transform 0.2s cubic-bezier(0.22,1,0.36,1),
+              box-shadow 0.25s ease,
+              background-color 0.25s ease,
+              color 0.2s ease;
+}
+button:hover:not(:disabled),
+[role="button"]:hover,
+[data-cursor="button"]:hover {
+  transform: scale(1.04);
+}
+button:active:not(:disabled),
+[role="button"]:active {
+  transform: scale(0.97);
+}
+
+/* ── Link text: underline sweep + colour shift ───────────────── */
+a {
+  transition: color 0.2s ease;
+}
+
+/* ── Inline text emphasis hover ─────────────────────────────── */
+.hover-accent {
+  transition: color 0.2s ease, text-shadow 0.25s ease;
+}
+.hover-accent:hover {
+  color: #3026B3;
+  text-shadow: 0 0 20px rgba(48,38,179,0.18);
+}
+
+/* ── Image hover: scale + desaturation lift ──────────────────── */
+img {
+  transition: filter 0.35s ease, transform 0.35s cubic-bezier(0.22,1,0.36,1);
+}
+a:hover img,
+button:hover img,
+.cursor-card:hover img {
+  filter: brightness(1.06) saturate(1.12) !important;
+}
+
+/* ── Reduced motion: disable custom cursor extras ────────────── */
+@media (prefers-reduced-motion: reduce) {
+  .cursor-card:hover,
+  [data-cursor="card"]:hover {
+    transform: none;
+  }
+  button:hover:not(:disabled) {
+    transform: none;
+  }
+  img {
+    transition: none;
+  }
+}
