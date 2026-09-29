@@ -74,10 +74,10 @@ export function Navbar() {
         className={cn(
           "fixed inset-x-0 top-0 z-50 pt-[env(safe-area-inset-top,0px)] transition-all duration-500",
           scrolled || mega
-            ? "glass-nav shadow-[0_12px_36px_-12px_rgba(0,0,0,0.12)]"
-            : "bg-gradient-to-b from-white/90 via-white/50 to-transparent dark:from-night-950/90 dark:via-night-950/50 dark:to-transparent",
+            ? "bg-white shadow-[0_4px_20px_-5px_rgba(48,38,179,0.08)]"
+            : "bg-transparent",
         )}
-        style={{ border: "none", borderBottom: "none" }}
+        style={{ borderBottom: (scrolled || mega) ? "1px solid #E3E5EF" : "none" }}
         onMouseLeave={() => setMega(null)}
       >
         {/* Tier 1: Executive Conglomerate Status Deck (Inspired by Reliance Ticker Deck) */}
@@ -88,20 +88,20 @@ export function Navbar() {
               animate={{ height: "auto", opacity: 1 }}
               exit={{ height: 0, opacity: 0 }}
               transition={{ duration: 0.25 }}
-              className="border-b border-slate-200/60 dark:border-white/5 bg-slate-900/[0.02] dark:bg-white/[0.02] hidden md:block"
+              className="border-b border-white/10 bg-black/25 hidden md:block"
             >
               <div className="container-x flex h-8 items-center justify-between text-[11px] font-mono">
                 {/* Left Live Indicator & Ticker */}
                 <div className="flex items-center gap-3">
-                  <span className="flex items-center gap-2 rounded-full bg-emerald-500/10 px-2 py-0.5 text-emerald-600 dark:text-emerald-400 font-semibold tracking-wider text-[10px]">
+                  <span className="flex items-center gap-2 rounded-full bg-emerald-500/20 px-2 py-0.5 text-emerald-300 font-semibold tracking-wider text-[10px]">
                     <span className="relative flex h-2 w-2">
                       <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
-                      <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500" />
+                      <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-400" />
                     </span>
                     ECOSYSTEM LIVE
                   </span>
 
-                  <span className="h-3 w-px bg-slate-300 dark:bg-white/15" />
+                  <span className="h-3 w-px bg-white/20" />
 
                   {/* Smooth rotating ticker */}
                   <div className="relative h-4 overflow-hidden min-w-[280px] lg:min-w-[380px]">
@@ -112,7 +112,7 @@ export function Navbar() {
                         animate={{ y: 0, opacity: 1 }}
                         exit={{ y: -12, opacity: 0 }}
                         transition={{ duration: 0.3 }}
-                        className="absolute inset-0 truncate tracking-wide text-ink-500 dark:text-ink-300"
+                        className="absolute inset-0 truncate tracking-wide text-white/80"
                       >
                         {liveMetrics[tickerIndex]}
                       </motion.span>
@@ -121,10 +121,10 @@ export function Navbar() {
                 </div>
 
                 {/* Right Corporate Utility Portals */}
-                <div className="flex items-center gap-5 text-ink-500 dark:text-ink-400">
+                <div className="flex items-center gap-5 text-white/70">
                   <Link
                     to="/services"
-                    className="hover:text-gold-600 dark:hover:text-gold-400 transition-colors flex items-center gap-1.5"
+                    className="hover:text-[#FFB000] transition-colors flex items-center gap-1.5"
                   >
                     <Icon name="layers" width={11} height={11} />
                     <span>Our Services</span>
@@ -132,14 +132,14 @@ export function Navbar() {
 
                   <Link
                     to="/about"
-                    className="hover:text-gold-600 dark:hover:text-gold-400 transition-colors"
+                    className="hover:text-[#FFB000] transition-colors"
                   >
                     Governance
                   </Link>
 
                   <Link
                     to="/contact"
-                    className="hover:text-gold-600 dark:hover:text-gold-400 transition-colors text-gold-600 dark:text-gold-400 font-medium"
+                    className="hover:text-[#FFB000] transition-colors text-[#FFB000] font-medium"
                   >
                     Quick Inquire →
                   </Link>
@@ -311,8 +311,8 @@ function NavItem({
               ? "text-[#3026B3] font-bold bg-[#3026B3]/10"
               : "text-[#111827] hover:text-[#3026B3] hover:bg-[#3026B3]/8"
             : active
-              ? "text-[#FFB000] font-bold bg-white/20"
-              : "text-white/90 hover:text-white hover:bg-white/12",
+              ? "text-[#FFB000] font-bold drop-shadow-[0_1px_3px_rgba(0,0,0,0.5)]"
+              : "text-white drop-shadow-[0_1px_2px_rgba(0,0,0,0.4)] hover:text-[#FFB000] hover:bg-white/10",
         )}
       >
         <Icon
