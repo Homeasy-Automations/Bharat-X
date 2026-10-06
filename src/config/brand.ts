@@ -27,7 +27,7 @@ export interface BrandConfig {
 export const brandConfig: BrandConfig = {
   name: "BharatX Group",
   shortName: "BharatX",
-  tagline: "One group. Six businesses. One connected ecosystem.",
+  tagline: "Building Businesses. Enabling Bharat.",
   logo: "/assets/brand/logo.svg",
   logoLight: "/assets/brand/logo-light.svg",
   favicon: "/assets/brand/favicon.svg",

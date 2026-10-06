@@ -15,11 +15,22 @@ export function Layout() {
   const reduced = useReducedMotion();
   const { scrollTo } = useLenis();
 
-  // Reset scroll on navigation (immediate) + track page views
+  // Reset scroll on navigation or scroll smoothly to hash target
   useEffect(() => {
-    scrollTo(0, { immediate: true });
+    if (location.hash) {
+      const targetId = location.hash.replace("#", "");
+      const timer = setTimeout(() => {
+        const el = document.getElementById(targetId);
+        if (el) {
+          scrollTo(el, { offset: -80 });
+        }
+      }, 120);
+      return () => clearTimeout(timer);
+    } else {
+      scrollTo(0, { immediate: true });
+    }
     trackPageView(location.pathname);
-  }, [location.pathname, scrollTo]);
+  }, [location.pathname, location.hash, scrollTo]);
 
   return (
     <div className="relative min-h-screen bg-night-950 text-ink-100">
@@ -48,7 +59,7 @@ export function Layout() {
             <Outlet />
           </div>
         </motion.div>
-        <FooterCTA />
+        {location.pathname !== "/" && <FooterCTA />}
         <Footer />
         <BackToTop />
       </div>

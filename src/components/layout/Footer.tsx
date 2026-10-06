@@ -1,22 +1,8 @@
 import { Link } from "react-router-dom";
 import { brandConfig } from "../../config/brand";
-import { footerColumns } from "../../data/navigation";
+import { footerSections } from "../../data/navigation";
 import { Icon } from "../../utils/icons";
-import { Logo } from "./Logo";
 import FooterOrbScene from "../three/FooterOrbScene";
-
-const columnMeta: { key: "explore" | "services" | "company"; icon: string; title: string }[] = [
-  { key: "explore", icon: "compass", title: "Explore" },
-  { key: "services", icon: "layers", title: "Capabilities" },
-  { key: "company", icon: "users", title: "Corporate" },
-];
-
-const socialIcons: Record<string, string> = {
-  LinkedIn: "arrow-up-right",
-  Instagram: "arrow-up-right",
-  YouTube: "arrow-up-right",
-  X: "arrow-up-right",
-};
 
 export function FooterCTA() {
   return (
@@ -71,45 +57,39 @@ export function FooterCTA() {
 
 export function Footer() {
   return (
-    <footer className="relative overflow-hidden border-t border-[#E3E5EF] bg-[#FAF9F6]">
+    <footer className="relative overflow-hidden border-t border-[#E3E5EF] bg-[#FAF9F6] text-[#111827]">
       <div aria-hidden className="grid-bg grid-bg-fade absolute inset-0 opacity-20" />
-      <div className="container-x relative z-10 pb-[calc(2rem+env(safe-area-inset-bottom,0px))] pt-8 md:pt-10">
-        <div className="flex flex-col gap-8 lg:flex-row lg:items-start lg:gap-12 xl:gap-16">
-          {/* Brand */}
-          <div className="w-full max-w-sm lg:w-[280px] xl:w-[320px] shrink-0 flex flex-col items-center text-center lg:items-center lg:text-center">
-            <Link to="/" aria-label="BharatX Group home" className="mb-2">
+      <div className="container-x relative z-10 pb-[calc(2.5rem+env(safe-area-inset-bottom,0px))] pt-12 md:pt-16">
+        <div className="grid grid-cols-1 gap-12 lg:grid-cols-12 xl:gap-16">
+          {/* Institutional Brand Column */}
+          <div className="lg:col-span-4 flex flex-col items-start">
+            <Link to="/" aria-label="BharatX Group home" className="inline-block">
               <img
                 src="/bharatxgroup.png"
                 alt="BharatX Group"
-                className="h-16 w-auto object-contain"
+                className="h-14 sm:h-16 w-auto object-contain"
               />
             </Link>
-            <p className="mt-4 text-sm leading-relaxed text-[#596579]">
-              BharatX Group is a diversified conglomerate operating across technology &amp; AI, infrastructure, manufacturing, agriculture, food systems, and venture building.
-            </p>
-            <div className="mt-6 flex items-center gap-3">
-              {brandConfig.social.map((s) => (
-                <a
-                  key={s.label}
-                  href={s.href}
-                  target="_blank"
-                  rel="noreferrer"
-                  aria-label={s.label}
-                  className="flex h-9 w-9 items-center justify-center rounded-full border border-[#E3E5EF] text-[#596579] bg-white transition-all duration-300 hover:border-[#3026B3] hover:text-[#3026B3] hover:shadow-xs"
-                >
-                  <Icon name={socialIcons[s.label] ?? "arrow-up-right"} width={14} height={14} />
-                </a>
-              ))}
+            
+            <div className="mt-4 font-serif text-xl sm:text-2xl font-normal text-[#111827] tracking-tight">
+              BharatX Group
             </div>
+            <p className="mt-1 font-mono text-xs sm:text-[13px] uppercase tracking-[0.2em] text-[#FFB000] font-semibold">
+              Building Businesses. Enabling Bharat.
+            </p>
 
-            {/* Location & Contact */}
-            <div className="mt-5 space-y-2 border-t border-[#E3E5EF] pt-4 font-mono text-[11px] text-[#596579]">
-              <div className="flex items-start gap-2">
-                <Icon name="map-pin" width={13} height={13} className="shrink-0 mt-0.5 text-[#3026B3]" />
+            <p className="mt-4 text-sm leading-relaxed text-[#596579] max-w-sm">
+              A diversified Indian business group bringing together businesses, capital, technology and talent to create enduring enterprises across key growth sectors.
+            </p>
+
+            {/* Location & Contact Info */}
+            <div className="mt-6 space-y-2.5 border-t border-[#E3E5EF] pt-4 font-mono text-[11.5px] text-[#596579] w-full max-w-sm">
+              <div className="flex items-start gap-2.5">
+                <Icon name="map-pin" width={14} height={14} className="shrink-0 mt-0.5 text-[#3026B3]" />
                 <span className="leading-snug">{brandConfig.address.full}</span>
               </div>
-              <div className="flex items-center gap-2">
-                <Icon name="phone" width={13} height={13} className="shrink-0 text-[#00B8D9]" />
+              <div className="flex items-center gap-2.5">
+                <Icon name="phone" width={14} height={14} className="shrink-0 text-[#00B8D9]" />
                 <a
                   href={`tel:${brandConfig.contact.phoneTel}`}
                   className="transition-colors hover:text-[#3026B3]"
@@ -117,64 +97,152 @@ export function Footer() {
                   {brandConfig.contact.phoneFormatted}
                 </a>
               </div>
+              <div className="flex items-center gap-2.5">
+                <Icon name="mail" width={14} height={14} className="shrink-0 text-[#FFB000]" />
+                <a
+                  href={`mailto:${brandConfig.contact.email}`}
+                  className="transition-colors hover:text-[#3026B3]"
+                >
+                  {brandConfig.contact.email}
+                </a>
+              </div>
             </div>
           </div>
 
-          {/* Columns in the same row */}
-          <div className="grid flex-1 grid-cols-2 gap-6 sm:grid-cols-3 lg:gap-8 xl:gap-12">
-            {/* Nav Columns */}
-            {columnMeta.map((col) => {
-              const items = footerColumns[col.key] || [];
-              return (
-                <nav key={col.key} aria-label={col.title}>
-                  <div className="mb-4 flex items-center gap-2.5 font-mono text-[10px] uppercase tracking-[0.26em] text-[#111827] font-semibold">
-                    <Icon name={col.icon} width={13} height={13} className="text-[#3026B3]" />
-                    {col.title}
-                  </div>
-                  <ul className="flex flex-col gap-2.5">
-                    {items.map((item) => (
-                      <li key={item.to}>
-                        <Link
-                          to={item.to}
-                          className="group inline-flex items-center gap-2 text-[13.5px] text-[#596579] transition-colors hover:text-[#3026B3]"
-                        >
-                          <span
-                            aria-hidden
-                            className="h-px w-0 bg-[#3026B3] transition-all duration-300 group-hover:w-3"
-                          />
-                          {item.label}
-                        </Link>
-                      </li>
-                    ))}
-                  </ul>
-                </nav>
-              );
-            })}
+          {/* Institutional Navigation 4-Column Grid */}
+          <div className="lg:col-span-8 grid grid-cols-2 sm:grid-cols-4 gap-8">
+            {/* 1. Businesses */}
+            <nav aria-label="Businesses">
+              <div className="mb-4 flex items-center gap-2 font-mono text-[11px] uppercase tracking-[0.24em] text-[#111827] font-bold">
+                <Icon name="layers" width={13} height={13} className="text-[#3026B3]" />
+                Businesses
+              </div>
+              <ul className="flex flex-col gap-2.5">
+                {footerSections.businesses.map((item) => (
+                  <li key={item.label}>
+                    <Link
+                      to={item.to}
+                      className="group inline-flex items-center gap-1.5 text-[13px] text-[#596579] transition-colors hover:text-[#3026B3]"
+                    >
+                      <span
+                        aria-hidden
+                        className="h-px w-0 bg-[#3026B3] transition-all duration-300 group-hover:w-2.5"
+                      />
+                      {item.label}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </nav>
+
+            {/* 2. Group */}
+            <nav aria-label="Group">
+              <div className="mb-4 flex items-center gap-2 font-mono text-[11px] uppercase tracking-[0.24em] text-[#111827] font-bold">
+                <Icon name="building-2" width={13} height={13} className="text-[#3026B3]" />
+                Group
+              </div>
+              <ul className="flex flex-col gap-2.5">
+                {footerSections.group.map((item) => (
+                  <li key={item.label}>
+                    <Link
+                      to={item.to}
+                      className="group inline-flex items-center gap-1.5 text-[13px] text-[#596579] transition-colors hover:text-[#3026B3]"
+                    >
+                      <span
+                        aria-hidden
+                        className="h-px w-0 bg-[#3026B3] transition-all duration-300 group-hover:w-2.5"
+                      />
+                      {item.label}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </nav>
+
+            {/* 3. Connect */}
+            <nav aria-label="Connect">
+              <div className="mb-4 flex items-center gap-2 font-mono text-[11px] uppercase tracking-[0.24em] text-[#111827] font-bold">
+                <Icon name="share-2" width={13} height={13} className="text-[#3026B3]" />
+                Connect
+              </div>
+              <ul className="flex flex-col gap-2.5">
+                {footerSections.connect.map((item) => (
+                  <li key={item.label}>
+                    <a
+                      href={item.to}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="group inline-flex items-center gap-1.5 text-[13px] text-[#596579] transition-colors hover:text-[#3026B3]"
+                    >
+                      <span
+                        aria-hidden
+                        className="h-px w-0 bg-[#3026B3] transition-all duration-300 group-hover:w-2.5"
+                      />
+                      <span>{item.label}</span>
+                      <Icon
+                        name="arrow-up-right"
+                        width={11}
+                        height={11}
+                        className="opacity-60 transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 group-hover:opacity-100"
+                      />
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </nav>
+
+            {/* 4. Legal */}
+            <nav aria-label="Legal">
+              <div className="mb-4 flex items-center gap-2 font-mono text-[11px] uppercase tracking-[0.24em] text-[#111827] font-bold">
+                <Icon name="shield-check" width={13} height={13} className="text-[#3026B3]" />
+                Legal
+              </div>
+              <ul className="flex flex-col gap-2.5">
+                {footerSections.legal.map((item) => (
+                  <li key={item.label}>
+                    <Link
+                      to={item.to}
+                      className="group inline-flex items-center gap-1.5 text-[13px] text-[#596579] transition-colors hover:text-[#3026B3]"
+                    >
+                      <span
+                        aria-hidden
+                        className="h-px w-0 bg-[#3026B3] transition-all duration-300 group-hover:w-2.5"
+                      />
+                      {item.label}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </nav>
           </div>
         </div>
 
-        {/* Signature watermark */}
+        {/* Signature Institutional Watermark */}
         <div
           aria-hidden
-          className="pointer-events-none mt-12 select-none overflow-hidden"
+          className="pointer-events-none mt-14 select-none overflow-hidden"
         >
-          <div className="whitespace-nowrap text-center font-display text-[15vw] font-extrabold leading-[0.85] tracking-tight text-transparent bg-clip-text bg-gradient-to-b from-[#3026B3]/15 via-[#3026B3]/5 to-transparent lg:text-[10.5rem] transition-all duration-300">
+          <div className="whitespace-nowrap text-center font-display text-[14vw] font-extrabold leading-[0.85] tracking-tight text-transparent bg-clip-text bg-gradient-to-b from-[#3026B3]/15 via-[#3026B3]/5 to-transparent lg:text-[10rem] transition-all duration-300">
             BHARATX GROUP
           </div>
         </div>
 
-        <div className="mt-4 flex flex-col items-center justify-between gap-4 border-t border-[#E3E5EF] pt-6 md:flex-row">
-          <p className="text-center sm:text-left font-mono text-[10.5px] uppercase tracking-[0.18em] text-[#596579]">
+        {/* Bottom Credits & Legal */}
+        <div className="mt-6 flex flex-col items-center justify-between gap-4 border-t border-[#E3E5EF] pt-6 md:flex-row">
+          <p className="text-center sm:text-left font-mono text-[11px] uppercase tracking-[0.16em] text-[#596579]">
             © {new Date().getFullYear()} BharatX Group. All rights reserved.
           </p>
           <div className="flex flex-wrap items-center justify-center gap-6">
-            <Link to="/privacy" className="font-mono text-[10.5px] uppercase tracking-[0.18em] text-[#596579] transition-colors hover:text-[#3026B3]">
-              Privacy
+            <Link to="/privacy" className="font-mono text-[11px] uppercase tracking-[0.16em] text-[#596579] transition-colors hover:text-[#3026B3]">
+              Privacy Policy
             </Link>
-            <Link to="/terms" className="font-mono text-[10.5px] uppercase tracking-[0.18em] text-[#596579] transition-colors hover:text-[#3026B3]">
-              Terms
+            <Link to="/terms" className="font-mono text-[11px] uppercase tracking-[0.16em] text-[#596579] transition-colors hover:text-[#3026B3]">
+              Terms of Use
             </Link>
-            <span className="flex items-center gap-2 font-mono text-[10.5px] uppercase tracking-[0.18em] text-[#596579]">
+            <Link to="/privacy#cookies" className="font-mono text-[11px] uppercase tracking-[0.16em] text-[#596579] transition-colors hover:text-[#3026B3]">
+              Cookie Policy
+            </Link>
+            <span className="flex items-center gap-2 font-mono text-[11px] uppercase tracking-[0.16em] text-[#596579]">
               <span className="h-1.5 w-1.5 rounded-full bg-[#15966B]" />
               Made in India
             </span>

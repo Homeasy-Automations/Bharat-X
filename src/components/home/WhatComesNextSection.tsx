@@ -1,0 +1,145 @@
+import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
+import { Icon } from "../../utils/icons";
+
+const upcomingCards = [
+  {
+    title: "Packaging & Materials",
+    description: "Building efficient and sustainable packaging solutions.",
+    image: "/assets/slides/msme.png",
+    tag: "Incubating",
+    tagStyle: "border-amber-300 bg-amber-50 text-amber-800",
+    accent: "#D97706",
+  },
+  {
+    title: "Waste & Circular Economy",
+    description: "Creating smarter approaches to waste management and resource recovery.",
+    image: "/assets/backgrounds/sustainability-story.jpg",
+    tag: "Incubating",
+    tagStyle: "border-emerald-300 bg-emerald-50 text-emerald-800",
+    accent: "#059669",
+  },
+  {
+    title: "Emerging Businesses",
+    description: "Exploring new opportunities across technology, manufacturing and the real economy.",
+    image: "/assets/backgrounds/industrial.jpg",
+    tag: "Pipeline",
+    tagStyle: "border-indigo-300 bg-indigo-50 text-indigo-800",
+    accent: "#3026B3",
+  },
+];
+
+export function WhatComesNextSection() {
+  return (
+    <section
+      id="what-comes-next"
+      aria-label="Building What Comes Next"
+      className="relative overflow-hidden bg-white py-20 sm:py-24 md:py-28 border-b border-[#E3E5EF]"
+    >
+      <div className="container-x relative z-10">
+        {/* Header */}
+        <div className="mx-auto max-w-3xl text-center">
+          <motion.div
+            initial={{ opacity: 0, y: 12 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
+            className="inline-flex items-center gap-2 rounded-full border border-[#FFB000]/40 bg-[#FFB000]/10 px-4 py-1 font-mono text-[11px] uppercase tracking-[0.26em] text-[#9A6200] font-bold shadow-xs"
+          >
+            <span className="h-2 w-2 rounded-full bg-[#FFB000] shadow-[0_0_8px_#FFB000]" />
+            <span>07 // BUILDING WHAT COMES NEXT</span>
+          </motion.div>
+
+          <motion.h2
+            initial={{ opacity: 0, y: 16 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.1 }}
+            className="mt-6 font-serif text-3xl sm:text-4xl md:text-5xl font-normal leading-tight tracking-tight text-[#111827]"
+          >
+            The Next Chapter Is{" "}
+            <span className="text-[#3026B3]">Already Taking Shape.</span>
+          </motion.h2>
+
+          <motion.p
+            initial={{ opacity: 0, y: 16 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="mt-5 text-base sm:text-lg leading-relaxed text-[#596579] font-normal max-w-2xl mx-auto"
+          >
+            BharatX continues to explore new opportunities across emerging industries and critical sectors of the Indian economy.
+          </motion.p>
+        </div>
+
+        {/* Exactly 3 High-Contrast Cards */}
+        <div className="mt-14 sm:mt-16 grid grid-cols-1 md:grid-cols-3 gap-6">
+          {upcomingCards.map((card, idx) => (
+            <motion.div
+              key={card.title}
+              initial={{ opacity: 0, y: 22 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.1 * idx }}
+              className="group relative flex flex-col overflow-hidden rounded-2xl border border-[#E3E5EF] bg-[#FAF9F6] shadow-sm transition-all duration-300 hover:bg-white hover:shadow-xl hover:-translate-y-1"
+            >
+              {/* Image banner */}
+              <div className="relative h-48 sm:h-52 w-full overflow-hidden">
+                <img
+                  src={card.image}
+                  alt={card.title}
+                  className="h-full w-full object-cover object-center transition-transform duration-700 group-hover:scale-106"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
+
+                <span
+                  className={`absolute top-4 left-4 rounded-md border px-3 py-1 font-mono text-[10px] font-bold uppercase tracking-wider shadow-xs ${card.tagStyle}`}
+                >
+                  {card.tag}
+                </span>
+              </div>
+
+              {/* Text content */}
+              <div className="flex flex-1 flex-col justify-between p-6 sm:p-7">
+                <div>
+                  <h3 className="font-serif text-2xl font-medium tracking-tight text-[#111827] group-hover:text-[#3026B3] transition-colors">
+                    {card.title}
+                  </h3>
+                  <p className="mt-3 text-sm text-[#596579] leading-relaxed font-normal">
+                    {card.description}
+                  </p>
+                </div>
+
+                <div className="mt-6 pt-4 border-t border-[#E3E5EF] flex items-center justify-between text-xs font-mono uppercase tracking-wider text-[#596579] group-hover:text-[#3026B3] transition-colors">
+                  <span className="font-semibold">Horizon 2025+</span>
+                  <Icon
+                    name="arrow-right"
+                    width={15}
+                    height={15}
+                    className="transition-transform group-hover:translate-x-1"
+                  />
+                </div>
+              </div>
+            </motion.div>
+          ))}
+        </div>
+
+        {/* Action Button: Explore Our Future Businesses → */}
+        <div className="mt-12 sm:mt-14 text-center">
+          <Link
+            to="/services"
+            className="group inline-flex items-center justify-center gap-3 rounded-full bg-[#3026B3] hover:bg-[#211B72] text-white px-8 py-4 font-mono text-xs uppercase tracking-[0.2em] font-semibold shadow-md shadow-[#3026B3]/25 transition-all duration-300 hover:shadow-xl hover:scale-105"
+          >
+            <span>Explore Our Future Businesses</span>
+            <Icon
+              name="arrow-right"
+              width={14}
+              height={14}
+              className="transition-transform duration-300 group-hover:translate-x-1 text-[#FFB000]"
+            />
+          </Link>
+        </div>
+      </div>
+    </section>
+  );
+}

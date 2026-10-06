@@ -167,7 +167,7 @@ export function Navbar() {
 
           {/* Desktop nav with dropdown chevrons */}
           <nav aria-label="Primary" className="hidden items-center gap-1 xl:flex">
-            {navigation.map((item) => (
+            {navigation.filter((item) => item.to !== "/contact").map((item) => (
               <NavItem
                 key={item.to}
                 item={item}

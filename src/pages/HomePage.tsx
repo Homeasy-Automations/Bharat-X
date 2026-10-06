@@ -1,54 +1,50 @@
 import { usePageMeta } from "../hooks/usePageMeta";
 import { RilHeroSection } from "../components/home/RilHeroSection";
-import { ConglomerateManifesto } from "../components/home/ConglomerateManifesto";
-import { StatsStrip } from "../components/home/StatsStrip";
-import { SectorMarquee } from "../components/common/Marquee";
-import { RilServicesSection } from "../components/home/RilServicesSection";
-import { StrategicTriadTabs } from "../components/home/StrategicTriadTabs";
-import { LeadershipKeynote } from "../components/home/LeadershipKeynote";
-import { InstitutionalNewsroom } from "../components/home/InstitutionalNewsroom";
-import { WhyBharatXBand } from "../components/home/WhyBharatXBand";
-import { ContactCTAStrip } from "../components/home/ContactCTAStrip";
+import { AboutBharatXSection } from "../components/home/AboutBharatXSection";
+import { BusinessEcosystemGrid } from "../components/home/BusinessEcosystemGrid";
+import { OurApproachSection } from "../components/home/OurApproachSection";
+import { WhyBharatXSection } from "../components/home/WhyBharatXSection";
+import { HomeImpactSection } from "../components/home/HomeImpactSection";
+import { WhatComesNextSection } from "../components/home/WhatComesNextSection";
+import { InsideBharatXSection } from "../components/home/InsideBharatXSection";
+import { HomeFinalCTA } from "../components/home/HomeFinalCTA";
 
 export default function HomePage() {
   usePageMeta({
-    title: "BharatX Group — Building Bharat's Future",
+    title: "BharatX Group — Building Businesses. Enabling Bharat.",
     description:
-      "A diversified industrial group operating across Technology & AI, Infrastructure, Manufacturing, Agriculture, Climate & Sustainability, and Finance.",
+      "BharatX Group is a diversified Indian business group bringing together businesses, capital, technology and talent to create enduring enterprises across infrastructure, agriculture, manufacturing, technology, packaging, sustainability and venture building.",
     path: "/",
   });
 
   return (
-    <main className="w-full bg-night-950 text-ink-100 min-h-screen">
-      {/* ── 1. RIL-STYLE FULL-BLEED HERO (3-5 words, 4-5s image crossfade) ── */}
+    <main className="w-full bg-[#FAF9F6] text-[#111827] min-h-screen">
+      {/* ── 01. HERO (Brand First - Retained intact as requested) ── */}
       <RilHeroSection />
 
-      {/* ── 2. CONGLOMERATE SCALE MANIFESTO (RIL 'We Care' & Scale Statement) ── */}
-      <ConglomerateManifesto />
+      {/* ── 02. ABOUT BHARATX — WHO WE ARE ──────────────────────── */}
+      <AboutBharatXSection />
 
-      {/* ── 3. STATS STRIP (Authentic numbers & portfolio strip) ─────────── */}
-      <StatsStrip />
+      {/* ── 03. OUR BUSINESSES — THE CORE SECTION (4x2 Grid) ─────── */}
+      <BusinessEcosystemGrid />
 
-      {/* ── 3B. OPERATING ENTERPRISES MARQUEE STRIP (Logos & Sectors) ─────── */}
-      <SectorMarquee />
+      {/* ── 04. OUR APPROACH (Opportunity to Enterprise Flow) ───── */}
+      <OurApproachSection />
 
-      {/* ── 4. RIL-STYLE SERVICES & SECTORS (Side index, full-bleed images) ── */}
-      <RilServicesSection />
+      {/* ── 05. WHY BHARATX (4 Pillars + Operating Statement) ───── */}
+      <WhyBharatXSection />
 
-      {/* ── 5. STRATEGIC STORY PILLARS (RIL Sustainability, Innovation, Impact) ── */}
-      <StrategicTriadTabs />
+      {/* ── 06. IMPACT (Economic Value & Wider Impact) ───────────── */}
+      <HomeImpactSection />
 
-      {/* ── 6. ANNUAL EXECUTIVE ADDRESS & TRANSCRIPT (RIL AGM Style) ──────── */}
-      <LeadershipKeynote />
+      {/* ── 07. BUILDING WHAT COMES NEXT (Upcoming Businesses) ───── */}
+      <WhatComesNextSection />
 
-      {/* ── 7. INSTITUTIONAL NEWSROOM & ANNOUNCEMENTS (RIL Disclosures) ───── */}
-      <InstitutionalNewsroom />
+      {/* ── 08. INSIGHTS + CAREERS (Inside BharatX Combined) ─────── */}
+      <InsideBharatXSection />
 
-      {/* ── 8. IMAGE-LED "WHY BHARATX" BAND (3 clean pillars) ──────────────── */}
-      <WhyBharatXBand />
-
-      {/* ── 9. SHORT CONTACT CTA BAND ─────────────────────────────────────── */}
-      <ContactCTAStrip />
+      {/* ── 09. FINAL CTA (Let's Build What Comes Next) ──────────── */}
+      <HomeFinalCTA />
     </main>
   );
 }

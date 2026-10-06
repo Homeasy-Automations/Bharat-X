@@ -1,0 +1,140 @@
+import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
+import { Icon } from "../../utils/icons";
+
+export function InsideBharatXSection() {
+  return (
+    <section
+      id="inside-bharatx"
+      aria-label="Inside BharatX - Insights and Careers"
+      className="relative overflow-hidden bg-[#FAF9F6] py-20 sm:py-24 md:py-28 border-b border-[#E3E5EF]"
+    >
+      <div className="container-x relative z-10">
+        {/* Header */}
+        <div className="max-w-3xl mb-12 sm:mb-16">
+          <div className="inline-flex items-center gap-2 rounded-full border border-[#3026B3]/25 bg-[#3026B3]/8 px-4 py-1 font-mono text-[11px] uppercase tracking-[0.26em] text-[#3026B3] font-bold shadow-xs">
+            <span className="h-2 w-2 rounded-full bg-[#3026B3]" />
+            <span>08 // INSIDE BHARATX</span>
+          </div>
+
+          <h2 className="mt-4 font-serif text-3xl sm:text-4xl md:text-5xl font-normal leading-tight tracking-tight text-[#111827]">
+            Inside <span className="text-[#3026B3]">BharatX</span>
+          </h2>
+
+          <p className="mt-3 text-base text-[#596579] max-w-2xl leading-relaxed">
+            Exploring the ideas shaping national industries and the exceptional teams building them.
+          </p>
+        </div>
+
+        {/* Two Combined Columns */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
+          {/* Column 1: BharatX Insights */}
+          <motion.div
+            initial={{ opacity: 0, y: 22 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
+            className="group relative flex min-h-[380px] sm:min-h-[420px] flex-col justify-between overflow-hidden rounded-3xl border border-[#E3E5EF] p-8 sm:p-10 shadow-md transition-all duration-500 hover:border-[#FFB000] hover:shadow-2xl hover:-translate-y-1"
+          >
+            {/* Background image & gradient overlay */}
+            <img
+              src="/assets/backgrounds/innovation-story.jpg"
+              alt="BharatX Insights"
+              className="absolute inset-0 h-full w-full object-cover object-center transition-transform duration-700 ease-out group-hover:scale-106"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/60 to-black/35" />
+
+            {/* Top pill */}
+            <div className="relative z-10 flex items-center justify-between">
+              <span className="font-mono text-[11px] uppercase tracking-[0.24em] text-[#FFB000] font-bold">
+                Ideas &amp; Perspectives
+              </span>
+              <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-white/15 backdrop-blur-md text-[#FFB000] shadow-sm">
+                <Icon name="lightbulb" width={18} height={18} />
+              </div>
+            </div>
+
+            {/* Content & Action */}
+            <div className="relative z-10 mt-16">
+              <h3 className="font-serif text-2xl sm:text-3xl md:text-4xl font-normal tracking-tight text-white">
+                BharatX Insights
+              </h3>
+
+              <p className="mt-3 text-sm sm:text-base text-slate-200 leading-relaxed font-normal max-w-md">
+                Ideas, perspectives and stories from across our businesses and industries.
+              </p>
+
+              <div className="mt-8">
+                <Link
+                  to="/about#newsroom"
+                  className="group/btn inline-flex items-center gap-2 font-mono text-xs uppercase tracking-[0.2em] font-bold text-[#FFB000] transition-all hover:text-white"
+                >
+                  <span>Explore Insights</span>
+                  <Icon
+                    name="arrow-right"
+                    width={14}
+                    height={14}
+                    className="transition-transform duration-300 group-hover/btn:translate-x-1.5"
+                  />
+                </Link>
+              </div>
+            </div>
+          </motion.div>
+
+          {/* Column 2: Careers */}
+          <motion.div
+            initial={{ opacity: 0, y: 22 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.15 }}
+            className="group relative flex min-h-[380px] sm:min-h-[420px] flex-col justify-between overflow-hidden rounded-3xl border border-[#E3E5EF] p-8 sm:p-10 shadow-md transition-all duration-500 hover:border-[#00B8D9] hover:shadow-2xl hover:-translate-y-1"
+          >
+            {/* Background image & gradient overlay */}
+            <img
+              src="/assets/backgrounds/strategic-story-panorama.jpg"
+              alt="BharatX Careers"
+              className="absolute inset-0 h-full w-full object-cover object-center transition-transform duration-700 ease-out group-hover:scale-106"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/60 to-black/35" />
+
+            {/* Top pill */}
+            <div className="relative z-10 flex items-center justify-between">
+              <span className="font-mono text-[11px] uppercase tracking-[0.24em] text-[#00B8D9] font-bold">
+                Talent &amp; Leadership
+              </span>
+              <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-white/15 backdrop-blur-md text-[#00B8D9] shadow-sm">
+                <Icon name="briefcase" width={18} height={18} />
+              </div>
+            </div>
+
+            {/* Content & Action */}
+            <div className="relative z-10 mt-16">
+              <h3 className="font-serif text-2xl sm:text-3xl md:text-4xl font-normal tracking-tight text-white">
+                Careers
+              </h3>
+
+              <p className="mt-3 text-sm sm:text-base text-slate-200 leading-relaxed font-normal max-w-md">
+                Join the people building businesses that move Bharat forward.
+              </p>
+
+              <div className="mt-8">
+                <Link
+                  to="/careers"
+                  className="group/btn inline-flex items-center gap-2 font-mono text-xs uppercase tracking-[0.2em] font-bold text-[#00B8D9] transition-all hover:text-white"
+                >
+                  <span>Build With Us</span>
+                  <Icon
+                    name="arrow-right"
+                    width={14}
+                    height={14}
+                    className="transition-transform duration-300 group-hover/btn:translate-x-1.5"
+                  />
+                </Link>
+              </div>
+            </div>
+          </motion.div>
+        </div>
+      </div>
+    </section>
+  );
+}

@@ -62,14 +62,6 @@ export function MobileMenu({ open, onClose }: { open: boolean; onClose: () => vo
             </div>
 
             <nav aria-label="Mobile" className="mt-10 flex flex-col">
-              <NavLink
-                to="/"
-                end
-                className={({ isActive }) => mobileLinkClass(isActive)}
-                onClick={onClose}
-              >
-                <Icon name="orbit" width={16} height={16} /> Home
-              </NavLink>
               {navigation.map((item) => (
                 <NavLink
                   key={item.to}
@@ -80,13 +72,6 @@ export function MobileMenu({ open, onClose }: { open: boolean; onClose: () => vo
                   <Icon name={item.icon} width={16} height={16} /> {item.label}
                 </NavLink>
               ))}
-              <NavLink
-                to="/contact"
-                className={({ isActive }) => mobileLinkClass(isActive)}
-                onClick={onClose}
-              >
-                <Icon name="mail" width={16} height={16} /> Contact
-              </NavLink>
             </nav>
 
             {/* Core Sectors */}

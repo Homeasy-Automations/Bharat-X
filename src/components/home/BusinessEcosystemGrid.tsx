@@ -1,0 +1,207 @@
+import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
+import { Icon } from "../../utils/icons";
+
+interface EcosystemCard {
+  id: string;
+  sector: string;
+  company: string;
+  description: string;
+  to: string;
+  logo?: string;
+  accent: string;
+  accentBg: string;
+  accentText: string;
+  borderHover: string;
+  isUpcoming?: boolean;
+}
+
+const ecosystemCards: EcosystemCard[] = [
+  {
+    id: "infra",
+    sector: "Infrastructure & Engineering",
+    company: "BharatX Infratech",
+    description: "Arterial transport, civil engineering and sovereign industrial infrastructure.",
+    to: "/services#infrastructure",
+    logo: "/Infra_logo1.png",
+    accent: "#3026B3",
+    accentBg: "bg-[#3026B3]/10",
+    accentText: "text-[#3026B3]",
+    borderHover: "hover:border-[#3026B3]",
+  },
+  {
+    id: "agri",
+    sector: "Agriculture & Food",
+    company: "BharatXAgro",
+    description: "Origin sourcing, certified processing and high-integrity agri-commodity supply chains.",
+    to: "/services#agriculture",
+    logo: "/Bharatxagro_logo.png",
+    accent: "#15966B",
+    accentBg: "bg-[#15966B]/10",
+    accentText: "text-[#15966B]",
+    borderHover: "hover:border-[#15966B]",
+  },
+  {
+    id: "manuf",
+    sector: "Industrial Manufacturing",
+    company: "Casters Global",
+    description: "Precision mobility solutions, heavy-duty industrial casters and automation engineering.",
+    to: "/services#manufacturing",
+    logo: "/Casters_logo.png",
+    accent: "#00B8D9",
+    accentBg: "bg-[#00B8D9]/10",
+    accentText: "text-[#008299]",
+    borderHover: "hover:border-[#00B8D9]",
+  },
+  {
+    id: "tech-ai",
+    sector: "Technology & AI",
+    company: "AI Xperts Labs",
+    description: "Enterprise artificial intelligence platforms, sovereign compute and automation systems.",
+    to: "/services#tech-ai",
+    logo: "/Ai-Experts_logo.png",
+    accent: "#4B40D4",
+    accentBg: "bg-[#4B40D4]/10",
+    accentText: "text-[#4B40D4]",
+    borderHover: "hover:border-[#4B40D4]",
+  },
+  {
+    id: "packaging",
+    sector: "Packaging & Materials",
+    company: "Coming Soon",
+    description: "High-efficiency sustainable packaging materials and circular container solutions.",
+    to: "#what-comes-next",
+    accent: "#D97706",
+    accentBg: "bg-[#F59E0B]/10",
+    accentText: "text-[#B45309]",
+    borderHover: "hover:border-[#D97706]",
+    isUpcoming: true,
+  },
+  {
+    id: "sustainability",
+    sector: "Sustainability & Circular Economy",
+    company: "Coming Soon",
+    description: "Industrial resource recovery, closed-loop waste management and zero-effluent technologies.",
+    to: "#what-comes-next",
+    accent: "#059669",
+    accentBg: "bg-[#10B981]/10",
+    accentText: "text-[#047857]",
+    borderHover: "hover:border-[#059669]",
+    isUpcoming: true,
+  },
+  {
+    id: "ventures",
+    sector: "Capital & Venture Building",
+    company: "BharatX Ventures",
+    description: "Patient balance-sheet capital, venture architecture and generational enterprise scaling.",
+    to: "/services#finance",
+    logo: "/Ventures_logo.png",
+    accent: "#211B72",
+    accentBg: "bg-[#211B72]/10",
+    accentText: "text-[#211B72]",
+    borderHover: "hover:border-[#211B72]",
+  },
+  {
+    id: "labs",
+    sector: "Knowledge & Impact",
+    company: "BharatX Labs Foundation",
+    description: "Deep-tech climate R&D, open environmental telemetry and societal impact initiatives.",
+    to: "/services#climate-sustainability",
+    logo: "/Bharatxlabs_logo.svg",
+    accent: "#0D9488",
+    accentBg: "bg-[#14B8A6]/10",
+    accentText: "text-[#0F766E]",
+    borderHover: "hover:border-[#0D9488]",
+  },
+];
+
+export function BusinessEcosystemGrid() {
+  return (
+    <section
+      id="businesses"
+      aria-label="Our Business Ecosystem"
+      className="relative overflow-hidden bg-white py-20 sm:py-24 md:py-28 border-b border-[#E3E5EF]"
+    >
+      <div className="container-x relative z-10">
+        {/* Header */}
+        <div className="max-w-3xl mb-12 sm:mb-16">
+          <div className="inline-flex items-center gap-2 rounded-full border border-[#3026B3]/25 bg-[#3026B3]/8 px-4 py-1 font-mono text-[11px] uppercase tracking-[0.26em] text-[#3026B3] font-bold shadow-xs">
+            <span className="h-2 w-2 rounded-full bg-[#3026B3]" />
+            <span>03 // CORE VERTICALS</span>
+          </div>
+
+          <h2 className="mt-4 font-serif text-3xl sm:text-4xl md:text-5xl font-normal leading-tight tracking-tight text-[#111827]">
+            Our Business Ecosystem
+          </h2>
+
+          <p className="mt-3 text-base text-[#596579] max-w-2xl leading-relaxed">
+            Eight foundational verticals powering modern India across physical infrastructure, real-economy production, intelligent technology, and strategic capital.
+          </p>
+        </div>
+
+        {/* 4×2 Compact High-Contrast Grid */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5">
+          {ecosystemCards.map((card, idx) => (
+            <motion.div
+              key={card.id}
+              initial={{ opacity: 0, y: 18 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.45, delay: 0.05 * idx }}
+            >
+              <Link
+                to={card.to}
+                className={`group relative flex h-full flex-col justify-between rounded-2xl border border-[#E3E5EF] bg-[#FAF9F6] p-5 sm:p-6 shadow-xs transition-all duration-300 hover:bg-white hover:shadow-xl hover:-translate-y-1 ${card.borderHover}`}
+              >
+                {/* Top: Sector Tag & Logo / Badge */}
+                <div>
+                  <div className="flex items-center justify-between gap-2 mb-3.5">
+                    <span
+                      className={`inline-block font-mono text-[10px] font-bold uppercase tracking-[0.2em] px-2.5 py-0.5 rounded-md ${card.accentBg} ${card.accentText}`}
+                    >
+                      {card.sector}
+                    </span>
+
+                    {card.isUpcoming ? (
+                      <span className="inline-block rounded-md border border-amber-500/30 bg-amber-50 px-2 py-0.5 font-mono text-[9px] font-bold uppercase tracking-wider text-amber-700">
+                        Upcoming
+                      </span>
+                    ) : card.logo ? (
+                      <div className="h-8 w-8 rounded-lg bg-white p-1 border border-[#E3E5EF] flex items-center justify-center shrink-0 shadow-xs">
+                        <img
+                          src={card.logo}
+                          alt=""
+                          className="max-h-full max-w-full object-contain"
+                        />
+                      </div>
+                    ) : null}
+                  </div>
+
+                  {/* Company Name */}
+                  <h3 className="font-serif text-xl sm:text-[1.35rem] font-medium tracking-tight text-[#111827] group-hover:text-[#3026B3] transition-colors">
+                    {card.company}
+                  </h3>
+
+                  {/* One-Line Description */}
+                  <p className="mt-2.5 text-xs sm:text-[13px] leading-relaxed text-[#596579] font-normal">
+                    {card.description}
+                  </p>
+                </div>
+
+                {/* Bottom: Action & Arrow */}
+                <div className="mt-6 flex items-center justify-between pt-4 border-t border-[#E3E5EF]">
+                  <span className="font-mono text-[10.5px] uppercase tracking-[0.16em] text-[#596579] font-semibold group-hover:text-[#3026B3] transition-colors">
+                    {card.isUpcoming ? "Learn More" : "Explore Entity"}
+                  </span>
+                  <div className="flex h-8 w-8 items-center justify-center rounded-full bg-white border border-[#E3E5EF] text-[#111827] transition-all duration-300 group-hover:bg-[#3026B3] group-hover:text-white group-hover:border-[#3026B3] group-hover:translate-x-0.5 group-hover:-translate-y-0.5 shadow-xs">
+                    <Icon name="arrow-up-right" width={14} height={14} strokeWidth={2.2} />
+                  </div>
+                </div>
+              </Link>
+            </motion.div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
