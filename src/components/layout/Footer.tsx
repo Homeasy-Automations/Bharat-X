@@ -218,20 +218,30 @@ export function Footer() {
         </div>
 
         {/* Bottom Credits & Legal */}
-        <div className="mt-8 flex flex-col items-center justify-between gap-3 border-t border-[#E3E5EF] pt-5 md:flex-row">
-          <p className="text-center sm:text-left font-mono text-[11px] uppercase tracking-[0.16em] text-[#596579]">
+        <div className="mt-8 grid grid-cols-1 md:grid-cols-3 gap-4 items-center border-t border-[#E3E5EF] pt-5 text-center">
+          <p className="font-mono text-[11px] uppercase tracking-[0.16em] text-[#596579] md:text-left">
             © {new Date().getFullYear()} BharatX Group. All rights reserved.
           </p>
-          <div className="flex flex-wrap items-center justify-center gap-6">
-            <Link to="/privacy" className="font-mono text-[11px] uppercase tracking-[0.16em] text-[#596579] transition-colors hover:text-[#3026B3]">
-              Privacy Policy
-            </Link>
-            <Link to="/terms" className="font-mono text-[11px] uppercase tracking-[0.16em] text-[#596579] transition-colors hover:text-[#3026B3]">
-              Terms of Use
-            </Link>
-            <Link to="/privacy#cookies" className="font-mono text-[11px] uppercase tracking-[0.16em] text-[#596579] transition-colors hover:text-[#3026B3]">
-              Cookie Policy
-            </Link>
+
+          <div className="flex items-center justify-center">
+            <a
+              href="https://kynyx.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group inline-flex items-center gap-1.5 font-mono text-[11px] uppercase tracking-[0.16em] text-[#596579] transition-colors hover:text-[#3026B3]"
+            >
+              <span>Made with</span>
+              <Icon
+                name="heart"
+                width={12}
+                height={12}
+                className="text-rose-500 fill-rose-500 transition-transform duration-200 group-hover:scale-125"
+              />
+              <span>by <span className="font-bold text-[#111827] group-hover:text-[#3026B3] transition-colors">KYNYX</span></span>
+            </a>
+          </div>
+
+          <div className="flex items-center justify-center md:justify-end">
             <span className="flex items-center gap-2 font-mono text-[11px] uppercase tracking-[0.16em] text-[#596579]">
               <span className="h-1.5 w-1.5 rounded-full bg-[#15966B]" />
               Made in India
