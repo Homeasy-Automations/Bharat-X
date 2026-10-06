@@ -22,6 +22,7 @@ export function AppRoutes() {
         <Route index element={<HomePage />} />
         <Route path="about" element={<AboutPage />} />
         <Route path="services" element={<ServicesPage />} />
+        <Route path="businesses" element={<ServicesPage />} />
         <Route path="companies" element={<Navigate to="/services" replace />} />
         <Route path="companies/:slug" element={<Navigate to="/services" replace />} />
         <Route path="bharatx-labs" element={<Navigate to="/services" replace />} />
