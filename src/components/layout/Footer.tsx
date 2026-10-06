@@ -59,8 +59,8 @@ export function Footer() {
   return (
     <footer className="relative overflow-hidden border-t border-[#E3E5EF] bg-[#FAF9F6] text-[#111827]">
       <div aria-hidden className="grid-bg grid-bg-fade absolute inset-0 opacity-20" />
-      <div className="container-x relative z-10 pb-[calc(2.5rem+env(safe-area-inset-bottom,0px))] pt-12 md:pt-16">
-        <div className="grid grid-cols-1 gap-12 lg:grid-cols-12 xl:gap-16">
+      <div className="container-x relative z-10 pb-[calc(1.25rem+env(safe-area-inset-bottom,0px))] pt-10 md:pt-12">
+        <div className="grid grid-cols-1 gap-8 lg:grid-cols-12 lg:gap-10">
           {/* Institutional Brand Column */}
           <div className="lg:col-span-4 flex flex-col items-start">
             <Link to="/" aria-label="BharatX Group home" className="inline-block">
@@ -217,18 +217,8 @@ export function Footer() {
           </div>
         </div>
 
-        {/* Signature Institutional Watermark */}
-        <div
-          aria-hidden
-          className="pointer-events-none mt-14 select-none overflow-hidden"
-        >
-          <div className="whitespace-nowrap text-center font-display text-[14vw] font-extrabold leading-[0.85] tracking-tight text-transparent bg-clip-text bg-gradient-to-b from-[#3026B3]/15 via-[#3026B3]/5 to-transparent lg:text-[10rem] transition-all duration-300">
-            BHARATX GROUP
-          </div>
-        </div>
-
         {/* Bottom Credits & Legal */}
-        <div className="mt-6 flex flex-col items-center justify-between gap-4 border-t border-[#E3E5EF] pt-6 md:flex-row">
+        <div className="mt-8 flex flex-col items-center justify-between gap-3 border-t border-[#E3E5EF] pt-5 md:flex-row">
           <p className="text-center sm:text-left font-mono text-[11px] uppercase tracking-[0.16em] text-[#596579]">
             © {new Date().getFullYear()} BharatX Group. All rights reserved.
           </p>

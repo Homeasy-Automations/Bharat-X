@@ -19,7 +19,7 @@ export const contactRoute = {
 export const footerSections = {
   businesses: [
     { label: "BharatX Infratech", to: "/services#infrastructure" },
-    { label: "BharatXAgro", to: "/services#agriculture" },
+    // { label: "BharatXAgro", to: "/services#agriculture" },
     { label: "Casters Global", to: "/services#manufacturing" },
     { label: "BharatX Packaging", to: "/#what-comes-next" },
     { label: "AI Xperts Labs", to: "/services#tech-ai" },
