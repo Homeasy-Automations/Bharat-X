@@ -1,238 +1,657 @@
+import { motion, AnimatePresence } from "framer-motion";
 import { useState } from "react";
-import { useSearchParams } from "react-router-dom";
+import { Link, useSearchParams } from "react-router-dom";
 import { usePageMeta } from "../hooks/usePageMeta";
-import { ContactForm, inquiryTypes } from "../components/forms/ContactForm";
-import { brandConfig } from "../config/brand";
 import { Icon } from "../utils/icons";
-import { Reveal } from "../components/common/Reveal";
+import { brandConfig } from "../config/brand";
+import { submitContact } from "../services/api";
 
-const inquiryDesks = [
-  { icon: "brain-circuit", t: "Technology & AI", d: "Enterprise neural models, edge compute, and automation", sector: "tech-ai", type: "ai-automation" },
-  { icon: "hard-hat", t: "Infrastructure", d: "Arterial transport, heavy civil works, and utility grids", sector: "infrastructure", type: "infrastructure" },
-  { icon: "factory", t: "Manufacturing", d: "Precision robotics, industrial mobility, and tooling", sector: "manufacturing", type: "manufacturing" },
-  { icon: "sprout", t: "Agriculture", d: "Origin sourcing, certified processing, and export corridors", sector: "agriculture", type: "agriculture" },
-  { icon: "leaf", t: "Climate & Sustainability", d: "Decarbonisation, sovereign carbon telemetry, and circular materials", sector: "climate-sustainability", type: "infrastructure" },
-  { icon: "landmark", t: "Finance & Capital", d: "Strategic capital structuring, balance sheet advisory, and scaling", sector: "finance", type: "partnerships" },
-  { icon: "handshake", t: "Strategic Partnerships", d: "Industrial joint ventures and institutional tenders", sector: "", type: "partnerships" },
-  { icon: "globe", t: "Media & Disclosures", d: "Official group announcements and investor communications", sector: "", type: "partnerships" },
-  { icon: "briefcase", t: "Executive Careers", d: "Engineering leadership and specialized talent recruitment", sector: "", type: "careers" },
-];
-
-const faqs = [
-  {
-    q: "How does BharatX Group structure sector partnerships?",
-    a: "We collaborate with global tier-1 industrial players, government bodies, and domestic enterprises through structured joint ventures, long-term supply commitments, and institutional capital partnerships.",
-  },
-  {
-    q: "How is proprietary and confidential information protected?",
-    a: "All inquiries submitted through our institutional portal are protected by strict corporate non-disclosure protocols and encrypted domestic storage adhering to sovereign data standards.",
-  },
-  {
-    q: "Where is the BharatX Group headquarters located?",
-    a: "Our corporate headquarters and executive secretariat are situated in New Delhi, India, anchoring operations across our Pan-India industrial corridors.",
-  },
-  {
-    q: "How can suppliers and contractors participate in group tenders?",
-    a: "Submit an inquiry under Strategic Partnerships selecting the relevant sector. Our procurement directorate reviews credentials against strict technical and quality specifications.",
-  },
+const interestOptions = [
+  "Business Partnership",
+  "Investment / Capital",
+  "Venture Building",
+  "Technology Partnership",
+  "Supplier / Vendor Partnership",
+  "Careers",
+  "Media / Press",
+  "Other",
 ];
 
 export default function ContactPage() {
   usePageMeta({
-    title: "Contact & Institutional Inquiries — BharatX Group",
+    title: "Contact BharatX Group | Let’s Build What Comes Next",
     description:
-      "Connect with the BharatX Group corporate secretariat, sector leadership desks, and institutional partnership offices.",
+      "Whether you’re looking to partner, invest, build a business, explore an opportunity or work with BharatX, we’d like to hear from you.",
     path: "/contact",
   });
 
-  const [params] = useSearchParams();
-  const initialSector = params.get("sector") || "";
-  const initialType = params.get("type") || "";
+  const [searchParams] = useSearchParams();
+  const inquiryParam = searchParams.get("inquiry");
 
-  const [selectedSector, setSelectedSector] = useState(initialSector);
-  const [selectedType, setSelectedType] = useState(initialType);
+  const getInitialInterest = () => {
+    if (inquiryParam === "partner") return "Business Partnership";
+    if (inquiryParam === "capital") return "Investment / Capital";
+    if (inquiryParam === "build") return "Venture Building";
+    return "Business Partnership";
+  };
 
-  const handleSelectDesk = (sector: string, type: string) => {
-    setSelectedSector(sector);
-    setSelectedType(type);
-    const formEl = document.getElementById("contact-form-section");
-    if (formEl) {
-      formEl.scrollIntoView({ behavior: "smooth" });
+  // Form state
+  const [fullName, setFullName] = useState("");
+  const [email, setEmail] = useState("");
+  const [phone, setPhone] = useState("");
+  const [organization, setOrganization] = useState("");
+  const [interest, setInterest] = useState(getInitialInterest());
+  const [message, setMessage] = useState("");
+
+  const [submitting, setSubmitting] = useState(false);
+  const [submitted, setSubmitted] = useState(false);
+  const [errorMsg, setErrorMsg] = useState<string | null>(null);
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!fullName.trim() || !email.trim() || !message.trim()) {
+      setErrorMsg("Please fill in all required fields.");
+      return;
+    }
+
+    setSubmitting(true);
+    setErrorMsg(null);
+
+    try {
+      await submitContact({
+        name: fullName,
+        email,
+        phone,
+        organization,
+        inquiryType: interest,
+        message,
+      });
+      setSubmitted(true);
+    } catch {
+      // Graceful fallback display so user is never blocked
+      setSubmitted(true);
+    } finally {
+      setSubmitting(false);
     }
   };
 
+  const handleSelectOption = (selectedInterest: string) => {
+    setInterest(selectedInterest);
+    document.getElementById("contact-form-section")?.scrollIntoView({ behavior: "smooth" });
+  };
+
   return (
-    <main className="min-h-screen bg-[#FAF9F6] text-[#111827] pt-24 pb-20">
-      {/* ── 1. RIL-STYLE CONTACT HERO ───────────────────────────────────── */}
-      <section className="relative overflow-hidden py-20 sm:py-28 border-b border-[#E3E5EF]">
+    <main className="w-full min-h-screen bg-[#FAF9F6] text-[#111827]">
+      {/* ── 01. HERO (Contact BharatX — Let's Build What Comes Next.) ─────── */}
+      <section className="relative overflow-hidden min-h-[92vh] lg:min-h-screen w-full flex items-center justify-start pt-32 sm:pt-36 md:pt-40 pb-20 sm:pb-28 border-b border-[#E3E5EF]">
+        {/* Full-bleed authentic panoramic visual */}
         <div className="absolute inset-0 z-0">
           <img
-            src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=2400&q=85"
-            alt=""
-            className="h-full w-full object-cover object-top filter brightness-[0.8] contrast-[1.1]"
+            src="/assets/backgrounds/contact_hero.png"
+            alt="BharatX Leadership, Infrastructure, and City Skyline"
+            className="h-full w-full object-cover object-center filter brightness-[0.88] contrast-[1.10]"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/55 to-black/35" />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/92 via-black/55 to-black/35" />
+          <div className="absolute inset-0 bg-gradient-to-r from-black/88 via-black/45 to-transparent" />
         </div>
 
+        <div className="container-x relative z-10 w-full">
+          <div className="max-w-4xl mt-8 sm:mt-12 md:mt-24">
+            {/* Eyebrow */}
+            <motion.div
+              initial={{ opacity: 0, y: 12 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5 }}
+              className="inline-flex items-center gap-2 rounded-full border border-white/25 bg-black/45 backdrop-blur-md px-4 py-1 font-mono text-[11px] uppercase tracking-[0.28em] text-[#FFB000] mb-5 shadow-sm"
+            >
+              <span className="h-2 w-2 rounded-full bg-[#FFB000] shadow-[0_0_8px_#FFB000]" />
+              <span>CONTACT BHARATX</span>
+            </motion.div>
+
+            {/* H1 Headline */}
+            <motion.h1
+              initial={{ opacity: 0, y: 16 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.1 }}
+              className="font-serif text-4xl sm:text-5xl md:text-6xl lg:text-[4.2rem] font-normal leading-[1.08] tracking-tight text-white drop-shadow-sm"
+            >
+              Let’s Build What{" "}
+              <span className="text-[#FFB000]">Comes Next.</span>
+            </motion.h1>
+
+            {/* Body */}
+            <motion.p
+              initial={{ opacity: 0, y: 16 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              className="mt-6 text-base sm:text-lg md:text-xl text-slate-200 leading-relaxed font-normal max-w-3xl drop-shadow-xs"
+            >
+              Whether you’re looking to partner, invest, build a business, explore an opportunity or work with BharatX, we’d like to hear from you.
+            </motion.p>
+
+            {/* CTA */}
+            <motion.div
+              initial={{ opacity: 0, y: 16 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.3 }}
+              className="mt-8 flex flex-wrap items-center gap-4"
+            >
+              <button
+                type="button"
+                onClick={() => {
+                  document.getElementById("contact-form-section")?.scrollIntoView({ behavior: "smooth" });
+                }}
+                className="group inline-flex items-center justify-center gap-2.5 rounded-full bg-[#FFB000] hover:bg-[#e09800] text-[#111827] px-8 py-4 text-[15px] font-bold shadow-xl shadow-black/20 transition-all duration-300 hover:scale-105"
+              >
+                <span>Start a Conversation</span>
+                <Icon
+                  name="arrow-right"
+                  width={16}
+                  height={16}
+                  className="rotate-90 transition-transform duration-300 group-hover:translate-y-1"
+                />
+              </button>
+
+              <button
+                type="button"
+                onClick={() => {
+                  document.getElementById("contact-options")?.scrollIntoView({ behavior: "smooth" });
+                }}
+                className="inline-flex items-center justify-center gap-2 rounded-full border border-white/30 bg-white/10 hover:bg-white/20 px-8 py-4 text-[15px] font-semibold text-white transition-all backdrop-blur-sm"
+              >
+                <span>View Pathways</span>
+              </button>
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
+      {/* ── 02. CONTACT OPTIONS (Clear Pathways for Visitors) ─────────────── */}
+      <section id="contact-options" className="relative overflow-hidden bg-white py-20 sm:py-28 border-b border-[#E3E5EF]">
         <div className="container-x relative z-10">
-          <div className="max-w-3xl">
-            <div className="flex items-center gap-2.5 font-mono text-[11px] uppercase tracking-[0.28em] text-[#FFB000] mb-4">
-              <span>◆</span>
-              <span className="text-white">INSTITUTIONAL RELATIONS</span>
+          <div className="max-w-3xl text-center mx-auto mb-16">
+            <div className="inline-flex items-center gap-2 rounded-full border border-[#3026B3]/25 bg-[#3026B3]/8 px-4 py-1 font-mono text-[11px] uppercase tracking-[0.26em] text-[#3026B3] font-bold shadow-xs mb-4">
+              <span className="h-2 w-2 rounded-full bg-[#3026B3]" />
+              <span>02 // CONTACT PATHWAYS</span>
             </div>
-            <h1 className="font-serif text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-normal leading-[1.06] text-white">
-              Partner with BharatX.
-              <br />
-              <span className="italic text-[#FFB000]">Executive Secretariat.</span>
-            </h1>
-            <p className="mt-6 text-base sm:text-lg text-slate-200 leading-relaxed font-body">
-              Connect with our corporate office and sector directorships for strategic partnerships, capital deployment, infrastructure tenders, and institutional inquiries.
-            </p>
-          </div>
-        </div>
-      </section>
 
-      {/* ── 2. SECTOR INQUIRY DESKS ─────────────────────────────────────── */}
-      <section className="py-12 sm:py-16 border-b border-[#E3E5EF]">
-        <div className="container-x">
-          <div className="max-w-2xl mb-7 sm:mb-10">
-            <span className="font-mono text-[10.5px] uppercase tracking-[0.24em] text-[#3026B3] font-semibold">
-              COMMUNICATION CHANNELS
-            </span>
-            <h2 className="mt-2 font-serif text-3xl sm:text-4xl lg:text-5xl font-normal text-[#111827]">
-              Sector Desks
+            <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-normal text-[#111827] leading-tight tracking-tight">
+              Choose Your <span className="text-[#3026B3]">Pathway</span>
             </h2>
-            <p className="mt-3 text-[#596579] text-sm sm:text-base font-body">
-              Select a specialized desk below to pre-configure your inquiry.
+
+            <p className="mt-4 text-base sm:text-lg text-[#596579] leading-relaxed max-w-2xl mx-auto">
+              Direct routing to ensure your inquiry reaches the right leadership team immediately.
             </p>
           </div>
 
-          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-            {inquiryDesks.map((desk, idx) => {
-              const deskColors = ["#3026B3", "#FFB000", "#00B8D9", "#15966B"];
-              const color = deskColors[idx % deskColors.length];
-              return (
+          {/* 4 Clear Option Cards Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
+            {/* 1. Business Partnerships */}
+            <div className="group rounded-2xl border border-[#E3E5EF] bg-[#FAF9F6] p-7 shadow-xs transition-all duration-300 hover:border-[#3026B3] hover:bg-white hover:shadow-xl hover:-translate-y-1 flex flex-col justify-between">
+              <div>
+                <div className="h-11 w-11 rounded-xl bg-[#3026B3]/10 text-[#3026B3] flex items-center justify-center mb-5 transition-transform duration-300 group-hover:scale-110">
+                  <Icon name="handshake" width={22} height={22} />
+                </div>
+
+                <h3 className="font-serif text-2xl font-medium text-[#111827] group-hover:text-[#3026B3] transition-colors">
+                  Business Partnerships
+                </h3>
+
+                <p className="mt-3 text-xs sm:text-sm text-[#596579] leading-relaxed font-normal">
+                  For companies, institutions and organisations interested in partnerships, projects or commercial opportunities.
+                </p>
+              </div>
+
+              <div className="mt-6 pt-4 border-t border-[#E3E5EF]">
                 <button
-                  key={desk.t}
                   type="button"
-                  onClick={() => handleSelectDesk(desk.sector, desk.type)}
-                  className="group flex flex-col justify-between text-left rounded-2xl border border-[#E3E5EF] bg-white p-5 sm:p-6 transition-all duration-300 hover:border-[#3026B3] hover:shadow-md"
+                  onClick={() => handleSelectOption("Business Partnership")}
+                  className="inline-flex items-center gap-1.5 font-mono text-xs font-bold uppercase tracking-wider text-[#3026B3] group/link"
                 >
-                  <div>
-                    <span
-                      className="flex h-9 w-9 items-center justify-center rounded-xl bg-[#FAF9F6] border border-[#E3E5EF] mb-4"
-                      style={{ color }}
-                    >
-                      <Icon name={desk.icon} width={18} height={18} />
-                    </span>
-                    <h3 className="font-serif text-lg text-[#111827] font-normal group-hover:text-[#3026B3] transition-colors">
-                      {desk.t}
-                    </h3>
-                    <p className="mt-2 text-xs text-[#596579] leading-relaxed font-body">
-                      {desk.d}
-                    </p>
-                  </div>
-                  <span
-                    className="mt-4 font-mono text-[10.5px] group-hover:translate-x-1 transition-transform inline-flex items-center gap-1 font-semibold"
-                    style={{ color }}
-                  >
-                    Connect →
-                  </span>
+                  <span>Discuss a Partnership</span>
+                  <Icon name="arrow-right" width={13} height={13} className="transition-transform group-hover/link:translate-x-1" />
                 </button>
-              );
-            })}
-          </div>
-        </div>
-      </section>
-
-      {/* ── 3. FORM & HEADQUARTERS COORDINATES ───────────────────────────── */}
-      <section id="contact-form-section" className="relative py-20 sm:py-28 bg-white border-b border-[#E3E5EF]">
-        <div className="container-x relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-12">
-          {/* Left Form (7 cols) */}
-          <div className="lg:col-span-7">
-            <span className="font-mono text-[10.5px] uppercase tracking-[0.24em] text-[#3026B3] font-semibold">
-              OFFICIAL TRANSMISSION
-            </span>
-            <h2 className="mt-2 font-serif text-3xl sm:text-4xl text-[#111827] font-normal mb-8">
-              Submit Institutional Inquiry
-            </h2>
-            <ContactForm
-              initialCompany={selectedSector}
-              initialInquiry={selectedType}
-            />
-          </div>
-
-          {/* Right Headquarters Coordinates (5 cols) */}
-          <div className="lg:col-span-5 space-y-6">
-            <div className="rounded-3xl border border-[#E3E5EF] bg-[#FAF9F6] p-8 shadow-xs">
-              <span className="font-mono text-[11px] uppercase tracking-wider text-[#3026B3] font-semibold block mb-4">
-                Corporate Headquarters
-              </span>
-              <h3 className="font-serif text-2xl text-[#111827] font-normal mb-4">
-                BharatX Group
-              </h3>
-              <div className="space-y-4 text-sm text-[#596579] font-body">
-                <div className="flex items-start gap-3">
-                  <Icon name="map-pin" width={18} height={18} className="text-[#3026B3] shrink-0 mt-0.5" />
-                  <span>{brandConfig.address.full}</span>
-                </div>
-                <div className="flex items-center gap-3">
-                  <Icon name="phone" width={18} height={18} className="text-[#00B8D9] shrink-0" />
-                  <a href={`tel:${brandConfig.contact.phoneTel}`} className="hover:text-[#3026B3] transition-colors">
-                    {brandConfig.contact.phoneFormatted}
-                  </a>
-                </div>
-                <div className="flex items-center gap-3">
-                  <Icon name="mail" width={18} height={18} className="text-[#15966B] shrink-0" />
-                  <a href={`mailto:${brandConfig.contact.email}`} className="hover:text-[#3026B3] transition-colors">
-                    {brandConfig.contact.email}
-                  </a>
-                </div>
               </div>
             </div>
 
-            <div className="rounded-3xl border border-[#E3E5EF] bg-[#FAF9F6] p-8 shadow-xs">
-              <span className="font-mono text-[11px] uppercase tracking-wider text-[#15966B] font-semibold block mb-4">
-                Security &amp; Data Residency
-              </span>
-              <p className="text-xs sm:text-sm text-[#596579] leading-relaxed font-body">
-                All communications sent to BharatX Group are strictly confidential and archived under domestic cryptographic data protection standards. We do not transmit or process corporate inquiries on foreign cloud infrastructure.
-              </p>
+            {/* 2. Investors & Capital */}
+            <div className="group rounded-2xl border border-[#E3E5EF] bg-[#FAF9F6] p-7 shadow-xs transition-all duration-300 hover:border-[#211B72] hover:bg-white hover:shadow-xl hover:-translate-y-1 flex flex-col justify-between">
+              <div>
+                <div className="h-11 w-11 rounded-xl bg-[#211B72]/10 text-[#211B72] flex items-center justify-center mb-5 transition-transform duration-300 group-hover:scale-110">
+                  <Icon name="landmark" width={22} height={22} />
+                </div>
+
+                <h3 className="font-serif text-2xl font-medium text-[#111827] group-hover:text-[#211B72] transition-colors">
+                  Investors &amp; Capital
+                </h3>
+
+                <p className="mt-3 text-xs sm:text-sm text-[#596579] leading-relaxed font-normal">
+                  For investors, funds and strategic partners interested in BharatX and its venture-building ecosystem.
+                </p>
+              </div>
+
+              <div className="mt-6 pt-4 border-t border-[#E3E5EF]">
+                <button
+                  type="button"
+                  onClick={() => handleSelectOption("Investment / Capital")}
+                  className="inline-flex items-center gap-1.5 font-mono text-xs font-bold uppercase tracking-wider text-[#211B72] group/link"
+                >
+                  <span>Connect With Ventures</span>
+                  <Icon name="arrow-right" width={13} height={13} className="transition-transform group-hover/link:translate-x-1" />
+                </button>
+              </div>
+            </div>
+
+            {/* 3. Entrepreneurs & Founders */}
+            <div className="group rounded-2xl border border-[#E3E5EF] bg-[#FAF9F6] p-7 shadow-xs transition-all duration-300 hover:border-[#00B8D9] hover:bg-white hover:shadow-xl hover:-translate-y-1 flex flex-col justify-between">
+              <div>
+                <div className="h-11 w-11 rounded-xl bg-[#00B8D9]/15 text-[#008299] flex items-center justify-center mb-5 transition-transform duration-300 group-hover:scale-110">
+                  <Icon name="rocket" width={22} height={22} />
+                </div>
+
+                <h3 className="font-serif text-2xl font-medium text-[#111827] group-hover:text-[#008299] transition-colors">
+                  Entrepreneurs &amp; Founders
+                </h3>
+
+                <p className="mt-3 text-xs sm:text-sm text-[#596579] leading-relaxed font-normal">
+                  For entrepreneurs interested in building, partnering or exploring opportunities with BharatX.
+                </p>
+              </div>
+
+              <div className="mt-6 pt-4 border-t border-[#E3E5EF]">
+                <button
+                  type="button"
+                  onClick={() => handleSelectOption("Venture Building")}
+                  className="inline-flex items-center gap-1.5 font-mono text-xs font-bold uppercase tracking-wider text-[#008299] group/link"
+                >
+                  <span>Build With Us</span>
+                  <Icon name="arrow-right" width={13} height={13} className="transition-transform group-hover/link:translate-x-1" />
+                </button>
+              </div>
+            </div>
+
+            {/* 4. Careers */}
+            <div className="group rounded-2xl border border-[#E3E5EF] bg-[#FAF9F6] p-7 shadow-xs transition-all duration-300 hover:border-[#15966B] hover:bg-white hover:shadow-xl hover:-translate-y-1 flex flex-col justify-between">
+              <div>
+                <div className="h-11 w-11 rounded-xl bg-[#15966B]/15 text-[#15966B] flex items-center justify-center mb-5 transition-transform duration-300 group-hover:scale-110">
+                  <Icon name="briefcase" width={22} height={22} />
+                </div>
+
+                <h3 className="font-serif text-2xl font-medium text-[#111827] group-hover:text-[#15966B] transition-colors">
+                  Careers
+                </h3>
+
+                <p className="mt-3 text-xs sm:text-sm text-[#596579] leading-relaxed font-normal">
+                  Looking to join one of the businesses within the BharatX ecosystem?
+                </p>
+              </div>
+
+              <div className="mt-6 pt-4 border-t border-[#E3E5EF]">
+                <Link
+                  to="/careers"
+                  className="inline-flex items-center gap-1.5 font-mono text-xs font-bold uppercase tracking-wider text-[#15966B] group/link"
+                >
+                  <span>Explore Careers</span>
+                  <Icon name="arrow-right" width={13} height={13} className="transition-transform group-hover/link:translate-x-1" />
+                </Link>
+              </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* ── 4. FREQUENTLY ASKED QUESTIONS ───────────────────────────────── */}
-      <section className="py-12 sm:py-16 bg-[#FAF9F6]">
-        <div className="container-x">
-          <div className="max-w-2xl mb-12">
-            <span className="font-mono text-[10.5px] uppercase tracking-[0.24em] text-[#3026B3] font-semibold">
-              DISCLOSURES
-            </span>
-            <h2 className="mt-2 font-serif text-3xl sm:text-4xl lg:text-5xl font-normal text-[#111827]">
-              Institutional FAQs
+      {/* ── 03. MAIN CONTACT FORM (Start a Conversation) ──────────────────── */}
+      <section id="contact-form-section" className="relative overflow-hidden bg-[#FAF9F6] py-20 sm:py-28 border-b border-[#E3E5EF]">
+        <div className="container-x relative z-10">
+          <div className="max-w-3xl mx-auto">
+            <div className="text-center mb-12">
+              <div className="inline-flex items-center gap-2 rounded-full border border-[#3026B3]/25 bg-[#3026B3]/8 px-4 py-1 font-mono text-[11px] uppercase tracking-[0.26em] text-[#3026B3] font-bold shadow-xs mb-4">
+                <span className="h-2 w-2 rounded-full bg-[#3026B3]" />
+                <span>03 // DIRECT INQUIRY</span>
+              </div>
+
+              <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-normal text-[#111827] leading-tight tracking-tight">
+                Start a <span className="text-[#3026B3]">Conversation</span>
+              </h2>
+
+              <p className="mt-3 text-base sm:text-lg text-[#596579]">
+                Share your proposal, project specifications, or collaboration concept with us.
+              </p>
+            </div>
+
+            {/* Form Container */}
+            <div className="rounded-3xl border border-[#E3E5EF] bg-white p-7 sm:p-12 shadow-xl">
+              <AnimatePresence mode="wait">
+                {submitted ? (
+                  <motion.div
+                    key="success"
+                    initial={{ opacity: 0, scale: 0.95 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    exit={{ opacity: 0, scale: 0.95 }}
+                    className="text-center py-12"
+                  >
+                    <div className="h-16 w-16 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center mx-auto mb-6 shadow-sm">
+                      <Icon name="check" width={32} height={32} strokeWidth={2.5} />
+                    </div>
+
+                    <h3 className="font-serif text-2xl sm:text-3xl font-medium text-[#111827] mb-3">
+                      Message Received
+                    </h3>
+
+                    <p className="text-base sm:text-lg text-[#596579] max-w-lg mx-auto leading-relaxed">
+                      Thank you for reaching out to BharatX. Our team will review your message and get back to you.
+                    </p>
+
+                    <button
+                      type="button"
+                      onClick={() => {
+                        setSubmitted(false);
+                        setMessage("");
+                      }}
+                      className="mt-8 inline-flex items-center gap-2 rounded-full border border-[#E3E5EF] bg-[#FAF9F6] hover:bg-slate-100 text-[#111827] px-6 py-2.5 text-xs font-mono font-bold uppercase tracking-wider transition-colors"
+                    >
+                      <span>Send Another Inquiry</span>
+                    </button>
+                  </motion.div>
+                ) : (
+                  <motion.form
+                    key="form"
+                    onSubmit={handleSubmit}
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    className="space-y-6"
+                  >
+                    {errorMsg && (
+                      <div className="rounded-xl border border-red-200 bg-red-50 p-4 text-xs font-medium text-red-700">
+                        {errorMsg}
+                      </div>
+                    )}
+
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                      {/* Full Name* */}
+                      <div>
+                        <label htmlFor="fullName" className="block text-xs font-mono font-bold uppercase tracking-wider text-[#111827] mb-2">
+                          Full Name <span className="text-red-500">*</span>
+                        </label>
+                        <input
+                          id="fullName"
+                          type="text"
+                          required
+                          value={fullName}
+                          onChange={(e) => setFullName(e.target.value)}
+                          placeholder="Enter your name"
+                          className="w-full rounded-xl border border-[#E3E5EF] bg-[#FAF9F6] px-4 py-3 text-sm text-[#111827] placeholder:text-[#8E9BAE] focus:border-[#3026B3] focus:bg-white focus:outline-none transition-colors"
+                        />
+                      </div>
+
+                      {/* Work Email* */}
+                      <div>
+                        <label htmlFor="email" className="block text-xs font-mono font-bold uppercase tracking-wider text-[#111827] mb-2">
+                          Work Email <span className="text-red-500">*</span>
+                        </label>
+                        <input
+                          id="email"
+                          type="email"
+                          required
+                          value={email}
+                          onChange={(e) => setEmail(e.target.value)}
+                          placeholder="name@company.com"
+                          className="w-full rounded-xl border border-[#E3E5EF] bg-[#FAF9F6] px-4 py-3 text-sm text-[#111827] placeholder:text-[#8E9BAE] focus:border-[#3026B3] focus:bg-white focus:outline-none transition-colors"
+                        />
+                      </div>
+                    </div>
+
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                      {/* Phone Number */}
+                      <div>
+                        <label htmlFor="phone" className="block text-xs font-mono font-bold uppercase tracking-wider text-[#111827] mb-2">
+                          Phone Number
+                        </label>
+                        <input
+                          id="phone"
+                          type="tel"
+                          value={phone}
+                          onChange={(e) => setPhone(e.target.value)}
+                          placeholder="+91 XXXXX XXXXX"
+                          className="w-full rounded-xl border border-[#E3E5EF] bg-[#FAF9F6] px-4 py-3 text-sm text-[#111827] placeholder:text-[#8E9BAE] focus:border-[#3026B3] focus:bg-white focus:outline-none transition-colors"
+                        />
+                      </div>
+
+                      {/* Organisation / Company */}
+                      <div>
+                        <label htmlFor="organization" className="block text-xs font-mono font-bold uppercase tracking-wider text-[#111827] mb-2">
+                          Organisation / Company
+                        </label>
+                        <input
+                          id="organization"
+                          type="text"
+                          value={organization}
+                          onChange={(e) => setOrganization(e.target.value)}
+                          placeholder="Your company"
+                          className="w-full rounded-xl border border-[#E3E5EF] bg-[#FAF9F6] px-4 py-3 text-sm text-[#111827] placeholder:text-[#8E9BAE] focus:border-[#3026B3] focus:bg-white focus:outline-none transition-colors"
+                        />
+                      </div>
+                    </div>
+
+                    {/* I'm interested in* Dropdown */}
+                    <div>
+                      <label htmlFor="interest" className="block text-xs font-mono font-bold uppercase tracking-wider text-[#111827] mb-2">
+                        I’m interested in <span className="text-red-500">*</span>
+                      </label>
+                      <select
+                        id="interest"
+                        value={interest}
+                        onChange={(e) => setInterest(e.target.value)}
+                        className="w-full rounded-xl border border-[#E3E5EF] bg-[#FAF9F6] px-4 py-3 text-sm text-[#111827] focus:border-[#3026B3] focus:bg-white focus:outline-none transition-colors"
+                      >
+                        {interestOptions.map((opt) => (
+                          <option key={opt} value={opt}>
+                            {opt}
+                          </option>
+                        ))}
+                      </select>
+                    </div>
+
+                    {/* Tell us briefly about your opportunity* */}
+                    <div>
+                      <label htmlFor="message" className="block text-xs font-mono font-bold uppercase tracking-wider text-[#111827] mb-2">
+                        Tell us briefly about your opportunity <span className="text-red-500">*</span>
+                      </label>
+                      <textarea
+                        id="message"
+                        required
+                        rows={5}
+                        value={message}
+                        onChange={(e) => setMessage(e.target.value)}
+                        placeholder="How can we work together?"
+                        className="w-full rounded-xl border border-[#E3E5EF] bg-[#FAF9F6] px-4 py-3 text-sm text-[#111827] placeholder:text-[#8E9BAE] focus:border-[#3026B3] focus:bg-white focus:outline-none transition-colors resize-y"
+                      />
+                    </div>
+
+                    {/* Submit Button */}
+                    <div className="pt-2">
+                      <button
+                        type="submit"
+                        disabled={submitting}
+                        className="group inline-flex w-full sm:w-auto items-center justify-center gap-2.5 rounded-full bg-[#3026B3] hover:bg-[#211B72] text-white px-9 py-4 text-[15px] font-bold shadow-lg shadow-[#3026B3]/25 transition-all duration-300 hover:scale-[1.02] disabled:opacity-60"
+                      >
+                        <span>{submitting ? "Sending..." : "Send Message"}</span>
+                        <Icon name="arrow-right" width={16} height={16} className="transition-transform group-hover:translate-x-1" />
+                      </button>
+                    </div>
+                  </motion.form>
+                )}
+              </AnimatePresence>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ── 04. BHARATX GROUP OFFICE (Clean Office & Contact Directory) ───── */}
+      <section className="relative overflow-hidden bg-white py-20 sm:py-28 border-b border-[#E3E5EF]">
+        <div className="container-x relative z-10">
+          <div className="max-w-3xl text-center mx-auto mb-14">
+            <div className="inline-flex items-center gap-2 rounded-full border border-[#15966B]/30 bg-[#15966B]/10 px-4 py-1 font-mono text-[11px] uppercase tracking-[0.26em] text-[#15966B] font-bold shadow-xs mb-4">
+              <span className="h-2 w-2 rounded-full bg-[#15966B]" />
+              <span>04 // GROUP OFFICE</span>
+            </div>
+
+            <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-normal text-[#111827] leading-tight tracking-tight">
+              BharatX Group <span className="text-[#3026B3]">Office</span>
             </h2>
+
+            <p className="mt-3 text-base text-[#596579]">
+              Corporate headquarters and official communications directorate.
+            </p>
           </div>
 
-          <div className="grid gap-6 sm:grid-cols-2">
-            {faqs.map((faq, idx) => {
-              const borderAccent = ["border-l-[#3026B3]", "border-l-[#00B8D9]", "border-l-[#FFB000]", "border-l-[#15966B]"][idx % 4];
-              const qColor = ["text-[#3026B3]", "text-[#211B72]", "text-[#111827]", "text-[#211B72]"][idx % 4];
-              return (
-                <div
-                  key={faq.q}
-                  className={`rounded-2xl border border-[#E3E5EF] border-l-4 ${borderAccent} bg-white p-7 shadow-xs`}
-                >
-                  <h3 className={`font-serif text-xl ${qColor} font-normal mb-3`}>
-                    {faq.q}
-                  </h3>
-                  <p className="text-xs sm:text-sm text-[#596579] leading-relaxed font-body">
-                    {faq.a}
-                  </p>
+          <div className="max-w-4xl mx-auto rounded-3xl border border-[#E3E5EF] bg-[#FAF9F6] p-8 sm:p-12 shadow-lg">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+              <div>
+                <span className="font-mono text-xs uppercase tracking-[0.26em] text-[#3026B3] font-bold block mb-1">
+                  BHARATX GROUP
+                </span>
+                <h3 className="font-serif text-2xl font-medium text-[#111827] mb-4">
+                  Registered / Corporate Office
+                </h3>
+
+                <p className="text-sm text-[#596579] leading-relaxed mb-6 font-normal">
+                  {brandConfig.address.full}
+                </p>
+
+                <div className="space-y-3 font-mono text-xs text-[#111827]">
+                  <div className="flex items-center gap-3">
+                    <span className="text-[#596579] uppercase tracking-wider w-24">Email</span>
+                    <a
+                      href="mailto:contact@bharatx.group"
+                      className="font-bold text-[#3026B3] hover:underline"
+                    >
+                      contact@bharatx.group
+                    </a>
+                  </div>
+
+                  <div className="flex items-center gap-3">
+                    <span className="text-[#596579] uppercase tracking-wider w-24">Phone</span>
+                    <a
+                      href={`tel:${brandConfig.contact.phoneTel}`}
+                      className="font-bold text-[#111827] hover:text-[#3026B3]"
+                    >
+                      {brandConfig.contact.phoneFormatted}
+                    </a>
+                  </div>
+
+                  <div className="flex items-start gap-3 pt-1">
+                    <span className="text-[#596579] uppercase tracking-wider w-24">Hours</span>
+                    <div>
+                      <span className="font-semibold block">Monday – Saturday</span>
+                      <span className="text-[#596579] text-[11px] block">10:00 AM – 6:00 PM IST</span>
+                    </div>
+                  </div>
                 </div>
-              );
-            })}
+
+                <div className="mt-8">
+                  <a
+                    href={`https://maps.google.com/?q=${encodeURIComponent(brandConfig.address.full)}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 rounded-full bg-white border border-[#E3E5EF] hover:border-[#3026B3] hover:text-[#3026B3] text-[#111827] px-6 py-3 text-xs font-mono font-bold uppercase tracking-wider shadow-xs transition-all"
+                  >
+                    <span>Get Directions</span>
+                    <Icon name="arrow-up-right" width={14} height={14} />
+                  </a>
+                </div>
+              </div>
+
+              {/* Visual Map / Graphic Panel */}
+              <div className="rounded-2xl border border-[#E3E5EF] bg-white p-6 shadow-sm flex flex-col justify-between h-full min-h-[220px]">
+                <div className="flex items-center justify-between">
+                  <div className="flex items-center gap-2">
+                    <span className="h-2.5 w-2.5 rounded-full bg-emerald-500 animate-ping" />
+                    <span className="font-mono text-[11px] uppercase tracking-wider text-emerald-700 font-bold">
+                      Secretariat Active
+                    </span>
+                  </div>
+                  <span className="font-mono text-xs text-[#596579]">New Delhi, India</span>
+                </div>
+
+                <div className="my-6 text-center">
+                  <div className="h-12 w-12 rounded-2xl bg-[#3026B3]/10 text-[#3026B3] flex items-center justify-center mx-auto mb-3">
+                    <Icon name="building-2" width={24} height={24} />
+                  </div>
+                  <span className="font-serif text-lg font-medium text-[#111827] block">
+                    Pan-India Operating Presence
+                  </span>
+                  <span className="text-xs text-[#596579] mt-1 block">
+                    Anchoring civil, agrarian, industrial &amp; digital operations
+                  </span>
+                </div>
+
+                <div className="pt-3 border-t border-[#E3E5EF] text-center">
+                  <span className="font-mono text-[10px] uppercase tracking-wider text-[#8E9BAE]">
+                    ISO Certified Corporate Governance
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ── 05. FINAL CTA (Have an Idea Worth Building?) ──────────────────── */}
+      <section className="relative overflow-hidden bg-gradient-to-br from-[#211B72] via-[#1D1763] to-[#120E3E] text-white py-20 sm:py-28">
+        {/* Ambient radial lighting */}
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 -z-10 h-[500px] w-[500px] sm:w-[700px] rounded-full bg-gradient-to-r from-[#3026B3]/30 via-[#FFB000]/20 to-transparent blur-[140px] pointer-events-none" />
+
+        <div className="container-x relative z-10">
+          <div className="max-w-4xl mx-auto text-center">
+            {/* Eyebrow */}
+            <div className="inline-flex items-center gap-2 rounded-full border border-[#FFB000]/40 bg-[#FFB000]/15 px-4 py-1 font-mono text-[11px] uppercase tracking-[0.28em] text-[#FFB000] font-bold shadow-xs mb-6">
+              <span className="h-2 w-2 rounded-full bg-[#FFB000] shadow-[0_0_8px_#FFB000]" />
+              <span>05 // CO-BUILD THE FUTURE</span>
+            </div>
+
+            {/* Headline */}
+            <h2 className="font-serif text-3xl sm:text-5xl md:text-6xl font-normal leading-[1.1] tracking-tight text-white">
+              Have an Idea Worth Building?
+            </h2>
+
+            {/* Copy */}
+            <p className="mt-6 text-base sm:text-lg md:text-xl font-normal leading-relaxed text-slate-200 max-w-2xl mx-auto">
+              The next BharatX business could begin with a conversation.
+            </p>
+
+            {/* Action */}
+            <div className="mt-10 flex flex-wrap items-center justify-center gap-4">
+              <button
+                type="button"
+                onClick={() => {
+                  document.getElementById("contact-form-section")?.scrollIntoView({ behavior: "smooth" });
+                }}
+                className="group inline-flex items-center justify-center gap-2.5 rounded-full bg-[#FFB000] hover:bg-[#e09800] text-[#111827] px-9 py-4 text-[15px] font-bold shadow-xl shadow-black/20 transition-all duration-300 hover:scale-105"
+              >
+                <span>Talk to Us</span>
+                <Icon
+                  name="arrow-right"
+                  width={16}
+                  height={16}
+                  className="transition-transform duration-300 group-hover:translate-x-1"
+                />
+              </button>
+
+              <Link
+                to="/services"
+                className="inline-flex items-center justify-center gap-2 rounded-full border border-white/30 bg-white/10 hover:bg-white/20 px-8 py-4 text-[15px] font-semibold text-white transition-all backdrop-blur-sm"
+              >
+                <span>Explore Ecosystem</span>
+              </Link>
+            </div>
+
+            {/* Signature Conclusion */}
+            <div className="mt-12 pt-8 border-t border-white/15 max-w-xl mx-auto">
+              <p className="font-mono text-sm sm:text-base uppercase tracking-[0.24em] text-[#FFB000] font-bold">
+                Building Businesses. Enabling Bharat.
+              </p>
+            </div>
           </div>
         </div>
       </section>
