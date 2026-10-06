@@ -1,103 +1,348 @@
+import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { usePageMeta } from "../hooks/usePageMeta";
-import { servicesData } from "../data/servicesData";
 import { Icon } from "../utils/icons";
-import { Reveal } from "../components/common/Reveal";
 
-const principles = [
-  { icon: "compass", t: "Thesis Before Tactics", d: "Every sector initiative begins with an uncompromising multi-decade thesis about national supply independence." },
-  { icon: "cog", t: "Engineering-First", d: "If it can be specified, we specify it. If it can be tested, we stress-test it to global aerospace and defense standards." },
-  { icon: "users", t: "Sovereign Stewardship", d: "The group provides patient balance-sheet capital and strategic governance; our teams retain technical initiative." },
-  { icon: "shield-check", t: "Documentation as Respect", d: "Transparent public accounting, rigorous phytosanitary certification, and open engineering documentation." },
-  { icon: "trending-up", t: "Compound, Don't Chase", d: "We prioritize compounding real-world industrial moats over short-term speculative hype." },
-  { icon: "scale", t: "Public Accountability", d: "What we claim, we demonstrate with telemetry. What we cannot measure yet, we state with complete transparency." },
+// ── 02. Formula items for "Who We Are" ──────────────────────────────
+const formulaInputs = [
+  { label: "Businesses", icon: "layers" as const, color: "#3026B3", bg: "bg-[#3026B3]/10", text: "text-[#3026B3]" },
+  { label: "Capital", icon: "landmark" as const, color: "#E09800", bg: "bg-[#FFB000]/15", text: "text-[#B87B00]" },
+  { label: "Technology", icon: "cpu" as const, color: "#00B8D9", bg: "bg-[#00B8D9]/15", text: "text-[#008299]" },
+  { label: "Talent", icon: "users" as const, color: "#15966B", bg: "bg-[#15966B]/15", text: "text-[#15966B]" },
+  { label: "Execution", icon: "cog" as const, color: "#4B40D4", bg: "bg-[#4B40D4]/15", text: "text-[#4B40D4]" },
 ];
 
-const operatingModel = [
-  { n: "01", icon: "search", t: "Deliberate Sector Selection", d: "We enter domains only where domestic supply chains are vulnerable and where scale can create durable national resilience." },
-  { n: "02", icon: "layers", t: "Sovereign Standards", d: "Enforcing unified benchmarks for cryptographic data security, metallurgical tolerance, and environmental compliance." },
-  { n: "03", icon: "cpu", t: "Deep Technical Execution", d: "Deploying proprietary automation, localized multilingual neural models, and precision fabrication infrastructure." },
-  { n: "04", icon: "orbit", t: "Synergistic Compounding", d: "Connecting agricultural feedstocks to processing corridors and heavy civil projects to sovereign logistics arteries." },
+// ── 03. Three Pillars for "Why BharatX Exists" ────────────────────────
+const purposePillars = [
+  {
+    title: "Build",
+    description: "Create businesses around meaningful opportunities.",
+    icon: "hard-hat" as const,
+    accent: "#3026B3",
+    bgAccent: "bg-[#3026B3]/10",
+    textAccent: "text-[#3026B3]",
+    borderHover: "hover:border-[#3026B3]",
+  },
+  {
+    title: "Scale",
+    description: "Strengthen them through capital, technology and execution.",
+    icon: "trending-up" as const,
+    accent: "#E09800",
+    bgAccent: "bg-[#FFB000]/15",
+    textAccent: "text-[#B87B00]",
+    borderHover: "hover:border-[#FFB000]",
+  },
+  {
+    title: "Impact",
+    description: "Create lasting economic and social value.",
+    icon: "sparkles" as const,
+    accent: "#15966B",
+    bgAccent: "bg-[#15966B]/15",
+    textAccent: "text-[#15966B]",
+    borderHover: "hover:border-[#15966B]",
+  },
+];
+
+// ── 04. Business Ecosystem Nodes ──────────────────────────────────────
+const primaryEcosystemNodes = [
+  {
+    sector: "Infrastructure",
+    company: "BharatX Infratech",
+    logo: "/Infra_logo1.png",
+    link: "/services#infrastructure",
+    accent: "#3026B3",
+    badge: "Active",
+  },
+  {
+    sector: "Agriculture",
+    company: "BharatXAgro",
+    logo: "/Bharatxagro_logo.png",
+    link: "/services#agriculture",
+    accent: "#15966B",
+    badge: "Active",
+  },
+  {
+    sector: "Manufacturing",
+    company: "Casters Global",
+    logo: "/Casters_logo.png",
+    link: "/services#manufacturing",
+    accent: "#00B8D9",
+    badge: "Active",
+  },
+  {
+    sector: "Technology",
+    company: "AI Xperts Labs",
+    logo: "/Ai-Experts_logo.png",
+    link: "/services#tech-ai",
+    accent: "#4B40D4",
+    badge: "Active",
+  },
+  {
+    sector: "Packaging",
+    company: "Future Expansion",
+    link: "/#what-comes-next",
+    accent: "#D97706",
+    badge: "Incubating",
+  },
+];
+
+const secondaryEcosystemNodes = [
+  {
+    sector: "Sustainability",
+    company: "Future Expansion",
+    link: "/#what-comes-next",
+    accent: "#059669",
+    badge: "Incubating",
+  },
+  {
+    sector: "Venture Building",
+    company: "BharatX Ventures",
+    logo: "/Ventures_logo.png",
+    link: "/services#finance",
+    accent: "#211B72",
+    badge: "Active",
+  },
+];
+
+// ── 05. Timeline steps for "How We Build" ──────────────────────────────
+const buildTimeline = [
+  {
+    step: "01",
+    title: "IDENTIFY",
+    description: "Find meaningful problems and opportunities.",
+    icon: "target" as const,
+    accent: "#3026B3",
+    bgAccent: "bg-[#3026B3]/10",
+    textAccent: "text-[#3026B3]",
+    borderHover: "hover:border-[#3026B3]",
+  },
+  {
+    step: "02",
+    title: "BUILD",
+    description: "Develop products, businesses and capabilities.",
+    icon: "hard-hat" as const,
+    accent: "#E09800",
+    bgAccent: "bg-[#FFB000]/15",
+    textAccent: "text-[#B87B00]",
+    borderHover: "hover:border-[#FFB000]",
+  },
+  {
+    step: "03",
+    title: "INVEST",
+    description: "Deploy capital, technology and talent.",
+    icon: "landmark" as const,
+    accent: "#00B8D9",
+    bgAccent: "bg-[#00B8D9]/15",
+    textAccent: "text-[#008299]",
+    borderHover: "hover:border-[#00B8D9]",
+  },
+  {
+    step: "04",
+    title: "SCALE",
+    description: "Expand markets, operations and capabilities.",
+    icon: "trending-up" as const,
+    accent: "#15966B",
+    bgAccent: "bg-[#15966B]/15",
+    textAccent: "text-[#15966B]",
+    borderHover: "hover:border-[#15966B]",
+  },
+  {
+    step: "05",
+    title: "IMPACT",
+    description: "Create sustainable economic and social value.",
+    icon: "sparkles" as const,
+    accent: "#4B40D4",
+    bgAccent: "bg-[#4B40D4]/15",
+    textAccent: "text-[#4B40D4]",
+    borderHover: "hover:border-[#4B40D4]",
+  },
+];
+
+// ── 06. Five Principles for "Our Principles" ──────────────────────────
+const principles = [
+  {
+    title: "Entrepreneurial",
+    description: "We think like builders and act with ownership.",
+    icon: "rocket" as const,
+    color: "#3026B3",
+    bg: "bg-[#3026B3]/10",
+    text: "text-[#3026B3]",
+  },
+  {
+    title: "Execution-Driven",
+    description: "Ideas matter only when they translate into results.",
+    icon: "check" as const,
+    color: "#00B8D9",
+    bg: "bg-[#00B8D9]/15",
+    text: "text-[#008299]",
+  },
+  {
+    title: "Long-Term",
+    description: "We build businesses for enduring value, not short-term visibility.",
+    icon: "trending-up" as const,
+    color: "#15966B",
+    bg: "bg-[#15966B]/15",
+    text: "text-[#15966B]",
+  },
+  {
+    title: "Technology-Enabled",
+    description: "We use technology to improve how businesses operate and scale.",
+    icon: "cpu" as const,
+    color: "#4B40D4",
+    bg: "bg-[#4B40D4]/15",
+    text: "text-[#4B40D4]",
+  },
+  {
+    title: "Responsible",
+    description: "Growth must create value for businesses, people and the wider ecosystem.",
+    icon: "shield-check" as const,
+    color: "#D97706",
+    bg: "bg-[#F59E0B]/15",
+    text: "text-[#B45309]",
+  },
 ];
 
 export default function AboutPage() {
   usePageMeta({
-    title: "About BharatX Group — Sovereign Conglomerate Architecture",
+    title: "About BharatX Group | Building Businesses for a Growing Bharat",
     description:
-      "Why BharatX exists, how our operating sectors function as one unified system, and our charter for India's industrial sovereignty.",
+      "Learn about BharatX Group, a diversified Indian business group building enterprises across infrastructure, agriculture, manufacturing, technology, packaging, sustainability and venture building.",
     path: "/about",
   });
 
   return (
-    <main className="min-h-screen bg-[#FAF9F6] text-[#111827] pt-24 pb-20">
-      {/* ── 1. RIL-STYLE MAJESTIC ABOUT HERO ────────────────────────────── */}
-      <section className="relative overflow-hidden py-20 sm:py-28 border-b border-[#E3E5EF]">
+    <main className="w-full min-h-screen bg-[#FAF9F6] text-[#111827]">
+      {/* ── 01. HERO (Building Enterprises for a Growing Bharat) ─────── */}
+      <section className="relative overflow-hidden min-h-[92vh] lg:min-h-screen w-full flex items-center justify-start pt-32 sm:pt-36 md:pt-40 pb-20 sm:pb-28 border-b border-[#E3E5EF]">
+        {/* Wide-format cinematic transformation image filling the entire frame */}
         <div className="absolute inset-0 z-0">
           <img
             src="/assets/backgrounds/infrastructure-real.jpg"
-            alt=""
-            className="h-full w-full object-cover object-top filter brightness-[0.92] contrast-[1.15]"
+            alt="India's Physical and Economic Transformation"
+            className="h-full w-full object-cover object-center filter brightness-[0.88] contrast-[1.12]"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/40 to-black/20" />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/55 to-black/35" />
+          <div className="absolute inset-0 bg-gradient-to-r from-black/85 via-black/45 to-transparent" />
         </div>
 
-        <div className="container-x relative z-10">
-          <div className="max-w-3xl">
-            <div className="flex items-center gap-2.5 font-mono text-[11px] uppercase tracking-[0.28em] text-[#FFB000] mb-4">
-              <span>◆</span>
-              <span className="text-white">INSTITUTIONAL CHARTER</span>
-            </div>
-            <h1 className="font-serif text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-normal leading-[1.06] text-white">
-              Built Like Infrastructure.
-              <br />
-              <span className="italic text-[#FFB000]">Governed Like Institutions.</span>
-            </h1>
-            <p className="mt-6 text-base sm:text-lg text-slate-200 leading-relaxed font-body">
-              BharatX Group is a diversified conglomerate engineering foundational capabilities across India's core industrial layers — technology, infrastructure, manufacturing, and food systems.
-            </p>
+        <div className="container-x relative z-10 w-full">
+          <div className="max-w-4xl mt-8 sm:mt-12 md:mt-24">
+            {/* Eyebrow */}
+            <motion.div
+              initial={{ opacity: 0, y: 12 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5 }}
+              className="inline-flex items-center gap-2 rounded-full border border-white/25 bg-black/45 backdrop-blur-md px-4 py-1 font-mono text-[11px] uppercase tracking-[0.28em] text-[#FFB000] mb-5 shadow-sm"
+            >
+              <span className="h-2 w-2 rounded-full bg-[#FFB000] shadow-[0_0_8px_#FFB000]" />
+              <span>ABOUT BHARATX GROUP</span>
+            </motion.div>
+
+            {/* H1 Headline */}
+            <motion.h1
+              initial={{ opacity: 0, y: 16 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.1 }}
+              className="font-serif text-4xl sm:text-5xl md:text-6xl lg:text-[4.2rem] font-normal leading-[1.08] tracking-tight text-white drop-shadow-sm"
+            >
+              Building Enterprises for a{" "}
+              <span className="text-[#FFB000]">Growing Bharat.</span>
+            </motion.h1>
+
+            {/* Body */}
+            <motion.p
+              initial={{ opacity: 0, y: 16 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              className="mt-6 text-base sm:text-lg md:text-xl text-slate-200 leading-relaxed font-normal max-w-3xl drop-shadow-xs"
+            >
+              BharatX Group is a diversified Indian business group building and scaling enterprises across infrastructure, agriculture, manufacturing, technology, packaging, sustainability and venture building.
+            </motion.p>
           </div>
         </div>
       </section>
 
-      {/* ── 2. CONGLOMERATE OPERATING THESIS ────────────────────────────── */}
-      <section className="py-12 sm:py-16 border-b border-[#E3E5EF]">
-        <div className="container-x grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-          <div className="lg:col-span-7">
-            <span className="font-mono text-[10.5px] uppercase tracking-[0.24em] text-[#3026B3] font-semibold">
-              CORE PHILOSOPHY
-            </span>
-            <h2 className="mt-3 font-serif text-3xl sm:text-4xl lg:text-5xl font-normal text-[#111827] leading-tight">
-              A conglomerate posture with a <span className="text-[#3026B3]">deep-tech mandate.</span>
-            </h2>
-            <p className="mt-6 text-base sm:text-lg text-[#596579] leading-relaxed font-body">
-              India's compounding growth over the next quarter-century cannot rely on leased foreign technologies or fragmented speculative businesses. It requires patient, balance-sheet capital willing to build heavy physical assets and sovereign code in lockstep.
-            </p>
-            <p className="mt-4 text-sm sm:text-base text-[#596579] leading-relaxed font-body">
-              From sub-micron precision components exported globally to rural farm-gate processing corridors touching over 50,000 agrarian families, BharatX operates as a coherent national asset.
-            </p>
-          </div>
+      {/* ── 02. WHO WE ARE (More Than a Group of Companies) ───────────── */}
+      <section className="relative overflow-hidden bg-white py-20 sm:py-24 border-b border-[#E3E5EF]">
+        <div className="container-x relative z-10">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+            <div className="lg:col-span-6">
+              <div className="inline-flex items-center gap-2 rounded-full border border-[#3026B3]/25 bg-[#3026B3]/8 px-4 py-1 font-mono text-[11px] uppercase tracking-[0.26em] text-[#3026B3] font-bold shadow-xs mb-4">
+                <span className="h-2 w-2 rounded-full bg-[#3026B3]" />
+                <span>02 // WHO WE ARE</span>
+              </div>
 
-          <div className="lg:col-span-5">
-            <div className="rounded-3xl border border-[#E3E5EF] bg-white p-8 shadow-xl">
-              <span className="font-mono text-[11px] uppercase tracking-wider text-[#3026B3] font-semibold block mb-6">
-                Group Architecture At A Glance
-              </span>
-              <div className="grid grid-cols-2 gap-4">
-                <div className="rounded-2xl border border-[#E3E5EF] bg-[#F7F7FC] p-4">
-                  <span className="font-serif text-3xl font-bold text-[#3026B3] block">06</span>
-                  <span className="font-mono text-[10px] uppercase text-[#596579] mt-1 block">Operating Sectors</span>
+              <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-normal text-[#111827] leading-tight tracking-tight">
+                More Than a <span className="text-[#3026B3]">Group of Companies</span>
+              </h2>
+
+              <p className="mt-6 text-base sm:text-lg text-[#596579] leading-relaxed font-normal">
+                BharatX Group brings together businesses operating across some of India’s most important growth sectors.
+              </p>
+
+              <p className="mt-4 text-sm sm:text-base text-[#596579] leading-relaxed font-normal">
+                We combine entrepreneurial thinking, operational capability, technology and capital to build businesses that solve real-world problems and create long-term value.
+              </p>
+
+              <p className="mt-4 text-sm sm:text-base text-[#596579] leading-relaxed font-normal">
+                Our portfolio spans infrastructure and engineering, agriculture and food, industrial manufacturing, AI and technology, packaging, sustainability, venture building and social impact.
+              </p>
+            </div>
+
+            {/* Visual Formula: Businesses + Capital + Technology + Talent + Execution -> Enduring Enterprises */}
+            <div className="lg:col-span-6">
+              <div className="rounded-3xl border border-[#E3E5EF] bg-[#FAF9F6] p-7 sm:p-9 shadow-lg">
+                <div className="text-center mb-6">
+                  <span className="font-mono text-xs uppercase tracking-[0.24em] text-[#3026B3] font-bold block">
+                    The Value Creation Formula
+                  </span>
+                  <span className="text-xs text-[#596579] mt-1 block">
+                    How core capabilities compound across the ecosystem
+                  </span>
                 </div>
-                <div className="rounded-2xl border border-[#E3E5EF] bg-[#F7F7FC] p-4">
-                  <span className="font-serif text-3xl font-bold text-[#FFB000] block">36</span>
-                  <span className="font-mono text-[10px] uppercase text-[#596579] mt-1 block">Engineered Services</span>
+
+                {/* 5 Input Badges in a flexible grid */}
+                <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
+                  {formulaInputs.map((item) => (
+                    <div
+                      key={item.label}
+                      className="flex items-center gap-2.5 rounded-xl border border-[#E3E5EF] bg-white p-3 shadow-xs transition-all hover:shadow-md"
+                    >
+                      <div className={`h-8 w-8 rounded-lg ${item.bg} ${item.text} flex items-center justify-center shrink-0`}>
+                        <Icon name={item.icon} width={16} height={16} strokeWidth={2} />
+                      </div>
+                      <span className="font-serif text-sm font-medium text-[#111827]">
+                        {item.label}
+                      </span>
+                    </div>
+                  ))}
+
+                  {/* Sixth slot: compounding operator icon */}
+                  <div className="flex items-center justify-center rounded-xl border border-dashed border-[#CBD1E1] bg-white/50 p-3">
+                    <span className="font-mono text-xs text-[#596579] font-bold tracking-wider">
+                      + SYNERGY
+                    </span>
+                  </div>
                 </div>
-                <div className="rounded-2xl border border-[#E3E5EF] bg-[#F7F7FC] p-4">
-                  <span className="font-serif text-3xl font-bold text-[#00B8D9] block">50k+</span>
-                  <span className="font-mono text-[10px] uppercase text-[#596579] mt-1 block">Agrarian Partners</span>
+
+                {/* Downward Arrow Connector */}
+                <div className="my-5 flex items-center justify-center">
+                  <div className="flex h-9 w-9 items-center justify-center rounded-full bg-[#3026B3] text-white shadow-md">
+                    <Icon name="arrow-right" width={16} height={16} className="rotate-90" strokeWidth={2.5} />
+                  </div>
                 </div>
-                <div className="rounded-2xl border border-[#E3E5EF] bg-[#F7F7FC] p-4">
-                  <span className="font-serif text-3xl font-bold text-[#15966B] block">100%</span>
-                  <span className="font-mono text-[10px] uppercase text-[#596579] mt-1 block">Sovereign Data</span>
+
+                {/* Result Node: Enduring Enterprises */}
+                <div className="rounded-2xl border border-[#3026B3]/40 bg-gradient-to-r from-[#211B72] via-[#3026B3] to-[#211B72] p-5 sm:p-6 text-center text-white shadow-xl">
+                  <span className="font-mono text-[10px] uppercase tracking-[0.28em] text-[#FFB000] font-bold block mb-1">
+                    End State
+                  </span>
+                  <h3 className="font-serif text-2xl sm:text-3xl font-medium tracking-tight text-white">
+                    Enduring Enterprises
+                  </h3>
+                  <p className="mt-2 text-xs sm:text-[13px] text-slate-200 font-normal">
+                    Built for generational resilience, operating independence, and national momentum.
+                  </p>
                 </div>
               </div>
             </div>
@@ -105,155 +350,389 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* ── 3. SIX CORE SECTORS GRID (Zero company names!) ────────────── */}
-      <section className="py-12 sm:py-16 border-b border-[#E3E5EF] bg-[#FAF9F6]">
-        <div className="container-x">
-          <div className="max-w-2xl mb-7 sm:mb-10">
-            <span className="font-mono text-[10.5px] uppercase tracking-[0.24em] text-[#3026B3] font-semibold">
-              OPERATING DIVISIONS
-            </span>
-            <h2 className="mt-2 font-serif text-3xl sm:text-4xl lg:text-5xl font-normal text-[#111827]">
-              Six Foundational Sectors
+      {/* ── 03. WHY BHARATX EXISTS (Built Around India's Opportunity) ─── */}
+      <section className="relative overflow-hidden bg-[#FAF9F6] py-20 sm:py-24 border-b border-[#E3E5EF]">
+        <div className="container-x relative z-10">
+          <div className="max-w-3xl mb-14">
+            <div className="inline-flex items-center gap-2 rounded-full border border-[#FFB000]/40 bg-[#FFB000]/10 px-4 py-1 font-mono text-[11px] uppercase tracking-[0.26em] text-[#9A6200] font-bold shadow-xs mb-4">
+              <span className="h-2 w-2 rounded-full bg-[#FFB000] shadow-[0_0_8px_#FFB000]" />
+              <span>03 // OUR PURPOSE</span>
+            </div>
+
+            <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-normal text-[#111827] leading-tight tracking-tight">
+              Built Around India’s <span className="text-[#3026B3]">Opportunity</span>
             </h2>
-            <p className="mt-3 text-[#596579] text-sm sm:text-base">
-              Explore our core capabilities engineered to reinforce national industrial self-reliance.
+
+            <p className="mt-6 text-base sm:text-lg text-[#596579] leading-relaxed font-normal">
+              India is entering a period of extraordinary economic transformation. Infrastructure is expanding, industries are modernising, technology is reshaping businesses, agricultural value chains are evolving and sustainability is becoming a business imperative.
+            </p>
+
+            <p className="mt-4 text-base sm:text-lg text-[#111827] font-medium leading-relaxed">
+              BharatX exists to participate in this transformation—not simply by investing in opportunities, but by building the businesses capable of capturing them.
             </p>
           </div>
 
-          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {servicesData.map((svc, i) => (
-              <Reveal key={svc.id} delay={i * 0.08}>
-                <Link
-                  to={`/services#${svc.id}`}
-                  className="group flex flex-col justify-between h-full rounded-2xl border border-[#E3E5EF] bg-white p-6 transition-all duration-300 hover:border-[#3026B3] hover:shadow-lg"
-                >
-                  <div>
-                    <div className="relative h-48 w-full overflow-hidden rounded-xl mb-5">
-                      <img
-                        src={svc.image}
-                        alt={svc.name}
-                        className="h-full w-full object-cover object-top filter brightness-[0.98] transition-transform duration-500 group-hover:scale-105"
-                        loading="lazy"
-                      />
-                      <span className="absolute top-3 left-3 rounded-full bg-black/70 backdrop-blur-md px-3 py-1 font-mono text-[9px] uppercase tracking-wider text-[#FFB000] border border-white/10">
-                        0{i + 1} · {svc.shortLabel}
-                      </span>
-                    </div>
-
-                    <div className="flex items-center gap-2 mb-2">
-                      <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-white p-0.5 shadow-2xs border border-[#E3E5EF]">
-                        <img src={svc.companyLogo} alt={svc.companyName} className="h-full w-full object-contain" />
-                      </span>
-                      <span className="font-mono text-[10px] text-[#596579]">
-                        {svc.companyName}
-                      </span>
-                    </div>
-                    <h3 className="font-serif text-xl sm:text-2xl font-normal text-[#111827] group-hover:text-[#3026B3] transition-colors">
-                      {svc.name}
-                    </h3>
-                    <p className="mt-2 text-xs text-[#3026B3] font-medium">
-                      {svc.descriptor}
-                    </p>
-                    <p className="mt-2 text-xs text-[#596579] leading-relaxed line-clamp-3">
-                      {svc.fullNarrative}
-                    </p>
+          {/* Three Simple Pillars: Build, Scale, Impact */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {purposePillars.map((pillar) => (
+              <div
+                key={pillar.title}
+                className={`group relative flex flex-col justify-between rounded-2xl border border-[#E3E5EF] bg-white p-7 sm:p-8 shadow-sm transition-all duration-300 hover:shadow-xl hover:-translate-y-1 ${pillar.borderHover}`}
+              >
+                <div>
+                  <div
+                    className={`mb-5 flex h-12 w-12 items-center justify-center rounded-xl ${pillar.bgAccent} ${pillar.textAccent} transition-transform duration-300 group-hover:scale-110 shadow-xs`}
+                  >
+                    <Icon name={pillar.icon} width={22} height={22} strokeWidth={2} />
                   </div>
 
-                  <div className="mt-6 flex items-center justify-between border-t border-[#E3E5EF] pt-4 text-xs font-mono text-[#596579]">
-                    <span>{svc.stats[0]?.value} {svc.stats[0]?.label}</span>
-                    <span className="text-[#3026B3] font-semibold group-hover:translate-x-1 transition-transform inline-flex items-center gap-1">
-                      Explore →
-                    </span>
-                  </div>
-                </Link>
-              </Reveal>
+                  <h3 className="font-serif text-2xl font-medium tracking-tight text-[#111827] group-hover:text-[#3026B3] transition-colors">
+                    {pillar.title}
+                  </h3>
+
+                  <p className="mt-3 text-sm text-[#596579] leading-relaxed font-normal">
+                    {pillar.description}
+                  </p>
+                </div>
+
+                <div className="mt-6 pt-4 border-t border-[#E3E5EF] flex items-center justify-between font-mono text-[10.5px] uppercase tracking-wider text-[#596579]">
+                  <span>Pillar Focus</span>
+                  <span className={`h-2 w-2 rounded-full ${pillar.bgAccent} ${pillar.textAccent}`} />
+                </div>
+              </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* ── 4. OPERATING DISCIPLINE (4 STEPS) ───────────────────────────── */}
-      <section className="relative overflow-hidden py-20 sm:py-28 border-b border-[#E3E5EF]">
+      {/* ── 04. OUR BUSINESS ECOSYSTEM (One Group. Multiple Growth Engines) ─ */}
+      <section className="relative overflow-hidden bg-white py-20 sm:py-24 border-b border-[#E3E5EF]">
         <div className="container-x relative z-10">
-          <div className="max-w-2xl mb-7 sm:mb-10">
-            <span className="font-mono text-[10.5px] uppercase tracking-[0.24em] text-[#3026B3] font-semibold">
-              EXECUTION MODEL
-            </span>
-            <h2 className="mt-2 font-serif text-3xl sm:text-4xl lg:text-5xl font-normal text-[#111827]">
-              The Four Operating Stages
+          <div className="max-w-3xl text-center mx-auto mb-14">
+            <div className="inline-flex items-center gap-2 rounded-full border border-[#3026B3]/25 bg-[#3026B3]/8 px-4 py-1 font-mono text-[11px] uppercase tracking-[0.26em] text-[#3026B3] font-bold shadow-xs mb-4">
+              <span className="h-2 w-2 rounded-full bg-[#3026B3]" />
+              <span>04 // ECOSYSTEM ARCHITECTURE</span>
+            </div>
+
+            <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-normal text-[#111827] leading-tight tracking-tight">
+              One Group. Multiple <span className="text-[#3026B3]">Growth Engines.</span>
             </h2>
+
+            <p className="mt-4 text-base sm:text-lg text-[#596579] leading-relaxed">
+              A cohesive institutional tree connecting physical infrastructure, agricultural commodities, industrial manufacturing, and applied intelligence.
+            </p>
           </div>
 
-          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-            {operatingModel.map((step, sIdx) => {
-              const stepColors = ["#3026B3", "#00B8D9", "#FFB000", "#15966B"];
-              const sColor = stepColors[sIdx % stepColors.length];
-              return (
-                <div
-                  key={step.n}
-                  className="rounded-2xl border border-[#E3E5EF] bg-white p-6 flex flex-col justify-between shadow-sm cursor-card hover:border-[#3026B3]/40 transition-all"
+          {/* Visual Architecture Tree */}
+          <div className="max-w-5xl mx-auto rounded-3xl border border-[#E3E5EF] bg-[#FAF9F6] p-6 sm:p-10 shadow-lg">
+            {/* Tree Root: BHARATX GROUP */}
+            <div className="flex flex-col items-center text-center">
+              <div className="inline-flex flex-col items-center rounded-2xl border border-[#3026B3]/40 bg-gradient-to-r from-[#211B72] via-[#3026B3] to-[#211B72] px-8 py-4 text-white shadow-xl">
+                <span className="font-mono text-[10px] uppercase tracking-[0.28em] text-[#FFB000] font-bold">
+                  CONGLOMERATE CORE
+                </span>
+                <span className="font-serif text-2xl sm:text-3xl font-medium tracking-tight mt-0.5">
+                  BHARATX GROUP
+                </span>
+              </div>
+              <div className="h-8 w-px bg-[#3026B3]/40 my-1" />
+            </div>
+
+            {/* Level 1: 5 Core Verticals */}
+            <div className="mt-2">
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-3.5">
+                {primaryEcosystemNodes.map((node) => (
+                  <Link
+                    key={node.sector}
+                    to={node.link}
+                    className="group flex flex-col justify-between rounded-xl border border-[#E3E5EF] bg-white p-4 shadow-xs transition-all duration-300 hover:border-[#3026B3] hover:shadow-md hover:-translate-y-1"
+                  >
+                    <div>
+                      <div className="flex items-center justify-between mb-2">
+                        <span className="font-mono text-[9.5px] uppercase tracking-wider font-bold" style={{ color: node.accent }}>
+                          {node.sector}
+                        </span>
+                        <span className="text-[9px] font-mono px-1.5 py-0.2 rounded border border-slate-200 text-[#596579]">
+                          {node.badge}
+                        </span>
+                      </div>
+                      <h4 className="font-serif text-base font-medium text-[#111827] group-hover:text-[#3026B3] transition-colors">
+                        {node.company}
+                      </h4>
+                    </div>
+
+                    <div className="mt-3 pt-2 border-t border-[#E3E5EF] flex items-center justify-between">
+                      {node.logo ? (
+                        <div className="h-5 w-5 rounded bg-white p-0.5 border border-[#E3E5EF] flex items-center justify-center">
+                          <img src={node.logo} alt="" className="max-h-full max-w-full object-contain" />
+                        </div>
+                      ) : (
+                        <span className="text-[10px] font-mono text-[#596579]">Horizon</span>
+                      )}
+                      <Icon name="arrow-up-right" width={12} height={12} className="text-[#596579] group-hover:text-[#3026B3]" />
+                    </div>
+                  </Link>
+                ))}
+              </div>
+            </div>
+
+            {/* Connecting Vertical Trunk */}
+            <div className="flex flex-col items-center my-4">
+              <div className="h-6 w-px bg-[#3026B3]/30" />
+            </div>
+
+            {/* Level 2: Sustainability & Venture Building */}
+            <div className="max-w-2xl mx-auto grid grid-cols-1 sm:grid-cols-2 gap-4">
+              {secondaryEcosystemNodes.map((node) => (
+                <Link
+                  key={node.sector}
+                  to={node.link}
+                  className="group flex flex-col justify-between rounded-xl border border-[#E3E5EF] bg-white p-4 shadow-xs transition-all duration-300 hover:border-[#3026B3] hover:shadow-md hover:-translate-y-1"
                 >
                   <div>
-                    <div className="flex items-center justify-between mb-4">
-                      <span className="font-mono text-xs font-bold" style={{ color: sColor }}>{step.n}</span>
-                      <Icon name={step.icon} width={18} height={18} style={{ color: sColor }} />
+                    <div className="flex items-center justify-between mb-2">
+                      <span className="font-mono text-[9.5px] uppercase tracking-wider font-bold" style={{ color: node.accent }}>
+                        {node.sector}
+                      </span>
+                      <span className="text-[9px] font-mono px-1.5 py-0.2 rounded border border-slate-200 text-[#596579]">
+                        {node.badge}
+                      </span>
                     </div>
-                    <h3 className="font-serif text-lg text-[#211B72] font-normal">{step.t}</h3>
-                    <p className="mt-2 text-xs sm:text-sm text-[#596579] leading-relaxed font-body">
-                      {step.d}
-                    </p>
+                    <h4 className="font-serif text-base font-medium text-[#111827] group-hover:text-[#3026B3] transition-colors">
+                      {node.company}
+                    </h4>
+                  </div>
+
+                  <div className="mt-3 pt-2 border-t border-[#E3E5EF] flex items-center justify-between">
+                    {node.logo ? (
+                      <div className="h-5 w-5 rounded bg-white p-0.5 border border-[#E3E5EF] flex items-center justify-center">
+                        <img src={node.logo} alt="" className="max-h-full max-w-full object-contain" />
+                      </div>
+                    ) : (
+                      <span className="text-[10px] font-mono text-[#596579]">Horizon</span>
+                    )}
+                    <Icon name="arrow-up-right" width={12} height={12} className="text-[#596579] group-hover:text-[#3026B3]" />
+                  </div>
+                </Link>
+              ))}
+            </div>
+
+            {/* Connecting Trunk to Anchor */}
+            <div className="flex flex-col items-center my-4">
+              <div className="h-6 w-px bg-[#3026B3]/30" />
+            </div>
+
+            {/* Level 3 Anchor: Knowledge & Impact / Labs Foundation */}
+            <div className="max-w-md mx-auto">
+              <Link
+                to="/services#climate-sustainability"
+                className="group flex items-center justify-between rounded-2xl border border-[#E3E5EF] bg-white p-4 sm:p-5 shadow-xs transition-all duration-300 hover:border-[#15966B] hover:shadow-md hover:-translate-y-1"
+              >
+                <div className="flex items-center gap-3">
+                  <div className="h-9 w-9 rounded-xl bg-[#15966B]/15 text-[#15966B] flex items-center justify-center shrink-0">
+                    <img src="/Bharatxlabs_logo.svg" alt="" className="h-5 w-5 object-contain" />
+                  </div>
+                  <div>
+                    <span className="font-mono text-[10px] uppercase tracking-wider text-[#15966B] font-bold block">
+                      Knowledge &amp; Impact
+                    </span>
+                    <h4 className="font-serif text-lg font-medium text-[#111827] group-hover:text-[#15966B] transition-colors">
+                      BharatX Labs Foundation
+                    </h4>
                   </div>
                 </div>
-              );
-            })}
+                <div className="h-7 w-7 rounded-full bg-slate-100 flex items-center justify-center text-[#111827] group-hover:bg-[#15966B] group-hover:text-white transition-all">
+                  <Icon name="arrow-right" width={13} height={13} />
+                </div>
+              </Link>
+            </div>
+
+            {/* Subtext Statement */}
+            <div className="mt-8 text-center pt-6 border-t border-[#E3E5EF]">
+              <p className="text-xs sm:text-sm text-[#596579] max-w-2xl mx-auto leading-relaxed">
+                Each business operates with its own market focus and capabilities while benefiting from the broader BharatX ecosystem.
+              </p>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* ── 5. PRINCIPLES ──────────────────────────────────────────────── */}
-      <section className="py-12 sm:py-16">
-        <div className="container-x">
-          <div className="text-center max-w-2xl mx-auto mb-14">
-            <span className="font-mono text-[10.5px] uppercase tracking-[0.24em] text-[#3026B3] font-semibold">
-              NON-NEGOTIABLE STANDARDS
-            </span>
-            <h2 className="mt-2 font-serif text-3xl sm:text-4xl lg:text-5xl font-normal text-[#111827]">
-              Our Six Operating Principles
+      {/* ── 05. HOW WE BUILD (From Opportunity to Enterprise) ─────────── */}
+      <section className="relative overflow-hidden bg-[#FAF9F6] py-20 sm:py-24 border-b border-[#E3E5EF]">
+        <div className="container-x relative z-10">
+          <div className="max-w-3xl text-center mx-auto mb-14">
+            <div className="inline-flex items-center gap-2 rounded-full border border-[#00B8D9]/30 bg-[#00B8D9]/10 px-4 py-1 font-mono text-[11px] uppercase tracking-[0.26em] text-[#008299] font-bold shadow-xs mb-4">
+              <span className="h-2 w-2 rounded-full bg-[#00B8D9]" />
+              <span>05 // HOW WE BUILD</span>
+            </div>
+
+            <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-normal text-[#111827] leading-tight tracking-tight">
+              From Opportunity to <span className="text-[#3026B3]">Enterprise</span>
             </h2>
+
+            <p className="mt-3 text-base text-[#596579]">
+              A signature five-stage execution model transforming national structural opportunities into enduring institutions.
+            </p>
           </div>
 
-          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {principles.map((p, pIdx) => {
-              const princColors = ["#3026B3", "#00B8D9", "#15966B", "#FFB000", "#3026B3", "#00B8D9"];
-              const prColor = princColors[pIdx % princColors.length];
-              return (
-                <div
-                  key={p.t}
-                  className="rounded-2xl border border-[#E3E5EF] bg-white p-6 hover:border-[#3026B3] transition-all shadow-sm cursor-card"
-                >
-                  <div className="flex items-center gap-3 mb-3">
-                    <span
-                      className="flex h-8 w-8 items-center justify-center rounded-lg border border-[#E3E5EF]"
-                      style={{ backgroundColor: `${prColor}15`, color: prColor }}
-                    >
-                      <Icon name={p.icon} width={16} height={16} />
+          {/* Horizontal 5-Step Timeline */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4 lg:gap-3.5 relative">
+            {buildTimeline.map((step, idx) => (
+              <div
+                key={step.title}
+                className={`group relative flex flex-col justify-between rounded-2xl border border-[#E3E5EF] bg-white p-6 shadow-sm transition-all duration-300 hover:shadow-xl hover:-translate-y-1 ${step.borderHover}`}
+              >
+                <div>
+                  <div className="flex items-center justify-between mb-4">
+                    <span className={`font-mono text-xs font-bold tracking-widest ${step.textAccent}`}>
+                      {step.step}
                     </span>
-                    <h3 className="font-serif text-lg text-[#211B72] font-normal">{p.t}</h3>
+                    <div
+                      className={`h-9 w-9 rounded-xl ${step.bgAccent} ${step.textAccent} flex items-center justify-center transition-transform duration-300 group-hover:scale-110 shadow-xs`}
+                    >
+                      <Icon name={step.icon} width={18} height={18} strokeWidth={2} />
+                    </div>
                   </div>
-                  <p className="text-xs sm:text-sm text-[#596579] leading-relaxed font-body">{p.d}</p>
+
+                  <h3 className="font-mono text-sm sm:text-base font-bold tracking-[0.16em] text-[#111827] uppercase">
+                    {step.title}
+                  </h3>
+
+                  <p className="mt-2.5 text-xs sm:text-[13px] text-[#596579] leading-relaxed font-normal">
+                    {step.description}
+                  </p>
                 </div>
-              );
-            })}
+
+                {/* Connecting arrow indicator on desktop */}
+                {idx < buildTimeline.length - 1 && (
+                  <div className="hidden lg:flex absolute -right-3.5 top-1/2 -translate-y-1/2 z-20 h-7 w-7 rounded-full bg-white border border-[#E3E5EF] items-center justify-center text-[#3026B3] shadow-md group-hover:scale-110 transition-transform">
+                    <Icon name="chevron-right" width={13} height={13} strokeWidth={2.5} />
+                  </div>
+                )}
+              </div>
+            ))}
           </div>
 
-          <div className="mt-16 text-center">
-            <Link
-              to="/contact"
-              className="inline-flex items-center gap-3 rounded-full bg-[#3026B3] text-white hover:bg-[#211B72] px-8 py-3.5 text-sm font-semibold transition-all shadow-md"
-            >
-              <span>Connect with Corporate Leadership</span>
-              <Icon name="arrow-right" width={15} height={15} />
-            </Link>
+          {/* Timeline Bottom Tagline */}
+          <div className="mt-12 text-center">
+            <p className="text-sm sm:text-base text-[#111827] font-medium max-w-xl mx-auto leading-relaxed">
+              Our approach is simple: build with discipline, scale with purpose and think long term.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* ── 06. OUR PRINCIPLES (What Guides Us) ────────────────────────── */}
+      <section className="relative overflow-hidden bg-white py-20 sm:py-24 border-b border-[#E3E5EF]">
+        <div className="container-x relative z-10">
+          <div className="max-w-3xl text-center mx-auto mb-14">
+            <div className="inline-flex items-center gap-2 rounded-full border border-[#15966B]/30 bg-[#15966B]/10 px-4 py-1 font-mono text-[11px] uppercase tracking-[0.26em] text-[#15966B] font-bold shadow-xs mb-4">
+              <span className="h-2 w-2 rounded-full bg-[#15966B]" />
+              <span>06 // WHAT GUIDES US</span>
+            </div>
+
+            <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-normal text-[#111827] leading-tight tracking-tight">
+              Our <span className="text-[#3026B3]">Principles</span>
+            </h2>
+
+            <p className="mt-3 text-base text-[#596579]">
+              Five core convictions that anchor our operating culture and enterprise stewardship.
+            </p>
+          </div>
+
+          {/* 5 Principles Cards Grid */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
+            {principles.map((p, idx) => (
+              <div
+                key={p.title}
+                className={`group rounded-2xl border border-[#E3E5EF] bg-[#FAF9F6] p-6 sm:p-7 shadow-xs transition-all duration-300 hover:bg-white hover:shadow-xl hover:-translate-y-1 ${idx === 4 ? "sm:col-span-2 lg:col-span-1" : ""
+                  }`}
+              >
+                <div className="flex items-center gap-3.5 mb-4">
+                  <div className={`h-11 w-11 rounded-xl ${p.bg} ${p.text} flex items-center justify-center shrink-0 shadow-xs transition-transform duration-300 group-hover:scale-110`}>
+                    <Icon name={p.icon} width={20} height={20} strokeWidth={2} />
+                  </div>
+                  <div>
+                    <span className="font-mono text-[10px] uppercase tracking-wider text-[#596579] block">
+                      Principle 0{idx + 1}
+                    </span>
+                    <h3 className="font-serif text-xl font-medium text-[#111827] group-hover:text-[#3026B3] transition-colors">
+                      {p.title}
+                    </h3>
+                  </div>
+                </div>
+
+                <p className="text-xs sm:text-[13px] text-[#596579] leading-relaxed font-normal">
+                  {p.description}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── 07. CLOSING / LEADERSHIP STATEMENT (The Journey Ahead) ─────── */}
+      <section className="relative overflow-hidden bg-gradient-to-br from-[#211B72] via-[#1D1763] to-[#120E3E] text-white py-20 sm:py-28">
+        {/* Ambient radial lighting */}
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 -z-10 h-[500px] w-[500px] sm:w-[700px] rounded-full bg-gradient-to-r from-[#3026B3]/30 via-[#FFB000]/20 to-transparent blur-[140px] pointer-events-none" />
+
+        <div className="container-x relative z-10">
+          <div className="max-w-4xl mx-auto text-center">
+            {/* Eyebrow */}
+            <div className="inline-flex items-center gap-2 rounded-full border border-[#FFB000]/40 bg-[#FFB000]/15 px-4 py-1 font-mono text-[11px] uppercase tracking-[0.28em] text-[#FFB000] font-bold shadow-xs mb-6">
+              <span className="h-2 w-2 rounded-full bg-[#FFB000] shadow-[0_0_8px_#FFB000]" />
+              <span>07 // THE JOURNEY AHEAD</span>
+            </div>
+
+            {/* Headline */}
+            <h2 className="font-serif text-3xl sm:text-5xl md:text-6xl font-normal leading-[1.1] tracking-tight text-white">
+              The Journey Ahead
+            </h2>
+
+            {/* Copy */}
+            <p className="mt-6 text-base sm:text-lg md:text-xl font-normal leading-relaxed text-slate-200 max-w-2xl mx-auto">
+              BharatX Group is still at the beginning of its journey.
+            </p>
+
+            <p className="mt-3 text-base sm:text-lg text-slate-300 font-normal leading-relaxed max-w-3xl mx-auto">
+              As we expand into new industries, build new businesses and develop new capabilities, our ambition remains constant: to create enduring enterprises that contribute to India’s economic progress.
+            </p>
+
+            {/* Signature Statement */}
+            <div className="mt-8 pt-8 border-t border-white/15 max-w-xl mx-auto">
+              <p className="font-mono text-sm sm:text-base uppercase tracking-[0.24em] text-[#FFB000] font-bold">
+                Building Businesses. Enabling Bharat.
+              </p>
+            </div>
+
+            {/* CTAs */}
+            <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
+              <Link
+                to="/services"
+                className="group inline-flex items-center justify-center gap-3 rounded-full bg-[#FFB000] hover:bg-[#e09800] text-[#111827] px-8 sm:px-9 py-4 text-[15px] font-bold shadow-xl shadow-black/20 transition-all duration-300 hover:scale-105"
+              >
+                <span>Explore Our Businesses</span>
+                <Icon
+                  name="arrow-right"
+                  width={16}
+                  height={16}
+                  className="transition-transform duration-300 group-hover:translate-x-1"
+                />
+              </Link>
+
+              <Link
+                to="/contact"
+                className="inline-flex items-center justify-center gap-2 rounded-full border border-white/30 bg-white/10 hover:bg-white/20 px-8 sm:px-9 py-4 text-[15px] font-semibold text-white transition-all duration-300 hover:border-white shadow-xs"
+              >
+                <span>Partner With BharatX</span>
+                <Icon
+                  name="arrow-right"
+                  width={16}
+                  height={16}
+                  className="transition-transform duration-300 group-hover:translate-x-1"
+                />
+              </Link>
+            </div>
           </div>
         </div>
       </section>

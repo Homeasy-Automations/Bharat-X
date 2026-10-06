@@ -151,17 +151,16 @@ export function Navbar() {
 
         {/* Tier 2: Main Executive Navigation Command Deck */}
         <div className="container-x flex h-[68px] sm:h-[72px] items-center justify-between gap-3">
-          {/* Logo */}
           <Link
             to="/"
             aria-label="BharatX Group — home"
-            className="group relative z-10 flex items-center rounded-md transition-transform duration-300 hover:scale-[1.02]"
+            className="group relative z-10 flex items-center shrink-0 rounded-md transition-transform duration-300 hover:scale-[1.02]"
           >
             <img
               src="/bharatxgroup.png"
               alt="BharatX Group"
-              className="h-12 sm:h-14 w-auto object-contain"
-              style={{ filter: "drop-shadow(0 1px 6px rgba(0,0,0,0.45))" }}
+              className="h-10 sm:h-11 md:h-12 max-h-[48px] w-auto object-contain shrink-0"
+              style={{ filter: "drop-shadow(0 1px 4px rgba(0,0,0,0.5))" }}
             />
           </Link>
 
