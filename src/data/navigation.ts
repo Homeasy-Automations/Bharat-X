@@ -4,7 +4,7 @@ export const navigation: NavItem[] = [
   { label: "Home", to: "/", icon: "orbit" },
   { label: "About", to: "/about", icon: "info" },
   { label: "Businesses", to: "/services", icon: "layers", mega: "services" },
-  { label: "How We Build", to: "/#our-approach", icon: "workflow" },
+  { label: "How We Build", to: "/how-we-build", icon: "workflow" },
   { label: "Impact", to: "/impact", icon: "leaf" },
   { label: "Careers", to: "/careers", icon: "briefcase" },
   { label: "Contact", to: "/contact", icon: "mail" },
@@ -29,7 +29,7 @@ export const footerSections = {
   ],
   group: [
     { label: "About", to: "/about" },
-    { label: "Our Approach", to: "/#our-approach" },
+    { label: "How We Build", to: "/how-we-build" },
     { label: "Impact", to: "/impact" },
     { label: "Leadership", to: "/leadership" },
     { label: "Insights", to: "/#inside-bharatx" },

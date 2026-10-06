@@ -7,6 +7,7 @@ import ContactPage from "../pages/ContactPage";
 import HomePage from "../pages/HomePage";
 import ImpactPage from "../pages/ImpactPage";
 import IndustriesPage from "../pages/IndustriesPage";
+import HowWeBuildPage from "../pages/HowWeBuildPage";
 import InnovationPage from "../pages/InnovationPage";
 import LeadershipPage from "../pages/LeadershipPage";
 import NotFoundPage from "../pages/NotFoundPage";
@@ -21,6 +22,7 @@ export function AppRoutes() {
         {/* Layout renders <Outlet> via children — see Layout usage in App.tsx */}
         <Route index element={<HomePage />} />
         <Route path="about" element={<AboutPage />} />
+        <Route path="how-we-build" element={<HowWeBuildPage />} />
         <Route path="services" element={<ServicesPage />} />
         <Route path="businesses" element={<ServicesPage />} />
         <Route path="companies" element={<Navigate to="/services" replace />} />
