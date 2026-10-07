@@ -78,7 +78,7 @@ export function Footer() {
               </span>
             </Link>
 
-            <p className="mt-2.5 font-mono text-xs sm:text-[13px] uppercase tracking-[0.2em] text-[#FFB000] font-semibold">
+            <p className="mt-2.5 font-mono text-xs sm:text-[13px] uppercase tracking-[0.01em] text-[#FFB000] font-semibold">
               Building Businesses. Enabling Bharat.
             </p>
 
