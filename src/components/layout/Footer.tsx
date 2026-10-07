@@ -62,7 +62,7 @@ export function Footer() {
       <div className="container-x relative z-10 pb-[calc(1.25rem+env(safe-area-inset-bottom,0px))] pt-10 md:pt-12">
         <div className="grid grid-cols-1 gap-8 lg:grid-cols-12 lg:gap-10">
           {/* Institutional Brand Column */}
-          <div className="lg:col-span-4 flex flex-col items-start">
+          <div className="lg:col-span-4 flex flex-col items-center">
             <Link
               to="/"
               aria-label="BharatX Group home"
@@ -77,7 +77,7 @@ export function Footer() {
                 BharatX Group
               </span>
             </Link>
-            
+
             <p className="mt-2.5 font-mono text-xs sm:text-[13px] uppercase tracking-[0.2em] text-[#FFB000] font-semibold">
               Building Businesses. Enabling Bharat.
             </p>
