@@ -2,35 +2,34 @@ import mongoose from "mongoose";
 
 let ready = false;
 
-/**
- * MongoDB connection (Section 32).
- * When MONGO_URI is unset or unreachable, the API degrades to an
- * in-memory store so the public site stays functional in development.
- */
 export async function connectDB(): Promise<void> {
   const uri = process.env.MONGO_URI;
   if (!uri) {
-    console.log("[db] MONGO_URI not set — running in memory-only mode.");
+    console.warn("[db] ⚠️ MONGO_URI not provided. Contact inquiries will not be stored in MongoDB.");
     return;
   }
+
   try {
-    await mongoose.connect(uri, { serverSelectionTimeoutMS: 6000 });
+    await mongoose.connect(uri, { serverSelectionTimeoutMS: 8000 });
     ready = mongoose.connection.readyState === 1;
-    console.log(`[db] MongoDB connected to database: "${mongoose.connection.name}"`);
+    console.log(`[db] ✅ MongoDB connected successfully to database: "${mongoose.connection.name}"`);
   } catch (err) {
-    console.warn(
-      "[db] MongoDB connection failed — falling back to in-memory mode.",
+    console.error(
+      "[db] ❌ MongoDB connection error:",
       err instanceof Error ? err.message : err,
     );
   }
+
   mongoose.connection.on("disconnected", () => {
     ready = false;
-    console.warn("[db] MongoDB disconnected.");
+    console.warn("[db] ⚠️ MongoDB connection lost.");
   });
+
   mongoose.connection.on("reconnected", () => {
     ready = true;
-    console.log("[db] MongoDB reconnected.");
+    console.log("[db] ✅ MongoDB reconnected.");
   });
 }
 
-export const isDbReady = (): boolean => ready;
+export const isDbReady = (): boolean => ready || mongoose.connection.readyState === 1;
+

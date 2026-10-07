@@ -48,34 +48,7 @@ export function submitContact(payload: ContactPayload): Promise<{ ok: boolean; m
   });
 }
 
-export function adminLogin(
-  email: string,
-  password: string,
-): Promise<{ token: string }> {
-  return request("/api/admin/login", {
-    method: "POST",
-    body: JSON.stringify({ email, password }),
-  });
-}
-
-export interface StoredInquiry {
-  _id: string;
-  name: string;
-  email: string;
-  phone?: string;
-  organization?: string;
-  website?: string;
-  inquiryType: string;
-  company?: string;
-  message: string;
-  status: "new" | "contacted" | "closed";
-  createdAt: string;
-}
-
-export function getInquiries(token: string): Promise<{ inquiries: StoredInquiry[] }> {
-  return request("/api/admin/inquiries", {}, token);
-}
-
 export function getHealth(): Promise<{ ok: boolean; db: string }> {
   return request("/api/health");
 }
+

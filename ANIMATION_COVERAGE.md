@@ -171,8 +171,7 @@ Status: 100% COMPLETE MOTION COVERAGE
   - Restrained corporate styling: heading reveal, section fade, TOC link hover underline draw, and external link arrow shift.
 - `src/pages/NotFoundPage.tsx`:
   - Floating 404 graphic with subtle idle float (`fx-float`), quick-link buttons with hover lift, and magnetic return button.
-- `src/pages/AdminPage.tsx`:
-  - Secure credential form with input focus glow, table row hover highlight, and action button press.
+
 - `src/pages/CompaniesPage.tsx`:
   - Constellation visual entrance, roster cards wrapped in Stagger, ecosystem CTA with shine sweep.
 - `src/pages/CompanyDetailsPage.tsx`:

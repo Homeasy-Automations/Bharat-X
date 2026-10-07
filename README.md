@@ -53,19 +53,16 @@ npm run preview      # serve the production build locally
 ## MongoDB
 
 1. Create a free cluster at [MongoDB Atlas](https://www.mongodb.com/atlas).
-2. Create a database (e.g. `bharatx`) and a database user with read/write.
+2. Create a database (e.g. `bharat`) and a database user with read/write access.
 3. Copy your connection string into `.env`:
 
 ```env
-MONGO_URI=mongodb+srv://<user>:<password>@cluster0.xxxxx.mongodb.net/bharatx
+MONGO_URI=mongodb+srv://<user>:<password>@cluster0.xxxxx.mongodb.net/bharat
 ```
-
-**Without `MONGO_URI`** the API runs in *memory-only mode*: contact inquiries still validate, respond with the correct success payload, and are viewable at `/admin` during the same server session — they just don't persist across restarts. This is a deliberate dev convenience, not a production path.
 
 ### Collections
 
-`companies`, `contactInquiries`, `jobs`, `jobApplications`, `siteSettings`
-(future: `admins`, `blogPosts`, `events`, `documents`, `analytics` — created only when needed).
+`contactinquiries` — stores visitor contact submissions and inquiry details.
 
 ---
 
@@ -76,14 +73,12 @@ MONGO_URI=mongodb+srv://<user>:<password>@cluster0.xxxxx.mongodb.net/bharatx
 | Variable | Where | Purpose |
 |---|---|---|
 | `VITE_API_URL` | frontend | API base URL. Leave empty for same-origin (Vite proxy in dev; reverse proxy in prod). |
-| `VITE_GA_ID` | frontend | GA4 measurement ID. When set, events push to `window.dataLayer`. Nothing is hardcoded. |
+| `VITE_GA_ID` | frontend | GA4 measurement ID. When set, events push to `window.dataLayer`. |
 | `PORT` | server | API port (default `5000`). |
 | `MONGO_URI` | server | MongoDB connection string. |
-| `JWT_SECRET` | server | Signs admin JWTs. Use a long random string. |
 | `CORS_ORIGIN` | server | Comma-separated allowed origins. |
 | `RATE_LIMIT_MAX` | server | Max contact submissions / IP / 15 min (default 6). |
-| `ADMIN_EMAIL` / `ADMIN_PASSWORD` | server | Enable the JWT-protected `/admin` console. |
-| `MAIL_HOST/PORT/USER/PASSWORD/FROM/TO` | server | Optional SMTP notification for new inquiries. |
+| `MAIL_HOST/PORT/USER/PASSWORD/FROM/TO` | server | SMTP credentials for instant email notifications on new inquiries. |
 
 ---
 
@@ -161,12 +156,6 @@ Scroll-linked animations use Framer Motion's `useScroll` (IntersectionObserver-g
 
 ---
 
-## Admin console
-
-`/admin` is JWT-protected and only unlocks when `ADMIN_EMAIL` + `ADMIN_PASSWORD` are set on the backend. It lists stored contact inquiries (MongoDB when connected, memory store otherwise) and signs out on invalid tokens. The public site never exposes admin routes.
-
----
-
 ## Deployment
 
 ### Frontend — Vercel
@@ -177,41 +166,32 @@ Scroll-linked animations use Framer Motion's `useScroll` (IntersectionObserver-g
 
 ### Backend — Render / Railway
 
-- Build: none needed (run source with `tsx`). Start: `npm run server` (or `npx tsx server/server.ts`).
-- Set `MONGO_URI`, `JWT_SECRET`, `CORS_ORIGIN` (your Vercel URL), `ADMIN_*`, and optional `MAIL_*`.
-- Health check: `GET /api/health` → `{ ok: true, db: "mongo" | "memory" }`.
+- Start: `npm start` (or `tsx server.ts`).
+- Set `MONGO_URI`, `CORS_ORIGIN` (your Vercel URL), and optional `MAIL_*`.
+- Health check: `GET /api/health` → `{ ok: true, db: "connected" | "disconnected" }`.
 
 ### MongoDB Atlas
 
-Standard Atlas setup; no special drivers required (Mongoose 8, `mongodb+srv`).
+Standard Atlas setup; no special drivers required (Mongoose 8, `mongodb+srv`). The collection `contactinquiries` is automatically created on first submission.
 
 ---
 
 ## Project structure (abridged)
 
 ```
-src/
-  components/
-    common/     buttons, reveals, stats, section headers, preloader pieces…
-    layout/     Navbar (mega menus), MobileMenu, Footer, Layout, Preloader, Logo
-    scroll/     SmoothScrollProvider (Lenis), CinematicSection (full-bleed parallax)
-    three/      EcosystemOrbScene, ShowcaseObjectScene, TiltCard, webgl detection
-    company/    CompanyCard (3D tilt), CompanyGrid, RelatedCompanies
-    ecosystem/  EcosystemSwitcher, IframeViewer (toolbar, states, fullscreen)
-    forms/      ContactForm, Input/Select/Textarea with validation states
-  pages/        Home, About, Companies, CompanyDetails, Ecosystem, Industries,
-                Innovation, Impact, Leadership, Careers, Contact, Privacy,
-                Terms, 404, Admin
-  data/         companies, industries, navigation, ecosystem (single sources)
-  services/     api (fetch wrapper), analytics (GA4-ready dataLayer)
-  hooks/        usePageMeta (per-route SEO metadata)
-server/
-  config/       db connection (MongoDB + fallback flag)
-  models/       ContactInquiry, Company, Job, JobApplication, SiteSettings
-  controllers/  contact, admin (JWT), companies
-  middleware/   auth (JWT), rate limiting, friendly error handler
-  services/     memoryStore (no-Mongo dev fallback), mailer (optional SMTP)
-  routes/       /api/health, /api/contact, /api/companies, /api/admin/*
+frontend/
+  src/
+    components/   buttons, reveals, stats, header, footer, modal, preloader
+    pages/        Home, About, Services, Industries, Innovation, Impact,
+                  Leadership, Careers, Contact, Privacy, Terms, 404
+    services/     api (contact submission client), analytics
+backend/
+  config/         db (MongoDB Atlas connection)
+  models/         ContactInquiry (Mongoose schema)
+  controllers/    contactController (saves inquiry + triggers email)
+  services/       mailer (Nodemailer SMTP notifications)
+  middleware/     rateLimit, error handler
+  routes/         /api/health, /api/contact
 ```
 
 ## Branding / asset replacement

@@ -1,7 +1,6 @@
 import type { Request, Response } from "express";
 import { isDbReady } from "../config/db";
 import { ContactInquiry } from "../models/ContactInquiry";
-import { listInquiries, pushInquiry } from "../services/memoryStore";
 import { sendInquiryEmail } from "../services/mailer";
 import { validateContact } from "../utils/validate";
 
@@ -16,10 +15,9 @@ export async function createContact(req: Request, res: Response) {
   try {
     if (isDbReady()) {
       const saved = await ContactInquiry.create(payload);
-      console.log(`[contact] ✅ Saved inquiry to MongoDB Atlas | Database: "${ContactInquiry.db.name}" | Collection: "${ContactInquiry.collection.name}" | ID: ${saved._id}`);
+      console.log(`[contact] ✅ Saved inquiry to MongoDB Atlas | Collection: "${ContactInquiry.collection.name}" | ID: ${saved._id}`);
     } else {
-      pushInquiry(payload);
-      console.warn("[contact] ⚠️ Stored in temporary memory (isDbReady is false) — not in MongoDB Atlas.");
+      console.warn("[contact] ⚠️ MongoDB is not connected; inquiry processed without database persistence.");
     }
 
     // Notification email is fire-and-forget — never fails the request.
@@ -30,18 +28,22 @@ export async function createContact(req: Request, res: Response) {
       message: "Your inquiry has been received. Our team will review it and get back to you.",
     });
   } catch (err) {
-    console.error("[contact] failed to store:", err instanceof Error ? err.message : err);
+    console.error("[contact] Failed to store inquiry:", err instanceof Error ? err.message : err);
     return res.status(500).json({
       message: "We couldn't save your inquiry. Please try again in a moment.",
     });
   }
 }
 
-/** GET /api/contact (admin-only listing is under /api/admin) — health-style peek. */
-export function countContact(_req: Request, res: Response) {
-  if (isDbReady()) {
-    ContactInquiry.countDocuments().then((n: number) => res.json({ count: n, source: "mongo" }));
-  } else {
-    res.json({ count: listInquiries().length, source: "memory" });
+/** GET /api/contact — Health / status peek */
+export async function countContact(_req: Request, res: Response) {
+  try {
+    if (isDbReady()) {
+      const count = await ContactInquiry.countDocuments();
+      return res.json({ ok: true, count, source: "mongo" });
+    }
+    return res.json({ ok: true, count: 0, source: "disconnected" });
+  } catch (err) {
+    return res.status(500).json({ ok: false, error: "Database inquiry check failed" });
   }
 }

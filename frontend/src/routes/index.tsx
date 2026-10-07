@@ -1,7 +1,6 @@
 import { Navigate, Route, Routes } from "react-router-dom";
 import { Layout } from "../components/layout/Layout";
 import AboutPage from "../pages/AboutPage";
-import AdminPage from "../pages/AdminPage";
 import CareersPage from "../pages/CareersPage";
 import ContactPage from "../pages/ContactPage";
 import HomePage from "../pages/HomePage";
@@ -37,7 +36,6 @@ export function AppRoutes() {
         <Route path="contact" element={<ContactPage />} />
         <Route path="privacy" element={<PrivacyPage />} />
         <Route path="terms" element={<TermsPage />} />
-        <Route path="admin" element={<AdminPage />} />
         <Route path="*" element={<NotFoundPage />} />
       </Route>
     </Routes>

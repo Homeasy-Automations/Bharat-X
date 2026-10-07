@@ -61,19 +61,143 @@ export default function ContactPage() {
   const [interest, setInterest] = useState(getInitialInterest());
   const [message, setMessage] = useState("");
 
+  // Interaction tracking (active/focused and touched/dirty)
+  const [activeField, setActiveField] = useState<string | null>(null);
+  const [touched, setTouched] = useState<Record<string, boolean>>({});
+
   const [submitting, setSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
   const [errorMsg, setErrorMsg] = useState<string | null>(null);
 
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    if (!fullName.trim() || !email.trim() || !message.trim()) {
-      setErrorMsg("Please fill in all required fields.");
-      return;
+  // Field validation rules
+  const validateFullName = (val: string): string | null => {
+    const trimmed = val.trim();
+    if (!trimmed) return "Please enter your full name.";
+    if (trimmed.length < 2) return "Name must be at least 2 characters.";
+    if (!/^[a-zA-Z\s.'-]+$/.test(trimmed)) return "Name should contain letters only.";
+    return null;
+  };
+
+  const validateEmail = (val: string): string | null => {
+    const trimmed = val.trim();
+    if (!trimmed) return "Please enter your work email.";
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(trimmed)) {
+      return "Please enter a valid email address (e.g. name@company.com).";
+    }
+    return null;
+  };
+
+  const validatePhone = (val: string): string | null => {
+    const trimmed = val.trim();
+    if (!trimmed) return null; // optional
+    const digits = trimmed.replace(/\D/g, "");
+    if (digits.length < 7) {
+      return "Phone number must have at least 7 digits.";
+    }
+    if (!/^[+\d][\d\s\-().]{6,24}$/.test(trimmed)) {
+      return "Please enter a valid phone number format.";
+    }
+    return null;
+  };
+
+  const validateOrganization = (val: string): string | null => {
+    const trimmed = val.trim();
+    if (!trimmed) return null; // optional
+    if (trimmed.length < 2) {
+      return "Organisation name must be at least 2 characters.";
+    }
+    return null;
+  };
+
+  const validateMessage = (val: string): string | null => {
+    const trimmed = val.trim();
+    if (!trimmed) return "Please enter your message.";
+    if (trimmed.length < 10) {
+      return "Please tell us a little more (at least 10 characters).";
+    }
+    return null;
+  };
+
+  // Immediate validation states
+  const fullNameError = touched.fullName ? validateFullName(fullName) : null;
+  const isFullNameValid = touched.fullName && !fullNameError && fullName.trim().length > 0;
+
+  const emailError = touched.email ? validateEmail(email) : null;
+  const isEmailValid = touched.email && !emailError && email.trim().length > 0;
+
+  const phoneError = (touched.phone || phone.trim().length > 0) ? validatePhone(phone) : null;
+  const isPhoneValid = (touched.phone || phone.trim().length > 0) && !phoneError && phone.trim().length > 0;
+
+  const orgError = (touched.organization || organization.trim().length > 0) ? validateOrganization(organization) : null;
+  const isOrgValid = (touched.organization || organization.trim().length > 0) && !orgError && organization.trim().length > 0;
+
+  const messageError = touched.message ? validateMessage(message) : null;
+  const isMessageValid = touched.message && !messageError && message.trim().length >= 10;
+
+  // Dynamic styling helper based on state
+  const getInputClasses = (hasError: boolean, isValid: boolean, isActive: boolean) => {
+    const base =
+      "w-full rounded-xl px-4 py-3 text-sm transition-all duration-200 focus:outline-none";
+
+    // 1. Wrong data: red border immediately
+    if (hasError) {
+      return `${base} border-2 border-red-500 bg-red-50/20 text-red-900 placeholder:text-red-300 ${
+        isActive ? "ring-2 ring-red-500/25" : ""
+      }`;
     }
 
-    if (message.trim().length < 5) {
-      setErrorMsg("Please provide a message with at least 5 characters.");
+    // 2. Correction done: green border immediately
+    if (isValid) {
+      return `${base} border-2 border-emerald-500 bg-emerald-50/20 text-[#111827] placeholder:text-[#8E9BAE] ${
+        isActive ? "ring-2 ring-emerald-500/25" : ""
+      }`;
+    }
+
+    // 3. Active text field: color theme of project (#3026B3)
+    if (isActive) {
+      return `${base} border-2 border-[#3026B3] bg-white text-[#111827] ring-2 ring-[#3026B3]/25 shadow-sm`;
+    }
+
+    // Idle neutral state
+    return `${base} border border-[#E3E5EF] bg-[#FAF9F6] text-[#111827] placeholder:text-[#8E9BAE] hover:border-[#CBD1E1]`;
+  };
+
+  const getLabelClass = (hasError: boolean, isValid: boolean, isActive: boolean) => {
+    const base =
+      "block text-xs font-mono font-bold uppercase tracking-wider mb-2 transition-colors duration-200";
+    if (hasError) return `${base} text-red-600`;
+    if (isValid) return `${base} text-emerald-700`;
+    if (isActive) return `${base} text-[#3026B3]`;
+    return `${base} text-[#111827]`;
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+
+    // Mark all fields as touched to display errors immediately
+    const nextTouched = {
+      fullName: true,
+      email: true,
+      phone: phone.trim().length > 0,
+      organization: organization.trim().length > 0,
+      interest: true,
+      message: true,
+    };
+    setTouched(nextTouched);
+
+    const nameErr = validateFullName(fullName);
+    const mailErr = validateEmail(email);
+    const phErr = validatePhone(phone);
+    const orgErr = validateOrganization(organization);
+    const msgErr = validateMessage(message);
+
+    if (nameErr || mailErr || phErr || orgErr || msgErr) {
+      setErrorMsg("Please correct the errors in the highlighted fields.");
+      if (nameErr) document.getElementById("fullName")?.focus();
+      else if (mailErr) document.getElementById("email")?.focus();
+      else if (phErr) document.getElementById("phone")?.focus();
+      else if (orgErr) document.getElementById("organization")?.focus();
+      else if (msgErr) document.getElementById("message")?.focus();
       return;
     }
 
@@ -82,13 +206,13 @@ export default function ContactPage() {
 
     try {
       await submitContact({
-        name: fullName,
-        email,
-        phone,
-        organization,
+        name: fullName.trim(),
+        email: email.trim(),
+        phone: phone.trim(),
+        organization: organization.trim(),
         inquiryType: toInquiryType(interest),
         company: interest,
-        message: `[Topic: ${interest}]\n\n${message}`,
+        message: `[Topic: ${interest}]\n\n${message.trim()}`,
       });
       setSubmitted(true);
     } catch (err: unknown) {
@@ -198,7 +322,7 @@ export default function ContactPage() {
       </SectionTransition>
 
       {/* ── 02. CONTACT OPTIONS (Clear Pathways for Visitors) ─────────────── */}
-      <SectionTransition divider className="relative overflow-hidden bg-white py-12 sm:py-16 border-b border-[#E3E5EF]">
+      <SectionTransition id="contact-options" divider className="relative overflow-hidden bg-white py-12 sm:py-16 border-b border-[#E3E5EF]">
         <div className="container-x relative z-10">
           <div className="max-w-3xl text-center mx-auto mb-16">
             <div className="inline-flex items-center gap-2 rounded-full border border-[#3026B3]/25 bg-[#3026B3]/8 px-4 py-1 font-mono text-[11px] uppercase tracking-[0.26em] text-[#3026B3] font-bold shadow-xs mb-4">
@@ -349,7 +473,7 @@ export default function ContactPage() {
       </SectionTransition>
 
       {/* ── 03. MAIN CONTACT FORM (Start a Conversation) ──────────────────── */}
-      <SectionTransition divider className="relative overflow-hidden bg-[#FAF9F6] py-12 sm:py-16 border-b border-[#E3E5EF]">
+      <SectionTransition id="contact-form-section" divider className="relative overflow-hidden bg-[#FAF9F6] py-12 sm:py-16 border-b border-[#E3E5EF]">
         <div className="container-x relative z-10">
           <div className="max-w-3xl mx-auto">
             <div className="text-center mb-12">
@@ -400,7 +524,13 @@ export default function ContactPage() {
                       data-cursor="button"
                       onClick={() => {
                         setSubmitted(false);
+                        setFullName("");
+                        setEmail("");
+                        setPhone("");
+                        setOrganization("");
                         setMessage("");
+                        setTouched({});
+                        setErrorMsg(null);
                       }}
                       className="mt-8 inline-flex items-center gap-2 rounded-full border border-[#E3E5EF] bg-[#FAF9F6] hover:bg-slate-100 text-[#111827] px-6 py-2.5 text-xs font-mono font-bold uppercase tracking-wider transition-colors fx-lift"
                     >
@@ -411,128 +541,428 @@ export default function ContactPage() {
                   <motion.form
                     key="form"
                     onSubmit={handleSubmit}
+                    noValidate
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     className="space-y-6"
                   >
                     {errorMsg && (
-                      <div className="rounded-xl border border-red-200 bg-red-50 p-4 text-xs font-medium text-red-700">
-                        {errorMsg}
+                      <div className="rounded-xl border border-red-200 bg-red-50 p-4 text-xs font-medium text-red-700 flex items-center gap-2">
+                        <Icon name="triangle-alert" width={16} height={16} className="text-red-600 shrink-0" />
+                        <span>{errorMsg}</span>
                       </div>
                     )}
 
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                       {/* Full Name* */}
                       <div>
-                        <label htmlFor="fullName" className="block text-xs font-mono font-bold uppercase tracking-wider text-[#111827] mb-2">
+                        <label
+                          htmlFor="fullName"
+                          className={getLabelClass(
+                            Boolean(fullNameError),
+                            isFullNameValid,
+                            activeField === "fullName",
+                          )}
+                        >
                           Full Name <span className="text-red-500">*</span>
                         </label>
-                        <input
-                          id="fullName"
-                          type="text"
-                          required
-                          value={fullName}
-                          onChange={(e) => setFullName(e.target.value)}
-                          placeholder="Enter your name"
-                          className="w-full rounded-xl border border-[#E3E5EF] bg-[#FAF9F6] px-4 py-3 text-sm text-[#111827] placeholder:text-[#8E9BAE] transition-all duration-200 focus:border-[#3026B3] focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#3026B3]/20 hover:border-[#3026B3]/50"
-                        />
+                        <div className="relative">
+                          <input
+                            id="fullName"
+                            type="text"
+                            required
+                            value={fullName}
+                            onChange={(e) => {
+                              setFullName(e.target.value);
+                              setTouched((t) => ({ ...t, fullName: true }));
+                            }}
+                            onFocus={() => setActiveField("fullName")}
+                            onBlur={() => {
+                              setActiveField(null);
+                              setTouched((t) => ({ ...t, fullName: true }));
+                            }}
+                            placeholder="Enter your full name"
+                            className={`${getInputClasses(
+                              Boolean(fullNameError),
+                              isFullNameValid,
+                              activeField === "fullName",
+                            )} pr-10`}
+                          />
+                          <div className="absolute right-3.5 top-1/2 -translate-y-1/2 pointer-events-none flex items-center justify-center">
+                            {fullNameError && (
+                              <Icon
+                                name="triangle-alert"
+                                width={16}
+                                height={16}
+                                className="text-red-500"
+                              />
+                            )}
+                            {isFullNameValid && (
+                              <Icon
+                                name="check"
+                                width={16}
+                                height={16}
+                                className="text-emerald-600"
+                              />
+                            )}
+                            {activeField === "fullName" && !fullNameError && !isFullNameValid && (
+                              <span className="h-2 w-2 rounded-full bg-[#3026B3] animate-pulse" />
+                            )}
+                          </div>
+                        </div>
+                        {fullNameError && (
+                          <div className="flex items-center gap-1.5 mt-1.5 text-xs font-medium text-red-600">
+                            <Icon name="triangle-alert" width={13} height={13} className="shrink-0 text-red-500" />
+                            <span>{fullNameError}</span>
+                          </div>
+                        )}
+                        {isFullNameValid && (
+                          <div className="flex items-center gap-1.5 mt-1.5 text-xs font-medium text-emerald-600">
+                            <Icon name="check" width={13} height={13} className="shrink-0 text-emerald-600" />
+                            <span>Valid name</span>
+                          </div>
+                        )}
                       </div>
 
                       {/* Work Email* */}
                       <div>
-                        <label htmlFor="email" className="block text-xs font-mono font-bold uppercase tracking-wider text-[#111827] mb-2">
+                        <label
+                          htmlFor="email"
+                          className={getLabelClass(
+                            Boolean(emailError),
+                            isEmailValid,
+                            activeField === "email",
+                          )}
+                        >
                           Work Email <span className="text-red-500">*</span>
                         </label>
-                        <input
-                          id="email"
-                          type="email"
-                          required
-                          value={email}
-                          onChange={(e) => setEmail(e.target.value)}
-                          placeholder="name@company.com"
-                          className="w-full rounded-xl border border-[#E3E5EF] bg-[#FAF9F6] px-4 py-3 text-sm text-[#111827] placeholder:text-[#8E9BAE] transition-all duration-200 focus:border-[#3026B3] focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#3026B3]/20 hover:border-[#3026B3]/50"
-                        />
+                        <div className="relative">
+                          <input
+                            id="email"
+                            type="email"
+                            required
+                            value={email}
+                            onChange={(e) => {
+                              setEmail(e.target.value);
+                              setTouched((t) => ({ ...t, email: true }));
+                            }}
+                            onFocus={() => setActiveField("email")}
+                            onBlur={() => {
+                              setActiveField(null);
+                              setTouched((t) => ({ ...t, email: true }));
+                            }}
+                            placeholder="name@company.com"
+                            className={`${getInputClasses(
+                              Boolean(emailError),
+                              isEmailValid,
+                              activeField === "email",
+                            )} pr-10`}
+                          />
+                          <div className="absolute right-3.5 top-1/2 -translate-y-1/2 pointer-events-none flex items-center justify-center">
+                            {emailError && (
+                              <Icon
+                                name="triangle-alert"
+                                width={16}
+                                height={16}
+                                className="text-red-500"
+                              />
+                            )}
+                            {isEmailValid && (
+                              <Icon
+                                name="check"
+                                width={16}
+                                height={16}
+                                className="text-emerald-600"
+                              />
+                            )}
+                            {activeField === "email" && !emailError && !isEmailValid && (
+                              <span className="h-2 w-2 rounded-full bg-[#3026B3] animate-pulse" />
+                            )}
+                          </div>
+                        </div>
+                        {emailError && (
+                          <div className="flex items-center gap-1.5 mt-1.5 text-xs font-medium text-red-600">
+                            <Icon name="triangle-alert" width={13} height={13} className="shrink-0 text-red-500" />
+                            <span>{emailError}</span>
+                          </div>
+                        )}
+                        {isEmailValid && (
+                          <div className="flex items-center gap-1.5 mt-1.5 text-xs font-medium text-emerald-600">
+                            <Icon name="check" width={13} height={13} className="shrink-0 text-emerald-600" />
+                            <span>Valid email format</span>
+                          </div>
+                        )}
                       </div>
                     </div>
 
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                      {/* Phone Number */}
+                      {/* Phone Number (Optional) */}
                       <div>
-                        <label htmlFor="phone" className="block text-xs font-mono font-bold uppercase tracking-wider text-[#111827] mb-2">
-                          Phone Number
+                        <label
+                          htmlFor="phone"
+                          className={getLabelClass(
+                            Boolean(phoneError),
+                            isPhoneValid,
+                            activeField === "phone",
+                          )}
+                        >
+                          Phone Number <span className="text-xs font-normal text-[#8E9BAE] lowercase">(optional)</span>
                         </label>
-                        <input
-                          id="phone"
-                          type="tel"
-                          value={phone}
-                          onChange={(e) => setPhone(e.target.value)}
-                          placeholder="+91 XXXXX XXXXX"
-                          className="w-full rounded-xl border border-[#E3E5EF] bg-[#FAF9F6] px-4 py-3 text-sm text-[#111827] placeholder:text-[#8E9BAE] transition-all duration-200 focus:border-[#3026B3] focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#3026B3]/20 hover:border-[#3026B3]/50"
-                        />
+                        <div className="relative">
+                          <input
+                            id="phone"
+                            type="tel"
+                            value={phone}
+                            onChange={(e) => {
+                              setPhone(e.target.value);
+                              if (e.target.value.length > 0) {
+                                setTouched((t) => ({ ...t, phone: true }));
+                              }
+                            }}
+                            onFocus={() => setActiveField("phone")}
+                            onBlur={() => {
+                              setActiveField(null);
+                              if (phone.length > 0) {
+                                setTouched((t) => ({ ...t, phone: true }));
+                              }
+                            }}
+                            placeholder="+91 XXXXX XXXXX"
+                            className={`${getInputClasses(
+                              Boolean(phoneError),
+                              isPhoneValid,
+                              activeField === "phone",
+                            )} pr-10`}
+                          />
+                          <div className="absolute right-3.5 top-1/2 -translate-y-1/2 pointer-events-none flex items-center justify-center">
+                            {phoneError && (
+                              <Icon
+                                name="triangle-alert"
+                                width={16}
+                                height={16}
+                                className="text-red-500"
+                              />
+                            )}
+                            {isPhoneValid && (
+                              <Icon
+                                name="check"
+                                width={16}
+                                height={16}
+                                className="text-emerald-600"
+                              />
+                            )}
+                            {activeField === "phone" && !phoneError && !isPhoneValid && (
+                              <span className="h-2 w-2 rounded-full bg-[#3026B3] animate-pulse" />
+                            )}
+                          </div>
+                        </div>
+                        {phoneError && (
+                          <div className="flex items-center gap-1.5 mt-1.5 text-xs font-medium text-red-600">
+                            <Icon name="triangle-alert" width={13} height={13} className="shrink-0 text-red-500" />
+                            <span>{phoneError}</span>
+                          </div>
+                        )}
+                        {isPhoneValid && (
+                          <div className="flex items-center gap-1.5 mt-1.5 text-xs font-medium text-emerald-600">
+                            <Icon name="check" width={13} height={13} className="shrink-0 text-emerald-600" />
+                            <span>Valid phone number</span>
+                          </div>
+                        )}
                       </div>
 
-                      {/* Organisation / Company */}
+                      {/* Organisation / Company (Optional) */}
                       <div>
-                        <label htmlFor="organization" className="block text-xs font-mono font-bold uppercase tracking-wider text-[#111827] mb-2">
-                          Organisation / Company
+                        <label
+                          htmlFor="organization"
+                          className={getLabelClass(
+                            Boolean(orgError),
+                            isOrgValid,
+                            activeField === "organization",
+                          )}
+                        >
+                          Organisation / Company <span className="text-xs font-normal text-[#8E9BAE] lowercase">(optional)</span>
                         </label>
-                        <input
-                          id="organization"
-                          type="text"
-                          value={organization}
-                          onChange={(e) => setOrganization(e.target.value)}
-                          placeholder="Your company"
-                          className="w-full rounded-xl border border-[#E3E5EF] bg-[#FAF9F6] px-4 py-3 text-sm text-[#111827] placeholder:text-[#8E9BAE] transition-all duration-200 focus:border-[#3026B3] focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#3026B3]/20 hover:border-[#3026B3]/50"
-                        />
+                        <div className="relative">
+                          <input
+                            id="organization"
+                            type="text"
+                            value={organization}
+                            onChange={(e) => {
+                              setOrganization(e.target.value);
+                              if (e.target.value.length > 0) {
+                                setTouched((t) => ({ ...t, organization: true }));
+                              }
+                            }}
+                            onFocus={() => setActiveField("organization")}
+                            onBlur={() => {
+                              setActiveField(null);
+                              if (organization.length > 0) {
+                                setTouched((t) => ({ ...t, organization: true }));
+                              }
+                            }}
+                            placeholder="Your company / institution"
+                            className={`${getInputClasses(
+                              Boolean(orgError),
+                              isOrgValid,
+                              activeField === "organization",
+                            )} pr-10`}
+                          />
+                          <div className="absolute right-3.5 top-1/2 -translate-y-1/2 pointer-events-none flex items-center justify-center">
+                            {orgError && (
+                              <Icon
+                                name="triangle-alert"
+                                width={16}
+                                height={16}
+                                className="text-red-500"
+                              />
+                            )}
+                            {isOrgValid && (
+                              <Icon
+                                name="check"
+                                width={16}
+                                height={16}
+                                className="text-emerald-600"
+                              />
+                            )}
+                            {activeField === "organization" && !orgError && !isOrgValid && (
+                              <span className="h-2 w-2 rounded-full bg-[#3026B3] animate-pulse" />
+                            )}
+                          </div>
+                        </div>
+                        {orgError && (
+                          <div className="flex items-center gap-1.5 mt-1.5 text-xs font-medium text-red-600">
+                            <Icon name="triangle-alert" width={13} height={13} className="shrink-0 text-red-500" />
+                            <span>{orgError}</span>
+                          </div>
+                        )}
+                        {isOrgValid && (
+                          <div className="flex items-center gap-1.5 mt-1.5 text-xs font-medium text-emerald-600">
+                            <Icon name="check" width={13} height={13} className="shrink-0 text-emerald-600" />
+                            <span>Organisation recorded</span>
+                          </div>
+                        )}
                       </div>
                     </div>
 
                     {/* I'm interested in* Dropdown */}
                     <div>
-                      <label htmlFor="interest" className="block text-xs font-mono font-bold uppercase tracking-wider text-[#111827] mb-2">
+                      <label
+                        htmlFor="interest"
+                        className={getLabelClass(
+                          false,
+                          Boolean(interest),
+                          activeField === "interest",
+                        )}
+                      >
                         I’m interested in <span className="text-red-500">*</span>
                       </label>
-                      <select
-                        id="interest"
-                        value={interest}
-                        onChange={(e) => setInterest(e.target.value)}
-                        className="w-full rounded-xl border border-[#E3E5EF] bg-[#FAF9F6] px-4 py-3 text-sm text-[#111827] transition-all duration-200 focus:border-[#3026B3] focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#3026B3]/20 hover:border-[#3026B3]/50"
-                      >
-                        {interestOptions.map((opt) => (
-                          <option key={opt} value={opt}>
-                            {opt}
-                          </option>
-                        ))}
-                      </select>
+                      <div className="relative">
+                        <select
+                          id="interest"
+                          value={interest}
+                          onChange={(e) => {
+                            setInterest(e.target.value);
+                            setTouched((t) => ({ ...t, interest: true }));
+                          }}
+                          onFocus={() => setActiveField("interest")}
+                          onBlur={() => setActiveField(null)}
+                          className={`${getInputClasses(
+                            false,
+                            Boolean(interest),
+                            activeField === "interest",
+                          )} cursor-pointer`}
+                        >
+                          {interestOptions.map((opt) => (
+                            <option key={opt} value={opt}>
+                              {opt}
+                            </option>
+                          ))}
+                        </select>
+                      </div>
                     </div>
 
                     {/* Tell us briefly about your opportunity* */}
                     <div>
-                      <label htmlFor="message" className="block text-xs font-mono font-bold uppercase tracking-wider text-[#111827] mb-2">
-                        Tell us briefly about your opportunity <span className="text-red-500">*</span>
-                      </label>
-                      <textarea
-                        id="message"
-                        required
-                        rows={5}
-                        value={message}
-                        onChange={(e) => setMessage(e.target.value)}
-                        placeholder="How can we work together?"
-                        className="w-full rounded-xl border border-[#E3E5EF] bg-[#FAF9F6] px-4 py-3 text-sm text-[#111827] placeholder:text-[#8E9BAE] transition-all duration-200 focus:border-[#3026B3] focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#3026B3]/20 hover:border-[#3026B3]/50 resize-y"
-                      />
+                      <div className="flex items-center justify-between mb-2">
+                        <label
+                          htmlFor="message"
+                          className={getLabelClass(
+                            Boolean(messageError),
+                            isMessageValid,
+                            activeField === "message",
+                          )}
+                        >
+                          Tell us briefly about your opportunity <span className="text-red-500">*</span>
+                        </label>
+                        <span
+                          className={`font-mono text-[11px] ${
+                            message.trim().length >= 10
+                              ? "text-emerald-600 font-semibold"
+                              : touched.message && message.trim().length < 10
+                              ? "text-red-600 font-semibold"
+                              : "text-[#8E9BAE]"
+                          }`}
+                        >
+                          {message.trim().length} / 10 min chars
+                        </span>
+                      </div>
+                      <div className="relative">
+                        <textarea
+                          id="message"
+                          required
+                          rows={5}
+                          value={message}
+                          onChange={(e) => {
+                            setMessage(e.target.value);
+                            setTouched((t) => ({ ...t, message: true }));
+                          }}
+                          onFocus={() => setActiveField("message")}
+                          onBlur={() => {
+                            setActiveField(null);
+                            setTouched((t) => ({ ...t, message: true }));
+                          }}
+                          placeholder="How can we work together? Provide details regarding scope, timeline, or collaboration ideas."
+                          className={`${getInputClasses(
+                            Boolean(messageError),
+                            isMessageValid,
+                            activeField === "message",
+                          )} resize-y`}
+                        />
+                      </div>
+                      {messageError && (
+                        <div className="flex items-center gap-1.5 mt-1.5 text-xs font-medium text-red-600">
+                          <Icon name="triangle-alert" width={13} height={13} className="shrink-0 text-red-500" />
+                          <span>{messageError}</span>
+                        </div>
+                      )}
+                      {isMessageValid && (
+                        <div className="flex items-center gap-1.5 mt-1.5 text-xs font-medium text-emerald-600">
+                          <Icon name="check" width={13} height={13} className="shrink-0 text-emerald-600" />
+                          <span>Message requirement satisfied</span>
+                        </div>
+                      )}
                     </div>
 
                     {/* Submit Button */}
-                    <div className="pt-2">
+                    <div className="pt-2 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
                       <button
                         type="submit"
                         data-cursor="button"
                         disabled={submitting}
-                        className="group inline-flex w-full sm:w-auto items-center justify-center gap-2.5 rounded-full bg-[#3026B3] hover:bg-[#211B72] text-white px-9 py-4 text-[15px] font-bold shadow-lg shadow-[#3026B3]/25 transition-all duration-300 fx-shine disabled:opacity-60"
+                        className="group inline-flex w-full sm:w-auto items-center justify-center gap-2.5 rounded-full bg-[#3026B3] hover:bg-[#211B72] text-white px-9 py-4 text-[15px] font-bold shadow-lg shadow-[#3026B3]/25 transition-all duration-300 fx-shine disabled:opacity-60 cursor-pointer"
                       >
                         <span>{submitting ? "Sending..." : "Send Message"}</span>
-                        <Icon name="arrow-right" width={16} height={16} className="transition-transform group-hover:translate-x-1" />
+                        <Icon
+                          name="arrow-right"
+                          width={16}
+                          height={16}
+                          className="transition-transform group-hover:translate-x-1"
+                        />
                       </button>
+
+                      <div className="flex items-center gap-2 text-xs text-[#596579]">
+                        <span className="h-1.5 w-1.5 rounded-full bg-emerald-500" />
+                        <span>Direct response from leadership within 24–48 hours</span>
+                      </div>
                     </div>
                   </motion.form>
                 )}
