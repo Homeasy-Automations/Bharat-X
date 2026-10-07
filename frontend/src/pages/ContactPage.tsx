@@ -21,6 +21,20 @@ const interestOptions = [
   "Other",
 ];
 
+function toInquiryType(interest: string): string {
+  const map: Record<string, string> = {
+    "Business Partnership": "partnerships",
+    "Investment / Capital": "venture-building",
+    "Venture Building": "venture-building",
+    "Technology Partnership": "ai-automation",
+    "Supplier / Vendor Partnership": "partnerships",
+    Careers: "careers",
+    "Media / Press": "partnerships",
+    Other: "partnerships",
+  };
+  return map[interest] || "partnerships";
+}
+
 export default function ContactPage() {
   usePageMeta({
     title: "Contact BharatX Group | Let’s Build What Comes Next",
@@ -72,8 +86,9 @@ export default function ContactPage() {
         email,
         phone,
         organization,
-        inquiryType: interest,
-        message,
+        inquiryType: toInquiryType(interest),
+        company: interest,
+        message: `[Topic: ${interest}]\n\n${message}`,
       });
       setSubmitted(true);
     } catch (err: unknown) {

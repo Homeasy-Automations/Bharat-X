@@ -9,10 +9,12 @@
     "backend"
   ],
   "scripts": {
+    "start": "npm run start --workspace=backend",
     "dev": "concurrently -n client,server -c cyan,amber \"npm run dev --workspace=frontend\" \"npm run dev --workspace=backend\"",
     "dev:frontend": "npm run dev --workspace=frontend",
     "dev:backend": "npm run dev --workspace=backend",
-    "build": "npm run build --workspace=frontend"
+    "build": "npm run build --workspace=frontend",
+    "build:backend": "npm run build --workspace=backend"
   },
   "devDependencies": {
     "concurrently": "^9.1.2"

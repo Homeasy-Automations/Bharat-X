@@ -189,7 +189,7 @@ export default function CareersPage() {
         email,
         phone,
         organization: vertical,
-        inquiryType: "Careers",
+        inquiryType: "careers",
         message: `Position: ${position}\nLocation: ${location}\nLinkedIn: ${linkedin}\n\nIntroduction: ${intro}`,
       });
       setSubmitted(true);
