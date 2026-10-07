@@ -42,11 +42,11 @@ export function Logo({
   const height = compact ? markSize : markSize + 10;
 
   return (
-    <span className={cn("inline-flex items-center", className)}>
+    <span className={cn("inline-flex items-center group/logo transition-transform duration-300 hover:scale-[1.03] select-none", className)}>
       <img
         src="/bharatxgroup.png"
         alt="BharatX Group"
-        className="object-contain w-auto"
+        className="object-contain w-auto transition-all duration-300 group-hover/logo:brightness-105"
         style={{ height }}
       />
     </span>

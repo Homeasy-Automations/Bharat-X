@@ -2,6 +2,8 @@ import { lazy } from "react";
 import { PageHero } from "../components/common/PageHero";
 import { Reveal } from "../components/common/Reveal";
 import { usePageMeta } from "../hooks/usePageMeta";
+import { SectionTransition } from "../components/motion/SectionTransition";
+import { AnimatedHeading } from "../components/motion/AnimatedHeading";
 
 const SecurityShield = lazy(() => import("../components/three/objects/SecurityShield"));
 
@@ -62,10 +64,10 @@ export default function PrivacyPage() {
         visual={<SecurityShield />}
         visualPlacement="right"
       />
-      <section className="py-12 sm:py-16">
+      <SectionTransition divider={false} className="py-12 sm:py-16">
         <div className="container-x max-w-3xl">
           <Reveal>
-            <p className="mb-10 rounded-xl border border-white/8 bg-night-850/70 p-5 text-[13.5px] leading-relaxed text-ink-400">
+            <p className="mb-10 rounded-xl border border-white/8 bg-night-850/70 p-5 text-[13.5px] leading-relaxed text-ink-400 fx-lift transition-all">
               Last updated: 25 September 2026. This policy applies to the BharatX
               Group corporate web platform and its operating sectors.
             </p>
@@ -73,15 +75,17 @@ export default function PrivacyPage() {
           <div className="flex flex-col gap-8">
             {sections.map((s, i) => (
               <Reveal key={s.t} delay={Math.min(i * 0.04, 0.2)}>
-                <div>
-                  <h2 className="font-display text-xl font-semibold text-ink-50">{s.t}</h2>
+                <div data-cursor="card" className="p-4 rounded-xl transition-all duration-200 hover:bg-black/5 dark:hover:bg-white/5">
+                  <AnimatedHeading as="h2" effect="blur" hover="shift" className="font-display text-xl font-semibold text-ink-50">
+                    {s.t}
+                  </AnimatedHeading>
                   <p className="mt-3 text-[14.5px] leading-relaxed text-ink-400">{s.d}</p>
                 </div>
               </Reveal>
             ))}
 
             <Reveal delay={0.2}>
-              <div className="mt-8 rounded-xl border border-slate-200/80 dark:border-white/8 bg-slate-50/80 dark:bg-night-900/60 p-5 font-mono text-xs text-ink-400">
+              <div data-cursor="card" className="mt-8 rounded-xl border border-slate-200/80 dark:border-white/8 bg-slate-50/80 dark:bg-night-900/60 p-5 font-mono text-xs text-ink-400 fx-lift transition-all">
                 <span className="font-semibold text-ink-200 dark:text-ink-100 uppercase tracking-wider block mb-1">
                   Official Communication Address:
                 </span>
@@ -91,7 +95,7 @@ export default function PrivacyPage() {
             </Reveal>
           </div>
         </div>
-      </section>
+      </SectionTransition>
     </>
   );
 }

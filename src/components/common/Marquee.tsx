@@ -14,12 +14,12 @@ export function SectorMarquee() {
       <div className="marquee-track items-center gap-10 pr-10">
         {items.map((s, i) => (
           <Fragment key={`${s.id}-${i}`}>
-            <span className="flex items-center gap-3.5 whitespace-nowrap">
-              <span className="flex h-7 w-7 items-center justify-center rounded-lg bg-white p-1 shadow-sm shrink-0">
+            <span className="group/item flex items-center gap-3.5 whitespace-nowrap transition-transform duration-300 hover:scale-105">
+              <span className="flex h-7 w-7 items-center justify-center rounded-lg bg-white p-1 shadow-sm shrink-0 transition-transform duration-300 group-hover/item:scale-110">
                 <img src={s.companyLogo} alt={s.companyName} className="h-full w-full object-contain" />
               </span>
               <span className="flex items-center gap-2">
-                <span className="font-display text-sm font-semibold tracking-wide text-[#111827] dark:text-white">
+                <span className="font-display text-sm font-semibold tracking-wide text-[#111827] dark:text-white group-hover/item:text-[#3026B3] transition-colors">
                   {s.companyName}
                 </span>
                 <span className="font-mono text-[10px] uppercase text-[#3026B3] dark:text-[#FFB000] font-semibold">

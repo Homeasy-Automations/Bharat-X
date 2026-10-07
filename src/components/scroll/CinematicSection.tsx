@@ -71,7 +71,7 @@ export function CinematicSection({
           transition={
             reduced
               ? undefined
-              : { duration: 26, ease: "linear", repeat: Infinity, repeatType: "reverse" }
+              : { duration: 26, ease: "linear", repeat: Number.POSITIVE_INFINITY, repeatType: "reverse" }
           }
         />
       </motion.div>
@@ -92,17 +92,17 @@ export function CinematicSection({
           <Reveal>
             <div
               className={cn(
-                "mb-6 flex items-center gap-3 font-mono text-[11px] uppercase tracking-[0.3em] text-gold-400",
+                "mb-6 flex items-center gap-3 font-mono text-[11px] uppercase tracking-[0.3em] text-gold-400 group cursor-default",
                 align === "center" && "justify-center",
               )}
             >
-              {kickerIcon && <Icon name={kickerIcon} width={14} height={14} strokeWidth={1.6} />}
-              <span>{kicker}</span>
-              <span aria-hidden className="h-px w-12 bg-gold-400/50" />
+              {kickerIcon && <Icon name={kickerIcon} width={14} height={14} strokeWidth={1.6} className="transition-transform duration-300 group-hover:scale-110" />}
+              <span className="transition-colors duration-300 group-hover:text-gold-300">{kicker}</span>
+              <span aria-hidden className="h-px w-12 bg-gold-400/50 transition-all duration-300 group-hover:w-16" />
             </div>
           </Reveal>
         )}
-        <h2 className="font-display font-semibold leading-[1.08] sm:leading-[1.02] tracking-tight text-ink-50 text-[1.85rem] xs:text-3xl sm:text-4xl md:text-6xl lg:text-7xl">
+        <h2 className="font-display font-semibold leading-[1.08] sm:leading-[1.02] tracking-tight text-ink-50 text-[1.85rem] xs:text-3xl sm:text-4xl md:text-6xl lg:text-7xl transition-colors duration-300 hover:text-gold-400/90">
           {lines.map((line, i) => (
             <MaskReveal key={i} delay={0.06 * i} className="text-balance">
               {line}

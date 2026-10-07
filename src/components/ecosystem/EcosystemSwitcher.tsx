@@ -1,3 +1,4 @@
+import { motion } from "framer-motion";
 import { cn } from "../../utils/cn";
 import { companies } from "../../data/companies";
 import { ecosystemSites } from "../../data/ecosystem";
@@ -27,10 +28,11 @@ export function EcosystemSwitcher({
             key={site.id}
             role="tab"
             type="button"
+            data-cursor="button"
             aria-selected={active}
             onClick={() => onSelect(site.id)}
             className={cn(
-              "group relative flex shrink-0 snap-start items-center gap-3 rounded-xl border px-4 py-3 text-left transition-all duration-300",
+              "group relative flex shrink-0 snap-start items-center gap-3 rounded-xl border px-4 py-3 text-left transition-all duration-300 fx-press focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold-400/50",
               active
                 ? "border-gold-400/50 bg-gold-400/[0.08]"
                 : "border-white/8 bg-white/[0.02] hover:border-white/20 hover:bg-white/[0.04]",
@@ -38,7 +40,7 @@ export function EcosystemSwitcher({
           >
             <span
               className={cn(
-                "font-mono text-[11px] tabular-nums",
+                "font-mono text-[11px] tabular-nums transition-colors duration-300",
                 active ? "text-gold-400" : "text-ink-600 group-hover:text-ink-400",
               )}
             >
@@ -47,7 +49,7 @@ export function EcosystemSwitcher({
             <span className="min-w-0">
               <span
                 className={cn(
-                  "block whitespace-nowrap text-[13.5px] font-semibold transition-colors",
+                  "block whitespace-nowrap text-[13.5px] font-semibold transition-colors duration-300",
                   active ? "text-ink-50" : "text-ink-300 group-hover:text-ink-100",
                 )}
               >
@@ -55,7 +57,7 @@ export function EcosystemSwitcher({
               </span>
               <span
                 className={cn(
-                  "block whitespace-nowrap font-mono text-[9.5px] uppercase tracking-[0.14em]",
+                  "block whitespace-nowrap font-mono text-[9.5px] uppercase tracking-[0.14em] transition-colors duration-300",
                   active ? "text-gold-400/80" : "text-ink-600",
                 )}
               >
@@ -63,9 +65,11 @@ export function EcosystemSwitcher({
               </span>
             </span>
             {active && (
-              <span
+              <motion.span
+                layoutId="ecosystemActiveBar"
                 aria-hidden
                 className="absolute -top-px left-4 right-4 h-[2px] bg-gradient-to-r from-pulse-400 to-gold-400"
+                transition={{ type: "spring", stiffness: 350, damping: 30 }}
               />
             )}
           </button>

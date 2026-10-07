@@ -2,6 +2,10 @@ import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { usePageMeta } from "../hooks/usePageMeta";
 import { Icon } from "../utils/icons";
+import { SectionTransition } from "../components/motion/SectionTransition";
+import { Stagger, StaggerItem } from "../components/motion/Stagger";
+import { AnimatedHeading } from "../components/motion/AnimatedHeading";
+import { MagneticButton } from "../components/common/MagneticButton";
 
 // ── 02. Formula items for "Our Philosophy" ───────────────────────────
 const philosophyInputs = [
@@ -140,11 +144,12 @@ export default function HowWeBuildPage() {
       {/* ── 01. HERO (From Opportunity to Impact) ─────────────────────────── */}
       <section className="relative overflow-hidden min-h-[92vh] lg:min-h-screen w-full flex items-center justify-start pt-32 sm:pt-36 md:pt-40 pb-20 sm:pb-28 border-b border-[#E3E5EF]">
         {/* Abstract/Industrial Progression Background Image: Blueprint -> Factory -> Tech -> People */}
-        <div className="absolute inset-0 z-0">
+        <div className="absolute inset-0 z-0 overflow-hidden">
           <img
             src="/assets/backgrounds/how-we-build-hero.jpg"
             alt="From Blueprint and Infrastructure to Technology and People"
-            className="h-full w-full object-cover object-center filter brightness-[0.85] contrast-[1.12]"
+            className="h-full w-full object-cover object-center filter brightness-[0.85] contrast-[1.12] transition-transform duration-1000 ease-out hover:scale-105"
+            data-cursor="image"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-black/92 via-black/55 to-black/35" />
           <div className="absolute inset-0 bg-gradient-to-r from-black/88 via-black/45 to-transparent" />
@@ -157,9 +162,9 @@ export default function HowWeBuildPage() {
               initial={{ opacity: 0, y: 12 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5 }}
-              className="inline-flex items-center gap-2 rounded-full border border-white/25 bg-black/45 backdrop-blur-md px-4 py-1 font-mono text-[11px] uppercase tracking-[0.28em] text-[#FFB000] mb-5 shadow-sm"
+              className="inline-flex items-center gap-2 rounded-full border border-white/25 bg-black/45 backdrop-blur-md px-4 py-1 font-mono text-[11px] uppercase tracking-[0.28em] text-[#FFB000] mb-5 shadow-sm group hover:border-[#FFB000]/60 transition-colors"
             >
-              <span className="h-2 w-2 rounded-full bg-[#FFB000] shadow-[0_0_8px_#FFB000]" />
+              <span className="h-2 w-2 rounded-full bg-[#FFB000] shadow-[0_0_8px_#FFB000] group-hover:scale-125 transition-transform" />
               <span>HOW WE BUILD</span>
             </motion.div>
 
@@ -168,10 +173,11 @@ export default function HowWeBuildPage() {
               initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.1 }}
-              className="font-serif text-4xl sm:text-5xl md:text-6xl lg:text-[4.2rem] font-normal leading-[1.08] tracking-tight text-white drop-shadow-sm"
+              className="font-serif text-4xl sm:text-5xl md:text-6xl lg:text-[4.2rem] font-normal leading-[1.08] tracking-tight text-white drop-shadow-sm cursor-text"
+              data-cursor="text"
             >
               From Opportunity to{" "}
-              <span className="text-[#FFB000]">Impact.</span>
+              <span className="text-[#FFB000] hover:text-[#ffd166] transition-colors duration-300">Impact.</span>
             </motion.h1>
 
             {/* Body */}
@@ -205,7 +211,8 @@ export default function HowWeBuildPage() {
                   e.preventDefault();
                   document.getElementById("build-cycle")?.scrollIntoView({ behavior: "smooth" });
                 }}
-                className="inline-flex items-center gap-2 rounded-full border border-white/25 bg-black/40 hover:bg-white/20 px-5 py-2 text-xs font-semibold text-white transition-all backdrop-blur-sm"
+                data-cursor="button"
+                className="inline-flex items-center gap-2 rounded-full border border-white/25 bg-black/40 hover:bg-white/20 px-5 py-2 text-xs font-semibold text-white transition-all backdrop-blur-sm fx-lift"
               >
                 <span>Explore The Process</span>
                 <Icon name="arrow-right" width={14} height={14} className="rotate-90" />
@@ -216,18 +223,18 @@ export default function HowWeBuildPage() {
       </section>
 
       {/* ── 02. OUR PHILOSOPHY (We Are Builders, Not Just Investors.) ─────── */}
-      <section className="relative overflow-hidden bg-white py-20 sm:py-28 border-b border-[#E3E5EF]">
+      <SectionTransition withDivider className="relative overflow-hidden bg-white py-20 sm:py-28 border-b border-[#E3E5EF]">
         <div className="container-x relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
             <div className="lg:col-span-6">
-              <div className="inline-flex items-center gap-2 rounded-full border border-[#3026B3]/25 bg-[#3026B3]/8 px-4 py-1 font-mono text-[11px] uppercase tracking-[0.26em] text-[#3026B3] font-bold shadow-xs mb-4">
+              <div className="inline-flex items-center gap-2 rounded-full border border-[#3026B3]/25 bg-[#3026B3]/8 px-4 py-1 font-mono text-[11px] uppercase tracking-[0.26em] text-[#3026B3] font-bold shadow-xs mb-4 hover:border-[#3026B3] transition-colors">
                 <span className="h-2 w-2 rounded-full bg-[#3026B3]" />
                 <span>OUR PHILOSOPHY</span>
               </div>
 
-              <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-normal text-[#111827] leading-tight tracking-tight">
+              <AnimatedHeading as="h2" effect="words" hover="color" className="font-serif text-3xl sm:text-4xl lg:text-5xl font-normal text-[#111827] leading-tight tracking-tight">
                 We Are Builders, <span className="text-[#3026B3]">Not Just Investors.</span>
-              </h2>
+              </AnimatedHeading>
 
               <p className="mt-6 text-base sm:text-lg text-[#596579] leading-relaxed font-normal">
                 BharatX was built around a simple belief: meaningful businesses are created by combining a strong opportunity with the right people, technology, capital and execution.
@@ -240,7 +247,7 @@ export default function HowWeBuildPage() {
 
             {/* Visual Formula: Opportunity + People + Capital + Technology + Execution -> Enterprise */}
             <div className="lg:col-span-6">
-              <div className="rounded-3xl border border-[#E3E5EF] bg-[#FAF9F6] p-7 sm:p-9 shadow-lg">
+              <div className="rounded-3xl border border-[#E3E5EF] bg-[#FAF9F6] p-7 sm:p-9 shadow-lg fx-lift">
                 <div className="text-center mb-6">
                   <span className="font-mono text-xs uppercase tracking-[0.24em] text-[#3026B3] font-bold block">
                     The Enterprise Engine
@@ -251,42 +258,49 @@ export default function HowWeBuildPage() {
                 </div>
 
                 {/* 5 Input Badges */}
-                <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
+                <Stagger staggerDelay={0.06} className="grid grid-cols-2 sm:grid-cols-3 gap-3">
                   {philosophyInputs.map((item) => (
-                    <div
-                      key={item.label}
-                      className="flex items-center gap-2.5 rounded-xl border border-[#E3E5EF] bg-white p-3 shadow-xs transition-all hover:shadow-md"
-                    >
-                      <div className={`h-8 w-8 rounded-lg ${item.bg} ${item.text} flex items-center justify-center shrink-0`}>
-                        <Icon name={item.icon} width={16} height={16} strokeWidth={2} />
+                    <StaggerItem key={item.label}>
+                      <div
+                        data-cursor="card"
+                        className="flex items-center gap-2.5 rounded-xl border border-[#E3E5EF] bg-white p-3 shadow-xs transition-all hover:shadow-md fx-lift h-full"
+                      >
+                        <div className={`h-8 w-8 rounded-lg ${item.bg} ${item.text} flex items-center justify-center shrink-0 transition-transform group-hover:scale-110`}>
+                          <Icon name={item.icon} width={16} height={16} strokeWidth={2} />
+                        </div>
+                        <span className="font-serif text-sm font-medium text-[#111827]">
+                          {item.label}
+                        </span>
                       </div>
-                      <span className="font-serif text-sm font-medium text-[#111827]">
-                        {item.label}
-                      </span>
-                    </div>
+                    </StaggerItem>
                   ))}
 
                   {/* 6th Slot: Compounding Catalyst */}
-                  <div className="flex items-center justify-center rounded-xl border border-dashed border-[#CBD1E1] bg-white/50 p-3">
-                    <span className="font-mono text-xs text-[#596579] font-bold tracking-wider">
-                      + DISCIPLINE
-                    </span>
-                  </div>
-                </div>
+                  <StaggerItem>
+                    <div className="flex items-center justify-center rounded-xl border border-dashed border-[#CBD1E1] bg-white/50 p-3 h-full">
+                      <span className="font-mono text-xs text-[#596579] font-bold tracking-wider">
+                        + DISCIPLINE
+                      </span>
+                    </div>
+                  </StaggerItem>
+                </Stagger>
 
                 {/* Downward Connector */}
                 <div className="my-5 flex items-center justify-center">
-                  <div className="flex h-9 w-9 items-center justify-center rounded-full bg-[#3026B3] text-white shadow-md">
+                  <div className="flex h-9 w-9 items-center justify-center rounded-full bg-[#3026B3] text-white shadow-md animate-bounce">
                     <Icon name="arrow-right" width={16} height={16} className="rotate-90" strokeWidth={2.5} />
                   </div>
                 </div>
 
                 {/* Result Node: Enterprise */}
-                <div className="rounded-2xl border border-[#3026B3]/40 bg-gradient-to-r from-[#211B72] via-[#3026B3] to-[#211B72] p-5 sm:p-6 text-center text-white shadow-xl">
+                <div
+                  data-cursor="card"
+                  className="rounded-2xl border border-[#3026B3]/40 bg-gradient-to-r from-[#211B72] via-[#3026B3] to-[#211B72] p-5 sm:p-6 text-center text-white shadow-xl transition-all duration-300 hover:scale-[1.02] fx-glow-indigo"
+                >
                   <span className="font-mono text-[10px] uppercase tracking-[0.28em] text-[#FFB000] font-bold block mb-1">
                     CENTRAL OUTCOME
                   </span>
-                  <h3 className="font-serif text-2xl sm:text-3xl font-medium tracking-tight text-white">
+                  <h3 className="font-serif text-2xl sm:text-3xl font-medium tracking-tight text-white transition-colors duration-300 hover:text-gold-400">
                     Enterprise
                   </h3>
                   <p className="mt-2 text-xs sm:text-[13px] text-slate-200 font-normal">
@@ -297,10 +311,10 @@ export default function HowWeBuildPage() {
             </div>
           </div>
         </div>
-      </section>
+      </SectionTransition>
 
       {/* ── 03. THE BHARATX BUILD CYCLE (Our Five-Step Approach) ─────────── */}
-      <section id="build-cycle" className="relative overflow-hidden bg-[#FAF9F6] py-20 sm:py-28 border-b border-[#E3E5EF]">
+      <SectionTransition withDivider id="build-cycle" className="relative overflow-hidden bg-[#FAF9F6] py-20 sm:py-28 border-b border-[#E3E5EF]">
         <div className="container-x relative z-10">
           <div className="max-w-3xl text-center mx-auto mb-16">
             <div className="inline-flex items-center gap-2 rounded-full border border-[#00B8D9]/30 bg-[#00B8D9]/10 px-4 py-1 font-mono text-[11px] uppercase tracking-[0.26em] text-[#008299] font-bold shadow-xs mb-4">
@@ -308,9 +322,9 @@ export default function HowWeBuildPage() {
               <span>THE BHARATX BUILD CYCLE</span>
             </div>
 
-            <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-normal text-[#111827] leading-tight tracking-tight">
+            <AnimatedHeading as="h2" effect="words" hover="color" className="font-serif text-3xl sm:text-4xl lg:text-5xl font-normal text-[#111827] leading-tight tracking-tight">
               Our Five-Step <span className="text-[#3026B3]">Approach</span>
-            </h2>
+            </AnimatedHeading>
 
             <p className="mt-4 text-base sm:text-lg text-[#596579] leading-relaxed max-w-2xl mx-auto">
               A systematic progression transforming market challenges into scalable industrial champions.
@@ -318,46 +332,48 @@ export default function HowWeBuildPage() {
           </div>
 
           {/* 5-Step Interactive Timeline */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4 lg:gap-3.5 relative">
+          <Stagger staggerDelay={0.09} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4 lg:gap-3.5 relative">
             {buildCycleSteps.map((step, idx) => (
-              <div
-                key={step.name}
-                className={`group relative flex flex-col justify-between rounded-2xl border border-[#E3E5EF] bg-white p-6 sm:p-7 shadow-sm transition-all duration-300 hover:shadow-xl hover:-translate-y-1 ${step.borderHover}`}
-              >
-                <div>
-                  <div className="flex items-center justify-between mb-4">
-                    <span className={`font-mono text-xs font-bold tracking-widest ${step.textAccent}`}>
-                      {step.step}
-                    </span>
-                    <div
-                      className={`h-9 w-9 rounded-xl ${step.bgAccent} ${step.textAccent} flex items-center justify-center transition-transform duration-300 group-hover:scale-110 shadow-xs`}
-                    >
-                      <Icon name={step.icon} width={18} height={18} strokeWidth={2} />
+              <StaggerItem key={step.name}>
+                <div
+                  data-cursor="card"
+                  className={`group relative flex flex-col justify-between rounded-2xl border border-[#E3E5EF] bg-white p-6 sm:p-7 shadow-sm transition-all duration-300 hover:shadow-2xl fx-lift h-full ${step.borderHover}`}
+                >
+                  <div>
+                    <div className="flex items-center justify-between mb-4">
+                      <span className={`font-mono text-xs font-bold tracking-widest ${step.textAccent} transition-transform duration-300 group-hover:scale-110`}>
+                        {step.step}
+                      </span>
+                      <div
+                        className={`h-9 w-9 rounded-xl ${step.bgAccent} ${step.textAccent} flex items-center justify-center transition-transform duration-300 group-hover:scale-110 group-hover:rotate-6 shadow-xs`}
+                      >
+                        <Icon name={step.icon} width={18} height={18} strokeWidth={2} />
+                      </div>
                     </div>
+
+                    <h3 className="font-mono text-sm sm:text-base font-bold tracking-[0.16em] text-[#111827] uppercase group-hover:text-[#3026B3] transition-colors">
+                      {step.name}
+                    </h3>
+
+                    <p className="mt-1 text-xs font-serif font-semibold text-[#3026B3]">
+                      {step.tagline}
+                    </p>
+
+                    <p className="mt-3 text-xs sm:text-[13px] text-[#596579] leading-relaxed font-normal">
+                      {step.description}
+                    </p>
                   </div>
 
-                  <h3 className="font-mono text-sm sm:text-base font-bold tracking-[0.16em] text-[#111827] uppercase">
-                    {step.name}
-                  </h3>
-
-                  <p className="mt-1 text-xs font-serif font-semibold text-[#3026B3]">
-                    {step.tagline}
-                  </p>
-
-                  <p className="mt-3 text-xs sm:text-[13px] text-[#596579] leading-relaxed font-normal">
-                    {step.description}
-                  </p>
+                  {/* Connecting arrow indicator on desktop */}
+                  {idx < buildCycleSteps.length - 1 && (
+                    <div className="hidden lg:flex absolute -right-3.5 top-1/2 -translate-y-1/2 z-20 h-7 w-7 rounded-full bg-white border border-[#E3E5EF] items-center justify-center text-[#3026B3] shadow-md group-hover:scale-110 transition-transform">
+                      <Icon name="chevron-right" width={13} height={13} strokeWidth={2.5} />
+                    </div>
+                  )}
                 </div>
-
-                {/* Connecting arrow indicator on desktop */}
-                {idx < buildCycleSteps.length - 1 && (
-                  <div className="hidden lg:flex absolute -right-3.5 top-1/2 -translate-y-1/2 z-20 h-7 w-7 rounded-full bg-white border border-[#E3E5EF] items-center justify-center text-[#3026B3] shadow-md group-hover:scale-110 transition-transform">
-                    <Icon name="chevron-right" width={13} height={13} strokeWidth={2.5} />
-                  </div>
-                )}
-              </div>
+              </StaggerItem>
             ))}
-          </div>
+          </Stagger>
 
           <div className="mt-12 text-center">
             <p className="text-sm sm:text-base text-[#111827] font-medium max-w-xl mx-auto leading-relaxed">
@@ -365,10 +381,10 @@ export default function HowWeBuildPage() {
             </p>
           </div>
         </div>
-      </section>
+      </SectionTransition>
 
       {/* ── 04. WHAT WE BRING (The BharatX Advantage — Five Pillars) ───────── */}
-      <section className="relative overflow-hidden bg-white py-20 sm:py-28 border-b border-[#E3E5EF]">
+      <SectionTransition withDivider className="relative overflow-hidden bg-white py-20 sm:py-28 border-b border-[#E3E5EF]">
         <div className="container-x relative z-10">
           <div className="max-w-3xl text-center mx-auto mb-14">
             <div className="inline-flex items-center gap-2 rounded-full border border-[#15966B]/30 bg-[#15966B]/10 px-4 py-1 font-mono text-[11px] uppercase tracking-[0.26em] text-[#15966B] font-bold shadow-xs mb-4">
@@ -376,9 +392,9 @@ export default function HowWeBuildPage() {
               <span>WHAT WE BRING</span>
             </div>
 
-            <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-normal text-[#111827] leading-tight tracking-tight">
+            <AnimatedHeading as="h2" effect="words" hover="color" className="font-serif text-3xl sm:text-4xl lg:text-5xl font-normal text-[#111827] leading-tight tracking-tight">
               The BharatX <span className="text-[#3026B3]">Advantage</span>
-            </h2>
+            </AnimatedHeading>
 
             <p className="mt-3 text-base text-[#596579]">
               Five foundational pillars deployed synchronously across every venture.
@@ -386,44 +402,46 @@ export default function HowWeBuildPage() {
           </div>
 
           {/* 5 Pillars Grid */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-5 max-w-6xl mx-auto">
+          <Stagger staggerDelay={0.08} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-5 max-w-6xl mx-auto">
             {bharatxAdvantage.map((item) => (
-              <div
-                key={item.pillar}
-                className="group rounded-2xl border border-[#E3E5EF] bg-[#FAF9F6] p-6 shadow-xs transition-all duration-300 hover:bg-white hover:border-[#3026B3] hover:shadow-xl hover:-translate-y-1 flex flex-col justify-between"
-              >
-                <div>
-                  <div className={`h-11 w-11 rounded-xl ${item.bg} ${item.text} flex items-center justify-center shrink-0 shadow-xs mb-4 transition-transform duration-300 group-hover:scale-110`}>
-                    <Icon name={item.icon} width={20} height={20} strokeWidth={2} />
+              <StaggerItem key={item.pillar}>
+                <div
+                  data-cursor="card"
+                  className="group rounded-2xl border border-[#E3E5EF] bg-[#FAF9F6] p-6 shadow-xs transition-all duration-300 hover:bg-white hover:border-[#3026B3] hover:shadow-2xl fx-lift flex flex-col justify-between h-full"
+                >
+                  <div>
+                    <div className={`h-11 w-11 rounded-xl ${item.bg} ${item.text} flex items-center justify-center shrink-0 shadow-xs mb-4 transition-transform duration-300 group-hover:scale-110 group-hover:rotate-6`}>
+                      <Icon name={item.icon} width={20} height={20} strokeWidth={2} />
+                    </div>
+
+                    <h3 className="font-serif text-xl font-medium text-[#111827] group-hover:text-[#3026B3] transition-colors duration-300">
+                      {item.pillar}
+                    </h3>
+
+                    <p className="mt-2 text-xs sm:text-[13px] text-[#596579] leading-relaxed font-normal">
+                      {item.description}
+                    </p>
                   </div>
 
-                  <h3 className="font-serif text-xl font-medium text-[#111827] group-hover:text-[#3026B3] transition-colors">
-                    {item.pillar}
-                  </h3>
-
-                  <p className="mt-2 text-xs sm:text-[13px] text-[#596579] leading-relaxed font-normal">
-                    {item.description}
-                  </p>
+                  <div className="mt-4 pt-3 border-t border-[#E3E5EF]/60 font-mono text-[9px] uppercase tracking-wider text-[#596579]">
+                    Institutional Pillar
+                  </div>
                 </div>
-
-                <div className="mt-4 pt-3 border-t border-[#E3E5EF]/60 font-mono text-[9px] uppercase tracking-wider text-[#596579]">
-                  Institutional Pillar
-                </div>
-              </div>
+              </StaggerItem>
             ))}
-          </div>
+          </Stagger>
 
           {/* Central Anchor Line */}
-          <div className="mt-14 max-w-2xl mx-auto rounded-2xl border border-[#3026B3]/30 bg-[#3026B3]/5 p-6 text-center shadow-xs">
+          <div className="mt-14 max-w-2xl mx-auto rounded-2xl border border-[#3026B3]/30 bg-[#3026B3]/5 p-6 text-center shadow-xs fx-lift">
             <p className="font-serif text-base sm:text-lg font-medium text-[#111827] leading-relaxed">
               “When these capabilities come together, opportunities become scalable businesses.”
             </p>
           </div>
         </div>
-      </section>
+      </SectionTransition>
 
       {/* ── 05. WHERE WE BUILD (Building Across the Real and Digital Economy) ── */}
-      <section className="relative overflow-hidden bg-[#FAF9F6] py-20 sm:py-28 border-b border-[#E3E5EF]">
+      <SectionTransition withDivider className="relative overflow-hidden bg-[#FAF9F6] py-20 sm:py-28 border-b border-[#E3E5EF]">
         <div className="container-x relative z-10">
           <div className="max-w-3xl text-center mx-auto mb-14">
             <div className="inline-flex items-center gap-2 rounded-full border border-[#3026B3]/25 bg-[#3026B3]/8 px-4 py-1 font-mono text-[11px] uppercase tracking-[0.26em] text-[#3026B3] font-bold shadow-xs mb-4">
@@ -431,9 +449,9 @@ export default function HowWeBuildPage() {
               <span>OPERATING FOOTPRINT</span>
             </div>
 
-            <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-normal text-[#111827] leading-tight tracking-tight">
+            <AnimatedHeading as="h2" effect="words" hover="color" className="font-serif text-3xl sm:text-4xl lg:text-5xl font-normal text-[#111827] leading-tight tracking-tight">
               Building Across the <span className="text-[#3026B3]">Real and Digital Economy</span>
-            </h2>
+            </AnimatedHeading>
 
             <p className="mt-4 text-base sm:text-lg text-[#596579] leading-relaxed max-w-2xl mx-auto">
               Our sectors may differ, but the underlying approach remains the same: identify real opportunities, build strong businesses and create long-term value.
@@ -441,33 +459,35 @@ export default function HowWeBuildPage() {
           </div>
 
           {/* Clean Set of 8 Sectors */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 max-w-5xl mx-auto">
+          <Stagger staggerDelay={0.06} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 max-w-5xl mx-auto">
             {buildSectors.map((sector) => (
-              <Link
-                key={sector.name}
-                to={sector.link}
-                className="group flex items-center justify-between rounded-xl border border-[#E3E5EF] bg-white p-4 shadow-xs transition-all duration-300 hover:border-[#3026B3] hover:shadow-md hover:-translate-y-0.5"
-              >
-                <div className="flex items-center gap-3">
-                  <span className="text-xl">{sector.emoji}</span>
-                  <div>
-                    <h4 className="font-serif text-base font-medium text-[#111827] group-hover:text-[#3026B3] transition-colors">
-                      {sector.name}
-                    </h4>
-                    <span className="text-[11px] font-mono text-[#596579] block">
-                      {sector.tag}
-                    </span>
+              <StaggerItem key={sector.name}>
+                <Link
+                  to={sector.link}
+                  data-cursor="card"
+                  className="group flex items-center justify-between rounded-xl border border-[#E3E5EF] bg-white p-4 shadow-xs transition-all duration-300 hover:border-[#3026B3] hover:shadow-xl fx-lift h-full"
+                >
+                  <div className="flex items-center gap-3">
+                    <span className="text-xl transition-transform group-hover:scale-125 duration-300">{sector.emoji}</span>
+                    <div>
+                      <h4 className="font-serif text-base font-medium text-[#111827] group-hover:text-[#3026B3] transition-colors">
+                        {sector.name}
+                      </h4>
+                      <span className="text-[11px] font-mono text-[#596579] block">
+                        {sector.tag}
+                      </span>
+                    </div>
                   </div>
-                </div>
-                <Icon name="arrow-up-right" width={14} height={14} className="text-[#596579] group-hover:text-[#3026B3] transition-colors" />
-              </Link>
+                  <Icon name="arrow-up-right" width={14} height={14} className="text-[#596579] group-hover:text-[#3026B3] transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+                </Link>
+              </StaggerItem>
             ))}
-          </div>
+          </Stagger>
         </div>
-      </section>
+      </SectionTransition>
 
       {/* ── 06. CLOSING CTA (The Next Business Could Be Built Here.) ─────────── */}
-      <section className="relative overflow-hidden bg-gradient-to-br from-[#211B72] via-[#1D1763] to-[#120E3E] text-white py-20 sm:py-28">
+      <SectionTransition className="relative overflow-hidden bg-gradient-to-br from-[#211B72] via-[#1D1763] to-[#120E3E] text-white py-20 sm:py-28">
         {/* Ambient radial lighting */}
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 -z-10 h-[500px] w-[500px] sm:w-[700px] rounded-full bg-gradient-to-r from-[#3026B3]/30 via-[#FFB000]/20 to-transparent blur-[140px] pointer-events-none" />
 
@@ -480,9 +500,9 @@ export default function HowWeBuildPage() {
             </div>
 
             {/* Headline */}
-            <h2 className="font-serif text-3xl sm:text-5xl md:text-6xl font-normal leading-[1.1] tracking-tight text-white">
+            <AnimatedHeading as="h2" effect="words" hover="color" className="font-serif text-3xl sm:text-5xl md:text-6xl font-normal leading-[1.1] tracking-tight text-white">
               The Next Business Could Be Built Here.
-            </h2>
+            </AnimatedHeading>
 
             {/* Copy */}
             <p className="mt-6 text-base sm:text-lg md:text-xl font-normal leading-relaxed text-slate-200 max-w-2xl mx-auto">
@@ -491,22 +511,27 @@ export default function HowWeBuildPage() {
 
             {/* Three CTAs */}
             <div className="mt-10 flex flex-wrap items-center justify-center gap-4">
-              <Link
-                to="/contact?inquiry=partner"
-                className="group inline-flex items-center justify-center gap-2.5 rounded-full bg-[#FFB000] hover:bg-[#e09800] text-[#111827] px-8 py-4 text-[15px] font-bold shadow-xl shadow-black/20 transition-all duration-300 hover:scale-105"
-              >
-                <span>Partner With Us</span>
-                <Icon
-                  name="arrow-right"
-                  width={16}
-                  height={16}
-                  className="transition-transform duration-300 group-hover:translate-x-1"
-                />
-              </Link>
+              <MagneticButton strength={0.25}>
+                <Link
+                  to="/contact?inquiry=partner"
+                  data-cursor="button"
+                  data-motion="true"
+                  className="group inline-flex items-center justify-center gap-2.5 rounded-full bg-[#FFB000] hover:bg-[#e09800] text-[#111827] px-8 py-4 text-[15px] font-bold shadow-xl shadow-black/20 transition-all duration-300 fx-shine active:scale-95"
+                >
+                  <span>Partner With Us</span>
+                  <Icon
+                    name="arrow-right"
+                    width={16}
+                    height={16}
+                    className="transition-transform duration-300 group-hover:translate-x-1"
+                  />
+                </Link>
+              </MagneticButton>
 
               <Link
                 to="/services"
-                className="inline-flex items-center justify-center gap-2 rounded-full border border-white/30 bg-white/10 hover:bg-white/20 px-8 py-4 text-[15px] font-semibold text-white transition-all duration-300 hover:border-white shadow-xs"
+                data-cursor="button"
+                className="inline-flex items-center justify-center gap-2 rounded-full border border-white/30 bg-white/10 hover:bg-white/20 px-8 py-4 text-[15px] font-semibold text-white transition-all duration-300 hover:border-white shadow-xs fx-lift"
               >
                 <span>Explore Our Businesses</span>
                 <Icon
@@ -519,7 +544,8 @@ export default function HowWeBuildPage() {
 
               <Link
                 to="/contact?inquiry=build"
-                className="inline-flex items-center justify-center gap-2 rounded-full border border-white/30 bg-white/10 hover:bg-white/20 px-8 py-4 text-[15px] font-semibold text-white transition-all duration-300 hover:border-white shadow-xs"
+                data-cursor="button"
+                className="inline-flex items-center justify-center gap-2 rounded-full border border-white/30 bg-white/10 hover:bg-white/20 px-8 py-4 text-[15px] font-semibold text-white transition-all duration-300 hover:border-white shadow-xs fx-lift"
               >
                 <span>Build With BharatX</span>
                 <Icon
@@ -539,7 +565,7 @@ export default function HowWeBuildPage() {
             </div>
           </div>
         </div>
-      </section>
+      </SectionTransition>
     </main>
   );
 }

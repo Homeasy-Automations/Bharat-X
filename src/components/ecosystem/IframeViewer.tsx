@@ -208,15 +208,17 @@ export function IframeViewer({
               <div className="flex w-full sm:w-auto gap-2.5">
                 <button
                   type="button"
+                  data-cursor="button"
                   onClick={reload}
-                  className="flex-1 sm:flex-none rounded-full border border-white/15 px-4 py-2 text-[12.5px] font-semibold text-ink-100 transition-colors hover:border-white/35 text-center"
+                  className="fx-press flex-1 sm:flex-none rounded-full border border-white/15 px-4 py-2 text-[12.5px] font-semibold text-ink-100 transition-colors hover:border-white/35 text-center focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold-400"
                 >
                   Reload
                 </button>
                 <button
                   type="button"
+                  data-cursor="button"
                   onClick={openExternal}
-                  className="flex-1 sm:flex-none rounded-full bg-gold-400 px-4 py-2 text-[12.5px] font-semibold text-night-950 transition-colors hover:bg-gold-300 text-center"
+                  className="fx-press flex-1 sm:flex-none rounded-full bg-gold-400 px-4 py-2 text-[12.5px] font-semibold text-night-950 transition-colors hover:bg-gold-300 text-center focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold-400"
                 >
                   Open Official Website
                 </button>
@@ -227,7 +229,7 @@ export function IframeViewer({
           {/* Error state */}
           {status === "error" && (
             <div className="absolute inset-0 flex flex-col items-center justify-center gap-5 bg-night-850 px-6 text-center">
-              <span className="flex h-16 w-16 items-center justify-center rounded-full border border-ember-400/30 bg-ember-400/10 text-ember-400">
+              <span className="flex h-16 w-16 items-center justify-center rounded-full border border-ember-400/30 bg-ember-400/10 text-ember-400 fx-pulse-ring">
                 <Icon name="triangle-alert" width={26} height={26} />
               </span>
               <div>
@@ -243,16 +245,18 @@ export function IframeViewer({
               <div className="flex flex-wrap justify-center gap-3">
                 <button
                   type="button"
+                  data-cursor="button"
                   onClick={openExternal}
-                  className="inline-flex items-center gap-2 rounded-full bg-gold-400 px-6 py-3 text-[13.5px] font-semibold text-night-950 transition-colors hover:bg-gold-300"
+                  className="fx-press fx-shine inline-flex items-center gap-2 rounded-full bg-gold-400 px-6 py-3 text-[13.5px] font-semibold text-night-950 transition-colors hover:bg-gold-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold-400"
                 >
                   Open Official Website
                   <Icon name="external-link" width={14} height={14} />
                 </button>
                 <button
                   type="button"
+                  data-cursor="button"
                   onClick={reload}
-                  className="inline-flex items-center gap-2 rounded-full border border-white/15 px-6 py-3 text-[13.5px] font-semibold text-ink-100 transition-colors hover:border-white/35"
+                  className="fx-press inline-flex items-center gap-2 rounded-full border border-white/15 px-6 py-3 text-[13.5px] font-semibold text-ink-100 transition-colors hover:border-white/35 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-400"
                 >
                   <Icon name="refresh-cw" width={14} height={14} />
                   Try Again
@@ -320,17 +324,18 @@ function ToolButton({
   return (
     <button
       type="button"
+      data-cursor="button"
       onClick={onClick}
       title={label}
       aria-label={label}
       className={cn(
-        "flex h-9 w-9 items-center justify-center rounded-full border transition-all duration-300",
+        "flex h-9 w-9 items-center justify-center rounded-full border transition-all duration-300 fx-press focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold-400",
         primary
           ? "border-gold-400/40 bg-gold-400/10 text-gold-300 hover:border-gold-400/70 hover:bg-gold-400/20"
           : "border-white/10 text-ink-300 hover:border-white/30 hover:text-ink-50",
       )}
     >
-      <Icon name={icon} width={15} height={15} className={spinning ? "animate-spin" : ""} />
+      <Icon name={icon} width={15} height={15} className={spinning ? "animate-spin" : "transition-transform duration-300 group-hover:scale-110"} />
     </button>
   );
 }

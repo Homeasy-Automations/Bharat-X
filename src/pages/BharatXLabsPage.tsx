@@ -10,6 +10,9 @@ import { TiltCard } from "../components/three/TiltCard";
 import { usePageMeta } from "../hooks/usePageMeta";
 import { Icon } from "../utils/icons";
 import { companies } from "../data/companies";
+import { SectionTransition } from "../components/motion/SectionTransition";
+import { Stagger, StaggerItem } from "../components/motion/Stagger";
+import { AnimatedHeading } from "../components/motion/AnimatedHeading";
 
 const CompanySpecificObject = lazy(() => import("../components/three/objects/CompanySpecificObject"));
 
@@ -143,13 +146,13 @@ export default function BharatXLabsPage() {
   return (
     <div className="relative">
       {/* ── HERO BANNER ────────────────────────────────────────────── */}
-      <section className="relative min-h-[90vh] flex items-center justify-center overflow-hidden pt-32 pb-20 md:pt-40 md:pb-28">
+      <SectionTransition divider={false} className="relative min-h-[90vh] flex items-center justify-center overflow-hidden pt-32 pb-20 md:pt-40 md:pb-28">
         {/* Background Visual Matrix */}
         <div className="absolute inset-0 bg-night-950">
           <img
             src="/assets/backgrounds/ai-circuit.jpg"
             alt="BharatX Labs Neural Circuit"
-            className="h-full w-full object-cover opacity-25 mix-blend-screen scale-105"
+            className="h-full w-full object-cover opacity-25 mix-blend-screen scale-105 fx-zoom-img"
           />
           <div className="absolute inset-0 bg-gradient-to-b from-night-950/80 via-night-950/90 to-night-950" />
           <div className="grid-bg grid-bg-fade absolute inset-0 opacity-40" />
@@ -178,7 +181,7 @@ export default function BharatXLabsPage() {
 
           {/* Stealth Status Pill */}
           <Reveal immediate>
-            <div className="inline-flex items-center gap-2.5 rounded-full border border-gold-400/40 bg-gold-400/10 px-4 py-1.5 backdrop-blur-md">
+            <div className="inline-flex items-center gap-2.5 rounded-full border border-gold-400/40 bg-gold-400/10 px-4 py-1.5 backdrop-blur-md fx-lift">
               <span className="relative flex h-2 w-2">
                 <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-gold-400 opacity-75" />
                 <span className="relative inline-flex h-2 w-2 rounded-full bg-gold-400" />
@@ -210,12 +213,12 @@ export default function BharatXLabsPage() {
           {/* Action CTAs */}
           <Reveal delay={0.45}>
             <div className="mt-10 flex flex-wrap items-center justify-center gap-4">
-              <a href="#waitlist">
+              <a href="#waitlist" data-cursor="button">
                 <Button variant="primary" size="lg" withArrow>
                   Request Early Researcher Access
                 </Button>
               </a>
-              <a href="#roadmap">
+              <a href="#roadmap" data-cursor="button">
                 <Button variant="ghost" size="lg">
                   Explore Research Roadmap
                 </Button>
@@ -232,7 +235,7 @@ export default function BharatXLabsPage() {
 
           {/* Quantitative HUD Metrics Bar */}
           <Reveal delay={0.6}>
-            <div className="mt-16 mx-auto max-w-5xl grid grid-cols-2 lg:grid-cols-4 gap-4 rounded-2xl border border-white/10 bg-night-900/80 p-6 md:p-8 backdrop-blur-xl shadow-2xl">
+            <div data-cursor="card" className="mt-16 mx-auto max-w-5xl grid grid-cols-2 lg:grid-cols-4 gap-4 rounded-2xl border border-white/10 bg-night-900/80 p-6 md:p-8 backdrop-blur-xl shadow-2xl fx-lift">
               <div className="border-r border-white/10 pr-4 last:border-r-0">
                 <div
                   className="text-3xl md:text-4xl font-bold text-pulse-400 tracking-tight"
@@ -280,10 +283,10 @@ export default function BharatXLabsPage() {
             </div>
           </Reveal>
         </div>
-      </section>
+      </SectionTransition>
 
       {/* ── STRATEGIC MISSION & MANIFESTO ───────────────────────────── */}
-      <section className="py-20 md:py-28 border-t border-slate-200/80 dark:border-white/5 bg-slate-50 dark:bg-night-900/50">
+      <SectionTransition divider className="py-20 md:py-28 border-t border-slate-200/80 dark:border-white/5 bg-slate-50 dark:bg-night-900/50">
         <div className="container-x">
           <div className="grid gap-12 lg:grid-cols-2 lg:items-center">
             <div>
@@ -310,7 +313,7 @@ export default function BharatXLabsPage() {
             </div>
 
             <div className="relative">
-              <div className="rounded-3xl border border-slate-200/90 dark:border-white/10 bg-white dark:bg-night-850 p-8 shadow-xl">
+              <div data-cursor="card" className="rounded-3xl border border-slate-200/90 dark:border-white/10 bg-white dark:bg-night-850 p-8 shadow-xl fx-lift">
                 <div className="flex items-center gap-3 border-b border-slate-200/80 dark:border-white/10 pb-4">
                   <span className="h-3 w-3 rounded-full bg-rose-500/80" />
                   <span className="h-3 w-3 rounded-full bg-amber-500/80" />
@@ -332,10 +335,10 @@ export default function BharatXLabsPage() {
             </div>
           </div>
         </div>
-      </section>
+      </SectionTransition>
 
       {/* ── CORE RESEARCH PILLARS ──────────────────────────────────── */}
-      <section className="py-20 md:py-28 border-t border-slate-200/80 dark:border-white/5">
+      <SectionTransition divider className="py-20 md:py-28 border-t border-slate-200/80 dark:border-white/5">
         <div className="container-x">
           <SectionHeader
             icon="brain-circuit"
@@ -350,55 +353,57 @@ export default function BharatXLabsPage() {
             lede="Focusing strictly on unsolved foundational challenges with long-term technological and economic compounding."
           />
 
-          <div className="mt-14 grid gap-8 md:grid-cols-2">
+          <Stagger className="mt-14 grid gap-8 md:grid-cols-2">
             {researchPillars.map((p) => (
-              <TiltCard
-                key={p.number}
-                className="group relative flex flex-col justify-between overflow-hidden rounded-3xl border border-slate-200/90 dark:border-white/10 bg-white/80 dark:bg-night-850/80 p-8 shadow-lg backdrop-blur-md transition-all duration-300 hover:border-pulse-400/40"
-              >
-                <div>
-                  <div className="flex items-center justify-between">
-                    <IconBadge icon={p.icon} accent="#00f0ff" />
-                    <span className="font-mono text-3xl font-bold text-slate-200 dark:text-white/10 select-none">
-                      {p.number}
+              <StaggerItem key={p.number}>
+                <TiltCard
+                  data-cursor="card"
+                  className="group relative flex flex-col justify-between overflow-hidden rounded-3xl border border-slate-200/90 dark:border-white/10 bg-white/80 dark:bg-night-850/80 p-8 shadow-lg backdrop-blur-md transition-all duration-300 hover:border-pulse-400/40 fx-lift h-full"
+                >
+                  <div>
+                    <div className="flex items-center justify-between">
+                      <IconBadge icon={p.icon} accent="#00f0ff" />
+                      <span className="font-mono text-3xl font-bold text-slate-200 dark:text-white/10 select-none">
+                        {p.number}
+                      </span>
+                    </div>
+
+                    <span className="mt-5 block font-mono text-xs uppercase tracking-widest text-pulse-400">
+                      {p.tagline}
                     </span>
+
+                    <AnimatedHeading as="h3" effect="blur" hover="shift" className="mt-2 font-display text-2xl font-bold tracking-tight text-ink-900 dark:text-ink-50">
+                      {p.title}
+                    </AnimatedHeading>
+
+                    <p className="mt-4 text-sm leading-relaxed text-ink-600 dark:text-ink-300">
+                      {p.description}
+                    </p>
                   </div>
 
-                  <span className="mt-5 block font-mono text-xs uppercase tracking-widest text-pulse-400">
-                    {p.tagline}
-                  </span>
-
-                  <h3 className="mt-2 font-display text-2xl font-bold tracking-tight text-ink-900 dark:text-ink-50">
-                    {p.title}
-                  </h3>
-
-                  <p className="mt-4 text-sm leading-relaxed text-ink-600 dark:text-ink-300">
-                    {p.description}
-                  </p>
-                </div>
-
-                <div className="mt-8 pt-6 border-t border-slate-100 dark:border-white/5">
-                  <span className="font-mono text-[10.5px] uppercase tracking-wider text-ink-400 block mb-3">
-                    Technical Specifications
-                  </span>
-                  <ul className="space-y-2">
-                    {p.specs.map((spec, idx) => (
-                      <li key={idx} className="flex items-start gap-2.5 text-xs text-ink-500 dark:text-ink-400">
-                        <span className="h-1.5 w-1.5 rounded-full bg-pulse-400 mt-1.5 shrink-0" />
-                        <span>{spec}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              </TiltCard>
+                  <div className="mt-8 pt-6 border-t border-slate-100 dark:border-white/5">
+                    <span className="font-mono text-[10.5px] uppercase tracking-wider text-ink-400 block mb-3">
+                      Technical Specifications
+                    </span>
+                    <ul className="space-y-2">
+                      {p.specs.map((spec, idx) => (
+                        <li key={idx} className="flex items-start gap-2.5 text-xs text-ink-500 dark:text-ink-400">
+                          <span className="h-1.5 w-1.5 rounded-full bg-pulse-400 mt-1.5 shrink-0" />
+                          <span>{spec}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                </TiltCard>
+              </StaggerItem>
             ))}
-          </div>
+          </Stagger>
         </div>
-      </section>
+      </SectionTransition>
 
       {/* ── RESEARCH ROADMAP ────────────────────────────────────────── */}
-      <section id="roadmap" className="py-20 md:py-28 border-t border-slate-200/80 dark:border-white/5 bg-slate-50 dark:bg-night-900/40">
-        <div className="container-x">
+      <SectionTransition divider className="py-20 md:py-28 border-t border-slate-200/80 dark:border-white/5 bg-slate-50 dark:bg-night-900/40">
+        <div id="roadmap" className="container-x">
           <SectionHeader
             icon="workflow"
             eyebrow="Execution Milestones"
@@ -412,65 +417,67 @@ export default function BharatXLabsPage() {
             lede="Our calculated, four-phase trajectory from mathematical formalization to open industrial deployment."
           />
 
-          <div className="mt-14 space-y-6">
-            {roadmapMilestones.map((m, idx) => (
-              <div
-                key={m.phase}
-                className="grid gap-6 rounded-2xl border border-slate-200/80 dark:border-white/10 bg-white dark:bg-night-850 p-6 md:p-8 lg:grid-cols-[180px_1fr_220px] lg:items-center shadow-sm"
-              >
-                <div>
-                  <span className="font-mono text-xs uppercase tracking-wider text-ink-400 block">
-                    {m.phase}
-                  </span>
-                  <span className="font-display text-2xl font-bold text-ink-900 dark:text-ink-50">
-                    {m.timeline}
-                  </span>
-                </div>
+          <Stagger className="mt-14 space-y-6">
+            {roadmapMilestones.map((m) => (
+              <StaggerItem key={m.phase}>
+                <div
+                  data-cursor="card"
+                  className="grid gap-6 rounded-2xl border border-slate-200/80 dark:border-white/10 bg-white dark:bg-night-850 p-6 md:p-8 lg:grid-cols-[180px_1fr_220px] lg:items-center shadow-sm fx-lift transition-all hover:border-slate-300 dark:hover:border-white/20"
+                >
+                  <div>
+                    <span className="font-mono text-xs uppercase tracking-wider text-ink-400 block">
+                      {m.phase}
+                    </span>
+                    <span className="font-display text-2xl font-bold text-ink-900 dark:text-ink-50">
+                      {m.timeline}
+                    </span>
+                  </div>
 
-                <div>
-                  <h4 className="font-display text-lg font-bold text-ink-900 dark:text-ink-50">
-                    {m.title}
-                  </h4>
-                  <p className="mt-2 text-sm leading-relaxed text-ink-600 dark:text-ink-300">
-                    {m.description}
-                  </p>
-                </div>
+                  <div>
+                    <AnimatedHeading as="h4" effect="blur" hover="shift" className="font-display text-lg font-bold text-ink-900 dark:text-ink-50">
+                      {m.title}
+                    </AnimatedHeading>
+                    <p className="mt-2 text-sm leading-relaxed text-ink-600 dark:text-ink-300">
+                      {m.description}
+                    </p>
+                  </div>
 
-                <div className="lg:text-right">
-                  <span
-                    className={`inline-block rounded-full border px-3 py-1 font-mono text-[11px] font-semibold uppercase tracking-wider ${m.badgeColor}`}
-                  >
-                    {m.status}
-                  </span>
+                  <div className="lg:text-right">
+                    <span
+                      className={`inline-block rounded-full border px-3 py-1 font-mono text-[11px] font-semibold uppercase tracking-wider ${m.badgeColor}`}
+                    >
+                      {m.status}
+                    </span>
+                  </div>
                 </div>
-              </div>
+              </StaggerItem>
             ))}
-          </div>
+          </Stagger>
         </div>
-      </section>
+      </SectionTransition>
 
       {/* ── EARLY RESEARCHER WAITLIST & FELLOWSHIP ─────────────────── */}
-      <section id="waitlist" className="py-20 md:py-28 border-t border-slate-200/80 dark:border-white/5">
-        <div className="container-x max-w-4xl">
+      <SectionTransition divider className="py-20 md:py-28 border-t border-slate-200/80 dark:border-white/5">
+        <div id="waitlist" className="container-x max-w-4xl">
           <div className="text-center">
             <span className="inline-flex items-center gap-2 rounded-full border border-pulse-400/40 bg-pulse-400/10 px-3.5 py-1 font-mono text-xs font-semibold uppercase tracking-widest text-pulse-400">
               Academic & Industrial Fellowship
             </span>
-            <h2 className="mt-6 font-display text-3xl sm:text-4xl md:text-5xl font-bold text-ink-900 dark:text-ink-50">
+            <AnimatedHeading as="h2" effect="words" hover="gradient" className="mt-6 font-display text-3xl sm:text-4xl md:text-5xl font-bold text-ink-900 dark:text-ink-50">
               Join the Sovereign Frontier.
-            </h2>
+            </AnimatedHeading>
             <p className="mt-4 text-base text-ink-600 dark:text-ink-300 max-w-xl mx-auto">
               Are you an AI researcher, ML systems architect, or institutional partner? Request early closed-alpha model checkpoints or pitch collaborative fellowships.
             </p>
           </div>
 
-          <div className="mt-12 rounded-3xl border border-slate-200/90 dark:border-white/10 bg-white dark:bg-night-850 p-8 md:p-12 shadow-2xl">
+          <div data-cursor="card" className="mt-12 rounded-3xl border border-slate-200/90 dark:border-white/10 bg-white dark:bg-night-850 p-8 md:p-12 shadow-2xl fx-lift">
             {isSubmitted ? (
               <div className="text-center py-10">
-                <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-400">
+                <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 fx-icon-pop">
                   <Icon name="shield-check" width={32} height={32} />
                 </div>
-                <h3 className="mt-6 font-display text-2xl font-bold text-ink-900 dark:text-ink-50">
+                <h3 className="mt-6 font-display text-2xl font-bold text-ink-900 dark:text-ink-50 transition-colors duration-300 hover:text-gold-400">
                   Application Logged into Secure Protocol
                 </h3>
                 <p className="mt-3 text-sm text-ink-600 dark:text-ink-300 max-w-md mx-auto">
@@ -479,6 +486,7 @@ export default function BharatXLabsPage() {
                 <div className="mt-8">
                   <Button
                     variant="ghost"
+                    data-cursor="button"
                     onClick={() => {
                       setIsSubmitted(false);
                       setFormData({ name: "", email: "", organization: "", domain: "Foundation Models", note: "" });
@@ -501,7 +509,7 @@ export default function BharatXLabsPage() {
                       placeholder="Dr. Rajesh Sharma"
                       value={formData.name}
                       onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                      className="w-full rounded-xl border border-slate-300 dark:border-white/10 bg-slate-50 dark:bg-night-900 px-4 py-3 text-sm text-ink-900 dark:text-ink-100 placeholder-ink-400 focus:border-pulse-400 focus:outline-none"
+                      className="w-full rounded-xl border border-slate-300 dark:border-white/10 bg-slate-50 dark:bg-night-900 px-4 py-3 text-sm text-ink-900 dark:text-ink-100 placeholder-ink-400 transition-all focus:border-pulse-400 focus:ring-2 focus:ring-pulse-400/20 focus:outline-none"
                     />
                   </div>
                   <div>
@@ -514,7 +522,7 @@ export default function BharatXLabsPage() {
                       placeholder="rajesh@iitd.ac.in"
                       value={formData.email}
                       onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                      className="w-full rounded-xl border border-slate-300 dark:border-white/10 bg-slate-50 dark:bg-night-900 px-4 py-3 text-sm text-ink-900 dark:text-ink-100 placeholder-ink-400 focus:border-pulse-400 focus:outline-none"
+                      className="w-full rounded-xl border border-slate-300 dark:border-white/10 bg-slate-50 dark:bg-night-900 px-4 py-3 text-sm text-ink-900 dark:text-ink-100 placeholder-ink-400 transition-all focus:border-pulse-400 focus:ring-2 focus:ring-pulse-400/20 focus:outline-none"
                     />
                   </div>
                 </div>
@@ -529,7 +537,7 @@ export default function BharatXLabsPage() {
                       placeholder="IIT / IISc / Enterprise Research"
                       value={formData.organization}
                       onChange={(e) => setFormData({ ...formData, organization: e.target.value })}
-                      className="w-full rounded-xl border border-slate-300 dark:border-white/10 bg-slate-50 dark:bg-night-900 px-4 py-3 text-sm text-ink-900 dark:text-ink-100 placeholder-ink-400 focus:border-pulse-400 focus:outline-none"
+                      className="w-full rounded-xl border border-slate-300 dark:border-white/10 bg-slate-50 dark:bg-night-900 px-4 py-3 text-sm text-ink-900 dark:text-ink-100 placeholder-ink-400 transition-all focus:border-pulse-400 focus:ring-2 focus:ring-pulse-400/20 focus:outline-none"
                     />
                   </div>
                   <div>
@@ -539,7 +547,7 @@ export default function BharatXLabsPage() {
                     <select
                       value={formData.domain}
                       onChange={(e) => setFormData({ ...formData, domain: e.target.value })}
-                      className="w-full rounded-xl border border-slate-300 dark:border-white/10 bg-slate-50 dark:bg-night-900 px-4 py-3 text-sm text-ink-900 dark:text-ink-100 focus:border-pulse-400 focus:outline-none"
+                      className="w-full rounded-xl border border-slate-300 dark:border-white/10 bg-slate-50 dark:bg-night-900 px-4 py-3 text-sm text-ink-900 dark:text-ink-100 transition-all focus:border-pulse-400 focus:ring-2 focus:ring-pulse-400/20 focus:outline-none"
                     >
                       <option value="Foundation Models">Foundation Models & Multilingual LLMs</option>
                       <option value="Edge Silicon">Edge Neural Compute & Silicon</option>
@@ -559,7 +567,7 @@ export default function BharatXLabsPage() {
                     placeholder="Briefly outline your research background, publication interests, or proposed testbed deployment..."
                     value={formData.note}
                     onChange={(e) => setFormData({ ...formData, note: e.target.value })}
-                    className="w-full rounded-xl border border-slate-300 dark:border-white/10 bg-slate-50 dark:bg-night-900 px-4 py-3 text-sm text-ink-900 dark:text-ink-100 placeholder-ink-400 focus:border-pulse-400 focus:outline-none"
+                    className="w-full rounded-xl border border-slate-300 dark:border-white/10 bg-slate-50 dark:bg-night-900 px-4 py-3 text-sm text-ink-900 dark:text-ink-100 placeholder-ink-400 transition-all focus:border-pulse-400 focus:ring-2 focus:ring-pulse-400/20 focus:outline-none resize-y"
                   />
                 </div>
 
@@ -567,7 +575,7 @@ export default function BharatXLabsPage() {
                   <span className="font-mono text-xs text-ink-400">
                     Encrypted submission. Subject to BharatX Data Governance.
                   </span>
-                  <Button type="submit" variant="primary" size="lg" withArrow>
+                  <Button type="submit" variant="primary" size="lg" withArrow data-cursor="button" className="fx-shine">
                     Submit Access Application
                   </Button>
                 </div>
@@ -575,10 +583,10 @@ export default function BharatXLabsPage() {
             )}
           </div>
         </div>
-      </section>
+      </SectionTransition>
 
       {/* ── BHARATX ECOSYSTEM SYNERGY ──────────────────────────────── */}
-      <section className="py-16 border-t border-slate-200/80 dark:border-white/5 bg-slate-100/50 dark:bg-night-950">
+      <SectionTransition divider={false} className="py-16 border-t border-slate-200/80 dark:border-white/5 bg-slate-100/50 dark:bg-night-950">
         <div className="container-x text-center">
           <span className="font-mono text-xs uppercase tracking-[0.25em] text-ink-400">
             Backed by BharatX Group Conglomerate Infrastructure
@@ -590,14 +598,15 @@ export default function BharatXLabsPage() {
                 <Link
                   key={c.id}
                   to={`/companies/${c.slug}`}
-                  className="rounded-full border border-slate-200 dark:border-white/10 bg-white dark:bg-night-900 px-4 py-2 text-xs font-medium text-ink-600 dark:text-ink-300 hover:border-gold-400 hover:text-gold-400 transition-colors"
+                  data-cursor="button"
+                  className="rounded-full border border-slate-200 dark:border-white/10 bg-white dark:bg-night-900 px-4 py-2 text-xs font-medium text-ink-600 dark:text-ink-300 hover:border-gold-400 hover:text-gold-400 transition-colors fx-lift"
                 >
                   {c.name}
                 </Link>
               ))}
           </div>
         </div>
-      </section>
+      </SectionTransition>
     </div>
   );
 }

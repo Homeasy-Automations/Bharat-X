@@ -248,24 +248,35 @@ function NavItem({
     <div onMouseEnter={onEnter} className="relative">
       <NavLink
         to={item.to}
+        data-cursor="link"
         className={cn(
           "group relative flex items-center gap-1.5 rounded-full px-2.5 py-1.5 xl:px-3.5 xl:py-2 text-[13px] font-medium transition-all duration-300",
           scrolled
             ? active
-              ? "text-[#3026B3] font-bold bg-[#3026B3]/10"
+              ? "text-[#3026B3] font-bold"
               : "text-[#111827] hover:text-[#3026B3] hover:bg-[#3026B3]/8"
             : active
               ? "text-[#FFB000] font-bold drop-shadow-[0_1px_3px_rgba(0,0,0,0.5)]"
               : "text-white drop-shadow-[0_1px_2px_rgba(0,0,0,0.4)] hover:text-[#FFB000] hover:bg-white/10",
         )}
       >
+        {active && (
+          <motion.span
+            layoutId="navbar-active-indicator"
+            className={cn(
+              "absolute inset-0 rounded-full -z-10",
+              scrolled ? "bg-[#3026B3]/10" : "bg-white/15 backdrop-blur-xs"
+            )}
+            transition={{ type: "spring", stiffness: 380, damping: 30 }}
+          />
+        )}
         <Icon
           name={item.icon}
           width={13.5}
           height={13.5}
           strokeWidth={1.8}
           className={cn(
-            "shrink-0 transition-transform duration-300 group-hover:scale-110",
+            "shrink-0 transition-transform duration-300 group-hover:scale-110 fx-icon-pop",
             scrolled
               ? active ? "text-[#3026B3]" : "text-[#596579] group-hover:text-[#3026B3]"
               : active ? "text-[#FFB000]" : "text-[#FFB000] group-hover:text-white",
@@ -287,7 +298,7 @@ function NavItem({
         <span
           aria-hidden
           className={cn(
-            "absolute inset-x-3 -bottom-0.5 h-0.5 origin-left transition-transform duration-300 rounded-full",
+            "absolute inset-x-3 -bottom-0.5 h-0.5 origin-center transition-transform duration-300 rounded-full",
             scrolled ? "bg-[#3026B3]" : "bg-[#FFB000]",
             active ? "scale-x-100" : "scale-x-0 group-hover:scale-x-100",
           )}

@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { Icon } from "../utils/icons";
+import { AnimatedHeading } from "../components/motion/AnimatedHeading";
 import {
   adminLogin,
   getInquiries,
@@ -55,14 +56,17 @@ export default function AdminPage() {
         {!token ? (
           <form
             onSubmit={login}
-            className="rounded-2xl border border-white/10 bg-night-850/80 p-6 sm:p-8 md:p-10"
+            data-cursor="card"
+            className="rounded-2xl border border-white/10 bg-night-850/80 p-6 sm:p-8 md:p-10 fx-lift transition-all shadow-xl"
           >
             <div className="mb-8 flex items-center gap-3">
-              <span className="flex h-11 w-11 items-center justify-center rounded-xl border border-gold-400/40 bg-gold-400/10 text-gold-400">
+              <span className="flex h-11 w-11 items-center justify-center rounded-xl border border-gold-400/40 bg-gold-400/10 text-gold-400 fx-icon-pop">
                 <Icon name="shield-check" width={20} height={20} />
               </span>
               <div>
-                <h1 className="font-display text-xl font-semibold text-ink-50">Admin console</h1>
+                <AnimatedHeading as="h1" effect="blur" hover="shift" className="font-display text-xl font-semibold text-ink-50">
+                  Admin console
+                </AnimatedHeading>
                 <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-ink-500">
                   JWT-protected · internal
                 </p>
@@ -79,7 +83,7 @@ export default function AdminPage() {
                   required
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
-                  className="w-full rounded-xl border border-white/10 bg-night-800/70 px-4 py-3 text-base md:text-[14.5px] text-ink-50 outline-none transition-all focus:border-pulse-400/60 focus:ring-2 focus:ring-pulse-400/15"
+                  className="w-full rounded-xl border border-white/10 bg-night-800/70 px-4 py-3 text-base md:text-[14.5px] text-ink-50 outline-none transition-all focus:border-pulse-400/60 focus:ring-2 focus:ring-pulse-400/15 hover:border-white/20"
                   placeholder="admin@…"
                 />
               </div>
@@ -93,7 +97,7 @@ export default function AdminPage() {
                   required
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
-                  className="w-full rounded-xl border border-white/10 bg-night-800/70 px-4 py-3 text-base md:text-[14.5px] text-ink-50 outline-none transition-all focus:border-pulse-400/60 focus:ring-2 focus:ring-pulse-400/15"
+                  className="w-full rounded-xl border border-white/10 bg-night-800/70 px-4 py-3 text-base md:text-[14.5px] text-ink-50 outline-none transition-all focus:border-pulse-400/60 focus:ring-2 focus:ring-pulse-400/15 hover:border-white/20"
                   placeholder="••••••••"
                 />
               </div>
@@ -104,8 +108,9 @@ export default function AdminPage() {
               )}
               <button
                 type="submit"
+                data-cursor="button"
                 disabled={busy}
-                className="mt-2 w-full sm:w-auto self-start rounded-full bg-gold-400 px-7 py-3.5 text-[14px] font-semibold text-night-950 transition-colors hover:bg-gold-300 disabled:opacity-60"
+                className="mt-2 w-full sm:w-auto self-start rounded-full bg-gold-400 px-7 py-3.5 text-[14px] font-semibold text-night-950 transition-all hover:bg-gold-300 fx-shine disabled:opacity-60"
               >
                 {busy ? "Signing in…" : "Sign in"}
               </button>
@@ -117,24 +122,25 @@ export default function AdminPage() {
             </div>
           </form>
         ) : (
-          <div className="rounded-2xl border border-white/10 bg-night-850/80 p-5 sm:p-8">
+          <div data-cursor="card" className="rounded-2xl border border-white/10 bg-night-850/80 p-5 sm:p-8 fx-lift transition-all shadow-xl">
             <div className="mb-6 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
-              <h1 className="font-display text-xl font-semibold text-ink-50">
+              <AnimatedHeading as="h1" effect="blur" hover="shift" className="font-display text-xl font-semibold text-ink-50">
                 Contact inquiries
                 {inquiries && (
                   <span className="ml-3 font-mono text-[11px] text-ink-500">
                     {inquiries.length} total
                   </span>
                 )}
-              </h1>
+              </AnimatedHeading>
               <button
                 type="button"
+                data-cursor="button"
                 onClick={() => {
                   localStorage.removeItem("bxg:admin-token");
                   setToken(null);
                   setInquiries(null);
                 }}
-                className="self-start sm:self-auto rounded-full border border-white/15 px-5 py-2 text-[13px] font-semibold text-ink-200 transition-colors hover:border-white/35"
+                className="self-start sm:self-auto rounded-full border border-white/15 px-5 py-2 text-[13px] font-semibold text-ink-200 transition-colors hover:border-white/35 fx-lift"
               >
                 Sign out
               </button>
@@ -164,7 +170,7 @@ export default function AdminPage() {
                 {/* Mobile card view (< sm) */}
                 <div className="flex flex-col gap-3 sm:hidden">
                   {inquiries.map((q) => (
-                    <div key={q._id} className="rounded-xl border border-white/10 bg-night-900/60 p-4 text-[13px]">
+                    <div key={q._id} data-cursor="card" className="rounded-xl border border-white/10 bg-night-900/60 p-4 text-[13px] fx-lift transition-all hover:border-white/20">
                       <div className="flex items-start justify-between gap-2">
                         <div>
                           <div className="font-semibold text-ink-100">{q.name}</div>
@@ -204,7 +210,7 @@ export default function AdminPage() {
                     </thead>
                     <tbody>
                       {inquiries.map((q) => (
-                        <tr key={q._id} className="border-b border-white/5 align-top text-ink-300">
+                        <tr key={q._id} className="border-b border-white/5 align-top text-ink-300 hover:bg-white/5 transition-colors">
                           <td className="py-3.5 pr-4 font-medium text-ink-100">{q.name}</td>
                           <td className="py-3.5 pr-4">{q.email}</td>
                           <td className="py-3.5 pr-4">{q.inquiryType}</td>

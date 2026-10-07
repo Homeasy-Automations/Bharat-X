@@ -123,14 +123,15 @@ export function SearchModal({ open, onClose }: SearchModalProps) {
                       <button
                         key={s.id}
                         type="button"
+                        data-cursor="button"
                         onClick={() => handleSelect(`/services#${s.id}`)}
-                        className="group flex items-center gap-3 rounded-xl p-2.5 text-left transition-colors hover:bg-[#FAF9F6] dark:hover:bg-white/[0.05]"
+                        className="group relative flex items-center gap-3 rounded-xl p-2.5 text-left transition-all duration-200 hover:bg-[#FAF9F6] hover:translate-x-1 dark:hover:bg-white/[0.05]"
                       >
-                        <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-[#FAF9F6] border border-[#E3E5EF] font-mono text-[11px] font-bold text-[#3026B3]">
+                        <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-[#FAF9F6] border border-[#E3E5EF] font-mono text-[11px] font-bold text-[#3026B3] transition-transform duration-200 group-hover:scale-110">
                           0{i + 1}
                         </span>
                         <div className="min-w-0 flex-1">
-                          <div className="font-display text-[13.5px] font-semibold text-[#111827] group-hover:text-[#3026B3] dark:text-white dark:group-hover:text-gold-400 truncate">
+                          <div className="font-display text-[13.5px] font-semibold text-[#111827] group-hover:text-[#3026B3] dark:text-white dark:group-hover:text-gold-400 truncate transition-colors">
                             {s.name}
                           </div>
                           <div className="text-[11px] text-[#596579] truncate">
@@ -141,7 +142,7 @@ export function SearchModal({ open, onClose }: SearchModalProps) {
                           name="arrow-up-right"
                           width={14}
                           height={14}
-                          className="shrink-0 text-[#3026B3] opacity-0 group-hover:opacity-100 transition-opacity"
+                          className="shrink-0 text-[#3026B3] opacity-0 group-hover:opacity-100 transition-all duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
                         />
                       </button>
                     ))}
@@ -160,13 +161,14 @@ export function SearchModal({ open, onClose }: SearchModalProps) {
                       <button
                         key={p.to}
                         type="button"
+                        data-cursor="button"
                         onClick={() => handleSelect(p.to)}
-                        className="group flex items-center gap-3 rounded-xl p-2.5 text-left transition-colors hover:bg-[#FAF9F6] dark:hover:bg-white/[0.05]"
+                        className="group relative flex items-center gap-3 rounded-xl p-2.5 text-left transition-all duration-200 hover:bg-[#FAF9F6] hover:translate-x-1 dark:hover:bg-white/[0.05]"
                       >
-                        <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-[#FAF9F6] border border-[#E3E5EF] text-[#3026B3] dark:bg-white/[0.06] dark:text-ink-400">
+                        <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-[#FAF9F6] border border-[#E3E5EF] text-[#3026B3] transition-transform duration-200 group-hover:scale-110 dark:bg-white/[0.06] dark:text-ink-400">
                           <Icon name={p.icon} width={15} height={15} />
                         </span>
-                        <div className="font-display text-[13.5px] font-medium text-[#111827] group-hover:text-[#3026B3] dark:text-white truncate">
+                        <div className="font-display text-[13.5px] font-medium text-[#111827] group-hover:text-[#3026B3] dark:text-white truncate transition-colors">
                           {p.label}
                         </div>
                       </button>

@@ -13,14 +13,18 @@ export function Breadcrumbs({
     <nav aria-label="Breadcrumb" className={className}>
       <ol className="flex flex-wrap items-center gap-2 font-mono text-[11px] uppercase tracking-[0.18em] text-ink-500">
         {items.map((item, i) => (
-          <li key={i} className="flex items-center gap-2">
-            {i > 0 && <ChevronRight size={11} aria-hidden className="text-ink-600" />}
+          <li key={i} className="flex items-center gap-2 group/crumb">
+            {i > 0 && <ChevronRight size={11} aria-hidden className="text-ink-600 transition-transform duration-200 group-hover/crumb:translate-x-0.5" />}
             {item.to ? (
-              <Link to={item.to} className="transition-colors hover:text-pulse-300">
+              <Link
+                to={item.to}
+                data-cursor="link"
+                className="transition-colors hover:text-[#3026B3] dark:hover:text-pulse-300 fx-underline"
+              >
                 {item.label}
               </Link>
             ) : (
-              <span aria-current="page" className="text-ink-300">
+              <span aria-current="page" className="text-ink-300 font-semibold">
                 {item.label}
               </span>
             )}

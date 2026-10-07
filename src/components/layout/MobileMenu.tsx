@@ -62,15 +62,23 @@ export function MobileMenu({ open, onClose }: { open: boolean; onClose: () => vo
             </div>
 
             <nav aria-label="Mobile" className="mt-10 flex flex-col">
-              {navigation.map((item) => (
-                <NavLink
+              {navigation.map((item, idx) => (
+                <motion.div
                   key={item.to}
-                  to={item.to}
-                  className={({ isActive }) => mobileLinkClass(isActive)}
-                  onClick={onClose}
+                  initial={{ opacity: 0, x: -16 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: 0.05 + idx * 0.04, duration: 0.3 }}
                 >
-                  <Icon name={item.icon} width={16} height={16} /> {item.label}
-                </NavLink>
+                  <NavLink
+                    to={item.to}
+                    data-cursor="link"
+                    className={({ isActive }) => cn(mobileLinkClass(isActive), "group fx-arrow")}
+                    onClick={onClose}
+                  >
+                    <Icon name={item.icon} width={16} height={16} className="transition-transform group-hover:scale-115 fx-icon-pop" />
+                    <span className="fx-underline">{item.label}</span>
+                  </NavLink>
+                </motion.div>
               ))}
             </nav>
 
@@ -85,7 +93,8 @@ export function MobileMenu({ open, onClose }: { open: boolean; onClose: () => vo
                     key={svc.id}
                     to={`/services#${svc.id}`}
                     onClick={onClose}
-                    className="flex flex-col gap-1 rounded-xl border border-[#E3E5EF] bg-white dark:border-white/10 dark:bg-white/[0.03] p-3 text-left transition-all hover:border-[#3026B3] shadow-xs"
+                    data-cursor="card"
+                    className="flex flex-col gap-1 rounded-xl border border-[#E3E5EF] bg-white dark:border-white/10 dark:bg-white/[0.03] p-3 text-left transition-all hover:border-[#3026B3] fx-lift shadow-xs"
                   >
                     <span className="font-mono text-[9px] text-[#3026B3] dark:text-gold-400 font-semibold">0{i + 1}</span>
                     <span className="truncate text-[13px] font-medium text-ink-900 dark:text-white">
@@ -100,10 +109,11 @@ export function MobileMenu({ open, onClose }: { open: boolean; onClose: () => vo
               <Link
                 to="/services"
                 onClick={onClose}
-                className="flex items-center justify-center gap-2 rounded-full bg-[#3026B3] px-6 py-3.5 text-sm font-semibold text-white shadow-md shadow-[#3026B3]/25 transition-all hover:bg-[#211B72] dark:bg-gold-500 dark:text-night-950 dark:hover:bg-gold-400"
+                data-cursor="button"
+                className="group flex items-center justify-center gap-2 rounded-full bg-[#3026B3] px-6 py-3.5 text-sm font-semibold text-white shadow-md shadow-[#3026B3]/25 transition-all hover:bg-[#211B72] fx-press fx-shine dark:bg-gold-500 dark:text-night-950 dark:hover:bg-gold-400"
               >
-                Explore All Services
-                <Icon name="arrow-right" width={15} height={15} />
+                <span>Explore All Services</span>
+                <Icon name="arrow-right" width={15} height={15} className="transition-transform group-hover:translate-x-1" />
               </Link>
               <div className="mt-6 flex items-center justify-center gap-5">
                 {brandConfig.social.map((s) => (
@@ -113,9 +123,10 @@ export function MobileMenu({ open, onClose }: { open: boolean; onClose: () => vo
                     target="_blank"
                     rel="noreferrer"
                     aria-label={s.label}
-                    className="flex h-9 w-9 items-center justify-center rounded-full border border-[#E3E5EF] bg-white dark:border-white/10 dark:bg-white/5 text-[#596579] shadow-xs transition-colors hover:border-[#3026B3] hover:text-[#3026B3]"
+                    data-cursor="button"
+                    className="flex h-9 w-9 items-center justify-center rounded-full border border-[#E3E5EF] bg-white dark:border-white/10 dark:bg-white/5 text-[#596579] shadow-xs transition-all hover:border-[#3026B3] hover:text-[#3026B3] fx-lift"
                   >
-                    <Icon name={socialIcons[s.label] ?? "arrow-up-right"} width={14} height={14} />
+                    <Icon name={socialIcons[s.label] ?? "arrow-up-right"} width={14} height={14} className="fx-icon-pop" />
                   </a>
                 ))}
               </div>

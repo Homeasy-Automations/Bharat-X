@@ -15,6 +15,8 @@ import { usePageMeta } from "../hooks/usePageMeta";
 import { companies, getCompany, relatedCompanies } from "../data/companies";
 import { getEcosystemSite } from "../data/ecosystem";
 import { Icon } from "../utils/icons";
+import { SectionTransition } from "../components/motion/SectionTransition";
+import { AnimatedHeading } from "../components/motion/AnimatedHeading";
 
 const CompanySpecificObject = lazy(() => import("../components/three/objects/CompanySpecificObject"));
 
@@ -56,11 +58,11 @@ function CompanyProfile({ company }: { company: (typeof companies)[number] }) {
   return (
     <>
       {/* ── HERO ────────────────────────────────────────────── */}
-      <section className="relative flex min-h-[86vh] items-end overflow-hidden pb-16 pt-36 md:pb-20">
+      <SectionTransition divider={false} className="relative flex min-h-[86vh] items-end overflow-hidden pb-16 pt-36 md:pb-20">
         <img
           src={company.heroImage}
           alt={`${company.name} — ${company.category}`}
-          className="absolute inset-0 h-full w-full object-cover object-top"
+          className="absolute inset-0 h-full w-full object-cover object-top fx-zoom-img"
         />
         <div className="absolute inset-0 bg-night-950/60" />
         <div className="absolute inset-0 bg-gradient-to-t from-night-900 via-night-950/50 to-night-950/70" />
@@ -79,7 +81,7 @@ function CompanyProfile({ company }: { company: (typeof companies)[number] }) {
               <Reveal>
                 <div className="mb-6 flex items-center gap-4">
                   {company.logo ? (
-                    <div className="flex h-16 w-auto min-w-[70px] max-w-[180px] shrink-0 items-center justify-center rounded-2xl bg-white px-3.5 py-2 shadow-xl">
+                    <div className="flex h-16 w-auto min-w-[70px] max-w-[180px] shrink-0 items-center justify-center rounded-2xl bg-white px-3.5 py-2 shadow-xl fx-lift">
                       <img
                         src={company.logo}
                         alt={company.name}
@@ -88,7 +90,7 @@ function CompanyProfile({ company }: { company: (typeof companies)[number] }) {
                     </div>
                   ) : (
                     <span
-                      className="flex h-14 w-14 items-center justify-center rounded-2xl font-mono text-[15px] font-semibold shadow-lg backdrop-blur"
+                      className="flex h-14 w-14 items-center justify-center rounded-2xl font-mono text-[15px] font-semibold shadow-lg backdrop-blur fx-lift"
                       style={{
                         color: company.accentColor,
                         background: "rgba(7,10,15,0.75)",
@@ -99,7 +101,7 @@ function CompanyProfile({ company }: { company: (typeof companies)[number] }) {
                     </span>
                   )}
                   <span
-                    className="flex items-center gap-2 rounded-full border px-4 py-1.5 font-mono text-[10.5px] uppercase tracking-[0.2em] backdrop-blur"
+                    className="flex items-center gap-2 rounded-full border px-4 py-1.5 font-mono text-[10.5px] uppercase tracking-[0.2em] backdrop-blur fx-lift"
                     style={{
                       color: company.accentColor,
                       borderColor: `${company.accentColor}44`,
@@ -121,12 +123,12 @@ function CompanyProfile({ company }: { company: (typeof companies)[number] }) {
               </Reveal>
               <Reveal delay={0.25} className="mt-8">
                 <div className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto">
-                  <a href={company.website} target="_blank" rel="noreferrer" className="w-full sm:w-auto">
+                  <a href={company.website} target="_blank" rel="noreferrer" data-cursor="button" className="w-full sm:w-auto">
                     <Button variant="primary" size="lg" withArrow className="w-full sm:w-auto">
                       Visit Website
                     </Button>
                   </a>
-                  <Link to={`/ecosystem?company=${company.id}`} className="w-full sm:w-auto">
+                  <Link to={`/ecosystem?company=${company.id}`} data-cursor="button" className="w-full sm:w-auto">
                     <Button variant="ghost" size="lg" className="w-full sm:w-auto">
                       <span className="flex items-center gap-2.5">
                         <Icon name="orbit" width={15} height={15} />
@@ -157,10 +159,10 @@ function CompanyProfile({ company }: { company: (typeof companies)[number] }) {
             </div>
           </div>
         </div>
-      </section>
+      </SectionTransition>
 
       {/* ── ABOUT ───────────────────────────────────────────── */}
-      <section className="py-24 md:py-28">
+      <SectionTransition divider className="py-24 md:py-28">
         <div className="container-x grid gap-12 lg:grid-cols-[0.85fr_1.15fr]">
           <div className="lg:sticky lg:top-28 lg:self-start">
             <SectionHeader
@@ -181,7 +183,7 @@ function CompanyProfile({ company }: { company: (typeof companies)[number] }) {
               </Reveal>
             ))}
             <Reveal delay={0.25}>
-              <div className="mt-2 grid grid-cols-2 gap-6 rounded-2xl border border-white/8 bg-night-850/70 p-7 sm:grid-cols-3">
+              <div data-cursor="card" className="mt-2 grid grid-cols-2 gap-6 rounded-2xl border border-white/8 bg-night-850/70 p-7 sm:grid-cols-3 fx-lift">
                 <MetaStat icon="globe" label="Website" value={company.domain} />
                 <MetaStat icon="network" label="Ecosystem ID" value={String(company.order).padStart(2, "0")} />
                 <MetaStat icon="building-2" label="Group" value="BharatX" />
@@ -189,10 +191,10 @@ function CompanyProfile({ company }: { company: (typeof companies)[number] }) {
             </Reveal>
           </div>
         </div>
-      </section>
+      </SectionTransition>
 
       {/* ── CAPABILITIES ─────────────────────────────────────── */}
-      <section className="border-t border-white/5 bg-night-850/50 py-24 md:py-28">
+      <SectionTransition divider className="border-t border-white/5 bg-night-850/50 py-24 md:py-28">
         <div className="container-x">
           <SectionHeader
             icon="cog"
@@ -203,23 +205,23 @@ function CompanyProfile({ company }: { company: (typeof companies)[number] }) {
           <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {company.capabilities.map((cap, i) => (
               <Reveal key={cap.title} delay={(i % 3) * 0.07}>
-                <TiltCard className="group h-full overflow-hidden rounded-2xl border border-white/8 bg-night-900/70 p-6 transition-colors duration-300 hover:border-white/18">
+                <TiltCard data-cursor="card" className="group h-full overflow-hidden rounded-2xl border border-white/8 bg-night-900/70 p-6 transition-colors duration-300 hover:border-white/18 fx-lift">
                   <div className="flex items-center justify-between">
                     <IconBadge icon={cap.icon} accent={company.accentColor} size="sm" />
                     <span className="font-mono text-[11px] text-ink-600">
                       {String(i + 1).padStart(2, "0")}
                     </span>
                   </div>
-                  <h3 className="mt-4 font-display text-[16.5px] font-semibold text-ink-50">
+                  <AnimatedHeading as="h3" effect="blur" hover="shift" className="mt-4 font-display text-[16.5px] font-semibold text-ink-50">
                     {cap.title}
-                  </h3>
+                  </AnimatedHeading>
                   <p className="mt-2 text-[13.5px] leading-relaxed text-ink-400">{cap.description}</p>
                 </TiltCard>
               </Reveal>
             ))}
           </div>
         </div>
-      </section>
+      </SectionTransition>
 
       {/* ── CINEMATIC ────────────────────────────────────────── */}
       <CinematicSection
@@ -233,7 +235,7 @@ function CompanyProfile({ company }: { company: (typeof companies)[number] }) {
       />
 
       {/* ── APPLICATIONS ─────────────────────────────────────── */}
-      <section className="py-24 md:py-28">
+      <SectionTransition divider className="py-24 md:py-28">
         <div className="container-x">
           <SectionHeader
             icon="boxes"
@@ -244,7 +246,8 @@ function CompanyProfile({ company }: { company: (typeof companies)[number] }) {
             {company.applications.map((a, i) => (
               <Reveal key={a.title} delay={(i % 2) * 0.08}>
                 <div
-                  className="group flex h-full items-start gap-5 rounded-2xl border border-white/8 bg-night-850/70 p-7 transition-all duration-300 hover:bg-night-800"
+                  data-cursor="card"
+                  className="group flex h-full items-start gap-5 rounded-2xl border border-white/8 bg-night-850/70 p-7 transition-all duration-300 hover:bg-night-800 fx-lift"
                   style={{ borderLeftColor: `${company.accentColor}66`, borderLeftWidth: 2 }}
                 >
                   <span
@@ -258,7 +261,9 @@ function CompanyProfile({ company }: { company: (typeof companies)[number] }) {
                     <Icon name={company.icon} width={18} height={18} />
                   </span>
                   <div>
-                    <h3 className="font-display text-lg font-semibold text-ink-50">{a.title}</h3>
+                    <AnimatedHeading as="h3" effect="blur" hover="shift" className="font-display text-lg font-semibold text-ink-50">
+                      {a.title}
+                    </AnimatedHeading>
                     <p className="mt-2 text-[14px] leading-relaxed text-ink-400">{a.description}</p>
                   </div>
                 </div>
@@ -266,74 +271,76 @@ function CompanyProfile({ company }: { company: (typeof companies)[number] }) {
             ))}
           </div>
         </div>
-      </section>
+      </SectionTransition>
 
       {/* ── FOCUS + SHOWCASE 3D ──────────────────────────────── */}
-      <section ref={showcaseRef} className="relative overflow-hidden border-t border-white/5 bg-night-950/70 py-24 md:py-28">
-        <div aria-hidden className="grid-bg grid-bg-fade absolute inset-0 opacity-40" />
-        <div className="container-x relative grid items-center gap-12 lg:grid-cols-2">
-          <div>
-            <SectionHeader
-              icon="target"
-              eyebrow="Focus areas"
-              title="What we will not compromise."
-              className="mb-10"
-            />
-            <div className="flex flex-col divide-y divide-white/8">
-              {company.focusAreas.map((f, i) => (
-                <Reveal key={f} delay={i * 0.08}>
-                  <div className="group flex items-center gap-6 py-6">
-                    <span className="font-mono text-sm text-gold-400">{String(i + 1).padStart(2, "0")}</span>
-                    <h3 className="font-display text-xl font-medium tracking-tight text-ink-100 transition-colors group-hover:text-white md:text-2xl">
-                      {f}
-                    </h3>
-                    <span className="ml-auto h-px w-16 bg-white/10 transition-all duration-500 group-hover:w-24 group-hover:bg-gold-400/50" />
-                  </div>
-                </Reveal>
-              ))}
-            </div>
-          </div>
-          <div className="relative flex flex-col justify-center rounded-3xl border border-white/10 bg-night-850/80 p-8 md:p-10 backdrop-blur-xl shadow-2xl">
-            <div
-              aria-hidden
-              className="absolute inset-0 rounded-3xl blur-2xl opacity-15"
-              style={{ background: company.accentColor }}
-            />
-            <div className="relative z-10 space-y-6">
-              <div className="flex items-center justify-between border-b border-white/10 pb-4">
-                <span className="font-mono text-xs uppercase tracking-widest text-gold-400">
-                  Technical Architecture & Specifications
-                </span>
-                <span
-                  className="rounded-full px-3 py-1 font-mono text-[10px] border"
-                  style={{
-                    color: company.accentColor,
-                    borderColor: `${company.accentColor}40`,
-                    background: `${company.accentColor}15`,
-                  }}
-                >
-                  Standard Verified
-                </span>
-              </div>
-              <p className="text-sm leading-relaxed text-ink-300">
-                Each capability is delivered with full process traceability, institutional engineering rigor, and cross-group interoperability.
-              </p>
-              <div className="grid grid-cols-2 gap-3 pt-2">
-                {company.capabilities.map((cap, idx) => (
-                  <div key={cap.title} className="rounded-xl border border-white/8 bg-night-900/60 p-4 transition-all hover:border-white/20">
-                    <span className="font-mono text-[10px] uppercase text-ink-500">Tier {idx + 1}</span>
-                    <div className="mt-1 font-display text-sm font-semibold text-white">{cap.title}</div>
-                    <div className="mt-1 text-[11px] text-ink-400 leading-normal line-clamp-2">{cap.description}</div>
-                  </div>
+      <SectionTransition divider className="relative overflow-hidden border-t border-white/5 bg-night-950/70 py-24 md:py-28">
+        <div ref={showcaseRef}>
+          <div aria-hidden className="grid-bg grid-bg-fade absolute inset-0 opacity-40" />
+          <div className="container-x relative grid items-center gap-12 lg:grid-cols-2">
+            <div>
+              <SectionHeader
+                icon="target"
+                eyebrow="Focus areas"
+                title="What we will not compromise."
+                className="mb-10"
+              />
+              <div className="flex flex-col divide-y divide-white/8">
+                {company.focusAreas.map((f, i) => (
+                  <Reveal key={f} delay={i * 0.08}>
+                    <div data-cursor="card" className="group flex items-center gap-6 py-6 transition-all hover:pl-2">
+                      <span className="font-mono text-sm text-gold-400">{String(i + 1).padStart(2, "0")}</span>
+                      <h3 className="font-display text-xl font-medium tracking-tight text-ink-100 transition-colors group-hover:text-white md:text-2xl">
+                        {f}
+                      </h3>
+                      <span className="ml-auto h-px w-16 bg-white/10 transition-all duration-500 group-hover:w-24 group-hover:bg-gold-400/50" />
+                    </div>
+                  </Reveal>
                 ))}
+              </div>
+            </div>
+            <div data-cursor="card" className="relative flex flex-col justify-center rounded-3xl border border-white/10 bg-night-850/80 p-8 md:p-10 backdrop-blur-xl shadow-2xl fx-lift">
+              <div
+                aria-hidden
+                className="absolute inset-0 rounded-3xl blur-2xl opacity-15"
+                style={{ background: company.accentColor }}
+              />
+              <div className="relative z-10 space-y-6">
+                <div className="flex items-center justify-between border-b border-white/10 pb-4">
+                  <span className="font-mono text-xs uppercase tracking-widest text-gold-400">
+                    Technical Architecture & Specifications
+                  </span>
+                  <span
+                    className="rounded-full px-3 py-1 font-mono text-[10px] border"
+                    style={{
+                      color: company.accentColor,
+                      borderColor: `${company.accentColor}40`,
+                      background: `${company.accentColor}15`,
+                    }}
+                  >
+                    Standard Verified
+                  </span>
+                </div>
+                <p className="text-sm leading-relaxed text-ink-300">
+                  Each capability is delivered with full process traceability, institutional engineering rigor, and cross-group interoperability.
+                </p>
+                <div className="grid grid-cols-2 gap-3 pt-2">
+                  {company.capabilities.map((cap, idx) => (
+                    <div key={cap.title} data-cursor="card" className="rounded-xl border border-white/8 bg-night-900/60 p-4 transition-all hover:border-white/20 fx-lift">
+                      <span className="font-mono text-[10px] uppercase text-ink-500">Tier {idx + 1}</span>
+                      <div className="mt-1 font-display text-sm font-semibold text-white">{cap.title}</div>
+                      <div className="mt-1 text-[11px] text-ink-400 leading-normal line-clamp-2">{cap.description}</div>
+                    </div>
+                  ))}
+                </div>
               </div>
             </div>
           </div>
         </div>
-      </section>
+      </SectionTransition>
 
       {/* ── HOW WE WORK ──────────────────────────────────────── */}
-      <section className="py-24 md:py-28">
+      <SectionTransition divider className="py-24 md:py-28">
         <div className="container-x">
           <SectionHeader
             icon="workflow"
@@ -344,14 +351,16 @@ function CompanyProfile({ company }: { company: (typeof companies)[number] }) {
           <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-4">
             {company.howWeWork.map((s, i) => (
               <Reveal key={s.title} delay={i * 0.09}>
-                <div className="relative h-full rounded-2xl border border-white/8 bg-night-850/70 p-7">
+                <div data-cursor="card" className="relative h-full rounded-2xl border border-white/8 bg-night-850/70 p-7 fx-lift transition-all hover:border-white/20">
                   <span
                     className="font-mono text-4xl font-semibold"
                     style={{ color: `${company.accentColor}55` }}
                   >
                     {String(i + 1).padStart(2, "0")}
                   </span>
-                  <h3 className="mt-4 font-display text-lg font-semibold text-ink-50">{s.title}</h3>
+                  <AnimatedHeading as="h3" effect="blur" hover="shift" className="mt-4 font-display text-lg font-semibold text-ink-50">
+                    {s.title}
+                  </AnimatedHeading>
                   <p className="mt-2.5 text-[13.5px] leading-relaxed text-ink-400">{s.description}</p>
                   {i < company.howWeWork.length - 1 && (
                     <span aria-hidden className="absolute -right-4 top-1/2 hidden h-px w-4 bg-white/15 lg:block" />
@@ -361,10 +370,10 @@ function CompanyProfile({ company }: { company: (typeof companies)[number] }) {
             ))}
           </div>
         </div>
-      </section>
+      </SectionTransition>
 
       {/* ── VISION ───────────────────────────────────────────── */}
-      <section className="noise relative overflow-hidden border-t border-white/5 bg-night-950/60 py-24 md:py-32">
+      <SectionTransition divider={false} className="noise relative overflow-hidden border-t border-white/5 bg-night-950/60 py-24 md:py-32">
         <div
           aria-hidden
           className="absolute left-1/2 top-0 h-40 w-[40rem] -translate-x-1/2 rounded-full blur-3xl"
@@ -374,7 +383,7 @@ function CompanyProfile({ company }: { company: (typeof companies)[number] }) {
           <div className="mx-auto max-w-3xl text-center">
             <Reveal>
               <span
-                className="mx-auto flex h-12 w-12 items-center justify-center rounded-full border font-display text-2xl"
+                className="mx-auto flex h-12 w-12 items-center justify-center rounded-full border font-display text-2xl fx-icon-pop"
                 style={{ color: company.accentColor, borderColor: `${company.accentColor}44` }}
               >
                 “
@@ -390,10 +399,10 @@ function CompanyProfile({ company }: { company: (typeof companies)[number] }) {
             </Reveal>
           </div>
         </div>
-      </section>
+      </SectionTransition>
 
       {/* ── RELATED ──────────────────────────────────────────── */}
-      <section className="py-24 md:py-28">
+      <SectionTransition divider className="py-24 md:py-28">
         <div className="container-x">
           <SectionHeader
             icon="orbit"
@@ -402,11 +411,11 @@ function CompanyProfile({ company }: { company: (typeof companies)[number] }) {
           />
           <RelatedCompanies companies={relatedCompanies(company.slug, 3)} />
         </div>
-      </section>
+      </SectionTransition>
 
       {/* ── WEBSITE VIEWER ───────────────────────────────────── */}
       {site && (
-        <section className="border-t border-white/5 bg-night-850/50 py-24 md:py-28">
+        <SectionTransition divider className="border-t border-white/5 bg-night-850/50 py-24 md:py-28">
           <div className="container-x">
             <div className="flex flex-wrap items-end justify-between gap-6">
               <SectionHeader
@@ -421,7 +430,8 @@ function CompanyProfile({ company }: { company: (typeof companies)[number] }) {
                   href={company.website}
                   target="_blank"
                   rel="noreferrer"
-                  className="mb-1 inline-flex items-center gap-2 rounded-full border border-white/15 px-6 py-3 text-[13.5px] font-semibold text-ink-100 transition-colors hover:border-gold-400/50 hover:text-gold-300"
+                  data-cursor="button"
+                  className="mb-1 inline-flex items-center gap-2 rounded-full border border-white/15 px-6 py-3 text-[13.5px] font-semibold text-ink-100 transition-colors hover:border-gold-400/50 hover:text-gold-300 fx-lift"
                 >
                   Open Full Website
                   <Icon name="external-link" width={14} height={14} />
@@ -432,7 +442,7 @@ function CompanyProfile({ company }: { company: (typeof companies)[number] }) {
               <IframeViewer site={site} />
             </Reveal>
           </div>
-        </section>
+        </SectionTransition>
       )}
     </>
   );

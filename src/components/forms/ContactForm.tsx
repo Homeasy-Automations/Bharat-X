@@ -142,18 +142,19 @@ export function ContactForm({
         >
           <Icon name="check" width={28} height={28} strokeWidth={2} />
         </motion.span>
-        <h3 className="mt-6 font-display text-2xl font-semibold text-[#111827]">Thank you.</h3>
+        <h3 className="mt-6 font-display text-2xl font-semibold text-[#111827] transition-colors duration-300 hover:text-[#3026B3]">Thank you.</h3>
         <p className="mt-3 max-w-sm text-[14.5px] leading-relaxed text-[#596579]">
           Your inquiry has been received. Our team will review it and get back
           to you.
         </p>
         <button
           type="button"
+          data-cursor="button"
           onClick={() => {
             setForm(initial);
             setSubmitted(false);
           }}
-          className="mt-8 rounded-full border border-[#E3E5EF] bg-white px-6 py-3 text-[13.5px] font-semibold text-[#111827] transition-colors hover:border-[#3026B3] hover:text-[#3026B3]"
+          className="fx-press mt-8 rounded-full border border-[#E3E5EF] bg-white px-6 py-3 text-[13.5px] font-semibold text-[#111827] transition-all duration-300 hover:border-[#3026B3] hover:text-[#3026B3] hover:shadow-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#3026B3]"
         >
           Submit another inquiry
         </button>
@@ -266,8 +267,9 @@ export function ContactForm({
         </p>
         <button
           type="submit"
+          data-cursor="button"
           disabled={submitting}
-          className="group inline-flex w-full sm:w-auto items-center justify-center gap-3 rounded-full bg-[#3026B3] px-8 py-4 text-[15px] font-semibold text-white transition-all duration-300 hover:bg-[#211B72] hover:shadow-lg disabled:cursor-not-allowed disabled:opacity-60"
+          className="group fx-press fx-shine inline-flex w-full sm:w-auto items-center justify-center gap-3 rounded-full bg-[#3026B3] px-8 py-4 text-[15px] font-semibold text-white transition-all duration-300 hover:bg-[#211B72] hover:shadow-lg disabled:cursor-not-allowed disabled:opacity-60 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold-400"
         >
           {submitting ? (
             <>

@@ -138,6 +138,7 @@ export function HeroBackgroundSlideshow() {
       <div className="pointer-events-auto absolute bottom-5 left-6 lg:bottom-7 lg:left-12 z-20 hidden sm:flex items-center gap-3.5 rounded-full border border-slate-200/80 bg-white/80 px-4 py-2 text-xs backdrop-blur-xl shadow-lg dark:border-white/10 dark:bg-night-900/80">
         <button
           type="button"
+          data-cursor="button"
           onClick={() => setIsPaused((p) => !p)}
           className="flex h-5 w-5 items-center justify-center rounded-full bg-gold-500/15 text-gold-600 dark:text-gold-400 hover:scale-110 transition-transform"
           aria-label={isPaused ? "Resume slide loop" : "Pause slide loop"}
@@ -161,6 +162,7 @@ export function HeroBackgroundSlideshow() {
             <button
               key={i}
               type="button"
+              data-cursor="button"
               onClick={() => setIndex(i)}
               className={`h-1.5 rounded-full transition-all duration-300 ${
                 i === index

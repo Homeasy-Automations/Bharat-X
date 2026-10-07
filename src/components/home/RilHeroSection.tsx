@@ -108,7 +108,7 @@ export function RilHeroSection() {
                 animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
                 exit={{ opacity: 0, y: -20, filter: "blur(4px)" }}
                 transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
-                className="font-serif text-3xl sm:text-4xl md:text-5xl lg:text-[3.25rem] xl:text-[3.85rem] font-normal leading-[1.08] tracking-tight text-white drop-shadow-[0_4px_30px_rgba(0,0,0,0.85)] whitespace-nowrap"
+                className="font-serif text-3xl sm:text-4xl md:text-5xl lg:text-[3.25rem] xl:text-[3.85rem] font-normal leading-[1.08] tracking-tight text-white drop-shadow-[0_4px_30px_rgba(0,0,0,0.85)] whitespace-nowrap cursor-default transition-colors duration-300 hover:text-[#FFB000]"
               >
                 {current.heroTagline}
               </motion.h1>
@@ -132,6 +132,7 @@ export function RilHeroSection() {
         <div className="flex items-center gap-3 rounded-full border border-white/15 bg-black/70 backdrop-blur-xl px-4 py-2 shadow-2xl">
           <button
             type="button"
+            data-cursor="button"
             onClick={() => setIsPaused((p) => !p)}
             aria-label={isPaused ? "Play slide rotation" : "Pause slide rotation"}
             className="flex h-5 w-5 items-center justify-center rounded-full text-[#FFB000] hover:scale-110 transition-transform"
@@ -185,9 +186,10 @@ export function RilHeroSection() {
         <div className="flex items-center gap-2 pt-0.5">
           <button
             type="button"
+            data-cursor="button"
             onClick={handlePrev}
             aria-label="Previous slide"
-            className="p-1 rounded-full text-white/50 hover:text-white transition-colors"
+            className="p-1 rounded-full text-white/50 hover:text-white transition-all hover:scale-110"
           >
             <Icon name="chevron-left" width={12} height={12} />
           </button>
@@ -197,6 +199,7 @@ export function RilHeroSection() {
               <button
                 key={s.id}
                 type="button"
+                data-cursor="button"
                 onClick={() => handleSelect(idx)}
                 aria-label={`Jump to ${s.name}`}
                 className={`h-1.5 rounded-full transition-all duration-300 ${idx === currentIndex
@@ -209,9 +212,10 @@ export function RilHeroSection() {
 
           <button
             type="button"
+            data-cursor="button"
             onClick={handleNext}
             aria-label="Next slide"
-            className="p-1 rounded-full text-white/50 hover:text-white transition-colors"
+            className="p-1 rounded-full text-white/50 hover:text-white transition-all hover:scale-110"
           >
             <Icon name="chevron-right" width={12} height={12} />
           </button>
@@ -219,7 +223,7 @@ export function RilHeroSection() {
       </div>
 
       {/* Subtle Bottom Scroll Hint */}
-      <div className="absolute bottom-5 left-1/2 -translate-x-1/2 hidden md:flex flex-col items-center gap-1.5 text-white/50 pointer-events-none">
+      <div className="absolute bottom-5 left-1/2 -translate-x-1/2 hidden md:flex flex-col items-center gap-1.5 text-white/50 pointer-events-none animate-bounce">
         <span className="font-mono text-[9px] uppercase tracking-[0.3em]">scroll</span>
         <span className="h-5 w-px bg-gradient-to-b from-gold-400/80 to-transparent" />
       </div>

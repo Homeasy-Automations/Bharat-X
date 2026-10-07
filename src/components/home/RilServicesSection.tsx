@@ -3,6 +3,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { servicesData, ServiceItem } from "../../data/servicesData";
 import { Icon } from "../../utils/icons";
+import { SectionTransition } from "../motion/SectionTransition";
 
 export function RilServicesSection() {
   const [activeIndex, setActiveIndex] = useState(0);
@@ -11,17 +12,14 @@ export function RilServicesSection() {
   const activeService = servicesData[activeIndex];
 
   return (
-    <section
-      id="services"
-      aria-label="BharatX Core Services & Sectors"
-      className="relative w-full bg-night-950 text-white overflow-hidden"
-    >
-      {/* ── DESKTOP RIL-STYLE FULL-BLEED INTERACTIVE CROSSFADE CONTAINER ── */}
-      <div className="hidden lg:relative lg:flex lg:min-h-[820px] lg:h-[90vh] lg:max-h-[960px] w-full items-center">
-        {/* Full-Bleed Background Images Crossfade */}
-        <div className="absolute inset-0 z-0 overflow-hidden">
-          <AnimatePresence initial={false} mode="sync">
-            <motion.div
+    <SectionTransition withDivider id="services" aria-label="BharatX Core Services & Sectors">
+      <section className="relative w-full bg-night-950 text-white overflow-hidden">
+        {/* ── DESKTOP RIL-STYLE FULL-BLEED INTERACTIVE CROSSFADE CONTAINER ── */}
+        <div className="hidden lg:relative lg:flex lg:min-h-[820px] lg:h-[90vh] lg:max-h-[960px] w-full items-center">
+          {/* Full-Bleed Background Images Crossfade */}
+          <div className="absolute inset-0 z-0 overflow-hidden">
+            <AnimatePresence initial={false} mode="sync">
+              <motion.div
               key={activeService.id}
               initial={{ opacity: 0, scale: 1.05 }}
               animate={{ opacity: 1, scale: 1.0 }}
@@ -72,7 +70,7 @@ export function RilServicesSection() {
                 </div>
 
                 {/* Majestic Serif Headline */}
-                <h2 className="mt-3 font-serif text-5xl xl:text-6xl 2xl:text-7xl font-normal leading-[1.05] tracking-tight text-white drop-shadow-lg">
+                <h2 className="mt-3 font-serif text-5xl xl:text-6xl 2xl:text-7xl font-normal leading-[1.05] tracking-tight text-white drop-shadow-lg transition-colors duration-300 hover:text-gold-400">
                   {activeService.name}
                 </h2>
 
@@ -203,7 +201,7 @@ export function RilServicesSection() {
             <span className="text-gold-400">◆</span>
             <span>OUR BUSINESSES & SERVICES</span>
           </div>
-          <h2 className="mt-2 font-serif text-3xl sm:text-4xl text-white">
+          <h2 className="mt-2 font-serif text-3xl sm:text-4xl text-white transition-colors duration-300 hover:text-gold-400">
             Core Operating Sectors
           </h2>
           <p className="mt-2 text-sm text-slate-400">
@@ -233,7 +231,7 @@ export function RilServicesSection() {
 
               {/* Card Body */}
               <div className="p-6">
-                <h3 className="font-serif text-2xl font-normal text-[#111827] dark:text-white">
+                <h3 className="font-serif text-2xl font-normal text-[#111827] dark:text-white transition-colors duration-300 hover:text-gold-400">
                   {svc.name}
                 </h3>
                 <p className="mt-2 text-sm font-medium text-[#3026B3] dark:text-gold-200">
@@ -328,7 +326,7 @@ export function RilServicesSection() {
               </div>
 
               {/* Title in Serif */}
-              <h3 className="mt-2 font-serif text-3xl sm:text-4xl text-[#111827] dark:text-white">
+              <h3 className="mt-2 font-serif text-3xl sm:text-4xl text-[#111827] dark:text-white transition-colors duration-300 hover:text-gold-400">
                 {selectedModal.name}
               </h3>
 
@@ -397,6 +395,7 @@ export function RilServicesSection() {
           </div>
         )}
       </AnimatePresence>
-    </section>
+      </section>
+    </SectionTransition>
   );
 }

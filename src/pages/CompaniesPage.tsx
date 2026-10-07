@@ -9,6 +9,9 @@ import { Stats } from "../components/common/Stats";
 import { CompanyGrid } from "../components/company/CompanyGrid";
 import { usePageMeta } from "../hooks/usePageMeta";
 import { Icon } from "../utils/icons";
+import { SectionTransition } from "../components/motion/SectionTransition";
+import { Stagger, StaggerItem } from "../components/motion/Stagger";
+import { AnimatedHeading } from "../components/motion/AnimatedHeading";
 
 const CompaniesConstellation = lazy(() => import("../components/three/objects/CompaniesConstellation"));
 
@@ -31,7 +34,7 @@ export default function CompaniesPage() {
         visual={<CompaniesConstellation />}
         visualPlacement="right"
       >
-        <Link to="/ecosystem">
+        <Link to="/ecosystem" data-cursor="button">
           <Button variant="primary" size="lg" withArrow>
             Open the Ecosystem Viewer
           </Button>
@@ -39,7 +42,7 @@ export default function CompaniesPage() {
       </PageHero>
 
       {/* Grid */}
-      <section className="py-24 md:py-28">
+      <SectionTransition divider className="py-24 md:py-28">
         <div className="container-x">
           <Reveal>
             <div className="mb-12 flex items-center gap-4 font-mono text-[11px] uppercase tracking-[0.26em] text-ink-500">
@@ -50,10 +53,10 @@ export default function CompaniesPage() {
           </Reveal>
           <CompanyGrid />
         </div>
-      </section>
+      </SectionTransition>
 
       {/* Stats strip */}
-      <section className="border-t border-white/5 bg-night-850/50 py-20">
+      <SectionTransition divider className="border-t border-white/5 bg-night-850/50 py-20">
         <div className="container-x">
           <Stats
             items={[
@@ -64,10 +67,10 @@ export default function CompaniesPage() {
             ]}
           />
         </div>
-      </section>
+      </SectionTransition>
 
       {/* What connects them */}
-      <section className="py-24 md:py-28">
+      <SectionTransition divider className="py-24 md:py-28">
         <div className="container-x">
           <SectionHeader
             icon="network"
@@ -75,7 +78,7 @@ export default function CompaniesPage() {
             title="Not a portfolio. A working system."
             lede="The group adds value through shared standards — not shared management. Three commitments apply to every business, today and to every company that joins later."
           />
-          <div className="grid gap-5 md:grid-cols-3">
+          <Stagger className="grid gap-5 md:grid-cols-3">
             {[
               {
                 icon: "shield-check",
@@ -92,22 +95,24 @@ export default function CompaniesPage() {
                 t: "Room to grow",
                 d: "The architecture — this site, the data model, the viewer — is built to add more businesses without restructuring. The seventh company gets the same stage.",
               },
-            ].map((c, i) => (
-              <Reveal key={c.t} delay={i * 0.09}>
-                <div className="h-full rounded-2xl border border-white/8 bg-night-850/70 p-7">
+            ].map((c) => (
+              <StaggerItem key={c.t}>
+                <div data-cursor="card" className="h-full rounded-2xl border border-white/8 bg-night-850/70 p-7 fx-lift transition-all hover:border-white/20">
                   <IconBadge icon={c.icon} />
-                  <h3 className="mt-5 font-display text-xl font-semibold text-ink-50">{c.t}</h3>
+                  <AnimatedHeading as="h3" effect="blur" hover="shift" className="mt-5 font-display text-xl font-semibold text-ink-50">
+                    {c.t}
+                  </AnimatedHeading>
                   <p className="mt-3 text-[14px] leading-relaxed text-ink-400">{c.d}</p>
                 </div>
-              </Reveal>
+              </StaggerItem>
             ))}
-          </div>
+          </Stagger>
           <Reveal delay={0.15}>
-            <div className="mt-14 flex flex-wrap items-center justify-between gap-6 rounded-2xl border border-white/8 bg-night-950/60 p-8">
+            <div data-cursor="card" className="mt-14 flex flex-wrap items-center justify-between gap-6 rounded-2xl border border-white/8 bg-night-950/60 p-8 fx-lift transition-all hover:border-white/20">
               <div className="flex items-center gap-4">
                 <IconBadge icon="orbit" size="lg" />
                 <div>
-                  <h3 className="font-display text-lg font-semibold text-ink-50">
+                  <h3 className="font-display text-lg font-semibold text-ink-50 transition-colors duration-300 hover:text-gold-400">
                     See all six websites, live, in one place
                   </h3>
                   <p className="mt-1 text-[13.5px] text-ink-400">
@@ -115,7 +120,7 @@ export default function CompaniesPage() {
                   </p>
                 </div>
               </div>
-              <Link to="/ecosystem">
+              <Link to="/ecosystem" data-cursor="button">
                 <Button variant="teal" withArrow>
                   Enter the ecosystem
                 </Button>
@@ -123,10 +128,10 @@ export default function CompaniesPage() {
             </div>
           </Reveal>
         </div>
-      </section>
+      </SectionTransition>
 
       {/* Statement */}
-      <section className="noise relative overflow-hidden border-t border-white/5 bg-night-950/60 py-24 md:py-28">
+      <SectionTransition divider={false} className="noise relative overflow-hidden border-t border-white/5 bg-night-950/60 py-24 md:py-28">
         <div aria-hidden className="grid-bg grid-bg-fade absolute inset-0 opacity-40" />
         <div className="container-x relative text-center">
           <h2 className="mx-auto max-w-3xl font-display text-3xl font-semibold leading-[1.15] tracking-tight text-ink-50 md:text-5xl">
@@ -144,7 +149,7 @@ export default function CompaniesPage() {
           </Reveal>
           <Reveal delay={0.3}>
             <div className="mt-10 flex items-center justify-center gap-6">
-              <Link to="/ecosystem" className="group inline-flex items-center gap-2 font-mono text-[11px] uppercase tracking-[0.2em] text-gold-400 transition-colors hover:text-gold-300">
+              <Link to="/ecosystem" data-cursor="link" className="group inline-flex items-center gap-2 font-mono text-[11px] uppercase tracking-[0.2em] text-gold-400 transition-colors hover:text-gold-300 fx-underline">
                 <Icon name="orbit" width={13} height={13} />
                 Open the ecosystem
                 <Icon name="arrow-right" width={13} height={13} className="transition-transform group-hover:translate-x-1" />
@@ -152,7 +157,7 @@ export default function CompaniesPage() {
             </div>
           </Reveal>
         </div>
-      </section>
+      </SectionTransition>
     </>
   );
 }

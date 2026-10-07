@@ -109,7 +109,7 @@ export function ThreeScene({
   return (
     <div
       ref={containerRef}
-      className={cn("relative flex items-center justify-center overflow-visible", heightClass, className)}
+      className={cn("relative flex items-center justify-center overflow-visible transition-all duration-700", inView ? "opacity-100 scale-100" : "opacity-0 scale-[0.98]", heightClass, className)}
     >
       {/* Luminous high-contrast ambient pedestal for Light & Dark modes */}
       <div

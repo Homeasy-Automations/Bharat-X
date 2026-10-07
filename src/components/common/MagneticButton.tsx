@@ -51,6 +51,9 @@ export function MagneticButton({
     return (
       <MotionLink
         to={to ?? "#"}
+        data-magnetic="true"
+        data-motion="true"
+        data-cursor="button"
         onPointerMove={onMove}
         onPointerLeave={onLeave}
         style={{ x: sx, y: sy }}
@@ -64,7 +67,16 @@ export function MagneticButton({
   if (Component === "a") {
     const bp = (buttonProps ?? {}) as Record<string, unknown>;
     return (
-      <motion.a onPointerMove={onMove} onPointerLeave={onLeave} style={{ x: sx, y: sy }} className={className} {...bp}>
+      <motion.a
+        data-magnetic="true"
+        data-motion="true"
+        data-cursor="button"
+        onPointerMove={onMove}
+        onPointerLeave={onLeave}
+        style={{ x: sx, y: sy }}
+        className={className}
+        {...bp}
+      >
         {children}
       </motion.a>
     );
@@ -72,13 +84,29 @@ export function MagneticButton({
   if (Component === "button") {
     const bp = (buttonProps ?? {}) as Record<string, unknown>;
     return (
-      <motion.button onPointerMove={onMove} onPointerLeave={onLeave} style={{ x: sx, y: sy }} className={className} {...bp}>
+      <motion.button
+        data-magnetic="true"
+        data-motion="true"
+        data-cursor="button"
+        onPointerMove={onMove}
+        onPointerLeave={onLeave}
+        style={{ x: sx, y: sy }}
+        className={className}
+        {...bp}
+      >
         {children}
       </motion.button>
     );
   }
   return (
-    <motion.div onPointerMove={onMove} onPointerLeave={onLeave} style={{ x: sx, y: sy }} className={className}>
+    <motion.div
+      data-magnetic="true"
+      data-motion="true"
+      onPointerMove={onMove}
+      onPointerLeave={onLeave}
+      style={{ x: sx, y: sy }}
+      className={className}
+    >
       {children}
     </motion.div>
   );

@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { Icon } from "../../utils/icons";
+import { SectionTransition } from "../motion/SectionTransition";
 
 const impactAreas = [
   {
@@ -47,22 +48,23 @@ const impactAreas = [
 
 export function HomeImpactSection() {
   return (
-    <section
+    <SectionTransition
       id="impact"
       aria-label="Impact and Economic Value"
       className="relative overflow-hidden bg-[#FAF9F6] py-20 sm:py-24 md:py-28 border-b border-[#E3E5EF]"
+      withDivider
     >
       <div className="container-x relative z-10">
         {/* Header */}
-        <div className="mx-auto max-w-3xl text-center">
+        <div className="mx-auto max-w-3xl text-center group/header">
           <motion.div
             initial={{ opacity: 0, y: 12 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
-            className="inline-flex items-center gap-2 rounded-full border border-[#15966B]/30 bg-[#15966B]/10 px-4 py-1 font-mono text-[11px] uppercase tracking-[0.26em] text-[#15966B] font-bold shadow-xs"
+            className="inline-flex items-center gap-2 rounded-full border border-[#15966B]/30 bg-[#15966B]/10 px-4 py-1 font-mono text-[11px] uppercase tracking-[0.26em] text-[#15966B] font-bold shadow-xs cursor-default"
           >
-            <span className="h-2 w-2 rounded-full bg-[#15966B]" />
+            <span className="h-2 w-2 rounded-full bg-[#15966B] transition-transform duration-300 group-hover/header:scale-125" />
             <span>IMPACT</span>
           </motion.div>
 
@@ -71,10 +73,10 @@ export function HomeImpactSection() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.1 }}
-            className="mt-6 font-serif text-3xl sm:text-4xl md:text-5xl font-normal leading-tight tracking-tight text-[#111827]"
+            className="mt-6 font-serif text-3xl sm:text-4xl md:text-5xl font-normal leading-tight tracking-tight text-[#111827] transition-colors hover:text-[#15966B]"
           >
             Building Economic Value.{" "}
-            <span className="text-[#15966B]">Creating Wider Impact.</span>
+            <span className="text-[#15966B] hover:text-[#FFB000] transition-colors">Creating Wider Impact.</span>
           </motion.h2>
 
           <motion.p
@@ -100,7 +102,8 @@ export function HomeImpactSection() {
             >
               <Link
                 to={area.link}
-                className="group relative flex h-80 sm:h-88 flex-col justify-between overflow-hidden rounded-2xl border border-[#E3E5EF] p-6 shadow-sm transition-all duration-500 hover:shadow-2xl hover:-translate-y-1"
+                data-cursor="card"
+                className="fx-zoom-img group relative flex h-80 sm:h-88 flex-col justify-between overflow-hidden rounded-2xl border border-[#E3E5EF] p-6 shadow-sm transition-all duration-500 hover:shadow-2xl hover:-translate-y-2 focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-[#15966B]"
               >
                 {/* Background image */}
                 <img
@@ -115,18 +118,18 @@ export function HomeImpactSection() {
                 {/* Top Badge */}
                 <div className="relative z-10 flex items-center justify-between">
                   <span
-                    className={`font-mono text-[10px] uppercase tracking-wider text-white font-bold px-2.5 py-1 rounded-md ${area.badgeBg} shadow-xs`}
+                    className={`font-mono text-[10px] uppercase tracking-wider text-white font-bold px-2.5 py-1 rounded-md ${area.badgeBg} shadow-xs transition-transform duration-300 group-hover:scale-105`}
                   >
                     Area 0{idx + 1}
                   </span>
-                  <div className="h-7 w-7 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center text-white opacity-0 group-hover:opacity-100 transition-opacity">
+                  <div className="h-7 w-7 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center text-white opacity-0 group-hover:opacity-100 transition-all duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5">
                     <Icon name="arrow-up-right" width={13} height={13} strokeWidth={2.2} />
                   </div>
                 </div>
 
                 {/* Content */}
                 <div className="relative z-10">
-                  <h3 className="font-serif text-2xl font-medium tracking-tight text-white group-hover:text-gold-200 transition-colors">
+                  <h3 className="font-serif text-2xl font-medium tracking-tight text-white group-hover:text-[#FFB000] transition-colors">
                     {area.title}
                   </h3>
 
@@ -134,9 +137,9 @@ export function HomeImpactSection() {
                     {area.description}
                   </p>
 
-                  <div className="mt-4 inline-flex items-center gap-1.5 font-mono text-[11px] uppercase tracking-wider text-[#FFB000] font-bold group-hover:underline">
-                    <span>Learn More</span>
-                    <Icon name="arrow-right" width={12} height={12} className="transition-transform group-hover:translate-x-1" />
+                  <div className="mt-4 inline-flex items-center gap-1.5 font-mono text-[11px] uppercase tracking-wider text-[#FFB000] font-bold fx-arrow">
+                    <span className="fx-underline">Learn More</span>
+                    <Icon name="arrow-right" width={12} height={12} className="fx-arrow-icon" />
                   </div>
                 </div>
               </Link>
@@ -144,6 +147,6 @@ export function HomeImpactSection() {
           ))}
         </div>
       </div>
-    </section>
+    </SectionTransition>
   );
 }

@@ -15,7 +15,7 @@ import FooterOrbScene from "../three/FooterOrbScene";
             <Icon name="sparkles" width={12} height={12} />
             <span>Connect with BharatX Group</span>
           </div>
-          <h2 className="font-serif text-3xl font-normal leading-[1.05] tracking-tight text-ink-900 dark:text-ink-50 sm:text-4xl md:text-5xl lg:text-6xl">
+          <h2 className="font-serif text-3xl font-normal leading-[1.05] tracking-tight text-ink-900 dark:text-ink-50 sm:text-4xl md:text-5xl lg:text-6xl transition-colors duration-300 hover:text-[#3026B3] dark:hover:text-gold-400">
             BUILDING THE FOUNDATIONS
             <br />
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#3026B3] via-[#FFB000] to-[#00B8D9]">
@@ -28,7 +28,8 @@ import FooterOrbScene from "../three/FooterOrbScene";
           <div className="mt-8 flex flex-col sm:flex-row flex-wrap items-center justify-center lg:justify-start gap-4">
             <Link
               to="/contact"
-              className="group inline-flex w-full sm:w-auto items-center justify-center gap-3 rounded-full bg-[#3026B3] px-8 py-4 text-[15px] font-semibold text-white shadow-md shadow-[#3026B3]/25 transition-all duration-300 hover:bg-[#211B72] hover:shadow-[0_10px_35px_-8px_rgba(48,38,179,0.45)] dark:bg-[#FFB000] dark:text-[#111827] dark:hover:bg-[#e69e00]"
+              data-cursor="button"
+              className="group fx-press fx-shine inline-flex w-full sm:w-auto items-center justify-center gap-3 rounded-full bg-[#3026B3] px-8 py-4 text-[15px] font-semibold text-white shadow-md shadow-[#3026B3]/25 transition-all duration-300 hover:bg-[#211B72] hover:shadow-[0_10px_35px_-8px_rgba(48,38,179,0.45)] dark:bg-[#FFB000] dark:text-[#111827] dark:hover:bg-[#e69e00]"
             >
               Talk to BharatX
               <Icon
@@ -103,13 +104,14 @@ export function Footer() {
                   <li key={item.label}>
                     <Link
                       to={item.to}
-                      className="group inline-flex items-center gap-1.5 text-[13px] text-[#596579] transition-colors hover:text-[#3026B3]"
+                      data-cursor="link"
+                      className="group inline-flex items-center gap-1.5 text-[13px] text-[#596579] transition-all duration-200 hover:text-[#3026B3] hover:translate-x-1"
                     >
                       <span
                         aria-hidden
                         className="h-px w-0 bg-[#3026B3] transition-all duration-300 group-hover:w-2.5"
                       />
-                      {item.label}
+                      <span className="fx-underline">{item.label}</span>
                     </Link>
                   </li>
                 ))}
@@ -119,7 +121,7 @@ export function Footer() {
             {/* 2. Group */}
             <nav aria-label="Group">
               <div className="mb-3.5 flex items-center gap-2 font-mono text-[11px] uppercase tracking-[0.24em] text-[#111827] font-bold">
-                <Icon name="building-2" width={13} height={13} className="text-[#3026B3]" />
+                <Icon name="building-2" width={13} height={13} className="text-[#3026B3] fx-icon-pop" />
                 Group
               </div>
               <ul className="flex flex-col gap-1.5">
@@ -127,13 +129,14 @@ export function Footer() {
                   <li key={item.label}>
                     <Link
                       to={item.to}
-                      className="group inline-flex items-center gap-1.5 text-[13px] text-[#596579] transition-colors hover:text-[#3026B3]"
+                      data-cursor="link"
+                      className="group inline-flex items-center gap-1.5 text-[13px] text-[#596579] transition-all duration-200 hover:text-[#3026B3] hover:translate-x-1"
                     >
                       <span
                         aria-hidden
                         className="h-px w-0 bg-[#3026B3] transition-all duration-300 group-hover:w-2.5"
                       />
-                      {item.label}
+                      <span className="fx-underline">{item.label}</span>
                     </Link>
                   </li>
                 ))}
@@ -143,7 +146,7 @@ export function Footer() {
             {/* 3. Connect */}
             <nav aria-label="Connect">
               <div className="mb-3.5 flex items-center gap-2 font-mono text-[11px] uppercase tracking-[0.24em] text-[#111827] font-bold">
-                <Icon name="share-2" width={13} height={13} className="text-[#3026B3]" />
+                <Icon name="share-2" width={13} height={13} className="text-[#3026B3] fx-icon-pop" />
                 Connect
               </div>
               <ul className="flex flex-col gap-1.5">
@@ -153,13 +156,14 @@ export function Footer() {
                       href={item.to}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="group inline-flex items-center gap-1.5 text-[13px] text-[#596579] transition-colors hover:text-[#3026B3]"
+                      data-cursor="link"
+                      className="group inline-flex items-center gap-1.5 text-[13px] text-[#596579] transition-all duration-200 hover:text-[#3026B3] hover:translate-x-1"
                     >
                       <span
                         aria-hidden
                         className="h-px w-0 bg-[#3026B3] transition-all duration-300 group-hover:w-2.5"
                       />
-                      <span>{item.label}</span>
+                      <span className="fx-underline">{item.label}</span>
                       <Icon
                         name="arrow-up-right"
                         width={11}

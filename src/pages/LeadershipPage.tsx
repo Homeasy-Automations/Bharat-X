@@ -1,7 +1,10 @@
 import { Link } from "react-router-dom";
 import { usePageMeta } from "../hooks/usePageMeta";
 import { Icon } from "../utils/icons";
-import { Reveal } from "../components/common/Reveal";
+import { SectionTransition } from "../components/motion/SectionTransition";
+import { Stagger, StaggerItem } from "../components/motion/Stagger";
+import { AnimatedHeading } from "../components/motion/AnimatedHeading";
+import { MagneticButton } from "../components/common/MagneticButton";
 
 const governance = [
   { icon: "scale", t: "Clear Division of Decision Rights", d: "Group stewardship governs capital discipline, risk management, and shared standards. Tactical execution belongs to sector teams.", color: "#3026B3" },
@@ -29,11 +32,12 @@ export default function LeadershipPage() {
     <main className="min-h-screen bg-[#FAF9F6] text-[#111827] pt-24 pb-20">
       {/* ── 1. RIL-STYLE LEADERSHIP HERO ────────────────────────────────── */}
       <section className="relative overflow-hidden py-20 sm:py-28 border-b border-[#E3E5EF]">
-        <div className="absolute inset-0 z-0">
+        <div className="absolute inset-0 z-0 overflow-hidden">
           <img
             src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=2400&q=85"
             alt=""
-            className="h-full w-full object-cover object-top filter brightness-[0.92] contrast-[1.1]"
+            className="h-full w-full object-cover object-top filter brightness-[0.92] contrast-[1.1] transition-transform duration-1000 ease-out hover:scale-105"
+            data-cursor="image"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/40 to-black/20" />
         </div>
@@ -41,14 +45,14 @@ export default function LeadershipPage() {
         <div className="container-x relative z-10">
           <div className="max-w-3xl">
             <div className="flex items-center gap-2.5 font-mono text-[11px] uppercase tracking-[0.28em] text-[#FFB000] mb-4">
-              <span>◆</span>
+              <span className="animate-pulse">◆</span>
               <span className="text-white">CORPORATE STEWARDSHIP</span>
             </div>
-            <h1 className="font-serif text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-normal leading-[1.06] text-white">
+            <AnimatedHeading as="h1" effect="words" hover="color" className="font-serif text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-normal leading-[1.06] text-white">
               Led Like an Institution.
               <br />
               <span className="italic text-[#FFB000]">Driven by National Purpose.</span>
-            </h1>
+            </AnimatedHeading>
             <p className="mt-6 text-base sm:text-lg text-slate-200 leading-relaxed font-body">
               The leadership of BharatX Group operates with long-term capital horizons, rigorous corporate governance, and an unwavering commitment to India's industrial sovereignty.
             </p>
@@ -57,16 +61,16 @@ export default function LeadershipPage() {
       </section>
 
       {/* ── 2. FOUNDER'S CHARTER PROFILE ───────────────────────────────── */}
-      <section className="py-12 sm:py-16 border-b border-[#E3E5EF]">
+      <SectionTransition withDivider className="py-12 sm:py-16 border-b border-[#E3E5EF]">
         <div className="container-x">
-          <div className="relative overflow-hidden rounded-3xl border border-[#E3E5EF] bg-white shadow-xl p-6 sm:p-10 lg:p-12">
+          <div data-cursor="card" className="relative overflow-hidden rounded-3xl border border-[#E3E5EF] bg-white shadow-xl p-6 sm:p-10 lg:p-12 fx-lift">
             <div className="grid items-stretch gap-10 lg:grid-cols-12">
               {/* Portrait */}
-              <div className="lg:col-span-5 relative min-h-[360px] sm:min-h-[400px] lg:h-[610px] rounded-2xl overflow-hidden border border-[#E3E5EF]">
+              <div className="lg:col-span-5 relative min-h-[360px] sm:min-h-[400px] lg:h-[610px] rounded-2xl overflow-hidden border border-[#E3E5EF] group" data-cursor="image">
                 <img
                   src="/leadership/pradeep-kumar.png"
                   alt="Pradeep Kumar — Founder & Leader, BharatX Group"
-                  className="h-full w-full object-cover object-top filter brightness-[0.98]"
+                  className="h-full w-full object-cover object-top filter brightness-[0.98] transition-all duration-700 ease-out group-hover:scale-105"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
               </div>
@@ -76,11 +80,11 @@ export default function LeadershipPage() {
                 <span className="font-mono text-[10.5px] uppercase tracking-[0.24em] text-[#3026B3] font-semibold">
                   NATIONAL ECONOMIC VISION
                 </span>
-                <h2 className="mt-3 font-serif text-3xl sm:text-4xl lg:text-5xl font-normal text-[#111827] leading-tight">
+                <AnimatedHeading as="h2" effect="words" hover="color" className="mt-3 font-serif text-3xl sm:text-4xl lg:text-5xl font-normal text-[#111827] leading-tight">
                   Architecting <span className="text-[#3026B3]">Sovereign Industrial Depth</span> for Bharat.
-                </h2>
+                </AnimatedHeading>
 
-                <div className="mt-6 rounded-2xl border-l-4 border-[#3026B3] bg-[#FAF9F6] p-6 shadow-xs">
+                <div className="mt-6 rounded-2xl border-l-4 border-[#3026B3] bg-[#FAF9F6] p-6 shadow-xs fx-lift">
                   <blockquote className="text-base sm:text-lg font-serif italic text-[#211B72] leading-relaxed">
                     “Aligned with the national vision of <span className="text-[#3026B3] font-semibold not-italic">Viksit Bharat 2047</span>, we are committed to building sustainable, technology-driven industrial foundations that eliminate critical external dependencies and secure multi-generational prosperity.”
                   </blockquote>
@@ -111,9 +115,9 @@ export default function LeadershipPage() {
                       color: "#15966B",
                     },
                   ].map((m) => (
-                    <div key={m.title} className="flex items-start gap-3 rounded-xl border border-[#E3E5EF] bg-[#F7F7FC] p-3.5">
+                    <div key={m.title} data-cursor="card" className="flex items-start gap-3 rounded-xl border border-[#E3E5EF] bg-[#F7F7FC] p-3.5 transition-all duration-300 hover:border-[#3026B3] fx-lift">
                       <div
-                        className="flex h-8 w-8 items-center justify-center rounded-lg shrink-0 mt-0.5"
+                        className="flex h-8 w-8 items-center justify-center rounded-lg shrink-0 mt-0.5 transition-transform group-hover:scale-110"
                         style={{ backgroundColor: `${m.color}15`, color: m.color }}
                       >
                         <Icon name={m.icon} width={18} height={18} />
@@ -129,88 +133,97 @@ export default function LeadershipPage() {
             </div>
           </div>
         </div>
-      </section>
+      </SectionTransition>
 
       {/* ── 3. GOVERNANCE & DIVISION OF POWER ────────────────────────────── */}
-      <section className="py-12 sm:py-16 border-b border-[#E3E5EF]">
+      <SectionTransition withDivider className="py-12 sm:py-16 border-b border-[#E3E5EF]">
         <div className="container-x">
           <div className="max-w-2xl mb-7 sm:mb-10">
             <span className="font-mono text-[10.5px] uppercase tracking-[0.24em] text-[#3026B3] font-semibold">
               BOARDROOM ARCHITECTURE
             </span>
-            <h2 className="mt-2 font-serif text-3xl sm:text-4xl lg:text-5xl font-normal text-[#111827]">
+            <AnimatedHeading as="h2" effect="words" hover="color" className="mt-2 font-serif text-3xl sm:text-4xl lg:text-5xl font-normal text-[#111827]">
               Institutional Governance
-            </h2>
+            </AnimatedHeading>
             <p className="mt-3 text-[#596579] text-sm sm:text-base font-body">
               Four pillars safeguarding constitutional discipline and long-term shareholder trust.
             </p>
           </div>
 
-          <div className="grid gap-6 sm:grid-cols-2">
+          <Stagger staggerDelay={0.08} className="grid gap-6 sm:grid-cols-2">
             {governance.map((g) => (
-              <div
-                key={g.t}
-                className="rounded-2xl border border-[#E3E5EF] bg-white p-7 flex gap-4 items-start shadow-sm cursor-card hover:border-[#3026B3]/40 transition-all"
-              >
-                <span
-                  className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl border border-[#E3E5EF]"
-                  style={{ backgroundColor: `${g.color}15`, color: g.color }}
+              <StaggerItem key={g.t}>
+                <div
+                  data-cursor="card"
+                  className="group rounded-2xl border border-[#E3E5EF] bg-white p-7 flex gap-4 items-start shadow-sm cursor-card hover:border-[#3026B3] transition-all duration-300 fx-lift hover:shadow-xl h-full"
                 >
-                  <Icon name={g.icon} width={20} height={20} />
-                </span>
-                <div>
-                  <h3 className="font-serif text-xl text-[#211B72] font-normal">{g.t}</h3>
-                  <p className="mt-2 text-xs sm:text-sm text-[#596579] leading-relaxed font-body">{g.d}</p>
+                  <span
+                    className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl border border-[#E3E5EF] transition-transform duration-300 group-hover:scale-110 group-hover:rotate-6"
+                    style={{ backgroundColor: `${g.color}15`, color: g.color }}
+                  >
+                    <Icon name={g.icon} width={20} height={20} />
+                  </span>
+                  <div>
+                    <h3 className="font-serif text-xl text-[#211B72] font-normal group-hover:text-[#3026B3] transition-colors">{g.t}</h3>
+                    <p className="mt-2 text-xs sm:text-sm text-[#596579] leading-relaxed font-body">{g.d}</p>
+                  </div>
                 </div>
-              </div>
+              </StaggerItem>
             ))}
-          </div>
+          </Stagger>
         </div>
-      </section>
+      </SectionTransition>
 
       {/* ── 4. OPERATING PRINCIPLES ─────────────────────────────────────── */}
-      <section className="py-12 sm:py-16">
+      <SectionTransition withDivider className="py-12 sm:py-16">
         <div className="container-x">
           <div className="max-w-2xl mb-12">
             <span className="font-mono text-[10.5px] uppercase tracking-[0.24em] text-[#3026B3] font-semibold">
               EXECUTIVE CONSTITUTION
             </span>
-            <h2 className="mt-2 font-serif text-3xl sm:text-4xl lg:text-5xl font-normal text-[#111827]">
+            <AnimatedHeading as="h2" effect="words" hover="color" className="mt-2 font-serif text-3xl sm:text-4xl lg:text-5xl font-normal text-[#111827]">
               Four Operating Doctrines
-            </h2>
+            </AnimatedHeading>
           </div>
 
-          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+          <Stagger staggerDelay={0.08} className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
             {operating.map((op) => (
-              <div
-                key={op.n}
-                className="rounded-2xl border border-[#E3E5EF] bg-white p-6 flex flex-col justify-between shadow-sm cursor-card hover:border-[#3026B3]/40 transition-all"
-              >
-                <div>
-                  <span
-                    className="font-mono text-xs font-bold block mb-3"
-                    style={{ color: op.color }}
-                  >
-                    {op.n}
-                  </span>
-                  <h3 className="font-serif text-lg text-[#211B72] font-normal">{op.t}</h3>
-                  <p className="mt-2 text-xs sm:text-sm text-[#596579] leading-relaxed font-body">{op.d}</p>
+              <StaggerItem key={op.n}>
+                <div
+                  data-cursor="card"
+                  className="group rounded-2xl border border-[#E3E5EF] bg-white p-6 flex flex-col justify-between shadow-sm cursor-card hover:border-[#3026B3] transition-all duration-300 fx-lift hover:shadow-xl h-full"
+                >
+                  <div>
+                    <span
+                      className="font-mono text-xs font-bold block mb-3 transition-transform duration-300 group-hover:scale-125"
+                      style={{ color: op.color }}
+                    >
+                      {op.n}
+                    </span>
+                    <h3 className="font-serif text-lg text-[#211B72] font-normal group-hover:text-[#3026B3] transition-colors">{op.t}</h3>
+                    <p className="mt-2 text-xs sm:text-sm text-[#596579] leading-relaxed font-body">{op.d}</p>
+                  </div>
                 </div>
-              </div>
+              </StaggerItem>
             ))}
-          </div>
+          </Stagger>
 
           <div className="mt-16 text-center">
-            <Link
-              to="/contact"
-              className="inline-flex items-center gap-3 rounded-full bg-[#3026B3] text-white hover:bg-[#211B72] px-8 py-3.5 text-sm font-semibold transition-all shadow-md"
-            >
-              <span>Connect with Corporate Secretariat</span>
-              <Icon name="arrow-right" width={15} height={15} />
-            </Link>
+            <MagneticButton strength={0.25}>
+              <Link
+                to="/contact"
+                data-cursor="button"
+                data-motion="true"
+                className="inline-flex items-center gap-3 rounded-full bg-[#3026B3] text-white hover:bg-[#211B72] px-8 py-3.5 text-sm font-semibold transition-all shadow-md fx-shine active:scale-95"
+              >
+                <span>Connect with Corporate Secretariat</span>
+                <Icon name="arrow-right" width={15} height={15} />
+              </Link>
+            </MagneticButton>
           </div>
         </div>
-      </section>
+      </SectionTransition>
     </main>
   );
 }
+

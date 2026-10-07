@@ -5,6 +5,10 @@ import { usePageMeta } from "../hooks/usePageMeta";
 import { Icon } from "../utils/icons";
 import { brandConfig } from "../config/brand";
 import { submitContact } from "../services/api";
+import { SectionTransition } from "../components/motion/SectionTransition";
+import { Stagger, StaggerItem } from "../components/motion/Stagger";
+import { AnimatedHeading } from "../components/motion/AnimatedHeading";
+import { MagneticButton } from "../components/common/MagneticButton";
 
 const interestOptions = [
   "Business Partnership",
@@ -83,13 +87,13 @@ export default function ContactPage() {
   return (
     <main className="w-full min-h-screen bg-[#FAF9F6] text-[#111827]">
       {/* ── 01. HERO (Contact BharatX — Let's Build What Comes Next.) ─────── */}
-      <section className="relative overflow-hidden min-h-[92vh] lg:min-h-screen w-full flex items-center justify-start pt-32 sm:pt-36 md:pt-40 pb-20 sm:pb-28 border-b border-[#E3E5EF]">
+      <SectionTransition divider={false} className="relative overflow-hidden min-h-[92vh] lg:min-h-screen w-full flex items-center justify-start pt-32 sm:pt-36 md:pt-40 pb-20 sm:pb-28 border-b border-[#E3E5EF]">
         {/* Full-bleed authentic panoramic visual */}
         <div className="absolute inset-0 z-0">
           <img
             src="/assets/backgrounds/contact_hero.png"
             alt="BharatX Leadership, Infrastructure, and City Skyline"
-            className="h-full w-full object-cover object-center filter brightness-[0.88] contrast-[1.10]"
+            className="h-full w-full object-cover object-center filter brightness-[0.88] contrast-[1.10] fx-zoom-img transition-transform duration-1000"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-black/92 via-black/55 to-black/35" />
           <div className="absolute inset-0 bg-gradient-to-r from-black/88 via-black/45 to-transparent" />
@@ -109,15 +113,14 @@ export default function ContactPage() {
             </motion.div>
 
             {/* H1 Headline */}
-            <motion.h1
-              initial={{ opacity: 0, y: 16 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.1 }}
+            <AnimatedHeading
+              as="h1"
+              effect="words"
+              hover="gradient"
               className="font-serif text-4xl sm:text-5xl md:text-6xl lg:text-[4.2rem] font-normal leading-[1.08] tracking-tight text-white drop-shadow-sm"
             >
-              Let’s Build What{" "}
-              <span className="text-[#FFB000]">Comes Next.</span>
-            </motion.h1>
+              Let’s Build What <span className="text-[#FFB000]">Comes Next.</span>
+            </AnimatedHeading>
 
             {/* Body */}
             <motion.p
@@ -136,38 +139,42 @@ export default function ContactPage() {
               transition={{ duration: 0.6, delay: 0.3 }}
               className="mt-8 flex flex-wrap items-center gap-4"
             >
-              <button
-                type="button"
-                onClick={() => {
-                  document.getElementById("contact-form-section")?.scrollIntoView({ behavior: "smooth" });
-                }}
-                className="group inline-flex items-center justify-center gap-2.5 rounded-full bg-[#FFB000] hover:bg-[#e09800] text-[#111827] px-8 py-4 text-[15px] font-bold shadow-xl shadow-black/20 transition-all duration-300 hover:scale-105"
-              >
-                <span>Start a Conversation</span>
-                <Icon
-                  name="arrow-right"
-                  width={16}
-                  height={16}
-                  className="rotate-90 transition-transform duration-300 group-hover:translate-y-1"
-                />
-              </button>
+              <MagneticButton>
+                <button
+                  type="button"
+                  data-cursor="button"
+                  onClick={() => {
+                    document.getElementById("contact-form-section")?.scrollIntoView({ behavior: "smooth" });
+                  }}
+                  className="group inline-flex items-center justify-center gap-2.5 rounded-full bg-[#FFB000] hover:bg-[#e09800] text-[#111827] px-8 py-4 text-[15px] font-bold shadow-xl shadow-black/20 transition-all duration-300 fx-shine"
+                >
+                  <span>Start a Conversation</span>
+                  <Icon
+                    name="arrow-right"
+                    width={16}
+                    height={16}
+                    className="rotate-90 transition-transform duration-300 group-hover:translate-y-1"
+                  />
+                </button>
+              </MagneticButton>
 
               <button
                 type="button"
+                data-cursor="button"
                 onClick={() => {
                   document.getElementById("contact-options")?.scrollIntoView({ behavior: "smooth" });
                 }}
-                className="inline-flex items-center justify-center gap-2 rounded-full border border-white/30 bg-white/10 hover:bg-white/20 px-8 py-4 text-[15px] font-semibold text-white transition-all backdrop-blur-sm"
+                className="inline-flex items-center justify-center gap-2 rounded-full border border-white/30 bg-white/10 hover:bg-white/20 px-8 py-4 text-[15px] font-semibold text-white transition-all backdrop-blur-sm fx-lift"
               >
                 <span>View Pathways</span>
               </button>
             </motion.div>
           </div>
         </div>
-      </section>
+      </SectionTransition>
 
       {/* ── 02. CONTACT OPTIONS (Clear Pathways for Visitors) ─────────────── */}
-      <section id="contact-options" className="relative overflow-hidden bg-white py-20 sm:py-28 border-b border-[#E3E5EF]">
+      <SectionTransition divider className="relative overflow-hidden bg-white py-20 sm:py-28 border-b border-[#E3E5EF]">
         <div className="container-x relative z-10">
           <div className="max-w-3xl text-center mx-auto mb-16">
             <div className="inline-flex items-center gap-2 rounded-full border border-[#3026B3]/25 bg-[#3026B3]/8 px-4 py-1 font-mono text-[11px] uppercase tracking-[0.26em] text-[#3026B3] font-bold shadow-xs mb-4">
@@ -175,9 +182,14 @@ export default function ContactPage() {
               <span>CONTACT PATHWAYS</span>
             </div>
 
-            <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-normal text-[#111827] leading-tight tracking-tight">
+            <AnimatedHeading
+              as="h2"
+              effect="mask"
+              hover="color"
+              className="font-serif text-3xl sm:text-4xl lg:text-5xl font-normal text-[#111827] leading-tight tracking-tight"
+            >
               Choose Your <span className="text-[#3026B3]">Pathway</span>
-            </h2>
+            </AnimatedHeading>
 
             <p className="mt-4 text-base sm:text-lg text-[#596579] leading-relaxed max-w-2xl mx-auto">
               Direct routing to ensure your inquiry reaches the right leadership team immediately.
@@ -185,123 +197,135 @@ export default function ContactPage() {
           </div>
 
           {/* 4 Clear Option Cards Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
+          <Stagger className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
             {/* 1. Business Partnerships */}
-            <div className="group rounded-2xl border border-[#E3E5EF] bg-[#FAF9F6] p-7 shadow-xs transition-all duration-300 hover:border-[#3026B3] hover:bg-white hover:shadow-xl hover:-translate-y-1 flex flex-col justify-between">
-              <div>
-                <div className="h-11 w-11 rounded-xl bg-[#3026B3]/10 text-[#3026B3] flex items-center justify-center mb-5 transition-transform duration-300 group-hover:scale-110">
-                  <Icon name="handshake" width={22} height={22} />
+            <StaggerItem>
+              <div data-cursor="card" className="group rounded-2xl border border-[#E3E5EF] bg-[#FAF9F6] p-7 shadow-xs transition-all duration-300 hover:border-[#3026B3] hover:bg-white hover:shadow-xl fx-lift flex flex-col justify-between h-full">
+                <div>
+                  <div className="h-11 w-11 rounded-xl bg-[#3026B3]/10 text-[#3026B3] flex items-center justify-center mb-5 transition-transform duration-300 group-hover:scale-110 group-hover:rotate-6">
+                    <Icon name="handshake" width={22} height={22} />
+                  </div>
+
+                  <AnimatedHeading as="h3" effect="blur" hover="shift" className="font-serif text-2xl font-medium text-[#111827] group-hover:text-[#3026B3] transition-colors">
+                    Business Partnerships
+                  </AnimatedHeading>
+
+                  <p className="mt-3 text-xs sm:text-sm text-[#596579] leading-relaxed font-normal">
+                    For companies, institutions and organisations interested in partnerships, projects or commercial opportunities.
+                  </p>
                 </div>
 
-                <h3 className="font-serif text-2xl font-medium text-[#111827] group-hover:text-[#3026B3] transition-colors">
-                  Business Partnerships
-                </h3>
-
-                <p className="mt-3 text-xs sm:text-sm text-[#596579] leading-relaxed font-normal">
-                  For companies, institutions and organisations interested in partnerships, projects or commercial opportunities.
-                </p>
+                <div className="mt-6 pt-4 border-t border-[#E3E5EF]">
+                  <button
+                    type="button"
+                    data-cursor="button"
+                    onClick={() => handleSelectOption("Business Partnership")}
+                    className="inline-flex items-center gap-1.5 font-mono text-xs font-bold uppercase tracking-wider text-[#3026B3] group/link"
+                  >
+                    <span>Discuss a Partnership</span>
+                    <Icon name="arrow-right" width={13} height={13} className="transition-transform group-hover/link:translate-x-1" />
+                  </button>
+                </div>
               </div>
-
-              <div className="mt-6 pt-4 border-t border-[#E3E5EF]">
-                <button
-                  type="button"
-                  onClick={() => handleSelectOption("Business Partnership")}
-                  className="inline-flex items-center gap-1.5 font-mono text-xs font-bold uppercase tracking-wider text-[#3026B3] group/link"
-                >
-                  <span>Discuss a Partnership</span>
-                  <Icon name="arrow-right" width={13} height={13} className="transition-transform group-hover/link:translate-x-1" />
-                </button>
-              </div>
-            </div>
+            </StaggerItem>
 
             {/* 2. Investors & Capital */}
-            <div className="group rounded-2xl border border-[#E3E5EF] bg-[#FAF9F6] p-7 shadow-xs transition-all duration-300 hover:border-[#211B72] hover:bg-white hover:shadow-xl hover:-translate-y-1 flex flex-col justify-between">
-              <div>
-                <div className="h-11 w-11 rounded-xl bg-[#211B72]/10 text-[#211B72] flex items-center justify-center mb-5 transition-transform duration-300 group-hover:scale-110">
-                  <Icon name="landmark" width={22} height={22} />
+            <StaggerItem>
+              <div data-cursor="card" className="group rounded-2xl border border-[#E3E5EF] bg-[#FAF9F6] p-7 shadow-xs transition-all duration-300 hover:border-[#211B72] hover:bg-white hover:shadow-xl fx-lift flex flex-col justify-between h-full">
+                <div>
+                  <div className="h-11 w-11 rounded-xl bg-[#211B72]/10 text-[#211B72] flex items-center justify-center mb-5 transition-transform duration-300 group-hover:scale-110 group-hover:rotate-6">
+                    <Icon name="landmark" width={22} height={22} />
+                  </div>
+
+                  <AnimatedHeading as="h3" effect="blur" hover="shift" className="font-serif text-2xl font-medium text-[#111827] group-hover:text-[#211B72] transition-colors">
+                    Investors &amp; Capital
+                  </AnimatedHeading>
+
+                  <p className="mt-3 text-xs sm:text-sm text-[#596579] leading-relaxed font-normal">
+                    For investors, funds and strategic partners interested in BharatX and its venture-building ecosystem.
+                  </p>
                 </div>
 
-                <h3 className="font-serif text-2xl font-medium text-[#111827] group-hover:text-[#211B72] transition-colors">
-                  Investors &amp; Capital
-                </h3>
-
-                <p className="mt-3 text-xs sm:text-sm text-[#596579] leading-relaxed font-normal">
-                  For investors, funds and strategic partners interested in BharatX and its venture-building ecosystem.
-                </p>
+                <div className="mt-6 pt-4 border-t border-[#E3E5EF]">
+                  <button
+                    type="button"
+                    data-cursor="button"
+                    onClick={() => handleSelectOption("Investment / Capital")}
+                    className="inline-flex items-center gap-1.5 font-mono text-xs font-bold uppercase tracking-wider text-[#211B72] group/link"
+                  >
+                    <span>Connect With Ventures</span>
+                    <Icon name="arrow-right" width={13} height={13} className="transition-transform group-hover/link:translate-x-1" />
+                  </button>
+                </div>
               </div>
-
-              <div className="mt-6 pt-4 border-t border-[#E3E5EF]">
-                <button
-                  type="button"
-                  onClick={() => handleSelectOption("Investment / Capital")}
-                  className="inline-flex items-center gap-1.5 font-mono text-xs font-bold uppercase tracking-wider text-[#211B72] group/link"
-                >
-                  <span>Connect With Ventures</span>
-                  <Icon name="arrow-right" width={13} height={13} className="transition-transform group-hover/link:translate-x-1" />
-                </button>
-              </div>
-            </div>
+            </StaggerItem>
 
             {/* 3. Entrepreneurs & Founders */}
-            <div className="group rounded-2xl border border-[#E3E5EF] bg-[#FAF9F6] p-7 shadow-xs transition-all duration-300 hover:border-[#00B8D9] hover:bg-white hover:shadow-xl hover:-translate-y-1 flex flex-col justify-between">
-              <div>
-                <div className="h-11 w-11 rounded-xl bg-[#00B8D9]/15 text-[#008299] flex items-center justify-center mb-5 transition-transform duration-300 group-hover:scale-110">
-                  <Icon name="rocket" width={22} height={22} />
+            <StaggerItem>
+              <div data-cursor="card" className="group rounded-2xl border border-[#E3E5EF] bg-[#FAF9F6] p-7 shadow-xs transition-all duration-300 hover:border-[#00B8D9] hover:bg-white hover:shadow-xl fx-lift flex flex-col justify-between h-full">
+                <div>
+                  <div className="h-11 w-11 rounded-xl bg-[#00B8D9]/15 text-[#008299] flex items-center justify-center mb-5 transition-transform duration-300 group-hover:scale-110 group-hover:rotate-6">
+                    <Icon name="rocket" width={22} height={22} />
+                  </div>
+
+                  <AnimatedHeading as="h3" effect="blur" hover="shift" className="font-serif text-2xl font-medium text-[#111827] group-hover:text-[#008299] transition-colors">
+                    Entrepreneurs &amp; Founders
+                  </AnimatedHeading>
+
+                  <p className="mt-3 text-xs sm:text-sm text-[#596579] leading-relaxed font-normal">
+                    For entrepreneurs interested in building, partnering or exploring opportunities with BharatX.
+                  </p>
                 </div>
 
-                <h3 className="font-serif text-2xl font-medium text-[#111827] group-hover:text-[#008299] transition-colors">
-                  Entrepreneurs &amp; Founders
-                </h3>
-
-                <p className="mt-3 text-xs sm:text-sm text-[#596579] leading-relaxed font-normal">
-                  For entrepreneurs interested in building, partnering or exploring opportunities with BharatX.
-                </p>
+                <div className="mt-6 pt-4 border-t border-[#E3E5EF]">
+                  <button
+                    type="button"
+                    data-cursor="button"
+                    onClick={() => handleSelectOption("Venture Building")}
+                    className="inline-flex items-center gap-1.5 font-mono text-xs font-bold uppercase tracking-wider text-[#008299] group/link"
+                  >
+                    <span>Build With Us</span>
+                    <Icon name="arrow-right" width={13} height={13} className="transition-transform group-hover/link:translate-x-1" />
+                  </button>
+                </div>
               </div>
-
-              <div className="mt-6 pt-4 border-t border-[#E3E5EF]">
-                <button
-                  type="button"
-                  onClick={() => handleSelectOption("Venture Building")}
-                  className="inline-flex items-center gap-1.5 font-mono text-xs font-bold uppercase tracking-wider text-[#008299] group/link"
-                >
-                  <span>Build With Us</span>
-                  <Icon name="arrow-right" width={13} height={13} className="transition-transform group-hover/link:translate-x-1" />
-                </button>
-              </div>
-            </div>
+            </StaggerItem>
 
             {/* 4. Careers */}
-            <div className="group rounded-2xl border border-[#E3E5EF] bg-[#FAF9F6] p-7 shadow-xs transition-all duration-300 hover:border-[#15966B] hover:bg-white hover:shadow-xl hover:-translate-y-1 flex flex-col justify-between">
-              <div>
-                <div className="h-11 w-11 rounded-xl bg-[#15966B]/15 text-[#15966B] flex items-center justify-center mb-5 transition-transform duration-300 group-hover:scale-110">
-                  <Icon name="briefcase" width={22} height={22} />
+            <StaggerItem>
+              <div data-cursor="card" className="group rounded-2xl border border-[#E3E5EF] bg-[#FAF9F6] p-7 shadow-xs transition-all duration-300 hover:border-[#15966B] hover:bg-white hover:shadow-xl fx-lift flex flex-col justify-between h-full">
+                <div>
+                  <div className="h-11 w-11 rounded-xl bg-[#15966B]/15 text-[#15966B] flex items-center justify-center mb-5 transition-transform duration-300 group-hover:scale-110 group-hover:rotate-6">
+                    <Icon name="briefcase" width={22} height={22} />
+                  </div>
+
+                  <AnimatedHeading as="h3" effect="blur" hover="shift" className="font-serif text-2xl font-medium text-[#111827] group-hover:text-[#15966B] transition-colors">
+                    Careers
+                  </AnimatedHeading>
+
+                  <p className="mt-3 text-xs sm:text-sm text-[#596579] leading-relaxed font-normal">
+                    Looking to join one of the businesses within the BharatX ecosystem?
+                  </p>
                 </div>
 
-                <h3 className="font-serif text-2xl font-medium text-[#111827] group-hover:text-[#15966B] transition-colors">
-                  Careers
-                </h3>
-
-                <p className="mt-3 text-xs sm:text-sm text-[#596579] leading-relaxed font-normal">
-                  Looking to join one of the businesses within the BharatX ecosystem?
-                </p>
+                <div className="mt-6 pt-4 border-t border-[#E3E5EF]">
+                  <Link
+                    to="/careers"
+                    data-cursor="button"
+                    className="inline-flex items-center gap-1.5 font-mono text-xs font-bold uppercase tracking-wider text-[#15966B] group/link"
+                  >
+                    <span>Explore Careers</span>
+                    <Icon name="arrow-right" width={13} height={13} className="transition-transform group-hover/link:translate-x-1" />
+                  </Link>
+                </div>
               </div>
-
-              <div className="mt-6 pt-4 border-t border-[#E3E5EF]">
-                <Link
-                  to="/careers"
-                  className="inline-flex items-center gap-1.5 font-mono text-xs font-bold uppercase tracking-wider text-[#15966B] group/link"
-                >
-                  <span>Explore Careers</span>
-                  <Icon name="arrow-right" width={13} height={13} className="transition-transform group-hover/link:translate-x-1" />
-                </Link>
-              </div>
-            </div>
-          </div>
+            </StaggerItem>
+          </Stagger>
         </div>
-      </section>
+      </SectionTransition>
 
       {/* ── 03. MAIN CONTACT FORM (Start a Conversation) ──────────────────── */}
-      <section id="contact-form-section" className="relative overflow-hidden bg-[#FAF9F6] py-20 sm:py-28 border-b border-[#E3E5EF]">
+      <SectionTransition divider className="relative overflow-hidden bg-[#FAF9F6] py-20 sm:py-28 border-b border-[#E3E5EF]">
         <div className="container-x relative z-10">
           <div className="max-w-3xl mx-auto">
             <div className="text-center mb-12">
@@ -310,9 +334,14 @@ export default function ContactPage() {
                 <span>DIRECT INQUIRY</span>
               </div>
 
-              <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-normal text-[#111827] leading-tight tracking-tight">
+              <AnimatedHeading
+                as="h2"
+                effect="words"
+                hover="gradient"
+                className="font-serif text-3xl sm:text-4xl lg:text-5xl font-normal text-[#111827] leading-tight tracking-tight"
+              >
                 Start a <span className="text-[#3026B3]">Conversation</span>
-              </h2>
+              </AnimatedHeading>
 
               <p className="mt-3 text-base sm:text-lg text-[#596579]">
                 Share your proposal, project specifications, or collaboration concept with us.
@@ -320,7 +349,7 @@ export default function ContactPage() {
             </div>
 
             {/* Form Container */}
-            <div className="rounded-3xl border border-[#E3E5EF] bg-white p-7 sm:p-12 shadow-xl">
+            <div data-cursor="card" className="rounded-3xl border border-[#E3E5EF] bg-white p-7 sm:p-12 shadow-xl fx-lift">
               <AnimatePresence mode="wait">
                 {submitted ? (
                   <motion.div
@@ -330,11 +359,11 @@ export default function ContactPage() {
                     exit={{ opacity: 0, scale: 0.95 }}
                     className="text-center py-12"
                   >
-                    <div className="h-16 w-16 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center mx-auto mb-6 shadow-sm">
+                    <div className="h-16 w-16 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center mx-auto mb-6 shadow-sm fx-icon-pop">
                       <Icon name="check" width={32} height={32} strokeWidth={2.5} />
                     </div>
 
-                    <h3 className="font-serif text-2xl sm:text-3xl font-medium text-[#111827] mb-3">
+                    <h3 className="font-serif text-2xl sm:text-3xl font-medium text-[#111827] mb-3 transition-colors duration-300 hover:text-[#3026B3]">
                       Message Received
                     </h3>
 
@@ -344,11 +373,12 @@ export default function ContactPage() {
 
                     <button
                       type="button"
+                      data-cursor="button"
                       onClick={() => {
                         setSubmitted(false);
                         setMessage("");
                       }}
-                      className="mt-8 inline-flex items-center gap-2 rounded-full border border-[#E3E5EF] bg-[#FAF9F6] hover:bg-slate-100 text-[#111827] px-6 py-2.5 text-xs font-mono font-bold uppercase tracking-wider transition-colors"
+                      className="mt-8 inline-flex items-center gap-2 rounded-full border border-[#E3E5EF] bg-[#FAF9F6] hover:bg-slate-100 text-[#111827] px-6 py-2.5 text-xs font-mono font-bold uppercase tracking-wider transition-colors fx-lift"
                     >
                       <span>Send Another Inquiry</span>
                     </button>
@@ -380,7 +410,7 @@ export default function ContactPage() {
                           value={fullName}
                           onChange={(e) => setFullName(e.target.value)}
                           placeholder="Enter your name"
-                          className="w-full rounded-xl border border-[#E3E5EF] bg-[#FAF9F6] px-4 py-3 text-sm text-[#111827] placeholder:text-[#8E9BAE] focus:border-[#3026B3] focus:bg-white focus:outline-none transition-colors"
+                          className="w-full rounded-xl border border-[#E3E5EF] bg-[#FAF9F6] px-4 py-3 text-sm text-[#111827] placeholder:text-[#8E9BAE] transition-all duration-200 focus:border-[#3026B3] focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#3026B3]/20 hover:border-[#3026B3]/50"
                         />
                       </div>
 
@@ -396,7 +426,7 @@ export default function ContactPage() {
                           value={email}
                           onChange={(e) => setEmail(e.target.value)}
                           placeholder="name@company.com"
-                          className="w-full rounded-xl border border-[#E3E5EF] bg-[#FAF9F6] px-4 py-3 text-sm text-[#111827] placeholder:text-[#8E9BAE] focus:border-[#3026B3] focus:bg-white focus:outline-none transition-colors"
+                          className="w-full rounded-xl border border-[#E3E5EF] bg-[#FAF9F6] px-4 py-3 text-sm text-[#111827] placeholder:text-[#8E9BAE] transition-all duration-200 focus:border-[#3026B3] focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#3026B3]/20 hover:border-[#3026B3]/50"
                         />
                       </div>
                     </div>
@@ -413,7 +443,7 @@ export default function ContactPage() {
                           value={phone}
                           onChange={(e) => setPhone(e.target.value)}
                           placeholder="+91 XXXXX XXXXX"
-                          className="w-full rounded-xl border border-[#E3E5EF] bg-[#FAF9F6] px-4 py-3 text-sm text-[#111827] placeholder:text-[#8E9BAE] focus:border-[#3026B3] focus:bg-white focus:outline-none transition-colors"
+                          className="w-full rounded-xl border border-[#E3E5EF] bg-[#FAF9F6] px-4 py-3 text-sm text-[#111827] placeholder:text-[#8E9BAE] transition-all duration-200 focus:border-[#3026B3] focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#3026B3]/20 hover:border-[#3026B3]/50"
                         />
                       </div>
 
@@ -428,7 +458,7 @@ export default function ContactPage() {
                           value={organization}
                           onChange={(e) => setOrganization(e.target.value)}
                           placeholder="Your company"
-                          className="w-full rounded-xl border border-[#E3E5EF] bg-[#FAF9F6] px-4 py-3 text-sm text-[#111827] placeholder:text-[#8E9BAE] focus:border-[#3026B3] focus:bg-white focus:outline-none transition-colors"
+                          className="w-full rounded-xl border border-[#E3E5EF] bg-[#FAF9F6] px-4 py-3 text-sm text-[#111827] placeholder:text-[#8E9BAE] transition-all duration-200 focus:border-[#3026B3] focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#3026B3]/20 hover:border-[#3026B3]/50"
                         />
                       </div>
                     </div>
@@ -442,7 +472,7 @@ export default function ContactPage() {
                         id="interest"
                         value={interest}
                         onChange={(e) => setInterest(e.target.value)}
-                        className="w-full rounded-xl border border-[#E3E5EF] bg-[#FAF9F6] px-4 py-3 text-sm text-[#111827] focus:border-[#3026B3] focus:bg-white focus:outline-none transition-colors"
+                        className="w-full rounded-xl border border-[#E3E5EF] bg-[#FAF9F6] px-4 py-3 text-sm text-[#111827] transition-all duration-200 focus:border-[#3026B3] focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#3026B3]/20 hover:border-[#3026B3]/50"
                       >
                         {interestOptions.map((opt) => (
                           <option key={opt} value={opt}>
@@ -464,7 +494,7 @@ export default function ContactPage() {
                         value={message}
                         onChange={(e) => setMessage(e.target.value)}
                         placeholder="How can we work together?"
-                        className="w-full rounded-xl border border-[#E3E5EF] bg-[#FAF9F6] px-4 py-3 text-sm text-[#111827] placeholder:text-[#8E9BAE] focus:border-[#3026B3] focus:bg-white focus:outline-none transition-colors resize-y"
+                        className="w-full rounded-xl border border-[#E3E5EF] bg-[#FAF9F6] px-4 py-3 text-sm text-[#111827] placeholder:text-[#8E9BAE] transition-all duration-200 focus:border-[#3026B3] focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#3026B3]/20 hover:border-[#3026B3]/50 resize-y"
                       />
                     </div>
 
@@ -472,8 +502,9 @@ export default function ContactPage() {
                     <div className="pt-2">
                       <button
                         type="submit"
+                        data-cursor="button"
                         disabled={submitting}
-                        className="group inline-flex w-full sm:w-auto items-center justify-center gap-2.5 rounded-full bg-[#3026B3] hover:bg-[#211B72] text-white px-9 py-4 text-[15px] font-bold shadow-lg shadow-[#3026B3]/25 transition-all duration-300 hover:scale-[1.02] disabled:opacity-60"
+                        className="group inline-flex w-full sm:w-auto items-center justify-center gap-2.5 rounded-full bg-[#3026B3] hover:bg-[#211B72] text-white px-9 py-4 text-[15px] font-bold shadow-lg shadow-[#3026B3]/25 transition-all duration-300 fx-shine disabled:opacity-60"
                       >
                         <span>{submitting ? "Sending..." : "Send Message"}</span>
                         <Icon name="arrow-right" width={16} height={16} className="transition-transform group-hover:translate-x-1" />
@@ -485,10 +516,10 @@ export default function ContactPage() {
             </div>
           </div>
         </div>
-      </section>
+      </SectionTransition>
 
       {/* ── 04. BHARATX GROUP OFFICE (Clean Office & Contact Directory) ───── */}
-      <section className="relative overflow-hidden bg-white py-20 sm:py-28 border-b border-[#E3E5EF]">
+      <SectionTransition divider className="relative overflow-hidden bg-white py-20 sm:py-28 border-b border-[#E3E5EF]">
         <div className="container-x relative z-10">
           <div className="max-w-3xl text-center mx-auto mb-14">
             <div className="inline-flex items-center gap-2 rounded-full border border-[#15966B]/30 bg-[#15966B]/10 px-4 py-1 font-mono text-[11px] uppercase tracking-[0.26em] text-[#15966B] font-bold shadow-xs mb-4">
@@ -496,24 +527,29 @@ export default function ContactPage() {
               <span>GROUP OFFICE</span>
             </div>
 
-            <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-normal text-[#111827] leading-tight tracking-tight">
+            <AnimatedHeading
+              as="h2"
+              effect="mask"
+              hover="color"
+              className="font-serif text-3xl sm:text-4xl lg:text-5xl font-normal text-[#111827] leading-tight tracking-tight"
+            >
               BharatX Group <span className="text-[#3026B3]">Office</span>
-            </h2>
+            </AnimatedHeading>
 
             <p className="mt-3 text-base text-[#596579]">
               Corporate headquarters and official communications directorate.
             </p>
           </div>
 
-          <div className="max-w-4xl mx-auto rounded-3xl border border-[#E3E5EF] bg-[#FAF9F6] p-8 sm:p-12 shadow-lg">
+          <div data-cursor="card" className="max-w-4xl mx-auto rounded-3xl border border-[#E3E5EF] bg-[#FAF9F6] p-8 sm:p-12 shadow-lg fx-lift">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
               <div>
                 <span className="font-mono text-xs uppercase tracking-[0.26em] text-[#3026B3] font-bold block mb-1">
                   BHARATX GROUP
                 </span>
-                <h3 className="font-serif text-2xl font-medium text-[#111827] mb-4">
+                <AnimatedHeading as="h3" effect="blur" hover="shift" className="font-serif text-2xl font-medium text-[#111827] mb-4">
                   Registered / Corporate Office
-                </h3>
+                </AnimatedHeading>
 
                 <p className="text-sm text-[#596579] leading-relaxed mb-6 font-normal">
                   {brandConfig.address.full}
@@ -524,6 +560,7 @@ export default function ContactPage() {
                     <span className="text-[#596579] uppercase tracking-wider w-24">Email</span>
                     <a
                       href="mailto:contact@bharatx.group"
+                      data-cursor="link"
                       className="font-bold text-[#3026B3] hover:underline"
                     >
                       contact@bharatx.group
@@ -534,7 +571,8 @@ export default function ContactPage() {
                     <span className="text-[#596579] uppercase tracking-wider w-24">Phone</span>
                     <a
                       href={`tel:${brandConfig.contact.phoneTel}`}
-                      className="font-bold text-[#111827] hover:text-[#3026B3]"
+                      data-cursor="link"
+                      className="font-bold text-[#111827] hover:text-[#3026B3] transition-colors"
                     >
                       {brandConfig.contact.phoneFormatted}
                     </a>
@@ -554,7 +592,8 @@ export default function ContactPage() {
                     href={`https://maps.google.com/?q=${encodeURIComponent(brandConfig.address.full)}`}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 rounded-full bg-white border border-[#E3E5EF] hover:border-[#3026B3] hover:text-[#3026B3] text-[#111827] px-6 py-3 text-xs font-mono font-bold uppercase tracking-wider shadow-xs transition-all"
+                    data-cursor="button"
+                    className="inline-flex items-center gap-2 rounded-full bg-white border border-[#E3E5EF] hover:border-[#3026B3] hover:text-[#3026B3] text-[#111827] px-6 py-3 text-xs font-mono font-bold uppercase tracking-wider shadow-xs transition-all fx-lift"
                   >
                     <span>Get Directions</span>
                     <Icon name="arrow-up-right" width={14} height={14} />
@@ -563,7 +602,7 @@ export default function ContactPage() {
               </div>
 
               {/* Visual Map / Graphic Panel */}
-              <div className="rounded-2xl border border-[#E3E5EF] bg-white p-6 shadow-sm flex flex-col justify-between h-full min-h-[220px]">
+              <div data-cursor="card" className="rounded-2xl border border-[#E3E5EF] bg-white p-6 shadow-sm flex flex-col justify-between h-full min-h-[220px] fx-lift">
                 <div className="flex items-center justify-between">
                   <div className="flex items-center gap-2">
                     <span className="h-2.5 w-2.5 rounded-full bg-emerald-500 animate-ping" />
@@ -575,7 +614,7 @@ export default function ContactPage() {
                 </div>
 
                 <div className="my-6 text-center">
-                  <div className="h-12 w-12 rounded-2xl bg-[#3026B3]/10 text-[#3026B3] flex items-center justify-center mx-auto mb-3">
+                  <div className="h-12 w-12 rounded-2xl bg-[#3026B3]/10 text-[#3026B3] flex items-center justify-center mx-auto mb-3 fx-icon-pop">
                     <Icon name="building-2" width={24} height={24} />
                   </div>
                   <span className="font-serif text-lg font-medium text-[#111827] block">
@@ -595,10 +634,10 @@ export default function ContactPage() {
             </div>
           </div>
         </div>
-      </section>
+      </SectionTransition>
 
       {/* ── 05. FINAL CTA (Have an Idea Worth Building?) ──────────────────── */}
-      <section className="relative overflow-hidden bg-gradient-to-br from-[#211B72] via-[#1D1763] to-[#120E3E] text-white py-20 sm:py-28">
+      <SectionTransition divider={false} className="relative overflow-hidden bg-gradient-to-br from-[#211B72] via-[#1D1763] to-[#120E3E] text-white py-20 sm:py-28">
         {/* Ambient radial lighting */}
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 -z-10 h-[500px] w-[500px] sm:w-[700px] rounded-full bg-gradient-to-r from-[#3026B3]/30 via-[#FFB000]/20 to-transparent blur-[140px] pointer-events-none" />
 
@@ -611,9 +650,14 @@ export default function ContactPage() {
             </div>
 
             {/* Headline */}
-            <h2 className="font-serif text-3xl sm:text-5xl md:text-6xl font-normal leading-[1.1] tracking-tight text-white">
+            <AnimatedHeading
+              as="h2"
+              effect="words"
+              hover="gradient"
+              className="font-serif text-3xl sm:text-5xl md:text-6xl font-normal leading-[1.1] tracking-tight text-white"
+            >
               Have an Idea Worth Building?
-            </h2>
+            </AnimatedHeading>
 
             {/* Copy */}
             <p className="mt-6 text-base sm:text-lg md:text-xl font-normal leading-relaxed text-slate-200 max-w-2xl mx-auto">
@@ -622,25 +666,29 @@ export default function ContactPage() {
 
             {/* Action */}
             <div className="mt-10 flex flex-wrap items-center justify-center gap-4">
-              <button
-                type="button"
-                onClick={() => {
-                  document.getElementById("contact-form-section")?.scrollIntoView({ behavior: "smooth" });
-                }}
-                className="group inline-flex items-center justify-center gap-2.5 rounded-full bg-[#FFB000] hover:bg-[#e09800] text-[#111827] px-9 py-4 text-[15px] font-bold shadow-xl shadow-black/20 transition-all duration-300 hover:scale-105"
-              >
-                <span>Talk to Us</span>
-                <Icon
-                  name="arrow-right"
-                  width={16}
-                  height={16}
-                  className="transition-transform duration-300 group-hover:translate-x-1"
-                />
-              </button>
+              <MagneticButton>
+                <button
+                  type="button"
+                  data-cursor="button"
+                  onClick={() => {
+                    document.getElementById("contact-form-section")?.scrollIntoView({ behavior: "smooth" });
+                  }}
+                  className="group inline-flex items-center justify-center gap-2.5 rounded-full bg-[#FFB000] hover:bg-[#e09800] text-[#111827] px-9 py-4 text-[15px] font-bold shadow-xl shadow-black/20 transition-all duration-300 fx-shine"
+                >
+                  <span>Talk to Us</span>
+                  <Icon
+                    name="arrow-right"
+                    width={16}
+                    height={16}
+                    className="transition-transform duration-300 group-hover:translate-x-1"
+                  />
+                </button>
+              </MagneticButton>
 
               <Link
                 to="/services"
-                className="inline-flex items-center justify-center gap-2 rounded-full border border-white/30 bg-white/10 hover:bg-white/20 px-8 py-4 text-[15px] font-semibold text-white transition-all backdrop-blur-sm"
+                data-cursor="button"
+                className="inline-flex items-center justify-center gap-2 rounded-full border border-white/30 bg-white/10 hover:bg-white/20 px-8 py-4 text-[15px] font-semibold text-white transition-all backdrop-blur-sm fx-lift"
               >
                 <span>Explore Ecosystem</span>
               </Link>
@@ -654,7 +702,7 @@ export default function ContactPage() {
             </div>
           </div>
         </div>
-      </section>
+      </SectionTransition>
     </main>
   );
 }

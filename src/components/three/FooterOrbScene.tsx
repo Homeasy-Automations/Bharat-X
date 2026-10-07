@@ -3,6 +3,7 @@ import { Canvas, useFrame } from "@react-three/fiber";
 import * as THREE from "three";
 import { useReducedMotion } from "framer-motion";
 import { companies } from "../../data/companies";
+import { cn } from "../../utils/cn";
 import { webglSupported, isLowPowerDevice } from "./webgl";
 
 interface NodeData {
@@ -242,7 +243,7 @@ export default function FooterOrbScene({ className }: { className?: string }) {
   }, []);
 
   return (
-    <div ref={containerRef} className={className ?? "relative h-[340px] w-full md:h-[440px]"}>
+    <div ref={containerRef} className={cn("transition-all duration-700", inView ? "opacity-100 scale-100" : "opacity-0 scale-[0.98]", className ?? "relative h-[340px] w-full md:h-[440px]")}>
       {/* High-contrast ambient glow pedestal */}
       <div
         aria-hidden="true"

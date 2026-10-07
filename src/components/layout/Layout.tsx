@@ -1,4 +1,4 @@
-import { motion, useReducedMotion } from "framer-motion";
+import { AnimatePresence } from "framer-motion";
 import { useEffect } from "react";
 import { Outlet, useLocation } from "react-router-dom";
 import { trackPageView } from "../../services/analytics";
@@ -9,10 +9,10 @@ import { ExecutiveAtmosphereCanvas } from "./ExecutiveAtmosphereCanvas";
 import { Footer } from "./Footer";
 import { Navbar } from "./Navbar";
 import { Preloader } from "./Preloader";
+import { PageTransition } from "../motion/PageTransition";
 
 export function Layout() {
   const location = useLocation();
-  const reduced = useReducedMotion();
   const { scrollTo } = useLenis();
 
   // Reset scroll on navigation or scroll smoothly to hash target
@@ -47,18 +47,14 @@ export function Layout() {
         <Preloader />
         <ScrollProgress />
         <Navbar />
-        {/* Fast, subtle route transition (entrance-only, keyed by path) */}
-        <motion.div
-          key={location.pathname}
-          className="flex flex-1 flex-col"
-          initial={reduced ? { opacity: 0 } : { opacity: 0, y: 14 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
-        >
-          <div className="flex-1">
-            <Outlet />
-          </div>
-        </motion.div>
+        {/* Full route transition with enter & exit and route sweep */}
+        <AnimatePresence mode="wait">
+          <PageTransition key={location.pathname} pathname={location.pathname}>
+            <div className="flex-1">
+              <Outlet />
+            </div>
+          </PageTransition>
+        </AnimatePresence>
         {/* {location.pathname !== "/" && <FooterCTA />} */}
         <Footer />
         <BackToTop />

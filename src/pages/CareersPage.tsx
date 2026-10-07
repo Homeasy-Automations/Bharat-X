@@ -4,6 +4,10 @@ import { Link } from "react-router-dom";
 import { usePageMeta } from "../hooks/usePageMeta";
 import { Icon } from "../utils/icons";
 import { submitContact } from "../services/api";
+import { SectionTransition } from "../components/motion/SectionTransition";
+import { Stagger, StaggerItem } from "../components/motion/Stagger";
+import { AnimatedHeading } from "../components/motion/AnimatedHeading";
+import { MagneticButton } from "../components/common/MagneticButton";
 
 const whyPillars = [
   {
@@ -199,13 +203,13 @@ export default function CareersPage() {
   return (
     <main className="w-full min-h-screen bg-[#FAF9F6] text-[#111827]">
       {/* ── 01. HERO (Careers at BharatX — Build What Matters.) ────────────── */}
-      <section className="relative overflow-hidden min-h-[92vh] lg:min-h-screen w-full flex items-center justify-start pt-32 sm:pt-36 md:pt-40 pb-20 sm:pb-28 border-b border-[#E3E5EF]">
+      <SectionTransition divider={false} className="relative overflow-hidden min-h-[92vh] lg:min-h-screen w-full flex items-center justify-start pt-32 sm:pt-36 md:pt-40 pb-20 sm:pb-28 border-b border-[#E3E5EF]">
         {/* Full-bleed authentic team collaboration background image */}
         <div className="absolute inset-0 z-0">
           <img
             src="/assets/backgrounds/careers_hero.png"
             alt="BharatX Team Collaborating on Real Industrial and Engineering Projects"
-            className="h-full w-full object-cover object-center filter brightness-[0.88] contrast-[1.10]"
+            className="h-full w-full object-cover object-center filter brightness-[0.88] contrast-[1.10] fx-zoom-img transition-transform duration-1000"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-black/92 via-black/55 to-black/35" />
           <div className="absolute inset-0 bg-gradient-to-r from-black/88 via-black/45 to-transparent" />
@@ -225,15 +229,14 @@ export default function CareersPage() {
             </motion.div>
 
             {/* H1 Headline */}
-            <motion.h1
-              initial={{ opacity: 0, y: 16 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.1 }}
+            <AnimatedHeading
+              as="h1"
+              effect="words"
+              hover="gradient"
               className="font-serif text-4xl sm:text-5xl md:text-6xl lg:text-[4.2rem] font-normal leading-[1.08] tracking-tight text-white drop-shadow-sm"
             >
-              Build What{" "}
-              <span className="text-[#FFB000]">Matters.</span>
-            </motion.h1>
+              Build What <span className="text-[#FFB000]">Matters.</span>
+            </AnimatedHeading>
 
             {/* Body */}
             <motion.p
@@ -252,39 +255,43 @@ export default function CareersPage() {
               transition={{ duration: 0.6, delay: 0.3 }}
               className="mt-8 flex flex-wrap items-center gap-4"
             >
-              <button
-                type="button"
-                onClick={() => {
-                  document.getElementById("open-opportunities")?.scrollIntoView({ behavior: "smooth" });
-                }}
-                className="group inline-flex items-center justify-center gap-2.5 rounded-full bg-[#FFB000] hover:bg-[#e09800] text-[#111827] px-8 py-4 text-[15px] font-bold shadow-xl shadow-black/20 transition-all duration-300 hover:scale-105"
-              >
-                <span>View Opportunities</span>
-                <Icon
-                  name="arrow-right"
-                  width={16}
-                  height={16}
-                  className="transition-transform duration-300 group-hover:translate-x-1"
-                />
-              </button>
+              <MagneticButton>
+                <button
+                  type="button"
+                  data-cursor="button"
+                  onClick={() => {
+                    document.getElementById("open-opportunities")?.scrollIntoView({ behavior: "smooth" });
+                  }}
+                  className="group inline-flex items-center justify-center gap-2.5 rounded-full bg-[#FFB000] hover:bg-[#e09800] text-[#111827] px-8 py-4 text-[15px] font-bold shadow-xl shadow-black/20 transition-all duration-300 fx-shine"
+                >
+                  <span>View Opportunities</span>
+                  <Icon
+                    name="arrow-right"
+                    width={16}
+                    height={16}
+                    className="transition-transform duration-300 group-hover:translate-x-1"
+                  />
+                </button>
+              </MagneticButton>
 
               <button
                 type="button"
+                data-cursor="button"
                 onClick={() => {
                   setShowProfileForm(true);
                   document.getElementById("open-opportunities")?.scrollIntoView({ behavior: "smooth" });
                 }}
-                className="inline-flex items-center justify-center gap-2 rounded-full border border-white/30 bg-white/10 hover:bg-white/20 px-8 py-4 text-[15px] font-semibold text-white transition-all backdrop-blur-sm"
+                className="inline-flex items-center justify-center gap-2 rounded-full border border-white/30 bg-white/10 hover:bg-white/20 px-8 py-4 text-[15px] font-semibold text-white transition-all backdrop-blur-sm fx-lift"
               >
                 <span>Send Your Profile</span>
               </button>
             </motion.div>
           </div>
         </div>
-      </section>
+      </SectionTransition>
 
       {/* ── 02. WHY BHARATX (More Than a Job. A Chance to Build.) ──────────── */}
-      <section className="relative overflow-hidden bg-white py-20 sm:py-28 border-b border-[#E3E5EF]">
+      <SectionTransition divider className="relative overflow-hidden bg-white py-20 sm:py-28 border-b border-[#E3E5EF]">
         <div className="container-x relative z-10">
           <div className="max-w-3xl mb-16">
             <div className="inline-flex items-center gap-2 rounded-full border border-[#3026B3]/25 bg-[#3026B3]/8 px-4 py-1 font-mono text-[11px] uppercase tracking-[0.26em] text-[#3026B3] font-bold shadow-xs mb-4">
@@ -292,9 +299,14 @@ export default function CareersPage() {
               <span>WHY BHARATX</span>
             </div>
 
-            <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-normal text-[#111827] leading-tight tracking-tight">
+            <AnimatedHeading
+              as="h2"
+              effect="mask"
+              hover="color"
+              className="font-serif text-3xl sm:text-4xl lg:text-5xl font-normal text-[#111827] leading-tight tracking-tight"
+            >
               More Than a Job. <span className="text-[#3026B3]">A Chance to Build.</span>
-            </h2>
+            </AnimatedHeading>
 
             <p className="mt-6 text-base sm:text-lg text-[#596579] leading-relaxed font-normal">
               BharatX is an environment for people who want to take ownership, solve meaningful problems and see their work create real-world impact.
@@ -306,37 +318,40 @@ export default function CareersPage() {
           </div>
 
           {/* 4 Compact Pillars Grid */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <Stagger className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {whyPillars.map((p) => (
-              <div
-                key={p.title}
-                className="group rounded-2xl border border-[#E3E5EF] bg-[#FAF9F6] p-7 shadow-xs transition-all duration-300 hover:border-[#3026B3] hover:bg-white hover:shadow-xl hover:-translate-y-1 flex flex-col justify-between"
-              >
-                <div>
-                  <div className={`h-11 w-11 rounded-xl ${p.bg} ${p.text} flex items-center justify-center mb-5 transition-transform duration-300 group-hover:scale-110 shadow-xs`}>
-                    <Icon name={p.icon} width={20} height={20} strokeWidth={2} />
+              <StaggerItem key={p.title}>
+                <div
+                  data-cursor="card"
+                  className="group rounded-2xl border border-[#E3E5EF] bg-[#FAF9F6] p-7 shadow-xs transition-all duration-300 hover:border-[#3026B3] hover:bg-white hover:shadow-xl fx-lift flex flex-col justify-between h-full"
+                >
+                  <div>
+                    <div className={`h-11 w-11 rounded-xl ${p.bg} ${p.text} flex items-center justify-center mb-5 transition-transform duration-300 group-hover:scale-110 group-hover:rotate-6 shadow-xs`}>
+                      <Icon name={p.icon} width={20} height={20} strokeWidth={2} />
+                    </div>
+
+                    <AnimatedHeading as="h3" effect="blur" hover="shift" className="font-serif text-2xl font-medium text-[#111827] group-hover:text-[#3026B3] transition-colors">
+                      {p.title}
+                    </AnimatedHeading>
+
+                    <p className="mt-3 text-xs sm:text-sm text-[#596579] leading-relaxed font-normal">
+                      {p.description}
+                    </p>
                   </div>
 
-                  <h3 className="font-serif text-2xl font-medium text-[#111827] group-hover:text-[#3026B3] transition-colors">
-                    {p.title}
-                  </h3>
-
-                  <p className="mt-3 text-xs sm:text-sm text-[#596579] leading-relaxed font-normal">
-                    {p.description}
-                  </p>
+                  <div className="mt-6 pt-4 border-t border-[#E3E5EF] font-mono text-[10px] uppercase tracking-wider text-[#596579] flex items-center justify-between">
+                    <span>Core Value</span>
+                    <span className="opacity-0 group-hover:opacity-100 transition-opacity text-[#3026B3]">✦</span>
+                  </div>
                 </div>
-
-                <div className="mt-6 pt-4 border-t border-[#E3E5EF] font-mono text-[10px] uppercase tracking-wider text-[#596579]">
-                  Core Value
-                </div>
-              </div>
+              </StaggerItem>
             ))}
-          </div>
+          </Stagger>
         </div>
-      </section>
+      </SectionTransition>
 
       {/* ── 03. WHERE YOU CAN BUILD (Find Your Place in the Ecosystem — 8 Areas) ── */}
-      <section className="relative overflow-hidden bg-[#FAF9F6] py-20 sm:py-28 border-b border-[#E3E5EF]">
+      <SectionTransition divider className="relative overflow-hidden bg-[#FAF9F6] py-20 sm:py-28 border-b border-[#E3E5EF]">
         <div className="container-x relative z-10">
           <div className="max-w-3xl text-center mx-auto mb-16">
             <div className="inline-flex items-center gap-2 rounded-full border border-[#15966B]/30 bg-[#15966B]/10 px-4 py-1 font-mono text-[11px] uppercase tracking-[0.26em] text-[#15966B] font-bold shadow-xs mb-4">
@@ -344,9 +359,14 @@ export default function CareersPage() {
               <span>CAREER DOMAINS</span>
             </div>
 
-            <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-normal text-[#111827] leading-tight tracking-tight">
+            <AnimatedHeading
+              as="h2"
+              effect="words"
+              hover="gradient"
+              className="font-serif text-3xl sm:text-4xl lg:text-5xl font-normal text-[#111827] leading-tight tracking-tight"
+            >
               Find Your Place in the <span className="text-[#3026B3]">Ecosystem</span>
-            </h2>
+            </AnimatedHeading>
 
             <p className="mt-4 text-base sm:text-lg text-[#596579] leading-relaxed max-w-2xl mx-auto">
               Our multidisciplinary portfolio operates across 8 major functional areas spanning both physical and digital industrial execution.
@@ -354,39 +374,42 @@ export default function CareersPage() {
           </div>
 
           {/* 8 Career Area Cards Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5 max-w-6xl mx-auto">
+          <Stagger className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5 max-w-6xl mx-auto">
             {careerDomains.map((area) => (
-              <Link
-                key={area.name}
-                to={area.link}
-                className="group flex flex-col justify-between rounded-2xl border border-[#E3E5EF] bg-white p-6 shadow-xs transition-all duration-300 hover:border-[#3026B3] hover:shadow-lg hover:-translate-y-1"
-              >
-                <div>
-                  <div className="flex items-center justify-between mb-3">
-                    <span className="text-2xl">{area.emoji}</span>
-                    <Icon name="arrow-up-right" width={14} height={14} className="text-[#596579] group-hover:text-[#3026B3] transition-colors" />
+              <StaggerItem key={area.name}>
+                <Link
+                  to={area.link}
+                  data-cursor="card"
+                  className="group flex flex-col justify-between rounded-2xl border border-[#E3E5EF] bg-white p-6 shadow-xs transition-all duration-300 hover:border-[#3026B3] hover:shadow-lg fx-lift h-full"
+                >
+                  <div>
+                    <div className="flex items-center justify-between mb-3">
+                      <span className="text-2xl transition-transform duration-300 group-hover:scale-125">{area.emoji}</span>
+                      <Icon name="arrow-up-right" width={14} height={14} className="text-[#596579] group-hover:text-[#3026B3] transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+                    </div>
+
+                    <AnimatedHeading as="h3" effect="blur" hover="shift" className="font-serif text-xl font-medium text-[#111827] group-hover:text-[#3026B3] transition-colors">
+                      {area.name}
+                    </AnimatedHeading>
+
+                    <p className="mt-3 text-xs sm:text-[13px] text-[#596579] leading-relaxed font-normal">
+                      {area.roles}
+                    </p>
                   </div>
 
-                  <h3 className="font-serif text-xl font-medium text-[#111827] group-hover:text-[#3026B3] transition-colors">
-                    {area.name}
-                  </h3>
-
-                  <p className="mt-3 text-xs sm:text-[13px] text-[#596579] leading-relaxed font-normal">
-                    {area.roles}
-                  </p>
-                </div>
-
-                <div className="mt-5 pt-3 border-t border-[#E3E5EF] font-mono text-[9.5px] uppercase tracking-wider text-[#596579]">
-                  Explore Sector
-                </div>
-              </Link>
+                  <div className="mt-5 pt-3 border-t border-[#E3E5EF] font-mono text-[9.5px] uppercase tracking-wider text-[#596579] flex items-center justify-between">
+                    <span>Explore Sector</span>
+                    <span className="text-[#3026B3] opacity-0 group-hover:opacity-100 transition-opacity">→</span>
+                  </div>
+                </Link>
+              </StaggerItem>
             ))}
-          </div>
+          </Stagger>
         </div>
-      </section>
+      </SectionTransition>
 
       {/* ── 04. HOW WE WORK (Built for People Who Take Ownership) ─────────── */}
-      <section className="relative overflow-hidden bg-white py-20 sm:py-28 border-b border-[#E3E5EF]">
+      <SectionTransition divider className="relative overflow-hidden bg-white py-20 sm:py-28 border-b border-[#E3E5EF]">
         <div className="container-x relative z-10">
           <div className="max-w-3xl text-center mx-auto mb-16">
             <div className="inline-flex items-center gap-2 rounded-full border border-[#00B8D9]/30 bg-[#00B8D9]/10 px-4 py-1 font-mono text-[11px] uppercase tracking-[0.26em] text-[#008299] font-bold shadow-xs mb-4">
@@ -394,9 +417,14 @@ export default function CareersPage() {
               <span>OUR CULTURE</span>
             </div>
 
-            <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-normal text-[#111827] leading-tight tracking-tight">
+            <AnimatedHeading
+              as="h2"
+              effect="mask"
+              hover="color"
+              className="font-serif text-3xl sm:text-4xl lg:text-5xl font-normal text-[#111827] leading-tight tracking-tight"
+            >
               Built for People Who <span className="text-[#3026B3]">Take Ownership</span>
-            </h2>
+            </AnimatedHeading>
 
             <p className="mt-3 text-base text-[#596579]">
               Four operating principles that shape how we collaborate, execute, and build.
@@ -404,54 +432,61 @@ export default function CareersPage() {
           </div>
 
           {/* 4 Cultural Principles Grid */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
+          <Stagger className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
             {culturePrinciples.map((item) => (
-              <div
-                key={item.title}
-                className="group rounded-2xl border border-[#E3E5EF] bg-[#FAF9F6] p-7 shadow-xs transition-all duration-300 hover:border-[#3026B3] hover:bg-white hover:shadow-xl hover:-translate-y-1 flex flex-col justify-between"
-              >
-                <div>
-                  <div className={`h-11 w-11 rounded-xl ${item.bg} ${item.text} flex items-center justify-center mb-5 transition-transform duration-300 group-hover:scale-110 shadow-xs`}>
-                    <Icon name={item.icon} width={20} height={20} strokeWidth={2} />
+              <StaggerItem key={item.title}>
+                <div
+                  data-cursor="card"
+                  className="group rounded-2xl border border-[#E3E5EF] bg-[#FAF9F6] p-7 shadow-xs transition-all duration-300 hover:border-[#3026B3] hover:bg-white hover:shadow-xl fx-lift flex flex-col justify-between h-full"
+                >
+                  <div>
+                    <div className={`h-11 w-11 rounded-xl ${item.bg} ${item.text} flex items-center justify-center mb-5 transition-transform duration-300 group-hover:scale-110 group-hover:rotate-6 shadow-xs`}>
+                      <Icon name={item.icon} width={20} height={20} strokeWidth={2} />
+                    </div>
+
+                    <AnimatedHeading as="h3" effect="blur" hover="shift" className="font-serif text-2xl font-medium text-[#111827] group-hover:text-[#3026B3] transition-colors">
+                      {item.title}
+                    </AnimatedHeading>
+
+                    <p className="mt-3 text-xs sm:text-sm text-[#596579] leading-relaxed font-normal">
+                      {item.description}
+                    </p>
                   </div>
 
-                  <h3 className="font-serif text-2xl font-medium text-[#111827] group-hover:text-[#3026B3] transition-colors">
-                    {item.title}
-                  </h3>
-
-                  <p className="mt-3 text-xs sm:text-sm text-[#596579] leading-relaxed font-normal">
-                    {item.description}
-                  </p>
+                  <div className="mt-6 pt-3 border-t border-[#E3E5EF] font-mono text-[10px] uppercase tracking-wider text-[#596579]">
+                    Operating Norm
+                  </div>
                 </div>
-
-                <div className="mt-6 pt-3 border-t border-[#E3E5EF] font-mono text-[10px] uppercase tracking-wider text-[#596579]">
-                  Operating Norm
-                </div>
-              </div>
+              </StaggerItem>
             ))}
-          </div>
+          </Stagger>
 
           {/* Central Anchor Statement */}
-          <div className="mt-14 max-w-2xl mx-auto rounded-2xl border border-[#3026B3]/30 bg-[#3026B3]/5 p-6 text-center shadow-xs">
+          <div data-cursor="card" className="mt-14 max-w-2xl mx-auto rounded-2xl border border-[#3026B3]/30 bg-[#3026B3]/5 p-6 text-center shadow-xs fx-lift transition-all duration-300 hover:border-[#3026B3]">
             <p className="font-serif text-base sm:text-lg font-medium text-[#111827] leading-relaxed">
               “We value initiative over hierarchy and outcomes over activity.”
             </p>
           </div>
         </div>
-      </section>
+      </SectionTransition>
 
       {/* ── 05. OPEN OPPORTUNITIES (Find Your Next Opportunity / Send Profile) ── */}
-      <section id="open-opportunities" className="relative overflow-hidden bg-[#FAF9F6] py-20 sm:py-28 border-b border-[#E3E5EF]">
-        <div className="container-x relative z-10">
+      <SectionTransition divider className="relative overflow-hidden bg-[#FAF9F6] py-20 sm:py-28 border-b border-[#E3E5EF]">
+        <div id="open-opportunities" className="container-x relative z-10">
           <div className="max-w-3xl text-center mx-auto mb-14">
             <div className="inline-flex items-center gap-2 rounded-full border border-[#3026B3]/25 bg-[#3026B3]/8 px-4 py-1 font-mono text-[11px] uppercase tracking-[0.26em] text-[#3026B3] font-bold shadow-xs mb-4">
               <span className="h-2 w-2 rounded-full bg-[#3026B3]" />
               <span>OPEN OPPORTUNITIES</span>
             </div>
 
-            <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-normal text-[#111827] leading-tight tracking-tight">
+            <AnimatedHeading
+              as="h2"
+              effect="words"
+              hover="gradient"
+              className="font-serif text-3xl sm:text-4xl lg:text-5xl font-normal text-[#111827] leading-tight tracking-tight"
+            >
               Find Your Next <span className="text-[#3026B3]">Opportunity</span>
-            </h2>
+            </AnimatedHeading>
 
             <p className="mt-2 font-serif text-xl text-[#3026B3] font-medium">
               We’re Growing
@@ -464,7 +499,7 @@ export default function CareersPage() {
 
           <div className="max-w-4xl mx-auto">
             {/* Opportunities Table / Clean Status Card */}
-            <div className="rounded-3xl border border-[#E3E5EF] bg-white overflow-hidden shadow-md mb-8">
+            <div data-cursor="card" className="rounded-3xl border border-[#E3E5EF] bg-white overflow-hidden shadow-md mb-8 fx-lift transition-all duration-300">
               <div className="overflow-x-auto">
                 <table className="w-full text-left text-sm border-collapse">
                   <thead>
@@ -485,6 +520,7 @@ export default function CareersPage() {
                       <td className="py-4 px-6 text-right">
                         <button
                           type="button"
+                          data-cursor="button"
                           onClick={() => {
                             setPosition("Civil Project Director");
                             setVertical("Infrastructure (BharatX Infratech)");
@@ -504,6 +540,7 @@ export default function CareersPage() {
                       <td className="py-4 px-6 text-right">
                         <button
                           type="button"
+                          data-cursor="button"
                           onClick={() => {
                             setPosition("Lead Applied AI Engineer");
                             setVertical("Technology & AI (Aixperts Labs)");
@@ -523,6 +560,7 @@ export default function CareersPage() {
                       <td className="py-4 px-6 text-right">
                         <button
                           type="button"
+                          data-cursor="button"
                           onClick={() => {
                             setPosition("Industrial Quality & Tooling Lead");
                             setVertical("Manufacturing (Casters Global)");
@@ -545,8 +583,9 @@ export default function CareersPage() {
                 </p>
                 <button
                   type="button"
+                  data-cursor="button"
                   onClick={() => setShowProfileForm((prev) => !prev)}
-                  className="mt-4 inline-flex items-center gap-2 rounded-full bg-[#3026B3] hover:bg-[#211B72] text-white px-7 py-3 text-xs font-mono font-bold uppercase tracking-wider shadow-md transition-all"
+                  className="mt-4 inline-flex items-center gap-2 rounded-full bg-[#3026B3] hover:bg-[#211B72] text-white px-7 py-3 text-xs font-mono font-bold uppercase tracking-wider shadow-md transition-all fx-shine"
                 >
                   <span>{showProfileForm ? "Hide Application Form" : "Send Your Profile →"}</span>
                 </button>
@@ -563,14 +602,14 @@ export default function CareersPage() {
                   transition={{ duration: 0.35 }}
                   className="overflow-hidden"
                 >
-                  <div className="rounded-3xl border border-[#E3E5EF] bg-white p-7 sm:p-12 shadow-xl mb-12">
+                  <div className="rounded-3xl border border-[#E3E5EF] bg-white p-7 sm:p-12 shadow-xl mb-12 fx-lift">
                     <div className="text-center mb-8">
                       <span className="font-mono text-[11px] uppercase tracking-[0.24em] text-[#3026B3] font-bold block">
                         TALENT BUREAU
                       </span>
-                      <h3 className="font-serif text-2xl sm:text-3xl font-medium text-[#111827] mt-1">
+                      <AnimatedHeading as="h3" effect="mask" hover="color" className="font-serif text-2xl sm:text-3xl font-medium text-[#111827] mt-1">
                         Submit Your Profile
-                      </h3>
+                      </AnimatedHeading>
                       <p className="text-xs sm:text-sm text-[#596579] mt-2 max-w-md mx-auto">
                         Share your background, portfolio, or target vertical. Our talent leadership reviews every submission.
                       </p>
@@ -578,10 +617,10 @@ export default function CareersPage() {
 
                     {submitted ? (
                       <div className="text-center py-10">
-                        <div className="h-14 w-14 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center mx-auto mb-4">
+                        <div className="h-14 w-14 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center mx-auto mb-4 fx-icon-pop">
                           <Icon name="check" width={28} height={28} strokeWidth={2.5} />
                         </div>
-                        <h4 className="font-serif text-2xl font-medium text-[#111827]">
+                        <h4 className="font-serif text-2xl font-medium text-[#111827] transition-colors duration-300 hover:text-[#3026B3]">
                           Profile Received
                         </h4>
                         <p className="text-sm text-[#596579] mt-2 max-w-md mx-auto">
@@ -607,7 +646,7 @@ export default function CareersPage() {
                               value={name}
                               onChange={(e) => setName(e.target.value)}
                               placeholder="Your full name"
-                              className="w-full rounded-xl border border-[#E3E5EF] bg-[#FAF9F6] px-4 py-3 text-sm text-[#111827] focus:border-[#3026B3] focus:bg-white focus:outline-none"
+                              className="w-full rounded-xl border border-[#E3E5EF] bg-[#FAF9F6] px-4 py-3 text-sm text-[#111827] transition-all duration-200 focus:border-[#3026B3] focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#3026B3]/20 hover:border-[#3026B3]/50"
                             />
                           </div>
 
@@ -621,7 +660,7 @@ export default function CareersPage() {
                               value={email}
                               onChange={(e) => setEmail(e.target.value)}
                               placeholder="name@email.com"
-                              className="w-full rounded-xl border border-[#E3E5EF] bg-[#FAF9F6] px-4 py-3 text-sm text-[#111827] focus:border-[#3026B3] focus:bg-white focus:outline-none"
+                              className="w-full rounded-xl border border-[#E3E5EF] bg-[#FAF9F6] px-4 py-3 text-sm text-[#111827] transition-all duration-200 focus:border-[#3026B3] focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#3026B3]/20 hover:border-[#3026B3]/50"
                             />
                           </div>
                         </div>
@@ -636,7 +675,7 @@ export default function CareersPage() {
                               value={phone}
                               onChange={(e) => setPhone(e.target.value)}
                               placeholder="+91 XXXXX XXXXX"
-                              className="w-full rounded-xl border border-[#E3E5EF] bg-[#FAF9F6] px-4 py-3 text-sm text-[#111827] focus:border-[#3026B3] focus:bg-white focus:outline-none"
+                              className="w-full rounded-xl border border-[#E3E5EF] bg-[#FAF9F6] px-4 py-3 text-sm text-[#111827] transition-all duration-200 focus:border-[#3026B3] focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#3026B3]/20 hover:border-[#3026B3]/50"
                             />
                           </div>
 
@@ -649,7 +688,7 @@ export default function CareersPage() {
                               value={position}
                               onChange={(e) => setPosition(e.target.value)}
                               placeholder="e.g. Mechanical Engineer, AI Specialist"
-                              className="w-full rounded-xl border border-[#E3E5EF] bg-[#FAF9F6] px-4 py-3 text-sm text-[#111827] focus:border-[#3026B3] focus:bg-white focus:outline-none"
+                              className="w-full rounded-xl border border-[#E3E5EF] bg-[#FAF9F6] px-4 py-3 text-sm text-[#111827] transition-all duration-200 focus:border-[#3026B3] focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#3026B3]/20 hover:border-[#3026B3]/50"
                             />
                           </div>
                         </div>
@@ -662,7 +701,7 @@ export default function CareersPage() {
                             <select
                               value={vertical}
                               onChange={(e) => setVertical(e.target.value)}
-                              className="w-full rounded-xl border border-[#E3E5EF] bg-[#FAF9F6] px-4 py-3 text-sm text-[#111827] focus:border-[#3026B3] focus:bg-white focus:outline-none"
+                              className="w-full rounded-xl border border-[#E3E5EF] bg-[#FAF9F6] px-4 py-3 text-sm text-[#111827] transition-all duration-200 focus:border-[#3026B3] focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#3026B3]/20 hover:border-[#3026B3]/50"
                             >
                               {verticalsList.map((v) => (
                                 <option key={v} value={v}>
@@ -681,7 +720,7 @@ export default function CareersPage() {
                               value={location}
                               onChange={(e) => setLocation(e.target.value)}
                               placeholder="e.g. New Delhi, Bengaluru, Plant Site"
-                              className="w-full rounded-xl border border-[#E3E5EF] bg-[#FAF9F6] px-4 py-3 text-sm text-[#111827] focus:border-[#3026B3] focus:bg-white focus:outline-none"
+                              className="w-full rounded-xl border border-[#E3E5EF] bg-[#FAF9F6] px-4 py-3 text-sm text-[#111827] transition-all duration-200 focus:border-[#3026B3] focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#3026B3]/20 hover:border-[#3026B3]/50"
                             />
                           </div>
                         </div>
@@ -695,7 +734,7 @@ export default function CareersPage() {
                             value={linkedin}
                             onChange={(e) => setLinkedin(e.target.value)}
                             placeholder="https://linkedin.com/in/yourprofile"
-                            className="w-full rounded-xl border border-[#E3E5EF] bg-[#FAF9F6] px-4 py-3 text-sm text-[#111827] focus:border-[#3026B3] focus:bg-white focus:outline-none"
+                            className="w-full rounded-xl border border-[#E3E5EF] bg-[#FAF9F6] px-4 py-3 text-sm text-[#111827] transition-all duration-200 focus:border-[#3026B3] focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#3026B3]/20 hover:border-[#3026B3]/50"
                           />
                         </div>
 
@@ -708,15 +747,16 @@ export default function CareersPage() {
                             value={intro}
                             onChange={(e) => setIntro(e.target.value)}
                             placeholder="Tell us about the problems you've solved and what capabilities you bring."
-                            className="w-full rounded-xl border border-[#E3E5EF] bg-[#FAF9F6] px-4 py-3 text-sm text-[#111827] focus:border-[#3026B3] focus:bg-white focus:outline-none resize-y"
+                            className="w-full rounded-xl border border-[#E3E5EF] bg-[#FAF9F6] px-4 py-3 text-sm text-[#111827] transition-all duration-200 focus:border-[#3026B3] focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#3026B3]/20 hover:border-[#3026B3]/50 resize-y"
                           />
                         </div>
 
                         <div className="pt-2">
                           <button
                             type="submit"
+                            data-cursor="button"
                             disabled={submitting}
-                            className="inline-flex items-center gap-2 rounded-full bg-[#3026B3] hover:bg-[#211B72] text-white px-8 py-3.5 text-xs font-mono font-bold uppercase tracking-wider shadow-md transition-all disabled:opacity-60"
+                            className="inline-flex items-center gap-2 rounded-full bg-[#3026B3] hover:bg-[#211B72] text-white px-8 py-3.5 text-xs font-mono font-bold uppercase tracking-wider shadow-md transition-all disabled:opacity-60 fx-shine"
                           >
                             <span>{submitting ? "Submitting..." : "Submit Profile →"}</span>
                           </button>
@@ -729,10 +769,10 @@ export default function CareersPage() {
             </AnimatePresence>
           </div>
         </div>
-      </section>
+      </SectionTransition>
 
       {/* ── 06. FINAL CTA (Ready to Build With Us?) ───────────────────────── */}
-      <section className="relative overflow-hidden bg-gradient-to-br from-[#211B72] via-[#1D1763] to-[#120E3E] text-white py-20 sm:py-28">
+      <SectionTransition divider={false} className="relative overflow-hidden bg-gradient-to-br from-[#211B72] via-[#1D1763] to-[#120E3E] text-white py-20 sm:py-28">
         {/* Ambient radial lighting */}
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 -z-10 h-[500px] w-[500px] sm:w-[700px] rounded-full bg-gradient-to-r from-[#3026B3]/30 via-[#FFB000]/20 to-transparent blur-[140px] pointer-events-none" />
 
@@ -745,9 +785,14 @@ export default function CareersPage() {
             </div>
 
             {/* Headline */}
-            <h2 className="font-serif text-3xl sm:text-5xl md:text-6xl font-normal leading-[1.1] tracking-tight text-white">
+            <AnimatedHeading
+              as="h2"
+              effect="words"
+              hover="gradient"
+              className="font-serif text-3xl sm:text-5xl md:text-6xl font-normal leading-[1.1] tracking-tight text-white"
+            >
               Ready to Build With Us?
-            </h2>
+            </AnimatedHeading>
 
             {/* Copy */}
             <p className="mt-6 text-base sm:text-lg md:text-xl font-normal leading-relaxed text-slate-200 max-w-2xl mx-auto">
@@ -756,29 +801,33 @@ export default function CareersPage() {
 
             {/* Dual CTAs */}
             <div className="mt-10 flex flex-wrap items-center justify-center gap-4">
-              <button
-                type="button"
-                onClick={() => {
-                  document.getElementById("open-opportunities")?.scrollIntoView({ behavior: "smooth" });
-                }}
-                className="group inline-flex items-center justify-center gap-2.5 rounded-full bg-[#FFB000] hover:bg-[#e09800] text-[#111827] px-8 py-4 text-[15px] font-bold shadow-xl shadow-black/20 transition-all duration-300 hover:scale-105"
-              >
-                <span>Explore Open Roles</span>
-                <Icon
-                  name="arrow-right"
-                  width={16}
-                  height={16}
-                  className="transition-transform duration-300 group-hover:translate-x-1"
-                />
-              </button>
+              <MagneticButton>
+                <button
+                  type="button"
+                  data-cursor="button"
+                  onClick={() => {
+                    document.getElementById("open-opportunities")?.scrollIntoView({ behavior: "smooth" });
+                  }}
+                  className="group inline-flex items-center justify-center gap-2.5 rounded-full bg-[#FFB000] hover:bg-[#e09800] text-[#111827] px-8 py-4 text-[15px] font-bold shadow-xl shadow-black/20 transition-all duration-300 fx-shine"
+                >
+                  <span>Explore Open Roles</span>
+                  <Icon
+                    name="arrow-right"
+                    width={16}
+                    height={16}
+                    className="transition-transform duration-300 group-hover:translate-x-1"
+                  />
+                </button>
+              </MagneticButton>
 
               <button
                 type="button"
+                data-cursor="button"
                 onClick={() => {
                   setShowProfileForm(true);
                   document.getElementById("open-opportunities")?.scrollIntoView({ behavior: "smooth" });
                 }}
-                className="inline-flex items-center justify-center gap-2 rounded-full border border-white/30 bg-white/10 hover:bg-white/20 px-8 py-4 text-[15px] font-semibold text-white transition-all backdrop-blur-sm"
+                className="inline-flex items-center justify-center gap-2 rounded-full border border-white/30 bg-white/10 hover:bg-white/20 px-8 py-4 text-[15px] font-semibold text-white transition-all backdrop-blur-sm fx-lift"
               >
                 <span>Send Your Profile</span>
               </button>
@@ -792,7 +841,7 @@ export default function CareersPage() {
             </div>
           </div>
         </div>
-      </section>
+      </SectionTransition>
     </main>
   );
 }

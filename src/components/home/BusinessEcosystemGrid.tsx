@@ -1,6 +1,9 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { Icon } from "../../utils/icons";
+import { SectionTransition } from "../motion/SectionTransition";
+import { Stagger, StaggerItem } from "../motion/Stagger";
+import { TiltCard } from "../three/TiltCard";
 
 interface EcosystemCard {
   id: string;
@@ -116,20 +119,21 @@ const ecosystemCards: EcosystemCard[] = [
 
 export function BusinessEcosystemGrid() {
   return (
-    <section
+    <SectionTransition
       id="businesses"
       aria-label="Our Business Ecosystem"
       className="relative overflow-hidden bg-white py-20 sm:py-24 md:py-28 border-b border-[#E3E5EF]"
+      withDivider
     >
       <div className="container-x relative z-10">
         {/* Header */}
-        <div className="max-w-3xl mb-12 sm:mb-16">
-          <div className="inline-flex items-center gap-2 rounded-full border border-[#3026B3]/25 bg-[#3026B3]/8 px-4 py-1 font-mono text-[11px] uppercase tracking-[0.26em] text-[#3026B3] font-bold shadow-xs">
-            <span className="h-2 w-2 rounded-full bg-[#3026B3]" />
+        <div className="max-w-3xl mb-12 sm:mb-16 group/header">
+          <div className="inline-flex items-center gap-2 rounded-full border border-[#3026B3]/25 bg-[#3026B3]/8 px-4 py-1 font-mono text-[11px] uppercase tracking-[0.26em] text-[#3026B3] font-bold shadow-xs cursor-default">
+            <span className="h-2 w-2 rounded-full bg-[#3026B3] transition-transform duration-300 group-hover/header:scale-125" />
             <span>CORE VERTICALS</span>
           </div>
 
-          <h2 className="mt-4 font-serif text-3xl sm:text-4xl md:text-5xl font-normal leading-tight tracking-tight text-[#111827]">
+          <h2 className="mt-4 font-serif text-3xl sm:text-4xl md:text-5xl font-normal leading-tight tracking-tight text-[#111827] transition-colors hover:text-[#3026B3]">
             Our Business Ecosystem
           </h2>
 
@@ -138,14 +142,18 @@ export function BusinessEcosystemGrid() {
           </p>
         </div>
 
-        {/* 4×2 Compact High-Contrast Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5">
-          {ecosystemCards.map((card, idx) => {
+        {/* 4×2 Compact High-Contrast Grid with Stagger & TiltCard */}
+        <Stagger className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5">
+          {ecosystemCards.map((card) => {
             const isExternal = card.to.startsWith("http");
-            const cardClasses = `group relative flex h-full flex-col justify-between rounded-2xl border border-[#E3E5EF] bg-[#FAF9F6] p-5 sm:p-6 shadow-xs transition-all duration-300 hover:bg-white hover:shadow-xl hover:-translate-y-1 ${card.borderHover}`;
 
             const cardContent = (
-              <>
+              <TiltCard
+                maxTilt={5}
+                glare={true}
+                data-cursor="card"
+                className={`group relative flex h-full flex-col justify-between rounded-2xl border border-[#E3E5EF] bg-[#FAF9F6] p-5 sm:p-6 shadow-xs transition-all duration-300 hover:bg-white hover:shadow-xl hover:-translate-y-1.5 focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-[#3026B3] ${card.borderHover}`}
+              >
                 {/* Top: Sector Tag & Logo / Badge */}
                 <div>
                   <div className="flex items-center justify-between gap-2 mb-3.5">
@@ -160,7 +168,7 @@ export function BusinessEcosystemGrid() {
                         Upcoming
                       </span>
                     ) : card.logo ? (
-                      <div className="h-8 w-8 rounded-lg bg-white p-1 border border-[#E3E5EF] flex items-center justify-center shrink-0 shadow-xs">
+                      <div className="h-8 w-8 rounded-lg bg-white p-1 border border-[#E3E5EF] flex items-center justify-center shrink-0 shadow-xs transition-transform duration-300 group-hover:scale-110 fx-icon-pop">
                         <img
                           src={card.logo}
                           alt=""
@@ -190,31 +198,25 @@ export function BusinessEcosystemGrid() {
                     <Icon name="arrow-up-right" width={14} height={14} strokeWidth={2.2} />
                   </div>
                 </div>
-              </>
+              </TiltCard>
             );
 
             return (
-              <motion.div
-                key={card.id}
-                initial={{ opacity: 0, y: 18 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.45, delay: 0.05 * idx }}
-              >
+              <StaggerItem key={card.id}>
                 {isExternal ? (
-                  <a href={card.to} target="_blank" rel="noopener noreferrer" className={cardClasses}>
+                  <a href={card.to} target="_blank" rel="noopener noreferrer" data-cursor="card" className="block h-full fx-lift">
                     {cardContent}
                   </a>
                 ) : (
-                  <Link to={card.to} className={cardClasses}>
+                  <Link to={card.to} data-cursor="card" className="block h-full fx-lift">
                     {cardContent}
                   </Link>
                 )}
-              </motion.div>
+              </StaggerItem>
             );
           })}
-        </div>
+        </Stagger>
       </div>
-    </section>
+    </SectionTransition>
   );
 }

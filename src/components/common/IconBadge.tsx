@@ -39,7 +39,7 @@ export function IconBadge({
   const inner = (
     <span
       className={cn(
-        "relative flex shrink-0 items-center justify-center rounded-full border border-slate-200/90 bg-white/90 shadow-xs dark:border-white/10 dark:bg-white/[0.03] dark:shadow-none",
+        "relative flex shrink-0 items-center justify-center rounded-full border border-slate-200/90 bg-white/90 shadow-xs dark:border-white/10 dark:bg-white/[0.03] dark:shadow-none transition-all duration-300 group-hover:scale-110 group-hover:shadow-md",
         sizes[size],
         className,
       )}
@@ -67,7 +67,7 @@ export function IconBadge({
         width={iconSizes[size]}
         height={iconSizes[size]}
         strokeWidth={1.6}
-        className={cn("relative", !accent && color)}
+        className={cn("relative transition-transform duration-300 group-hover:scale-110 group-hover:rotate-6", !accent && color)}
       />
     </span>
   );

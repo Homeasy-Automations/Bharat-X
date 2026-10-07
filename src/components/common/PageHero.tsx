@@ -34,15 +34,15 @@ export function PageHero({
     <div>
       {breadcrumbs && <Breadcrumbs items={breadcrumbs} className="mb-8" />}
       <Reveal immediate>
-        <div className="mb-6 flex items-center gap-3 font-mono text-[11px] uppercase tracking-[0.3em] text-gold-400">
-          <span className="flex h-7 w-7 items-center justify-center rounded-full border border-gold-400/30 bg-gold-400/10">
+        <div className="group/eyebrow mb-6 inline-flex items-center gap-3 font-mono text-[11px] uppercase tracking-[0.3em] text-gold-400 cursor-default">
+          <span className="flex h-7 w-7 items-center justify-center rounded-full border border-gold-400/30 bg-gold-400/10 transition-transform duration-300 group-hover/eyebrow:scale-110 fx-icon-pop">
             <Icon name={icon} width={13} height={13} strokeWidth={1.6} />
           </span>
-          <span>{eyebrow}</span>
-          <span aria-hidden className="h-px w-12 bg-gold-400/50" />
+          <span className="transition-colors group-hover/eyebrow:text-gold-300">{eyebrow}</span>
+          <span aria-hidden className="h-px w-12 bg-gold-400/50 transition-all duration-300 group-hover/eyebrow:w-20 group-hover/eyebrow:bg-gold-400" />
         </div>
       </Reveal>
-      <h1 className="max-w-4xl font-display text-3xl sm:text-5xl font-semibold leading-[1.02] tracking-tight text-ink-900 dark:text-ink-50 md:text-6xl lg:text-7xl">
+      <h1 className="max-w-4xl font-display text-3xl sm:text-5xl font-semibold leading-[1.02] tracking-tight text-ink-900 dark:text-ink-50 md:text-6xl lg:text-7xl transition-colors hover:text-[#3026B3] dark:hover:text-[#FFB000]">
         {lines.map((line, i) => (
           <MaskReveal immediate key={i} delay={0.05 * i}>
             {line}

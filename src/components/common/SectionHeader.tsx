@@ -26,7 +26,7 @@ export function SectionHeader({
   return (
     <div
       className={cn(
-        "mb-12 flex flex-col gap-5 md:mb-16",
+        "group/header mb-12 flex flex-col gap-5 md:mb-16",
         align === "center" && "items-center text-center",
         className,
       )}
@@ -34,7 +34,7 @@ export function SectionHeader({
       <Reveal>
         <div
           className={cn(
-            "flex items-center gap-3 font-mono text-[11px] uppercase tracking-[0.28em]",
+            "flex items-center gap-3 font-mono text-[11px] uppercase tracking-[0.28em] cursor-default",
             align === "center" && "justify-center",
             light ? "text-[#4e5b67]" : "text-ink-400",
           )}
@@ -42,7 +42,7 @@ export function SectionHeader({
           {icon && (
             <span
               className={cn(
-                "flex h-7 w-7 items-center justify-center rounded-full border",
+                "flex h-7 w-7 items-center justify-center rounded-full border transition-transform duration-300 group-hover/header:scale-110 fx-icon-pop",
                 light
                   ? "border-[#131a22]/15 text-gold-600"
                   : "border-white/10 text-gold-400",
@@ -55,8 +55,8 @@ export function SectionHeader({
           <span
             aria-hidden
             className={cn(
-              "h-px w-10",
-              light ? "bg-[#131a22]/20" : "bg-gold-400/50",
+              "h-px w-10 transition-all duration-300 group-hover/header:w-16",
+              light ? "bg-[#131a22]/20 group-hover/header:bg-[#3026B3]" : "bg-gold-400/50 group-hover/header:bg-gold-400",
             )}
           />
         </div>
@@ -64,7 +64,7 @@ export function SectionHeader({
       <Reveal delay={0.08}>
         <h2
           className={cn(
-            "max-w-3xl font-display text-[1.85rem] sm:text-4xl font-semibold leading-[1.08] sm:leading-[1.05] tracking-tight md:text-5xl lg:text-[3.4rem]",
+            "max-w-3xl font-display text-[1.85rem] sm:text-4xl font-semibold leading-[1.08] sm:leading-[1.05] tracking-tight md:text-5xl lg:text-[3.4rem] transition-colors hover:text-[#3026B3] dark:hover:text-[#FFB000]",
             light ? "text-[#131a22]" : "text-ink-50",
           )}
         >

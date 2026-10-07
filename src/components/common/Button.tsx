@@ -14,14 +14,14 @@ export interface ButtonProps {
 }
 
 const base =
-  "group/btn relative inline-flex items-center justify-center gap-2.5 rounded-full font-semibold transition-all duration-300 ease-out cursor-pointer select-none";
+  "group/btn relative inline-flex items-center justify-center gap-2.5 rounded-full font-semibold transition-all duration-300 ease-out cursor-pointer select-none focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-[#3026B3] focus-visible:ring-offset-2 active:scale-[0.97]";
 
 const variants: Record<ButtonVariant, string> = {
   primary:
-    "bg-[#3026B3] text-white font-semibold shadow-md shadow-[#3026B3]/25 hover:bg-[#211B72] hover:shadow-[0_8px_30px_-4px_rgba(48,38,179,0.4)] dark:bg-[#FFB000] dark:text-[#111827] dark:hover:bg-[#e69e00] dark:hover:shadow-[0_8px_35px_-4px_rgba(255,176,0,0.5)]",
+    "fx-shine bg-[#3026B3] text-white font-semibold shadow-md shadow-[#3026B3]/25 hover:bg-[#211B72] hover:shadow-[0_8px_30px_-4px_rgba(48,38,179,0.4)] dark:bg-[#FFB000] dark:text-[#111827] dark:hover:bg-[#e69e00] dark:hover:shadow-[0_8px_35px_-4px_rgba(255,176,0,0.5)]",
   secondary:
     "border border-[#E3E5EF] bg-white text-[#111827] font-semibold shadow-sm hover:border-[#3026B3] hover:text-[#3026B3] hover:shadow-md dark:border-white/20 dark:bg-white/[0.08] dark:text-white dark:hover:border-[#FFB000] dark:hover:text-[#FFB000] dark:hover:bg-white/[0.12]",
-  teal: "bg-[#00B8D9] text-white font-semibold shadow-md shadow-[#00B8D9]/25 hover:bg-[#009eb8] hover:shadow-[0_8px_30px_-4px_rgba(0,184,217,0.4)] dark:bg-[#00B8D9] dark:text-white dark:hover:bg-[#00c9ec]",
+  teal: "fx-shine bg-[#00B8D9] text-white font-semibold shadow-md shadow-[#00B8D9]/25 hover:bg-[#009eb8] hover:shadow-[0_8px_30px_-4px_rgba(0,184,217,0.4)] dark:bg-[#00B8D9] dark:text-white dark:hover:bg-[#00c9ec]",
   ghost:
     "border border-[#E3E5EF] bg-white/80 text-[#596579] backdrop-blur-sm shadow-sm hover:border-[#3026B3] hover:text-[#111827] hover:bg-white dark:border-white/15 dark:bg-white/[0.04] dark:text-ink-200 dark:hover:border-[#FFB000] dark:hover:text-white",
   ember:
@@ -47,6 +47,7 @@ export function Button({
   return (
     <button
       {...rest}
+      data-cursor="button"
       className={cn(base, variants[variant], sizes[size], className)}
     >
       <span className="relative z-10 flex items-center gap-2.5">

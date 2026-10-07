@@ -2,6 +2,10 @@ import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { usePageMeta } from "../hooks/usePageMeta";
 import { Icon } from "../utils/icons";
+import { SectionTransition } from "../components/motion/SectionTransition";
+import { Stagger, StaggerItem } from "../components/motion/Stagger";
+import { AnimatedHeading } from "../components/motion/AnimatedHeading";
+import { MagneticButton } from "../components/common/MagneticButton";
 
 interface ImpactArea {
   id: string;
@@ -188,11 +192,12 @@ export default function ImpactPage() {
       {/* ── 01. HERO (Building Businesses. Creating Wider Value.) ─────────── */}
       <section className="relative overflow-hidden min-h-[92vh] lg:min-h-screen w-full flex items-center justify-start pt-32 sm:pt-36 md:pt-40 pb-20 sm:pb-28 border-b border-[#E3E5EF]">
         {/* Full-bleed authentic hero background image */}
-        <div className="absolute inset-0 z-0">
+        <div className="absolute inset-0 z-0 overflow-hidden">
           <img
             src="/assets/backgrounds/impact_hero.png"
             alt="BharatX Infrastructure, Agriculture, Industry and People"
-            className="h-full w-full object-cover object-center filter brightness-[0.88] contrast-[1.10]"
+            className="h-full w-full object-cover object-center filter brightness-[0.88] contrast-[1.10] transition-transform duration-1000 ease-out hover:scale-105"
+            data-cursor="image"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/55 to-black/35" />
           <div className="absolute inset-0 bg-gradient-to-r from-black/85 via-black/45 to-transparent" />
@@ -205,9 +210,9 @@ export default function ImpactPage() {
               initial={{ opacity: 0, y: 12 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5 }}
-              className="inline-flex items-center gap-2 rounded-full border border-white/25 bg-black/45 backdrop-blur-md px-4 py-1 font-mono text-[11px] uppercase tracking-[0.28em] text-[#FFB000] mb-5 shadow-sm"
+              className="inline-flex items-center gap-2 rounded-full border border-white/25 bg-black/45 backdrop-blur-md px-4 py-1 font-mono text-[11px] uppercase tracking-[0.28em] text-[#FFB000] mb-5 shadow-sm group hover:border-[#FFB000]/60 transition-colors"
             >
-              <span className="h-2 w-2 rounded-full bg-[#FFB000] shadow-[0_0_8px_#FFB000]" />
+              <span className="h-2 w-2 rounded-full bg-[#FFB000] shadow-[0_0_8px_#FFB000] group-hover:scale-125 transition-transform" />
               <span>OUR IMPACT</span>
             </motion.div>
 
@@ -216,10 +221,11 @@ export default function ImpactPage() {
               initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.1 }}
-              className="font-serif text-4xl sm:text-5xl md:text-6xl lg:text-[4.2rem] font-normal leading-[1.08] tracking-tight text-white drop-shadow-sm"
+              className="font-serif text-4xl sm:text-5xl md:text-6xl lg:text-[4.2rem] font-normal leading-[1.08] tracking-tight text-white drop-shadow-sm cursor-text"
+              data-cursor="text"
             >
               Building Businesses.{" "}
-              <span className="text-[#FFB000]">Creating Wider Value.</span>
+              <span className="text-[#FFB000] hover:text-[#ffd166] transition-colors duration-300">Creating Wider Value.</span>
             </motion.h1>
 
             {/* Body */}
@@ -239,26 +245,31 @@ export default function ImpactPage() {
               transition={{ duration: 0.6, delay: 0.3 }}
               className="mt-8 flex flex-wrap items-center gap-4"
             >
-              <Link
-                to="#impact-areas"
-                onClick={(e) => {
-                  e.preventDefault();
-                  document.getElementById("impact-areas")?.scrollIntoView({ behavior: "smooth" });
-                }}
-                className="group inline-flex items-center justify-center gap-2.5 rounded-full bg-[#FFB000] hover:bg-[#e09800] text-[#111827] px-8 py-4 text-[15px] font-bold shadow-xl shadow-black/20 transition-all duration-300 hover:scale-105"
-              >
-                <span>Explore Impact Areas</span>
-                <Icon
-                  name="arrow-right"
-                  width={16}
-                  height={16}
-                  className="transition-transform duration-300 group-hover:translate-x-1"
-                />
-              </Link>
+              <MagneticButton strength={0.25}>
+                <Link
+                  to="#impact-areas"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    document.getElementById("impact-areas")?.scrollIntoView({ behavior: "smooth" });
+                  }}
+                  data-cursor="button"
+                  data-motion="true"
+                  className="group inline-flex items-center justify-center gap-2.5 rounded-full bg-[#FFB000] hover:bg-[#e09800] text-[#111827] px-8 py-4 text-[15px] font-bold shadow-xl shadow-black/20 transition-all duration-300 fx-shine active:scale-95"
+                >
+                  <span>Explore Impact Areas</span>
+                  <Icon
+                    name="arrow-right"
+                    width={16}
+                    height={16}
+                    className="transition-transform duration-300 group-hover:translate-x-1"
+                  />
+                </Link>
+              </MagneticButton>
 
               <Link
                 to="/services"
-                className="inline-flex items-center justify-center gap-2 rounded-full border border-white/30 bg-white/10 hover:bg-white/20 px-8 py-4 text-[15px] font-semibold text-white transition-all backdrop-blur-sm"
+                data-cursor="button"
+                className="inline-flex items-center justify-center gap-2 rounded-full border border-white/30 bg-white/10 hover:bg-white/20 px-8 py-4 text-[15px] font-semibold text-white transition-all backdrop-blur-sm fx-lift"
               >
                 <span>Our Businesses</span>
               </Link>
@@ -268,18 +279,18 @@ export default function ImpactPage() {
       </section>
 
       {/* ── 02. OUR IMPACT PHILOSOPHY (Growth Should Create More Than Profit.) ── */}
-      <section className="relative overflow-hidden bg-white py-20 sm:py-28 border-b border-[#E3E5EF]">
+      <SectionTransition withDivider className="relative overflow-hidden bg-white py-20 sm:py-28 border-b border-[#E3E5EF]">
         <div className="container-x relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
             <div className="lg:col-span-6">
-              <div className="inline-flex items-center gap-2 rounded-full border border-[#15966B]/30 bg-[#15966B]/10 px-4 py-1 font-mono text-[11px] uppercase tracking-[0.26em] text-[#15966B] font-bold shadow-xs mb-4">
+              <div className="inline-flex items-center gap-2 rounded-full border border-[#15966B]/30 bg-[#15966B]/10 px-4 py-1 font-mono text-[11px] uppercase tracking-[0.26em] text-[#15966B] font-bold shadow-xs mb-4 hover:border-[#15966B] transition-colors">
                 <span className="h-2 w-2 rounded-full bg-[#15966B]" />
                 <span>OUR IMPACT PHILOSOPHY</span>
               </div>
 
-              <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-normal text-[#111827] leading-tight tracking-tight">
+              <AnimatedHeading as="h2" effect="words" hover="color" className="font-serif text-3xl sm:text-4xl lg:text-5xl font-normal text-[#111827] leading-tight tracking-tight">
                 Growth Should Create <span className="text-[#3026B3]">More Than Profit.</span>
-              </h2>
+              </AnimatedHeading>
 
               <p className="mt-6 text-base sm:text-lg text-[#596579] leading-relaxed font-normal">
                 We believe successful businesses should strengthen the ecosystems around them.
@@ -292,10 +303,13 @@ export default function ImpactPage() {
 
             {/* Visual Formula: BUSINESS GROWTH -> ECONOMY | PEOPLE | ENVIRONMENT */}
             <div className="lg:col-span-6">
-              <div className="rounded-3xl border border-[#E3E5EF] bg-[#FAF9F6] p-7 sm:p-9 shadow-lg">
+              <div className="rounded-3xl border border-[#E3E5EF] bg-[#FAF9F6] p-7 sm:p-9 shadow-lg fx-lift">
                 {/* Root: BUSINESS GROWTH */}
                 <div className="text-center">
-                  <div className="inline-flex flex-col items-center rounded-2xl border border-[#3026B3]/40 bg-gradient-to-r from-[#211B72] via-[#3026B3] to-[#211B72] px-8 py-3.5 text-white shadow-lg">
+                  <div
+                    data-cursor="card"
+                    className="inline-flex flex-col items-center rounded-2xl border border-[#3026B3]/40 bg-gradient-to-r from-[#211B72] via-[#3026B3] to-[#211B72] px-8 py-3.5 text-white shadow-lg transition-transform hover:scale-105 fx-glow-indigo"
+                  >
                     <span className="font-mono text-[10px] uppercase tracking-[0.28em] text-[#FFB000] font-bold">
                       FOUNDATIONAL CATALYST
                     </span>
@@ -307,66 +321,72 @@ export default function ImpactPage() {
 
                 {/* Downward Connector */}
                 <div className="my-5 flex items-center justify-center">
-                  <div className="flex h-8 w-8 items-center justify-center rounded-full bg-[#3026B3] text-white shadow-md">
+                  <div className="flex h-8 w-8 items-center justify-center rounded-full bg-[#3026B3] text-white shadow-md animate-bounce">
                     <Icon name="arrow-right" width={14} height={14} className="rotate-90" strokeWidth={2.5} />
                   </div>
                 </div>
 
                 {/* 3 Outcome Pillars: ECONOMY | PEOPLE | ENVIRONMENT */}
-                <div className="grid grid-cols-1 sm:grid-cols-3 gap-3.5">
+                <Stagger staggerDelay={0.08} className="grid grid-cols-1 sm:grid-cols-3 gap-3.5">
                   {/* Economy */}
-                  <div className="rounded-2xl border border-[#E3E5EF] bg-white p-4 text-center shadow-xs">
-                    <div className="h-8 w-8 rounded-lg bg-[#3026B3]/10 text-[#3026B3] flex items-center justify-center mx-auto mb-2">
-                      <Icon name="landmark" width={16} height={16} />
+                  <StaggerItem>
+                    <div data-cursor="card" className="group rounded-2xl border border-[#E3E5EF] bg-white p-4 text-center shadow-xs transition-all duration-300 hover:border-[#3026B3] fx-lift h-full">
+                      <div className="h-8 w-8 rounded-lg bg-[#3026B3]/10 text-[#3026B3] flex items-center justify-center mx-auto mb-2 transition-transform duration-300 group-hover:scale-110 group-hover:rotate-6">
+                        <Icon name="landmark" width={16} height={16} />
+                      </div>
+                      <span className="font-mono text-[11px] font-bold uppercase tracking-wider text-[#3026B3] block">
+                        ECONOMY
+                      </span>
+                      <ul className="mt-3 space-y-1.5 text-xs text-[#596579]">
+                        <li className="font-medium text-[#111827]">Jobs</li>
+                        <li className="font-medium text-[#111827]">Enterprises</li>
+                        <li className="font-medium text-[#111827]">Infrastructure</li>
+                      </ul>
                     </div>
-                    <span className="font-mono text-[11px] font-bold uppercase tracking-wider text-[#3026B3] block">
-                      ECONOMY
-                    </span>
-                    <ul className="mt-3 space-y-1.5 text-xs text-[#596579]">
-                      <li className="font-medium text-[#111827]">Jobs</li>
-                      <li className="font-medium text-[#111827]">Enterprises</li>
-                      <li className="font-medium text-[#111827]">Infrastructure</li>
-                    </ul>
-                  </div>
+                  </StaggerItem>
 
                   {/* People */}
-                  <div className="rounded-2xl border border-[#E3E5EF] bg-white p-4 text-center shadow-xs">
-                    <div className="h-8 w-8 rounded-lg bg-[#15966B]/15 text-[#15966B] flex items-center justify-center mx-auto mb-2">
-                      <Icon name="users" width={16} height={16} />
+                  <StaggerItem>
+                    <div data-cursor="card" className="group rounded-2xl border border-[#E3E5EF] bg-white p-4 text-center shadow-xs transition-all duration-300 hover:border-[#15966B] fx-lift h-full">
+                      <div className="h-8 w-8 rounded-lg bg-[#15966B]/15 text-[#15966B] flex items-center justify-center mx-auto mb-2 transition-transform duration-300 group-hover:scale-110 group-hover:rotate-6">
+                        <Icon name="users" width={16} height={16} />
+                      </div>
+                      <span className="font-mono text-[11px] font-bold uppercase tracking-wider text-[#15966B] block">
+                        PEOPLE
+                      </span>
+                      <ul className="mt-3 space-y-1.5 text-xs text-[#596579]">
+                        <li className="font-medium text-[#111827]">Skills</li>
+                        <li className="font-medium text-[#111827]">Opportunity</li>
+                        <li className="font-medium text-[#111827]">Inclusion</li>
+                      </ul>
                     </div>
-                    <span className="font-mono text-[11px] font-bold uppercase tracking-wider text-[#15966B] block">
-                      PEOPLE
-                    </span>
-                    <ul className="mt-3 space-y-1.5 text-xs text-[#596579]">
-                      <li className="font-medium text-[#111827]">Skills</li>
-                      <li className="font-medium text-[#111827]">Opportunity</li>
-                      <li className="font-medium text-[#111827]">Inclusion</li>
-                    </ul>
-                  </div>
+                  </StaggerItem>
 
                   {/* Environment */}
-                  <div className="rounded-2xl border border-[#E3E5EF] bg-white p-4 text-center shadow-xs">
-                    <div className="h-8 w-8 rounded-lg bg-[#00B8D9]/15 text-[#008299] flex items-center justify-center mx-auto mb-2">
-                      <Icon name="recycle" width={16} height={16} />
+                  <StaggerItem>
+                    <div data-cursor="card" className="group rounded-2xl border border-[#E3E5EF] bg-white p-4 text-center shadow-xs transition-all duration-300 hover:border-[#00B8D9] fx-lift h-full">
+                      <div className="h-8 w-8 rounded-lg bg-[#00B8D9]/15 text-[#008299] flex items-center justify-center mx-auto mb-2 transition-transform duration-300 group-hover:scale-110 group-hover:rotate-6">
+                        <Icon name="recycle" width={16} height={16} />
+                      </div>
+                      <span className="font-mono text-[11px] font-bold uppercase tracking-wider text-[#008299] block">
+                        ENVIRONMENT
+                      </span>
+                      <ul className="mt-3 space-y-1.5 text-xs text-[#596579]">
+                        <li className="font-medium text-[#111827]">Resource Efficiency</li>
+                        <li className="font-medium text-[#111827]">Circularity</li>
+                        <li className="font-medium text-[#111827]">Low-Carbon Systems</li>
+                      </ul>
                     </div>
-                    <span className="font-mono text-[11px] font-bold uppercase tracking-wider text-[#008299] block">
-                      ENVIRONMENT
-                    </span>
-                    <ul className="mt-3 space-y-1.5 text-xs text-[#596579]">
-                      <li className="font-medium text-[#111827]">Resource Efficiency</li>
-                      <li className="font-medium text-[#111827]">Circularity</li>
-                      <li className="font-medium text-[#111827]">Low-Carbon Systems</li>
-                    </ul>
-                  </div>
-                </div>
+                  </StaggerItem>
+                </Stagger>
               </div>
             </div>
           </div>
         </div>
-      </section>
+      </SectionTransition>
 
       {/* ── 03. WHERE WE CREATE IMPACT (Impact Across the Economy — 6 Large Cards) ── */}
-      <section id="impact-areas" className="relative overflow-hidden bg-[#FAF9F6] py-20 sm:py-28 border-b border-[#E3E5EF]">
+      <SectionTransition withDivider id="impact-areas" className="relative overflow-hidden bg-[#FAF9F6] py-20 sm:py-28 border-b border-[#E3E5EF]">
         <div className="container-x relative z-10">
           <div className="max-w-3xl mb-16">
             <div className="inline-flex items-center gap-2 rounded-full border border-[#3026B3]/25 bg-[#3026B3]/8 px-4 py-1 font-mono text-[11px] uppercase tracking-[0.26em] text-[#3026B3] font-bold shadow-xs mb-4">
@@ -374,9 +394,9 @@ export default function ImpactPage() {
               <span>WHERE WE CREATE IMPACT</span>
             </div>
 
-            <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-normal text-[#111827] leading-tight tracking-tight">
+            <AnimatedHeading as="h2" effect="words" hover="color" className="font-serif text-3xl sm:text-4xl lg:text-5xl font-normal text-[#111827] leading-tight tracking-tight">
               Impact Across the <span className="text-[#3026B3]">Economy</span>
-            </h2>
+            </AnimatedHeading>
 
             <p className="mt-4 text-base sm:text-lg text-[#596579] leading-relaxed">
               Six foundational domains where BharatX businesses drive economic capabilities, industrial sovereignty, and societal uplift.
@@ -384,83 +404,86 @@ export default function ImpactPage() {
           </div>
 
           {/* 6 Large Visual Cards Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-7">
+          <Stagger staggerDelay={0.08} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-7">
             {impactAreas.map((area) => (
-              <div
-                key={area.id}
-                className="group flex flex-col justify-between overflow-hidden rounded-3xl border border-[#E3E5EF] bg-white shadow-sm transition-all duration-300 hover:border-[#3026B3] hover:shadow-xl hover:-translate-y-1"
-              >
-                <div>
-                  {/* Image Container with Visual Depth */}
-                  <div className="relative h-56 w-full overflow-hidden bg-slate-900">
-                    <img
-                      src={area.image}
-                      alt={area.title}
-                      className="h-full w-full object-cover object-center filter brightness-[0.92] contrast-[1.05] transition-transform duration-700 group-hover:scale-105"
-                      loading="lazy"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/25 to-transparent" />
-
-                    {/* Sector Tag & Number */}
-                    <div className="absolute top-4 left-4 right-4 flex items-center justify-between">
-                      <span className="inline-flex items-center gap-1.5 rounded-full bg-black/60 backdrop-blur-md px-3.5 py-1 font-mono text-[10.5px] uppercase tracking-wider text-[#FFB000] border border-white/20">
-                        {area.number} · {area.sector}
-                      </span>
-                    </div>
-
-                    {/* Logo Overlay if present */}
-                    {area.logo && (
-                      <div className="absolute bottom-3 left-4 h-8 w-auto max-w-[120px] rounded-lg bg-white/95 backdrop-blur-sm p-1.5 shadow-md flex items-center justify-center">
-                        <img src={area.logo} alt="" className="max-h-full max-w-full object-contain" />
-                      </div>
-                    )}
-                  </div>
-
-                  {/* Card Body */}
-                  <div className="p-6 sm:p-7">
-                    <span className="font-mono text-[10px] uppercase tracking-[0.22em] font-bold block mb-1" style={{ color: area.accent }}>
-                      {area.entityName}
-                    </span>
-
-                    <h3 className="font-serif text-2xl font-medium text-[#111827] group-hover:text-[#3026B3] transition-colors leading-snug">
-                      {area.title}
-                    </h3>
-
-                    <p className="mt-3.5 text-xs sm:text-sm text-[#596579] leading-relaxed font-normal">
-                      {area.description}
-                    </p>
-                  </div>
-                </div>
-
-                {/* Footer Link */}
-                <div className="p-6 sm:p-7 pt-0">
-                  <div className="pt-4 border-t border-[#E3E5EF] flex items-center justify-between">
-                    <Link
-                      to={area.link}
-                      className="inline-flex items-center gap-1.5 font-mono text-xs font-bold uppercase tracking-wider text-[#3026B3] hover:text-[#211B72] transition-colors group/link"
-                    >
-                      <span>Explore Vertical</span>
-                      <Icon
-                        name="arrow-up-right"
-                        width={13}
-                        height={13}
-                        className="transition-transform group-hover/link:translate-x-0.5 group-hover/link:-translate-y-0.5"
+              <StaggerItem key={area.id}>
+                <div
+                  data-cursor="card"
+                  className="group flex flex-col justify-between overflow-hidden rounded-3xl border border-[#E3E5EF] bg-white shadow-sm transition-all duration-300 hover:border-[#3026B3] hover:shadow-2xl fx-lift h-full"
+                >
+                  <div>
+                    {/* Image Container with Visual Depth */}
+                    <div className="relative h-56 w-full overflow-hidden bg-slate-900" data-cursor="image">
+                      <img
+                        src={area.image}
+                        alt={area.title}
+                        className="h-full w-full object-cover object-center filter brightness-[0.92] contrast-[1.05] transition-transform duration-700 ease-out group-hover:scale-110"
+                        loading="lazy"
                       />
-                    </Link>
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/25 to-transparent" />
 
-                    <div className={`h-7 w-7 rounded-lg ${area.bgAccent} ${area.textAccent} flex items-center justify-center shrink-0`}>
-                      <Icon name="arrow-right" width={13} height={13} />
+                      {/* Sector Tag & Number */}
+                      <div className="absolute top-4 left-4 right-4 flex items-center justify-between">
+                        <span className="inline-flex items-center gap-1.5 rounded-full bg-black/60 backdrop-blur-md px-3.5 py-1 font-mono text-[10.5px] uppercase tracking-wider text-[#FFB000] border border-white/20">
+                          {area.number} · {area.sector}
+                        </span>
+                      </div>
+
+                      {/* Logo Overlay if present */}
+                      {area.logo && (
+                        <div className="absolute bottom-3 left-4 h-8 w-auto max-w-[120px] rounded-lg bg-white/95 backdrop-blur-sm p-1.5 shadow-md flex items-center justify-center transition-transform group-hover:scale-105">
+                          <img src={area.logo} alt="" className="max-h-full max-w-full object-contain" />
+                        </div>
+                      )}
+                    </div>
+
+                    {/* Card Body */}
+                    <div className="p-6 sm:p-7">
+                      <span className="font-mono text-[10px] uppercase tracking-[0.22em] font-bold block mb-1" style={{ color: area.accent }}>
+                        {area.entityName}
+                      </span>
+
+                      <h3 className="font-serif text-2xl font-medium text-[#111827] group-hover:text-[#3026B3] transition-colors leading-snug duration-300">
+                        {area.title}
+                      </h3>
+
+                      <p className="mt-3.5 text-xs sm:text-sm text-[#596579] leading-relaxed font-normal">
+                        {area.description}
+                      </p>
+                    </div>
+                  </div>
+
+                  {/* Footer Link */}
+                  <div className="p-6 sm:p-7 pt-0">
+                    <div className="pt-4 border-t border-[#E3E5EF] flex items-center justify-between">
+                      <Link
+                        to={area.link}
+                        data-cursor="link"
+                        className="inline-flex items-center gap-1.5 font-mono text-xs font-bold uppercase tracking-wider text-[#3026B3] hover:text-[#211B72] transition-colors group/link fx-underline"
+                      >
+                        <span>Explore Vertical</span>
+                        <Icon
+                          name="arrow-up-right"
+                          width={13}
+                          height={13}
+                          className="transition-transform group-hover/link:translate-x-0.5 group-hover/link:-translate-y-0.5"
+                        />
+                      </Link>
+
+                      <div className={`h-7 w-7 rounded-lg ${area.bgAccent} ${area.textAccent} flex items-center justify-center shrink-0 transition-transform duration-300 group-hover:scale-110 group-hover:rotate-6`}>
+                        <Icon name="arrow-right" width={13} height={13} />
+                      </div>
                     </div>
                   </div>
                 </div>
-              </div>
+              </StaggerItem>
             ))}
-          </div>
+          </Stagger>
         </div>
-      </section>
+      </SectionTransition>
 
       {/* ── 04. IMPACT IN NUMBERS (Our Growing Footprint — Measuring What Matters) ── */}
-      <section className="relative overflow-hidden bg-white py-20 sm:py-28 border-b border-[#E3E5EF]">
+      <SectionTransition withDivider className="relative overflow-hidden bg-white py-20 sm:py-28 border-b border-[#E3E5EF]">
         <div className="container-x relative z-10">
           <div className="max-w-3xl text-center mx-auto mb-14">
             <div className="inline-flex items-center gap-2 rounded-full border border-[#00B8D9]/30 bg-[#00B8D9]/10 px-4 py-1 font-mono text-[11px] uppercase tracking-[0.26em] text-[#008299] font-bold shadow-xs mb-4">
@@ -468,9 +491,9 @@ export default function ImpactPage() {
               <span>IMPACT IN NUMBERS</span>
             </div>
 
-            <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-normal text-[#111827] leading-tight tracking-tight">
+            <AnimatedHeading as="h2" effect="words" hover="color" className="font-serif text-3xl sm:text-4xl lg:text-5xl font-normal text-[#111827] leading-tight tracking-tight">
               Our Growing <span className="text-[#3026B3]">Footprint</span>
-            </h2>
+            </AnimatedHeading>
 
             <p className="mt-2 font-serif text-xl sm:text-2xl text-[#3026B3] font-medium">
               Measuring What Matters
@@ -483,8 +506,8 @@ export default function ImpactPage() {
 
           {/* Clean 6-metric Framework Band */}
           <div className="grid grid-cols-2 lg:grid-cols-3 gap-5 max-w-5xl mx-auto">
-            <div className="rounded-2xl border border-[#E3E5EF] bg-[#FAF9F6] p-6 sm:p-7 text-center transition-all hover:border-[#3026B3] hover:bg-white hover:shadow-md">
-              <span className="font-serif text-3xl sm:text-4xl font-bold text-[#3026B3] block">
+            <div data-cursor="card" className="group rounded-2xl border border-[#E3E5EF] bg-[#FAF9F6] p-6 sm:p-7 text-center transition-all duration-300 hover:border-[#3026B3] hover:bg-white hover:shadow-xl fx-lift">
+              <span className="font-serif text-3xl sm:text-4xl font-bold text-[#3026B3] block transition-transform duration-300 group-hover:scale-105">
                 8+
               </span>
               <span className="font-mono text-xs uppercase tracking-wider text-[#111827] font-semibold mt-1 block">
@@ -495,8 +518,8 @@ export default function ImpactPage() {
               </span>
             </div>
 
-            <div className="rounded-2xl border border-[#E3E5EF] bg-[#FAF9F6] p-6 sm:p-7 text-center transition-all hover:border-[#3026B3] hover:bg-white hover:shadow-md">
-              <span className="font-serif text-3xl sm:text-4xl font-bold text-[#15966B] block">
+            <div data-cursor="card" className="group rounded-2xl border border-[#E3E5EF] bg-[#FAF9F6] p-6 sm:p-7 text-center transition-all duration-300 hover:border-[#15966B] hover:bg-white hover:shadow-xl fx-lift">
+              <span className="font-serif text-3xl sm:text-4xl font-bold text-[#15966B] block transition-transform duration-300 group-hover:scale-105">
                 1,500+
               </span>
               <span className="font-mono text-xs uppercase tracking-wider text-[#111827] font-semibold mt-1 block">
@@ -507,8 +530,8 @@ export default function ImpactPage() {
               </span>
             </div>
 
-            <div className="rounded-2xl border border-[#E3E5EF] bg-[#FAF9F6] p-6 sm:p-7 text-center transition-all hover:border-[#3026B3] hover:bg-white hover:shadow-md">
-              <span className="font-serif text-3xl sm:text-4xl font-bold text-[#00B8D9] block">
+            <div data-cursor="card" className="group rounded-2xl border border-[#E3E5EF] bg-[#FAF9F6] p-6 sm:p-7 text-center transition-all duration-300 hover:border-[#00B8D9] hover:bg-white hover:shadow-xl fx-lift">
+              <span className="font-serif text-3xl sm:text-4xl font-bold text-[#00B8D9] block transition-transform duration-300 group-hover:scale-105">
                 50+
               </span>
               <span className="font-mono text-xs uppercase tracking-wider text-[#111827] font-semibold mt-1 block">
@@ -519,8 +542,8 @@ export default function ImpactPage() {
               </span>
             </div>
 
-            <div className="rounded-2xl border border-[#E3E5EF] bg-[#FAF9F6] p-6 sm:p-7 text-center transition-all hover:border-[#3026B3] hover:bg-white hover:shadow-md">
-              <span className="font-serif text-3xl sm:text-4xl font-bold text-[#E09800] block">
+            <div data-cursor="card" className="group rounded-2xl border border-[#E3E5EF] bg-[#FAF9F6] p-6 sm:p-7 text-center transition-all duration-300 hover:border-[#E09800] hover:bg-white hover:shadow-xl fx-lift">
+              <span className="font-serif text-3xl sm:text-4xl font-bold text-[#E09800] block transition-transform duration-300 group-hover:scale-105">
                 14+
               </span>
               <span className="font-mono text-xs uppercase tracking-wider text-[#111827] font-semibold mt-1 block">
@@ -531,8 +554,8 @@ export default function ImpactPage() {
               </span>
             </div>
 
-            <div className="rounded-2xl border border-[#E3E5EF] bg-[#FAF9F6] p-6 sm:p-7 text-center transition-all hover:border-[#3026B3] hover:bg-white hover:shadow-md">
-              <span className="font-serif text-3xl sm:text-4xl font-bold text-[#4B40D4] block">
+            <div data-cursor="card" className="group rounded-2xl border border-[#E3E5EF] bg-[#FAF9F6] p-6 sm:p-7 text-center transition-all duration-300 hover:border-[#4B40D4] hover:bg-white hover:shadow-xl fx-lift">
+              <span className="font-serif text-3xl sm:text-4xl font-bold text-[#4B40D4] block transition-transform duration-300 group-hover:scale-105">
                 18+
               </span>
               <span className="font-mono text-xs uppercase tracking-wider text-[#111827] font-semibold mt-1 block">
@@ -543,8 +566,8 @@ export default function ImpactPage() {
               </span>
             </div>
 
-            <div className="rounded-2xl border border-[#E3E5EF] bg-[#FAF9F6] p-6 sm:p-7 text-center transition-all hover:border-[#3026B3] hover:bg-white hover:shadow-md">
-              <span className="font-serif text-3xl sm:text-4xl font-bold text-[#15966B] block">
+            <div data-cursor="card" className="group rounded-2xl border border-[#E3E5EF] bg-[#FAF9F6] p-6 sm:p-7 text-center transition-all duration-300 hover:border-[#15966B] hover:bg-white hover:shadow-xl fx-lift">
+              <span className="font-serif text-3xl sm:text-4xl font-bold text-[#15966B] block transition-transform duration-300 group-hover:scale-105">
                 10,000+
               </span>
               <span className="font-mono text-xs uppercase tracking-wider text-[#111827] font-semibold mt-1 block">
@@ -557,16 +580,16 @@ export default function ImpactPage() {
           </div>
 
           <div className="mt-10 text-center">
-            <span className="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white px-4 py-1.5 text-xs text-[#596579] font-mono shadow-xs">
+            <span className="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white px-4 py-1.5 text-xs text-[#596579] font-mono shadow-xs fx-lift">
               <span className="h-2 w-2 rounded-full bg-emerald-500 animate-pulse" />
               <span>Transparent telemetry &amp; validated ESG framework</span>
             </span>
           </div>
         </div>
-      </section>
+      </SectionTransition>
 
       {/* ── 05. OUR COMMITMENT (Building Responsibly — Four Principles) ─────── */}
-      <section className="relative overflow-hidden bg-[#FAF9F6] py-20 sm:py-28 border-b border-[#E3E5EF]">
+      <SectionTransition withDivider className="relative overflow-hidden bg-[#FAF9F6] py-20 sm:py-28 border-b border-[#E3E5EF]">
         <div className="container-x relative z-10">
           <div className="max-w-3xl text-center mx-auto mb-14">
             <div className="inline-flex items-center gap-2 rounded-full border border-[#3026B3]/25 bg-[#3026B3]/8 px-4 py-1 font-mono text-[11px] uppercase tracking-[0.26em] text-[#3026B3] font-bold shadow-xs mb-4">
@@ -574,9 +597,9 @@ export default function ImpactPage() {
               <span>OUR COMMITMENT</span>
             </div>
 
-            <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-normal text-[#111827] leading-tight tracking-tight">
+            <AnimatedHeading as="h2" effect="words" hover="color" className="font-serif text-3xl sm:text-4xl lg:text-5xl font-normal text-[#111827] leading-tight tracking-tight">
               Building <span className="text-[#3026B3]">Responsibly</span>
-            </h2>
+            </AnimatedHeading>
 
             <p className="mt-4 text-base sm:text-lg text-[#596579] leading-relaxed max-w-2xl mx-auto">
               Our ambition is to grow responsibly while building enterprises that remain valuable for the long term.
@@ -584,37 +607,39 @@ export default function ImpactPage() {
           </div>
 
           {/* 4 Concise Principles Grid */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
+          <Stagger staggerDelay={0.08} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
             {commitmentPrinciples.map((item) => (
-              <div
-                key={item.title}
-                className="group rounded-2xl border border-[#E3E5EF] bg-white p-6 sm:p-7 shadow-xs transition-all duration-300 hover:border-[#3026B3] hover:shadow-xl hover:-translate-y-1 flex flex-col justify-between"
-              >
-                <div>
-                  <div className={`h-11 w-11 rounded-xl ${item.bg} ${item.text} flex items-center justify-center shrink-0 shadow-xs mb-4 transition-transform duration-300 group-hover:scale-110`}>
-                    <Icon name={item.icon} width={20} height={20} strokeWidth={2} />
+              <StaggerItem key={item.title}>
+                <div
+                  data-cursor="card"
+                  className="group rounded-2xl border border-[#E3E5EF] bg-white p-6 sm:p-7 shadow-xs transition-all duration-300 hover:border-[#3026B3] hover:shadow-xl fx-lift flex flex-col justify-between h-full"
+                >
+                  <div>
+                    <div className={`h-11 w-11 rounded-xl ${item.bg} ${item.text} flex items-center justify-center shrink-0 shadow-xs mb-4 transition-transform duration-300 group-hover:scale-110 group-hover:rotate-6`}>
+                      <Icon name={item.icon} width={20} height={20} strokeWidth={2} />
+                    </div>
+
+                    <h3 className="font-serif text-xl font-medium text-[#111827] group-hover:text-[#3026B3] transition-colors duration-300">
+                      {item.title}
+                    </h3>
+
+                    <p className="mt-2.5 text-xs sm:text-[13px] text-[#596579] leading-relaxed font-normal">
+                      {item.description}
+                    </p>
                   </div>
 
-                  <h3 className="font-serif text-xl font-medium text-[#111827] group-hover:text-[#3026B3] transition-colors">
-                    {item.title}
-                  </h3>
-
-                  <p className="mt-2.5 text-xs sm:text-[13px] text-[#596579] leading-relaxed font-normal">
-                    {item.description}
-                  </p>
+                  <div className="mt-5 pt-3 border-t border-[#E3E5EF]/60 font-mono text-[9.5px] uppercase tracking-wider text-[#596579]">
+                    Commitment Standard
+                  </div>
                 </div>
-
-                <div className="mt-5 pt-3 border-t border-[#E3E5EF]/60 font-mono text-[9.5px] uppercase tracking-wider text-[#596579]">
-                  Commitment Standard
-                </div>
-              </div>
+              </StaggerItem>
             ))}
-          </div>
+          </Stagger>
         </div>
-      </section>
+      </SectionTransition>
 
       {/* ── 06. THE FUTURE OF IMPACT (The Opportunity Ahead & Final CTA) ─────── */}
-      <section className="relative overflow-hidden bg-gradient-to-br from-[#211B72] via-[#1D1763] to-[#120E3E] text-white py-20 sm:py-28">
+      <SectionTransition className="relative overflow-hidden bg-gradient-to-br from-[#211B72] via-[#1D1763] to-[#120E3E] text-white py-20 sm:py-28">
         {/* Ambient radial lighting */}
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 -z-10 h-[500px] w-[500px] sm:w-[700px] rounded-full bg-gradient-to-r from-[#3026B3]/30 via-[#FFB000]/20 to-transparent blur-[140px] pointer-events-none" />
 
@@ -627,9 +652,9 @@ export default function ImpactPage() {
             </div>
 
             {/* Headline */}
-            <h2 className="font-serif text-3xl sm:text-5xl md:text-6xl font-normal leading-[1.1] tracking-tight text-white">
+            <AnimatedHeading as="h2" effect="words" hover="color" className="font-serif text-3xl sm:text-5xl md:text-6xl font-normal leading-[1.1] tracking-tight text-white">
               The Opportunity Ahead
-            </h2>
+            </AnimatedHeading>
 
             {/* Copy */}
             <p className="mt-6 text-base sm:text-lg md:text-xl font-normal leading-relaxed text-slate-200 max-w-3xl mx-auto">
@@ -637,55 +662,62 @@ export default function ImpactPage() {
             </p>
 
             {/* Three Focus Areas: Build | Enable | Sustain */}
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-5 mt-12 text-left">
+            <Stagger staggerDelay={0.08} className="grid grid-cols-1 md:grid-cols-3 gap-5 mt-12 text-left">
               {futureFocusAreas.map((area) => (
-                <div
-                  key={area.step}
-                  className="rounded-2xl border border-white/15 bg-white/5 backdrop-blur-md p-6 transition-all hover:bg-white/10 hover:border-white/30"
-                >
-                  <div className="flex items-center justify-between mb-3">
-                    <span className="font-mono text-xs uppercase tracking-[0.24em] text-[#FFB000] font-bold">
-                      {area.step}
-                    </span>
-                    <div className="h-8 w-8 rounded-lg bg-white/10 text-white flex items-center justify-center">
-                      <Icon name={area.icon} width={16} height={16} />
+                <StaggerItem key={area.step}>
+                  <div
+                    data-cursor="card"
+                    className="group rounded-2xl border border-white/15 bg-white/5 backdrop-blur-md p-6 transition-all duration-300 hover:bg-white/10 hover:border-white/30 fx-lift h-full"
+                  >
+                    <div className="flex items-center justify-between mb-3">
+                      <span className="font-mono text-xs uppercase tracking-[0.24em] text-[#FFB000] font-bold">
+                        {area.step}
+                      </span>
+                      <div className="h-8 w-8 rounded-lg bg-white/10 text-white flex items-center justify-center transition-transform group-hover:scale-110">
+                        <Icon name={area.icon} width={16} height={16} />
+                      </div>
                     </div>
+
+                    <h4 className="font-serif text-lg font-medium text-white mb-2 leading-snug group-hover:text-[#FFB000] transition-colors">
+                      {area.headline}
+                    </h4>
+
+                    <p className="text-xs text-slate-300 leading-relaxed font-normal">
+                      {area.detail}
+                    </p>
                   </div>
-
-                  <h4 className="font-serif text-lg font-medium text-white mb-2 leading-snug">
-                    {area.headline}
-                  </h4>
-
-                  <p className="text-xs text-slate-300 leading-relaxed font-normal">
-                    {area.detail}
-                  </p>
-                </div>
+                </StaggerItem>
               ))}
-            </div>
+            </Stagger>
 
             {/* Final CTA Action */}
             <div className="mt-14 pt-10 border-t border-white/15 max-w-2xl mx-auto">
-              <h3 className="font-serif text-2xl sm:text-3xl font-medium text-white mb-6">
+              <h3 className="font-serif text-2xl sm:text-3xl font-medium text-white mb-6 transition-colors duration-300 hover:text-gold-400">
                 Build a Better Bharat With Us.
               </h3>
 
               <div className="flex flex-wrap items-center justify-center gap-4">
-                <Link
-                  to="/contact?inquiry=partner"
-                  className="group inline-flex items-center justify-center gap-2.5 rounded-full bg-[#FFB000] hover:bg-[#e09800] text-[#111827] px-8 py-4 text-[15px] font-bold shadow-xl shadow-black/20 transition-all duration-300 hover:scale-105"
-                >
-                  <span>Partner With BharatX</span>
-                  <Icon
-                    name="arrow-right"
-                    width={16}
-                    height={16}
-                    className="transition-transform duration-300 group-hover:translate-x-1"
-                  />
-                </Link>
+                <MagneticButton strength={0.25}>
+                  <Link
+                    to="/contact?inquiry=partner"
+                    data-cursor="button"
+                    data-motion="true"
+                    className="group inline-flex items-center justify-center gap-2.5 rounded-full bg-[#FFB000] hover:bg-[#e09800] text-[#111827] px-8 py-4 text-[15px] font-bold shadow-xl shadow-black/20 transition-all duration-300 fx-shine active:scale-95"
+                  >
+                    <span>Partner With BharatX</span>
+                    <Icon
+                      name="arrow-right"
+                      width={16}
+                      height={16}
+                      className="transition-transform duration-300 group-hover:translate-x-1"
+                    />
+                  </Link>
+                </MagneticButton>
 
                 <Link
                   to="/services"
-                  className="inline-flex items-center justify-center gap-2 rounded-full border border-white/30 bg-white/10 hover:bg-white/20 px-8 py-4 text-[15px] font-semibold text-white transition-all duration-300 hover:border-white shadow-xs"
+                  data-cursor="button"
+                  className="inline-flex items-center justify-center gap-2 rounded-full border border-white/30 bg-white/10 hover:bg-white/20 px-8 py-4 text-[15px] font-semibold text-white transition-all duration-300 hover:border-white shadow-xs fx-lift"
                 >
                   <span>Explore Our Businesses</span>
                   <Icon
@@ -705,7 +737,7 @@ export default function ImpactPage() {
             </div>
           </div>
         </div>
-      </section>
+      </SectionTransition>
     </main>
   );
 }

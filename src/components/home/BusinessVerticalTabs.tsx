@@ -6,19 +6,21 @@ import { Icon } from "../../utils/icons";
 import { Button } from "../common/Button";
 import { Reveal } from "../common/Reveal";
 import { SectionHeader } from "../common/SectionHeader";
+import { SectionTransition } from "../motion/SectionTransition";
 
 export function BusinessVerticalTabs() {
   const [activeTab, setActiveTab] = useState<number>(0);
   const activeCompany = companies[activeTab] ?? companies[0];
 
   return (
-    <section className="relative overflow-hidden py-16 md:py-24 bg-night-950/20 dark:bg-night-950/40">
-      {/* Background radial accent */}
-      <div
-        aria-hidden
-        className="pointer-events-none absolute -top-40 right-0 h-96 w-96 rounded-full blur-3xl opacity-20"
-        style={{ background: activeCompany.accentColor }}
-      />
+    <SectionTransition withDivider>
+      <section className="relative overflow-hidden py-16 md:py-24 bg-night-950/20 dark:bg-night-950/40">
+        {/* Background radial accent */}
+        <div
+          aria-hidden
+          className="pointer-events-none absolute -top-40 right-0 h-96 w-96 rounded-full blur-3xl opacity-20"
+          style={{ background: activeCompany.accentColor }}
+        />
 
       <div className="container-x relative">
         {/* Section Header */}
@@ -184,7 +186,7 @@ export function BusinessVerticalTabs() {
 
                   {/* Main Company Title & Narrative */}
                   <div className="mt-6">
-                    <h3 className="font-display text-2xl font-bold tracking-tight text-ink-100 dark:text-ink-50 sm:text-3xl md:text-4xl">
+                    <h3 className="font-display text-2xl font-bold tracking-tight text-ink-100 dark:text-ink-50 sm:text-3xl md:text-4xl transition-colors duration-300 hover:text-gold-400">
                       {activeCompany.name}
                     </h3>
                     <p className="mt-4 text-base leading-relaxed text-ink-300 dark:text-ink-300 md:text-[15px]">
@@ -229,7 +231,7 @@ export function BusinessVerticalTabs() {
                       {activeCompany.capabilities.slice(0, 5).map((cap) => (
                         <span
                           key={cap.title}
-                          className="inline-flex items-center gap-1.5 rounded-lg border border-slate-200/80 dark:border-white/8 bg-slate-100/70 dark:bg-white/[0.03] px-3 py-1 text-[12px] font-medium text-ink-200 dark:text-ink-200"
+                          className="inline-flex items-center gap-1.5 rounded-lg border border-slate-200/80 dark:border-white/8 bg-slate-100/70 dark:bg-white/[0.03] px-3 py-1 text-[12px] font-medium text-ink-200 dark:text-ink-200 transition-all duration-200 hover:border-gold-400/40 hover:scale-105"
                         >
                           <Icon name={cap.icon} width={12} height={12} className="text-gold-400" />
                           {cap.title}
@@ -248,6 +250,7 @@ export function BusinessVerticalTabs() {
                           ? "/bharatx-labs"
                           : `/companies/${activeCompany.slug}`
                       }
+                      data-cursor="button"
                     >
                       <Button variant="primary" size="md" withArrow>
                         {activeCompany.isUpcoming
@@ -257,14 +260,14 @@ export function BusinessVerticalTabs() {
                     </Link>
 
                     {activeCompany.isUpcoming ? (
-                      <Link to="/bharatx-labs#waitlist">
+                      <Link to="/bharatx-labs#waitlist" data-cursor="button">
                         <Button variant="ghost" size="md">
                           <Icon name="sparkles" width={14} height={14} className="mr-1.5 text-gold-400" />
                           Researcher Fellowship
                         </Button>
                       </Link>
                     ) : (
-                      <Link to={`/ecosystem?company=${activeCompany.slug}`}>
+                      <Link to={`/ecosystem?company=${activeCompany.slug}`} data-cursor="button">
                         <Button variant="ghost" size="md">
                           <Icon name="orbit" width={14} height={14} className="mr-1.5 text-gold-400" />
                           Open in Ecosystem Viewer
@@ -287,6 +290,7 @@ export function BusinessVerticalTabs() {
           </div>
         </div>
       </div>
-    </section>
+      </section>
+    </SectionTransition>
   );
 }
