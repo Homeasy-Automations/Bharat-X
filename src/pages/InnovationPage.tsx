@@ -205,7 +205,7 @@ export default function InnovationPage() {
       </SectionTransition>
 
       {/* ── 4. ROADMAP TIMELINE ─────────────────────────────────────────── */}
-      <SectionTransition withDivider className="relative overflow-hidden py-20 sm:py-28 border-t border-[#E3E5EF]">
+      <SectionTransition withDivider className="relative overflow-hidden py-12 sm:py-16 border-t border-[#E3E5EF]">
         <div className="container-x relative z-10">
           <div className="max-w-2xl mb-14">
             <span className="font-mono text-[10.5px] uppercase tracking-[0.24em] text-[#3026B3] font-semibold">

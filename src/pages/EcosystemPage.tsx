@@ -58,7 +58,7 @@ export default function EcosystemPage() {
       />
 
       {/* ── SWITCHER + VIEWER ────────────────────────────────── */}
-      <SectionTransition divider={false} className="scroll-mt-24 py-16 md:py-20">
+      <SectionTransition divider={false} className="scroll-mt-24 py-12 sm:py-16">
         <div id="viewer-anchor" className="container-x">
           <Reveal>
             <EcosystemSwitcher activeId={active.id} onSelect={select} />
@@ -106,7 +106,7 @@ export default function EcosystemPage() {
       </SectionTransition>
 
       {/* ── WHAT IS THE ECOSYSTEM ────────────────────────────── */}
-      <SectionTransition divider className="border-t border-slate-200/80 bg-white/40 py-24 md:py-28 dark:border-white/5 dark:bg-night-850/50">
+      <SectionTransition divider className="border-t border-slate-200/80 bg-white/40 py-12 sm:py-16 dark:border-white/5 dark:bg-night-850/50">
         <div className="container-x">
           <SectionHeader
             icon="network"
@@ -147,7 +147,7 @@ export default function EcosystemPage() {
       </SectionTransition>
 
       {/* ── CROSS-LINKS ──────────────────────────────────────── */}
-      <SectionTransition divider className="py-24 md:py-28">
+      <SectionTransition divider className="py-12 sm:py-16">
         <div className="container-x">
           <SectionHeader
             icon="building-2"
@@ -202,7 +202,7 @@ export default function EcosystemPage() {
       </SectionTransition>
 
       {/* ── STATEMENT ────────────────────────────────────────── */}
-      <SectionTransition divider={false} className="noise relative overflow-hidden border-t border-slate-200/80 bg-white/50 backdrop-blur-sm py-24 md:py-28 dark:border-white/5 dark:bg-night-950/60">
+      <SectionTransition divider={false} className="noise relative overflow-hidden border-t border-slate-200/80 bg-white/50 backdrop-blur-sm py-12 sm:py-16 dark:border-white/5 dark:bg-night-950/60">
         <div aria-hidden className="grid-bg grid-bg-fade absolute inset-0 opacity-40" />
         <div className="container-x relative text-center">
           <h2 className="mx-auto max-w-3xl font-display text-3xl font-semibold leading-[1.15] tracking-tight text-ink-50 md:text-5xl">

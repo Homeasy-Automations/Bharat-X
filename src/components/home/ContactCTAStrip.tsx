@@ -7,7 +7,7 @@ import { SectionTransition } from "../motion/SectionTransition";
 export function ContactCTAStrip() {
   return (
     <SectionTransition>
-      <section className="relative overflow-hidden border-t border-white/10 py-20 sm:py-28 text-white">
+      <section className="relative overflow-hidden border-t border-white/10 py-12 sm:py-16 text-white">
         {/* Full-bleed Economic Network Backdrop — stronger overlay for readability */}
         <div className="absolute inset-0 z-0">
           <img

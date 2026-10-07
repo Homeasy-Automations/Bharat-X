@@ -49,7 +49,7 @@ export function LeadershipKeynote() {
 
   return (
     <SectionTransition withDivider>
-      <section className="relative overflow-hidden py-20 sm:py-28 border-t border-[#E3E5EF] bg-[#FAF9F6] text-[#111827] dark:bg-night-950 dark:text-white">
+      <section className="relative overflow-hidden py-12 sm:py-16 border-t border-[#E3E5EF] bg-[#FAF9F6] text-[#111827] dark:bg-night-950 dark:text-white">
         <div className="container-x relative z-10">
           {/* Section Tag */}
           <div className="mx-auto max-w-4xl text-center">

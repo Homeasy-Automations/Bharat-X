@@ -363,7 +363,7 @@ export default function AboutPage() {
 
       {/* ── 02. WHO WE ARE (More Than a Group of Companies) ───────────── */}
       <SectionTransition withDivider>
-        <section className="relative overflow-hidden bg-white py-20 sm:py-24 border-b border-[#E3E5EF]">
+        <section className="relative overflow-hidden bg-white py-12 sm:py-16 border-b border-[#E3E5EF]">
           <div className="container-x relative z-10">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
               <div className="lg:col-span-6">
@@ -458,7 +458,7 @@ export default function AboutPage() {
 
       {/* ── 03. WHY BHARATX EXISTS (Built Around India's Opportunity) ─── */}
       <SectionTransition withDivider>
-        <section className="relative overflow-hidden bg-[#FAF9F6] py-20 sm:py-24 border-b border-[#E3E5EF]">
+        <section className="relative overflow-hidden bg-[#FAF9F6] py-12 sm:py-16 border-b border-[#E3E5EF]">
           <div className="container-x relative z-10">
             {/* Enhanced 2-Column Split Header eliminates empty dead space */}
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start mb-12 sm:mb-16">
@@ -563,7 +563,7 @@ export default function AboutPage() {
 
       {/* ── GROUP LEADERSHIP (The Visionary Behind the Standard) ─────────── */}
       <SectionTransition withDivider>
-        <section className="relative overflow-hidden bg-white py-20 sm:py-28 border-b border-[#E3E5EF]">
+        <section className="relative overflow-hidden bg-white py-12 sm:py-16 border-b border-[#E3E5EF]">
           <div className="container-x relative z-10">
             <div className="max-w-3xl mb-12 sm:mb-16">
               <div className="inline-flex items-center gap-2 rounded-full border border-[#3026B3]/25 bg-[#3026B3]/8 px-4 py-1 font-mono text-[11px] uppercase tracking-[0.26em] text-[#3026B3] font-bold shadow-xs mb-4">
@@ -692,7 +692,7 @@ export default function AboutPage() {
 
       {/* ── 04. OUR BUSINESS ECOSYSTEM (One Group. Multiple Growth Engines) ─ */}
       <SectionTransition withDivider>
-        <section className="relative overflow-hidden bg-white py-20 sm:py-24 border-b border-[#E3E5EF]">
+        <section className="relative overflow-hidden bg-white py-12 sm:py-16 border-b border-[#E3E5EF]">
           <div className="container-x relative z-10">
             <div className="max-w-3xl text-center mx-auto mb-14">
               <div className="inline-flex items-center gap-2 rounded-full border border-[#3026B3]/25 bg-[#3026B3]/8 px-4 py-1 font-mono text-[11px] uppercase tracking-[0.26em] text-[#3026B3] font-bold shadow-xs mb-4">
@@ -890,7 +890,7 @@ export default function AboutPage() {
 
       {/* ── 05. HOW WE BUILD (From Opportunity to Enterprise) ─────────── */}
       <SectionTransition withDivider>
-        <section className="relative overflow-hidden bg-[#FAF9F6] py-20 sm:py-24 border-b border-[#E3E5EF]">
+        <section className="relative overflow-hidden bg-[#FAF9F6] py-12 sm:py-16 border-b border-[#E3E5EF]">
           <div className="container-x relative z-10">
             <div className="max-w-3xl text-center mx-auto mb-14">
               <div className="inline-flex items-center gap-2 rounded-full border border-[#00B8D9]/30 bg-[#00B8D9]/10 px-4 py-1 font-mono text-[11px] uppercase tracking-[0.26em] text-[#008299] font-bold shadow-xs mb-4">
@@ -972,7 +972,7 @@ export default function AboutPage() {
 
       {/* ── 06. OUR PRINCIPLES (What Guides Us) ────────────────────────── */}
       <SectionTransition withDivider>
-        <section className="relative overflow-hidden bg-white py-20 sm:py-24 border-b border-[#E3E5EF]">
+        <section className="relative overflow-hidden bg-white py-12 sm:py-16 border-b border-[#E3E5EF]">
           <div className="container-x relative z-10">
             <div className="max-w-3xl text-center mx-auto mb-14">
               <div className="inline-flex items-center gap-2 rounded-full border border-[#15966B]/30 bg-[#15966B]/10 px-4 py-1 font-mono text-[11px] uppercase tracking-[0.26em] text-[#15966B] font-bold shadow-xs mb-4">
@@ -1025,7 +1025,7 @@ export default function AboutPage() {
 
       {/* ── 07. CLOSING / LEADERSHIP STATEMENT (The Journey Ahead) ─────── */}
       <SectionTransition>
-        <section className="relative overflow-hidden bg-gradient-to-br from-[#211B72] via-[#1D1763] to-[#120E3E] text-white py-20 sm:py-28">
+        <section className="relative overflow-hidden bg-gradient-to-br from-[#211B72] via-[#1D1763] to-[#120E3E] text-white py-12 sm:py-16">
           {/* Ambient radial lighting */}
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 -z-10 h-[500px] w-[500px] sm:w-[700px] rounded-full bg-gradient-to-r from-[#3026B3]/30 via-[#FFB000]/20 to-transparent blur-[140px] pointer-events-none" />
 

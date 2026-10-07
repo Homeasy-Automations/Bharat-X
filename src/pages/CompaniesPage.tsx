@@ -42,7 +42,7 @@ export default function CompaniesPage() {
       </PageHero>
 
       {/* Grid */}
-      <SectionTransition divider className="py-24 md:py-28">
+      <SectionTransition divider className="py-12 sm:py-16">
         <div className="container-x">
           <Reveal>
             <div className="mb-12 flex items-center gap-4 font-mono text-[11px] uppercase tracking-[0.26em] text-ink-500">
@@ -56,7 +56,7 @@ export default function CompaniesPage() {
       </SectionTransition>
 
       {/* Stats strip */}
-      <SectionTransition divider className="border-t border-white/5 bg-night-850/50 py-20">
+      <SectionTransition divider className="border-t border-white/5 bg-night-850/50 py-12 sm:py-16">
         <div className="container-x">
           <Stats
             items={[
@@ -70,7 +70,7 @@ export default function CompaniesPage() {
       </SectionTransition>
 
       {/* What connects them */}
-      <SectionTransition divider className="py-24 md:py-28">
+      <SectionTransition divider className="py-12 sm:py-16">
         <div className="container-x">
           <SectionHeader
             icon="network"
@@ -131,7 +131,7 @@ export default function CompaniesPage() {
       </SectionTransition>
 
       {/* Statement */}
-      <SectionTransition divider={false} className="noise relative overflow-hidden border-t border-white/5 bg-night-950/60 py-24 md:py-28">
+      <SectionTransition divider={false} className="noise relative overflow-hidden border-t border-white/5 bg-night-950/60 py-12 sm:py-16">
         <div aria-hidden className="grid-bg grid-bg-fade absolute inset-0 opacity-40" />
         <div className="container-x relative text-center">
           <h2 className="mx-auto max-w-3xl font-display text-3xl font-semibold leading-[1.15] tracking-tight text-ink-50 md:text-5xl">

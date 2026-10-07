@@ -91,7 +91,7 @@ export function StrategicTriadTabs() {
 
   return (
     <SectionTransition withDivider>
-      <section className="relative overflow-hidden py-20 sm:py-28 border-t border-[#E3E5EF] bg-[#FAF9F6] text-[#111827] dark:bg-night-950 dark:text-white">
+      <section className="relative overflow-hidden py-12 sm:py-16 border-t border-[#E3E5EF] bg-[#FAF9F6] text-[#111827] dark:bg-night-950 dark:text-white">
         <div className="container-x relative z-10">
           {/* RIL-Style Horizontal Story Tab Navigation Header */}
           <div className="border-b border-[#E3E5EF] dark:border-white/10 pb-6 mb-7 sm:mb-10">

@@ -14,7 +14,7 @@ export function BusinessVerticalTabs() {
 
   return (
     <SectionTransition withDivider>
-      <section className="relative overflow-hidden py-16 md:py-24 bg-night-950/20 dark:bg-night-950/40">
+      <section className="relative overflow-hidden py-12 sm:py-16 bg-night-950/20 dark:bg-night-950/40">
         {/* Background radial accent */}
         <div
           aria-hidden

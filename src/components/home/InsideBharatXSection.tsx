@@ -6,10 +6,10 @@ import { SectionTransition } from "../motion/SectionTransition";
 export function InsideBharatXSection() {
   return (
     <SectionTransition withDivider id="inside-bharatx" aria-label="Inside BharatX - Insights and Careers">
-      <section className="relative overflow-hidden bg-[#FAF9F6] py-20 sm:py-24 md:py-28 border-b border-[#E3E5EF]">
+      <section className="relative overflow-hidden bg-[#FAF9F6] py-12 sm:py-16 border-b border-[#E3E5EF]">
         <div className="container-x relative z-10">
           {/* Header */}
-          <div className="max-w-3xl mb-12 sm:mb-16">
+          <div className="max-w-3xl mb-8 sm:mb-10">
             <div className="inline-flex items-center gap-2 rounded-full border border-[#3026B3]/25 bg-[#3026B3]/8 px-4 py-1 font-mono text-[11px] uppercase tracking-[0.26em] text-[#3026B3] font-bold shadow-xs hover:bg-[#3026B3]/15 transition-colors">
               <span className="h-2 w-2 rounded-full bg-[#3026B3] animate-pulse" />
               <span>INSIDE BHARATX</span>

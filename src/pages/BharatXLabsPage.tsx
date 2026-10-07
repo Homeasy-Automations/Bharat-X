@@ -286,7 +286,7 @@ export default function BharatXLabsPage() {
       </SectionTransition>
 
       {/* ── STRATEGIC MISSION & MANIFESTO ───────────────────────────── */}
-      <SectionTransition divider className="py-20 md:py-28 border-t border-slate-200/80 dark:border-white/5 bg-slate-50 dark:bg-night-900/50">
+      <SectionTransition divider className="py-12 sm:py-16 border-t border-slate-200/80 dark:border-white/5 bg-slate-50 dark:bg-night-900/50">
         <div className="container-x">
           <div className="grid gap-12 lg:grid-cols-2 lg:items-center">
             <div>
@@ -338,7 +338,7 @@ export default function BharatXLabsPage() {
       </SectionTransition>
 
       {/* ── CORE RESEARCH PILLARS ──────────────────────────────────── */}
-      <SectionTransition divider className="py-20 md:py-28 border-t border-slate-200/80 dark:border-white/5">
+      <SectionTransition divider className="py-12 sm:py-16 border-t border-slate-200/80 dark:border-white/5">
         <div className="container-x">
           <SectionHeader
             icon="brain-circuit"
@@ -402,7 +402,7 @@ export default function BharatXLabsPage() {
       </SectionTransition>
 
       {/* ── RESEARCH ROADMAP ────────────────────────────────────────── */}
-      <SectionTransition divider className="py-20 md:py-28 border-t border-slate-200/80 dark:border-white/5 bg-slate-50 dark:bg-night-900/40">
+      <SectionTransition divider className="py-12 sm:py-16 border-t border-slate-200/80 dark:border-white/5 bg-slate-50 dark:bg-night-900/40">
         <div id="roadmap" className="container-x">
           <SectionHeader
             icon="workflow"
@@ -457,7 +457,7 @@ export default function BharatXLabsPage() {
       </SectionTransition>
 
       {/* ── EARLY RESEARCHER WAITLIST & FELLOWSHIP ─────────────────── */}
-      <SectionTransition divider className="py-20 md:py-28 border-t border-slate-200/80 dark:border-white/5">
+      <SectionTransition divider className="py-12 sm:py-16 border-t border-slate-200/80 dark:border-white/5">
         <div id="waitlist" className="container-x max-w-4xl">
           <div className="text-center">
             <span className="inline-flex items-center gap-2 rounded-full border border-pulse-400/40 bg-pulse-400/10 px-3.5 py-1 font-mono text-xs font-semibold uppercase tracking-widest text-pulse-400">
@@ -586,7 +586,7 @@ export default function BharatXLabsPage() {
       </SectionTransition>
 
       {/* ── BHARATX ECOSYSTEM SYNERGY ──────────────────────────────── */}
-      <SectionTransition divider={false} className="py-16 border-t border-slate-200/80 dark:border-white/5 bg-slate-100/50 dark:bg-night-950">
+      <SectionTransition divider={false} className="py-12 sm:py-16 border-t border-slate-200/80 dark:border-white/5 bg-slate-100/50 dark:bg-night-950">
         <div className="container-x text-center">
           <span className="font-mono text-xs uppercase tracking-[0.25em] text-ink-400">
             Backed by BharatX Group Conglomerate Infrastructure

@@ -6,7 +6,7 @@ import { Stagger, StaggerItem } from "../motion/Stagger";
 export function ConglomerateManifesto() {
   return (
     <SectionTransition withDivider>
-      <section className="relative overflow-hidden border-b border-[#E3E5EF] bg-[#FAF9F6] py-24 sm:py-32 text-[#111827] dark:bg-night-950 dark:text-white">
+      <section className="relative overflow-hidden border-b border-[#E3E5EF] bg-[#FAF9F6] py-12 sm:py-16 text-[#111827] dark:bg-night-950 dark:text-white">
         <div className="container-x relative z-10">
           <div className="mx-auto max-w-4xl text-center">
             {/* Institutional Eyebrow */}

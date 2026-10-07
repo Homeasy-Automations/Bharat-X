@@ -7,7 +7,7 @@ import { Stagger, StaggerItem } from "../motion/Stagger";
 export function WhyBharatXBand() {
   return (
     <SectionTransition withDivider>
-      <section className="relative overflow-hidden py-24 sm:py-32 border-y border-[#E3E5EF] bg-[#FAF9F6] text-[#111827]">
+      <section className="relative overflow-hidden py-12 sm:py-16 border-y border-[#E3E5EF] bg-[#FAF9F6] text-[#111827]">
         <div className="container-x relative z-10">
           <div className="max-w-3xl">
             {/* Eyebrow */}

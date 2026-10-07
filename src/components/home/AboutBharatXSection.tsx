@@ -43,7 +43,7 @@ export function AboutBharatXSection() {
     <SectionTransition
       id="about"
       aria-label="About BharatX Group"
-      className="relative overflow-hidden bg-[#FAF9F6] py-20 sm:py-24 md:py-28 border-b border-[#E3E5EF]"
+      className="relative overflow-hidden bg-[#FAF9F6] py-12 sm:py-16 border-b border-[#E3E5EF]"
       withDivider
     >
       {/* Subtle architectural grid pattern */}

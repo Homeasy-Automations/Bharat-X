@@ -72,7 +72,7 @@ export function InstitutionalNewsroom() {
 
   return (
     <SectionTransition withDivider>
-      <section className="relative overflow-hidden py-20 sm:py-28 border-t border-[#E3E5EF] bg-[#F7F7FC] text-[#111827] dark:bg-night-950 dark:text-white">
+      <section className="relative overflow-hidden py-12 sm:py-16 border-t border-[#E3E5EF] bg-[#F7F7FC] text-[#111827] dark:bg-night-950 dark:text-white">
         <div className="container-x relative z-10">
           {/* Header */}
           <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-6 mb-7 sm:mb-10">
