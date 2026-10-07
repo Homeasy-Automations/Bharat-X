@@ -9,6 +9,7 @@ import { validateContact } from "../utils/validate";
 export async function createContact(req: Request, res: Response) {
   const { payload, issues } = validateContact((req.body ?? {}) as Record<string, unknown>);
   if (issues.length > 0) {
+    console.warn("[contact] ⚠️ Validation failed:", issues, "| Received body:", req.body);
     return res.status(400).json({ message: issues[0].message, issues });
   }
 
@@ -39,7 +40,7 @@ export async function createContact(req: Request, res: Response) {
 /** GET /api/contact (admin-only listing is under /api/admin) — health-style peek. */
 export function countContact(_req: Request, res: Response) {
   if (isDbReady()) {
-    ContactInquiry.countDocuments().then((n) => res.json({ count: n, source: "mongo" }));
+    ContactInquiry.countDocuments().then((n: number) => res.json({ count: n, source: "mongo" }));
   } else {
     res.json({ count: listInquiries().length, source: "memory" });
   }

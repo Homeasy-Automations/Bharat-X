@@ -58,6 +58,11 @@ export default function ContactPage() {
       return;
     }
 
+    if (message.trim().length < 5) {
+      setErrorMsg("Please provide a message with at least 5 characters.");
+      return;
+    }
+
     setSubmitting(true);
     setErrorMsg(null);
 
@@ -71,9 +76,13 @@ export default function ContactPage() {
         message,
       });
       setSubmitted(true);
-    } catch {
-      // Graceful fallback display so user is never blocked
-      setSubmitted(true);
+    } catch (err: unknown) {
+      console.error("[ContactPage] Submission failed:", err);
+      const msg =
+        err instanceof Error
+          ? err.message
+          : "Something went wrong. Please check your details and try again.";
+      setErrorMsg(msg);
     } finally {
       setSubmitting(false);
     }

@@ -45,7 +45,7 @@ export async function adminInquiries(req: AuthedRequest, res: Response) {
   try {
     if (isDbReady()) {
       const docs = await ContactInquiry.find().sort({ createdAt: -1 }).limit(100).lean();
-      return res.json({ inquiries: docs.map((d) => ({ ...d, _id: String(d._id) })) });
+      return res.json({ inquiries: docs.map((d: any) => ({ ...d, _id: String(d._id) })) });
     }
     return res.json({ inquiries: listInquiries().slice(0, 100) });
   } catch (err) {

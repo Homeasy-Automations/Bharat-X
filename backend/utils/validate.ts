@@ -46,8 +46,8 @@ export function validateContact(body: Record<string, unknown>): {
     phone: clean(body.phone, 24),
     organization: clean(body.organization, 120),
     website: clean(body.website, 300),
-    inquiryType: clean(body.inquiryType, 40),
-    company: clean(body.company, 40),
+    inquiryType: clean(body.inquiryType, 80),
+    company: clean(body.company, 80),
     message: clean(body.message, 2000),
   };
 
@@ -57,10 +57,9 @@ export function validateContact(body: Record<string, unknown>): {
     issues.push({ field: "phone", message: "Enter a valid phone number." });
   if (payload.website && !URL_RE.test(payload.website))
     issues.push({ field: "website", message: "Enter a valid website URL." });
-  if (!INQUIRY_TYPES.has(payload.inquiryType))
+  if (!payload.inquiryType || payload.inquiryType.trim().length < 2)
     issues.push({ field: "inquiryType", message: "Select a valid inquiry type." });
-  if (payload.company && !COMPANY_IDS.has(payload.company)) payload.company = "";
-  if (payload.message.length < 10)
+  if (payload.message.length < 5)
     issues.push({ field: "message", message: "Message is too short." });
 
   return { payload, issues };

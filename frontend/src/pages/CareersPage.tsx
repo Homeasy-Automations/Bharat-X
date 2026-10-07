@@ -193,8 +193,13 @@ export default function CareersPage() {
         message: `Position: ${position}\nLocation: ${location}\nLinkedIn: ${linkedin}\n\nIntroduction: ${intro}`,
       });
       setSubmitted(true);
-    } catch {
-      setSubmitted(true);
+    } catch (err: unknown) {
+      console.error("[CareersPage] Error submitting application:", err);
+      const msg =
+        err instanceof Error
+          ? err.message
+          : "Failed to submit application. Please check your details and try again.";
+      setFormError(msg);
     } finally {
       setSubmitting(false);
     }
