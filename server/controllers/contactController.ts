@@ -14,10 +14,11 @@ export async function createContact(req: Request, res: Response) {
 
   try {
     if (isDbReady()) {
-      await ContactInquiry.create(payload);
+      const saved = await ContactInquiry.create(payload);
+      console.log(`[contact] ✅ Saved inquiry to MongoDB Atlas | Database: "${ContactInquiry.db.name}" | Collection: "${ContactInquiry.collection.name}" | ID: ${saved._id}`);
     } else {
       pushInquiry(payload);
-      console.log("[contact] stored in memory (no MONGO_URI)");
+      console.warn("[contact] ⚠️ Stored in temporary memory (isDbReady is false) — not in MongoDB Atlas.");
     }
 
     // Notification email is fire-and-forget — never fails the request.

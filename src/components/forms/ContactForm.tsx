@@ -96,14 +96,17 @@ export function ContactForm({
     setSubmitting(true);
     setNetworkError(null);
     try {
-      await submitContact(form);
+      const res = await submitContact(form);
+      console.log("[ContactForm] Backend response:", res);
       track("contact_form_submitted", {
         inquiry_type: form.inquiryType,
         company: form.company || "group",
       });
       setSubmitted(true);
     } catch (err) {
+      console.error("[ContactForm] Submit error:", err);
       if (err instanceof ApiError && err.status === 0) {
+        console.warn("[ContactForm] Backend was unreachable (status 0). Saving to browser localStorage queue as fallback.");
         // Graceful offline queue: save locally if backend is temporarily unreachable
         try {
           const raw = localStorage.getItem("bxg:offline_inquiries") ?? "[]";

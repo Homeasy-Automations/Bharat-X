@@ -16,7 +16,7 @@ export async function connectDB(): Promise<void> {
   try {
     await mongoose.connect(uri, { serverSelectionTimeoutMS: 6000 });
     ready = mongoose.connection.readyState === 1;
-    console.log("[db] MongoDB connected.");
+    console.log(`[db] MongoDB connected to database: "${mongoose.connection.name}"`);
   } catch (err) {
     console.warn(
       "[db] MongoDB connection failed — falling back to in-memory mode.",
