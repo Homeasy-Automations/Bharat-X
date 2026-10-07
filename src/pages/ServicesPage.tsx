@@ -51,6 +51,35 @@ const businessPortfolio: BusinessVertical[] = [
     icon: "sprout",
   },
   {
+    id: "ventures",
+    category: "Capital & Venture Building",
+    emoji: "💼",
+    name: "BharatX Ventures",
+    description: "Combining capital, strategy and execution to build and scale enterprises.",
+    status: "Active",
+    websiteUrl: "https://bharatx.vc",
+    logo: "/Ventures_logo.png",
+    image: "/companies/bharatx-ventures/hero.jpg",
+    accent: "#211B72",
+    bgAccent: "bg-[#211B72]/10",
+    textAccent: "text-[#211B72]",
+    icon: "landmark",
+  },
+  {
+    id: "foundation",
+    category: "Knowledge & Social Impact",
+    emoji: "🌱",
+    name: "BharatX Labs Foundation",
+    description: "Building initiatives around education, innovation, entrepreneurship and social development.",
+    status: "Coming Soon",
+    logo: "/Bharatxlabs_logo.svg",
+    image: "/assets/backgrounds/impact-story.jpg",
+    accent: "#15966B",
+    bgAccent: "bg-[#15966B]/15",
+    textAccent: "text-[#15966B]",
+    icon: "sparkles",
+  },
+  {
     id: "manufacturing",
     category: "Industrial Manufacturing",
     emoji: "⚙️",
@@ -84,9 +113,10 @@ const businessPortfolio: BusinessVertical[] = [
     id: "packaging",
     category: "Packaging & Materials",
     emoji: "📦",
-    name: "BharatX Packaging",
-    description: "Developing efficient and sustainable packaging solutions for businesses and industries.",
-    status: "Coming Soon",
+    name: "SRM Enterprises",
+    description: "Complete industrial packaging materials, corrugated boxes, protective cushioning and bulk logistics containers.",
+    status: "Active",
+    websiteUrl: "https://srm-enterprises-psi.vercel.app/",
     image: "/assets/backgrounds/packaging.jpg",
     accent: "#D97706",
     bgAccent: "bg-[#F59E0B]/15",
@@ -105,35 +135,6 @@ const businessPortfolio: BusinessVertical[] = [
     bgAccent: "bg-[#059669]/15",
     textAccent: "text-[#059669]",
     icon: "recycle",
-  },
-  {
-    id: "ventures",
-    category: "Capital & Venture Building",
-    emoji: "💼",
-    name: "BharatX Ventures",
-    description: "Combining capital, strategy and execution to build and scale enterprises.",
-    status: "Active",
-    websiteUrl: "https://bharatx.vc",
-    logo: "/Ventures_logo.png",
-    image: "/companies/bharatx-ventures/hero.jpg",
-    accent: "#211B72",
-    bgAccent: "bg-[#211B72]/10",
-    textAccent: "text-[#211B72]",
-    icon: "landmark",
-  },
-  {
-    id: "foundation",
-    category: "Knowledge & Social Impact",
-    emoji: "🌱",
-    name: "BharatX Labs Foundation",
-    description: "Building initiatives around education, innovation, entrepreneurship and social development.",
-    status: "Coming Soon",
-    logo: "/Bharatxlabs_logo.svg",
-    image: "/assets/backgrounds/impact-story.jpg",
-    accent: "#15966B",
-    bgAccent: "bg-[#15966B]/15",
-    textAccent: "text-[#15966B]",
-    icon: "sparkles",
   },
 ];
 
@@ -248,7 +249,7 @@ export default function ServicesPage() {
           <div className="max-w-3xl mb-14">
             <div className="inline-flex items-center gap-2 rounded-full border border-[#3026B3]/25 bg-[#3026B3]/8 px-4 py-1 font-mono text-[11px] uppercase tracking-[0.26em] text-[#3026B3] font-bold shadow-xs mb-4">
               <span className="h-2 w-2 rounded-full bg-[#3026B3]" />
-              <span>02 // BUSINESS PORTFOLIO</span>
+              <span>BUSINESS PORTFOLIO</span>
             </div>
 
             <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-normal text-[#111827] leading-tight tracking-tight">
@@ -268,7 +269,8 @@ export default function ServicesPage() {
               return (
                 <div
                   key={biz.id}
-                  className="group flex flex-col justify-between overflow-hidden rounded-2xl border border-[#E3E5EF] bg-[#FAF9F6] transition-all duration-300 hover:border-[#3026B3] hover:bg-white hover:shadow-xl hover:-translate-y-1"
+                  id={biz.id}
+                  className="group scroll-mt-28 flex flex-col justify-between overflow-hidden rounded-2xl border border-[#E3E5EF] bg-[#FAF9F6] transition-all duration-300 hover:border-[#3026B3] hover:bg-white hover:shadow-xl hover:-translate-y-1"
                 >
                   {/* Top Thumbnail Image */}
                   <div className="relative h-44 w-full overflow-hidden bg-slate-900">
@@ -361,7 +363,7 @@ export default function ServicesPage() {
           <div className="max-w-3xl text-center mx-auto mb-14">
             <div className="inline-flex items-center gap-2 rounded-full border border-[#3026B3]/25 bg-[#3026B3]/8 px-4 py-1 font-mono text-[11px] uppercase tracking-[0.26em] text-[#3026B3] font-bold shadow-xs mb-4">
               <span className="h-2 w-2 rounded-full bg-[#3026B3]" />
-              <span>03 // HOW THEY CONNECT</span>
+              <span>HOW THEY CONNECT</span>
             </div>
 
             <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-normal text-[#111827] leading-tight tracking-tight">
@@ -468,7 +470,7 @@ export default function ServicesPage() {
           <div className="max-w-3xl text-center mx-auto mb-14">
             <div className="inline-flex items-center gap-2 rounded-full border border-[#FFB000]/40 bg-[#FFB000]/10 px-4 py-1 font-mono text-[11px] uppercase tracking-[0.26em] text-[#9A6200] font-bold shadow-xs mb-4">
               <span className="h-2 w-2 rounded-full bg-[#FFB000]" />
-              <span>04 // WHAT’S NEXT</span>
+              <span>WHAT’S NEXT</span>
             </div>
 
             <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-normal text-[#111827] leading-tight tracking-tight">
@@ -518,7 +520,7 @@ export default function ServicesPage() {
             {/* Eyebrow */}
             <div className="inline-flex items-center gap-2 rounded-full border border-[#FFB000]/40 bg-[#FFB000]/15 px-4 py-1 font-mono text-[11px] uppercase tracking-[0.28em] text-[#FFB000] font-bold shadow-xs mb-6">
               <span className="h-2 w-2 rounded-full bg-[#FFB000] shadow-[0_0_8px_#FFB000]" />
-              <span>05 // PARTNER WITH US</span>
+              <span>PARTNER WITH US</span>
             </div>
 
             {/* Headline */}

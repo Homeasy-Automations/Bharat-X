@@ -14,7 +14,7 @@ export function InsideBharatXSection() {
         <div className="max-w-3xl mb-12 sm:mb-16">
           <div className="inline-flex items-center gap-2 rounded-full border border-[#3026B3]/25 bg-[#3026B3]/8 px-4 py-1 font-mono text-[11px] uppercase tracking-[0.26em] text-[#3026B3] font-bold shadow-xs">
             <span className="h-2 w-2 rounded-full bg-[#3026B3]" />
-            <span>08 // INSIDE BHARATX</span>
+            <span>INSIDE BHARATX</span>
           </div>
 
           <h2 className="mt-4 font-serif text-3xl sm:text-4xl md:text-5xl font-normal leading-tight tracking-tight text-[#111827]">

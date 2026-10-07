@@ -21,7 +21,7 @@ export const footerSections = {
     { label: "BharatX Infratech", to: "/services#infrastructure" },
     // { label: "BharatXAgro", to: "/services#agriculture" },
     { label: "Casters Global", to: "/services#manufacturing" },
-    { label: "BharatX Packaging", to: "/#what-comes-next" },
+    { label: "SRM Enterprises", to: "/services#packaging" },
     { label: "AI Xperts Labs", to: "/services#tech-ai" },
     { label: "BharatX Sustainability", to: "/#what-comes-next" },
     { label: "BharatX Ventures", to: "/services#finance" },
@@ -43,7 +43,7 @@ export const footerSections = {
   ],
   legal: [
     { label: "Privacy Policy", to: "/privacy" },
-    { label: "Terms of Use", to: "/terms" },
-    { label: "Cookie Policy", to: "/privacy#cookies" },
+    { label: "Terms", to: "/terms" },
+    { label: "Cookies Policy", to: "/privacy#cookies" },
   ],
 };

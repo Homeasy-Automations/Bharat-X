@@ -47,7 +47,7 @@ export function WhatComesNextSection() {
             className="inline-flex items-center gap-2 rounded-full border border-[#FFB000]/40 bg-[#FFB000]/10 px-4 py-1 font-mono text-[11px] uppercase tracking-[0.26em] text-[#9A6200] font-bold shadow-xs"
           >
             <span className="h-2 w-2 rounded-full bg-[#FFB000] shadow-[0_0_8px_#FFB000]" />
-            <span>07 // BUILDING WHAT COMES NEXT</span>
+            <span>BUILDING WHAT COMES NEXT</span>
           </motion.div>
 
           <motion.h2
@@ -111,7 +111,7 @@ export function WhatComesNextSection() {
                 </div>
 
                 <div className="mt-6 pt-4 border-t border-[#E3E5EF] flex items-center justify-between text-xs font-mono uppercase tracking-wider text-[#596579] group-hover:text-[#3026B3] transition-colors">
-                  <span className="font-semibold">Horizon 2025+</span>
+                  <span className="font-semibold">Horizon 2027+</span>
                   <Icon
                     name="arrow-right"
                     width={15}

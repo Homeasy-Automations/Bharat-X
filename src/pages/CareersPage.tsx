@@ -140,7 +140,7 @@ const verticalsList = [
   "Agriculture (BharatXAgro)",
   "Manufacturing (Casters Global)",
   "Technology & AI (AI Xperts Labs)",
-  "Packaging (BharatX Packaging)",
+  "Packaging (SRM Enterprises)",
   "Sustainability (BharatX Sustainability)",
   "Ventures & Strategy (BharatX Ventures)",
   "Foundation (BharatX Labs Foundation)",
@@ -289,7 +289,7 @@ export default function CareersPage() {
           <div className="max-w-3xl mb-16">
             <div className="inline-flex items-center gap-2 rounded-full border border-[#3026B3]/25 bg-[#3026B3]/8 px-4 py-1 font-mono text-[11px] uppercase tracking-[0.26em] text-[#3026B3] font-bold shadow-xs mb-4">
               <span className="h-2 w-2 rounded-full bg-[#3026B3]" />
-              <span>02 // WHY BHARATX</span>
+              <span>WHY BHARATX</span>
             </div>
 
             <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-normal text-[#111827] leading-tight tracking-tight">
@@ -341,7 +341,7 @@ export default function CareersPage() {
           <div className="max-w-3xl text-center mx-auto mb-16">
             <div className="inline-flex items-center gap-2 rounded-full border border-[#15966B]/30 bg-[#15966B]/10 px-4 py-1 font-mono text-[11px] uppercase tracking-[0.26em] text-[#15966B] font-bold shadow-xs mb-4">
               <span className="h-2 w-2 rounded-full bg-[#15966B]" />
-              <span>03 // CAREER DOMAINS</span>
+              <span>CAREER DOMAINS</span>
             </div>
 
             <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-normal text-[#111827] leading-tight tracking-tight">
@@ -391,7 +391,7 @@ export default function CareersPage() {
           <div className="max-w-3xl text-center mx-auto mb-16">
             <div className="inline-flex items-center gap-2 rounded-full border border-[#00B8D9]/30 bg-[#00B8D9]/10 px-4 py-1 font-mono text-[11px] uppercase tracking-[0.26em] text-[#008299] font-bold shadow-xs mb-4">
               <span className="h-2 w-2 rounded-full bg-[#00B8D9]" />
-              <span>04 // OUR CULTURE</span>
+              <span>OUR CULTURE</span>
             </div>
 
             <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-normal text-[#111827] leading-tight tracking-tight">
@@ -446,7 +446,7 @@ export default function CareersPage() {
           <div className="max-w-3xl text-center mx-auto mb-14">
             <div className="inline-flex items-center gap-2 rounded-full border border-[#3026B3]/25 bg-[#3026B3]/8 px-4 py-1 font-mono text-[11px] uppercase tracking-[0.26em] text-[#3026B3] font-bold shadow-xs mb-4">
               <span className="h-2 w-2 rounded-full bg-[#3026B3]" />
-              <span>05 // OPEN OPPORTUNITIES</span>
+              <span>OPEN OPPORTUNITIES</span>
             </div>
 
             <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-normal text-[#111827] leading-tight tracking-tight">
@@ -741,7 +741,7 @@ export default function CareersPage() {
             {/* Eyebrow */}
             <div className="inline-flex items-center gap-2 rounded-full border border-[#FFB000]/40 bg-[#FFB000]/15 px-4 py-1 font-mono text-[11px] uppercase tracking-[0.28em] text-[#FFB000] font-bold shadow-xs mb-6">
               <span className="h-2 w-2 rounded-full bg-[#FFB000] shadow-[0_0_8px_#FFB000]" />
-              <span>06 // JOIN THE BUILDERS</span>
+              <span>JOIN THE BUILDERS</span>
             </div>
 
             {/* Headline */}

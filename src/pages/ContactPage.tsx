@@ -172,7 +172,7 @@ export default function ContactPage() {
           <div className="max-w-3xl text-center mx-auto mb-16">
             <div className="inline-flex items-center gap-2 rounded-full border border-[#3026B3]/25 bg-[#3026B3]/8 px-4 py-1 font-mono text-[11px] uppercase tracking-[0.26em] text-[#3026B3] font-bold shadow-xs mb-4">
               <span className="h-2 w-2 rounded-full bg-[#3026B3]" />
-              <span>02 // CONTACT PATHWAYS</span>
+              <span>CONTACT PATHWAYS</span>
             </div>
 
             <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-normal text-[#111827] leading-tight tracking-tight">
@@ -307,7 +307,7 @@ export default function ContactPage() {
             <div className="text-center mb-12">
               <div className="inline-flex items-center gap-2 rounded-full border border-[#3026B3]/25 bg-[#3026B3]/8 px-4 py-1 font-mono text-[11px] uppercase tracking-[0.26em] text-[#3026B3] font-bold shadow-xs mb-4">
                 <span className="h-2 w-2 rounded-full bg-[#3026B3]" />
-                <span>03 // DIRECT INQUIRY</span>
+                <span>DIRECT INQUIRY</span>
               </div>
 
               <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-normal text-[#111827] leading-tight tracking-tight">
@@ -493,7 +493,7 @@ export default function ContactPage() {
           <div className="max-w-3xl text-center mx-auto mb-14">
             <div className="inline-flex items-center gap-2 rounded-full border border-[#15966B]/30 bg-[#15966B]/10 px-4 py-1 font-mono text-[11px] uppercase tracking-[0.26em] text-[#15966B] font-bold shadow-xs mb-4">
               <span className="h-2 w-2 rounded-full bg-[#15966B]" />
-              <span>04 // GROUP OFFICE</span>
+              <span>GROUP OFFICE</span>
             </div>
 
             <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-normal text-[#111827] leading-tight tracking-tight">
@@ -607,7 +607,7 @@ export default function ContactPage() {
             {/* Eyebrow */}
             <div className="inline-flex items-center gap-2 rounded-full border border-[#FFB000]/40 bg-[#FFB000]/15 px-4 py-1 font-mono text-[11px] uppercase tracking-[0.28em] text-[#FFB000] font-bold shadow-xs mb-6">
               <span className="h-2 w-2 rounded-full bg-[#FFB000] shadow-[0_0_8px_#FFB000]" />
-              <span>05 // CO-BUILD THE FUTURE</span>
+              <span>CO-BUILD THE FUTURE</span>
             </div>
 
             {/* Headline */}

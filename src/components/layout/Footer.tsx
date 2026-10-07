@@ -63,61 +63,39 @@ export function Footer() {
         <div className="grid grid-cols-1 gap-8 lg:grid-cols-12 lg:gap-10">
           {/* Institutional Brand Column */}
           <div className="lg:col-span-4 flex flex-col items-start">
-            <Link to="/" aria-label="BharatX Group home" className="inline-block">
+            <Link
+              to="/"
+              aria-label="BharatX Group home"
+              className="flex flex-col items-center group"
+            >
               <img
                 src="/bharatxgroup.png"
                 alt="BharatX Group"
-                className="h-14 sm:h-16 w-auto object-contain"
+                className="h-16 sm:h-20 w-auto object-contain transition-transform duration-300 group-hover:scale-105"
               />
+              <span className="mt-2 font-serif text-2xl sm:text-[1.7rem] font-normal text-[#111827] tracking-tight text-center">
+                BharatX Group
+              </span>
             </Link>
             
-            <div className="mt-4 font-serif text-xl sm:text-2xl font-normal text-[#111827] tracking-tight">
-              BharatX Group
-            </div>
-            <p className="mt-1 font-mono text-xs sm:text-[13px] uppercase tracking-[0.2em] text-[#FFB000] font-semibold">
+            <p className="mt-2.5 font-mono text-xs sm:text-[13px] uppercase tracking-[0.2em] text-[#FFB000] font-semibold">
               Building Businesses. Enabling Bharat.
             </p>
 
-            <p className="mt-4 text-sm leading-relaxed text-[#596579] max-w-sm">
+            <p className="mt-3.5 text-sm leading-relaxed text-[#596579] max-w-[280px]">
               A diversified Indian business group bringing together businesses, capital, technology and talent to create enduring enterprises across key growth sectors.
             </p>
-
-            {/* Location & Contact Info */}
-            <div className="mt-6 space-y-2.5 border-t border-[#E3E5EF] pt-4 font-mono text-[11.5px] text-[#596579] w-full max-w-sm">
-              <div className="flex items-start gap-2.5">
-                <Icon name="map-pin" width={14} height={14} className="shrink-0 mt-0.5 text-[#3026B3]" />
-                <span className="leading-snug">{brandConfig.address.full}</span>
-              </div>
-              <div className="flex items-center gap-2.5">
-                <Icon name="phone" width={14} height={14} className="shrink-0 text-[#00B8D9]" />
-                <a
-                  href={`tel:${brandConfig.contact.phoneTel}`}
-                  className="transition-colors hover:text-[#3026B3]"
-                >
-                  {brandConfig.contact.phoneFormatted}
-                </a>
-              </div>
-              <div className="flex items-center gap-2.5">
-                <Icon name="mail" width={14} height={14} className="shrink-0 text-[#FFB000]" />
-                <a
-                  href={`mailto:${brandConfig.contact.email}`}
-                  className="transition-colors hover:text-[#3026B3]"
-                >
-                  {brandConfig.contact.email}
-                </a>
-              </div>
-            </div>
           </div>
 
           {/* Institutional Navigation 4-Column Grid */}
           <div className="lg:col-span-8 grid grid-cols-2 sm:grid-cols-4 gap-8">
             {/* 1. Businesses */}
             <nav aria-label="Businesses">
-              <div className="mb-4 flex items-center gap-2 font-mono text-[11px] uppercase tracking-[0.24em] text-[#111827] font-bold">
+              <div className="mb-3.5 flex items-center gap-2 font-mono text-[11px] uppercase tracking-[0.24em] text-[#111827] font-bold">
                 <Icon name="layers" width={13} height={13} className="text-[#3026B3]" />
                 Businesses
               </div>
-              <ul className="flex flex-col gap-2.5">
+              <ul className="flex flex-col gap-1.5">
                 {footerSections.businesses.map((item) => (
                   <li key={item.label}>
                     <Link
@@ -137,11 +115,11 @@ export function Footer() {
 
             {/* 2. Group */}
             <nav aria-label="Group">
-              <div className="mb-4 flex items-center gap-2 font-mono text-[11px] uppercase tracking-[0.24em] text-[#111827] font-bold">
+              <div className="mb-3.5 flex items-center gap-2 font-mono text-[11px] uppercase tracking-[0.24em] text-[#111827] font-bold">
                 <Icon name="building-2" width={13} height={13} className="text-[#3026B3]" />
                 Group
               </div>
-              <ul className="flex flex-col gap-2.5">
+              <ul className="flex flex-col gap-1.5">
                 {footerSections.group.map((item) => (
                   <li key={item.label}>
                     <Link
@@ -161,11 +139,11 @@ export function Footer() {
 
             {/* 3. Connect */}
             <nav aria-label="Connect">
-              <div className="mb-4 flex items-center gap-2 font-mono text-[11px] uppercase tracking-[0.24em] text-[#111827] font-bold">
+              <div className="mb-3.5 flex items-center gap-2 font-mono text-[11px] uppercase tracking-[0.24em] text-[#111827] font-bold">
                 <Icon name="share-2" width={13} height={13} className="text-[#3026B3]" />
                 Connect
               </div>
-              <ul className="flex flex-col gap-2.5">
+              <ul className="flex flex-col gap-1.5">
                 {footerSections.connect.map((item) => (
                   <li key={item.label}>
                     <a
@@ -191,39 +169,52 @@ export function Footer() {
               </ul>
             </nav>
 
-            {/* 4. Legal */}
-            <nav aria-label="Legal">
-              <div className="mb-4 flex items-center gap-2 font-mono text-[11px] uppercase tracking-[0.24em] text-[#111827] font-bold">
-                <Icon name="shield-check" width={13} height={13} className="text-[#3026B3]" />
-                Legal
+            {/* 4. Address */}
+            <div aria-label="Address">
+              <div className="mb-3.5 flex items-center gap-2 font-mono text-[11px] uppercase tracking-[0.24em] text-[#111827] font-bold">
+                <Icon name="map-pin" width={13} height={13} className="text-[#3026B3]" />
+                Address
               </div>
-              <ul className="flex flex-col gap-2.5">
-                {footerSections.legal.map((item) => (
-                  <li key={item.label}>
-                    <Link
-                      to={item.to}
-                      className="group inline-flex items-center gap-1.5 text-[13px] text-[#596579] transition-colors hover:text-[#3026B3]"
+              <address className="not-italic text-[13px] leading-snug text-[#596579] space-y-2">
+                <p>
+                  {brandConfig.address.line1},
+                  <br />
+                  {brandConfig.address.line2},
+                  <br />
+                  {brandConfig.address.city} – {brandConfig.address.pincode}
+                </p>
+                <div className="space-y-1.5 border-t border-[#E3E5EF] pt-2.5 font-mono text-[11.5px]">
+                  <div>
+                    <a
+                      href={`tel:${brandConfig.contact.phoneTel}`}
+                      className="inline-flex items-center gap-2 text-[#596579] hover:text-[#3026B3] transition-colors"
                     >
-                      <span
-                        aria-hidden
-                        className="h-px w-0 bg-[#3026B3] transition-all duration-300 group-hover:w-2.5"
-                      />
-                      {item.label}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </nav>
+                      <Icon name="phone" width={13} height={13} className="shrink-0 text-[#00B8D9]" />
+                      <span>{brandConfig.contact.phoneFormatted}</span>
+                    </a>
+                  </div>
+                  <div>
+                    <a
+                      href={`mailto:${brandConfig.contact.email}`}
+                      className="inline-flex items-center gap-2 text-[#596579] hover:text-[#3026B3] transition-colors"
+                    >
+                      <Icon name="mail" width={13} height={13} className="shrink-0 text-[#FFB000]" />
+                      <span>{brandConfig.contact.email}</span>
+                    </a>
+                  </div>
+                </div>
+              </address>
+            </div>
           </div>
         </div>
 
         {/* Bottom Credits & Legal */}
-        <div className="mt-8 grid grid-cols-1 md:grid-cols-3 gap-4 items-center border-t border-[#E3E5EF] pt-5 text-center">
-          <p className="font-mono text-[11px] uppercase tracking-[0.16em] text-[#596579] md:text-left">
+        <div className="mt-8 flex flex-col md:flex-row md:items-center justify-between gap-4 border-t border-[#E3E5EF] pt-5 text-center">
+          <p className="font-mono text-[11px] uppercase tracking-[0.16em] text-[#596579] md:text-left shrink-0">
             © {new Date().getFullYear()} BharatX Group. All rights reserved.
           </p>
 
-          <div className="flex items-center justify-center">
+          <div className="flex items-center justify-center shrink-0">
             <a
               href="https://kynyx.com/"
               target="_blank"
@@ -237,14 +228,31 @@ export function Footer() {
                 height={12}
                 className="text-rose-500 fill-rose-500 transition-transform duration-200 group-hover:scale-125"
               />
-              <span>by <span className="font-bold text-[#111827] group-hover:text-[#3026B3] transition-colors">KYNYX</span></span>
+              <span>
+                by{" "}
+                <span className="font-bold text-[#111827] group-hover:text-[#3026B3] transition-colors">
+                  KYNYX
+                </span>
+              </span>
             </a>
           </div>
 
-          <div className="flex items-center justify-center md:justify-end">
-            <span className="flex items-center gap-2 font-mono text-[11px] uppercase tracking-[0.16em] text-[#596579]">
+          <div className="flex flex-wrap items-center justify-center md:justify-end gap-x-2.5 gap-y-1 font-mono text-[11px] tracking-[0.14em] text-[#596579]">
+            {footerSections.legal.map((item) => (
+              <span key={item.label} className="inline-flex items-center gap-2">
+                <span className="text-[#94A3B8]">•</span>
+                <Link
+                  to={item.to}
+                  className="transition-colors hover:text-[#3026B3]"
+                >
+                  {item.label}
+                </Link>
+              </span>
+            ))}
+            <span className="inline-flex items-center gap-2 ml-1">
               <span className="h-1.5 w-1.5 rounded-full bg-[#15966B]" />
-              Made in India
+              <span className="uppercase tracking-[0.16em]">Made in India</span>
+              <span aria-hidden className="text-xs leading-none">🇮🇳</span>
             </span>
           </div>
         </div>

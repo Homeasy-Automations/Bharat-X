@@ -63,7 +63,7 @@ export function HomeImpactSection() {
             className="inline-flex items-center gap-2 rounded-full border border-[#15966B]/30 bg-[#15966B]/10 px-4 py-1 font-mono text-[11px] uppercase tracking-[0.26em] text-[#15966B] font-bold shadow-xs"
           >
             <span className="h-2 w-2 rounded-full bg-[#15966B]" />
-            <span>06 // IMPACT</span>
+            <span>IMPACT</span>
           </motion.div>
 
           <motion.h2

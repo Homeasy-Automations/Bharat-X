@@ -43,6 +43,37 @@ const purposePillars = [
   },
 ];
 
+// ── Group Leadership Mandates ─────────────────────────────────────────
+const leadershipMandates = [
+  {
+    icon: "compass",
+    accent: "#FFB000",
+    bgAccent: "bg-[#FFB000]/15",
+    textAccent: "text-[#9A6200]",
+    borderHover: "hover:border-[#FFB000]/40",
+    title: "Sovereign Industrial Capacity",
+    desc: "Engineering domestic manufacturing, resilient infrastructure, and high-duty cycle systems designed for decades of compounding value.",
+  },
+  {
+    icon: "cpu",
+    accent: "#3026B3",
+    bgAccent: "bg-[#3026B3]/10",
+    textAccent: "text-[#3026B3]",
+    borderHover: "hover:border-[#3026B3]/30",
+    title: "Indigenous Technology & Silicon",
+    desc: "Fostering frontier AI foundational models, robotics, and deeptech skunkworks to eliminate reliance on foreign black-box dependencies.",
+  },
+  {
+    icon: "orbit",
+    accent: "#15966B",
+    bgAccent: "bg-[#15966B]/15",
+    textAccent: "text-[#15966B]",
+    borderHover: "hover:border-[#15966B]/40",
+    title: "Interconnected Economic Engine",
+    desc: "Unifying cross-sector operating businesses under one institutional standard of quality, capital discipline, and governance.",
+  },
+];
+
 // ── 04. Business Ecosystem Nodes ──────────────────────────────────────
 const primaryEcosystemNodes = [
   {
@@ -79,10 +110,10 @@ const primaryEcosystemNodes = [
   },
   {
     sector: "Packaging",
-    company: "Future Expansion",
-    link: "/#what-comes-next",
+    company: "SRM Enterprises",
+    link: "/services#packaging",
     accent: "#D97706",
-    badge: "Incubating",
+    badge: "Active",
   },
 ];
 
@@ -269,7 +300,7 @@ export default function AboutPage() {
             <div className="lg:col-span-6">
               <div className="inline-flex items-center gap-2 rounded-full border border-[#3026B3]/25 bg-[#3026B3]/8 px-4 py-1 font-mono text-[11px] uppercase tracking-[0.26em] text-[#3026B3] font-bold shadow-xs mb-4">
                 <span className="h-2 w-2 rounded-full bg-[#3026B3]" />
-                <span>02 // WHO WE ARE</span>
+                <span>WHO WE ARE</span>
               </div>
 
               <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-normal text-[#111827] leading-tight tracking-tight">
@@ -356,7 +387,7 @@ export default function AboutPage() {
           <div className="max-w-3xl mb-14">
             <div className="inline-flex items-center gap-2 rounded-full border border-[#FFB000]/40 bg-[#FFB000]/10 px-4 py-1 font-mono text-[11px] uppercase tracking-[0.26em] text-[#9A6200] font-bold shadow-xs mb-4">
               <span className="h-2 w-2 rounded-full bg-[#FFB000] shadow-[0_0_8px_#FFB000]" />
-              <span>03 // OUR PURPOSE</span>
+              <span>OUR PURPOSE</span>
             </div>
 
             <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-normal text-[#111827] leading-tight tracking-tight">
@@ -405,13 +436,133 @@ export default function AboutPage() {
         </div>
       </section>
 
+      {/* ── GROUP LEADERSHIP (The Visionary Behind the Standard) ─────────── */}
+      <section className="relative overflow-hidden bg-white py-20 sm:py-28 border-b border-[#E3E5EF]">
+        <div className="container-x relative z-10">
+          <div className="max-w-3xl mb-12 sm:mb-16">
+            <div className="inline-flex items-center gap-2 rounded-full border border-[#3026B3]/25 bg-[#3026B3]/8 px-4 py-1 font-mono text-[11px] uppercase tracking-[0.26em] text-[#3026B3] font-bold shadow-xs mb-4">
+              <Icon name="user-round" width={13} height={13} />
+              <span>GROUP LEADERSHIP</span>
+            </div>
+
+            <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-normal text-[#111827] leading-tight tracking-tight">
+              The Visionary Behind the <span className="text-[#3026B3]">Standard.</span>
+            </h2>
+
+            <p className="mt-4 text-base sm:text-lg text-[#596579] leading-relaxed font-normal">
+              BharatX Group is founded on institutional rigor, sovereign engineering, and long-term national economic leadership.
+            </p>
+          </div>
+
+          <div className="relative overflow-hidden rounded-3xl border border-[#E3E5EF] bg-[#FAF9F6] p-4 sm:p-6 lg:p-8 shadow-xl">
+            {/* Ambient atmospheric lighting */}
+            <div aria-hidden className="pointer-events-none absolute -right-24 -top-24 h-96 w-96 rounded-full bg-[#FFB000]/10 blur-3xl" />
+            <div aria-hidden className="pointer-events-none absolute -left-24 -bottom-24 h-96 w-96 rounded-full bg-[#3026B3]/[0.06] blur-3xl" />
+
+            <div className="relative z-10 grid items-stretch gap-8 lg:grid-cols-[0.85fr_1.15fr]">
+              {/* Portrait Column */}
+              <div className="relative flex flex-col justify-end overflow-hidden min-h-[460px] sm:min-h-[520px] lg:min-h-[580px] rounded-2xl border border-[#E3E5EF] bg-[#0F172A] shadow-lg group">
+                <img
+                  src="/pradeep-kumar.png"
+                  alt="Pradeep Kumar — Founder & Leader, BharatX Group"
+                  className="absolute inset-0 h-full w-full object-cover object-top transition-transform duration-700 ease-out group-hover:scale-105"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#0B0F19] via-[#0B0F19]/25 to-transparent opacity-95" />
+
+                {/* Floating Identity Card on Image */}
+                <div className="relative z-10 p-6 sm:p-8 backdrop-blur-md bg-[#0B0F19]/85 border-t border-white/10 rounded-b-2xl">
+                  <div className="flex items-center gap-2">
+                    <span className="h-2 w-2 rounded-full bg-[#FFB000] shadow-[0_0_8px_#FFB000] animate-pulse" />
+                    <span className="font-mono text-[10.5px] uppercase tracking-[0.25em] text-[#FFB000] font-bold">
+                      Founder &amp; Visionary
+                    </span>
+                  </div>
+                  <div className="mt-1 font-serif text-2xl sm:text-3xl font-medium text-white tracking-tight">
+                    Pradeep Kumar
+                  </div>
+                  <div className="mt-1 text-xs font-mono uppercase tracking-wider text-slate-300">
+                    BharatX Group · Institutional Founder
+                  </div>
+                </div>
+              </div>
+
+              {/* Narrative & Quote Column */}
+              <div className="flex flex-col justify-between p-2 sm:p-4 lg:p-6 lg:pl-2">
+                <div>
+                  {/* Vision Badge */}
+                  <div className="inline-flex items-center gap-2 rounded-full border border-[#FFB000]/40 bg-[#FFB000]/15 px-4 py-1.5 font-mono text-xs uppercase tracking-widest text-[#9A6200] font-bold mb-6 shadow-xs">
+                    <Icon name="sparkles" width={13} height={13} />
+                    <span>National Economic Vision</span>
+                  </div>
+
+                  <h3 className="font-serif text-2xl sm:text-3xl lg:text-4xl font-normal text-[#111827] tracking-tight leading-tight">
+                    Architecting India’s <span className="text-[#3026B3]">Next Economic Decade.</span>
+                  </h3>
+
+                  {/* Featured Decorated Quote Block */}
+                  <div className="relative mt-6 rounded-2xl border-l-4 border-[#FFB000] border-y border-r border-[#E3E5EF] bg-white p-6 sm:p-7 shadow-xs">
+                    <div aria-hidden className="absolute -top-3 right-6 font-serif text-7xl font-bold text-[#FFB000]/15 select-none pointer-events-none">
+                      “
+                    </div>
+                    <blockquote className="relative z-10 text-[15.5px] sm:text-[17px] font-normal leading-relaxed text-[#1F2937] italic">
+                      “Aligned with the national vision of{" "}
+                      <strong className="text-[#3026B3] not-italic font-semibold">
+                        Viksit Bharat 2047
+                      </strong>
+                      , he is committed to building sustainable, technology-driven enterprises that strengthen India’s industrial ecosystem and contribute to the country’s long-term economic leadership.”
+                    </blockquote>
+                    <div className="mt-4 flex items-center justify-between pt-3 border-t border-[#E3E5EF] text-xs font-mono text-[#596579]">
+                      <span className="text-[#9A6200] font-bold">— Pradeep Kumar</span>
+                      <span className="font-medium text-[#111827]">BharatX Group</span>
+                    </div>
+                  </div>
+
+                  {/* Three Core Leadership Mandates */}
+                  <div className="mt-6 space-y-3.5">
+                    {leadershipMandates.map((item) => (
+                      <div
+                        key={item.title}
+                        className={`flex items-start gap-4 rounded-xl border border-[#E3E5EF] bg-white p-4 transition-all duration-300 hover:shadow-md hover:-translate-y-0.5 ${item.borderHover}`}
+                      >
+                        <div
+                          className={`flex h-10 w-10 shrink-0 items-center justify-center rounded-xl ${item.bgAccent} ${item.textAccent} shadow-xs`}
+                        >
+                          <Icon name={item.icon} width={20} height={20} strokeWidth={2} />
+                        </div>
+                        <div>
+                          <div className="font-serif text-base font-medium text-[#111827]">
+                            {item.title}
+                          </div>
+                          <p className="mt-1 text-xs sm:text-[13px] text-[#596579] leading-relaxed font-normal">
+                            {item.desc}
+                          </p>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Trust & Alignment Footer Bar */}
+                <div className="mt-8 pt-5 border-t border-[#E3E5EF] flex flex-wrap items-center justify-between gap-4 text-xs font-mono text-[#596579]">
+                  <span className="flex items-center gap-2 text-[#111827] font-medium">
+                    <Icon name="shield-check" width={16} height={16} className="text-[#15966B]" />
+                    Constitutional Governance Standard
+                  </span>
+                  <span className="text-[#9A6200] font-bold">Viksit Bharat 2047 Committed</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* ── 04. OUR BUSINESS ECOSYSTEM (One Group. Multiple Growth Engines) ─ */}
       <section className="relative overflow-hidden bg-white py-20 sm:py-24 border-b border-[#E3E5EF]">
         <div className="container-x relative z-10">
           <div className="max-w-3xl text-center mx-auto mb-14">
             <div className="inline-flex items-center gap-2 rounded-full border border-[#3026B3]/25 bg-[#3026B3]/8 px-4 py-1 font-mono text-[11px] uppercase tracking-[0.26em] text-[#3026B3] font-bold shadow-xs mb-4">
               <span className="h-2 w-2 rounded-full bg-[#3026B3]" />
-              <span>04 // ECOSYSTEM ARCHITECTURE</span>
+              <span>ECOSYSTEM ARCHITECTURE</span>
             </div>
 
             <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-normal text-[#111827] leading-tight tracking-tight">
@@ -441,38 +592,49 @@ export default function AboutPage() {
             {/* Level 1: 5 Core Verticals */}
             <div className="mt-2">
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-3.5">
-                {primaryEcosystemNodes.map((node) => (
-                  <Link
-                    key={node.sector}
-                    to={node.link}
-                    className="group flex flex-col justify-between rounded-xl border border-[#E3E5EF] bg-white p-4 shadow-xs transition-all duration-300 hover:border-[#3026B3] hover:shadow-md hover:-translate-y-1"
-                  >
-                    <div>
-                      <div className="flex items-center justify-between mb-2">
-                        <span className="font-mono text-[9.5px] uppercase tracking-wider font-bold" style={{ color: node.accent }}>
-                          {node.sector}
-                        </span>
-                        <span className="text-[9px] font-mono px-1.5 py-0.2 rounded border border-slate-200 text-[#596579]">
-                          {node.badge}
-                        </span>
-                      </div>
-                      <h4 className="font-serif text-base font-medium text-[#111827] group-hover:text-[#3026B3] transition-colors">
-                        {node.company}
-                      </h4>
-                    </div>
+                {primaryEcosystemNodes.map((node) => {
+                  const isExternal = node.link.startsWith("http");
+                  const nodeClasses = "group flex flex-col justify-between rounded-xl border border-[#E3E5EF] bg-white p-4 shadow-xs transition-all duration-300 hover:border-[#3026B3] hover:shadow-md hover:-translate-y-1";
 
-                    <div className="mt-3 pt-2 border-t border-[#E3E5EF] flex items-center justify-between">
-                      {node.logo ? (
-                        <div className="h-5 w-5 rounded bg-white p-0.5 border border-[#E3E5EF] flex items-center justify-center">
-                          <img src={node.logo} alt="" className="max-h-full max-w-full object-contain" />
+                  const nodeContent = (
+                    <>
+                      <div>
+                        <div className="flex items-center justify-between mb-2">
+                          <span className="font-mono text-[9.5px] uppercase tracking-wider font-bold" style={{ color: node.accent }}>
+                            {node.sector}
+                          </span>
+                          <span className="text-[9px] font-mono px-1.5 py-0.2 rounded border border-slate-200 text-[#596579]">
+                            {node.badge}
+                          </span>
                         </div>
-                      ) : (
-                        <span className="text-[10px] font-mono text-[#596579]">Horizon</span>
-                      )}
-                      <Icon name="arrow-up-right" width={12} height={12} className="text-[#596579] group-hover:text-[#3026B3]" />
-                    </div>
-                  </Link>
-                ))}
+                        <h4 className="font-serif text-base font-medium text-[#111827] group-hover:text-[#3026B3] transition-colors">
+                          {node.company}
+                        </h4>
+                      </div>
+
+                      <div className="mt-3 pt-2 border-t border-[#E3E5EF] flex items-center justify-between">
+                        {node.logo ? (
+                          <div className="h-5 w-5 rounded bg-white p-0.5 border border-[#E3E5EF] flex items-center justify-center">
+                            <img src={node.logo} alt="" className="max-h-full max-w-full object-contain" />
+                          </div>
+                        ) : (
+                          <span className="text-[10px] font-mono text-[#596579]">Horizon</span>
+                        )}
+                        <Icon name="arrow-up-right" width={12} height={12} className="text-[#596579] group-hover:text-[#3026B3]" />
+                      </div>
+                    </>
+                  );
+
+                  return isExternal ? (
+                    <a key={node.sector} href={node.link} target="_blank" rel="noopener noreferrer" className={nodeClasses}>
+                      {nodeContent}
+                    </a>
+                  ) : (
+                    <Link key={node.sector} to={node.link} className={nodeClasses}>
+                      {nodeContent}
+                    </Link>
+                  );
+                })}
               </div>
             </div>
 
@@ -563,7 +725,7 @@ export default function AboutPage() {
           <div className="max-w-3xl text-center mx-auto mb-14">
             <div className="inline-flex items-center gap-2 rounded-full border border-[#00B8D9]/30 bg-[#00B8D9]/10 px-4 py-1 font-mono text-[11px] uppercase tracking-[0.26em] text-[#008299] font-bold shadow-xs mb-4">
               <span className="h-2 w-2 rounded-full bg-[#00B8D9]" />
-              <span>05 // HOW WE BUILD</span>
+              <span>HOW WE BUILD</span>
             </div>
 
             <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-normal text-[#111827] leading-tight tracking-tight">
@@ -628,7 +790,7 @@ export default function AboutPage() {
           <div className="max-w-3xl text-center mx-auto mb-14">
             <div className="inline-flex items-center gap-2 rounded-full border border-[#15966B]/30 bg-[#15966B]/10 px-4 py-1 font-mono text-[11px] uppercase tracking-[0.26em] text-[#15966B] font-bold shadow-xs mb-4">
               <span className="h-2 w-2 rounded-full bg-[#15966B]" />
-              <span>06 // WHAT GUIDES US</span>
+              <span>WHAT GUIDES US</span>
             </div>
 
             <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-normal text-[#111827] leading-tight tracking-tight">
@@ -681,7 +843,7 @@ export default function AboutPage() {
             {/* Eyebrow */}
             <div className="inline-flex items-center gap-2 rounded-full border border-[#FFB000]/40 bg-[#FFB000]/15 px-4 py-1 font-mono text-[11px] uppercase tracking-[0.28em] text-[#FFB000] font-bold shadow-xs mb-6">
               <span className="h-2 w-2 rounded-full bg-[#FFB000] shadow-[0_0_8px_#FFB000]" />
-              <span>07 // THE JOURNEY AHEAD</span>
+              <span>THE JOURNEY AHEAD</span>
             </div>
 
             {/* Headline */}

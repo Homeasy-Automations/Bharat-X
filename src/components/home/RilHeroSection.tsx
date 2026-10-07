@@ -85,14 +85,14 @@ export function RilHeroSection() {
       </div>
 
       {/* ── HERO CONTENT (Dynamic 3-4 Word Tagline, Nothing Else) ─────── */}
-      <div className="container-x relative z-10 w-full pt-40 pb-12 sm:pt-50 sm:pb-16 lg:pt-60 lg:pb-20 translate-y-6 sm:translate-y-10 lg:translate-y-14">
-        <div className="max-w-4xl">
+      <div className="container-x relative z-10 w-full pt-48 pb-12 sm:pt-50 sm:pb-16 lg:pt-60 lg:pb-20 translate-y-12 sm:translate-y-18 lg:translate-y-24 xl:translate-y-28">
+        <div className="max-w-6xl xl:max-w-7xl">
           {/* Subtle Conglomerate Eyebrow */}
           <motion.div
             initial={{ opacity: 0, y: 14 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7 }}
-            className="mb-4 sm:mb-6 flex items-center gap-3 font-mono text-[11px] sm:text-[12px] uppercase tracking-[0.32em] text-[#FFB000]"
+            className="mb-3.5 sm:mb-4 flex items-center gap-3 font-mono text-[11px] sm:text-[12px] uppercase tracking-[0.32em] text-[#FFB000]"
           >
             <span className="h-1.5 w-1.5 rounded-full bg-[#FFB000] shadow-[0_0_8px_#FFB000]" />
             <span>BHARATX GROUP</span>
@@ -100,7 +100,7 @@ export function RilHeroSection() {
           </motion.div>
 
           {/* Three or four word Hero Tagline that changes dynamically with images */}
-          <div className="min-h-[140px] sm:min-h-[170px] md:min-h-[190px] flex flex-col justify-start">
+          <div className="min-h-[75px] sm:min-h-[90px] md:min-h-[105px] flex flex-col justify-start">
             <AnimatePresence mode="wait">
               <motion.h1
                 key={current.id}
@@ -108,7 +108,7 @@ export function RilHeroSection() {
                 animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
                 exit={{ opacity: 0, y: -20, filter: "blur(4px)" }}
                 transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
-                className="font-serif text-5xl sm:text-6xl md:text-7xl lg:text-[5.4rem] xl:text-[6.2rem] font-normal leading-[1.04] tracking-tight text-white drop-shadow-[0_4px_30px_rgba(0,0,0,0.85)]"
+                className="font-serif text-3xl sm:text-4xl md:text-5xl lg:text-[3.25rem] xl:text-[3.85rem] font-normal leading-[1.08] tracking-tight text-white drop-shadow-[0_4px_30px_rgba(0,0,0,0.85)] whitespace-nowrap"
               >
                 {current.heroTagline}
               </motion.h1>
@@ -120,7 +120,7 @@ export function RilHeroSection() {
               initial={{ scaleX: 0 }}
               animate={{ scaleX: 1 }}
               transition={{ duration: 0.7, delay: 0.15, ease: [0.22, 1, 0.36, 1] }}
-              className="origin-left mt-5 sm:mt-6 h-[3.5px] w-28 sm:w-36 md:w-44 rounded-full bg-[#FFB000] shadow-[0_0_12px_rgba(255,176,0,0.5)]"
+              className="origin-left mt-4 sm:mt-5 h-[3.5px] w-24 sm:w-32 md:w-40 rounded-full bg-[#FFB000] shadow-[0_0_12px_rgba(255,176,0,0.5)]"
             />
           </div>
         </div>

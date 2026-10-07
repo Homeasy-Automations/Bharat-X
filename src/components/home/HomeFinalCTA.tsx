@@ -22,7 +22,7 @@ export function HomeFinalCTA() {
             className="inline-flex items-center gap-2 rounded-full border border-[#FFB000]/40 bg-[#FFB000]/15 px-4 py-1 font-mono text-[11px] uppercase tracking-[0.28em] text-[#FFB000] font-bold shadow-xs"
           >
             <span className="h-2 w-2 rounded-full bg-[#FFB000] shadow-[0_0_8px_#FFB000]" />
-            <span>09 // LET'S COLLABORATE</span>
+            <span>LET'S COLLABORATE</span>
           </motion.div>
 
           {/* Headline */}

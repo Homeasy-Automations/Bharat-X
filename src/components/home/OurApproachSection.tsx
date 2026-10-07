@@ -72,7 +72,7 @@ export function OurApproachSection() {
             className="inline-flex items-center gap-2 rounded-full border border-[#00B8D9]/30 bg-[#00B8D9]/10 px-4 py-1 font-mono text-[11px] uppercase tracking-[0.26em] text-[#008299] font-bold shadow-xs"
           >
             <span className="h-2 w-2 rounded-full bg-[#00B8D9]" />
-            <span>04 // OUR APPROACH</span>
+            <span>OUR APPROACH</span>
           </motion.div>
 
           <motion.h2

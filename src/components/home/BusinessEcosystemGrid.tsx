@@ -42,6 +42,30 @@ const ecosystemCards: EcosystemCard[] = [
     borderHover: "hover:border-[#15966B]",
   },
   {
+    id: "ventures",
+    sector: "Capital & Venture Building",
+    company: "BharatX Ventures",
+    description: "Patient balance-sheet capital, venture architecture and generational enterprise scaling.",
+    to: "/services#finance",
+    logo: "/Ventures_logo.png",
+    accent: "#211B72",
+    accentBg: "bg-[#211B72]/10",
+    accentText: "text-[#211B72]",
+    borderHover: "hover:border-[#211B72]",
+  },
+  {
+    id: "labs",
+    sector: "Knowledge & Impact",
+    company: "BharatX Labs Foundation",
+    description: "Deep-tech climate R&D, open environmental telemetry and societal impact initiatives.",
+    to: "/services#climate-sustainability",
+    logo: "/Bharatxlabs_logo.svg",
+    accent: "#0D9488",
+    accentBg: "bg-[#14B8A6]/10",
+    accentText: "text-[#0F766E]",
+    borderHover: "hover:border-[#0D9488]",
+  },
+  {
     id: "manuf",
     sector: "Industrial Manufacturing",
     company: "Casters Global",
@@ -68,14 +92,13 @@ const ecosystemCards: EcosystemCard[] = [
   {
     id: "packaging",
     sector: "Packaging & Materials",
-    company: "Coming Soon",
-    description: "High-efficiency sustainable packaging materials and circular container solutions.",
-    to: "#what-comes-next",
+    company: "SRM Enterprises",
+    description: "High-efficiency sustainable packaging materials, corrugated boxes and industrial protection.",
+    to: "/services#packaging",
     accent: "#D97706",
     accentBg: "bg-[#F59E0B]/10",
     accentText: "text-[#B45309]",
     borderHover: "hover:border-[#D97706]",
-    isUpcoming: true,
   },
   {
     id: "sustainability",
@@ -88,30 +111,6 @@ const ecosystemCards: EcosystemCard[] = [
     accentText: "text-[#047857]",
     borderHover: "hover:border-[#059669]",
     isUpcoming: true,
-  },
-  {
-    id: "ventures",
-    sector: "Capital & Venture Building",
-    company: "BharatX Ventures",
-    description: "Patient balance-sheet capital, venture architecture and generational enterprise scaling.",
-    to: "/services#finance",
-    logo: "/Ventures_logo.png",
-    accent: "#211B72",
-    accentBg: "bg-[#211B72]/10",
-    accentText: "text-[#211B72]",
-    borderHover: "hover:border-[#211B72]",
-  },
-  {
-    id: "labs",
-    sector: "Knowledge & Impact",
-    company: "BharatX Labs Foundation",
-    description: "Deep-tech climate R&D, open environmental telemetry and societal impact initiatives.",
-    to: "/services#climate-sustainability",
-    logo: "/Bharatxlabs_logo.svg",
-    accent: "#0D9488",
-    accentBg: "bg-[#14B8A6]/10",
-    accentText: "text-[#0F766E]",
-    borderHover: "hover:border-[#0D9488]",
   },
 ];
 
@@ -127,7 +126,7 @@ export function BusinessEcosystemGrid() {
         <div className="max-w-3xl mb-12 sm:mb-16">
           <div className="inline-flex items-center gap-2 rounded-full border border-[#3026B3]/25 bg-[#3026B3]/8 px-4 py-1 font-mono text-[11px] uppercase tracking-[0.26em] text-[#3026B3] font-bold shadow-xs">
             <span className="h-2 w-2 rounded-full bg-[#3026B3]" />
-            <span>03 // CORE VERTICALS</span>
+            <span>CORE VERTICALS</span>
           </div>
 
           <h2 className="mt-4 font-serif text-3xl sm:text-4xl md:text-5xl font-normal leading-tight tracking-tight text-[#111827]">
@@ -141,18 +140,12 @@ export function BusinessEcosystemGrid() {
 
         {/* 4×2 Compact High-Contrast Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5">
-          {ecosystemCards.map((card, idx) => (
-            <motion.div
-              key={card.id}
-              initial={{ opacity: 0, y: 18 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.45, delay: 0.05 * idx }}
-            >
-              <Link
-                to={card.to}
-                className={`group relative flex h-full flex-col justify-between rounded-2xl border border-[#E3E5EF] bg-[#FAF9F6] p-5 sm:p-6 shadow-xs transition-all duration-300 hover:bg-white hover:shadow-xl hover:-translate-y-1 ${card.borderHover}`}
-              >
+          {ecosystemCards.map((card, idx) => {
+            const isExternal = card.to.startsWith("http");
+            const cardClasses = `group relative flex h-full flex-col justify-between rounded-2xl border border-[#E3E5EF] bg-[#FAF9F6] p-5 sm:p-6 shadow-xs transition-all duration-300 hover:bg-white hover:shadow-xl hover:-translate-y-1 ${card.borderHover}`;
+
+            const cardContent = (
+              <>
                 {/* Top: Sector Tag & Logo / Badge */}
                 <div>
                   <div className="flex items-center justify-between gap-2 mb-3.5">
@@ -191,15 +184,35 @@ export function BusinessEcosystemGrid() {
                 {/* Bottom: Action & Arrow */}
                 <div className="mt-6 flex items-center justify-between pt-4 border-t border-[#E3E5EF]">
                   <span className="font-mono text-[10.5px] uppercase tracking-[0.16em] text-[#596579] font-semibold group-hover:text-[#3026B3] transition-colors">
-                    {card.isUpcoming ? "Learn More" : "Explore Entity"}
+                    {isExternal ? "Visit Website" : card.isUpcoming ? "Learn More" : "Explore Entity"}
                   </span>
                   <div className="flex h-8 w-8 items-center justify-center rounded-full bg-white border border-[#E3E5EF] text-[#111827] transition-all duration-300 group-hover:bg-[#3026B3] group-hover:text-white group-hover:border-[#3026B3] group-hover:translate-x-0.5 group-hover:-translate-y-0.5 shadow-xs">
                     <Icon name="arrow-up-right" width={14} height={14} strokeWidth={2.2} />
                   </div>
                 </div>
-              </Link>
-            </motion.div>
-          ))}
+              </>
+            );
+
+            return (
+              <motion.div
+                key={card.id}
+                initial={{ opacity: 0, y: 18 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.45, delay: 0.05 * idx }}
+              >
+                {isExternal ? (
+                  <a href={card.to} target="_blank" rel="noopener noreferrer" className={cardClasses}>
+                    {cardContent}
+                  </a>
+                ) : (
+                  <Link to={card.to} className={cardClasses}>
+                    {cardContent}
+                  </Link>
+                )}
+              </motion.div>
+            );
+          })}
         </div>
       </div>
     </section>

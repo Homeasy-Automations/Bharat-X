@@ -45,7 +45,7 @@ export function AboutBharatXSection() {
       <div aria-hidden className="grid-bg grid-bg-fade absolute inset-0 opacity-25 pointer-events-none" />
 
       <div className="container-x relative z-10">
-        <div className="mx-auto max-w-4xl text-center">
+        <div className="mx-auto max-w-5xl text-center">
           {/* Eyebrow Badge */}
           <motion.div
             initial={{ opacity: 0, y: 12 }}
@@ -55,7 +55,7 @@ export function AboutBharatXSection() {
             className="inline-flex items-center gap-2 rounded-full border border-[#FFB000]/40 bg-[#FFB000]/10 px-4 py-1 font-mono text-[11px] uppercase tracking-[0.26em] text-[#9A6200] font-bold shadow-xs"
           >
             <span className="h-2 w-2 rounded-full bg-[#FFB000] shadow-[0_0_8px_#FFB000]" />
-            <span>02 // WHO WE ARE</span>
+            <span>WHO WE ARE</span>
           </motion.div>
 
           {/* High-Contrast Main Headline */}
@@ -83,8 +83,8 @@ export function AboutBharatXSection() {
         </div>
 
         {/* Visual: Build → Scale → Impact */}
-        <div className="mt-14 sm:mt-16 max-w-4xl mx-auto">
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6 relative items-center">
+        <div className="mt-14 sm:mt-16 max-w-6xl xl:max-w-7xl mx-auto">
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-5 sm:gap-6 lg:gap-8 relative items-stretch">
             {corePillars.map((pillar, idx) => (
               <motion.div
                 key={pillar.label}
@@ -92,7 +92,7 @@ export function AboutBharatXSection() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: 0.12 * idx }}
-                className={`group relative flex flex-col items-center text-center p-6 sm:p-8 rounded-2xl border border-[#E3E5EF] bg-white shadow-sm transition-all duration-300 hover:shadow-xl hover:-translate-y-1 ${pillar.borderHover}`}
+                className={`group relative flex flex-col items-center text-center p-8 sm:p-9 lg:p-11 rounded-2xl border border-[#E3E5EF] bg-white shadow-sm transition-all duration-300 hover:shadow-xl hover:-translate-y-1 ${pillar.borderHover}`}
               >
                 {/* Colored Icon Circle */}
                 <div
@@ -118,7 +118,7 @@ export function AboutBharatXSection() {
 
                 {/* Connecting arrow (hidden on mobile, and on last element) */}
                 {idx < corePillars.length - 1 && (
-                  <div className="hidden sm:flex absolute -right-4 top-1/2 -translate-y-1/2 z-20 h-8 w-8 rounded-full bg-white border border-[#E3E5EF] items-center justify-center text-[#3026B3] shadow-md group-hover:scale-110 transition-transform">
+                  <div className="hidden sm:flex absolute -right-3.5 sm:-right-4 lg:-right-5.5 top-1/2 -translate-y-1/2 z-20 h-8 w-8 rounded-full bg-white border border-[#E3E5EF] items-center justify-center text-[#3026B3] shadow-md group-hover:scale-110 transition-transform">
                     <Icon name="chevron-right" width={14} height={14} strokeWidth={2.5} />
                   </div>
                 )}
