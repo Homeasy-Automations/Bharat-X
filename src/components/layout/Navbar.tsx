@@ -9,12 +9,9 @@ import { useEffect, useState } from "react";
 import { Link, NavLink, useLocation } from "react-router-dom";
 import { cn } from "../../utils/cn";
 import { Icon } from "../../utils/icons";
-import { Logo, LogoMark } from "./Logo";
 import { MobileMenu } from "./MobileMenu";
-import { contactRoute, navigation } from "../../data/navigation";
+import { navigation } from "../../data/navigation";
 import { servicesData } from "../../data/servicesData";
-import { MagneticButton } from "../common/MagneticButton";
-import { SearchModal } from "../common/SearchModal";
 
 type MegaKey = "services" | "companies" | "ecosystem" | null;
 
@@ -29,8 +26,6 @@ export function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [mega, setMega] = useState<MegaKey>(null);
   const [mobileOpen, setMobileOpen] = useState(false);
-  const [searchOpen, setSearchOpen] = useState(false);
-  const [audioActive, setAudioActive] = useState(false);
   const [tickerIndex, setTickerIndex] = useState(0);
 
   const location = useLocation();
@@ -47,13 +42,9 @@ export function Navbar() {
     return () => clearInterval(timer);
   }, []);
 
-  // Keyboard shortcut Ctrl+K / Cmd+K for search
+  // Keyboard shortcut Escape to close menus
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
-      if ((e.metaKey || e.ctrlKey) && e.key === "k") {
-        e.preventDefault();
-        setSearchOpen((prev) => !prev);
-      }
       if (e.key === "Escape") {
         setMega(null);
         setMobileOpen(false);
@@ -172,9 +163,9 @@ export function Navbar() {
             />
           </Link>
 
-          {/* Desktop nav with dropdown chevrons */}
-          <nav aria-label="Primary" className="hidden items-center gap-1 xl:flex">
-            {navigation.filter((item) => item.to !== "/contact").map((item) => (
+          {/* Desktop nav with all navigation items including Contact */}
+          <nav aria-label="Primary" className="hidden items-center gap-1 lg:flex xl:gap-1.5">
+            {navigation.map((item) => (
               <NavItem
                 key={item.to}
                 item={item}
@@ -190,68 +181,12 @@ export function Navbar() {
             ))}
           </nav>
 
-          {/* Right Action Suite (Search, Audio, Theme, CTA) */}
-          <div className="flex items-center gap-2 sm:gap-2.5">
-            {/* Quick Search Button */}
-            <button
-              type="button"
-              onClick={() => setSearchOpen(true)}
-              className={cn(
-                "flex h-9 items-center gap-2 rounded-full border px-3 text-xs transition-all duration-300 hover:scale-105",
-                scrolled || mega
-                  ? "border-[#E3E5EF] bg-white text-[#111827] shadow-xs hover:border-[#3026B3] hover:text-[#3026B3]"
-                  : "border-white/30 bg-black/45 text-white backdrop-blur-md hover:border-[#FFB000] hover:text-[#FFB000] shadow-sm",
-              )}
-              aria-label="Search BharatX ecosystem"
-              title="Search BharatX (Ctrl+K / ⌘K)"
-            >
-              <Icon name="search" width={14} height={14} />
-              <span className="hidden sm:inline font-mono text-[11px] font-medium">Search</span>
-              <kbd className={cn(
-                "hidden lg:inline-block rounded border px-1.5 py-0.2 font-mono text-[9px] font-medium",
-                scrolled || mega
-                  ? "border-[#E3E5EF] bg-slate-50 text-[#596579]"
-                  : "border-white/20 bg-white/10 text-white/90"
-              )}>
-                ⌘K
-              </kbd>
-            </button>
-
-            {/* Ambient Sound / Audio Feedback Toggle */}
-            <button
-              type="button"
-              onClick={() => setAudioActive((v) => !v)}
-              className={cn(
-                "hidden sm:flex h-9 w-9 items-center justify-center rounded-full border text-xs transition-all duration-300 hover:scale-105",
-                audioActive
-                  ? "border-[#00B8D9]/70 bg-[#00B8D9]/20 text-[#00B8D9] shadow-[0_0_12px_rgba(0,184,217,0.4)]"
-                  : scrolled || mega
-                    ? "border-[#E3E5EF] bg-white text-[#111827] hover:border-[#3026B3] hover:text-[#3026B3] shadow-xs"
-                    : "border-white/30 bg-black/45 text-white backdrop-blur-md hover:border-[#FFB000] hover:text-[#FFB000] shadow-sm",
-              )}
-              aria-label={audioActive ? "Mute ambient pulse" : "Enable ecosystem soundscape"}
-              title={audioActive ? "Ecosystem Soundscape Active" : "Enable Ambient Soundscape"}
-            >
-              <Icon name="headphones" width={14} height={14} />
-            </button>
-
-            {/* Talk to BharatX / Contact CTA Button */}
-            <MagneticButton
-              as="Link"
-              className="hidden lg:!inline-flex !flex-row flex-nowrap items-center justify-center whitespace-nowrap gap-2 rounded-full bg-[#3026B3] hover:bg-[#211B72] text-white px-4 lg:px-5 py-2 text-[13px] font-semibold transition-all duration-300 shadow-md hover:shadow-lg hover:scale-105 shrink-0"
-              buttonProps={{
-                to: contactRoute.to,
-              }}
-            >
-              <Icon name="mail" width={13} height={13} strokeWidth={1.8} className="shrink-0 text-[#FFB000]" />
-              <span className="whitespace-nowrap leading-none">Contact</span>
-            </MagneticButton>
-
-            {/* Mobile Menu Button */}
+          {/* Mobile Menu Button */}
+          <div className="flex items-center lg:hidden">
             <button
               type="button"
               className={cn(
-                "flex h-9 w-9 sm:h-10 sm:w-10 items-center justify-center rounded-full border transition-colors xl:hidden",
+                "flex h-9 w-9 sm:h-10 sm:w-10 items-center justify-center rounded-full border transition-colors",
                 scrolled || mega
                   ? "border-[#E3E5EF] bg-white text-[#111827] shadow-xs"
                   : "border-white/30 bg-black/45 text-white backdrop-blur-md"
@@ -274,7 +209,7 @@ export function Navbar() {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: 8 }}
               transition={{ duration: 0.22, ease: [0.22, 1, 0.36, 1] }}
-              className="absolute inset-x-0 top-full hidden border-b border-slate-200/80 bg-white/95 backdrop-blur-2xl shadow-xl xl:block dark:border-white/8 dark:bg-night-950/95"
+              className="absolute inset-x-0 top-full hidden border-b border-slate-200/80 bg-white/95 backdrop-blur-2xl shadow-xl lg:block dark:border-white/8 dark:bg-night-950/95"
             >
               <MegaPanel kind={mega} />
             </motion.div>
@@ -283,13 +218,10 @@ export function Navbar() {
         {mega && reduced && (
           <MegaPanel
             kind={mega}
-            className="absolute inset-x-0 top-full hidden border-b border-slate-200/80 bg-white/95 xl:block shadow-xl dark:border-white/8 dark:bg-night-950/95"
+            className="absolute inset-x-0 top-full hidden border-b border-slate-200/80 bg-white/95 lg:block shadow-xl dark:border-white/8 dark:bg-night-950/95"
           />
         )}
       </header>
-
-      {/* Global Command / Spotlight Search Modal */}
-      <SearchModal open={searchOpen} onClose={() => setSearchOpen(false)} />
 
       {/* Mobile Drawer Menu */}
       <MobileMenu open={mobileOpen} onClose={() => setMobileOpen(false)} />
@@ -317,7 +249,7 @@ function NavItem({
       <NavLink
         to={item.to}
         className={cn(
-          "group relative flex items-center gap-1.5 rounded-full px-3.5 py-2 text-[13px] font-medium transition-all duration-300",
+          "group relative flex items-center gap-1.5 rounded-full px-2.5 py-1.5 xl:px-3.5 xl:py-2 text-[13px] font-medium transition-all duration-300",
           scrolled
             ? active
               ? "text-[#3026B3] font-bold bg-[#3026B3]/10"
@@ -333,13 +265,13 @@ function NavItem({
           height={13.5}
           strokeWidth={1.8}
           className={cn(
-            "transition-transform duration-300 group-hover:scale-110",
+            "shrink-0 transition-transform duration-300 group-hover:scale-110",
             scrolled
               ? active ? "text-[#3026B3]" : "text-[#596579] group-hover:text-[#3026B3]"
               : active ? "text-[#FFB000]" : "text-[#FFB000] group-hover:text-white",
           )}
         />
-        <span>{item.label}</span>
+        <span className="whitespace-nowrap">{item.label}</span>
         {item.mega && (
           <Icon
             name="chevron-down"

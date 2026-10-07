@@ -46,7 +46,7 @@ function LaunchVectorMesh() {
 }
 
 function NeuralCoreMesh() {
-  // AIxperts Labs: Neural network & compute core
+  // Aixperts Labs: Neural network & compute core
   const group = useRef<THREE.Group>(null);
   const core = useRef<THREE.Mesh>(null);
   useFrame((state) => {

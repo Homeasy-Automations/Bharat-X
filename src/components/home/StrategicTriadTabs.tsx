@@ -46,7 +46,7 @@ const triadData: TriadItem[] = [
     badge: "SOVEREIGN DEEP-TECH & AI",
     headline: "Engineering India's Sovereign Multilingual Intelligence Layer.",
     description: [
-      "Innovation is our core operating doctrine. Through AIxperts Labs, we engineer production neural architectures natively capable across 22 regional Indian languages, eliminating black-box cloud dependence for sovereign enterprises.",
+      "Innovation is our core operating doctrine. Through Aixperts Labs, we engineer production neural architectures natively capable across 22 regional Indian languages, eliminating black-box cloud dependence for sovereign enterprises.",
       "From sub-micron precision manufacturing tooling at Casters Global to autonomous edge document processing with 99.8% accuracy, we build deep-tech tailored to the operational demands of the subcontinent.",
     ],
     metrics: [
@@ -56,7 +56,7 @@ const triadData: TriadItem[] = [
     ],
     image: "/assets/backgrounds/innovation-story.jpg",
     fallbackImage: "/assets/backgrounds/ai-circuit.jpg",
-    companyName: "AIxperts Labs",
+    companyName: "Aixperts Labs",
     companyLogo: "/Ai-Experts_logo.png",
     route: "/innovation",
     cta: "discover innovation agenda",

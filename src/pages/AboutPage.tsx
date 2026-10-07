@@ -15,8 +15,15 @@ const formulaInputs = [
 // ── 03. Three Pillars for "Why BharatX Exists" ────────────────────────
 const purposePillars = [
   {
+    step: "01",
     title: "Build",
-    description: "Create businesses around meaningful opportunities.",
+    descriptor: "Inception & Incubation",
+    description: "We identify structural gaps in India's physical and digital core to engineer operating entities with deep sovereign resilience from day one.",
+    points: [
+      "Greenfield enterprise creation",
+      "Direct balance-sheet asset ownership",
+      "Rigorous institutional governance",
+    ],
     icon: "hard-hat" as const,
     accent: "#3026B3",
     bgAccent: "bg-[#3026B3]/10",
@@ -24,8 +31,15 @@ const purposePillars = [
     borderHover: "hover:border-[#3026B3]",
   },
   {
+    step: "02",
     title: "Scale",
-    description: "Strengthen them through capital, technology and execution.",
+    descriptor: "Compounding & Execution",
+    description: "We deploy patient capital, proprietary technology, and disciplined execution to scale entities into domestic and international leaders.",
+    points: [
+      "Cross-conglomerate synergy",
+      "Automated intelligence & AI",
+      "Global export trade corridors",
+    ],
     icon: "trending-up" as const,
     accent: "#E09800",
     bgAccent: "bg-[#FFB000]/15",
@@ -33,8 +47,15 @@ const purposePillars = [
     borderHover: "hover:border-[#FFB000]",
   },
   {
+    step: "03",
     title: "Impact",
-    description: "Create lasting economic and social value.",
+    descriptor: "Enduring Stewardship",
+    description: "We measure success by long-term economic momentum, high-integrity supply chains, and compounding value that outlasts market cycles.",
+    points: [
+      "Sovereign industrial security",
+      "Sustainable economic stewardship",
+      "Generational enterprise value",
+    ],
     icon: "sparkles" as const,
     accent: "#15966B",
     bgAccent: "bg-[#15966B]/15",
@@ -75,7 +96,16 @@ const leadershipMandates = [
 ];
 
 // ── 04. Business Ecosystem Nodes ──────────────────────────────────────
-const primaryEcosystemNodes = [
+interface EcosystemNode {
+  sector: string;
+  company: string;
+  logo?: string;
+  link: string;
+  accent: string;
+  badge: string;
+}
+
+const tier1EcosystemNodes: EcosystemNode[] = [
   {
     sector: "Infrastructure",
     company: "BharatX Infratech",
@@ -86,10 +116,37 @@ const primaryEcosystemNodes = [
   },
   {
     sector: "Agriculture",
-    company: "BharatXAgro",
+    company: "BharatX Agro",
     logo: "/Bharatxagro_logo.png",
     link: "/services#agriculture",
     accent: "#15966B",
+    badge: "Active",
+  },
+  {
+    sector: "Venture Building",
+    company: "BharatX Ventures",
+    logo: "/Ventures_logo.png",
+    link: "/services#finance",
+    accent: "#211B72",
+    badge: "Active",
+  },
+  {
+    sector: "Knowledge & Impact",
+    company: "BharatX Labs Foundation",
+    logo: "/Bharatxlabs_logo.svg",
+    link: "/services#climate-sustainability",
+    accent: "#0D9488",
+    badge: "Active",
+  },
+];
+
+const tier2EcosystemNodes: EcosystemNode[] = [
+  {
+    sector: "Technology",
+    company: "Aixperts Labs",
+    logo: "/Ai-Experts_logo.png",
+    link: "/services#tech-ai",
+    accent: "#4B40D4",
     badge: "Active",
   },
   {
@@ -101,14 +158,6 @@ const primaryEcosystemNodes = [
     badge: "Active",
   },
   {
-    sector: "Technology",
-    company: "AI Xperts Labs",
-    logo: "/Ai-Experts_logo.png",
-    link: "/services#tech-ai",
-    accent: "#4B40D4",
-    badge: "Active",
-  },
-  {
     sector: "Packaging",
     company: "SRM Enterprises",
     link: "/services#packaging",
@@ -117,7 +166,7 @@ const primaryEcosystemNodes = [
   },
 ];
 
-const secondaryEcosystemNodes = [
+const tier3EcosystemNodes: EcosystemNode[] = [
   {
     sector: "Sustainability",
     company: "Future Expansion",
@@ -125,22 +174,16 @@ const secondaryEcosystemNodes = [
     accent: "#059669",
     badge: "Incubating",
   },
-  {
-    sector: "Venture Building",
-    company: "BharatX Ventures",
-    logo: "/Ventures_logo.png",
-    link: "/services#finance",
-    accent: "#211B72",
-    badge: "Active",
-  },
 ];
 
 // ── 05. Timeline steps for "How We Build" ──────────────────────────────
 const buildTimeline = [
   {
-    step: "01",
-    title: "IDENTIFY",
-    description: "Find meaningful problems and opportunities.",
+    phase: "Discovery",
+    title: "Identify",
+    tagline: "Structural Opportunities",
+    description: "Pinpointing generational gaps across India's physical and digital economic landscape.",
+    deliverable: "Problem Validation",
     icon: "target" as const,
     accent: "#3026B3",
     bgAccent: "bg-[#3026B3]/10",
@@ -148,9 +191,11 @@ const buildTimeline = [
     borderHover: "hover:border-[#3026B3]",
   },
   {
-    step: "02",
-    title: "BUILD",
-    description: "Develop products, businesses and capabilities.",
+    phase: "Creation",
+    title: "Build",
+    tagline: "Asset Architecture",
+    description: "Engineering foundational operating companies, products, and domestic production capabilities.",
+    deliverable: "Greenfield Ops",
     icon: "hard-hat" as const,
     accent: "#E09800",
     bgAccent: "bg-[#FFB000]/15",
@@ -158,9 +203,11 @@ const buildTimeline = [
     borderHover: "hover:border-[#FFB000]",
   },
   {
-    step: "03",
-    title: "INVEST",
-    description: "Deploy capital, technology and talent.",
+    phase: "Allocation",
+    title: "Invest",
+    tagline: "Capital & Compute",
+    description: "Deploying patient balance-sheet capital, sovereign technology, and top operator talent.",
+    deliverable: "Growth Enablers",
     icon: "landmark" as const,
     accent: "#00B8D9",
     bgAccent: "bg-[#00B8D9]/15",
@@ -168,9 +215,11 @@ const buildTimeline = [
     borderHover: "hover:border-[#00B8D9]",
   },
   {
-    step: "04",
-    title: "SCALE",
-    description: "Expand markets, operations and capabilities.",
+    phase: "Acceleration",
+    title: "Scale",
+    tagline: "Market Expansion",
+    description: "Expanding cross-sector synergies, operations, and global export trade corridors.",
+    deliverable: "Ecosystem Growth",
     icon: "trending-up" as const,
     accent: "#15966B",
     bgAccent: "bg-[#15966B]/15",
@@ -178,9 +227,11 @@ const buildTimeline = [
     borderHover: "hover:border-[#15966B]",
   },
   {
-    step: "05",
-    title: "IMPACT",
-    description: "Create sustainable economic and social value.",
+    phase: "Stewardship",
+    title: "Impact",
+    tagline: "Enduring Value",
+    description: "Compounding sustainable economic momentum and generational institutional value.",
+    deliverable: "National Resilience",
     icon: "sparkles" as const,
     accent: "#4B40D4",
     bgAccent: "bg-[#4B40D4]/15",
@@ -189,7 +240,7 @@ const buildTimeline = [
   },
 ];
 
-// ── 06. Five Principles for "Our Principles" ──────────────────────────
+// ── 06. Six Principles for "Our Principles" ──────────────────────────
 const principles = [
   {
     title: "Entrepreneurial",
@@ -198,6 +249,7 @@ const principles = [
     color: "#3026B3",
     bg: "bg-[#3026B3]/10",
     text: "text-[#3026B3]",
+    borderHover: "hover:border-[#3026B3]",
   },
   {
     title: "Execution-Driven",
@@ -206,6 +258,7 @@ const principles = [
     color: "#00B8D9",
     bg: "bg-[#00B8D9]/15",
     text: "text-[#008299]",
+    borderHover: "hover:border-[#00B8D9]",
   },
   {
     title: "Long-Term",
@@ -214,6 +267,7 @@ const principles = [
     color: "#15966B",
     bg: "bg-[#15966B]/15",
     text: "text-[#15966B]",
+    borderHover: "hover:border-[#15966B]",
   },
   {
     title: "Technology-Enabled",
@@ -222,6 +276,7 @@ const principles = [
     color: "#4B40D4",
     bg: "bg-[#4B40D4]/15",
     text: "text-[#4B40D4]",
+    borderHover: "hover:border-[#4B40D4]",
   },
   {
     title: "Responsible",
@@ -230,6 +285,16 @@ const principles = [
     color: "#D97706",
     bg: "bg-[#F59E0B]/15",
     text: "text-[#B45309]",
+    borderHover: "hover:border-[#F59E0B]",
+  },
+  {
+    title: "Nation-First",
+    description: "We build sovereign enterprise capabilities that strengthen India's economic foundation.",
+    icon: "badge-check" as const,
+    color: "#211B72",
+    bg: "bg-[#211B72]/10",
+    text: "text-[#211B72]",
+    borderHover: "hover:border-[#211B72]",
   },
 ];
 
@@ -384,26 +449,48 @@ export default function AboutPage() {
       {/* ── 03. WHY BHARATX EXISTS (Built Around India's Opportunity) ─── */}
       <section className="relative overflow-hidden bg-[#FAF9F6] py-20 sm:py-24 border-b border-[#E3E5EF]">
         <div className="container-x relative z-10">
-          <div className="max-w-3xl mb-14">
-            <div className="inline-flex items-center gap-2 rounded-full border border-[#FFB000]/40 bg-[#FFB000]/10 px-4 py-1 font-mono text-[11px] uppercase tracking-[0.26em] text-[#9A6200] font-bold shadow-xs mb-4">
-              <span className="h-2 w-2 rounded-full bg-[#FFB000] shadow-[0_0_8px_#FFB000]" />
-              <span>OUR PURPOSE</span>
+          {/* Enhanced 2-Column Split Header eliminates empty dead space */}
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start mb-12 sm:mb-16">
+            <div className="lg:col-span-7">
+              <div className="inline-flex items-center gap-2 rounded-full border border-[#FFB000]/40 bg-[#FFB000]/10 px-4 py-1 font-mono text-[11px] uppercase tracking-[0.26em] text-[#9A6200] font-bold shadow-xs mb-4">
+                <span className="h-2 w-2 rounded-full bg-[#FFB000] shadow-[0_0_8px_#FFB000]" />
+                <span>OUR PURPOSE</span>
+              </div>
+
+              <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-normal text-[#111827] leading-tight tracking-tight">
+                Built Around India’s <span className="text-[#3026B3]">Opportunity</span>
+              </h2>
+
+              <p className="mt-5 text-base sm:text-lg text-[#111827] font-medium leading-relaxed max-w-2xl">
+                BharatX exists to participate in this transformation—not simply by investing in opportunities, but by building the businesses capable of capturing them.
+              </p>
             </div>
 
-            <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-normal text-[#111827] leading-tight tracking-tight">
-              Built Around India’s <span className="text-[#3026B3]">Opportunity</span>
-            </h2>
+            <div className="lg:col-span-5 flex flex-col justify-between">
+              <p className="text-sm sm:text-base text-[#596579] leading-relaxed font-normal">
+                India is entering a period of extraordinary economic transformation. Infrastructure is expanding, industries are modernising, technology is reshaping businesses, agricultural value chains are evolving and sustainability is becoming a business imperative.
+              </p>
 
-            <p className="mt-6 text-base sm:text-lg text-[#596579] leading-relaxed font-normal">
-              India is entering a period of extraordinary economic transformation. Infrastructure is expanding, industries are modernising, technology is reshaping businesses, agricultural value chains are evolving and sustainability is becoming a business imperative.
-            </p>
-
-            <p className="mt-4 text-base sm:text-lg text-[#111827] font-medium leading-relaxed">
-              BharatX exists to participate in this transformation—not simply by investing in opportunities, but by building the businesses capable of capturing them.
-            </p>
+              {/* Executive Thesis Highlight Box */}
+              <div className="mt-6 rounded-2xl border border-[#E3E5EF] bg-white p-5 shadow-xs">
+                <div className="flex items-start gap-3.5">
+                  <div className="h-10 w-10 rounded-xl bg-[#3026B3]/10 text-[#3026B3] flex items-center justify-center shrink-0 shadow-xs">
+                    <Icon name="landmark" width={18} height={18} />
+                  </div>
+                  <div className="min-w-0 flex-1">
+                    <span className="font-mono text-[10px] uppercase tracking-[0.24em] text-[#FFB000] font-bold block">
+                      SOVEREIGN THESIS
+                    </span>
+                    <p className="mt-0.5 text-xs sm:text-[13px] text-[#111827] font-medium leading-snug">
+                      Operator-led balance-sheet compounding across India's foundational industrial sectors.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
 
-          {/* Three Simple Pillars: Build, Scale, Impact */}
+          {/* Three Enhanced Pillars: Build, Scale, Impact */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {purposePillars.map((pillar) => (
               <div
@@ -411,11 +498,20 @@ export default function AboutPage() {
                 className={`group relative flex flex-col justify-between rounded-2xl border border-[#E3E5EF] bg-white p-7 sm:p-8 shadow-sm transition-all duration-300 hover:shadow-xl hover:-translate-y-1 ${pillar.borderHover}`}
               >
                 <div>
-                  <div
-                    className={`mb-5 flex h-12 w-12 items-center justify-center rounded-xl ${pillar.bgAccent} ${pillar.textAccent} transition-transform duration-300 group-hover:scale-110 shadow-xs`}
-                  >
-                    <Icon name={pillar.icon} width={22} height={22} strokeWidth={2} />
+                  <div className="flex items-center justify-between mb-5">
+                    <div
+                      className={`flex h-12 w-12 items-center justify-center rounded-xl ${pillar.bgAccent} ${pillar.textAccent} transition-transform duration-300 group-hover:scale-110 shadow-xs`}
+                    >
+                      <Icon name={pillar.icon} width={22} height={22} strokeWidth={2} />
+                    </div>
+                    <span className="font-mono text-xs font-bold text-[#596579]">
+                      {pillar.step}
+                    </span>
                   </div>
+
+                  <span className="font-mono text-[10.5px] uppercase tracking-wider text-[#596579] block mb-1">
+                    {pillar.descriptor}
+                  </span>
 
                   <h3 className="font-serif text-2xl font-medium tracking-tight text-[#111827] group-hover:text-[#3026B3] transition-colors">
                     {pillar.title}
@@ -424,10 +520,20 @@ export default function AboutPage() {
                   <p className="mt-3 text-sm text-[#596579] leading-relaxed font-normal">
                     {pillar.description}
                   </p>
+
+                  {/* Bullet points */}
+                  <ul className="mt-5 space-y-2 border-t border-[#E3E5EF] pt-4">
+                    {pillar.points.map((pt) => (
+                      <li key={pt} className="flex items-center gap-2 text-xs text-[#111827]">
+                        <span className={`h-1.5 w-1.5 rounded-full ${pillar.bgAccent} ${pillar.textAccent} shrink-0`} />
+                        <span>{pt}</span>
+                      </li>
+                    ))}
+                  </ul>
                 </div>
 
                 <div className="mt-6 pt-4 border-t border-[#E3E5EF] flex items-center justify-between font-mono text-[10.5px] uppercase tracking-wider text-[#596579]">
-                  <span>Pillar Focus</span>
+                  <span>Pillar Standard</span>
                   <span className={`h-2 w-2 rounded-full ${pillar.bgAccent} ${pillar.textAccent}`} />
                 </div>
               </div>
@@ -589,10 +695,10 @@ export default function AboutPage() {
               <div className="h-8 w-px bg-[#3026B3]/40 my-1" />
             </div>
 
-            {/* Level 1: 5 Core Verticals */}
+            {/* Level 1: 4 Core Pillar Verticals */}
             <div className="mt-2">
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-3.5">
-                {primaryEcosystemNodes.map((node) => {
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3.5">
+                {tier1EcosystemNodes.map((node) => {
                   const isExternal = node.link.startsWith("http");
                   const nodeClasses = "group flex flex-col justify-between rounded-xl border border-[#E3E5EF] bg-white p-4 shadow-xs transition-all duration-300 hover:border-[#3026B3] hover:shadow-md hover:-translate-y-1";
 
@@ -626,11 +732,11 @@ export default function AboutPage() {
                   );
 
                   return isExternal ? (
-                    <a key={node.sector} href={node.link} target="_blank" rel="noopener noreferrer" className={nodeClasses}>
+                    <a key={node.company} href={node.link} target="_blank" rel="noopener noreferrer" className={nodeClasses}>
                       {nodeContent}
                     </a>
                   ) : (
-                    <Link key={node.sector} to={node.link} className={nodeClasses}>
+                    <Link key={node.company} to={node.link} className={nodeClasses}>
                       {nodeContent}
                     </Link>
                   );
@@ -643,40 +749,51 @@ export default function AboutPage() {
               <div className="h-6 w-px bg-[#3026B3]/30" />
             </div>
 
-            {/* Level 2: Sustainability & Venture Building */}
-            <div className="max-w-2xl mx-auto grid grid-cols-1 sm:grid-cols-2 gap-4">
-              {secondaryEcosystemNodes.map((node) => (
-                <Link
-                  key={node.sector}
-                  to={node.link}
-                  className="group flex flex-col justify-between rounded-xl border border-[#E3E5EF] bg-white p-4 shadow-xs transition-all duration-300 hover:border-[#3026B3] hover:shadow-md hover:-translate-y-1"
-                >
-                  <div>
-                    <div className="flex items-center justify-between mb-2">
-                      <span className="font-mono text-[9.5px] uppercase tracking-wider font-bold" style={{ color: node.accent }}>
-                        {node.sector}
-                      </span>
-                      <span className="text-[9px] font-mono px-1.5 py-0.2 rounded border border-slate-200 text-[#596579]">
-                        {node.badge}
-                      </span>
-                    </div>
-                    <h4 className="font-serif text-base font-medium text-[#111827] group-hover:text-[#3026B3] transition-colors">
-                      {node.company}
-                    </h4>
-                  </div>
+            {/* Level 2: 3 Operating Entities */}
+            <div className="max-w-4xl mx-auto grid grid-cols-1 sm:grid-cols-3 gap-3.5">
+              {tier2EcosystemNodes.map((node) => {
+                const isExternal = node.link.startsWith("http");
+                const nodeClasses = "group flex flex-col justify-between rounded-xl border border-[#E3E5EF] bg-white p-4 shadow-xs transition-all duration-300 hover:border-[#3026B3] hover:shadow-md hover:-translate-y-1";
 
-                  <div className="mt-3 pt-2 border-t border-[#E3E5EF] flex items-center justify-between">
-                    {node.logo ? (
-                      <div className="h-5 w-5 rounded bg-white p-0.5 border border-[#E3E5EF] flex items-center justify-center">
-                        <img src={node.logo} alt="" className="max-h-full max-w-full object-contain" />
+                const nodeContent = (
+                  <>
+                    <div>
+                      <div className="flex items-center justify-between mb-2">
+                        <span className="font-mono text-[9.5px] uppercase tracking-wider font-bold" style={{ color: node.accent }}>
+                          {node.sector}
+                        </span>
+                        <span className="text-[9px] font-mono px-1.5 py-0.2 rounded border border-slate-200 text-[#596579]">
+                          {node.badge}
+                        </span>
                       </div>
-                    ) : (
-                      <span className="text-[10px] font-mono text-[#596579]">Horizon</span>
-                    )}
-                    <Icon name="arrow-up-right" width={12} height={12} className="text-[#596579] group-hover:text-[#3026B3]" />
-                  </div>
-                </Link>
-              ))}
+                      <h4 className="font-serif text-base font-medium text-[#111827] group-hover:text-[#3026B3] transition-colors">
+                        {node.company}
+                      </h4>
+                    </div>
+
+                    <div className="mt-3 pt-2 border-t border-[#E3E5EF] flex items-center justify-between">
+                      {node.logo ? (
+                        <div className="h-5 w-5 rounded bg-white p-0.5 border border-[#E3E5EF] flex items-center justify-center">
+                          <img src={node.logo} alt="" className="max-h-full max-w-full object-contain" />
+                        </div>
+                      ) : (
+                        <span className="text-[10px] font-mono text-[#596579]">Horizon</span>
+                      )}
+                      <Icon name="arrow-up-right" width={12} height={12} className="text-[#596579] group-hover:text-[#3026B3]" />
+                    </div>
+                  </>
+                );
+
+                return isExternal ? (
+                  <a key={node.company} href={node.link} target="_blank" rel="noopener noreferrer" className={nodeClasses}>
+                    {nodeContent}
+                  </a>
+                ) : (
+                  <Link key={node.company} to={node.link} className={nodeClasses}>
+                    {nodeContent}
+                  </Link>
+                );
+              })}
             </div>
 
             {/* Connecting Trunk to Anchor */}
@@ -684,29 +801,51 @@ export default function AboutPage() {
               <div className="h-6 w-px bg-[#3026B3]/30" />
             </div>
 
-            {/* Level 3 Anchor: Knowledge & Impact / Labs Foundation */}
-            <div className="max-w-md mx-auto">
-              <Link
-                to="/services#climate-sustainability"
-                className="group flex items-center justify-between rounded-2xl border border-[#E3E5EF] bg-white p-4 sm:p-5 shadow-xs transition-all duration-300 hover:border-[#15966B] hover:shadow-md hover:-translate-y-1"
-              >
-                <div className="flex items-center gap-3">
-                  <div className="h-9 w-9 rounded-xl bg-[#15966B]/15 text-[#15966B] flex items-center justify-center shrink-0">
-                    <img src="/Bharatxlabs_logo.svg" alt="" className="h-5 w-5 object-contain" />
-                  </div>
-                  <div>
-                    <span className="font-mono text-[10px] uppercase tracking-wider text-[#15966B] font-bold block">
-                      Knowledge &amp; Impact
-                    </span>
-                    <h4 className="font-serif text-lg font-medium text-[#111827] group-hover:text-[#15966B] transition-colors">
-                      BharatX Labs Foundation
-                    </h4>
-                  </div>
-                </div>
-                <div className="h-7 w-7 rounded-full bg-slate-100 flex items-center justify-center text-[#111827] group-hover:bg-[#15966B] group-hover:text-white transition-all">
-                  <Icon name="arrow-right" width={13} height={13} />
-                </div>
-              </Link>
+            {/* Level 3: Future Expansion */}
+            <div className="max-w-xs sm:max-w-sm mx-auto">
+              {tier3EcosystemNodes.map((node) => {
+                const isExternal = node.link.startsWith("http");
+                const nodeClasses = "group flex flex-col justify-between rounded-xl border border-[#E3E5EF] bg-white p-4 shadow-xs transition-all duration-300 hover:border-[#3026B3] hover:shadow-md hover:-translate-y-1";
+
+                const nodeContent = (
+                  <>
+                    <div>
+                      <div className="flex items-center justify-between mb-2">
+                        <span className="font-mono text-[9.5px] uppercase tracking-wider font-bold" style={{ color: node.accent }}>
+                          {node.sector}
+                        </span>
+                        <span className="text-[9px] font-mono px-1.5 py-0.2 rounded border border-slate-200 text-[#596579]">
+                          {node.badge}
+                        </span>
+                      </div>
+                      <h4 className="font-serif text-base font-medium text-[#111827] group-hover:text-[#3026B3] transition-colors">
+                        {node.company}
+                      </h4>
+                    </div>
+
+                    <div className="mt-3 pt-2 border-t border-[#E3E5EF] flex items-center justify-between">
+                      {node.logo ? (
+                        <div className="h-5 w-5 rounded bg-white p-0.5 border border-[#E3E5EF] flex items-center justify-center">
+                          <img src={node.logo} alt="" className="max-h-full max-w-full object-contain" />
+                        </div>
+                      ) : (
+                        <span className="text-[10px] font-mono text-[#596579]">Horizon</span>
+                      )}
+                      <Icon name="arrow-up-right" width={12} height={12} className="text-[#596579] group-hover:text-[#3026B3]" />
+                    </div>
+                  </>
+                );
+
+                return isExternal ? (
+                  <a key={node.company} href={node.link} target="_blank" rel="noopener noreferrer" className={nodeClasses}>
+                    {nodeContent}
+                  </a>
+                ) : (
+                  <Link key={node.company} to={node.link} className={nodeClasses}>
+                    {nodeContent}
+                  </Link>
+                );
+              })}
             </div>
 
             {/* Subtext Statement */}
@@ -742,32 +881,44 @@ export default function AboutPage() {
             {buildTimeline.map((step, idx) => (
               <div
                 key={step.title}
-                className={`group relative flex flex-col justify-between rounded-2xl border border-[#E3E5EF] bg-white p-6 shadow-sm transition-all duration-300 hover:shadow-xl hover:-translate-y-1 ${step.borderHover}`}
+                className={`group relative flex flex-col justify-between rounded-2xl border border-[#E3E5EF] bg-white p-6 shadow-sm transition-all duration-300 hover:shadow-xl hover:-translate-y-1.5 ${step.borderHover}`}
               >
                 <div>
-                  <div className="flex items-center justify-between mb-4">
-                    <span className={`font-mono text-xs font-bold tracking-widest ${step.textAccent}`}>
-                      {step.step}
-                    </span>
+                  {/* Top Bar: Icon on left, Phase Badge on right */}
+                  <div className="flex items-center justify-between mb-5">
                     <div
-                      className={`h-9 w-9 rounded-xl ${step.bgAccent} ${step.textAccent} flex items-center justify-center transition-transform duration-300 group-hover:scale-110 shadow-xs`}
+                      className={`h-11 w-11 rounded-2xl ${step.bgAccent} ${step.textAccent} flex items-center justify-center transition-transform duration-300 group-hover:scale-110 shadow-xs border border-transparent group-hover:border-current/20`}
                     >
-                      <Icon name={step.icon} width={18} height={18} strokeWidth={2} />
+                      <Icon name={step.icon} width={20} height={20} strokeWidth={2} />
                     </div>
+                    <span className="font-mono text-[10px] uppercase tracking-wider font-semibold px-2.5 py-1 rounded-full border border-slate-200/80 bg-slate-50 text-[#596579] group-hover:border-[#3026B3]/30 group-hover:text-[#3026B3] transition-colors">
+                      {step.phase}
+                    </span>
                   </div>
 
-                  <h3 className="font-mono text-sm sm:text-base font-bold tracking-[0.16em] text-[#111827] uppercase">
+                  {/* Title & Tagline */}
+                  <h3 className="font-mono text-sm sm:text-base font-bold tracking-[0.16em] text-[#111827] uppercase group-hover:text-[#3026B3] transition-colors">
                     {step.title}
                   </h3>
+                  <span className="font-mono text-[10px] uppercase tracking-wider text-[#9A6200] font-semibold block mt-1">
+                    {step.tagline}
+                  </span>
 
-                  <p className="mt-2.5 text-xs sm:text-[13px] text-[#596579] leading-relaxed font-normal">
+                  {/* Description */}
+                  <p className="mt-3 text-xs sm:text-[13px] text-[#596579] leading-relaxed font-normal">
                     {step.description}
                   </p>
                 </div>
 
+                {/* Bottom Deliverable / Focus Metric */}
+                <div className="mt-6 pt-3.5 border-t border-[#E3E5EF] flex items-center justify-between font-mono text-[10px] text-[#596579]">
+                  <span className="uppercase tracking-wider text-[#8A94A6]">Focus</span>
+                  <span className="font-semibold text-[#111827]">{step.deliverable}</span>
+                </div>
+
                 {/* Connecting arrow indicator on desktop */}
                 {idx < buildTimeline.length - 1 && (
-                  <div className="hidden lg:flex absolute -right-3.5 top-1/2 -translate-y-1/2 z-20 h-7 w-7 rounded-full bg-white border border-[#E3E5EF] items-center justify-center text-[#3026B3] shadow-md group-hover:scale-110 transition-transform">
+                  <div className="hidden lg:flex absolute -right-3.5 top-1/2 -translate-y-1/2 z-20 h-7 w-7 rounded-full bg-white border border-[#E3E5EF] items-center justify-center text-[#596579] shadow-sm group-hover:text-[#3026B3] group-hover:scale-110 group-hover:shadow-md transition-all">
                     <Icon name="chevron-right" width={13} height={13} strokeWidth={2.5} />
                   </div>
                 )}
@@ -798,17 +949,16 @@ export default function AboutPage() {
             </h2>
 
             <p className="mt-3 text-base text-[#596579]">
-              Five core convictions that anchor our operating culture and enterprise stewardship.
+              Six core convictions that anchor our operating culture and enterprise stewardship.
             </p>
           </div>
 
-          {/* 5 Principles Cards Grid */}
+          {/* 6 Principles Cards Grid */}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
             {principles.map((p, idx) => (
               <div
                 key={p.title}
-                className={`group rounded-2xl border border-[#E3E5EF] bg-[#FAF9F6] p-6 sm:p-7 shadow-xs transition-all duration-300 hover:bg-white hover:shadow-xl hover:-translate-y-1 ${idx === 4 ? "sm:col-span-2 lg:col-span-1" : ""
-                  }`}
+                className={`group rounded-2xl border border-[#E3E5EF] bg-[#FAF9F6] p-6 sm:p-7 shadow-xs transition-all duration-300 hover:bg-white hover:shadow-xl hover:-translate-y-1 ${p.borderHover}`}
               >
                 <div className="flex items-center gap-3.5 mb-4">
                   <div className={`h-11 w-11 rounded-xl ${p.bg} ${p.text} flex items-center justify-center shrink-0 shadow-xs transition-transform duration-300 group-hover:scale-110`}>

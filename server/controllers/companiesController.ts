@@ -9,7 +9,7 @@ import { Company } from "../models/Models";
  */
 const seedCompanies = [
   { id: "ventures", slug: "bharatx-ventures", name: "BharatX Ventures", website: "https://bharatx.vc/" },
-  { id: "aixperts", slug: "aixperts-labs", name: "AIxperts Labs", website: "https://aixpertslabs.com/" },
+  { id: "aixperts", slug: "aixperts-labs", name: "Aixperts Labs", website: "https://aixpertslabs.com/" },
   { id: "infratech", slug: "bharatx-infratech", name: "BharatX Infratech", website: "https://bharatxinfratech.com/" },
   { id: "casters", slug: "casters-global", name: "Casters Global", website: "https://castersglobal.com/" },
   { id: "bharatx-agro", slug: "bharatx-agro", name: "BharatX Agro", website: "https://bharatxagro.com/" },

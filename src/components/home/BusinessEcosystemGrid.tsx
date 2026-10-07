@@ -32,7 +32,7 @@ const ecosystemCards: EcosystemCard[] = [
   {
     id: "agri",
     sector: "Agriculture & Food",
-    company: "BharatXAgro",
+    company: "BharatX Agro",
     description: "Origin sourcing, certified processing and high-integrity agri-commodity supply chains.",
     to: "/services#agriculture",
     logo: "/Bharatxagro_logo.png",
@@ -80,7 +80,7 @@ const ecosystemCards: EcosystemCard[] = [
   {
     id: "tech-ai",
     sector: "Technology & AI",
-    company: "AI Xperts Labs",
+    company: "Aixperts Labs",
     description: "Enterprise artificial intelligence platforms, sovereign compute and automation systems.",
     to: "/services#tech-ai",
     logo: "/Ai-Experts_logo.png",

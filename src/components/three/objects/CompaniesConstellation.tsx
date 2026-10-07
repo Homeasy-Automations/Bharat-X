@@ -101,7 +101,7 @@ function ConstellationMesh() {
               )}
 
               {company.id === "aixperts" && (
-                /* AIxperts: Neural Data Octahedron */
+                /* Aixperts: Neural Data Octahedron */
                 <mesh>
                   <octahedronGeometry args={[0.34, 1]} />
                   <meshStandardMaterial

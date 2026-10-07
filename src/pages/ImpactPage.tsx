@@ -40,8 +40,8 @@ const impactAreas: ImpactArea[] = [
     sector: "Agriculture",
     title: "Creating Value From India’s Agriculture",
     description:
-      "Through processing, value addition and global trade, BharatXAgro aims to strengthen agricultural value chains and connect Indian products with wider markets.",
-    entityName: "BharatXAgro",
+      "Through processing, value addition and global trade, BharatX Agro aims to strengthen agricultural value chains and connect Indian products with wider markets.",
+    entityName: "BharatX Agro",
     logo: "/Bharatxagro_logo.png",
     image: "/assets/backgrounds/agri-dusk.jpg",
     accent: "#15966B",
@@ -71,7 +71,7 @@ const impactAreas: ImpactArea[] = [
     title: "Making Businesses Smarter",
     description:
       "AI, automation and digital technologies can improve productivity, decision-making and access to new capabilities.",
-    entityName: "AI Xperts Labs",
+    entityName: "Aixperts Labs",
     logo: "/Ai-Experts_logo.png",
     image: "/companies/aixperts-labs/hero.jpg",
     accent: "#4B40D4",

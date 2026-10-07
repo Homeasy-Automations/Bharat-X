@@ -137,9 +137,9 @@ const culturePrinciples = [
 const verticalsList = [
   "General / Group Ecosystem",
   "Infrastructure (BharatX Infratech)",
-  "Agriculture (BharatXAgro)",
+  "Agriculture (BharatX Agro)",
   "Manufacturing (Casters Global)",
-  "Technology & AI (AI Xperts Labs)",
+  "Technology & AI (Aixperts Labs)",
   "Packaging (SRM Enterprises)",
   "Sustainability (BharatX Sustainability)",
   "Ventures & Strategy (BharatX Ventures)",
@@ -498,7 +498,7 @@ export default function CareersPage() {
                     </tr>
                     <tr className="border-b border-[#E3E5EF] hover:bg-slate-50 transition-colors">
                       <td className="py-4 px-6 font-medium text-[#111827]">Lead Applied AI Engineer</td>
-                      <td className="py-4 px-6 text-[#596579]">AI Xperts Labs</td>
+                      <td className="py-4 px-6 text-[#596579]">Aixperts Labs</td>
                       <td className="py-4 px-6 text-[#596579]">Bengaluru / Hybrid</td>
                       <td className="py-4 px-6 text-xs font-mono text-[#3026B3]">Full-time</td>
                       <td className="py-4 px-6 text-right">
@@ -506,7 +506,7 @@ export default function CareersPage() {
                           type="button"
                           onClick={() => {
                             setPosition("Lead Applied AI Engineer");
-                            setVertical("Technology & AI (AI Xperts Labs)");
+                            setVertical("Technology & AI (Aixperts Labs)");
                             setShowProfileForm(true);
                           }}
                           className="font-mono text-xs font-bold uppercase tracking-wider text-[#3026B3] hover:underline"

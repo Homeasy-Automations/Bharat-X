@@ -6,7 +6,7 @@ import { useLenis } from "../scroll/SmoothScrollProvider";
 import { BackToTop } from "../common/BackToTop";
 import { ScrollProgress } from "../common/ScrollProgress";
 import { ExecutiveAtmosphereCanvas } from "./ExecutiveAtmosphereCanvas";
-import { Footer, FooterCTA } from "./Footer";
+import { Footer } from "./Footer";
 import { Navbar } from "./Navbar";
 import { Preloader } from "./Preloader";
 
@@ -59,7 +59,7 @@ export function Layout() {
             <Outlet />
           </div>
         </motion.div>
-        {location.pathname !== "/" && <FooterCTA />}
+        {/* {location.pathname !== "/" && <FooterCTA />} */}
         <Footer />
         <BackToTop />
       </div>

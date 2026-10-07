@@ -124,15 +124,15 @@ export const companies: Company[] = [
     id: "aixperts",
     order: 2,
     slug: "aixperts-labs",
-    name: "AIxperts Labs",
-    shortName: "AIxperts",
+    name: "Aixperts Labs",
+    shortName: "Aixperts",
     monogram: "AI",
     category: "AI & Digital Innovation",
     icon: "brain-circuit",
     description:
       "Engineering intelligence, automation and AI-first transformation.",
     longDescription: [
-      "AIxperts Labs engineers intelligence into production systems. We build AI capabilities that live inside business workflows — document processing, prediction, automation and decision support — and we treat reliability as a feature, not a footnote.",
+      "Aixperts Labs engineers intelligence into production systems. We build AI capabilities that live inside business workflows — document processing, prediction, automation and decision support — and we treat reliability as a feature, not a footnote.",
       "The lab works across the stack: from data foundations and model selection to the integration layer that makes an AI capability feel like part of the product. If it cannot run in production, we do not ship it as a demo.",
       "Our standard is simple: an AI system must be measurable, auditable and operable by the people it serves. We instrument everything, document every decision, and hand over systems the team can own.",
     ],

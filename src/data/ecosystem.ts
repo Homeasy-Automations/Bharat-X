@@ -15,7 +15,7 @@ export const ecosystemSites: EcosystemSite[] = [
   {
     id: "aixperts",
     slug: "aixperts-labs",
-    name: "AIxperts Labs",
+    name: "Aixperts Labs",
     url: "https://aixpertslabs.com/",
     category: "AI & Digital Innovation",
   },

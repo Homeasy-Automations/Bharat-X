@@ -19,10 +19,10 @@ export const contactRoute = {
 export const footerSections = {
   businesses: [
     { label: "BharatX Infratech", to: "/services#infrastructure" },
-    // { label: "BharatXAgro", to: "/services#agriculture" },
+    // { label: "BharatX Agro", to: "/services#agriculture" },
     { label: "Casters Global", to: "/services#manufacturing" },
     { label: "SRM Enterprises", to: "/services#packaging" },
-    { label: "AI Xperts Labs", to: "/services#tech-ai" },
+    { label: "Aixperts Labs", to: "/services#tech-ai" },
     { label: "BharatX Sustainability", to: "/#what-comes-next" },
     { label: "BharatX Ventures", to: "/services#finance" },
     { label: "BharatX Labs Foundation", to: "/services#climate-sustainability" },

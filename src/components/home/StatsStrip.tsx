@@ -10,7 +10,7 @@ const stats = [
 
 const operatingCompanies = [
   { name: "BharatX Ventures", logo: "/Ventures_logo.png", sector: "Finance", link: "/services#finance" },
-  { name: "AIxperts Labs", logo: "/Ai-Experts_logo.png", sector: "AI & Tech", link: "/services#tech-ai" },
+  { name: "Aixperts Labs", logo: "/Ai-Experts_logo.png", sector: "AI & Tech", link: "/services#tech-ai" },
   { name: "BharatX Infratech", logo: "/Infra_logo1.png", sector: "Infrastructure", link: "/services#infrastructure" },
   { name: "Casters Global", logo: "/Casters_logo.png", sector: "Manufacturing", link: "/services#manufacturing" },
   { name: "BharatX Agro", logo: "/Bharatxagro_logo.png", sector: "Agriculture", link: "/services#agriculture" },

@@ -4,7 +4,8 @@ import { footerSections } from "../../data/navigation";
 import { Icon } from "../../utils/icons";
 import FooterOrbScene from "../three/FooterOrbScene";
 
-export function FooterCTA() {
+/*export function FooterCTA() {
+ Currently commented out
   return (
     <section className="gold-glow relative overflow-hidden border-t border-slate-200/80 dark:border-white/5 py-14 sm:py-16 md:py-20">
       <div aria-hidden className="grid-bg grid-bg-fade absolute inset-0 opacity-40 dark:opacity-60" />
@@ -46,14 +47,16 @@ export function FooterCTA() {
           </div>
         </div>
 
-        {/* 3D Footer ecosystem scene */}
-        <div className="relative flex w-full shrink-0 items-center justify-center lg:w-[480px] xl:w-[560px] 2xl:w-[620px]">
-          <FooterOrbScene className="h-[340px] w-full sm:h-[400px] md:h-[440px] lg:h-[480px]" />
-        </div>
-      </div>
-    </section>
+        {/* 3D Footer ecosystem scene 
+<div className="relative flex w-full shrink-0 items-center justify-center lg:w-[480px] xl:w-[560px] 2xl:w-[620px]">
+  <FooterOrbScene className="h-[340px] w-full sm:h-[400px] md:h-[440px] lg:h-[480px]" />
+</div>
+      </div >
+    </section >
   );
-}
+
+return null;
+}*/
 
 export function Footer() {
   return (

@@ -23,9 +23,9 @@ export const servicesData: ServiceItem[] = [
     eyebrow: "FOUNDATIONAL INTELLIGENCE",
     descriptor: "Sovereign compute, enterprise AI platforms, and automated intelligence engineering.",
     fullNarrative:
-      "Engineered by AIxperts Labs, our mission is to establish sovereign technological capability across enterprise workflows. We architect localized deep-learning models, document triage engines, and automated decision workflows that modernize core industries while preserving data independence.",
+      "Engineered by Aixperts Labs, our mission is to establish sovereign technological capability across enterprise workflows. We architect localized deep-learning models, document triage engines, and automated decision workflows that modernize core industries while preserving data independence.",
     image: "/assets/backgrounds/innovation-story.jpg",
-    companyName: "AIxperts Labs",
+    companyName: "Aixperts Labs",
     companyLogo: "/Ai-Experts_logo.png",
     companySlug: "aixperts-labs",
     website: "https://aixpertslabs.com/",

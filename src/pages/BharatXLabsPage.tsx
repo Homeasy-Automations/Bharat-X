@@ -103,7 +103,7 @@ const roadmapMilestones = [
     badgeColor: "text-ink-400 border-white/10 bg-white/5",
     title: "Closed Industrial Alpha & Institutional Testbeds",
     description:
-      "Deploying model checkpoints across BharatX Group operating companies (Casters Global, BharatX Infratech, AIxperts Labs) for live production stress-testing.",
+      "Deploying model checkpoints across BharatX Group operating companies (Casters Global, BharatX Infratech, Aixperts Labs) for live production stress-testing.",
   },
   {
     phase: "Phase 04",

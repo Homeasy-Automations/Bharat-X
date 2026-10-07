@@ -21,7 +21,7 @@ const slides: SlideItem[] = [
     id: "ai",
     image: "/assets/slides/indauto.png",
     sector: "AI & Industrial Automation",
-    company: "AIxperts Labs",
+    company: "Aixperts Labs",
     tagline: "Deploying intelligent autonomous systems in mission-critical industries",
   },
   {
@@ -56,7 +56,7 @@ const slides: SlideItem[] = [
     id: "deeptech",
     image: "/companies/aixperts-labs/hero.jpg",
     sector: "Digital Transformation & Cloud",
-    company: "AIxperts Labs",
+    company: "Aixperts Labs",
     tagline: "Engineering bespoke AI models and enterprise digital infrastructure",
   },
   {
