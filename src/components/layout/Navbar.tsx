@@ -80,7 +80,8 @@ export function Navbar() {
         style={{ borderBottom: (scrolled || mega) ? "1px solid #E3E5EF" : "none" }}
         onMouseLeave={() => setMega(null)}
       >
-        {/* Tier 1: Executive Conglomerate Status Deck (Inspired by Reliance Ticker Deck) */}
+        {/* Tier 1: Executive Conglomerate Status Deck (Currently commented out) */}
+        {/*
         <AnimatePresence>
           {!scrolled && (
             <motion.div
@@ -91,7 +92,6 @@ export function Navbar() {
               className="border-b border-white/10 bg-black/25 hidden md:block"
             >
               <div className="container-x flex h-8 items-center justify-between text-[11px] font-mono">
-                {/* Left Live Indicator & Ticker */}
                 <div className="flex items-center gap-3">
                   <span className="flex items-center gap-2 rounded-full bg-emerald-500/20 px-2 py-0.5 text-emerald-300 font-semibold tracking-wider text-[10px]">
                     <span className="relative flex h-2 w-2">
@@ -103,7 +103,6 @@ export function Navbar() {
 
                   <span className="h-3 w-px bg-white/20" />
 
-                  {/* Smooth rotating ticker */}
                   <div className="relative h-4 overflow-hidden min-w-[280px] lg:min-w-[380px]">
                     <AnimatePresence mode="wait">
                       <motion.span
@@ -120,7 +119,6 @@ export function Navbar() {
                   </div>
                 </div>
 
-                {/* Right Corporate Utility Portals */}
                 <div className="flex items-center gap-5 text-white/70">
                   <Link
                     to="/services"
@@ -148,6 +146,7 @@ export function Navbar() {
             </motion.div>
           )}
         </AnimatePresence>
+        */}
 
         {/* Tier 2: Main Executive Navigation Command Deck */}
         <div className="container-x flex h-[68px] sm:h-[72px] items-center justify-between gap-3">
