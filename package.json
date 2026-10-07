@@ -4,12 +4,15 @@
   "version": "1.0.0",
   "description": "BharatX Group — Monorepo containing independent frontend (Vercel) and backend (Render) applications.",
   "type": "module",
+  "workspaces": [
+    "frontend",
+    "backend"
+  ],
   "scripts": {
-    "dev": "concurrently -n client,server -c cyan,amber \"npm --prefix frontend run dev\" \"npm --prefix backend run dev\"",
-    "dev:frontend": "npm --prefix frontend run dev",
-    "dev:backend": "npm --prefix backend run dev",
-    "build": "npm --prefix frontend run build",
-    "install:all": "npm --prefix frontend install && npm --prefix backend install"
+    "dev": "concurrently -n client,server -c cyan,amber \"npm run dev --workspace=frontend\" \"npm run dev --workspace=backend\"",
+    "dev:frontend": "npm run dev --workspace=frontend",
+    "dev:backend": "npm run dev --workspace=backend",
+    "build": "npm run build --workspace=frontend"
   },
   "devDependencies": {
     "concurrently": "^9.1.2"
