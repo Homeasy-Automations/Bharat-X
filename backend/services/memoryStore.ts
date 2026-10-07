@@ -1,4 +1,4 @@
-import type { ContactPayload } from "../../src/types";
+import type { ContactPayload } from "../types";
 
 /**
  * In-memory fallback store — used only when MongoDB is not configured,

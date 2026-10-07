@@ -1,4 +1,4 @@
-import type { ContactPayload } from "../../src/types";
+import type { ContactPayload } from "../types";
 
 /** Minimal sanitisation: trim + strip angle brackets (Section 48). */
 function clean(v: unknown, max: number): string {
