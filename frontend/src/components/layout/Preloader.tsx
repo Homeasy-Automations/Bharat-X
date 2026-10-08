@@ -7,7 +7,7 @@ import { LogoMark } from "./Logo"; // re-exported below for external use
 const SESSION_KEY = "bxg:preloader:done";
 const STATUS_LINES = [
   "BUILDING CONNECTIONS",
-  "CONNECTING SIX BUSINESSES",
+  "CONNECTING DIVERSE ENTERPRISES",
   "ALIGNING THE ECOSYSTEM",
 ];
 

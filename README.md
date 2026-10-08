@@ -1,8 +1,8 @@
 # BharatX Group — Corporate Ecosystem Website
 
-A production-ready corporate ecosystem website for **BharatX Group** — six independent businesses presented as one connected ecosystem, with a live **website ecosystem viewer**, real **3D interactive components**, a premium **inertia smooth-scroll** experience, and a branded **preloader**.
+A production-ready corporate ecosystem website for **BharatX Group** — a diversified ecosystem of autonomous businesses presented as one connected ecosystem, with a live **website ecosystem viewer**, real **3D interactive components**, a premium **inertia smooth-scroll** experience, and a branded **preloader**.
 
-> One Group → Six Businesses → One Connected Ecosystem
+> One Group → Diverse Autonomous Businesses → One Connected Ecosystem
 
 ---
 
@@ -115,7 +115,7 @@ Three real 3D elements (WebGL via React Three Fiber):
 
 | Component | Where | Notes |
 |---|---|---|
-| `EcosystemOrbScene` | Home hero | Central core + six orbiting company nodes; hover/tap a node for its summary card; mouse parallax; recedes on scroll. |
+| `EcosystemOrbScene` | Home hero | Central core + orbiting company nodes; hover/tap a node for its summary card; mouse parallax; recedes on scroll. |
 | `ShowcaseObjectScene` | Industries + company pages | Abstract gyroscopic rings + faceted core; studio lighting with gold rim light; idle rotation **plus scroll-linked rotation** (Framer Motion `useScroll` MotionValue read in `useFrame`). |
 | `TiltCard` | company/industry/capability cards | CSS 3D perspective tilt following the pointer, with a layered gloss sweep (no WebGL). |
 

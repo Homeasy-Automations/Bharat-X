@@ -985,7 +985,7 @@ export default function AboutPage() {
               </h2>
 
               <p className="mt-3 text-base text-[#596579]">
-                Six core convictions that anchor our operating culture and enterprise stewardship.
+                Core convictions that anchor our operating culture and enterprise stewardship.
               </p>
             </div>
 

@@ -3,8 +3,15 @@ import { motion } from "framer-motion";
 import { Icon } from "../utils/icons";
 import { AnimatedHeading } from "../components/motion/AnimatedHeading";
 import { MagneticButton } from "../components/common/MagneticButton";
+import { usePageMeta } from "../hooks/usePageMeta";
 
 export function NotFoundPage() {
+  usePageMeta({
+    title: "404 - Page Not Found",
+    description: "The page you're looking for has moved, been renamed, or does not exist on BharatX Group.",
+    path: "/404",
+  });
+
   return (
     <section className="aurora noise relative flex min-h-screen items-center overflow-hidden pt-24">
       <div aria-hidden className="grid-bg grid-bg-fade absolute inset-0 opacity-60" />

@@ -22,9 +22,9 @@ const operating = [
 
 export default function LeadershipPage() {
   usePageMeta({
-    title: "Leadership & Governance — BharatX Group",
+    title: "Leadership & Corporate Governance — BharatX Group",
     description:
-      "Leadership charter, corporate stewardship, and operational governance across BharatX Group's six foundational sectors.",
+      "Leadership charter, corporate stewardship, and operational governance across BharatX Group's foundational operating sectors.",
     path: "/leadership",
   });
 

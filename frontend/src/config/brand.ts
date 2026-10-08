@@ -61,6 +61,6 @@ export const siteConfig = {
   phone: brandConfig.contact.phoneFormatted,
   phoneTel: brandConfig.contact.phoneTel,
   foundedNote:
-    "BharatX Group is a group company of six businesses operating from India.",
+    "BharatX Group is a diversified multi-sector conglomerate operating from India.",
 };
 

@@ -194,7 +194,7 @@ function OrbFallback() {
       viewBox="0 0 520 520"
       className="h-full w-full"
       role="img"
-      aria-label="BharatX Group ecosystem diagram: six companies connected to the group core"
+      aria-label="BharatX Group ecosystem diagram: portfolio companies connected to the group core"
     >
       <defs>
         <radialGradient id="orb-core" cx="50%" cy="45%" r="60%">

@@ -17,9 +17,9 @@ const CompaniesConstellation = lazy(() => import("../components/three/objects/Co
 
 export default function CompaniesPage() {
   usePageMeta({
-    title: "Companies",
+    title: "Companies & Operating Verticals — BharatX Group",
     description:
-      "Meet the six businesses of BharatX Group — venture building, AI, infrastructure, precision mobility, agri science and global agricultural trade.",
+      "Meet the portfolio businesses of BharatX Group — venture building, AI & technology, infrastructure, precision manufacturing, agri science, packaging, and sustainability.",
     path: "/companies",
   });
 
@@ -28,7 +28,7 @@ export default function CompaniesPage() {
       <PageHero
         icon="building-2"
         eyebrow="The businesses"
-        title={["Six companies.", "One direction."]}
+        title={["Autonomous companies.", "One direction."]}
         lede="Each company below is an independent business with its own website, teams and markets — and a member of a single connected ecosystem. Explore the profiles, or open every website live in the ecosystem viewer."
         breadcrumbs={[{ label: "Home", to: "/" }, { label: "Companies" }]}
         visual={<CompaniesConstellation />}
@@ -46,7 +46,7 @@ export default function CompaniesPage() {
         <div className="container-x">
           <Reveal>
             <div className="mb-12 flex items-center gap-4 font-mono text-[11px] uppercase tracking-[0.26em] text-ink-500">
-              <span className="text-gold-400">01–06</span>
+              <span className="text-gold-400">PORTFOLIO</span>
               <span aria-hidden className="h-px flex-1 bg-white/8" />
               <span>Full roster</span>
             </div>
@@ -113,7 +113,7 @@ export default function CompaniesPage() {
                 <IconBadge icon="orbit" size="lg" />
                 <div>
                   <h3 className="font-display text-lg font-semibold text-ink-50 transition-colors duration-300 hover:text-gold-400">
-                    See all six websites, live, in one place
+                    See portfolio companies, live, in one place
                   </h3>
                   <p className="mt-1 text-[13.5px] text-ink-400">
                     The ecosystem viewer loads each company's real website inside BharatX.

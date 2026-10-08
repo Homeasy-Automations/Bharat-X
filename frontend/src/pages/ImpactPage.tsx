@@ -399,7 +399,7 @@ export default function ImpactPage() {
             </AnimatedHeading>
 
             <p className="mt-4 text-base sm:text-lg text-[#596579] leading-relaxed">
-              Six foundational domains where BharatX businesses drive economic capabilities, industrial sovereignty, and societal uplift.
+              Key foundational domains where BharatX businesses drive economic capabilities, industrial sovereignty, and societal uplift.
             </p>
           </div>
 

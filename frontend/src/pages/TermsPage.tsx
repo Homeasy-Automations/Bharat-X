@@ -10,7 +10,7 @@ const SecurityShield = lazy(() => import("../components/three/objects/SecuritySh
 const sections = [
   {
     t: "1. The service",
-    d: "This website presents the BharatX Group conglomerate: our six core operating sectors, institutional capabilities, and strategic initiatives across India. It is an information platform. Nothing on the site constitutes an offer of securities, investment advice or a binding commercial commitment.",
+    d: "This website presents the BharatX Group conglomerate: our core operating sectors, portfolio businesses, institutional capabilities, and strategic initiatives across India. It is an information platform. Nothing on the site constitutes an offer of securities, investment advice or a binding commercial commitment.",
   },
   {
     t: "2. Use of the site",

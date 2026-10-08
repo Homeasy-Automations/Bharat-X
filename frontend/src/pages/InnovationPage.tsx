@@ -74,7 +74,7 @@ const roadmapPhases = [
 
 export default function InnovationPage() {
   usePageMeta({
-    title: "Innovation & Deep-Tech — BharatX Group",
+    title: "Innovation & Deep-Tech Frontiers — BharatX Group",
     description:
       "How BharatX engineers sovereign artificial intelligence, precision industrial robotics, and resilient agricultural deep-tech for India.",
     path: "/innovation",
@@ -152,7 +152,7 @@ export default function InnovationPage() {
               CORE DISCIPLINES
             </span>
             <AnimatedHeading as="h2" effect="words" hover="color" className="mt-2 font-serif text-3xl sm:text-4xl lg:text-5xl font-normal text-[#111827]">
-              Six Frontiers of Technology
+              Strategic Frontiers of Technology
             </AnimatedHeading>
             <p className="mt-3 text-[#596579] text-sm sm:text-base font-body">
               How we translate frontier engineering into real-world production capability.

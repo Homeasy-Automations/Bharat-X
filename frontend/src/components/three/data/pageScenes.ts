@@ -35,7 +35,7 @@ export const pageScenes: Record<string, PageSceneConfig> = {
   companies: {
     id: "companies-constellation",
     name: "Business Constellation",
-    concept: "Six Independent Businesses in One Group",
+    concept: "Autonomous Businesses in One Unified Group",
     camera: { position: [0, 1.2, 9.2], fov: 44 },
     lighting: {
       ambient: 0.9,

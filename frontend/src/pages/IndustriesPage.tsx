@@ -11,7 +11,7 @@ export default function IndustriesPage() {
   usePageMeta({
     title: "Industries & Sectors — BharatX Group",
     description:
-      "Explore the core strategic industries BharatX Group operates across: Technology & AI, Infrastructure, Manufacturing, Agriculture, Food Systems, and Venture Building.",
+      "Explore the core strategic industries BharatX Group operates across: Technology & AI, Civil Infrastructure, Precision Manufacturing, Agriculture & Food Systems, Packaging, Sustainability, and Venture Building.",
     path: "/industries",
   });
 

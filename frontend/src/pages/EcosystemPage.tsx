@@ -21,9 +21,9 @@ const EcosystemSpatialMap = lazy(() => import("../components/three/objects/Ecosy
 
 export default function EcosystemPage() {
   usePageMeta({
-    title: "The Ecosystem Viewer",
+    title: "The Ecosystem Viewer — BharatX Group",
     description:
-      "Explore all six BharatX business websites live, inside one place — switch between them, go fullscreen, or open any official site directly.",
+      "Explore BharatX business websites live, inside one place — switch between portfolio companies, go fullscreen, or open any official site directly.",
     path: "/ecosystem",
   });
 
@@ -51,7 +51,7 @@ export default function EcosystemPage() {
         icon="orbit"
         eyebrow="BharatX Ecosystem"
         title={["Every business.", "One place."]}
-        lede="The ecosystem viewer loads each company's real website inside BharatX Group. Switch between the six, go fullscreen, or jump straight to any official site — without losing your place in the group."
+        lede="The ecosystem viewer loads each company's real website inside BharatX Group. Switch between portfolio companies, go fullscreen, or jump straight to any official site — without losing your place in the group."
         breadcrumbs={[{ label: "Home", to: "/" }, { label: "Ecosystem" }]}
         visual={<EcosystemSpatialMap onSelectCompany={(slug) => select(slug)} />}
         visualPlacement="right"
@@ -118,18 +118,18 @@ export default function EcosystemPage() {
             {[
               {
                 icon: "orbit",
-                t: "One viewer, six websites",
+                t: "One viewer, unified ecosystem",
                 d: "Each company keeps its own site, brand and teams. The viewer gives every one of them a first-class home inside the group, with loading states and honest fallbacks.",
               },
               {
                 icon: "shield-check",
                 t: "Standards that travel",
-                d: "Quality, documentation and security baselines apply across all six — so a customer who knows one BharatX business already knows what the others stand for.",
+                d: "Quality, documentation and security baselines apply across all businesses — so a customer who knows one BharatX business already knows what the others stand for.",
               },
               {
                 icon: "trending-up",
                 t: "Built to grow",
-                d: "Adding a company means adding a row to the data model and a card to the viewer. The architecture is designed for the seventh business, not the sixth.",
+                d: "Adding a company means adding a row to the data model and a card to the viewer. The architecture is designed to scale dynamically as the group expands.",
               },
             ].map((c) => (
               <StaggerItem key={c.t}>
@@ -206,7 +206,7 @@ export default function EcosystemPage() {
         <div aria-hidden className="grid-bg grid-bg-fade absolute inset-0 opacity-40" />
         <div className="container-x relative text-center">
           <h2 className="mx-auto max-w-3xl font-display text-3xl font-semibold leading-[1.15] tracking-tight text-ink-50 md:text-5xl">
-            <MaskReveal>Six websites are a list.</MaskReveal>
+            <MaskReveal>Independent websites are a list.</MaskReveal>
             <MaskReveal delay={0.12}>
               <span className="text-gold-400">A connected ecosystem is a promise.</span>
             </MaskReveal>

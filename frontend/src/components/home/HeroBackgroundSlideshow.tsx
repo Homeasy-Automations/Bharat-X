@@ -64,7 +64,7 @@ const slides: SlideItem[] = [
     image: "/assets/slides/h4.png",
     sector: "Connected Conglomerate Operations",
     company: "One Connected Ecosystem",
-    tagline: "Six autonomous companies operating with a single unified purpose",
+    tagline: "Autonomous portfolio companies operating with a single unified purpose",
   },
 ];
 
