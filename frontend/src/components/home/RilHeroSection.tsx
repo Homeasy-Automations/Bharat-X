@@ -162,7 +162,7 @@ export function RilHeroSection() {
       {/* ── HERO CONTENT (Dynamic 3-4 Word Tagline, Nothing Else) ─────── */}
       <div className="container-x relative z-10 w-full pt-48 pb-12 sm:pt-50 sm:pb-16 lg:pt-60 lg:pb-20 translate-y-12 sm:translate-y-18 lg:translate-y-24 xl:translate-y-28">
         <div className="max-w-6xl xl:max-w-7xl">
-          {/* Subtle Conglomerate Eyebrow */}
+          {/* Subtle Conglomerate Eyebrow 
           <motion.div
             initial={{ opacity: 0, y: 14 }}
             animate={{ opacity: 1, y: 0 }}
@@ -172,7 +172,7 @@ export function RilHeroSection() {
             <span className="h-1.5 w-1.5 rounded-full bg-[#FFB000] shadow-[0_0_8px_#FFB000]" />
             <span>BHARATX GROUP</span>
             <span aria-hidden className="h-px w-10 sm:w-16 bg-[#FFB000]/40" />
-          </motion.div>
+          </motion.div>*/}
 
           {/* Three or four word Hero Tagline that changes dynamically with images */}
           <div className="min-h-[75px] sm:min-h-[90px] md:min-h-[105px] flex flex-col justify-start">
