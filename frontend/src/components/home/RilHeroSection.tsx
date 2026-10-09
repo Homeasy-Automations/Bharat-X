@@ -1,7 +1,82 @@
 import { useCallback, useEffect, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
-import { servicesData } from "../../data/servicesData";
 import { Icon } from "../../utils/icons";
+
+export interface HeroSlide {
+  id: string;
+  name: string;
+  shortLabel: string;
+  image: string;
+  companyLogo: string;
+  heroTagline: string;
+}
+
+export const heroSlides: HeroSlide[] = [
+  {
+    id: "infra",
+    name: "Infrastructure & Heavy Engineering",
+    shortLabel: "INFRASTRUCTURE",
+    image: "/assets/hero1.png",
+    companyLogo: "/Infra_logo1.png",
+    heroTagline: "Building Arteries Of Bharat",
+  },
+  {
+    id: "packaging",
+    name: "Packaging & Industrial Protection",
+    shortLabel: "PACKAGING & SCALE",
+    image: "/assets/hero2.png",
+    companyLogo: "/Bharatxlabs_logo.svg",
+    heroTagline: "Engineered For Enterprise Scale",
+  },
+  {
+    id: "manufacturing",
+    name: "Precision Mobility & Manufacturing",
+    shortLabel: "MANUFACTURING",
+    image: "/assets/hero3.png",
+    companyLogo: "/Casters_logo.png",
+    heroTagline: "Precision Engineering At Scale",
+  },
+  {
+    id: "labs",
+    name: "Sustainable Materials & Packaging Labs",
+    shortLabel: "BHARATX LABS",
+    image: "/assets/hero4.png",
+    companyLogo: "/Bharatxlabs_logo.svg",
+    heroTagline: "Ideas. People. Possibilities.",
+  },
+  {
+    id: "civil",
+    name: "Heavy Civil & Transport Corridors",
+    shortLabel: "HEAVY ENGINEERING",
+    image: "/assets/hero5.png",
+    companyLogo: "/Infra_logo1.png",
+    heroTagline: "Connecting India's Corridors",
+  },
+  {
+    id: "sustainability",
+    name: "Sustainability & Circular Economy",
+    shortLabel: "CIRCULAR ECONOMY",
+    image: "/assets/hero6.png",
+    companyLogo: "/Bharatxlabs_logo.svg",
+    heroTagline: "Pioneering Sustainable Horizons",
+  },
+  {
+    id: "clean-energy",
+    name: "Renewable Energy & Solar Infrastructure",
+    shortLabel: "CLEAN ENERGY",
+    image: "/assets/hero7.png",
+    companyLogo: "/Bharatxlabs_logo.svg",
+    heroTagline: "Powering Sovereign Clean Energy",
+  },
+  {
+    id: "ecosystem",
+    name: "Connected Conglomerate Operations",
+    shortLabel: "BHARATX GROUP",
+    image: "/assets/hero8.png",
+    companyLogo: "/bharatxgroup.png",
+    heroTagline: "Building Businesses. Enabling Bharat.",
+  },
+];
 
 const SLIDE_DURATION = 5000; // 5.0 seconds per slide
 
@@ -9,20 +84,20 @@ export function RilHeroSection() {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isPaused, setIsPaused] = useState(false);
 
-  // Preload all 6 images immediately on mount
+  // Preload all 8 hero images immediately on mount
   useEffect(() => {
-    servicesData.forEach((s) => {
+    heroSlides.forEach((s) => {
       const img = new Image();
       img.src = s.image;
     });
   }, []);
 
   const handleNext = useCallback(() => {
-    setCurrentIndex((prev) => (prev + 1) % servicesData.length);
+    setCurrentIndex((prev) => (prev + 1) % heroSlides.length);
   }, []);
 
   const handlePrev = useCallback(() => {
-    setCurrentIndex((prev) => (prev - 1 + servicesData.length) % servicesData.length);
+    setCurrentIndex((prev) => (prev - 1 + heroSlides.length) % heroSlides.length);
   }, []);
 
   const handleSelect = (idx: number) => {
@@ -40,7 +115,7 @@ export function RilHeroSection() {
     return () => clearInterval(timer);
   }, [isPaused, currentIndex, handleNext]);
 
-  const current = servicesData[currentIndex];
+  const current = heroSlides[currentIndex];
 
   return (
     <section
@@ -144,7 +219,7 @@ export function RilHeroSection() {
           </button>
 
           <span className="font-mono text-[11px] font-bold text-[#FFB000] tracking-wider">
-            0{currentIndex + 1} / 0{servicesData.length}
+            0{currentIndex + 1} / 0{heroSlides.length}
           </span>
 
           <span className="h-3 w-px bg-white/20" />
@@ -195,7 +270,7 @@ export function RilHeroSection() {
           </button>
 
           <div className="flex items-center gap-1.5">
-            {servicesData.map((s, idx) => (
+            {heroSlides.map((s, idx) => (
               <button
                 key={s.id}
                 type="button"
