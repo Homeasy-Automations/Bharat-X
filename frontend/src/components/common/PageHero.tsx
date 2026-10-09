@@ -14,6 +14,8 @@ interface PageHeroProps {
   className?: string;
   visual?: ReactNode;
   visualPlacement?: "right" | "left" | "center";
+  /** Optional full-bleed image behind the hero, washed out so text stays legible in both themes. */
+  backgroundImage?: string;
 }
 
 /** Standard interior page hero — editorial, with optional 3D visual integration. */
@@ -27,6 +29,7 @@ export function PageHero({
   className,
   visual,
   visualPlacement = "right",
+  backgroundImage,
 }: PageHeroProps) {
   const lines = Array.isArray(title) ? title : [title];
 
@@ -71,7 +74,20 @@ export function PageHero({
         className,
       )}
     >
-      <div className="container-x relative">
+      {backgroundImage && (
+        <div aria-hidden="true" className="pointer-events-none absolute inset-0 z-0">
+          <img
+            src={backgroundImage}
+            alt=""
+            className="h-full w-full object-cover object-center"
+            loading="eager"
+            decoding="async"
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-white/95 via-white/80 to-white/45 dark:from-night-950/95 dark:via-night-950/80 dark:to-night-950/45" />
+          <div className="absolute inset-0 bg-gradient-to-t from-white via-transparent to-transparent dark:from-night-950" />
+        </div>
+      )}
+      <div className="container-x relative z-10">
         {visual ? (
           <div
             className={cn(

@@ -5,7 +5,6 @@ import { trackPageView } from "../../services/analytics";
 import { useLenis } from "../scroll/SmoothScrollProvider";
 import { BackToTop } from "../common/BackToTop";
 import { ScrollProgress } from "../common/ScrollProgress";
-import { ExecutiveAtmosphereCanvas } from "./ExecutiveAtmosphereCanvas";
 import { Footer } from "./Footer";
 import { Navbar } from "./Navbar";
 import { Preloader } from "./Preloader";
@@ -39,7 +38,6 @@ export function Layout() {
         <div className="global-static-bg-image" />
         <div className="global-static-bg-aurora" />
         <div className="global-static-bg-vignette" />
-        <ExecutiveAtmosphereCanvas />
         <div className="global-static-bg-gradient" />
       </div>
 

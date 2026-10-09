@@ -7,7 +7,7 @@ import { AnimatedHeading } from "../components/motion/AnimatedHeading";
 
 const SecurityShield = lazy(() => import("../components/three/objects/SecurityShield"));
 
-const sections = [
+const sections: { id?: string; t: string; d: string }[] = [
   {
     t: "1. What we collect",
     d: "We collect information you provide directly — your name, email, phone, organisation and message when you submit the contact form — and limited technical information needed to operate this site securely, such as the pages you visit and the browser you use. We do not purchase third-party data about you.",
@@ -25,6 +25,7 @@ const sections = [
     d: "Our platform provides references and connections across our core operating sectors. When you navigate to external partner or client portals linked from this site, that portal's own privacy practices apply to your interaction with it. We recommend reviewing their privacy policies upon arrival.",
   },
   {
+    id: "cookies",
     t: "5. Cookies and analytics",
     d: "This site may use basic analytics to understand aggregate usage — which pages are visited and how visitors move between them. Analytics is configured through an environment setting and can be switched off. Where a tracking service is enabled, its provider's privacy policy also applies.",
   },
@@ -63,6 +64,7 @@ export default function PrivacyPage() {
         breadcrumbs={[{ label: "Home", to: "/" }, { label: "Privacy Policy" }]}
         visual={<SecurityShield />}
         visualPlacement="right"
+        backgroundImage="/assets/backgrounds/conglomerate-panorama.jpg"
       />
       <SectionTransition divider={false} className="py-12 sm:py-16">
         <div className="container-x max-w-3xl">
@@ -75,7 +77,7 @@ export default function PrivacyPage() {
           <div className="flex flex-col gap-8">
             {sections.map((s, i) => (
               <Reveal key={s.t} delay={Math.min(i * 0.04, 0.2)}>
-                <div data-cursor="card" className="p-4 rounded-xl transition-all duration-200 hover:bg-black/5 dark:hover:bg-white/5">
+                <div id={s.id} data-cursor="card" className="scroll-mt-28 p-4 rounded-xl transition-all duration-200 hover:bg-black/5 dark:hover:bg-white/5">
                   <AnimatedHeading as="h2" effect="blur" hover="shift" className="font-display text-xl font-semibold text-ink-50">
                     {s.t}
                   </AnimatedHeading>

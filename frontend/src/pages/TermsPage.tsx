@@ -63,6 +63,7 @@ export default function TermsPage() {
         breadcrumbs={[{ label: "Home", to: "/" }, { label: "Terms & Conditions" }]}
         visual={<SecurityShield />}
         visualPlacement="right"
+        backgroundImage="/assets/backgrounds/sovereign-conglomerate.jpg"
       />
       <SectionTransition divider={false} className="py-12 sm:py-16">
         <div className="container-x max-w-3xl">
