@@ -248,11 +248,6 @@ export function RilHeroSection() {
               duration: isPaused ? 0 : SLIDE_DURATION / 1000,
               ease: "linear",
             }}
-            onAnimationComplete={() => {
-              if (!isPaused) {
-                handleNext();
-              }
-            }}
             className="h-full bg-[#FFB000] shadow-[0_0_8px_rgba(255,176,0,0.6)]"
           />
         </div>
