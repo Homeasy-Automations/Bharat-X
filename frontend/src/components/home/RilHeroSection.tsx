@@ -156,7 +156,6 @@ export function RilHeroSection() {
         {/* Cinematic Vignette Overlays with light touch */}
         <div className="absolute inset-0 bg-gradient-to-t from-black/55 via-black/10 to-black/30 lg:via-black/10" />
         <div className="absolute inset-0 bg-gradient-to-r from-black/60 via-black/25 to-transparent max-w-4xl" />
-        <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-night-950/80 via-night-950/30 to-transparent" />
       </div>
 
       {/* ── HERO CONTENT (Dynamic 3-4 Word Tagline, Nothing Else) ─────── */}

@@ -54,19 +54,19 @@ const impactAreas: ImpactArea[] = [
     link: "/services#agriculture",
   },
   {
-    id: "manufacturing",
+    id: "people-innovation",
     number: "03",
-    sector: "Manufacturing",
-    title: "Strengthening Industrial Capability",
+    sector: "People & Innovation",
+    title: "Investing in Human Potential",
     description:
-      "Our manufacturing businesses contribute to India’s industrial ecosystem by developing products, engineering capabilities and domestic production capacity.",
-    entityName: "Casters Global + future manufacturing businesses",
-    logo: "/Casters_logo.png",
-    image: "/companies/casters-global/hero.jpg",
-    accent: "#00B8D9",
-    bgAccent: "bg-[#00B8D9]/15",
-    textAccent: "text-[#008299]",
-    link: "/services#manufacturing",
+      "Through BharatX Labs Foundation and the wider Group ecosystem, we aim to support education, entrepreneurship, innovation, skills and opportunity.",
+    entityName: "BharatX Labs Foundation",
+    logo: "/Bharatxlabs_logo.svg",
+    image: "/assets/backgrounds/impact-story.jpg",
+    accent: "#15966B",
+    bgAccent: "bg-[#15966B]/15",
+    textAccent: "text-[#15966B]",
+    link: "/services#foundation",
   },
   {
     id: "technology",
@@ -98,19 +98,19 @@ const impactAreas: ImpactArea[] = [
     link: "/services#sustainability",
   },
   {
-    id: "people-innovation",
+    id: "manufacturing",
     number: "06",
-    sector: "People & Innovation",
-    title: "Investing in Human Potential",
+    sector: "Manufacturing",
+    title: "Strengthening Industrial Capability",
     description:
-      "Through BharatX Labs Foundation and the wider Group ecosystem, we aim to support education, entrepreneurship, innovation, skills and opportunity.",
-    entityName: "BharatX Labs Foundation",
-    logo: "/Bharatxlabs_logo.svg",
-    image: "/assets/backgrounds/impact-story.jpg",
-    accent: "#15966B",
-    bgAccent: "bg-[#15966B]/15",
-    textAccent: "text-[#15966B]",
-    link: "/services#foundation",
+      "Our manufacturing businesses contribute to India’s industrial ecosystem by developing products, engineering capabilities and domestic production capacity.",
+    entityName: "Casters Global + future manufacturing businesses",
+    logo: "/Casters_logo.png",
+    image: "/companies/casters-global/hero.jpg",
+    accent: "#00B8D9",
+    bgAccent: "bg-[#00B8D9]/15",
+    textAccent: "text-[#008299]",
+    link: "/services#manufacturing",
   },
 ];
 
@@ -462,16 +462,18 @@ export default function ImpactPage() {
                         className="inline-flex items-center gap-1.5 font-sans text-xs font-bold uppercase tracking-wider text-[#3026B3] hover:text-[#211B72] transition-colors group/link fx-underline"
                       >
                         <span>Explore Vertical</span>
-                        <Icon
+                        {/* <Icon
                           name="arrow-up-right"
                           width={13}
                           height={13}
                           className="transition-transform group-hover/link:translate-x-0.5 group-hover/link:-translate-y-0.5"
-                        />
+                        /> */}
                       </Link>
 
                       <div className={`h-7 w-7 rounded-lg ${area.bgAccent} ${area.textAccent} flex items-center justify-center shrink-0 transition-transform duration-300 group-hover:scale-110 group-hover:rotate-6`}>
-                        <Icon name="arrow-right" width={13} height={13} />
+                        <Link to={area.link}>
+                          <Icon name="arrow-right" width={13} height={13} />
+                        </Link>
                       </div>
                     </div>
                   </div>
