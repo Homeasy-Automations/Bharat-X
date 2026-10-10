@@ -163,8 +163,8 @@ export default function HowWeBuildPage() {
               className="font-heading text-4xl sm:text-5xl lg:text-[length:clamp(2.5rem,3.9vw,3.5rem)] lg:whitespace-nowrap font-medium leading-[1.1] tracking-tight text-white drop-shadow-[0_2px_12px_rgba(0,0,0,0.45)] cursor-text"
               data-cursor="text"
             >
-              From Opportunity to{" "}
-              <span className="text-[#FFB000] hover:text-[#ffd166] transition-colors duration-300">Impact.</span>
+              Building Businesses.{" "}
+              <span className="text-[#FFB000] hover:text-[#ffd166] transition-colors duration-300">Creating Wider Value.</span>
             </motion.h1>
 
             {/* CTA */}
