@@ -235,7 +235,7 @@ export default function ContactPage() {
   return (
     <main className="w-full min-h-screen bg-[#FAF9F6] text-[#111827]">
       {/* ── 01. HERO (Contact BharatX — Let's Build What Comes Next.) ─────── */}
-      <SectionTransition divider={false} className="relative overflow-hidden min-h-[92vh] lg:min-h-screen w-full flex items-end justify-start pt-32 sm:pt-36 md:pt-40 pb-16 sm:pb-20 lg:pb-24 border-b border-[#E3E5EF]">
+      <section className="relative overflow-hidden min-h-[92vh] lg:min-h-screen w-full flex items-end justify-start pt-32 sm:pt-36 md:pt-40 pb-16 sm:pb-20 lg:pb-24 border-b border-[#E3E5EF]">
         {/* Full-bleed authentic panoramic visual */}
         <div className="absolute inset-0 z-0">
           <img
@@ -245,7 +245,7 @@ export default function ContactPage() {
           />
         </div>
 
-        <div className="container-x relative z-10 w-full">
+        <div className="container-x max-w-none! relative z-10 w-full">
           <div>
             {/* H1 Headline — single line from lg up */}
             <AnimatedHeading
@@ -296,7 +296,7 @@ export default function ContactPage() {
             </motion.div>
           </div>
         </div>
-      </SectionTransition>
+      </section>
 
       {/* ── 02. CONTACT OPTIONS (Clear Pathways for Visitors) ─────────────── */}
       <SectionTransition id="contact-options" divider className="relative overflow-hidden bg-white py-12 sm:py-16 border-b border-[#E3E5EF]">
