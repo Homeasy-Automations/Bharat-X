@@ -104,7 +104,7 @@ const impactAreas: ImpactArea[] = [
     title: "Strengthening Industrial Capability",
     description:
       "Our manufacturing businesses contribute to India’s industrial ecosystem by developing products, engineering capabilities and domestic production capacity.",
-    entityName: "Casters Global + future manufacturing businesses",
+    entityName: "Casters Global",
     logo: "/Casters_logo.png",
     image: "/companies/casters-global/hero.jpg",
     accent: "#00B8D9",
@@ -190,7 +190,7 @@ export default function ImpactPage() {
   return (
     <main className="w-full min-h-screen bg-[#FAF9F6] text-[#111827]">
       {/* ── 01. HERO (Building Businesses. Creating Wider Value.) ─────────── */}
-      <section className="relative overflow-hidden min-h-[92vh] lg:min-h-screen w-full flex items-center justify-start pt-32 sm:pt-36 md:pt-40 pb-20 sm:pb-28 border-b border-[#E3E5EF]">
+      <section className="relative overflow-hidden min-h-[92vh] lg:min-h-screen w-full flex items-end justify-start pt-32 sm:pt-36 md:pt-40 pb-16 sm:pb-20 lg:pb-24 border-b border-[#E3E5EF]">
         {/* Full-bleed authentic hero background image */}
         <div className="absolute inset-0 z-0 overflow-hidden">
           <img
@@ -199,44 +199,21 @@ export default function ImpactPage() {
             className="h-full w-full object-cover object-center filter brightness-[0.88] contrast-[1.10] transition-transform duration-1000 ease-out hover:scale-105"
             data-cursor="image"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/55 to-black/35" />
-          <div className="absolute inset-0 bg-gradient-to-r from-black/85 via-black/45 to-transparent" />
         </div>
 
         <div className="container-x relative z-10 w-full">
-          <div className="max-w-4xl mt-8 sm:mt-12 md:mt-24">
-            {/* Eyebrow */}
-            <motion.div
-              initial={{ opacity: 0, y: 12 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5 }}
-              className="inline-flex items-center gap-2 rounded-full border border-white/25 bg-black/45 backdrop-blur-md px-4 py-1 font-sans text-[11px] uppercase tracking-[0.28em] text-[#FFB000] mb-5 shadow-sm group hover:border-[#FFB000]/60 transition-colors"
-            >
-              <span className="h-2 w-2 rounded-full bg-[#FFB000] shadow-[0_0_8px_#FFB000] group-hover:scale-125 transition-transform" />
-              <span>OUR IMPACT</span>
-            </motion.div>
-
-            {/* H1 Headline */}
+          <div>
+            {/* H1 Headline — single line from lg up */}
             <motion.h1
               initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.1 }}
-              className="font-heading text-4xl sm:text-5xl md:text-6xl lg:text-[4.2rem] font-medium leading-[1.1] tracking-tight text-white drop-shadow-sm cursor-text"
+              className="font-heading text-4xl sm:text-5xl lg:text-[length:clamp(2.5rem,3.9vw,3.5rem)] lg:whitespace-nowrap font-medium leading-[1.1] tracking-tight text-white drop-shadow-[0_2px_12px_rgba(0,0,0,0.45)] cursor-text"
               data-cursor="text"
             >
               Building Businesses.{" "}
               <span className="text-[#FFB000] hover:text-[#ffd166] transition-colors duration-300">Creating Wider Value.</span>
             </motion.h1>
-
-            {/* Body */}
-            <motion.p
-              initial={{ opacity: 0, y: 16 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-              className="mt-6 text-base sm:text-lg md:text-xl text-slate-200 leading-relaxed font-normal max-w-3xl drop-shadow-xs"
-            >
-              At BharatX, growth is measured not only by the businesses we build, but by the opportunities, capabilities and positive change those businesses create.
-            </motion.p>
 
             {/* CTA */}
             <motion.div
@@ -404,77 +381,71 @@ export default function ImpactPage() {
           </div>
 
           {/* 6 Large Visual Cards Grid */}
-          <Stagger staggerDelay={0.08} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-7">
+          <Stagger staggerDelay={0.08} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 auto-rows-fr items-stretch">
             {impactAreas.map((area) => (
-              <StaggerItem key={area.id}>
+              <StaggerItem key={area.id} className="h-full">
                 <div
                   data-cursor="card"
-                  className="group flex flex-col justify-between overflow-hidden rounded-3xl border border-[#E3E5EF] bg-white shadow-sm transition-all duration-300 hover:border-[#3026B3] hover:shadow-2xl fx-lift h-full"
+                  className="group flex flex-col h-full overflow-hidden rounded-2xl border border-[#E3E5EF] bg-white shadow-sm transition-all duration-300 hover:border-[#3026B3] hover:shadow-xl fx-lift"
                 >
-                  <div>
-                    {/* Image Container with Visual Depth */}
-                    <div className="relative h-56 w-full overflow-hidden bg-slate-900" data-cursor="image">
-                      <img
-                        src={area.image}
-                        alt={area.title}
-                        className="h-full w-full object-cover object-center filter brightness-[0.92] contrast-[1.05] transition-transform duration-700 ease-out group-hover:scale-110"
-                        loading="lazy"
-                      />
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/25 to-transparent" />
+                  {/* Image Container with Visual Depth */}
+                  <div className="relative h-44 sm:h-48 w-full overflow-hidden bg-slate-900 shrink-0" data-cursor="image">
+                    <img
+                      src={area.image}
+                      alt={area.title}
+                      className="h-full w-full object-cover object-center filter brightness-[0.92] contrast-[1.05] transition-transform duration-700 ease-out group-hover:scale-110"
+                      loading="lazy"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/25 to-transparent" />
 
-                      {/* Sector Tag & Number */}
-                      <div className="absolute top-4 left-4 right-4 flex items-center justify-between">
-                        <span className="inline-flex items-center gap-1.5 rounded-full bg-black/60 backdrop-blur-md px-3.5 py-1 font-sans text-[10.5px] uppercase tracking-wider text-[#FFB000] border border-white/20">
-                          {area.number} · {area.sector}
-                        </span>
-                      </div>
-
-                      {/* Logo Overlay if present */}
-                      {area.logo && (
-                        <div className="absolute bottom-3 left-4 h-8 w-auto max-w-[120px] rounded-lg bg-white/95 backdrop-blur-sm p-1.5 shadow-md flex items-center justify-center transition-transform group-hover:scale-105">
-                          <img src={area.logo} alt="" className="max-h-full max-w-full object-contain" />
-                        </div>
-                      )}
+                    {/* Sector Tag & Number */}
+                    <div className="absolute top-3.5 left-3.5 right-3.5 flex items-center justify-between">
+                      <span className="inline-flex items-center gap-1.5 rounded-full bg-black/60 backdrop-blur-md px-3 py-1 font-sans text-[10px] uppercase tracking-wider text-[#FFB000] border border-white/20">
+                        {area.number} · {area.sector}
+                      </span>
                     </div>
 
-                    {/* Card Body */}
-                    <div className="p-6 sm:p-7">
-                      <span className="font-sans text-[10px] uppercase tracking-[0.22em] font-bold block mb-1" style={{ color: area.accent }}>
+                    {/* Logo Overlay if present */}
+                    {area.logo && (
+                      <div className="absolute bottom-3 left-3.5 h-7 w-auto max-w-[110px] rounded-md bg-white/95 backdrop-blur-sm px-2 py-1 shadow-md flex items-center justify-center transition-transform group-hover:scale-105">
+                        <img src={area.logo} alt="" className="max-h-full max-w-full object-contain" />
+                      </div>
+                    )}
+                  </div>
+
+                  {/* Card Body & Footer */}
+                  <div className="flex flex-1 flex-col justify-between p-5 sm:p-6">
+                    <div className="flex-1 flex flex-col">
+                      <span className="font-sans text-[10px] uppercase tracking-[0.22em] font-bold block mb-1 truncate" style={{ color: area.accent }}>
                         {area.entityName}
                       </span>
 
-                      <h3 className="font-heading text-2xl font-medium text-[#111827] group-hover:text-[#3026B3] transition-colors leading-snug duration-300">
+                      <h3 className="font-heading text-xl sm:text-2xl font-medium text-[#111827] group-hover:text-[#3026B3] transition-colors leading-snug duration-300 min-h-[3.25rem] sm:min-h-[3.75rem] flex items-start">
                         {area.title}
                       </h3>
 
-                      <p className="mt-3.5 text-xs sm:text-sm text-[#596579] leading-relaxed font-normal">
+                      <p className="mt-2.5 text-xs sm:text-[13.5px] text-[#596579] leading-relaxed font-normal min-h-[3.5rem] sm:min-h-[4rem]">
                         {area.description}
                       </p>
                     </div>
-                  </div>
 
-                  {/* Footer Link */}
-                  <div className="p-6 sm:p-7 pt-0">
-                    <div className="pt-4 border-t border-[#E3E5EF] flex items-center justify-between">
+                    {/* Footer Link */}
+                    <div className="mt-4 pt-3.5 border-t border-[#E3E5EF] flex items-center justify-between">
                       <Link
                         to={area.link}
                         data-cursor="link"
                         className="inline-flex items-center gap-1.5 font-sans text-xs font-bold uppercase tracking-wider text-[#3026B3] hover:text-[#211B72] transition-colors group/link fx-underline"
                       >
                         <span>Explore Vertical</span>
-                        {/* <Icon
-                          name="arrow-up-right"
-                          width={13}
-                          height={13}
-                          className="transition-transform group-hover/link:translate-x-0.5 group-hover/link:-translate-y-0.5"
-                        /> */}
                       </Link>
 
-                      <div className={`h-7 w-7 rounded-lg ${area.bgAccent} ${area.textAccent} flex items-center justify-center shrink-0 transition-transform duration-300 group-hover:scale-110 group-hover:rotate-6`}>
-                        <Link to={area.link}>
-                          <Icon name="arrow-right" width={13} height={13} />
-                        </Link>
-                      </div>
+                      <Link
+                        to={area.link}
+                        aria-label={`Explore ${area.sector}`}
+                        className={`h-7 w-7 rounded-lg ${area.bgAccent} ${area.textAccent} flex items-center justify-center shrink-0 transition-transform duration-300 group-hover:scale-110 group-hover:rotate-6`}
+                      >
+                        <Icon name="arrow-right" width={13} height={13} />
+                      </Link>
                     </div>
                   </div>
                 </div>

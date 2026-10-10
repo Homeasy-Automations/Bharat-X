@@ -177,53 +177,30 @@ export default function ServicesPage() {
   return (
     <main className="w-full min-h-screen bg-[#FAF9F6] text-[#111827]">
       {/* ── 01. HERO (Our Businesses — Building Across India's Growth Economy) ── */}
-      <section className="relative overflow-hidden min-h-[90vh] lg:min-h-screen w-full flex items-center justify-start pt-32 sm:pt-36 md:pt-40 pb-20 sm:pb-28 border-b border-[#E3E5EF]">
+      <section className="relative overflow-hidden min-h-[90vh] lg:min-h-screen w-full flex items-end justify-start pt-32 sm:pt-36 md:pt-40 pb-16 sm:pb-20 lg:pb-24 border-b border-[#E3E5EF]">
         {/* Full-bleed background panorama */}
         <div className="absolute inset-0 z-0 overflow-hidden">
           <img
-            src="/assets/backgrounds/conglomerate-panorama.jpg"
+            src="/assets/backgrounds/business_hero.png"
             alt="India's Growth Economy and Industrial Transformation"
             className="h-full w-full object-cover object-center filter brightness-[0.88] contrast-[1.12] transition-transform duration-1000 ease-out hover:scale-105"
             data-cursor="image"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/55 to-black/35" />
-          <div className="absolute inset-0 bg-gradient-to-r from-black/85 via-black/45 to-transparent" />
         </div>
 
         <div className="container-x relative z-10 w-full">
-          <div className="max-w-4xl mt-8 sm:mt-12 md:mt-20">
-            {/* Eyebrow */}
-            <motion.div
-              initial={{ opacity: 0, y: 12 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5 }}
-              className="inline-flex items-center gap-2 rounded-full border border-white/25 bg-black/45 backdrop-blur-md px-4 py-1 font-sans text-[11px] uppercase tracking-[0.28em] text-[#FFB000] mb-5 shadow-sm group hover:border-[#FFB000]/60 transition-colors"
-            >
-              <span className="h-2 w-2 rounded-full bg-[#FFB000] shadow-[0_0_8px_#FFB000] group-hover:scale-125 transition-transform" />
-              <span>OUR BUSINESSES</span>
-            </motion.div>
-
-            {/* H1 Headline */}
+          <div>
+            {/* H1 Headline — single line from lg up */}
             <motion.h1
               initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.1 }}
-              className="font-heading text-4xl sm:text-5xl md:text-6xl lg:text-[4.2rem] font-medium leading-[1.1] tracking-tight text-white drop-shadow-sm cursor-text"
+              className="font-heading text-4xl sm:text-5xl lg:text-[length:clamp(2.5rem,3.9vw,3.5rem)] lg:whitespace-nowrap font-medium leading-[1.1] tracking-tight text-white drop-shadow-[0_2px_12px_rgba(0,0,0,0.45)] cursor-text"
               data-cursor="text"
             >
               Building Across India’s{" "}
               <span className="text-[#FFB000] hover:text-[#ffd166] transition-colors duration-300">Growth Economy.</span>
             </motion.h1>
-
-            {/* Body */}
-            <motion.p
-              initial={{ opacity: 0, y: 16 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-              className="mt-6 text-base sm:text-lg md:text-xl text-slate-200 leading-relaxed font-normal max-w-3xl drop-shadow-xs"
-            >
-              BharatX Group builds and operates businesses across infrastructure, agriculture, manufacturing, technology, packaging and sustainability — supported by capital, venture building and social impact initiatives.
-            </motion.p>
 
             {/* CTA */}
             <motion.div

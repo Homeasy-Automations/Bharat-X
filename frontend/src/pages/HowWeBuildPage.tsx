@@ -142,81 +142,58 @@ export default function HowWeBuildPage() {
   return (
     <main className="w-full min-h-screen bg-[#FAF9F6] text-[#111827]">
       {/* ── 01. HERO (From Opportunity to Impact) ─────────────────────────── */}
-      <section className="relative overflow-hidden min-h-[92vh] lg:min-h-screen w-full flex items-center justify-start pt-32 sm:pt-36 md:pt-40 pb-20 sm:pb-28 border-b border-[#E3E5EF]">
+      <section className="relative overflow-hidden min-h-[92vh] lg:min-h-screen w-full flex items-end justify-start pt-32 sm:pt-36 md:pt-40 pb-16 sm:pb-20 lg:pb-24 border-b border-[#E3E5EF]">
         {/* Abstract/Industrial Progression Background Image: Blueprint -> Factory -> Tech -> People */}
         <div className="absolute inset-0 z-0 overflow-hidden">
           <img
-            src="/assets/backgrounds/how-we-build-hero.jpg"
+            src="/assets/backgrounds/how-we-build-hero.png"
             alt="From Blueprint and Infrastructure to Technology and People"
             className="h-full w-full object-cover object-center filter brightness-[0.85] contrast-[1.12] transition-transform duration-1000 ease-out hover:scale-105"
             data-cursor="image"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/92 via-black/55 to-black/35" />
-          <div className="absolute inset-0 bg-gradient-to-r from-black/88 via-black/45 to-transparent" />
         </div>
 
         <div className="container-x relative z-10 w-full">
-          <div className="max-w-4xl mt-8 sm:mt-12 md:mt-24">
-            {/* Eyebrow */}
-            <motion.div
-              initial={{ opacity: 0, y: 12 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5 }}
-              className="inline-flex items-center gap-2 rounded-full border border-white/25 bg-black/45 backdrop-blur-md px-4 py-1 font-sans text-[11px] uppercase tracking-[0.28em] text-[#FFB000] mb-5 shadow-sm group hover:border-[#FFB000]/60 transition-colors"
-            >
-              <span className="h-2 w-2 rounded-full bg-[#FFB000] shadow-[0_0_8px_#FFB000] group-hover:scale-125 transition-transform" />
-              <span>HOW WE BUILD</span>
-            </motion.div>
-
-            {/* H1 Headline */}
+          <div>
+            {/* H1 Headline — single line from lg up */}
             <motion.h1
               initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.1 }}
-              className="font-heading text-4xl sm:text-5xl md:text-6xl lg:text-[4.2rem] font-medium leading-[1.1] tracking-tight text-white drop-shadow-sm cursor-text"
+              className="font-heading text-4xl sm:text-5xl lg:text-[length:clamp(2.5rem,3.9vw,3.5rem)] lg:whitespace-nowrap font-medium leading-[1.1] tracking-tight text-white drop-shadow-[0_2px_12px_rgba(0,0,0,0.45)] cursor-text"
               data-cursor="text"
             >
               From Opportunity to{" "}
               <span className="text-[#FFB000] hover:text-[#ffd166] transition-colors duration-300">Impact.</span>
             </motion.h1>
 
-            {/* Body */}
-            <motion.p
-              initial={{ opacity: 0, y: 16 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-              className="mt-6 text-base sm:text-lg md:text-xl text-slate-200 leading-relaxed font-normal max-w-3xl drop-shadow-xs"
-            >
-              We identify opportunities, build businesses, bring together capital and technology, and scale them with disciplined execution.
-            </motion.p>
-
-            {/* Sub-tagline Badges */}
+            {/* CTA */}
             <motion.div
               initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.3 }}
-              className="mt-8 flex flex-wrap items-center gap-3"
+              className="mt-8 flex flex-wrap items-center gap-4"
             >
-              <div className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 backdrop-blur-md px-5 py-2 font-sans text-xs uppercase tracking-[0.22em] text-[#FFB000] font-bold shadow-sm">
-                <span>Build.</span>
-                <span className="text-white/40">•</span>
-                <span>Scale.</span>
-                <span className="text-white/40">•</span>
-                <span>Impact.</span>
-              </div>
-
-              <Link
-                to="#build-cycle"
-                onClick={(e) => {
-                  e.preventDefault();
-                  document.getElementById("build-cycle")?.scrollIntoView({ behavior: "smooth" });
-                }}
-                data-cursor="button"
-                className="inline-flex items-center gap-2 rounded-full border border-white/25 bg-black/40 hover:bg-white/20 px-5 py-2 text-xs font-semibold text-white transition-all backdrop-blur-sm fx-lift"
-              >
-                <span>Explore The Process</span>
-                <Icon name="arrow-right" width={14} height={14} className="rotate-90" />
-              </Link>
+              <MagneticButton strength={0.25}>
+                <Link
+                  to="#build-cycle"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    document.getElementById("build-cycle")?.scrollIntoView({ behavior: "smooth" });
+                  }}
+                  data-cursor="button"
+                  data-motion="true"
+                  className="group inline-flex items-center justify-center gap-2.5 rounded-full bg-[#FFB000] hover:bg-[#e09800] text-[#111827] px-8 py-4 text-[15px] font-bold shadow-xl shadow-black/25 transition-all duration-300 fx-shine active:scale-95"
+                >
+                  <span>Explore The Process</span>
+                  <Icon
+                    name="arrow-right"
+                    width={16}
+                    height={16}
+                    className="rotate-90 transition-transform duration-300 group-hover:translate-y-1"
+                  />
+                </Link>
+              </MagneticButton>
             </motion.div>
           </div>
         </div>

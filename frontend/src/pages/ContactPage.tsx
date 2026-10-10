@@ -235,7 +235,7 @@ export default function ContactPage() {
   return (
     <main className="w-full min-h-screen bg-[#FAF9F6] text-[#111827]">
       {/* ── 01. HERO (Contact BharatX — Let's Build What Comes Next.) ─────── */}
-      <SectionTransition divider={false} className="relative overflow-hidden min-h-[92vh] lg:min-h-screen w-full flex items-center justify-start pt-32 sm:pt-36 md:pt-40 pb-20 sm:pb-28 border-b border-[#E3E5EF]">
+      <SectionTransition divider={false} className="relative overflow-hidden min-h-[92vh] lg:min-h-screen w-full flex items-end justify-start pt-32 sm:pt-36 md:pt-40 pb-16 sm:pb-20 lg:pb-24 border-b border-[#E3E5EF]">
         {/* Full-bleed authentic panoramic visual */}
         <div className="absolute inset-0 z-0">
           <img
@@ -243,42 +243,19 @@ export default function ContactPage() {
             alt="BharatX Leadership, Infrastructure, and City Skyline"
             className="h-full w-full object-cover object-center filter brightness-[0.88] contrast-[1.10] fx-zoom-img transition-transform duration-1000"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/92 via-black/55 to-black/35" />
-          <div className="absolute inset-0 bg-gradient-to-r from-black/88 via-black/45 to-transparent" />
         </div>
 
         <div className="container-x relative z-10 w-full">
-          <div className="max-w-4xl mt-8 sm:mt-12 md:mt-24">
-            {/* Eyebrow */}
-            <motion.div
-              initial={{ opacity: 0, y: 12 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5 }}
-              className="inline-flex items-center gap-2 rounded-full border border-white/25 bg-black/45 backdrop-blur-md px-4 py-1 font-sans text-[11px] uppercase tracking-[0.28em] text-[#FFB000] mb-5 shadow-sm"
-            >
-              <span className="h-2 w-2 rounded-full bg-[#FFB000] shadow-[0_0_8px_#FFB000]" />
-              <span>CONTACT BHARATX</span>
-            </motion.div>
-
-            {/* H1 Headline */}
+          <div>
+            {/* H1 Headline — single line from lg up */}
             <AnimatedHeading
               as="h1"
               effect="words"
               hover="gradient"
-              className="font-heading text-4xl sm:text-5xl md:text-6xl lg:text-[4.2rem] font-medium leading-[1.1] tracking-tight text-white drop-shadow-sm"
+              className="font-heading text-4xl sm:text-5xl lg:text-[length:clamp(2.5rem,3.9vw,3.5rem)] lg:whitespace-nowrap font-medium leading-[1.1] tracking-tight text-white drop-shadow-[0_2px_12px_rgba(0,0,0,0.45)]"
             >
               Let’s Build What <span className="text-[#FFB000]">Comes Next.</span>
             </AnimatedHeading>
-
-            {/* Body */}
-            <motion.p
-              initial={{ opacity: 0, y: 16 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-              className="mt-6 text-base sm:text-lg md:text-xl text-slate-200 leading-relaxed font-normal max-w-3xl drop-shadow-xs"
-            >
-              Whether you’re looking to partner, invest, build a business, explore an opportunity or work with BharatX, we’d like to hear from you.
-            </motion.p>
 
             {/* CTA */}
             <motion.div
