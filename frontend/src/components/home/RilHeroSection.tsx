@@ -159,7 +159,7 @@ export function RilHeroSection() {
       </div>
 
       {/* ── HERO CONTENT (Dynamic 3-4 Word Tagline, Nothing Else) ─────── */}
-      <div className="container-x relative z-10 w-full pt-48 pb-12 sm:pt-50 sm:pb-16 lg:pt-60 lg:pb-20 translate-y-12 sm:translate-y-18 lg:translate-y-24 xl:translate-y-28">
+      <div className="container-x max-w-none! relative z-10 w-full pt-48 pb-12 sm:pt-50 sm:pb-16 lg:pt-60 lg:pb-20 translate-y-12 sm:translate-y-18 lg:translate-y-24 xl:translate-y-28">
         <div className="max-w-6xl xl:max-w-7xl">
           {/* Subtle Conglomerate Eyebrow 
           <motion.div

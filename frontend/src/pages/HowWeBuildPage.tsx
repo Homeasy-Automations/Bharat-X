@@ -153,7 +153,7 @@ export default function HowWeBuildPage() {
           />
         </div>
 
-        <div className="container-x relative z-10 w-full">
+        <div className="container-x max-w-none! relative z-10 w-full">
           <div>
             {/* H1 Headline — single line from lg up */}
             <motion.h1
