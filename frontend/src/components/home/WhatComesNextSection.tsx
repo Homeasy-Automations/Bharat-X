@@ -72,16 +72,16 @@ export function WhatComesNextSection() {
           </div>
 
           {/* Exactly 3 High-Contrast Cards */}
-          <Stagger className="mt-14 sm:mt-16 grid grid-cols-1 md:grid-cols-3 gap-6">
+          <Stagger className="mt-14 sm:mt-16 grid grid-cols-1 md:grid-cols-3 gap-6 items-stretch">
             {upcomingCards.map((card) => (
-              <StaggerItem key={card.title}>
+              <StaggerItem key={card.title} className="h-full">
                 <div
                   data-cursor="card"
                   tabIndex={0}
-                  className="group relative flex flex-col overflow-hidden rounded-2xl border border-[#E3E5EF] bg-[#FAF9F6] shadow-sm transition-all duration-300 hover:bg-white hover:shadow-xl hover:-translate-y-1 fx-shine fx-rotate-card focus-visible:ring-2 focus-visible:ring-[#3026B3] focus:outline-none"
+                  className="group relative flex flex-col h-full overflow-hidden rounded-2xl border border-[#E3E5EF] bg-[#FAF9F6] shadow-sm transition-all duration-300 hover:bg-white hover:shadow-xl hover:-translate-y-1 fx-shine fx-rotate-card focus-visible:ring-2 focus-visible:ring-[#3026B3] focus:outline-none"
                 >
                   {/* Image banner */}
-                  <div className="relative h-48 sm:h-52 w-full overflow-hidden">
+                  <div className="relative h-48 sm:h-52 w-full overflow-hidden shrink-0">
                     <img
                       src={card.image}
                       alt={card.title}
@@ -98,25 +98,13 @@ export function WhatComesNextSection() {
                   </div>
 
                   {/* Text content */}
-                  <div className="flex flex-1 flex-col justify-between p-6 sm:p-7">
-                    <div>
-                      <h3 className="font-heading text-2xl font-medium tracking-tight text-[#111827] group-hover:text-[#3026B3] transition-colors duration-300">
-                        {card.title}
-                      </h3>
-                      <p className="mt-3 text-sm text-[#596579] leading-relaxed font-normal">
-                        {card.description}
-                      </p>
-                    </div>
-
-                    <div className="mt-6 pt-4 border-t border-[#E3E5EF] flex items-center justify-between text-xs font-sans uppercase tracking-wider text-[#596579] group-hover:text-[#3026B3] transition-colors duration-300 fx-arrow">
-                      <span className="font-semibold">Horizon 2027+</span>
-                      <Icon
-                        name="arrow-right"
-                        width={15}
-                        height={15}
-                        className="transition-transform duration-300 group-hover:translate-x-1"
-                      />
-                    </div>
+                  <div className="flex flex-1 flex-col p-6 sm:p-7">
+                    <h3 className="font-heading text-2xl font-medium tracking-tight text-[#111827] group-hover:text-[#3026B3] transition-colors duration-300">
+                      {card.title}
+                    </h3>
+                    <p className="mt-3 text-sm text-[#596579] leading-relaxed font-normal">
+                      {card.description}
+                    </p>
                   </div>
                 </div>
               </StaggerItem>
