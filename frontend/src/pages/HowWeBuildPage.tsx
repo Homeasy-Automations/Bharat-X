@@ -148,7 +148,7 @@ export default function HowWeBuildPage() {
           <img
             src="/assets/backgrounds/how-we-build-hero.png"
             alt="From Blueprint and Infrastructure to Technology and People"
-            className="h-full w-full object-cover object-center filter brightness-[0.85] contrast-[1.12] transition-transform duration-1000 ease-out hover:scale-105"
+            className="h-full w-full object-cover object-center filter brightness-[0.85] contrast-[1.12] animate-hero-zoom"
             data-cursor="image"
           />
         </div>

@@ -650,11 +650,25 @@ a, button, [role="button"], input, select, textarea {
   animation: skeleton-sheen 1.6s linear infinite;
 }
 
+/* Hero background: slow one-time settle-in on page load */
+@keyframes hero-zoom {
+  from {
+    transform: scale(1.08);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+.animate-hero-zoom {
+  animation: hero-zoom 6s ease-out both;
+}
+
 /* ── Reduced motion: kill ambient loops ─────────────────────── */
 @media (prefers-reduced-motion: reduce) {
   .marquee-track,
   .animate-float,
   .animate-scroll-hint,
+  .animate-hero-zoom,
   .skeleton,
   .preloader-stroke,
   .preloader-letter {

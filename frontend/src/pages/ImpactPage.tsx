@@ -196,7 +196,7 @@ export default function ImpactPage() {
           <img
             src="/assets/backgrounds/impact_hero.png"
             alt="BharatX Infrastructure, Agriculture, Industry and People"
-            className="h-full w-full object-cover object-center filter brightness-[0.88] contrast-[1.10] transition-transform duration-1000 ease-out hover:scale-105"
+            className="h-full w-full object-cover object-center filter brightness-[0.88] contrast-[1.10] animate-hero-zoom"
             data-cursor="image"
           />
         </div>

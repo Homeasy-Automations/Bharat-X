@@ -183,7 +183,7 @@ export default function ServicesPage() {
           <img
             src="/assets/backgrounds/business_hero.png"
             alt="India's Growth Economy and Industrial Transformation"
-            className="h-full w-full object-cover object-center filter brightness-[0.88] contrast-[1.12] transition-transform duration-1000 ease-out hover:scale-105"
+            className="h-full w-full object-cover object-center filter brightness-[0.88] contrast-[1.12] animate-hero-zoom"
             data-cursor="image"
           />
         </div>
