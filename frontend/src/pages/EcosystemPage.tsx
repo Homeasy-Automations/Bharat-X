@@ -72,8 +72,8 @@ export default function EcosystemPage() {
                 accent={companies.find((c) => c.id === active.id)?.accentColor}
               />
               <div>
-                <div className="font-display text-xl font-semibold text-ink-50">{active.name}</div>
-                <div className="font-mono text-[10.5px] uppercase tracking-[0.18em] text-ink-500">
+                <div className="font-heading text-xl font-semibold text-ink-50">{active.name}</div>
+                <div className="font-sans text-[10.5px] uppercase tracking-[0.18em] text-ink-500">
                   {active.category} · {active.url.replace("https://", "")}
                 </div>
               </div>
@@ -135,7 +135,7 @@ export default function EcosystemPage() {
               <StaggerItem key={c.t}>
                 <div data-cursor="card" className="h-full rounded-2xl border border-slate-200/90 bg-white/85 p-7 shadow-xs dark:border-white/8 dark:bg-night-900/70 dark:shadow-none fx-lift transition-all hover:border-slate-300 dark:hover:border-white/20">
                   <IconBadge icon={c.icon} />
-                  <AnimatedHeading as="h3" effect="blur" hover="shift" className="mt-5 font-display text-lg font-semibold text-ink-50">
+                  <AnimatedHeading as="h3" effect="blur" hover="shift" className="mt-5 font-heading text-lg font-semibold text-ink-50">
                     {c.t}
                   </AnimatedHeading>
                   <p className="mt-2.5 text-[14px] leading-relaxed text-ink-400">{c.d}</p>
@@ -170,16 +170,16 @@ export default function EcosystemPage() {
                       </span>
                     ) : (
                       <span
-                        className="flex h-12 w-12 shrink-0 items-center justify-center font-mono text-[13px] font-semibold text-ink-300"
+                        className="flex h-12 w-12 shrink-0 items-center justify-center font-sans text-[13px] font-semibold text-ink-300"
                       >
                         {c.monogram}
                       </span>
                     )}
                     <span className="min-w-0">
-                      <span className="block truncate font-display text-[15.5px] font-semibold text-ink-50">
+                      <span className="block truncate font-sans text-[15.5px] font-semibold text-ink-50">
                         {c.name}
                       </span>
-                      <span className="block truncate font-mono text-[10px] uppercase tracking-[0.14em] text-ink-500">
+                      <span className="block truncate font-sans text-[10px] uppercase tracking-[0.14em] text-ink-500">
                         {c.category}
                       </span>
                     </span>
@@ -205,7 +205,7 @@ export default function EcosystemPage() {
       <SectionTransition divider={false} className="noise relative overflow-hidden border-t border-slate-200/80 bg-white/50 backdrop-blur-sm py-12 sm:py-16 dark:border-white/5 dark:bg-night-950/60">
         <div aria-hidden className="grid-bg grid-bg-fade absolute inset-0 opacity-40" />
         <div className="container-x relative text-center">
-          <h2 className="mx-auto max-w-3xl font-display text-3xl font-semibold leading-[1.15] tracking-tight text-ink-50 md:text-5xl">
+          <h2 className="mx-auto max-w-3xl font-heading text-3xl font-semibold leading-[1.15] tracking-tight text-ink-50 md:text-5xl">
             <MaskReveal>Independent websites are a list.</MaskReveal>
             <MaskReveal delay={0.12}>
               <span className="text-gold-400">A connected ecosystem is a promise.</span>

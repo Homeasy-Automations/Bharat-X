@@ -40,7 +40,7 @@ export function EcosystemSwitcher({
           >
             <span
               className={cn(
-                "font-mono text-[11px] tabular-nums transition-colors duration-300",
+                "font-sans text-[11px] tabular-nums transition-colors duration-300",
                 active ? "text-gold-400" : "text-ink-600 group-hover:text-ink-400",
               )}
             >
@@ -57,7 +57,7 @@ export function EcosystemSwitcher({
               </span>
               <span
                 className={cn(
-                  "block whitespace-nowrap font-mono text-[9.5px] uppercase tracking-[0.14em] transition-colors duration-300",
+                  "block whitespace-nowrap font-sans text-[9.5px] uppercase tracking-[0.14em] transition-colors duration-300",
                   active ? "text-gold-400/80" : "text-ink-600",
                 )}
               >

@@ -77,11 +77,11 @@ export function InstitutionalNewsroom() {
           {/* Header */}
           <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-6 mb-7 sm:mb-10">
             <div>
-              <div className="flex items-center gap-2 font-mono text-[11px] uppercase tracking-[0.28em] text-[#3026B3] dark:text-[#FFB000] mb-2">
+              <div className="flex items-center gap-2 font-sans text-[11px] uppercase tracking-[0.28em] text-[#3026B3] dark:text-[#FFB000] mb-2">
                 <span className="text-[#FFB000] animate-pulse">◆</span>
                 <span>CORPORATE DISCLOSURES</span>
               </div>
-              <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-normal text-[#111827] dark:text-white hover:text-[#3026B3] dark:hover:text-[#FFB000] transition-colors duration-300">
+              <h2 className="font-heading text-3xl sm:text-4xl lg:text-5xl font-medium text-[#111827] dark:text-white hover:text-[#3026B3] dark:hover:text-[#FFB000] transition-colors duration-300">
                 Announcements &amp; News
               </h2>
             </div>
@@ -89,7 +89,7 @@ export function InstitutionalNewsroom() {
             <Link
               to="/contact"
               data-cursor="link"
-              className="group inline-flex items-center gap-2 font-mono text-[11px] uppercase tracking-[0.2em] text-[#3026B3] hover:text-[#211B72] dark:text-gold-400 dark:hover:text-gold-300 transition-colors"
+              className="group inline-flex items-center gap-2 font-sans text-[11px] uppercase tracking-[0.2em] text-[#3026B3] hover:text-[#211B72] dark:text-gold-400 dark:hover:text-gold-300 transition-colors"
             >
               <span>Media Relations Desk</span>
               <Icon
@@ -111,7 +111,7 @@ export function InstitutionalNewsroom() {
               <div className="grid grid-cols-1 lg:grid-cols-12 items-stretch">
                 <div className="lg:col-span-7 p-6 sm:p-10 lg:p-12 flex flex-col justify-between">
                   <div>
-                    <div className="flex items-center gap-3 font-mono text-[10.5px] uppercase tracking-wider text-[#596579] mb-4">
+                    <div className="flex items-center gap-3 font-sans text-[10.5px] uppercase tracking-wider text-[#596579] mb-4">
                       <span className="text-[#3026B3] dark:text-gold-400 font-semibold">{lead.category}</span>
                       <span>·</span>
                       <span>{lead.publisher}</span>
@@ -119,11 +119,11 @@ export function InstitutionalNewsroom() {
                       <span>{lead.date}</span>
                     </div>
 
-                    <h3 className="font-serif text-2xl sm:text-3xl lg:text-4xl font-normal text-[#111827] dark:text-white leading-tight group-hover:text-[#3026B3] dark:group-hover:text-[#FFB000] transition-colors duration-300">
+                    <h3 className="font-heading text-2xl sm:text-3xl lg:text-4xl font-medium text-[#111827] dark:text-white leading-tight group-hover:text-[#3026B3] dark:group-hover:text-[#FFB000] transition-colors duration-300">
                       {lead.title}
                     </h3>
 
-                    <p className="mt-4 text-sm sm:text-base text-[#596579] dark:text-slate-300 leading-relaxed font-body">
+                    <p className="mt-4 text-sm sm:text-base text-[#596579] dark:text-slate-300 leading-relaxed font-sans">
                       {lead.excerpt}
                     </p>
                   </div>
@@ -172,17 +172,17 @@ export function InstitutionalNewsroom() {
                         className="h-full w-full object-cover object-top filter brightness-[0.95] transition-transform duration-500 group-hover:scale-108"
                         loading="lazy"
                       />
-                      <span className="absolute top-3 left-3 rounded-full bg-white/95 backdrop-blur-md px-2.5 py-0.5 font-mono text-[9px] uppercase tracking-wider text-[#3026B3] border border-[#E3E5EF] font-semibold dark:bg-black/60 dark:text-gold-400 dark:border-white/10">
+                      <span className="absolute top-3 left-3 rounded-full bg-white/95 backdrop-blur-md px-2.5 py-0.5 font-sans text-[9px] uppercase tracking-wider text-[#3026B3] border border-[#E3E5EF] font-semibold dark:bg-black/60 dark:text-gold-400 dark:border-white/10">
                         {item.category}
                       </span>
                     </div>
 
-                    <h4 className="font-serif text-lg font-normal text-[#111827] group-hover:text-[#3026B3] dark:text-white dark:group-hover:text-gold-300 transition-colors line-clamp-3 leading-snug">
+                    <h4 className="font-heading text-lg font-medium text-[#111827] group-hover:text-[#3026B3] dark:text-white dark:group-hover:text-gold-300 transition-colors line-clamp-3 leading-snug">
                       {item.title}
                     </h4>
                   </div>
 
-                  <div className="mt-5 flex items-center justify-between border-t border-[#E3E5EF] pt-4 font-mono text-[10px] text-[#596579] dark:border-white/10 dark:text-slate-400">
+                  <div className="mt-5 flex items-center justify-between border-t border-[#E3E5EF] pt-4 font-sans text-[10px] text-[#596579] dark:border-white/10 dark:text-slate-400">
                     <span>{item.date}</span>
                     <span className="text-[#3026B3] dark:text-gold-400 font-semibold group-hover:translate-x-1.5 transition-transform inline-flex items-center gap-1">
                       Details →

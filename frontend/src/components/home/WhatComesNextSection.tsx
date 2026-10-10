@@ -43,7 +43,7 @@ export function WhatComesNextSection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5 }}
-              className="inline-flex items-center gap-2 rounded-full border border-[#FFB000]/40 bg-[#FFB000]/10 px-4 py-1 font-mono text-[11px] uppercase tracking-[0.26em] text-[#9A6200] font-bold shadow-xs hover:border-[#FFB000] transition-colors"
+              className="inline-flex items-center gap-2 rounded-full border border-[#FFB000]/40 bg-[#FFB000]/10 px-4 py-1 font-sans text-[11px] uppercase tracking-[0.26em] text-[#9A6200] font-bold shadow-xs hover:border-[#FFB000] transition-colors"
             >
               <span className="h-2 w-2 rounded-full bg-[#FFB000] shadow-[0_0_8px_#FFB000] animate-pulse" />
               <span>BUILDING WHAT COMES NEXT</span>
@@ -54,7 +54,7 @@ export function WhatComesNextSection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.1 }}
-              className="mt-6 font-serif text-3xl sm:text-4xl md:text-5xl font-normal leading-tight tracking-tight text-[#111827] hover:text-[#211B72] transition-colors duration-300"
+              className="mt-6 font-heading text-3xl sm:text-4xl md:text-5xl font-medium leading-tight tracking-tight text-[#111827] hover:text-[#211B72] transition-colors duration-300"
             >
               The Next Chapter Is{" "}
               <span className="text-[#3026B3] hover:text-[#FFB000] transition-colors duration-300">Already Taking Shape.</span>
@@ -91,7 +91,7 @@ export function WhatComesNextSection() {
                     <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
 
                     <span
-                      className={`absolute top-4 left-4 rounded-md border px-3 py-1 font-mono text-[10px] font-bold uppercase tracking-wider shadow-xs fx-pulse-ring ${card.tagStyle}`}
+                      className={`absolute top-4 left-4 rounded-md border px-3 py-1 font-sans text-[10px] font-bold uppercase tracking-wider shadow-xs fx-pulse-ring ${card.tagStyle}`}
                     >
                       {card.tag}
                     </span>
@@ -100,7 +100,7 @@ export function WhatComesNextSection() {
                   {/* Text content */}
                   <div className="flex flex-1 flex-col justify-between p-6 sm:p-7">
                     <div>
-                      <h3 className="font-serif text-2xl font-medium tracking-tight text-[#111827] group-hover:text-[#3026B3] transition-colors duration-300">
+                      <h3 className="font-heading text-2xl font-medium tracking-tight text-[#111827] group-hover:text-[#3026B3] transition-colors duration-300">
                         {card.title}
                       </h3>
                       <p className="mt-3 text-sm text-[#596579] leading-relaxed font-normal">
@@ -108,7 +108,7 @@ export function WhatComesNextSection() {
                       </p>
                     </div>
 
-                    <div className="mt-6 pt-4 border-t border-[#E3E5EF] flex items-center justify-between text-xs font-mono uppercase tracking-wider text-[#596579] group-hover:text-[#3026B3] transition-colors duration-300 fx-arrow">
+                    <div className="mt-6 pt-4 border-t border-[#E3E5EF] flex items-center justify-between text-xs font-sans uppercase tracking-wider text-[#596579] group-hover:text-[#3026B3] transition-colors duration-300 fx-arrow">
                       <span className="font-semibold">Horizon 2027+</span>
                       <Icon
                         name="arrow-right"
@@ -129,7 +129,7 @@ export function WhatComesNextSection() {
               to="/services"
               data-cursor="button"
               data-motion="true"
-              className="group inline-flex items-center justify-center gap-3 rounded-full bg-[#3026B3] hover:bg-[#211B72] text-white px-8 py-4 font-mono text-xs uppercase tracking-[0.2em] font-semibold shadow-md shadow-[#3026B3]/25 transition-all duration-300 hover:shadow-xl hover:scale-105 active:scale-95 focus-visible:ring-2 focus-visible:ring-[#FFB000]"
+              className="group inline-flex items-center justify-center gap-3 rounded-full bg-[#3026B3] hover:bg-[#211B72] text-white px-8 py-4 font-sans text-xs uppercase tracking-[0.2em] font-semibold shadow-md shadow-[#3026B3]/25 transition-all duration-300 hover:shadow-xl hover:scale-105 active:scale-95 focus-visible:ring-2 focus-visible:ring-[#FFB000]"
             >
               <span>Explore Our Future Businesses</span>
               <Icon

@@ -152,7 +152,7 @@ export function Preloader() {
                   style={{ width: `${progress}%` }}
                 />
               </div>
-              <div className="mt-3 flex items-center justify-between font-mono text-[10px] uppercase tracking-[0.24em] text-ink-500">
+              <div className="mt-3 flex items-center justify-between font-sans text-[10px] uppercase tracking-[0.24em] text-ink-500">
                 <span aria-live="polite">
                   {reduced
                     ? "LOADING"

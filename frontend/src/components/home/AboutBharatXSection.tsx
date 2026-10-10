@@ -57,7 +57,7 @@ export function AboutBharatXSection() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
-            className="inline-flex items-center gap-2 rounded-full border border-[#FFB000]/40 bg-[#FFB000]/10 px-4 py-1 font-mono text-[11px] uppercase tracking-[0.26em] text-[#9A6200] font-bold shadow-xs cursor-default"
+            className="inline-flex items-center gap-2 rounded-full border border-[#FFB000]/40 bg-[#FFB000]/10 px-4 py-1 font-sans text-[11px] uppercase tracking-[0.26em] text-[#9A6200] font-bold shadow-xs cursor-default"
           >
             <span className="h-2 w-2 rounded-full bg-[#FFB000] shadow-[0_0_8px_#FFB000] transition-transform duration-300 group-hover/header:scale-125" />
             <span>WHO WE ARE</span>
@@ -69,7 +69,7 @@ export function AboutBharatXSection() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.1 }}
-            className="mt-6 font-serif text-3xl sm:text-4xl md:text-5xl lg:text-[3.25rem] font-normal leading-[1.12] tracking-tight text-[#111827] transition-colors hover:text-[#3026B3]"
+            className="mt-6 font-heading text-3xl sm:text-4xl md:text-5xl lg:text-[3.25rem] font-medium leading-[1.12] tracking-tight text-[#111827] transition-colors hover:text-[#3026B3]"
           >
             Building Across India’s{" "}
             <span className="text-[#3026B3] hover:text-[#FFB000] transition-colors">Growth Economy</span>
@@ -108,12 +108,12 @@ export function AboutBharatXSection() {
                 </div>
 
                 {/* Step indicator */}
-                <span className={`font-mono text-xs font-bold tracking-[0.2em] ${pillar.textAccent} mb-1.5 transition-transform duration-300 group-hover:scale-105`}>
+                <span className={`font-sans text-xs font-bold tracking-[0.2em] ${pillar.textAccent} mb-1.5 transition-transform duration-300 group-hover:scale-105`}>
                   {pillar.step}
                 </span>
 
                 {/* Main Label */}
-                <h3 className="font-serif text-2xl sm:text-[1.75rem] font-medium tracking-tight text-[#111827] mb-2 transition-colors group-hover:text-[#3026B3]">
+                <h3 className="font-heading text-2xl sm:text-[1.75rem] font-medium tracking-tight text-[#111827] mb-2 transition-colors group-hover:text-[#3026B3]">
                   {pillar.label}
                 </h3>
 

@@ -61,7 +61,7 @@ function DefaultFallback({ name }: { name: string }) {
     <div className="flex h-full w-full items-center justify-center">
       <div className="relative flex h-48 w-48 items-center justify-center rounded-full border border-slate-300/40 dark:border-white/10 bg-white/40 dark:bg-night-900/40 backdrop-blur-md">
         <div className="h-28 w-28 rounded-full border border-dashed border-gold-500/50 animate-spin [animation-duration:12s]" />
-        <span className="absolute font-mono text-[10px] uppercase tracking-widest text-ink-500">
+        <span className="absolute font-sans text-[10px] uppercase tracking-widest text-ink-500">
           {name}
         </span>
       </div>

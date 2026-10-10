@@ -176,7 +176,7 @@ function ConstellationMesh() {
               <Html center distanceFactor={10} position={[0, 0.45, 0]}>
                 <div
                   className={cn(
-                    "flex items-center gap-1.5 rounded-full px-2.5 py-0.5 font-mono text-[9px] font-bold uppercase tracking-wider backdrop-blur-md transition-all duration-300 shadow-sm border",
+                    "flex items-center gap-1.5 rounded-full px-2.5 py-0.5 font-sans text-[9px] font-bold uppercase tracking-wider backdrop-blur-md transition-all duration-300 shadow-sm border",
                     isHovered
                       ? "scale-115 shadow-lg border-white/50 text-white"
                       : "scale-100 opacity-90 text-slate-800 bg-white/90 border-black/10"

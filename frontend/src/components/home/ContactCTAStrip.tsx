@@ -28,15 +28,15 @@ export function ContactCTAStrip() {
         <div className="container-x relative z-10">
           <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-10 rounded-3xl border border-white/15 bg-white/[0.04] p-8 sm:p-12 backdrop-blur-sm shadow-[0_8px_40px_-12px_rgba(0,0,0,0.6)]">
             <div className="max-w-xl">
-              <div className="flex items-center gap-2 font-mono text-[10.5px] uppercase tracking-[0.26em] text-[#FFB000] mb-4">
+              <div className="flex items-center gap-2 font-sans text-[10.5px] uppercase tracking-[0.26em] text-[#FFB000] mb-4">
                 <span className="text-[#FFB000] text-xs animate-pulse">◆</span>
                 <span className="font-semibold">INSTITUTIONAL ENGAGEMENT</span>
               </div>
-              <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-normal tracking-tight text-white leading-tight">
+              <h2 className="font-heading text-3xl sm:text-4xl lg:text-5xl font-medium tracking-tight text-white leading-tight">
                 Partner with{" "}
                 <span className="text-[#FFB000] hover:text-[#00B8D9] transition-colors duration-300">BharatX</span>
               </h2>
-              <p className="mt-4 text-sm sm:text-base text-slate-200 leading-relaxed font-body">
+              <p className="mt-4 text-sm sm:text-base text-slate-200 leading-relaxed font-sans">
                 For sector collaborations, joint ventures,{" "}
                 <span className="text-[#00B8D9] font-medium">sovereign infrastructure tenders</span>, and institutional inquiries.
               </p>
@@ -48,7 +48,7 @@ export function ContactCTAStrip() {
                   { icon: "globe", label: "Global Corridors" },
                   { icon: "landmark", label: "Institutional Grade" },
                 ].map((badge) => (
-                  <span key={badge.label} className="inline-flex shrink-0 items-center gap-2 rounded-full border border-white/20 bg-white/10 px-3 py-1 text-xs text-slate-200 font-mono tracking-wider whitespace-nowrap transition-transform duration-300 hover:scale-105">
+                  <span key={badge.label} className="inline-flex shrink-0 items-center gap-2 rounded-full border border-white/20 bg-white/10 px-3 py-1 text-xs text-slate-200 font-sans tracking-wider whitespace-nowrap transition-transform duration-300 hover:scale-105">
                     <Icon name={badge.icon} width={12} height={12} className="text-[#FFB000]" />
                     {badge.label}
                   </span>

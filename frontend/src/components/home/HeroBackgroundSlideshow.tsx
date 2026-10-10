@@ -147,11 +147,11 @@ export function HeroBackgroundSlideshow() {
         </button>
 
         <div className="flex items-center gap-2">
-          <span className="font-mono text-[10.5px] font-bold text-gold-600 dark:text-gold-400">
+          <span className="font-sans text-[10.5px] font-bold text-gold-600 dark:text-gold-400">
             0{index + 1} / 0{slides.length}
           </span>
           <span className="h-3 w-px bg-slate-300 dark:bg-white/20" />
-          <span className="font-mono text-[10.5px] uppercase tracking-wider text-ink-100 font-semibold truncate max-w-[240px]">
+          <span className="font-sans text-[10.5px] uppercase tracking-wider text-ink-100 font-semibold truncate max-w-[240px]">
             {current.sector}
           </span>
         </div>

@@ -21,7 +21,7 @@ export function FieldLabel({
   return (
     <label
       htmlFor={htmlFor}
-      className="mb-2 flex items-center gap-1.5 font-mono text-[10.5px] uppercase tracking-[0.2em] text-[#596579] font-medium transition-colors duration-200 group-focus-within:text-[#3026B3] dark:group-focus-within:text-gold-400"
+      className="mb-2 flex items-center gap-1.5 font-sans text-[10.5px] uppercase tracking-[0.2em] text-[#596579] font-medium transition-colors duration-200 group-focus-within:text-[#3026B3] dark:group-focus-within:text-gold-400"
     >
       {children}
       {required && <span className="text-[#FFB000] font-bold">*</span>}
@@ -100,7 +100,7 @@ export function Textarea({
           {label}
         </FieldLabel>
         {counterMax && (
-          <span className="mb-2 font-mono text-[10px] tabular-nums text-[#596579]">
+          <span className="mb-2 font-sans text-[10px] tabular-nums text-[#596579]">
             {len}/{counterMax}
           </span>
         )}

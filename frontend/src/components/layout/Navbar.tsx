@@ -82,7 +82,7 @@ export function Navbar() {
               transition={{ duration: 0.25 }}
               className="border-b border-white/10 bg-black/25 hidden md:block"
             >
-              <div className="container-x flex h-8 items-center justify-between text-[11px] font-mono">
+              <div className="container-x flex h-8 items-center justify-between text-[11px] font-sans">
                 <div className="flex items-center gap-3">
                   <span className="flex items-center gap-2 rounded-full bg-emerald-500/20 px-2 py-0.5 text-emerald-300 font-semibold tracking-wider text-[10px]">
                     <span className="relative flex h-2 w-2">
@@ -253,10 +253,10 @@ function NavItem({
           "group relative flex items-center gap-1.5 rounded-full px-2.5 py-1.5 xl:px-3.5 xl:py-2 text-[13px] font-medium transition-all duration-300",
           scrolled
             ? active
-              ? "text-[#3026B3] font-bold"
+              ? "text-[#3026B3] font-semibold"
               : "text-[#111827] hover:text-[#3026B3] hover:bg-[#3026B3]/8"
             : active
-              ? "text-[#FFB000] font-bold drop-shadow-[0_1px_3px_rgba(0,0,0,0.5)]"
+              ? "text-[#FFB000] font-semibold drop-shadow-[0_1px_3px_rgba(0,0,0,0.5)]"
               : "text-white drop-shadow-[0_1px_2px_rgba(0,0,0,0.4)] hover:text-[#FFB000] hover:bg-white/10",
         )}
       >
@@ -343,7 +343,7 @@ function ServicesMega() {
               <span className="min-w-0 flex-1">
                 <div className="flex items-center gap-2">
                   <span
-                    className="truncate font-display text-[14px] font-semibold text-[#111827] transition-colors block"
+                    className="truncate font-sans text-[14px] font-semibold text-[#111827] transition-colors block"
                     style={{ color: preview === i ? accent : undefined }}
                   >
                     {svc.name}
@@ -382,7 +382,7 @@ function ServicesMega() {
         ))}
         <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent" />
         <div className="absolute bottom-3 left-4 right-4">
-          <span className="font-mono text-[10px] uppercase tracking-[0.2em] text-[#FFB000] block">
+          <span className="font-sans text-[10px] uppercase tracking-[0.2em] text-[#FFB000] block">
             {activeSvc.shortLabel}
           </span>
           <span className="text-white text-xs line-clamp-1 mt-0.5 font-medium">

@@ -77,7 +77,7 @@ export function OurApproachSection() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
-            className="inline-flex items-center gap-2 rounded-full border border-[#00B8D9]/30 bg-[#00B8D9]/10 px-4 py-1 font-mono text-[11px] uppercase tracking-[0.26em] text-[#008299] font-bold shadow-xs cursor-default"
+            className="inline-flex items-center gap-2 rounded-full border border-[#00B8D9]/30 bg-[#00B8D9]/10 px-4 py-1 font-sans text-[11px] uppercase tracking-[0.26em] text-[#008299] font-bold shadow-xs cursor-default"
           >
             <span className="h-2 w-2 rounded-full bg-[#00B8D9] transition-transform duration-300 group-hover/header:scale-125" />
             <span>OUR APPROACH</span>
@@ -88,7 +88,7 @@ export function OurApproachSection() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.1 }}
-            className="mt-6 font-serif text-3xl sm:text-4xl md:text-5xl font-normal leading-tight tracking-tight text-[#111827] transition-colors hover:text-[#3026B3]"
+            className="mt-6 font-heading text-3xl sm:text-4xl md:text-5xl font-medium leading-tight tracking-tight text-[#111827] transition-colors hover:text-[#3026B3]"
           >
             From Opportunity to <span className="text-[#3026B3]">Enterprise</span>
           </motion.h2>
@@ -123,7 +123,7 @@ export function OurApproachSection() {
                   {/* Step Top Bar */}
                   <div>
                     <div className="flex items-center justify-between mb-4">
-                      <span className={`font-mono text-xs font-bold tracking-widest ${step.textAccent} transition-transform duration-300 group-hover:scale-125 inline-block origin-left`}>
+                      <span className={`font-sans text-xs font-bold tracking-widest ${step.textAccent} transition-transform duration-300 group-hover:scale-125 inline-block origin-left`}>
                         {step.num}
                       </span>
                       <div
@@ -134,7 +134,7 @@ export function OurApproachSection() {
                     </div>
 
                     {/* Step Title */}
-                    <h3 className="font-mono text-sm sm:text-base font-bold tracking-[0.16em] text-[#111827] uppercase group-hover:text-[#3026B3] transition-colors">
+                    <h3 className="font-sans text-sm sm:text-base font-bold tracking-[0.16em] text-[#111827] uppercase group-hover:text-[#3026B3] transition-colors">
                       {step.label}
                     </h3>
 

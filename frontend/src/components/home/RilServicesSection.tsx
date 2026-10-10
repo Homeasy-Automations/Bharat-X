@@ -53,7 +53,7 @@ export function RilServicesSection() {
                 transition={{ duration: 0.45 }}
               >
                 {/* Gold Droplet / Diamond Eyebrow (Identical to RIL Screenshot 2) */}
-                <div className="flex items-center gap-2.5 font-mono text-[11px] uppercase tracking-[0.28em] text-gold-400">
+                <div className="flex items-center gap-2.5 font-sans text-[11px] uppercase tracking-[0.28em] text-gold-400">
                   <span className="inline-block text-gold-400 text-sm">◆</span>
                   <span>OUR BUSINESSES & CAPABILITIES</span>
                 </div>
@@ -63,14 +63,14 @@ export function RilServicesSection() {
                   <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-white p-0.5 shadow-sm">
                     <img src={activeService.companyLogo} alt={activeService.companyName} className="h-full w-full object-contain" />
                   </span>
-                  <div className="flex items-center gap-1.5 font-mono text-[10px] tracking-wider">
+                  <div className="flex items-center gap-1.5 font-sans text-[10px] tracking-wider">
                     <span className="text-gold-400 uppercase font-semibold">ENTERPRISE:</span>
                     <span className="text-white font-medium">{activeService.companyName}</span>
                   </div>
                 </div>
 
                 {/* Majestic Serif Headline */}
-                <h2 className="mt-3 font-serif text-5xl xl:text-6xl 2xl:text-7xl font-normal leading-[1.05] tracking-tight text-white drop-shadow-lg transition-colors duration-300 hover:text-gold-400">
+                <h2 className="mt-3 font-heading text-5xl xl:text-6xl 2xl:text-7xl font-medium leading-[1.1] tracking-tight text-white drop-shadow-lg transition-colors duration-300 hover:text-gold-400">
                   {activeService.name}
                 </h2>
 
@@ -88,10 +88,10 @@ export function RilServicesSection() {
                 <div className="mt-7 flex flex-wrap items-center gap-6 border-y border-white/20 py-4 bg-black/20 backdrop-blur-sm rounded-lg px-4">
                   {activeService.stats.map((st) => (
                     <div key={st.label} className="flex flex-col">
-                      <span className="font-stat text-xl xl:text-2xl font-bold tracking-tight text-white">
+                      <span className="font-heading text-xl xl:text-2xl font-semibold tracking-tight text-white">
                         {st.value}
                       </span>
-                      <span className="font-mono text-[10px] uppercase tracking-[0.16em] text-slate-300 font-medium">
+                      <span className="font-sans text-[10px] uppercase tracking-[0.16em] text-slate-300 font-medium">
                         {st.label}
                       </span>
                     </div>
@@ -154,13 +154,13 @@ export function RilServicesSection() {
                         </span>
                         <div className="flex flex-col">
                           <span
-                            className={`font-mono text-xs sm:text-[13px] tracking-[0.16em] font-semibold uppercase transition-colors ${
+                            className={`font-sans text-xs sm:text-[13px] tracking-[0.16em] font-semibold uppercase transition-colors ${
                               isActive ? "text-[#FFB000]" : "text-slate-200 group-hover:text-white"
                             }`}
                           >
                             {svc.shortLabel}
                           </span>
-                          <span className={`font-mono text-[9px] ${isActive ? "text-slate-200" : "text-slate-400"}`}>
+                          <span className={`font-sans text-[9px] ${isActive ? "text-slate-200" : "text-slate-400"}`}>
                             {svc.companyName}
                           </span>
                         </div>
@@ -197,11 +197,11 @@ export function RilServicesSection() {
       {/* ── MOBILE STACKED IMAGE CARDS (< lg SCREEN) ────────────────────── */}
       <div className="block lg:hidden px-4 py-16 sm:px-6">
         <div className="mb-8 text-center sm:text-left">
-          <div className="flex items-center justify-center sm:justify-start gap-2 font-mono text-[11px] uppercase tracking-[0.28em] text-gold-400">
+          <div className="flex items-center justify-center sm:justify-start gap-2 font-sans text-[11px] uppercase tracking-[0.28em] text-gold-400">
             <span className="text-gold-400">◆</span>
             <span>OUR BUSINESSES & SERVICES</span>
           </div>
-          <h2 className="mt-2 font-serif text-3xl sm:text-4xl text-white transition-colors duration-300 hover:text-gold-400">
+          <h2 className="mt-2 font-heading text-3xl sm:text-4xl text-white transition-colors duration-300 hover:text-gold-400">
             Core Operating Sectors
           </h2>
           <p className="mt-2 text-sm text-slate-400">
@@ -224,14 +224,14 @@ export function RilServicesSection() {
                   loading="lazy"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent" />
-                <span className="absolute top-4 left-4 rounded-full bg-white/95 backdrop-blur-md px-3 py-1 font-mono text-[10px] uppercase tracking-wider text-[#3026B3] border border-[#E3E5EF] font-semibold dark:bg-black/60 dark:text-gold-400">
+                <span className="absolute top-4 left-4 rounded-full bg-white/95 backdrop-blur-md px-3 py-1 font-sans text-[10px] uppercase tracking-wider text-[#3026B3] border border-[#E3E5EF] font-semibold dark:bg-black/60 dark:text-gold-400">
                   0{idx + 1} · {svc.shortLabel}
                 </span>
               </div>
 
               {/* Card Body */}
               <div className="p-6">
-                <h3 className="font-serif text-2xl font-normal text-[#111827] dark:text-white transition-colors duration-300 hover:text-gold-400">
+                <h3 className="font-heading text-2xl font-medium text-[#111827] dark:text-white transition-colors duration-300 hover:text-gold-400">
                   {svc.name}
                 </h3>
                 <p className="mt-2 text-sm font-medium text-[#3026B3] dark:text-gold-200">
@@ -244,10 +244,10 @@ export function RilServicesSection() {
                 <div className="mt-5 grid grid-cols-2 gap-3 border-t border-[#E3E5EF] dark:border-white/10 pt-4">
                   {svc.stats.slice(0, 2).map((st) => (
                     <div key={st.label}>
-                      <span className="block font-stat text-lg font-bold text-[#3026B3] dark:text-white">
+                      <span className="block font-heading text-lg font-semibold text-[#3026B3] dark:text-white">
                         {st.value}
                       </span>
-                      <span className="block font-mono text-[9.5px] uppercase tracking-wider text-[#596579] dark:text-slate-400">
+                      <span className="block font-sans text-[9.5px] uppercase tracking-wider text-[#596579] dark:text-slate-400">
                         {st.label}
                       </span>
                     </div>
@@ -305,14 +305,14 @@ export function RilServicesSection() {
                   <img src={selectedModal.companyLogo} alt={selectedModal.companyName} className="h-full w-full object-contain" />
                 </span>
                 <div>
-                  <span className="font-mono text-[9px] uppercase tracking-[0.24em] text-[#3026B3] dark:text-gold-400 font-semibold block">
+                  <span className="font-sans text-[9px] uppercase tracking-[0.24em] text-[#3026B3] dark:text-gold-400 font-semibold block">
                     OPERATING ENTERPRISE
                   </span>
                   <a
                     href={selectedModal.website}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="font-serif text-base text-[#111827] hover:text-[#3026B3] dark:text-white dark:hover:text-gold-300 transition-colors inline-flex items-center gap-1.5 font-medium"
+                    className="font-sans text-base text-[#111827] hover:text-[#3026B3] dark:text-white dark:hover:text-gold-300 transition-colors inline-flex items-center gap-1.5 font-medium"
                   >
                     <span>{selectedModal.companyName}</span>
                     <Icon name="arrow-up-right" width={13} height={13} className="text-[#3026B3] dark:text-gold-400" />
@@ -321,12 +321,12 @@ export function RilServicesSection() {
               </div>
 
               {/* Eyebrow */}
-              <div className="font-mono text-[11px] uppercase tracking-[0.25em] text-[#FFB000] font-semibold">
+              <div className="font-sans text-[11px] uppercase tracking-[0.25em] text-[#FFB000] font-semibold">
                 {selectedModal.eyebrow}
               </div>
 
               {/* Title in Serif */}
-              <h3 className="mt-2 font-serif text-3xl sm:text-4xl text-[#111827] dark:text-white transition-colors duration-300 hover:text-gold-400">
+              <h3 className="mt-2 font-heading text-3xl sm:text-4xl text-[#111827] dark:text-white transition-colors duration-300 hover:text-gold-400">
                 {selectedModal.name}
               </h3>
 
@@ -336,13 +336,13 @@ export function RilServicesSection() {
               </p>
 
               {/* Detailed Narrative */}
-              <p className="mt-4 text-sm text-[#596579] dark:text-slate-300 leading-relaxed font-body">
+              <p className="mt-4 text-sm text-[#596579] dark:text-slate-300 leading-relaxed font-sans">
                 {selectedModal.fullNarrative}
               </p>
 
               {/* Key Capabilities */}
               <div className="mt-6">
-                <span className="block font-mono text-[11px] uppercase tracking-[0.2em] text-[#596579] dark:text-slate-400 mb-3">
+                <span className="block font-sans text-[11px] uppercase tracking-[0.2em] text-[#596579] dark:text-slate-400 mb-3">
                   Core Technical Capabilities
                 </span>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
@@ -362,10 +362,10 @@ export function RilServicesSection() {
               <div className="mt-6 grid grid-cols-3 gap-3 border-t border-[#E3E5EF] dark:border-white/10 pt-5">
                 {selectedModal.stats.map((st) => (
                   <div key={st.label} className="text-center sm:text-left">
-                    <span className="block font-stat text-xl sm:text-2xl font-bold text-[#3026B3] dark:text-white">
+                    <span className="block font-heading text-xl sm:text-2xl font-semibold text-[#3026B3] dark:text-white">
                       {st.value}
                     </span>
-                    <span className="block font-mono text-[10px] uppercase tracking-wider text-[#596579] dark:text-slate-400">
+                    <span className="block font-sans text-[10px] uppercase tracking-wider text-[#596579] dark:text-slate-400">
                       {st.label}
                     </span>
                   </div>
@@ -386,7 +386,7 @@ export function RilServicesSection() {
                 <button
                   type="button"
                   onClick={() => setSelectedModal(null)}
-                  className="text-xs font-mono uppercase tracking-wider text-[#596579] hover:text-[#111827] dark:text-slate-400 dark:hover:text-white transition-colors"
+                  className="text-xs font-sans uppercase tracking-wider text-[#596579] hover:text-[#111827] dark:text-slate-400 dark:hover:text-white transition-colors"
                 >
                   Close Window
                 </button>

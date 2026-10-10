@@ -42,7 +42,7 @@ function BridgeMesh() {
           <meshBasicMaterial color="#38bdf8" wireframe transparent opacity={0.35} />
         </mesh>
         <Html center distanceFactor={10} position={[0, 1.25, 0]}>
-          <span className="font-mono text-[9px] font-bold uppercase tracking-wider text-slate-800 bg-white/95 px-2 py-0.5 rounded-full border border-sky-400 shadow-sm">
+          <span className="font-sans text-[9px] font-bold uppercase tracking-wider text-slate-800 bg-white/95 px-2 py-0.5 rounded-full border border-sky-400 shadow-sm">
             YOUR VISION
           </span>
         </Html>
@@ -65,7 +65,7 @@ function BridgeMesh() {
           <meshBasicMaterial color="#f5b84d" wireframe transparent opacity={0.35} />
         </mesh>
         <Html center distanceFactor={10} position={[0, 1.25, 0]}>
-          <span className="font-mono text-[9px] font-bold uppercase tracking-wider text-amber-950 bg-amber-200/95 px-2 py-0.5 rounded-full border border-amber-500 shadow-sm">
+          <span className="font-sans text-[9px] font-bold uppercase tracking-wider text-amber-950 bg-amber-200/95 px-2 py-0.5 rounded-full border border-amber-500 shadow-sm">
             BHARATX GROUP
           </span>
         </Html>
@@ -111,7 +111,7 @@ function BridgeMesh() {
           <meshBasicMaterial color="#38bdf8" wireframe transparent opacity={0.5} />
         </mesh>
         <Html center distanceFactor={10} position={[0, -0.65, 0]}>
-          <span className="font-mono text-[8px] font-bold tracking-widest text-slate-800 bg-white/90 px-2 py-0.5 rounded-full border border-emerald-400 shadow-xs">
+          <span className="font-sans text-[8px] font-bold tracking-widest text-slate-800 bg-white/90 px-2 py-0.5 rounded-full border border-emerald-400 shadow-xs">
             PARTNERSHIP
           </span>
         </Html>

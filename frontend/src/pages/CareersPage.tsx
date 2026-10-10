@@ -227,7 +227,7 @@ export default function CareersPage() {
               initial={{ opacity: 0, y: 12 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5 }}
-              className="inline-flex items-center gap-2 rounded-full border border-white/25 bg-black/45 backdrop-blur-md px-4 py-1 font-mono text-[11px] uppercase tracking-[0.28em] text-[#FFB000] mb-5 shadow-sm"
+              className="inline-flex items-center gap-2 rounded-full border border-white/25 bg-black/45 backdrop-blur-md px-4 py-1 font-sans text-[11px] uppercase tracking-[0.28em] text-[#FFB000] mb-5 shadow-sm"
             >
               <span className="h-2 w-2 rounded-full bg-[#FFB000] shadow-[0_0_8px_#FFB000]" />
               <span>CAREERS AT BHARATX</span>
@@ -238,7 +238,7 @@ export default function CareersPage() {
               as="h1"
               effect="words"
               hover="gradient"
-              className="font-serif text-4xl sm:text-5xl md:text-6xl lg:text-[4.2rem] font-normal leading-[1.08] tracking-tight text-white drop-shadow-sm"
+              className="font-heading text-4xl sm:text-5xl md:text-6xl lg:text-[4.2rem] font-medium leading-[1.1] tracking-tight text-white drop-shadow-sm"
             >
               Build What <span className="text-[#FFB000]">Matters.</span>
             </AnimatedHeading>
@@ -299,7 +299,7 @@ export default function CareersPage() {
       <SectionTransition divider className="relative overflow-hidden bg-white py-12 sm:py-16 border-b border-[#E3E5EF]">
         <div className="container-x relative z-10">
           <div className="max-w-3xl mb-16">
-            <div className="inline-flex items-center gap-2 rounded-full border border-[#3026B3]/25 bg-[#3026B3]/8 px-4 py-1 font-mono text-[11px] uppercase tracking-[0.26em] text-[#3026B3] font-bold shadow-xs mb-4">
+            <div className="inline-flex items-center gap-2 rounded-full border border-[#3026B3]/25 bg-[#3026B3]/8 px-4 py-1 font-sans text-[11px] uppercase tracking-[0.26em] text-[#3026B3] font-bold shadow-xs mb-4">
               <span className="h-2 w-2 rounded-full bg-[#3026B3]" />
               <span>WHY BHARATX</span>
             </div>
@@ -308,7 +308,7 @@ export default function CareersPage() {
               as="h2"
               effect="mask"
               hover="color"
-              className="font-serif text-3xl sm:text-4xl lg:text-5xl font-normal text-[#111827] leading-tight tracking-tight"
+              className="font-heading text-3xl sm:text-4xl lg:text-5xl font-medium text-[#111827] leading-tight tracking-tight"
             >
               More Than a Job. <span className="text-[#3026B3]">A Chance to Build.</span>
             </AnimatedHeading>
@@ -335,7 +335,7 @@ export default function CareersPage() {
                       <Icon name={p.icon} width={20} height={20} strokeWidth={2} />
                     </div>
 
-                    <AnimatedHeading as="h3" effect="blur" hover="shift" className="font-serif text-2xl font-medium text-[#111827] group-hover:text-[#3026B3] transition-colors">
+                    <AnimatedHeading as="h3" effect="blur" hover="shift" className="font-heading text-2xl font-medium text-[#111827] group-hover:text-[#3026B3] transition-colors">
                       {p.title}
                     </AnimatedHeading>
 
@@ -344,7 +344,7 @@ export default function CareersPage() {
                     </p>
                   </div>
 
-                  <div className="mt-6 pt-4 border-t border-[#E3E5EF] font-mono text-[10px] uppercase tracking-wider text-[#596579] flex items-center justify-between">
+                  <div className="mt-6 pt-4 border-t border-[#E3E5EF] font-sans text-[10px] uppercase tracking-wider text-[#596579] flex items-center justify-between">
                     <span>Core Value</span>
                     <span className="opacity-0 group-hover:opacity-100 transition-opacity text-[#3026B3]">✦</span>
                   </div>
@@ -359,7 +359,7 @@ export default function CareersPage() {
       <SectionTransition divider className="relative overflow-hidden bg-[#FAF9F6] py-12 sm:py-16 border-b border-[#E3E5EF]">
         <div className="container-x relative z-10">
           <div className="max-w-3xl text-center mx-auto mb-16">
-            <div className="inline-flex items-center gap-2 rounded-full border border-[#15966B]/30 bg-[#15966B]/10 px-4 py-1 font-mono text-[11px] uppercase tracking-[0.26em] text-[#15966B] font-bold shadow-xs mb-4">
+            <div className="inline-flex items-center gap-2 rounded-full border border-[#15966B]/30 bg-[#15966B]/10 px-4 py-1 font-sans text-[11px] uppercase tracking-[0.26em] text-[#15966B] font-bold shadow-xs mb-4">
               <span className="h-2 w-2 rounded-full bg-[#15966B]" />
               <span>CAREER DOMAINS</span>
             </div>
@@ -368,7 +368,7 @@ export default function CareersPage() {
               as="h2"
               effect="words"
               hover="gradient"
-              className="font-serif text-3xl sm:text-4xl lg:text-5xl font-normal text-[#111827] leading-tight tracking-tight"
+              className="font-heading text-3xl sm:text-4xl lg:text-5xl font-medium text-[#111827] leading-tight tracking-tight"
             >
               Find Your Place in the <span className="text-[#3026B3]">Ecosystem</span>
             </AnimatedHeading>
@@ -393,7 +393,7 @@ export default function CareersPage() {
                       <Icon name="arrow-up-right" width={14} height={14} className="text-[#596579] group-hover:text-[#3026B3] transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
                     </div>
 
-                    <AnimatedHeading as="h3" effect="blur" hover="shift" className="font-serif text-xl font-medium text-[#111827] group-hover:text-[#3026B3] transition-colors">
+                    <AnimatedHeading as="h3" effect="blur" hover="shift" className="font-heading text-xl font-medium text-[#111827] group-hover:text-[#3026B3] transition-colors">
                       {area.name}
                     </AnimatedHeading>
 
@@ -402,7 +402,7 @@ export default function CareersPage() {
                     </p>
                   </div>
 
-                  <div className="mt-5 pt-3 border-t border-[#E3E5EF] font-mono text-[9.5px] uppercase tracking-wider text-[#596579] flex items-center justify-between">
+                  <div className="mt-5 pt-3 border-t border-[#E3E5EF] font-sans text-[9.5px] uppercase tracking-wider text-[#596579] flex items-center justify-between">
                     <span>Explore Sector</span>
                     <span className="text-[#3026B3] opacity-0 group-hover:opacity-100 transition-opacity">→</span>
                   </div>
@@ -417,7 +417,7 @@ export default function CareersPage() {
       <SectionTransition divider className="relative overflow-hidden bg-white py-12 sm:py-16 border-b border-[#E3E5EF]">
         <div className="container-x relative z-10">
           <div className="max-w-3xl text-center mx-auto mb-16">
-            <div className="inline-flex items-center gap-2 rounded-full border border-[#00B8D9]/30 bg-[#00B8D9]/10 px-4 py-1 font-mono text-[11px] uppercase tracking-[0.26em] text-[#008299] font-bold shadow-xs mb-4">
+            <div className="inline-flex items-center gap-2 rounded-full border border-[#00B8D9]/30 bg-[#00B8D9]/10 px-4 py-1 font-sans text-[11px] uppercase tracking-[0.26em] text-[#008299] font-bold shadow-xs mb-4">
               <span className="h-2 w-2 rounded-full bg-[#00B8D9]" />
               <span>OUR CULTURE</span>
             </div>
@@ -426,7 +426,7 @@ export default function CareersPage() {
               as="h2"
               effect="mask"
               hover="color"
-              className="font-serif text-3xl sm:text-4xl lg:text-5xl font-normal text-[#111827] leading-tight tracking-tight"
+              className="font-heading text-3xl sm:text-4xl lg:text-5xl font-medium text-[#111827] leading-tight tracking-tight"
             >
               Built for People Who <span className="text-[#3026B3]">Take Ownership</span>
             </AnimatedHeading>
@@ -449,7 +449,7 @@ export default function CareersPage() {
                       <Icon name={item.icon} width={20} height={20} strokeWidth={2} />
                     </div>
 
-                    <AnimatedHeading as="h3" effect="blur" hover="shift" className="font-serif text-2xl font-medium text-[#111827] group-hover:text-[#3026B3] transition-colors">
+                    <AnimatedHeading as="h3" effect="blur" hover="shift" className="font-heading text-2xl font-medium text-[#111827] group-hover:text-[#3026B3] transition-colors">
                       {item.title}
                     </AnimatedHeading>
 
@@ -458,7 +458,7 @@ export default function CareersPage() {
                     </p>
                   </div>
 
-                  <div className="mt-6 pt-3 border-t border-[#E3E5EF] font-mono text-[10px] uppercase tracking-wider text-[#596579]">
+                  <div className="mt-6 pt-3 border-t border-[#E3E5EF] font-sans text-[10px] uppercase tracking-wider text-[#596579]">
                     Operating Norm
                   </div>
                 </div>
@@ -468,7 +468,7 @@ export default function CareersPage() {
 
           {/* Central Anchor Statement */}
           <div data-cursor="card" className="mt-14 max-w-2xl mx-auto rounded-2xl border border-[#3026B3]/30 bg-[#3026B3]/5 p-6 text-center shadow-xs fx-lift transition-all duration-300 hover:border-[#3026B3]">
-            <p className="font-serif text-base sm:text-lg font-medium text-[#111827] leading-relaxed">
+            <p className="font-heading text-base sm:text-lg font-medium text-[#111827] leading-relaxed">
               “We value initiative over hierarchy and outcomes over activity.”
             </p>
           </div>
@@ -479,7 +479,7 @@ export default function CareersPage() {
       <SectionTransition divider className="relative overflow-hidden bg-[#FAF9F6] py-12 sm:py-16 border-b border-[#E3E5EF]">
         <div id="open-opportunities" className="container-x relative z-10">
           <div className="max-w-3xl text-center mx-auto mb-14">
-            <div className="inline-flex items-center gap-2 rounded-full border border-[#3026B3]/25 bg-[#3026B3]/8 px-4 py-1 font-mono text-[11px] uppercase tracking-[0.26em] text-[#3026B3] font-bold shadow-xs mb-4">
+            <div className="inline-flex items-center gap-2 rounded-full border border-[#3026B3]/25 bg-[#3026B3]/8 px-4 py-1 font-sans text-[11px] uppercase tracking-[0.26em] text-[#3026B3] font-bold shadow-xs mb-4">
               <span className="h-2 w-2 rounded-full bg-[#3026B3]" />
               <span>OPEN OPPORTUNITIES</span>
             </div>
@@ -488,12 +488,12 @@ export default function CareersPage() {
               as="h2"
               effect="words"
               hover="gradient"
-              className="font-serif text-3xl sm:text-4xl lg:text-5xl font-normal text-[#111827] leading-tight tracking-tight"
+              className="font-heading text-3xl sm:text-4xl lg:text-5xl font-medium text-[#111827] leading-tight tracking-tight"
             >
               Find Your Next <span className="text-[#3026B3]">Opportunity</span>
             </AnimatedHeading>
 
-            <p className="mt-2 font-serif text-xl text-[#3026B3] font-medium">
+            <p className="mt-2 font-heading text-xl text-[#3026B3] font-medium">
               We’re Growing
             </p>
 
@@ -508,7 +508,7 @@ export default function CareersPage() {
               <div className="overflow-x-auto">
                 <table className="w-full text-left text-sm border-collapse">
                   <thead>
-                    <tr className="border-b border-[#E3E5EF] bg-[#FAF9F6] font-mono text-xs uppercase tracking-wider text-[#596579]">
+                    <tr className="border-b border-[#E3E5EF] bg-[#FAF9F6] font-sans text-xs uppercase tracking-wider text-[#596579]">
                       <th className="py-4 px-6">Role</th>
                       <th className="py-4 px-6">Business</th>
                       <th className="py-4 px-6">Location</th>
@@ -521,7 +521,7 @@ export default function CareersPage() {
                       <td className="py-4 px-6 font-medium text-[#111827]">Civil Project Director</td>
                       <td className="py-4 px-6 text-[#596579]">BharatX Infratech</td>
                       <td className="py-4 px-6 text-[#596579]">New Delhi / On-site</td>
-                      <td className="py-4 px-6 text-xs font-mono text-[#3026B3]">Full-time</td>
+                      <td className="py-4 px-6 text-xs font-sans text-[#3026B3]">Full-time</td>
                       <td className="py-4 px-6 text-right">
                         <button
                           type="button"
@@ -531,7 +531,7 @@ export default function CareersPage() {
                             setVertical("Infrastructure (BharatX Infratech)");
                             setShowProfileForm(true);
                           }}
-                          className="font-mono text-xs font-bold uppercase tracking-wider text-[#3026B3] hover:underline"
+                          className="font-sans text-xs font-bold uppercase tracking-wider text-[#3026B3] hover:underline"
                         >
                           Apply →
                         </button>
@@ -541,7 +541,7 @@ export default function CareersPage() {
                       <td className="py-4 px-6 font-medium text-[#111827]">Lead Applied AI Engineer</td>
                       <td className="py-4 px-6 text-[#596579]">Aixperts Labs</td>
                       <td className="py-4 px-6 text-[#596579]">Bengaluru / Hybrid</td>
-                      <td className="py-4 px-6 text-xs font-mono text-[#3026B3]">Full-time</td>
+                      <td className="py-4 px-6 text-xs font-sans text-[#3026B3]">Full-time</td>
                       <td className="py-4 px-6 text-right">
                         <button
                           type="button"
@@ -551,7 +551,7 @@ export default function CareersPage() {
                             setVertical("Technology & AI (Aixperts Labs)");
                             setShowProfileForm(true);
                           }}
-                          className="font-mono text-xs font-bold uppercase tracking-wider text-[#3026B3] hover:underline"
+                          className="font-sans text-xs font-bold uppercase tracking-wider text-[#3026B3] hover:underline"
                         >
                           Apply →
                         </button>
@@ -561,7 +561,7 @@ export default function CareersPage() {
                       <td className="py-4 px-6 font-medium text-[#111827]">Industrial Quality &amp; Tooling Lead</td>
                       <td className="py-4 px-6 text-[#596579]">Casters Global</td>
                       <td className="py-4 px-6 text-[#596579]">Industrial Corridor / Plant</td>
-                      <td className="py-4 px-6 text-xs font-mono text-[#3026B3]">Full-time</td>
+                      <td className="py-4 px-6 text-xs font-sans text-[#3026B3]">Full-time</td>
                       <td className="py-4 px-6 text-right">
                         <button
                           type="button"
@@ -571,7 +571,7 @@ export default function CareersPage() {
                             setVertical("Manufacturing (Casters Global)");
                             setShowProfileForm(true);
                           }}
-                          className="font-mono text-xs font-bold uppercase tracking-wider text-[#3026B3] hover:underline"
+                          className="font-sans text-xs font-bold uppercase tracking-wider text-[#3026B3] hover:underline"
                         >
                           Apply →
                         </button>
@@ -590,7 +590,7 @@ export default function CareersPage() {
                   type="button"
                   data-cursor="button"
                   onClick={() => setShowProfileForm((prev) => !prev)}
-                  className="mt-4 inline-flex items-center gap-2 rounded-full bg-[#3026B3] hover:bg-[#211B72] text-white px-7 py-3 text-xs font-mono font-bold uppercase tracking-wider shadow-md transition-all fx-shine"
+                  className="mt-4 inline-flex items-center gap-2 rounded-full bg-[#3026B3] hover:bg-[#211B72] text-white px-7 py-3 text-xs font-sans font-bold uppercase tracking-wider shadow-md transition-all fx-shine"
                 >
                   <span>{showProfileForm ? "Hide Application Form" : "Send Your Profile →"}</span>
                 </button>
@@ -609,10 +609,10 @@ export default function CareersPage() {
                 >
                   <div className="rounded-3xl border border-[#E3E5EF] bg-white p-7 sm:p-12 shadow-xl mb-12 fx-lift">
                     <div className="text-center mb-8">
-                      <span className="font-mono text-[11px] uppercase tracking-[0.24em] text-[#3026B3] font-bold block">
+                      <span className="font-sans text-[11px] uppercase tracking-[0.24em] text-[#3026B3] font-bold block">
                         TALENT BUREAU
                       </span>
-                      <AnimatedHeading as="h3" effect="mask" hover="color" className="font-serif text-2xl sm:text-3xl font-medium text-[#111827] mt-1">
+                      <AnimatedHeading as="h3" effect="mask" hover="color" className="font-heading text-2xl sm:text-3xl font-medium text-[#111827] mt-1">
                         Submit Your Profile
                       </AnimatedHeading>
                       <p className="text-xs sm:text-sm text-[#596579] mt-2 max-w-md mx-auto">
@@ -625,7 +625,7 @@ export default function CareersPage() {
                         <div className="h-14 w-14 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center mx-auto mb-4 fx-icon-pop">
                           <Icon name="check" width={28} height={28} strokeWidth={2.5} />
                         </div>
-                        <h4 className="font-serif text-2xl font-medium text-[#111827] transition-colors duration-300 hover:text-[#3026B3]">
+                        <h4 className="font-heading text-2xl font-medium text-[#111827] transition-colors duration-300 hover:text-[#3026B3]">
                           Profile Received
                         </h4>
                         <p className="text-sm text-[#596579] mt-2 max-w-md mx-auto">
@@ -642,7 +642,7 @@ export default function CareersPage() {
 
                         <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                           <div>
-                            <label className="block text-xs font-mono font-bold uppercase tracking-wider text-[#111827] mb-1.5">
+                            <label className="block text-xs font-sans font-bold uppercase tracking-wider text-[#111827] mb-1.5">
                               Full Name *
                             </label>
                             <input
@@ -656,7 +656,7 @@ export default function CareersPage() {
                           </div>
 
                           <div>
-                            <label className="block text-xs font-mono font-bold uppercase tracking-wider text-[#111827] mb-1.5">
+                            <label className="block text-xs font-sans font-bold uppercase tracking-wider text-[#111827] mb-1.5">
                               Email *
                             </label>
                             <input
@@ -672,7 +672,7 @@ export default function CareersPage() {
 
                         <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                           <div>
-                            <label className="block text-xs font-mono font-bold uppercase tracking-wider text-[#111827] mb-1.5">
+                            <label className="block text-xs font-sans font-bold uppercase tracking-wider text-[#111827] mb-1.5">
                               Phone Number
                             </label>
                             <input
@@ -685,7 +685,7 @@ export default function CareersPage() {
                           </div>
 
                           <div>
-                            <label className="block text-xs font-mono font-bold uppercase tracking-wider text-[#111827] mb-1.5">
+                            <label className="block text-xs font-sans font-bold uppercase tracking-wider text-[#111827] mb-1.5">
                               Position / Domain Interested In
                             </label>
                             <input
@@ -700,7 +700,7 @@ export default function CareersPage() {
 
                         <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                           <div>
-                            <label className="block text-xs font-mono font-bold uppercase tracking-wider text-[#111827] mb-1.5">
+                            <label className="block text-xs font-sans font-bold uppercase tracking-wider text-[#111827] mb-1.5">
                               Business / Vertical
                             </label>
                             <select
@@ -717,7 +717,7 @@ export default function CareersPage() {
                           </div>
 
                           <div>
-                            <label className="block text-xs font-mono font-bold uppercase tracking-wider text-[#111827] mb-1.5">
+                            <label className="block text-xs font-sans font-bold uppercase tracking-wider text-[#111827] mb-1.5">
                               Location / Preferred Base
                             </label>
                             <input
@@ -731,7 +731,7 @@ export default function CareersPage() {
                         </div>
 
                         <div>
-                          <label className="block text-xs font-mono font-bold uppercase tracking-wider text-[#111827] mb-1.5">
+                          <label className="block text-xs font-sans font-bold uppercase tracking-wider text-[#111827] mb-1.5">
                             LinkedIn Profile / Portfolio Link
                           </label>
                           <input
@@ -744,7 +744,7 @@ export default function CareersPage() {
                         </div>
 
                         <div>
-                          <label className="block text-xs font-mono font-bold uppercase tracking-wider text-[#111827] mb-1.5">
+                          <label className="block text-xs font-sans font-bold uppercase tracking-wider text-[#111827] mb-1.5">
                             Short Introduction / What You Build
                           </label>
                           <textarea
@@ -761,7 +761,7 @@ export default function CareersPage() {
                             type="submit"
                             data-cursor="button"
                             disabled={submitting}
-                            className="inline-flex items-center gap-2 rounded-full bg-[#3026B3] hover:bg-[#211B72] text-white px-8 py-3.5 text-xs font-mono font-bold uppercase tracking-wider shadow-md transition-all disabled:opacity-60 fx-shine"
+                            className="inline-flex items-center gap-2 rounded-full bg-[#3026B3] hover:bg-[#211B72] text-white px-8 py-3.5 text-xs font-sans font-bold uppercase tracking-wider shadow-md transition-all disabled:opacity-60 fx-shine"
                           >
                             <span>{submitting ? "Submitting..." : "Submit Profile →"}</span>
                           </button>
@@ -784,7 +784,7 @@ export default function CareersPage() {
         <div className="container-x relative z-10">
           <div className="max-w-4xl mx-auto text-center">
             {/* Eyebrow */}
-            <div className="inline-flex items-center gap-2 rounded-full border border-[#FFB000]/40 bg-[#FFB000]/15 px-4 py-1 font-mono text-[11px] uppercase tracking-[0.28em] text-[#FFB000] font-bold shadow-xs mb-6">
+            <div className="inline-flex items-center gap-2 rounded-full border border-[#FFB000]/40 bg-[#FFB000]/15 px-4 py-1 font-sans text-[11px] uppercase tracking-[0.28em] text-[#FFB000] font-bold shadow-xs mb-6">
               <span className="h-2 w-2 rounded-full bg-[#FFB000] shadow-[0_0_8px_#FFB000]" />
               <span>JOIN THE BUILDERS</span>
             </div>
@@ -794,7 +794,7 @@ export default function CareersPage() {
               as="h2"
               effect="words"
               hover="gradient"
-              className="font-serif text-3xl sm:text-5xl md:text-6xl font-normal leading-[1.1] tracking-tight text-white"
+              className="font-heading text-3xl sm:text-5xl md:text-6xl font-medium leading-[1.1] tracking-tight text-white"
             >
               Ready to Build With Us?
             </AnimatedHeading>
@@ -840,7 +840,7 @@ export default function CareersPage() {
 
             {/* Signature Conclusion */}
             <div className="mt-12 pt-8 border-t border-white/15 max-w-xl mx-auto">
-              <p className="font-mono text-sm sm:text-base uppercase tracking-[0.24em] text-[#FFB000] font-bold">
+              <p className="font-sans text-sm sm:text-base uppercase tracking-[0.24em] text-[#FFB000] font-bold">
                 Building Businesses. Enabling Bharat.
               </p>
             </div>

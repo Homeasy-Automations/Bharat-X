@@ -60,7 +60,7 @@ export function CompanyCard({ company, layout = "stacked", className }: CompanyC
           </div>
         ) : (
           <span
-            className="absolute left-4 top-4 flex h-11 w-11 items-center justify-center rounded-xl font-mono text-[12px] font-semibold shadow-md bg-white border border-slate-100 transition-transform duration-300 group-hover:scale-105 dark:bg-night-900/90 dark:border-white/10"
+            className="absolute left-4 top-4 flex h-11 w-11 items-center justify-center rounded-xl font-sans text-[12px] font-semibold shadow-md bg-white border border-slate-100 transition-transform duration-300 group-hover:scale-105 dark:bg-night-900/90 dark:border-white/10"
             style={{ color: company.accentColor }}
           >
             {company.monogram}
@@ -69,14 +69,14 @@ export function CompanyCard({ company, layout = "stacked", className }: CompanyC
         {company.isUpcoming && (
           <div className="absolute right-4 top-4 z-20 flex items-center gap-1.5 rounded-full border border-gold-400/40 bg-slate-900/90 px-2.5 py-1 backdrop-blur-md shadow-lg fx-pulse-ring">
             <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-gold-400" />
-            <span className="font-mono text-[9.5px] font-semibold uppercase tracking-wider text-gold-400">
+            <span className="font-sans text-[9.5px] font-semibold uppercase tracking-wider text-gold-400">
               {company.status || "Upcoming · Stealth"}
             </span>
           </div>
         )}
         <span
           aria-hidden
-          className="absolute -bottom-3 right-3 font-display text-[64px] font-bold leading-none text-slate-900/[0.04] dark:text-white/[0.04] select-none pointer-events-none transition-transform duration-500 group-hover:translate-x-1"
+          className="absolute -bottom-3 right-3 font-heading text-[64px] font-semibold leading-none text-slate-900/[0.04] dark:text-white/[0.04] select-none pointer-events-none transition-transform duration-500 group-hover:translate-x-1"
         >
           {String(company.order).padStart(2, "0")}
         </span>
@@ -93,14 +93,14 @@ export function CompanyCard({ company, layout = "stacked", className }: CompanyC
               <Icon name={company.icon} width={14} height={14} strokeWidth={1.7} className="transition-transform duration-300 group-hover:rotate-6" />
             </span>
             <span
-              className="truncate font-mono text-[10px] uppercase tracking-[0.2em] transition-colors duration-300"
+              className="truncate font-sans text-[10px] uppercase tracking-[0.2em] transition-colors duration-300"
               style={{ color: company.accentColor }}
             >
               {company.category}
             </span>
           </div>
 
-          <h3 className="mt-4 font-display text-2xl font-semibold tracking-tight text-ink-50 transition-colors duration-300 group-hover:text-gold-400 break-words">
+          <h3 className="mt-4 font-heading text-2xl font-semibold tracking-tight text-ink-50 transition-colors duration-300 group-hover:text-gold-400 break-words">
             {company.name}
           </h3>
           <p className="mt-2.5 line-clamp-3 text-[14px] leading-relaxed text-ink-400">
@@ -124,7 +124,7 @@ export function CompanyCard({ company, layout = "stacked", className }: CompanyC
           </Link>
           <div className="flex items-center gap-3 shrink-0">
             {company.isUpcoming ? (
-              <span className="inline-flex items-center gap-1.5 text-[12px] font-mono font-medium text-gold-400">
+              <span className="inline-flex items-center gap-1.5 text-[12px] font-sans font-medium text-gold-400">
                 Stealth Initiative
               </span>
             ) : (
@@ -139,7 +139,7 @@ export function CompanyCard({ company, layout = "stacked", className }: CompanyC
                 <Icon name="external-link" width={12.5} height={12.5} className="transition-transform duration-300 group-hover/site:translate-x-0.5 group-hover/site:-translate-y-0.5" />
               </a>
             )}
-            <span className="font-mono text-[10px] uppercase tracking-[0.16em] text-slate-400 dark:text-ink-500">
+            <span className="font-sans text-[10px] uppercase tracking-[0.16em] text-slate-400 dark:text-ink-500">
               {String(company.order).padStart(2, "0")}/06
             </span>
           </div>

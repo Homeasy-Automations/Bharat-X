@@ -62,7 +62,7 @@ export function HomeImpactSection() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
-            className="inline-flex items-center gap-2 rounded-full border border-[#15966B]/30 bg-[#15966B]/10 px-4 py-1 font-mono text-[11px] uppercase tracking-[0.26em] text-[#15966B] font-bold shadow-xs cursor-default"
+            className="inline-flex items-center gap-2 rounded-full border border-[#15966B]/30 bg-[#15966B]/10 px-4 py-1 font-sans text-[11px] uppercase tracking-[0.26em] text-[#15966B] font-bold shadow-xs cursor-default"
           >
             <span className="h-2 w-2 rounded-full bg-[#15966B] transition-transform duration-300 group-hover/header:scale-125" />
             <span>IMPACT</span>
@@ -73,7 +73,7 @@ export function HomeImpactSection() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.1 }}
-            className="mt-6 font-serif text-3xl sm:text-4xl md:text-5xl font-normal leading-tight tracking-tight text-[#111827] transition-colors hover:text-[#15966B]"
+            className="mt-6 font-heading text-3xl sm:text-4xl md:text-5xl font-medium leading-tight tracking-tight text-[#111827] transition-colors hover:text-[#15966B]"
           >
             Building Economic Value.{" "}
             <span className="text-[#15966B] hover:text-[#FFB000] transition-colors">Creating Wider Impact.</span>
@@ -118,7 +118,7 @@ export function HomeImpactSection() {
                 {/* Top Badge */}
                 <div className="relative z-10 flex items-center justify-between">
                   <span
-                    className={`font-mono text-[10px] uppercase tracking-wider text-white font-bold px-2.5 py-1 rounded-md ${area.badgeBg} shadow-xs transition-transform duration-300 group-hover:scale-105`}
+                    className={`font-sans text-[10px] uppercase tracking-wider text-white font-bold px-2.5 py-1 rounded-md ${area.badgeBg} shadow-xs transition-transform duration-300 group-hover:scale-105`}
                   >
                     Area 0{idx + 1}
                   </span>
@@ -129,7 +129,7 @@ export function HomeImpactSection() {
 
                 {/* Content */}
                 <div className="relative z-10">
-                  <h3 className="font-serif text-2xl font-medium tracking-tight text-white group-hover:text-[#FFB000] transition-colors">
+                  <h3 className="font-heading text-2xl font-medium tracking-tight text-white group-hover:text-[#FFB000] transition-colors">
                     {area.title}
                   </h3>
 
@@ -137,7 +137,7 @@ export function HomeImpactSection() {
                     {area.description}
                   </p>
 
-                  <div className="mt-4 inline-flex items-center gap-1.5 font-mono text-[11px] uppercase tracking-wider text-[#FFB000] font-bold fx-arrow">
+                  <div className="mt-4 inline-flex items-center gap-1.5 font-sans text-[11px] uppercase tracking-wider text-[#FFB000] font-bold fx-arrow">
                     <span className="fx-underline">Learn More</span>
                     <Icon name="arrow-right" width={12} height={12} className="fx-arrow-icon" />
                   </div>

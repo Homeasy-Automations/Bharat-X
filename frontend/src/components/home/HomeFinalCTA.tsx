@@ -19,7 +19,7 @@ export function HomeFinalCTA() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5 }}
-              className="inline-flex items-center gap-2 rounded-full border border-[#FFB000]/40 bg-[#FFB000]/15 px-4 py-1 font-mono text-[11px] uppercase tracking-[0.28em] text-[#FFB000] font-bold shadow-xs hover:bg-[#FFB000]/25 transition-colors"
+              className="inline-flex items-center gap-2 rounded-full border border-[#FFB000]/40 bg-[#FFB000]/15 px-4 py-1 font-sans text-[11px] uppercase tracking-[0.28em] text-[#FFB000] font-bold shadow-xs hover:bg-[#FFB000]/25 transition-colors"
             >
               <span className="h-2 w-2 rounded-full bg-[#FFB000] shadow-[0_0_8px_#FFB000] animate-pulse" />
               <span>LET'S COLLABORATE</span>
@@ -31,7 +31,7 @@ export function HomeFinalCTA() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.1 }}
-              className="mt-6 font-serif text-3xl sm:text-5xl md:text-6xl lg:text-[4rem] font-normal leading-[1.08] tracking-tight text-white drop-shadow-sm hover:text-white"
+              className="mt-6 font-heading text-3xl sm:text-5xl md:text-6xl lg:text-[4rem] font-medium leading-[1.1] tracking-tight text-white drop-shadow-sm hover:text-white"
             >
               Let’s Build{" "}
               <span className="text-[#FFB000] hover:text-[#00B8D9] transition-colors duration-300">What Comes Next.</span>

@@ -42,7 +42,7 @@ export function BusinessVerticalTabs() {
           <Reveal delay={0.15}>
             <Link
               to="/companies"
-              className="group mb-2 inline-flex items-center gap-2 font-mono text-[11px] uppercase tracking-[0.2em] text-gold-400 transition-colors hover:text-gold-300"
+              className="group mb-2 inline-flex items-center gap-2 font-sans text-[11px] uppercase tracking-[0.2em] text-gold-400 transition-colors hover:text-gold-300"
             >
               View directory
               <Icon
@@ -99,11 +99,11 @@ export function BusinessVerticalTabs() {
                     </div>
                     <div>
                       <div className="flex items-center gap-2">
-                        <span className="font-display text-[15px] font-semibold text-ink-100 dark:text-ink-50">
+                        <span className="font-sans text-[15px] font-semibold text-ink-100 dark:text-ink-50">
                           {c.name}
                         </span>
                         {c.isUpcoming ? (
-                          <span className="rounded-full bg-gold-400/15 border border-gold-400/40 px-1.5 py-0.5 font-mono text-[8px] font-semibold uppercase tracking-wider text-gold-400">
+                          <span className="rounded-full bg-gold-400/15 border border-gold-400/40 px-1.5 py-0.5 font-sans text-[8px] font-semibold uppercase tracking-wider text-gold-400">
                             Upcoming
                           </span>
                         ) : (
@@ -113,14 +113,14 @@ export function BusinessVerticalTabs() {
                           />
                         )}
                       </div>
-                      <span className="block font-mono text-[11px] text-ink-400">
+                      <span className="block font-sans text-[11px] text-ink-400">
                         {c.category}
                       </span>
                     </div>
                   </div>
 
                   <div className="flex items-center gap-3 pr-1">
-                    <span className="font-mono text-[11px] text-ink-500">
+                    <span className="font-sans text-[11px] text-ink-500">
                       0{idx + 1}
                     </span>
                     <Icon
@@ -155,19 +155,19 @@ export function BusinessVerticalTabs() {
                   <div className="flex flex-wrap items-center justify-between gap-3 border-b border-slate-200/70 dark:border-white/8 pb-5">
                     <div className="flex items-center gap-3">
                       <span
-                        className="font-mono text-[11px] font-semibold uppercase tracking-[0.25em]"
+                        className="font-sans text-[11px] font-semibold uppercase tracking-[0.25em]"
                         style={{ color: activeCompany.accentColor }}
                       >
                         VERTICAL · 0{activeCompany.order}
                       </span>
                       <span className="h-1 w-1 rounded-full bg-ink-600" />
-                      <span className="font-mono text-[11px] text-ink-400">
+                      <span className="font-sans text-[11px] text-ink-400">
                         {activeCompany.category}
                       </span>
                     </div>
 
                     {activeCompany.isUpcoming ? (
-                      <span className="inline-flex items-center gap-1.5 font-mono text-[11px] text-gold-400">
+                      <span className="inline-flex items-center gap-1.5 font-sans text-[11px] text-gold-400">
                         <span className="h-1.5 w-1.5 rounded-full bg-gold-400 animate-pulse" />
                         <span>Stealth R&D</span>
                       </span>
@@ -176,7 +176,7 @@ export function BusinessVerticalTabs() {
                         href={activeCompany.website}
                         target="_blank"
                         rel="noreferrer"
-                        className="inline-flex items-center gap-1.5 font-mono text-[11px] text-gold-400 hover:text-gold-300"
+                        className="inline-flex items-center gap-1.5 font-sans text-[11px] text-gold-400 hover:text-gold-300"
                       >
                         <span>{activeCompany.domain}</span>
                         <Icon name="external-link" width={12} height={12} />
@@ -186,7 +186,7 @@ export function BusinessVerticalTabs() {
 
                   {/* Main Company Title & Narrative */}
                   <div className="mt-6">
-                    <h3 className="font-display text-2xl font-bold tracking-tight text-ink-100 dark:text-ink-50 sm:text-3xl md:text-4xl transition-colors duration-300 hover:text-gold-400">
+                    <h3 className="font-heading text-2xl font-semibold tracking-tight text-ink-100 dark:text-ink-50 sm:text-3xl md:text-4xl transition-colors duration-300 hover:text-gold-400">
                       {activeCompany.name}
                     </h3>
                     <p className="mt-4 text-base leading-relaxed text-ink-300 dark:text-ink-300 md:text-[15px]">
@@ -211,10 +211,10 @@ export function BusinessVerticalTabs() {
                           style={{ color: activeCompany.accentColor }}
                         />
                         <div>
-                          <span className="block font-mono text-[10px] uppercase tracking-[0.2em] text-ink-500">
+                          <span className="block font-sans text-[10px] uppercase tracking-[0.2em] text-ink-500">
                             Operating North Star
                           </span>
-                          <p className="mt-1 font-display text-[13.5px] italic text-ink-200 dark:text-ink-100">
+                          <p className="mt-1 font-sans text-[13.5px] italic text-ink-200 dark:text-ink-100">
                             “{activeCompany.vision}”
                           </p>
                         </div>
@@ -224,7 +224,7 @@ export function BusinessVerticalTabs() {
 
                   {/* Capabilities Chips */}
                   <div className="mt-6">
-                    <span className="block font-mono text-[10.5px] uppercase tracking-[0.2em] text-ink-500 mb-3">
+                    <span className="block font-sans text-[10.5px] uppercase tracking-[0.2em] text-ink-500 mb-3">
                       Core Specialisations
                     </span>
                     <div className="flex flex-wrap gap-2">
@@ -276,7 +276,7 @@ export function BusinessVerticalTabs() {
                     )}
                   </div>
 
-                  <span className="font-mono text-[11px] text-ink-500">
+                  <span className="font-sans text-[11px] text-ink-500">
                     Live Status:{" "}
                     {activeCompany.isUpcoming ? (
                       <span className="text-gold-400 font-semibold">● UPCOMING · STEALTH</span>

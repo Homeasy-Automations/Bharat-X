@@ -57,12 +57,12 @@ export function WhyBharatXSection() {
       <div className="container-x relative z-10">
         {/* Header */}
         <div className="max-w-3xl group/header">
-          <div className="inline-flex items-center gap-2 rounded-full border border-[#3026B3]/25 bg-[#3026B3]/8 px-4 py-1 font-mono text-[11px] uppercase tracking-[0.26em] text-[#3026B3] font-bold shadow-xs cursor-default">
+          <div className="inline-flex items-center gap-2 rounded-full border border-[#3026B3]/25 bg-[#3026B3]/8 px-4 py-1 font-sans text-[11px] uppercase tracking-[0.26em] text-[#3026B3] font-bold shadow-xs cursor-default">
             <span className="h-2 w-2 rounded-full bg-[#3026B3] transition-transform duration-300 group-hover/header:scale-125" />
             <span>WHY BHARATX</span>
           </div>
 
-          <h2 className="mt-4 font-serif text-3xl sm:text-4xl md:text-5xl font-normal leading-tight tracking-tight text-[#111827] transition-colors hover:text-[#3026B3]">
+          <h2 className="mt-4 font-heading text-3xl sm:text-4xl md:text-5xl font-medium leading-tight tracking-tight text-[#111827] transition-colors hover:text-[#3026B3]">
             More Than Capital. <span className="text-[#3026B3] hover:text-[#FFB000] transition-colors">More Than Strategy.</span>
           </h2>
 
@@ -93,7 +93,7 @@ export function WhyBharatXSection() {
                     <Icon name={pillar.icon} width={22} height={22} strokeWidth={2} />
                   </div>
 
-                  <h3 className="font-serif text-xl sm:text-2xl font-medium tracking-tight text-[#111827] group-hover:text-[#3026B3] transition-colors">
+                  <h3 className="font-heading text-xl sm:text-2xl font-medium tracking-tight text-[#111827] group-hover:text-[#3026B3] transition-colors">
                     {pillar.title}
                   </h3>
 
@@ -102,7 +102,7 @@ export function WhyBharatXSection() {
                   </p>
                 </div>
 
-                <div className="mt-6 pt-4 border-t border-[#E3E5EF] flex items-center justify-between font-mono text-[10.5px] uppercase tracking-wider text-[#596579]">
+                <div className="mt-6 pt-4 border-t border-[#E3E5EF] flex items-center justify-between font-sans text-[10.5px] uppercase tracking-wider text-[#596579]">
                   <span className="transition-transform duration-300 group-hover:translate-x-1">
                     Pillar 0{idx + 1}
                   </span>
@@ -124,11 +124,11 @@ export function WhyBharatXSection() {
           {/* Subtle gold line accent */}
           <div className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-transparent via-[#FFB000] to-transparent opacity-80 transition-all duration-300 group-hover/banner:opacity-100" />
 
-          <p className="font-mono text-[11px] uppercase tracking-[0.28em] text-[#FFB000] font-bold mb-3">
+          <p className="font-sans text-[11px] uppercase tracking-[0.28em] text-[#FFB000] font-bold mb-3">
             Operating Thesis
           </p>
 
-          <blockquote className="font-serif text-2xl sm:text-3xl md:text-4xl lg:text-[2.6rem] font-normal leading-tight tracking-tight text-white max-w-4xl mx-auto drop-shadow-sm transition-transform duration-300 group-hover/banner:scale-[1.01]">
+          <blockquote className="font-heading text-2xl sm:text-3xl md:text-4xl lg:text-[2.6rem] font-medium leading-tight tracking-tight text-white max-w-4xl mx-auto drop-shadow-sm transition-transform duration-300 group-hover/banner:scale-[1.01]">
             “We don’t just back businesses.{" "}
             <span className="text-[#FFB000]">We help build them.</span>”
           </blockquote>

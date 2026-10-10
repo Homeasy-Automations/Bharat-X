@@ -11,11 +11,11 @@ import FooterOrbScene from "../three/FooterOrbScene";
       <div aria-hidden className="grid-bg grid-bg-fade absolute inset-0 opacity-40 dark:opacity-60" />
       <div className="container-x relative flex flex-col items-center justify-between gap-10 lg:flex-row">
         <div className="max-w-2xl text-center lg:text-left">
-          <div className="mb-4 inline-flex items-center gap-2.5 rounded-full border border-[#FFB000]/30 bg-[#FFB000]/10 px-3.5 py-1 font-mono text-[11px] uppercase tracking-[0.28em] text-[#FFB000]">
+          <div className="mb-4 inline-flex items-center gap-2.5 rounded-full border border-[#FFB000]/30 bg-[#FFB000]/10 px-3.5 py-1 font-sans text-[11px] uppercase tracking-[0.28em] text-[#FFB000]">
             <Icon name="sparkles" width={12} height={12} />
             <span>Connect with BharatX Group</span>
           </div>
-          <h2 className="font-serif text-3xl font-normal leading-[1.05] tracking-tight text-ink-900 dark:text-ink-50 sm:text-4xl md:text-5xl lg:text-6xl transition-colors duration-300 hover:text-[#3026B3] dark:hover:text-gold-400">
+          <h2 className="font-heading text-3xl font-medium leading-[1.1] tracking-tight text-ink-900 dark:text-ink-50 sm:text-4xl md:text-5xl lg:text-6xl transition-colors duration-300 hover:text-[#3026B3] dark:hover:text-gold-400">
             BUILDING THE FOUNDATIONS
             <br />
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#3026B3] via-[#FFB000] to-[#00B8D9]">
@@ -77,12 +77,12 @@ export function Footer() {
                 alt="BharatX Group"
                 className="h-16 sm:h-20 w-auto object-contain transition-transform duration-300 group-hover:scale-105"
               />
-              <span className="mt-2 font-serif text-2xl sm:text-[1.7rem] font-normal text-[#111827] tracking-tight text-center">
+              <span className="mt-2 font-heading text-2xl sm:text-[1.7rem] font-medium text-[#111827] tracking-tight text-center">
                 BharatX Group
               </span>
             </Link>
 
-            <p className="mt-2.5 font-mono text-xs sm:text-[13px] uppercase tracking-[0.01em] text-[#FFB000] font-semibold">
+            <p className="mt-2.5 font-sans text-xs sm:text-[13px] uppercase tracking-[0.01em] text-[#FFB000] font-semibold">
               Building Businesses. Enabling Bharat.
             </p>
 
@@ -95,7 +95,7 @@ export function Footer() {
           <div className="lg:col-span-8 grid grid-cols-2 sm:grid-cols-4 gap-8">
             {/* 1. Businesses */}
             <nav aria-label="Businesses">
-              <div className="mb-3.5 flex items-center gap-2 font-mono text-[11px] uppercase tracking-[0.24em] text-[#111827] font-bold">
+              <div className="mb-3.5 flex items-center gap-2 font-sans text-[11px] uppercase tracking-[0.24em] text-[#111827] font-bold">
                 <Icon name="layers" width={13} height={13} className="text-[#3026B3]" />
                 Businesses
               </div>
@@ -120,7 +120,7 @@ export function Footer() {
 
             {/* 2. Group */}
             <nav aria-label="Group">
-              <div className="mb-3.5 flex items-center gap-2 font-mono text-[11px] uppercase tracking-[0.24em] text-[#111827] font-bold">
+              <div className="mb-3.5 flex items-center gap-2 font-sans text-[11px] uppercase tracking-[0.24em] text-[#111827] font-bold">
                 <Icon name="building-2" width={13} height={13} className="text-[#3026B3] fx-icon-pop" />
                 Group
               </div>
@@ -145,7 +145,7 @@ export function Footer() {
 
             {/* 3. Connect */}
             <nav aria-label="Connect">
-              <div className="mb-3.5 flex items-center gap-2 font-mono text-[11px] uppercase tracking-[0.24em] text-[#111827] font-bold">
+              <div className="mb-3.5 flex items-center gap-2 font-sans text-[11px] uppercase tracking-[0.24em] text-[#111827] font-bold">
                 <Icon name="share-2" width={13} height={13} className="text-[#3026B3] fx-icon-pop" />
                 Connect
               </div>
@@ -178,7 +178,7 @@ export function Footer() {
 
             {/* 4. Address */}
             <div aria-label="Address">
-              <div className="mb-3.5 flex items-center gap-2 font-mono text-[11px] uppercase tracking-[0.24em] text-[#111827] font-bold">
+              <div className="mb-3.5 flex items-center gap-2 font-sans text-[11px] uppercase tracking-[0.24em] text-[#111827] font-bold">
                 <Icon name="map-pin" width={13} height={13} className="text-[#3026B3]" />
                 Address
               </div>
@@ -190,7 +190,7 @@ export function Footer() {
                   <br />
                   {brandConfig.address.city} – {brandConfig.address.pincode}
                 </p>
-                <div className="space-y-1.5 border-t border-[#E3E5EF] pt-2.5 font-mono text-[11.5px]">
+                <div className="space-y-1.5 border-t border-[#E3E5EF] pt-2.5 font-sans text-[11.5px]">
                   <div>
                     <a
                       href={`tel:${brandConfig.contact.phoneTel}`}
@@ -217,7 +217,7 @@ export function Footer() {
 
         {/* Bottom Credits & Legal */}
         <div className="mt-8 flex flex-col md:flex-row md:items-center justify-between gap-4 border-t border-[#E3E5EF] pt-5 text-center">
-          <p className="font-mono text-[11px] uppercase tracking-[0.16em] text-[#596579] md:text-left shrink-0">
+          <p className="font-sans text-[11px] uppercase tracking-[0.16em] text-[#596579] md:text-left shrink-0">
             © {new Date().getFullYear()} BharatX Group. All rights reserved.
           </p>
 
@@ -226,7 +226,7 @@ export function Footer() {
               href="https://kynyx.com/"
               target="_blank"
               rel="noopener noreferrer"
-              className="group inline-flex items-center gap-1.5 font-mono text-[11px] uppercase tracking-[0.16em] text-[#596579] transition-colors hover:text-[#3026B3]"
+              className="group inline-flex items-center gap-1.5 font-sans text-[11px] uppercase tracking-[0.16em] text-[#596579] transition-colors hover:text-[#3026B3]"
             >
               <span>Made with</span>
               <Icon
@@ -244,7 +244,7 @@ export function Footer() {
             </a>
           </div>
 
-          <div className="flex flex-wrap items-center justify-center md:justify-end gap-x-2.5 gap-y-1 font-mono text-[11px] tracking-[0.14em] text-[#596579]">
+          <div className="flex flex-wrap items-center justify-center md:justify-end gap-x-2.5 gap-y-1 font-sans text-[11px] tracking-[0.14em] text-[#596579]">
             {footerSections.legal.map((item) => (
               <span key={item.label} className="inline-flex items-center gap-2">
                 <span className="text-[#94A3B8]">•</span>

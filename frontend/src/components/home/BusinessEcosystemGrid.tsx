@@ -128,12 +128,12 @@ export function BusinessEcosystemGrid() {
       <div className="container-x relative z-10">
         {/* Header */}
         <div className="max-w-3xl mb-8 sm:mb-10 group/header">
-          <div className="inline-flex items-center gap-2 rounded-full border border-[#3026B3]/25 bg-[#3026B3]/8 px-4 py-1 font-mono text-[11px] uppercase tracking-[0.26em] text-[#3026B3] font-bold shadow-xs cursor-default">
+          <div className="inline-flex items-center gap-2 rounded-full border border-[#3026B3]/25 bg-[#3026B3]/8 px-4 py-1 font-sans text-[11px] uppercase tracking-[0.26em] text-[#3026B3] font-bold shadow-xs cursor-default">
             <span className="h-2 w-2 rounded-full bg-[#3026B3] transition-transform duration-300 group-hover/header:scale-125" />
             <span>CORE VERTICALS</span>
           </div>
 
-          <h2 className="mt-4 font-serif text-3xl sm:text-4xl md:text-5xl font-normal leading-tight tracking-tight text-[#111827] transition-colors hover:text-[#3026B3]">
+          <h2 className="mt-4 font-heading text-3xl sm:text-4xl md:text-5xl font-medium leading-tight tracking-tight text-[#111827] transition-colors hover:text-[#3026B3]">
             Our Business Ecosystem
           </h2>
 
@@ -158,13 +158,13 @@ export function BusinessEcosystemGrid() {
                 <div>
                   <div className="flex items-center justify-between gap-2 mb-3.5">
                     <span
-                      className={`inline-block font-mono text-[10px] font-bold uppercase tracking-[0.2em] px-2.5 py-0.5 rounded-md ${card.accentBg} ${card.accentText}`}
+                      className={`inline-block font-sans text-[10px] font-bold uppercase tracking-[0.2em] px-2.5 py-0.5 rounded-md ${card.accentBg} ${card.accentText}`}
                     >
                       {card.sector}
                     </span>
 
                     {card.isUpcoming ? (
-                      <span className="inline-block rounded-md border border-amber-500/30 bg-amber-50 px-2 py-0.5 font-mono text-[9px] font-bold uppercase tracking-wider text-amber-700">
+                      <span className="inline-block rounded-md border border-amber-500/30 bg-amber-50 px-2 py-0.5 font-sans text-[9px] font-bold uppercase tracking-wider text-amber-700">
                         Upcoming
                       </span>
                     ) : card.logo ? (
@@ -179,7 +179,7 @@ export function BusinessEcosystemGrid() {
                   </div>
 
                   {/* Company Name */}
-                  <h3 className="font-serif text-xl sm:text-[1.35rem] font-medium tracking-tight text-[#111827] group-hover:text-[#3026B3] transition-colors">
+                  <h3 className="font-heading text-xl sm:text-[1.35rem] font-medium tracking-tight text-[#111827] group-hover:text-[#3026B3] transition-colors">
                     {card.company}
                   </h3>
 
@@ -191,7 +191,7 @@ export function BusinessEcosystemGrid() {
 
                 {/* Bottom: Action & Arrow */}
                 <div className="mt-6 flex items-center justify-between pt-4 border-t border-[#E3E5EF]">
-                  <span className="font-mono text-[10.5px] uppercase tracking-[0.16em] text-[#596579] font-semibold group-hover:text-[#3026B3] transition-colors">
+                  <span className="font-sans text-[10.5px] uppercase tracking-[0.16em] text-[#596579] font-semibold group-hover:text-[#3026B3] transition-colors">
                     {isExternal ? "Visit Website" : card.isUpcoming ? "Learn More" : "Explore Entity"}
                   </span>
                   <div className="flex h-8 w-8 items-center justify-center rounded-full bg-white border border-[#E3E5EF] text-[#111827] transition-all duration-300 group-hover:bg-[#3026B3] group-hover:text-white group-hover:border-[#3026B3] group-hover:translate-x-0.5 group-hover:-translate-y-0.5 shadow-xs">

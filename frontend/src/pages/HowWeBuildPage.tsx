@@ -162,7 +162,7 @@ export default function HowWeBuildPage() {
               initial={{ opacity: 0, y: 12 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5 }}
-              className="inline-flex items-center gap-2 rounded-full border border-white/25 bg-black/45 backdrop-blur-md px-4 py-1 font-mono text-[11px] uppercase tracking-[0.28em] text-[#FFB000] mb-5 shadow-sm group hover:border-[#FFB000]/60 transition-colors"
+              className="inline-flex items-center gap-2 rounded-full border border-white/25 bg-black/45 backdrop-blur-md px-4 py-1 font-sans text-[11px] uppercase tracking-[0.28em] text-[#FFB000] mb-5 shadow-sm group hover:border-[#FFB000]/60 transition-colors"
             >
               <span className="h-2 w-2 rounded-full bg-[#FFB000] shadow-[0_0_8px_#FFB000] group-hover:scale-125 transition-transform" />
               <span>HOW WE BUILD</span>
@@ -173,7 +173,7 @@ export default function HowWeBuildPage() {
               initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.1 }}
-              className="font-serif text-4xl sm:text-5xl md:text-6xl lg:text-[4.2rem] font-normal leading-[1.08] tracking-tight text-white drop-shadow-sm cursor-text"
+              className="font-heading text-4xl sm:text-5xl md:text-6xl lg:text-[4.2rem] font-medium leading-[1.1] tracking-tight text-white drop-shadow-sm cursor-text"
               data-cursor="text"
             >
               From Opportunity to{" "}
@@ -197,7 +197,7 @@ export default function HowWeBuildPage() {
               transition={{ duration: 0.6, delay: 0.3 }}
               className="mt-8 flex flex-wrap items-center gap-3"
             >
-              <div className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 backdrop-blur-md px-5 py-2 font-mono text-xs uppercase tracking-[0.22em] text-[#FFB000] font-bold shadow-sm">
+              <div className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 backdrop-blur-md px-5 py-2 font-sans text-xs uppercase tracking-[0.22em] text-[#FFB000] font-bold shadow-sm">
                 <span>Build.</span>
                 <span className="text-white/40">•</span>
                 <span>Scale.</span>
@@ -227,12 +227,12 @@ export default function HowWeBuildPage() {
         <div className="container-x relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
             <div className="lg:col-span-6">
-              <div className="inline-flex items-center gap-2 rounded-full border border-[#3026B3]/25 bg-[#3026B3]/8 px-4 py-1 font-mono text-[11px] uppercase tracking-[0.26em] text-[#3026B3] font-bold shadow-xs mb-4 hover:border-[#3026B3] transition-colors">
+              <div className="inline-flex items-center gap-2 rounded-full border border-[#3026B3]/25 bg-[#3026B3]/8 px-4 py-1 font-sans text-[11px] uppercase tracking-[0.26em] text-[#3026B3] font-bold shadow-xs mb-4 hover:border-[#3026B3] transition-colors">
                 <span className="h-2 w-2 rounded-full bg-[#3026B3]" />
                 <span>OUR PHILOSOPHY</span>
               </div>
 
-              <AnimatedHeading as="h2" effect="words" hover="color" className="font-serif text-3xl sm:text-4xl lg:text-5xl font-normal text-[#111827] leading-tight tracking-tight">
+              <AnimatedHeading as="h2" effect="words" hover="color" className="font-heading text-3xl sm:text-4xl lg:text-5xl font-medium text-[#111827] leading-tight tracking-tight">
                 We Are Builders, <span className="text-[#3026B3]">Not Just Investors.</span>
               </AnimatedHeading>
 
@@ -249,7 +249,7 @@ export default function HowWeBuildPage() {
             <div className="lg:col-span-6">
               <div className="rounded-3xl border border-[#E3E5EF] bg-[#FAF9F6] p-7 sm:p-9 shadow-lg fx-lift">
                 <div className="text-center mb-6">
-                  <span className="font-mono text-xs uppercase tracking-[0.24em] text-[#3026B3] font-bold block">
+                  <span className="font-sans text-xs uppercase tracking-[0.24em] text-[#3026B3] font-bold block">
                     The Enterprise Engine
                   </span>
                   <span className="text-xs text-[#596579] mt-1 block">
@@ -268,7 +268,7 @@ export default function HowWeBuildPage() {
                         <div className={`h-8 w-8 rounded-lg ${item.bg} ${item.text} flex items-center justify-center shrink-0 transition-transform group-hover:scale-110`}>
                           <Icon name={item.icon} width={16} height={16} strokeWidth={2} />
                         </div>
-                        <span className="font-serif text-sm font-medium text-[#111827]">
+                        <span className="font-sans text-sm font-medium text-[#111827]">
                           {item.label}
                         </span>
                       </div>
@@ -278,7 +278,7 @@ export default function HowWeBuildPage() {
                   {/* 6th Slot: Compounding Catalyst */}
                   <StaggerItem>
                     <div className="flex items-center justify-center rounded-xl border border-dashed border-[#CBD1E1] bg-white/50 p-3 h-full">
-                      <span className="font-mono text-xs text-[#596579] font-bold tracking-wider">
+                      <span className="font-sans text-xs text-[#596579] font-bold tracking-wider">
                         + DISCIPLINE
                       </span>
                     </div>
@@ -297,10 +297,10 @@ export default function HowWeBuildPage() {
                   data-cursor="card"
                   className="rounded-2xl border border-[#3026B3]/40 bg-gradient-to-r from-[#211B72] via-[#3026B3] to-[#211B72] p-5 sm:p-6 text-center text-white shadow-xl transition-all duration-300 hover:scale-[1.02] fx-glow-indigo"
                 >
-                  <span className="font-mono text-[10px] uppercase tracking-[0.28em] text-[#FFB000] font-bold block mb-1">
+                  <span className="font-sans text-[10px] uppercase tracking-[0.28em] text-[#FFB000] font-bold block mb-1">
                     CENTRAL OUTCOME
                   </span>
-                  <h3 className="font-serif text-2xl sm:text-3xl font-medium tracking-tight text-white transition-colors duration-300 hover:text-gold-400">
+                  <h3 className="font-heading text-2xl sm:text-3xl font-medium tracking-tight text-white transition-colors duration-300 hover:text-gold-400">
                     Enterprise
                   </h3>
                   <p className="mt-2 text-xs sm:text-[13px] text-slate-200 font-normal">
@@ -317,12 +317,12 @@ export default function HowWeBuildPage() {
       <SectionTransition withDivider id="build-cycle" className="relative overflow-hidden bg-[#FAF9F6] py-12 sm:py-16 border-b border-[#E3E5EF]">
         <div className="container-x relative z-10">
           <div className="max-w-3xl text-center mx-auto mb-16">
-            <div className="inline-flex items-center gap-2 rounded-full border border-[#00B8D9]/30 bg-[#00B8D9]/10 px-4 py-1 font-mono text-[11px] uppercase tracking-[0.26em] text-[#008299] font-bold shadow-xs mb-4">
+            <div className="inline-flex items-center gap-2 rounded-full border border-[#00B8D9]/30 bg-[#00B8D9]/10 px-4 py-1 font-sans text-[11px] uppercase tracking-[0.26em] text-[#008299] font-bold shadow-xs mb-4">
               <span className="h-2 w-2 rounded-full bg-[#00B8D9]" />
               <span>THE BHARATX BUILD CYCLE</span>
             </div>
 
-            <AnimatedHeading as="h2" effect="words" hover="color" className="font-serif text-3xl sm:text-4xl lg:text-5xl font-normal text-[#111827] leading-tight tracking-tight">
+            <AnimatedHeading as="h2" effect="words" hover="color" className="font-heading text-3xl sm:text-4xl lg:text-5xl font-medium text-[#111827] leading-tight tracking-tight">
               Our Five-Step <span className="text-[#3026B3]">Approach</span>
             </AnimatedHeading>
 
@@ -341,7 +341,7 @@ export default function HowWeBuildPage() {
                 >
                   <div>
                     <div className="flex items-center justify-between mb-4">
-                      <span className={`font-mono text-xs font-bold tracking-widest ${step.textAccent} transition-transform duration-300 group-hover:scale-110`}>
+                      <span className={`font-sans text-xs font-bold tracking-widest ${step.textAccent} transition-transform duration-300 group-hover:scale-110`}>
                         {step.step}
                       </span>
                       <div
@@ -351,11 +351,11 @@ export default function HowWeBuildPage() {
                       </div>
                     </div>
 
-                    <h3 className="font-mono text-sm sm:text-base font-bold tracking-[0.16em] text-[#111827] uppercase group-hover:text-[#3026B3] transition-colors">
+                    <h3 className="font-sans text-sm sm:text-base font-bold tracking-[0.16em] text-[#111827] uppercase group-hover:text-[#3026B3] transition-colors">
                       {step.name}
                     </h3>
 
-                    <p className="mt-1 text-xs font-serif font-semibold text-[#3026B3]">
+                    <p className="mt-1 text-xs font-sans font-semibold text-[#3026B3]">
                       {step.tagline}
                     </p>
 
@@ -387,12 +387,12 @@ export default function HowWeBuildPage() {
       <SectionTransition withDivider className="relative overflow-hidden bg-white py-12 sm:py-16 border-b border-[#E3E5EF]">
         <div className="container-x relative z-10">
           <div className="max-w-3xl text-center mx-auto mb-14">
-            <div className="inline-flex items-center gap-2 rounded-full border border-[#15966B]/30 bg-[#15966B]/10 px-4 py-1 font-mono text-[11px] uppercase tracking-[0.26em] text-[#15966B] font-bold shadow-xs mb-4">
+            <div className="inline-flex items-center gap-2 rounded-full border border-[#15966B]/30 bg-[#15966B]/10 px-4 py-1 font-sans text-[11px] uppercase tracking-[0.26em] text-[#15966B] font-bold shadow-xs mb-4">
               <span className="h-2 w-2 rounded-full bg-[#15966B]" />
               <span>WHAT WE BRING</span>
             </div>
 
-            <AnimatedHeading as="h2" effect="words" hover="color" className="font-serif text-3xl sm:text-4xl lg:text-5xl font-normal text-[#111827] leading-tight tracking-tight">
+            <AnimatedHeading as="h2" effect="words" hover="color" className="font-heading text-3xl sm:text-4xl lg:text-5xl font-medium text-[#111827] leading-tight tracking-tight">
               The BharatX <span className="text-[#3026B3]">Advantage</span>
             </AnimatedHeading>
 
@@ -414,7 +414,7 @@ export default function HowWeBuildPage() {
                       <Icon name={item.icon} width={20} height={20} strokeWidth={2} />
                     </div>
 
-                    <h3 className="font-serif text-xl font-medium text-[#111827] group-hover:text-[#3026B3] transition-colors duration-300">
+                    <h3 className="font-heading text-xl font-medium text-[#111827] group-hover:text-[#3026B3] transition-colors duration-300">
                       {item.pillar}
                     </h3>
 
@@ -423,7 +423,7 @@ export default function HowWeBuildPage() {
                     </p>
                   </div>
 
-                  <div className="mt-4 pt-3 border-t border-[#E3E5EF]/60 font-mono text-[9px] uppercase tracking-wider text-[#596579]">
+                  <div className="mt-4 pt-3 border-t border-[#E3E5EF]/60 font-sans text-[9px] uppercase tracking-wider text-[#596579]">
                     Institutional Pillar
                   </div>
                 </div>
@@ -433,7 +433,7 @@ export default function HowWeBuildPage() {
 
           {/* Central Anchor Line */}
           <div className="mt-14 max-w-2xl mx-auto rounded-2xl border border-[#3026B3]/30 bg-[#3026B3]/5 p-6 text-center shadow-xs fx-lift">
-            <p className="font-serif text-base sm:text-lg font-medium text-[#111827] leading-relaxed">
+            <p className="font-heading text-base sm:text-lg font-medium text-[#111827] leading-relaxed">
               “When these capabilities come together, opportunities become scalable businesses.”
             </p>
           </div>
@@ -444,12 +444,12 @@ export default function HowWeBuildPage() {
       <SectionTransition withDivider className="relative overflow-hidden bg-[#FAF9F6] py-12 sm:py-16 border-b border-[#E3E5EF]">
         <div className="container-x relative z-10">
           <div className="max-w-3xl text-center mx-auto mb-14">
-            <div className="inline-flex items-center gap-2 rounded-full border border-[#3026B3]/25 bg-[#3026B3]/8 px-4 py-1 font-mono text-[11px] uppercase tracking-[0.26em] text-[#3026B3] font-bold shadow-xs mb-4">
+            <div className="inline-flex items-center gap-2 rounded-full border border-[#3026B3]/25 bg-[#3026B3]/8 px-4 py-1 font-sans text-[11px] uppercase tracking-[0.26em] text-[#3026B3] font-bold shadow-xs mb-4">
               <span className="h-2 w-2 rounded-full bg-[#3026B3]" />
               <span>OPERATING FOOTPRINT</span>
             </div>
 
-            <AnimatedHeading as="h2" effect="words" hover="color" className="font-serif text-3xl sm:text-4xl lg:text-5xl font-normal text-[#111827] leading-tight tracking-tight">
+            <AnimatedHeading as="h2" effect="words" hover="color" className="font-heading text-3xl sm:text-4xl lg:text-5xl font-medium text-[#111827] leading-tight tracking-tight">
               Building Across the <span className="text-[#3026B3]">Real and Digital Economy</span>
             </AnimatedHeading>
 
@@ -470,10 +470,10 @@ export default function HowWeBuildPage() {
                   <div className="flex items-center gap-3">
                     <span className="text-xl transition-transform group-hover:scale-125 duration-300">{sector.emoji}</span>
                     <div>
-                      <h4 className="font-serif text-base font-medium text-[#111827] group-hover:text-[#3026B3] transition-colors">
+                      <h4 className="font-heading text-base font-medium text-[#111827] group-hover:text-[#3026B3] transition-colors">
                         {sector.name}
                       </h4>
-                      <span className="text-[11px] font-mono text-[#596579] block">
+                      <span className="text-[11px] font-sans text-[#596579] block">
                         {sector.tag}
                       </span>
                     </div>
@@ -494,13 +494,13 @@ export default function HowWeBuildPage() {
         <div className="container-x relative z-10">
           <div className="max-w-4xl mx-auto text-center">
             {/* Eyebrow */}
-            <div className="inline-flex items-center gap-2 rounded-full border border-[#FFB000]/40 bg-[#FFB000]/15 px-4 py-1 font-mono text-[11px] uppercase tracking-[0.28em] text-[#FFB000] font-bold shadow-xs mb-6">
+            <div className="inline-flex items-center gap-2 rounded-full border border-[#FFB000]/40 bg-[#FFB000]/15 px-4 py-1 font-sans text-[11px] uppercase tracking-[0.28em] text-[#FFB000] font-bold shadow-xs mb-6">
               <span className="h-2 w-2 rounded-full bg-[#FFB000] shadow-[0_0_8px_#FFB000]" />
               <span>THE NEXT VENTURE</span>
             </div>
 
             {/* Headline */}
-            <AnimatedHeading as="h2" effect="words" hover="color" className="font-serif text-3xl sm:text-5xl md:text-6xl font-normal leading-[1.1] tracking-tight text-white">
+            <AnimatedHeading as="h2" effect="words" hover="color" className="font-heading text-3xl sm:text-5xl md:text-6xl font-medium leading-[1.1] tracking-tight text-white">
               The Next Business Could Be Built Here.
             </AnimatedHeading>
 
@@ -559,7 +559,7 @@ export default function HowWeBuildPage() {
 
             {/* Signature Tagline */}
             <div className="mt-12 pt-8 border-t border-white/15 max-w-xl mx-auto">
-              <p className="font-mono text-sm sm:text-base uppercase tracking-[0.24em] text-[#FFB000] font-bold">
+              <p className="font-sans text-sm sm:text-base uppercase tracking-[0.24em] text-[#FFB000] font-bold">
                 Building Businesses. Enabling Bharat.
               </p>
             </div>

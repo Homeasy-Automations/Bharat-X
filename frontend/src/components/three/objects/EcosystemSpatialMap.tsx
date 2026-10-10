@@ -54,7 +54,7 @@ function SpatialMapMesh({
         <meshBasicMaterial color="#0284c7" wireframe transparent opacity={0.35} />
       </mesh>
       <Html center distanceFactor={10} position={[0, 0.9, 0]}>
-        <span className="rounded-full px-2.5 py-0.5 font-mono text-[9px] font-bold text-amber-900 bg-amber-200/90 border border-amber-400 shadow-sm">
+        <span className="rounded-full px-2.5 py-0.5 font-sans text-[9px] font-bold text-amber-900 bg-amber-200/90 border border-amber-400 shadow-sm">
           BHARATX GROUP
         </span>
       </Html>
@@ -113,7 +113,7 @@ function SpatialMapMesh({
             <Html center distanceFactor={11} position={[0, 0.42, 0]}>
               <div
                 className={cn(
-                  "flex items-center gap-1.5 rounded-full px-2.5 py-0.5 font-mono text-[9px] font-bold uppercase tracking-wider backdrop-blur-md transition-all shadow-sm border whitespace-nowrap",
+                  "flex items-center gap-1.5 rounded-full px-2.5 py-0.5 font-sans text-[9px] font-bold uppercase tracking-wider backdrop-blur-md transition-all shadow-sm border whitespace-nowrap",
                   isHovered
                     ? "scale-115 shadow-md border-white/60 text-white"
                     : "scale-100 opacity-90 text-slate-800 bg-white/90 border-black/10"
@@ -144,7 +144,7 @@ function SpatialMapMesh({
             />
           </mesh>
           <Html center distanceFactor={12} position={[0, 0.28, 0]}>
-            <span className="rounded-full px-1.5 py-0.5 font-mono text-[8px] font-semibold text-slate-700 bg-white/80 border border-slate-200 shadow-xs">
+            <span className="rounded-full px-1.5 py-0.5 font-sans text-[8px] font-semibold text-slate-700 bg-white/80 border border-slate-200 shadow-xs">
               {cap.label}
             </span>
           </Html>

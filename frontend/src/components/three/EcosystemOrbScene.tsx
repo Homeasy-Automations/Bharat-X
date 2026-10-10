@@ -217,7 +217,7 @@ function OrbFallback() {
               y={py + 4}
               textAnchor="middle"
               fontSize="11"
-              fontFamily="JetBrains Mono, monospace"
+              className="font-sans"
               fill="#eef2f5"
             >
               {c.monogram}
@@ -226,10 +226,10 @@ function OrbFallback() {
         );
       })}
       <circle cx="260" cy="260" r="46" fill="url(#orb-core)" stroke="rgba(67,230,197,0.5)" />
-      <text x="260" y="256" textAnchor="middle" fontSize="11" fontFamily="Space Grotesk, sans-serif" fontWeight="600" fill="#f5b84d" letterSpacing="2">
+      <text x="260" y="256" textAnchor="middle" fontSize="11" className="font-sans" fontWeight="600" fill="#f5b84d" letterSpacing="2">
         BHARATX
       </text>
-      <text x="260" y="272" textAnchor="middle" fontSize="8.5" fontFamily="JetBrains Mono, monospace" fill="#93a1ad" letterSpacing="4">
+      <text x="260" y="272" textAnchor="middle" fontSize="8.5" className="font-sans" fill="#93a1ad" letterSpacing="4">
         GROUP
       </text>
     </svg>
@@ -298,13 +298,13 @@ export default function EcosystemOrbScene({
                     style={{ background: hoverCompany.accentColor }}
                   />
                   <span
-                    className="font-mono text-[10px] uppercase tracking-[0.22em]"
+                    className="font-sans text-[10px] uppercase tracking-[0.22em]"
                     style={{ color: hoverCompany.accentColor }}
                   >
                     {hoverCompany.category}
                   </span>
                 </div>
-                <div className="mt-1.5 font-display text-lg font-semibold text-ink-50">
+                <div className="mt-1.5 font-heading text-lg font-semibold text-ink-50">
                   {hoverCompany.name}
                 </div>
               </div>
@@ -318,7 +318,7 @@ export default function EcosystemOrbScene({
                 </span>
               ) : (
                 <span
-                  className="flex h-9 w-9 items-center justify-center font-mono text-[11px] font-semibold text-ink-300"
+                  className="flex h-9 w-9 items-center justify-center font-sans text-[11px] font-semibold text-ink-300"
                 >
                   {hoverCompany.monogram}
                 </span>
@@ -330,7 +330,7 @@ export default function EcosystemOrbScene({
             <div className="mt-3 flex items-center gap-4">
               <Link
                 to={`/companies/${hoverCompany.slug}`}
-                className="inline-flex items-center gap-1.5 font-mono text-[11px] uppercase tracking-[0.18em] text-gold-400 transition-colors hover:text-gold-300"
+                className="inline-flex items-center gap-1.5 font-sans text-[11px] uppercase tracking-[0.18em] text-gold-400 transition-colors hover:text-gold-300"
               >
                 Explore <Icon name="arrow-right" width={12} height={12} />
               </Link>
@@ -338,7 +338,7 @@ export default function EcosystemOrbScene({
                 href={hoverCompany.website}
                 target="_blank"
                 rel="noreferrer"
-                className="inline-flex items-center gap-1.5 font-mono text-[11px] uppercase tracking-[0.18em] text-ink-400 transition-colors hover:text-ink-100"
+                className="inline-flex items-center gap-1.5 font-sans text-[11px] uppercase tracking-[0.18em] text-ink-400 transition-colors hover:text-ink-100"
               >
                 Website <Icon name="external-link" width={12} height={12} />
               </a>

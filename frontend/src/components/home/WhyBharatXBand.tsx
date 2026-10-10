@@ -11,19 +11,19 @@ export function WhyBharatXBand() {
         <div className="container-x relative z-10">
           <div className="max-w-3xl">
             {/* Eyebrow */}
-            <div className="flex items-center gap-2.5 font-mono text-[11px] uppercase tracking-[0.28em] text-[#3026B3]">
+            <div className="flex items-center gap-2.5 font-sans text-[11px] uppercase tracking-[0.28em] text-[#3026B3]">
               <span className="text-[#FFB000] animate-pulse">◆</span>
               <span>WHY BHARATX</span>
             </div>
 
             {/* Heading */}
-            <h2 className="mt-4 font-serif text-4xl sm:text-5xl md:text-6xl font-normal leading-[1.08] tracking-tight text-[#111827] hover:text-[#211B72] transition-colors duration-300">
+            <h2 className="mt-4 font-heading text-4xl sm:text-5xl md:text-6xl font-medium leading-[1.1] tracking-tight text-[#111827] hover:text-[#211B72] transition-colors duration-300">
               Built for Scale.
               <br />
               <span className="text-[#3026B3] hover:text-[#FFB000] transition-colors duration-300">Engineered for Sovereignty.</span>
             </h2>
 
-            <p className="mt-6 text-base sm:text-lg text-[#596579] leading-relaxed font-body">
+            <p className="mt-6 text-base sm:text-lg text-[#596579] leading-relaxed font-sans">
               We build foundational capabilities that outlast short-term cycles — governed like institutions, capitalized for decades, and focused purely on India's core industrial sovereignty.
             </p>
           </div>
@@ -57,12 +57,12 @@ export function WhyBharatXBand() {
                   className="group flex flex-col pr-4 p-4 rounded-xl transition-all duration-300 hover:bg-white hover:shadow-lg hover:-translate-y-1 fx-lift focus-visible:ring-2 focus-visible:ring-[#3026B3] focus:outline-none"
                 >
                   <span
-                    className="font-mono text-xs font-bold tracking-widest"
+                    className="font-sans text-xs font-bold tracking-widest"
                     style={{ color: pillar.color }}
                   >
                     {pillar.num}
                   </span>
-                  <h3 className="mt-3 font-serif text-xl sm:text-2xl font-normal text-[#211B72] group-hover:text-[#3026B3] transition-colors">
+                  <h3 className="mt-3 font-heading text-xl sm:text-2xl font-medium text-[#211B72] group-hover:text-[#3026B3] transition-colors">
                     {pillar.title}
                   </h3>
                   <p className="mt-2 text-sm text-[#596579] leading-relaxed">

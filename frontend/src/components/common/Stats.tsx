@@ -66,7 +66,7 @@ export function Stats({
                 >
                   <Icon name={item.icon} width={20} height={20} strokeWidth={1.8} />
                 </div>
-                <div className="flex items-center gap-1.5 font-mono text-[11px] font-medium tracking-wider text-slate-400 dark:text-ink-500">
+                <div className="flex items-center gap-1.5 font-sans text-[11px] font-medium tracking-wider text-slate-400 dark:text-ink-500">
                   <span
                     className="h-1.5 w-1.5 rounded-full"
                     style={{ backgroundColor: accentColor }}
@@ -75,21 +75,17 @@ export function Stats({
                 </div>
               </div>
 
-              {/* Main Number: Outfit display font, scales on hover */}
+              {/* Main Number: heading display font, scales on hover */}
               <div className="mt-5 flex items-baseline gap-0.5 transition-transform duration-300 origin-left group-hover:scale-[1.04]">
                 <span
-                  className="text-4xl sm:text-5xl lg:text-[3.25rem] font-bold tracking-tight text-ink-900 dark:text-ink-50 leading-none select-none tabular-nums transition-colors group-hover:text-[#3026B3] dark:group-hover:text-[#FFB000]"
-                  style={{ fontFamily: "'Outfit', 'Space Grotesk', system-ui, sans-serif" }}
+                  className="font-heading text-4xl sm:text-5xl lg:text-[3.25rem] font-semibold tracking-tight text-ink-900 dark:text-ink-50 leading-none select-none tabular-nums transition-colors group-hover:text-[#3026B3] dark:group-hover:text-[#FFB000]"
                 >
                   <AnimatedNumber value={item.value} prefix={item.prefix} />
                 </span>
                 {item.suffix && (
                   <span
-                    className="text-3xl sm:text-4xl lg:text-[2.5rem] font-bold leading-none select-none"
-                    style={{
-                      color: accentColor,
-                      fontFamily: "'Outfit', 'Space Grotesk', system-ui, sans-serif",
-                    }}
+                    className="font-heading text-3xl sm:text-4xl lg:text-[2.5rem] font-semibold leading-none select-none"
+                    style={{ color: accentColor }}
                   >
                     {item.suffix}
                   </span>
@@ -99,7 +95,7 @@ export function Stats({
 
             {/* Label */}
             <div className="mt-4 pt-3 border-t border-slate-100 dark:border-white/5">
-              <span className="font-display text-[12px] font-semibold uppercase tracking-[0.16em] text-slate-600 dark:text-ink-300 block">
+              <span className="font-sans text-[12px] font-semibold uppercase tracking-[0.16em] text-slate-600 dark:text-ink-300 block">
                 {item.label}
               </span>
             </div>

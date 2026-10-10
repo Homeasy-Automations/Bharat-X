@@ -210,7 +210,7 @@ export default function ImpactPage() {
               initial={{ opacity: 0, y: 12 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5 }}
-              className="inline-flex items-center gap-2 rounded-full border border-white/25 bg-black/45 backdrop-blur-md px-4 py-1 font-mono text-[11px] uppercase tracking-[0.28em] text-[#FFB000] mb-5 shadow-sm group hover:border-[#FFB000]/60 transition-colors"
+              className="inline-flex items-center gap-2 rounded-full border border-white/25 bg-black/45 backdrop-blur-md px-4 py-1 font-sans text-[11px] uppercase tracking-[0.28em] text-[#FFB000] mb-5 shadow-sm group hover:border-[#FFB000]/60 transition-colors"
             >
               <span className="h-2 w-2 rounded-full bg-[#FFB000] shadow-[0_0_8px_#FFB000] group-hover:scale-125 transition-transform" />
               <span>OUR IMPACT</span>
@@ -221,7 +221,7 @@ export default function ImpactPage() {
               initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.1 }}
-              className="font-serif text-4xl sm:text-5xl md:text-6xl lg:text-[4.2rem] font-normal leading-[1.08] tracking-tight text-white drop-shadow-sm cursor-text"
+              className="font-heading text-4xl sm:text-5xl md:text-6xl lg:text-[4.2rem] font-medium leading-[1.1] tracking-tight text-white drop-shadow-sm cursor-text"
               data-cursor="text"
             >
               Building Businesses.{" "}
@@ -283,12 +283,12 @@ export default function ImpactPage() {
         <div className="container-x relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
             <div className="lg:col-span-6">
-              <div className="inline-flex items-center gap-2 rounded-full border border-[#15966B]/30 bg-[#15966B]/10 px-4 py-1 font-mono text-[11px] uppercase tracking-[0.26em] text-[#15966B] font-bold shadow-xs mb-4 hover:border-[#15966B] transition-colors">
+              <div className="inline-flex items-center gap-2 rounded-full border border-[#15966B]/30 bg-[#15966B]/10 px-4 py-1 font-sans text-[11px] uppercase tracking-[0.26em] text-[#15966B] font-bold shadow-xs mb-4 hover:border-[#15966B] transition-colors">
                 <span className="h-2 w-2 rounded-full bg-[#15966B]" />
                 <span>OUR IMPACT PHILOSOPHY</span>
               </div>
 
-              <AnimatedHeading as="h2" effect="words" hover="color" className="font-serif text-3xl sm:text-4xl lg:text-5xl font-normal text-[#111827] leading-tight tracking-tight">
+              <AnimatedHeading as="h2" effect="words" hover="color" className="font-heading text-3xl sm:text-4xl lg:text-5xl font-medium text-[#111827] leading-tight tracking-tight">
                 Growth Should Create <span className="text-[#3026B3]">More Than Profit.</span>
               </AnimatedHeading>
 
@@ -310,10 +310,10 @@ export default function ImpactPage() {
                     data-cursor="card"
                     className="inline-flex flex-col items-center rounded-2xl border border-[#3026B3]/40 bg-gradient-to-r from-[#211B72] via-[#3026B3] to-[#211B72] px-8 py-3.5 text-white shadow-lg transition-transform hover:scale-105 fx-glow-indigo"
                   >
-                    <span className="font-mono text-[10px] uppercase tracking-[0.28em] text-[#FFB000] font-bold">
+                    <span className="font-sans text-[10px] uppercase tracking-[0.28em] text-[#FFB000] font-bold">
                       FOUNDATIONAL CATALYST
                     </span>
-                    <span className="font-serif text-xl sm:text-2xl font-medium tracking-tight mt-0.5">
+                    <span className="font-heading text-xl sm:text-2xl font-medium tracking-tight mt-0.5">
                       BUSINESS GROWTH
                     </span>
                   </div>
@@ -334,7 +334,7 @@ export default function ImpactPage() {
                       <div className="h-8 w-8 rounded-lg bg-[#3026B3]/10 text-[#3026B3] flex items-center justify-center mx-auto mb-2 transition-transform duration-300 group-hover:scale-110 group-hover:rotate-6">
                         <Icon name="landmark" width={16} height={16} />
                       </div>
-                      <span className="font-mono text-[11px] font-bold uppercase tracking-wider text-[#3026B3] block">
+                      <span className="font-sans text-[11px] font-bold uppercase tracking-wider text-[#3026B3] block">
                         ECONOMY
                       </span>
                       <ul className="mt-3 space-y-1.5 text-xs text-[#596579]">
@@ -351,7 +351,7 @@ export default function ImpactPage() {
                       <div className="h-8 w-8 rounded-lg bg-[#15966B]/15 text-[#15966B] flex items-center justify-center mx-auto mb-2 transition-transform duration-300 group-hover:scale-110 group-hover:rotate-6">
                         <Icon name="users" width={16} height={16} />
                       </div>
-                      <span className="font-mono text-[11px] font-bold uppercase tracking-wider text-[#15966B] block">
+                      <span className="font-sans text-[11px] font-bold uppercase tracking-wider text-[#15966B] block">
                         PEOPLE
                       </span>
                       <ul className="mt-3 space-y-1.5 text-xs text-[#596579]">
@@ -368,7 +368,7 @@ export default function ImpactPage() {
                       <div className="h-8 w-8 rounded-lg bg-[#00B8D9]/15 text-[#008299] flex items-center justify-center mx-auto mb-2 transition-transform duration-300 group-hover:scale-110 group-hover:rotate-6">
                         <Icon name="recycle" width={16} height={16} />
                       </div>
-                      <span className="font-mono text-[11px] font-bold uppercase tracking-wider text-[#008299] block">
+                      <span className="font-sans text-[11px] font-bold uppercase tracking-wider text-[#008299] block">
                         ENVIRONMENT
                       </span>
                       <ul className="mt-3 space-y-1.5 text-xs text-[#596579]">
@@ -389,12 +389,12 @@ export default function ImpactPage() {
       <SectionTransition withDivider id="impact-areas" className="relative overflow-hidden bg-[#FAF9F6] py-12 sm:py-16 border-b border-[#E3E5EF]">
         <div className="container-x relative z-10">
           <div className="max-w-3xl mb-16">
-            <div className="inline-flex items-center gap-2 rounded-full border border-[#3026B3]/25 bg-[#3026B3]/8 px-4 py-1 font-mono text-[11px] uppercase tracking-[0.26em] text-[#3026B3] font-bold shadow-xs mb-4">
+            <div className="inline-flex items-center gap-2 rounded-full border border-[#3026B3]/25 bg-[#3026B3]/8 px-4 py-1 font-sans text-[11px] uppercase tracking-[0.26em] text-[#3026B3] font-bold shadow-xs mb-4">
               <span className="h-2 w-2 rounded-full bg-[#3026B3]" />
               <span>WHERE WE CREATE IMPACT</span>
             </div>
 
-            <AnimatedHeading as="h2" effect="words" hover="color" className="font-serif text-3xl sm:text-4xl lg:text-5xl font-normal text-[#111827] leading-tight tracking-tight">
+            <AnimatedHeading as="h2" effect="words" hover="color" className="font-heading text-3xl sm:text-4xl lg:text-5xl font-medium text-[#111827] leading-tight tracking-tight">
               Impact Across the <span className="text-[#3026B3]">Economy</span>
             </AnimatedHeading>
 
@@ -424,7 +424,7 @@ export default function ImpactPage() {
 
                       {/* Sector Tag & Number */}
                       <div className="absolute top-4 left-4 right-4 flex items-center justify-between">
-                        <span className="inline-flex items-center gap-1.5 rounded-full bg-black/60 backdrop-blur-md px-3.5 py-1 font-mono text-[10.5px] uppercase tracking-wider text-[#FFB000] border border-white/20">
+                        <span className="inline-flex items-center gap-1.5 rounded-full bg-black/60 backdrop-blur-md px-3.5 py-1 font-sans text-[10.5px] uppercase tracking-wider text-[#FFB000] border border-white/20">
                           {area.number} · {area.sector}
                         </span>
                       </div>
@@ -439,11 +439,11 @@ export default function ImpactPage() {
 
                     {/* Card Body */}
                     <div className="p-6 sm:p-7">
-                      <span className="font-mono text-[10px] uppercase tracking-[0.22em] font-bold block mb-1" style={{ color: area.accent }}>
+                      <span className="font-sans text-[10px] uppercase tracking-[0.22em] font-bold block mb-1" style={{ color: area.accent }}>
                         {area.entityName}
                       </span>
 
-                      <h3 className="font-serif text-2xl font-medium text-[#111827] group-hover:text-[#3026B3] transition-colors leading-snug duration-300">
+                      <h3 className="font-heading text-2xl font-medium text-[#111827] group-hover:text-[#3026B3] transition-colors leading-snug duration-300">
                         {area.title}
                       </h3>
 
@@ -459,7 +459,7 @@ export default function ImpactPage() {
                       <Link
                         to={area.link}
                         data-cursor="link"
-                        className="inline-flex items-center gap-1.5 font-mono text-xs font-bold uppercase tracking-wider text-[#3026B3] hover:text-[#211B72] transition-colors group/link fx-underline"
+                        className="inline-flex items-center gap-1.5 font-sans text-xs font-bold uppercase tracking-wider text-[#3026B3] hover:text-[#211B72] transition-colors group/link fx-underline"
                       >
                         <span>Explore Vertical</span>
                         <Icon
@@ -486,16 +486,16 @@ export default function ImpactPage() {
       <SectionTransition withDivider className="relative overflow-hidden bg-white py-12 sm:py-16 border-b border-[#E3E5EF]">
         <div className="container-x relative z-10">
           <div className="max-w-3xl text-center mx-auto mb-14">
-            <div className="inline-flex items-center gap-2 rounded-full border border-[#00B8D9]/30 bg-[#00B8D9]/10 px-4 py-1 font-mono text-[11px] uppercase tracking-[0.26em] text-[#008299] font-bold shadow-xs mb-4">
+            <div className="inline-flex items-center gap-2 rounded-full border border-[#00B8D9]/30 bg-[#00B8D9]/10 px-4 py-1 font-sans text-[11px] uppercase tracking-[0.26em] text-[#008299] font-bold shadow-xs mb-4">
               <span className="h-2 w-2 rounded-full bg-[#00B8D9]" />
               <span>IMPACT IN NUMBERS</span>
             </div>
 
-            <AnimatedHeading as="h2" effect="words" hover="color" className="font-serif text-3xl sm:text-4xl lg:text-5xl font-normal text-[#111827] leading-tight tracking-tight">
+            <AnimatedHeading as="h2" effect="words" hover="color" className="font-heading text-3xl sm:text-4xl lg:text-5xl font-medium text-[#111827] leading-tight tracking-tight">
               Our Growing <span className="text-[#3026B3]">Footprint</span>
             </AnimatedHeading>
 
-            <p className="mt-2 font-serif text-xl sm:text-2xl text-[#3026B3] font-medium">
+            <p className="mt-2 font-heading text-xl sm:text-2xl text-[#3026B3] font-medium">
               Measuring What Matters
             </p>
 
@@ -507,10 +507,10 @@ export default function ImpactPage() {
           {/* Clean 6-metric Framework Band */}
           <div className="grid grid-cols-2 lg:grid-cols-3 gap-5 max-w-5xl mx-auto">
             <div data-cursor="card" className="group rounded-2xl border border-[#E3E5EF] bg-[#FAF9F6] p-6 sm:p-7 text-center transition-all duration-300 hover:border-[#3026B3] hover:bg-white hover:shadow-xl fx-lift">
-              <span className="font-serif text-3xl sm:text-4xl font-bold text-[#3026B3] block transition-transform duration-300 group-hover:scale-105">
+              <span className="font-heading text-3xl sm:text-4xl font-semibold text-[#3026B3] block transition-transform duration-300 group-hover:scale-105">
                 8+
               </span>
-              <span className="font-mono text-xs uppercase tracking-wider text-[#111827] font-semibold mt-1 block">
+              <span className="font-sans text-xs uppercase tracking-wider text-[#111827] font-semibold mt-1 block">
                 Businesses
               </span>
               <span className="text-[11px] text-[#596579] mt-1 block">
@@ -519,10 +519,10 @@ export default function ImpactPage() {
             </div>
 
             <div data-cursor="card" className="group rounded-2xl border border-[#E3E5EF] bg-[#FAF9F6] p-6 sm:p-7 text-center transition-all duration-300 hover:border-[#15966B] hover:bg-white hover:shadow-xl fx-lift">
-              <span className="font-serif text-3xl sm:text-4xl font-bold text-[#15966B] block transition-transform duration-300 group-hover:scale-105">
+              <span className="font-heading text-3xl sm:text-4xl font-semibold text-[#15966B] block transition-transform duration-300 group-hover:scale-105">
                 1,500+
               </span>
-              <span className="font-mono text-xs uppercase tracking-wider text-[#111827] font-semibold mt-1 block">
+              <span className="font-sans text-xs uppercase tracking-wider text-[#111827] font-semibold mt-1 block">
                 Jobs
               </span>
               <span className="text-[11px] text-[#596579] mt-1 block">
@@ -531,10 +531,10 @@ export default function ImpactPage() {
             </div>
 
             <div data-cursor="card" className="group rounded-2xl border border-[#E3E5EF] bg-[#FAF9F6] p-6 sm:p-7 text-center transition-all duration-300 hover:border-[#00B8D9] hover:bg-white hover:shadow-xl fx-lift">
-              <span className="font-serif text-3xl sm:text-4xl font-bold text-[#00B8D9] block transition-transform duration-300 group-hover:scale-105">
+              <span className="font-heading text-3xl sm:text-4xl font-semibold text-[#00B8D9] block transition-transform duration-300 group-hover:scale-105">
                 50+
               </span>
-              <span className="font-mono text-xs uppercase tracking-wider text-[#111827] font-semibold mt-1 block">
+              <span className="font-sans text-xs uppercase tracking-wider text-[#111827] font-semibold mt-1 block">
                 Projects
               </span>
               <span className="text-[11px] text-[#596579] mt-1 block">
@@ -543,10 +543,10 @@ export default function ImpactPage() {
             </div>
 
             <div data-cursor="card" className="group rounded-2xl border border-[#E3E5EF] bg-[#FAF9F6] p-6 sm:p-7 text-center transition-all duration-300 hover:border-[#E09800] hover:bg-white hover:shadow-xl fx-lift">
-              <span className="font-serif text-3xl sm:text-4xl font-bold text-[#E09800] block transition-transform duration-300 group-hover:scale-105">
+              <span className="font-heading text-3xl sm:text-4xl font-semibold text-[#E09800] block transition-transform duration-300 group-hover:scale-105">
                 14+
               </span>
-              <span className="font-mono text-xs uppercase tracking-wider text-[#111827] font-semibold mt-1 block">
+              <span className="font-sans text-xs uppercase tracking-wider text-[#111827] font-semibold mt-1 block">
                 Locations
               </span>
               <span className="text-[11px] text-[#596579] mt-1 block">
@@ -555,10 +555,10 @@ export default function ImpactPage() {
             </div>
 
             <div data-cursor="card" className="group rounded-2xl border border-[#E3E5EF] bg-[#FAF9F6] p-6 sm:p-7 text-center transition-all duration-300 hover:border-[#4B40D4] hover:bg-white hover:shadow-xl fx-lift">
-              <span className="font-serif text-3xl sm:text-4xl font-bold text-[#4B40D4] block transition-transform duration-300 group-hover:scale-105">
+              <span className="font-heading text-3xl sm:text-4xl font-semibold text-[#4B40D4] block transition-transform duration-300 group-hover:scale-105">
                 18+
               </span>
-              <span className="font-mono text-xs uppercase tracking-wider text-[#111827] font-semibold mt-1 block">
+              <span className="font-sans text-xs uppercase tracking-wider text-[#111827] font-semibold mt-1 block">
                 Markets
               </span>
               <span className="text-[11px] text-[#596579] mt-1 block">
@@ -567,10 +567,10 @@ export default function ImpactPage() {
             </div>
 
             <div data-cursor="card" className="group rounded-2xl border border-[#E3E5EF] bg-[#FAF9F6] p-6 sm:p-7 text-center transition-all duration-300 hover:border-[#15966B] hover:bg-white hover:shadow-xl fx-lift">
-              <span className="font-serif text-3xl sm:text-4xl font-bold text-[#15966B] block transition-transform duration-300 group-hover:scale-105">
+              <span className="font-heading text-3xl sm:text-4xl font-semibold text-[#15966B] block transition-transform duration-300 group-hover:scale-105">
                 10,000+
               </span>
-              <span className="font-mono text-xs uppercase tracking-wider text-[#111827] font-semibold mt-1 block">
+              <span className="font-sans text-xs uppercase tracking-wider text-[#111827] font-semibold mt-1 block">
                 People Reached
               </span>
               <span className="text-[11px] text-[#596579] mt-1 block">
@@ -580,7 +580,7 @@ export default function ImpactPage() {
           </div>
 
           <div className="mt-10 text-center">
-            <span className="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white px-4 py-1.5 text-xs text-[#596579] font-mono shadow-xs fx-lift">
+            <span className="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white px-4 py-1.5 text-xs text-[#596579] font-sans shadow-xs fx-lift">
               <span className="h-2 w-2 rounded-full bg-emerald-500 animate-pulse" />
               <span>Transparent telemetry &amp; validated ESG framework</span>
             </span>
@@ -592,12 +592,12 @@ export default function ImpactPage() {
       <SectionTransition withDivider className="relative overflow-hidden bg-[#FAF9F6] py-12 sm:py-16 border-b border-[#E3E5EF]">
         <div className="container-x relative z-10">
           <div className="max-w-3xl text-center mx-auto mb-14">
-            <div className="inline-flex items-center gap-2 rounded-full border border-[#3026B3]/25 bg-[#3026B3]/8 px-4 py-1 font-mono text-[11px] uppercase tracking-[0.26em] text-[#3026B3] font-bold shadow-xs mb-4">
+            <div className="inline-flex items-center gap-2 rounded-full border border-[#3026B3]/25 bg-[#3026B3]/8 px-4 py-1 font-sans text-[11px] uppercase tracking-[0.26em] text-[#3026B3] font-bold shadow-xs mb-4">
               <span className="h-2 w-2 rounded-full bg-[#3026B3]" />
               <span>OUR COMMITMENT</span>
             </div>
 
-            <AnimatedHeading as="h2" effect="words" hover="color" className="font-serif text-3xl sm:text-4xl lg:text-5xl font-normal text-[#111827] leading-tight tracking-tight">
+            <AnimatedHeading as="h2" effect="words" hover="color" className="font-heading text-3xl sm:text-4xl lg:text-5xl font-medium text-[#111827] leading-tight tracking-tight">
               Building <span className="text-[#3026B3]">Responsibly</span>
             </AnimatedHeading>
 
@@ -619,7 +619,7 @@ export default function ImpactPage() {
                       <Icon name={item.icon} width={20} height={20} strokeWidth={2} />
                     </div>
 
-                    <h3 className="font-serif text-xl font-medium text-[#111827] group-hover:text-[#3026B3] transition-colors duration-300">
+                    <h3 className="font-heading text-xl font-medium text-[#111827] group-hover:text-[#3026B3] transition-colors duration-300">
                       {item.title}
                     </h3>
 
@@ -628,7 +628,7 @@ export default function ImpactPage() {
                     </p>
                   </div>
 
-                  <div className="mt-5 pt-3 border-t border-[#E3E5EF]/60 font-mono text-[9.5px] uppercase tracking-wider text-[#596579]">
+                  <div className="mt-5 pt-3 border-t border-[#E3E5EF]/60 font-sans text-[9.5px] uppercase tracking-wider text-[#596579]">
                     Commitment Standard
                   </div>
                 </div>
@@ -646,13 +646,13 @@ export default function ImpactPage() {
         <div className="container-x relative z-10">
           <div className="max-w-4xl mx-auto text-center">
             {/* Eyebrow */}
-            <div className="inline-flex items-center gap-2 rounded-full border border-[#FFB000]/40 bg-[#FFB000]/15 px-4 py-1 font-mono text-[11px] uppercase tracking-[0.28em] text-[#FFB000] font-bold shadow-xs mb-6">
+            <div className="inline-flex items-center gap-2 rounded-full border border-[#FFB000]/40 bg-[#FFB000]/15 px-4 py-1 font-sans text-[11px] uppercase tracking-[0.28em] text-[#FFB000] font-bold shadow-xs mb-6">
               <span className="h-2 w-2 rounded-full bg-[#FFB000] shadow-[0_0_8px_#FFB000]" />
               <span>THE FUTURE OF IMPACT</span>
             </div>
 
             {/* Headline */}
-            <AnimatedHeading as="h2" effect="words" hover="color" className="font-serif text-3xl sm:text-5xl md:text-6xl font-normal leading-[1.1] tracking-tight text-white">
+            <AnimatedHeading as="h2" effect="words" hover="color" className="font-heading text-3xl sm:text-5xl md:text-6xl font-medium leading-[1.1] tracking-tight text-white">
               The Opportunity Ahead
             </AnimatedHeading>
 
@@ -670,7 +670,7 @@ export default function ImpactPage() {
                     className="group rounded-2xl border border-white/15 bg-white/5 backdrop-blur-md p-6 transition-all duration-300 hover:bg-white/10 hover:border-white/30 fx-lift h-full"
                   >
                     <div className="flex items-center justify-between mb-3">
-                      <span className="font-mono text-xs uppercase tracking-[0.24em] text-[#FFB000] font-bold">
+                      <span className="font-sans text-xs uppercase tracking-[0.24em] text-[#FFB000] font-bold">
                         {area.step}
                       </span>
                       <div className="h-8 w-8 rounded-lg bg-white/10 text-white flex items-center justify-center transition-transform group-hover:scale-110">
@@ -678,7 +678,7 @@ export default function ImpactPage() {
                       </div>
                     </div>
 
-                    <h4 className="font-serif text-lg font-medium text-white mb-2 leading-snug group-hover:text-[#FFB000] transition-colors">
+                    <h4 className="font-heading text-lg font-medium text-white mb-2 leading-snug group-hover:text-[#FFB000] transition-colors">
                       {area.headline}
                     </h4>
 
@@ -692,7 +692,7 @@ export default function ImpactPage() {
 
             {/* Final CTA Action */}
             <div className="mt-14 pt-10 border-t border-white/15 max-w-2xl mx-auto">
-              <h3 className="font-serif text-2xl sm:text-3xl font-medium text-white mb-6 transition-colors duration-300 hover:text-gold-400">
+              <h3 className="font-heading text-2xl sm:text-3xl font-medium text-white mb-6 transition-colors duration-300 hover:text-gold-400">
                 Build a Better Bharat With Us.
               </h3>
 
@@ -730,7 +730,7 @@ export default function ImpactPage() {
               </div>
 
               <div className="mt-8">
-                <p className="font-mono text-xs uppercase tracking-[0.24em] text-[#FFB000] font-bold">
+                <p className="font-sans text-xs uppercase tracking-[0.24em] text-[#FFB000] font-bold">
                   Building Businesses. Enabling Bharat.
                 </p>
               </div>

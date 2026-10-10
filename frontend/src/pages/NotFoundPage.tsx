@@ -21,7 +21,7 @@ export function NotFoundPage() {
           initial={{ opacity: 0, scale: 0.8 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.8 }}
-          className="mx-auto -mb-8 select-none font-display text-[7.5rem] xs:text-[9.5rem] sm:text-[11rem] font-bold leading-none text-white/[0.04] md:text-[18rem] fx-float"
+          className="mx-auto -mb-8 select-none font-heading text-[7.5rem] xs:text-[9.5rem] sm:text-[11rem] font-semibold leading-none text-white/[0.04] md:text-[18rem] fx-float"
         >
           404
         </motion.div>
@@ -29,7 +29,7 @@ export function NotFoundPage() {
           as="h1"
           effect="words"
           hover="gradient"
-          className="font-display text-3xl sm:text-4xl font-semibold tracking-tight text-ink-50 md:text-6xl"
+          className="font-heading text-3xl sm:text-4xl font-semibold tracking-tight text-ink-50 md:text-6xl"
         >
           This route does not exist.
         </AnimatedHeading>
@@ -56,7 +56,7 @@ export function NotFoundPage() {
             Explore our services
           </Link>
         </div>
-        <div className="mt-16 flex flex-wrap items-center justify-center gap-x-6 gap-y-3 font-mono text-[10px] uppercase tracking-[0.24em] text-ink-600">
+        <div className="mt-16 flex flex-wrap items-center justify-center gap-x-6 gap-y-3 font-sans text-[10px] uppercase tracking-[0.24em] text-ink-600">
           <Link to="/services" data-cursor="link" className="transition-colors hover:text-ink-300 fx-underline">Services</Link>
           <span aria-hidden>·</span>
           <Link to="/industries" data-cursor="link" className="transition-colors hover:text-ink-300 fx-underline">Industries</Link>

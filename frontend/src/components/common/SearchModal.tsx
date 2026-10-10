@@ -105,7 +105,7 @@ export function SearchModal({ open, onClose }: SearchModalProps) {
                   <Icon name="x" width={14} height={14} />
                 </button>
               )}
-              <kbd className="hidden sm:inline-block rounded border border-[#E3E5EF] px-2 py-0.5 font-mono text-[10px] text-[#596579] dark:border-white/15">
+              <kbd className="hidden sm:inline-block rounded border border-[#E3E5EF] px-2 py-0.5 font-sans text-[10px] text-[#596579] dark:border-white/15">
                 ESC
               </kbd>
             </div>
@@ -115,7 +115,7 @@ export function SearchModal({ open, onClose }: SearchModalProps) {
               {/* Services Section */}
               {results.services.length > 0 && (
                 <div>
-                  <div className="mb-2.5 px-2 font-mono text-[10.5px] uppercase tracking-[0.2em] text-[#596579]">
+                  <div className="mb-2.5 px-2 font-sans text-[10.5px] uppercase tracking-[0.2em] text-[#596579]">
                     Sectors &amp; Services
                   </div>
                   <div className="grid gap-1.5 sm:grid-cols-2">
@@ -127,11 +127,11 @@ export function SearchModal({ open, onClose }: SearchModalProps) {
                         onClick={() => handleSelect(`/services#${s.id}`)}
                         className="group relative flex items-center gap-3 rounded-xl p-2.5 text-left transition-all duration-200 hover:bg-[#FAF9F6] hover:translate-x-1 dark:hover:bg-white/[0.05]"
                       >
-                        <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-[#FAF9F6] border border-[#E3E5EF] font-mono text-[11px] font-bold text-[#3026B3] transition-transform duration-200 group-hover:scale-110">
+                        <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-[#FAF9F6] border border-[#E3E5EF] font-sans text-[11px] font-bold text-[#3026B3] transition-transform duration-200 group-hover:scale-110">
                           0{i + 1}
                         </span>
                         <div className="min-w-0 flex-1">
-                          <div className="font-display text-[13.5px] font-semibold text-[#111827] group-hover:text-[#3026B3] dark:text-white dark:group-hover:text-gold-400 truncate transition-colors">
+                          <div className="font-sans text-[13.5px] font-semibold text-[#111827] group-hover:text-[#3026B3] dark:text-white dark:group-hover:text-gold-400 truncate transition-colors">
                             {s.name}
                           </div>
                           <div className="text-[11px] text-[#596579] truncate">
@@ -153,7 +153,7 @@ export function SearchModal({ open, onClose }: SearchModalProps) {
               {/* Pages & Portals */}
               {results.pages.length > 0 && (
                 <div>
-                  <div className="mb-2.5 px-2 font-mono text-[10.5px] uppercase tracking-[0.2em] text-[#596579]">
+                  <div className="mb-2.5 px-2 font-sans text-[10.5px] uppercase tracking-[0.2em] text-[#596579]">
                     Corporate Navigation
                   </div>
                   <div className="grid gap-1.5 sm:grid-cols-2">
@@ -168,7 +168,7 @@ export function SearchModal({ open, onClose }: SearchModalProps) {
                         <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-[#FAF9F6] border border-[#E3E5EF] text-[#3026B3] transition-transform duration-200 group-hover:scale-110 dark:bg-white/[0.06] dark:text-ink-400">
                           <Icon name={p.icon} width={15} height={15} />
                         </span>
-                        <div className="font-display text-[13.5px] font-medium text-[#111827] group-hover:text-[#3026B3] dark:text-white truncate transition-colors">
+                        <div className="font-sans text-[13.5px] font-medium text-[#111827] group-hover:text-[#3026B3] dark:text-white truncate transition-colors">
                           {p.label}
                         </div>
                       </button>
@@ -185,7 +185,7 @@ export function SearchModal({ open, onClose }: SearchModalProps) {
             </div>
 
             {/* Modal Footer Key Hints */}
-            <div className="border-t border-[#E3E5EF] bg-[#F7F7FC] px-4 py-2 text-[11px] font-mono text-[#596579] flex items-center justify-between dark:border-white/10 dark:bg-white/[0.02]">
+            <div className="border-t border-[#E3E5EF] bg-[#F7F7FC] px-4 py-2 text-[11px] font-sans text-[#596579] flex items-center justify-between dark:border-white/10 dark:bg-white/[0.02]">
               <span>Search BharatX Group</span>
               <span>Press ESC to dismiss</span>
             </div>

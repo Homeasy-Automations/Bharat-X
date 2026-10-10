@@ -96,16 +96,16 @@ export default function InnovationPage() {
 
         <div className="container-x relative z-10">
           <div className="max-w-3xl">
-            <div className="flex items-center gap-2.5 font-mono text-[11px] uppercase tracking-[0.28em] text-[#FFB000] mb-4">
+            <div className="flex items-center gap-2.5 font-sans text-[11px] uppercase tracking-[0.28em] text-[#FFB000] mb-4">
               <span className="animate-pulse">◆</span>
               <span className="text-white">INNOVATION AGENDA</span>
             </div>
-            <AnimatedHeading as="h1" effect="words" hover="color" className="font-serif text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-normal leading-[1.06] text-white">
+            <AnimatedHeading as="h1" effect="words" hover="color" className="font-heading text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-medium leading-[1.1] text-white">
               Innovation is a Way of Life.
               <br />
               <span className="italic text-[#FFB000]">Engineered for Sovereignty.</span>
             </AnimatedHeading>
-            <p className="mt-6 text-base sm:text-lg text-slate-200 leading-relaxed font-body">
+            <p className="mt-6 text-base sm:text-lg text-slate-200 leading-relaxed font-sans">
               Our growth is propelled by bold research and development. We build foundational AI, precision robotics, and agrarian sciences engineered to operate without external dependency.
             </p>
           </div>
@@ -117,26 +117,26 @@ export default function InnovationPage() {
         <div className="container-x">
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 text-center">
             <div data-cursor="card" className="p-4 rounded-2xl transition-all duration-300 fx-lift hover:bg-white hover:shadow-lg">
-              <span className="font-serif text-3xl sm:text-4xl font-bold text-[#3026B3] block transition-transform hover:scale-105">22+</span>
-              <span className="font-mono text-[10px] uppercase tracking-wider text-[#596579] mt-1 block">
+              <span className="font-heading text-3xl sm:text-4xl font-semibold text-[#3026B3] block transition-transform hover:scale-105">22+</span>
+              <span className="font-sans text-[10px] uppercase tracking-wider text-[#596579] mt-1 block">
                 Regional Indian Dialects Supported
               </span>
             </div>
             <div data-cursor="card" className="p-4 rounded-2xl transition-all duration-300 fx-lift hover:bg-white hover:shadow-lg">
-              <span className="font-serif text-3xl sm:text-4xl font-bold text-[#FFB000] block transition-transform hover:scale-105">Sub-Micron</span>
-              <span className="font-mono text-[10px] uppercase tracking-wider text-[#596579] mt-1 block">
+              <span className="font-heading text-3xl sm:text-4xl font-semibold text-[#FFB000] block transition-transform hover:scale-105">Sub-Micron</span>
+              <span className="font-sans text-[10px] uppercase tracking-wider text-[#596579] mt-1 block">
                 Precision Tolerance Standards
               </span>
             </div>
             <div data-cursor="card" className="p-4 rounded-2xl transition-all duration-300 fx-lift hover:bg-white hover:shadow-lg">
-              <span className="font-serif text-3xl sm:text-4xl font-bold text-[#00B8D9] block transition-transform hover:scale-105">100%</span>
-              <span className="font-mono text-[10px] uppercase tracking-wider text-[#596579] mt-1 block">
+              <span className="font-heading text-3xl sm:text-4xl font-semibold text-[#00B8D9] block transition-transform hover:scale-105">100%</span>
+              <span className="font-sans text-[10px] uppercase tracking-wider text-[#596579] mt-1 block">
                 Domestic Data Residency
               </span>
             </div>
             <div data-cursor="card" className="p-4 rounded-2xl transition-all duration-300 fx-lift hover:bg-white hover:shadow-lg">
-              <span className="font-serif text-3xl sm:text-4xl font-bold text-[#15966B] block transition-transform hover:scale-105">&lt; 28ms</span>
-              <span className="font-mono text-[10px] uppercase tracking-wider text-[#596579] mt-1 block">
+              <span className="font-heading text-3xl sm:text-4xl font-semibold text-[#15966B] block transition-transform hover:scale-105">&lt; 28ms</span>
+              <span className="font-sans text-[10px] uppercase tracking-wider text-[#596579] mt-1 block">
                 Edge Model Inference Latency
               </span>
             </div>
@@ -148,13 +148,13 @@ export default function InnovationPage() {
       <SectionTransition withDivider className="py-12 sm:py-16 border-b border-[#E3E5EF]">
         <div className="container-x">
           <div className="max-w-2xl mb-7 sm:mb-10">
-            <span className="font-mono text-[10.5px] uppercase tracking-[0.24em] text-[#3026B3] font-semibold">
+            <span className="font-sans text-[10.5px] uppercase tracking-[0.24em] text-[#3026B3] font-semibold">
               CORE DISCIPLINES
             </span>
-            <AnimatedHeading as="h2" effect="words" hover="color" className="mt-2 font-serif text-3xl sm:text-4xl lg:text-5xl font-normal text-[#111827]">
+            <AnimatedHeading as="h2" effect="words" hover="color" className="mt-2 font-heading text-3xl sm:text-4xl lg:text-5xl font-medium text-[#111827]">
               Strategic Frontiers of Technology
             </AnimatedHeading>
-            <p className="mt-3 text-[#596579] text-sm sm:text-base font-body">
+            <p className="mt-3 text-[#596579] text-sm sm:text-base font-sans">
               How we translate frontier engineering into real-world production capability.
             </p>
           </div>
@@ -178,7 +178,7 @@ export default function InnovationPage() {
                           <Icon name={p.icon} width={20} height={20} />
                         </span>
                         <span
-                          className="font-mono text-xs font-semibold px-2.5 py-1 rounded-full border transition-transform group-hover:scale-105"
+                          className="font-sans text-xs font-semibold px-2.5 py-1 rounded-full border transition-transform group-hover:scale-105"
                           style={{
                             borderColor: `${pillarColor}40`,
                             backgroundColor: `${pillarColor}10`,
@@ -189,10 +189,10 @@ export default function InnovationPage() {
                         </span>
                       </div>
 
-                      <h3 className="font-serif text-xl sm:text-2xl text-[#211B72] font-normal group-hover:text-[#3026B3] transition-colors duration-300">
+                      <h3 className="font-heading text-xl sm:text-2xl text-[#211B72] font-medium group-hover:text-[#3026B3] transition-colors duration-300">
                         {p.title}
                       </h3>
-                      <p className="mt-3 text-xs sm:text-sm text-[#596579] leading-relaxed font-body">
+                      <p className="mt-3 text-xs sm:text-sm text-[#596579] leading-relaxed font-sans">
                         {p.desc}
                       </p>
                     </div>
@@ -208,10 +208,10 @@ export default function InnovationPage() {
       <SectionTransition withDivider className="relative overflow-hidden py-12 sm:py-16 border-t border-[#E3E5EF]">
         <div className="container-x relative z-10">
           <div className="max-w-2xl mb-14">
-            <span className="font-mono text-[10.5px] uppercase tracking-[0.24em] text-[#3026B3] font-semibold">
+            <span className="font-sans text-[10.5px] uppercase tracking-[0.24em] text-[#3026B3] font-semibold">
               DEVELOPMENT HORIZON
             </span>
-            <AnimatedHeading as="h2" effect="words" hover="color" className="mt-2 font-serif text-3xl sm:text-4xl lg:text-5xl font-normal text-[#111827]">
+            <AnimatedHeading as="h2" effect="words" hover="color" className="mt-2 font-heading text-3xl sm:text-4xl lg:text-5xl font-medium text-[#111827]">
               The Path to Deep-Tech Autonomy
             </AnimatedHeading>
           </div>
@@ -228,13 +228,13 @@ export default function InnovationPage() {
                   >
                     <div>
                       <div className="flex items-center justify-between mb-4">
-                        <span className="font-mono text-xs font-bold transition-transform duration-300 group-hover:scale-125" style={{ color: pColor }}>
+                        <span className="font-sans text-xs font-bold transition-transform duration-300 group-hover:scale-125" style={{ color: pColor }}>
                           {phase.number}
                         </span>
-                        <span className="font-mono text-[10px] uppercase text-[#596579]">{phase.phase}</span>
+                        <span className="font-sans text-[10px] uppercase text-[#596579]">{phase.phase}</span>
                       </div>
-                      <h3 className="font-serif text-lg text-[#211B72] font-normal group-hover:text-[#3026B3] transition-colors">{phase.title}</h3>
-                      <p className="mt-2 text-xs sm:text-sm text-[#596579] leading-relaxed font-body">
+                      <h3 className="font-heading text-lg text-[#211B72] font-medium group-hover:text-[#3026B3] transition-colors">{phase.title}</h3>
+                      <p className="mt-2 text-xs sm:text-sm text-[#596579] leading-relaxed font-sans">
                         {phase.desc}
                       </p>
                     </div>

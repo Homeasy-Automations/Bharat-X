@@ -41,7 +41,7 @@ function CompassMesh() {
 
       {/* Central Vision Crest */}
       <Html center distanceFactor={10} position={[0, 0, 0.6]}>
-        <span className="font-mono text-[9px] font-extrabold uppercase tracking-[0.25em] text-amber-950 bg-amber-300/90 px-2 py-0.5 rounded-full border border-amber-500 shadow-sm">
+        <span className="font-sans text-[9px] font-extrabold uppercase tracking-[0.25em] text-amber-950 bg-amber-300/90 px-2 py-0.5 rounded-full border border-amber-500 shadow-sm">
           VISION
         </span>
       </Html>
@@ -110,7 +110,7 @@ function CompassMesh() {
       ].map((card) => (
         <Html key={card.t} center distanceFactor={10} position={card.pos as [number, number, number]}>
           <span
-            className="font-mono text-[11px] font-bold"
+            className="font-sans text-[11px] font-bold"
             style={{ color: card.col }}
           >
             {card.t}

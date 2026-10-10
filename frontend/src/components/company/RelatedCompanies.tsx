@@ -24,16 +24,16 @@ export function RelatedCompanies({ companies: list }: { companies: Company[] }) 
               </span>
             ) : (
               <span
-                className="flex h-11 w-11 shrink-0 items-center justify-center font-mono text-[12px] font-semibold text-ink-300 transition-colors duration-300 group-hover:text-gold-400"
+                className="flex h-11 w-11 shrink-0 items-center justify-center font-sans text-[12px] font-semibold text-ink-300 transition-colors duration-300 group-hover:text-gold-400"
               >
                 {c.monogram}
               </span>
             )}
             <span className="min-w-0 flex-1">
-              <span className="block truncate font-display text-[15px] font-semibold text-ink-50 transition-colors duration-300 group-hover:text-gold-400">
+              <span className="block truncate font-sans text-[15px] font-semibold text-ink-50 transition-colors duration-300 group-hover:text-gold-400">
                 {c.name}
               </span>
-              <span className="block truncate font-mono text-[10px] uppercase tracking-[0.14em] text-ink-500">
+              <span className="block truncate font-sans text-[10px] uppercase tracking-[0.14em] text-ink-500">
                 {c.category}
               </span>
             </span>

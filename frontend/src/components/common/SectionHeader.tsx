@@ -34,7 +34,7 @@ export function SectionHeader({
       <Reveal>
         <div
           className={cn(
-            "flex items-center gap-3 font-mono text-[11px] uppercase tracking-[0.28em] cursor-default",
+            "flex items-center gap-3 font-sans text-[11px] uppercase tracking-[0.28em] cursor-default",
             align === "center" && "justify-center",
             light ? "text-[#4e5b67]" : "text-ink-400",
           )}
@@ -64,7 +64,7 @@ export function SectionHeader({
       <Reveal delay={0.08}>
         <h2
           className={cn(
-            "max-w-3xl font-display text-[1.85rem] sm:text-4xl font-semibold leading-[1.08] sm:leading-[1.05] tracking-tight md:text-5xl lg:text-[3.4rem] transition-colors hover:text-[#3026B3] dark:hover:text-[#FFB000]",
+            "max-w-3xl font-heading text-[1.85rem] sm:text-4xl font-semibold leading-[1.1] sm:leading-[1.1] tracking-tight md:text-5xl lg:text-[3.4rem] transition-colors hover:text-[#3026B3] dark:hover:text-[#FFB000]",
             light ? "text-[#131a22]" : "text-ink-50",
           )}
         >

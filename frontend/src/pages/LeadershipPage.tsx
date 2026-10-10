@@ -44,16 +44,16 @@ export default function LeadershipPage() {
 
         <div className="container-x relative z-10">
           <div className="max-w-3xl">
-            <div className="flex items-center gap-2.5 font-mono text-[11px] uppercase tracking-[0.28em] text-[#FFB000] mb-4">
+            <div className="flex items-center gap-2.5 font-sans text-[11px] uppercase tracking-[0.28em] text-[#FFB000] mb-4">
               <span className="animate-pulse">◆</span>
               <span className="text-white">CORPORATE STEWARDSHIP</span>
             </div>
-            <AnimatedHeading as="h1" effect="words" hover="color" className="font-serif text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-normal leading-[1.06] text-white">
+            <AnimatedHeading as="h1" effect="words" hover="color" className="font-heading text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-medium leading-[1.1] text-white">
               Led Like an Institution.
               <br />
               <span className="italic text-[#FFB000]">Driven by National Purpose.</span>
             </AnimatedHeading>
-            <p className="mt-6 text-base sm:text-lg text-slate-200 leading-relaxed font-body">
+            <p className="mt-6 text-base sm:text-lg text-slate-200 leading-relaxed font-sans">
               The leadership of BharatX Group operates with long-term capital horizons, rigorous corporate governance, and an unwavering commitment to India's industrial sovereignty.
             </p>
           </div>
@@ -77,18 +77,18 @@ export default function LeadershipPage() {
 
               {/* Narrative & Quote */}
               <div className="lg:col-span-7">
-                <span className="font-mono text-[10.5px] uppercase tracking-[0.24em] text-[#3026B3] font-semibold">
+                <span className="font-sans text-[10.5px] uppercase tracking-[0.24em] text-[#3026B3] font-semibold">
                   NATIONAL ECONOMIC VISION
                 </span>
-                <AnimatedHeading as="h2" effect="words" hover="color" className="mt-3 font-serif text-3xl sm:text-4xl lg:text-5xl font-normal text-[#111827] leading-tight">
+                <AnimatedHeading as="h2" effect="words" hover="color" className="mt-3 font-heading text-3xl sm:text-4xl lg:text-5xl font-medium text-[#111827] leading-tight">
                   Architecting <span className="text-[#3026B3]">Sovereign Industrial Depth</span> for Bharat.
                 </AnimatedHeading>
 
                 <div className="mt-6 rounded-2xl border-l-4 border-[#3026B3] bg-[#FAF9F6] p-6 shadow-xs fx-lift">
-                  <blockquote className="text-base sm:text-lg font-serif italic text-[#211B72] leading-relaxed">
+                  <blockquote className="text-base sm:text-lg font-heading italic text-[#211B72] leading-relaxed">
                     “Aligned with the national vision of <span className="text-[#3026B3] font-semibold not-italic">Viksit Bharat 2047</span>, we are committed to building sustainable, technology-driven industrial foundations that eliminate critical external dependencies and secure multi-generational prosperity.”
                   </blockquote>
-                  <div className="mt-3 text-xs font-mono text-[#3026B3] font-semibold flex items-center gap-1.5">
+                  <div className="mt-3 text-xs font-sans text-[#3026B3] font-semibold flex items-center gap-1.5">
                     <span className="text-[#FFB000]">◆</span>
                     <span>Pradeep Kumar, Institutional Founder</span>
                   </div>
@@ -123,8 +123,8 @@ export default function LeadershipPage() {
                         <Icon name={m.icon} width={18} height={18} />
                       </div>
                       <div>
-                        <span className="font-serif text-base text-[#211B72] block font-medium">{m.title}</span>
-                        <span className="text-xs text-[#596579] leading-relaxed block mt-0.5 font-body">{m.desc}</span>
+                        <span className="font-heading text-base text-[#211B72] block font-medium">{m.title}</span>
+                        <span className="text-xs text-[#596579] leading-relaxed block mt-0.5 font-sans">{m.desc}</span>
                       </div>
                     </div>
                   ))}
@@ -139,13 +139,13 @@ export default function LeadershipPage() {
       <SectionTransition withDivider className="py-12 sm:py-16 border-b border-[#E3E5EF]">
         <div className="container-x">
           <div className="max-w-2xl mb-7 sm:mb-10">
-            <span className="font-mono text-[10.5px] uppercase tracking-[0.24em] text-[#3026B3] font-semibold">
+            <span className="font-sans text-[10.5px] uppercase tracking-[0.24em] text-[#3026B3] font-semibold">
               BOARDROOM ARCHITECTURE
             </span>
-            <AnimatedHeading as="h2" effect="words" hover="color" className="mt-2 font-serif text-3xl sm:text-4xl lg:text-5xl font-normal text-[#111827]">
+            <AnimatedHeading as="h2" effect="words" hover="color" className="mt-2 font-heading text-3xl sm:text-4xl lg:text-5xl font-medium text-[#111827]">
               Institutional Governance
             </AnimatedHeading>
-            <p className="mt-3 text-[#596579] text-sm sm:text-base font-body">
+            <p className="mt-3 text-[#596579] text-sm sm:text-base font-sans">
               Four pillars safeguarding constitutional discipline and long-term shareholder trust.
             </p>
           </div>
@@ -164,8 +164,8 @@ export default function LeadershipPage() {
                     <Icon name={g.icon} width={20} height={20} />
                   </span>
                   <div>
-                    <h3 className="font-serif text-xl text-[#211B72] font-normal group-hover:text-[#3026B3] transition-colors">{g.t}</h3>
-                    <p className="mt-2 text-xs sm:text-sm text-[#596579] leading-relaxed font-body">{g.d}</p>
+                    <h3 className="font-heading text-xl text-[#211B72] font-medium group-hover:text-[#3026B3] transition-colors">{g.t}</h3>
+                    <p className="mt-2 text-xs sm:text-sm text-[#596579] leading-relaxed font-sans">{g.d}</p>
                   </div>
                 </div>
               </StaggerItem>
@@ -178,10 +178,10 @@ export default function LeadershipPage() {
       <SectionTransition withDivider className="py-12 sm:py-16">
         <div className="container-x">
           <div className="max-w-2xl mb-12">
-            <span className="font-mono text-[10.5px] uppercase tracking-[0.24em] text-[#3026B3] font-semibold">
+            <span className="font-sans text-[10.5px] uppercase tracking-[0.24em] text-[#3026B3] font-semibold">
               EXECUTIVE CONSTITUTION
             </span>
-            <AnimatedHeading as="h2" effect="words" hover="color" className="mt-2 font-serif text-3xl sm:text-4xl lg:text-5xl font-normal text-[#111827]">
+            <AnimatedHeading as="h2" effect="words" hover="color" className="mt-2 font-heading text-3xl sm:text-4xl lg:text-5xl font-medium text-[#111827]">
               Four Operating Doctrines
             </AnimatedHeading>
           </div>
@@ -195,13 +195,13 @@ export default function LeadershipPage() {
                 >
                   <div>
                     <span
-                      className="font-mono text-xs font-bold block mb-3 transition-transform duration-300 group-hover:scale-125"
+                      className="font-sans text-xs font-bold block mb-3 transition-transform duration-300 group-hover:scale-125"
                       style={{ color: op.color }}
                     >
                       {op.n}
                     </span>
-                    <h3 className="font-serif text-lg text-[#211B72] font-normal group-hover:text-[#3026B3] transition-colors">{op.t}</h3>
-                    <p className="mt-2 text-xs sm:text-sm text-[#596579] leading-relaxed font-body">{op.d}</p>
+                    <h3 className="font-heading text-lg text-[#211B72] font-medium group-hover:text-[#3026B3] transition-colors">{op.t}</h3>
+                    <p className="mt-2 text-xs sm:text-sm text-[#596579] leading-relaxed font-sans">{op.d}</p>
                   </div>
                 </div>
               </StaggerItem>

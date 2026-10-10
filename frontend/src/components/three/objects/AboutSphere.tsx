@@ -104,7 +104,7 @@ function DnaSphereMesh() {
             </mesh>
             <Html distanceFactor={11} center className="pointer-events-none select-none">
               <span
-                className="rounded-full px-2 py-0.5 font-mono text-[8.5px] font-bold tracking-widest text-slate-800 bg-white/90 border shadow-xs"
+                className="rounded-full px-2 py-0.5 font-sans text-[8.5px] font-bold tracking-widest text-slate-800 bg-white/90 border shadow-xs"
                 style={{ borderColor: `${node.col}66` }}
               >
                 {node.label}

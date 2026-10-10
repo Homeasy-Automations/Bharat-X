@@ -112,7 +112,7 @@ export function IframeViewer({
             </span>
           ) : (
             <span
-              className="hidden h-7 w-7 shrink-0 items-center justify-center font-mono text-[10px] font-semibold text-ink-300 sm:flex"
+              className="hidden h-7 w-7 shrink-0 items-center justify-center font-sans text-[10px] font-semibold text-ink-300 sm:flex"
             >
               {company.monogram}
             </span>
@@ -120,7 +120,7 @@ export function IframeViewer({
         )}
         <div className="min-w-0">
           <div className="truncate text-[13.5px] font-semibold text-ink-50">{site.name}</div>
-          <div className="truncate font-mono text-[10px] uppercase tracking-[0.14em] text-ink-500">
+          <div className="truncate font-sans text-[10px] uppercase tracking-[0.14em] text-ink-500">
             {site.category}
           </div>
         </div>
@@ -179,7 +179,7 @@ export function IframeViewer({
                 <div className="skeleton mb-2 h-4 w-2/3 rounded" />
                 <div className="skeleton h-4 w-1/2 rounded" />
               </div>
-              <div className="flex items-center gap-3 font-mono text-[11px] uppercase tracking-[0.2em] text-ink-400">
+              <div className="flex items-center gap-3 font-sans text-[11px] uppercase tracking-[0.2em] text-ink-400">
                 <Icon name="loader-2" width={14} height={14} className="animate-spin text-pulse-300" />
                 Loading {site.url.replace("https://", "")}
               </div>
@@ -233,7 +233,7 @@ export function IframeViewer({
                 <Icon name="triangle-alert" width={26} height={26} />
               </span>
               <div>
-                <div className="font-display text-xl font-semibold text-ink-50">
+                <div className="font-heading text-xl font-semibold text-ink-50">
                   This website could not be loaded in the viewer.
                 </div>
                 <p className="mx-auto mt-2 max-w-md text-[13.5px] leading-relaxed text-ink-400">
@@ -288,7 +288,7 @@ export function IframeViewer({
                 </button>
               </div>
             </div>
-            <div className="flex items-center justify-between px-2 py-2.5 font-mono text-[10px] uppercase tracking-[0.22em] text-ink-600">
+            <div className="flex items-center justify-between px-2 py-2.5 font-sans text-[10px] uppercase tracking-[0.22em] text-ink-600">
               <span className="hidden sm:inline">Press ESC to exit</span>
               <button
                 type="button"

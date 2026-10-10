@@ -34,6 +34,9 @@ export function ExecutiveAtmosphereCanvas() {
     let width = (canvas.width = window.innerWidth);
     let height = (canvas.height = window.innerHeight);
     const isMobile = width < 768;
+    // Canvas can't resolve CSS variables, so read the body font stack once.
+    const bodyFont =
+      getComputedStyle(document.documentElement).getPropertyValue("--font-body").trim() || "sans-serif";
 
     // Mouse coordinates with smooth interpolation
     let targetMouseX = width * 0.5;
@@ -194,7 +197,7 @@ export function ExecutiveAtmosphereCanvas() {
 
         // Technical range tag
         if (!isMobile) {
-          ctx.font = "9px 'JetBrains Mono', monospace";
+          ctx.font = `9px ${bodyFont}`;
           ctx.fillStyle = isDark ? "rgba(255, 176, 0, 0.9)" : "rgba(89, 101, 121, 0.65)";
           ctx.fillText(`R-${r}M`, perspectiveOriginX + r + 6, horizonY + 3);
         }
@@ -211,7 +214,7 @@ export function ExecutiveAtmosphereCanvas() {
 
       // Technical blueprint legend
       if (!isMobile) {
-        ctx.font = "9.5px 'JetBrains Mono', monospace";
+        ctx.font = `9.5px ${bodyFont}`;
         ctx.fillStyle = isDark ? "rgba(227, 229, 239, 0.85)" : "rgba(89, 101, 121, 0.75)";
         ctx.fillText("GRID // 28.5355° N 77.2289° E // ARCHITECTURAL SCALE", width * 0.04, horizonY - 10);
         ctx.fillText("BHARATX SOVEREIGN HORIZON // SYS.06", width * 0.68, horizonY - 10);

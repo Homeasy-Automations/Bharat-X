@@ -197,7 +197,7 @@ export default function ServicesPage() {
               initial={{ opacity: 0, y: 12 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5 }}
-              className="inline-flex items-center gap-2 rounded-full border border-white/25 bg-black/45 backdrop-blur-md px-4 py-1 font-mono text-[11px] uppercase tracking-[0.28em] text-[#FFB000] mb-5 shadow-sm group hover:border-[#FFB000]/60 transition-colors"
+              className="inline-flex items-center gap-2 rounded-full border border-white/25 bg-black/45 backdrop-blur-md px-4 py-1 font-sans text-[11px] uppercase tracking-[0.28em] text-[#FFB000] mb-5 shadow-sm group hover:border-[#FFB000]/60 transition-colors"
             >
               <span className="h-2 w-2 rounded-full bg-[#FFB000] shadow-[0_0_8px_#FFB000] group-hover:scale-125 transition-transform" />
               <span>OUR BUSINESSES</span>
@@ -208,7 +208,7 @@ export default function ServicesPage() {
               initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.1 }}
-              className="font-serif text-4xl sm:text-5xl md:text-6xl lg:text-[4.2rem] font-normal leading-[1.08] tracking-tight text-white drop-shadow-sm cursor-text"
+              className="font-heading text-4xl sm:text-5xl md:text-6xl lg:text-[4.2rem] font-medium leading-[1.1] tracking-tight text-white drop-shadow-sm cursor-text"
               data-cursor="text"
             >
               Building Across India’s{" "}
@@ -257,12 +257,12 @@ export default function ServicesPage() {
       <SectionTransition withDivider className="relative overflow-hidden bg-white py-12 sm:py-16 border-b border-[#E3E5EF]">
         <div className="container-x relative z-10">
           <div className="max-w-3xl mb-14">
-            <div className="inline-flex items-center gap-2 rounded-full border border-[#3026B3]/25 bg-[#3026B3]/8 px-4 py-1 font-mono text-[11px] uppercase tracking-[0.26em] text-[#3026B3] font-bold shadow-xs mb-4 hover:border-[#3026B3] transition-colors">
+            <div className="inline-flex items-center gap-2 rounded-full border border-[#3026B3]/25 bg-[#3026B3]/8 px-4 py-1 font-sans text-[11px] uppercase tracking-[0.26em] text-[#3026B3] font-bold shadow-xs mb-4 hover:border-[#3026B3] transition-colors">
               <span className="h-2 w-2 rounded-full bg-[#3026B3]" />
               <span>BUSINESS PORTFOLIO</span>
             </div>
 
-            <AnimatedHeading as="h2" effect="words" hover="color" className="font-serif text-3xl sm:text-4xl lg:text-5xl font-normal text-[#111827] leading-tight tracking-tight">
+            <AnimatedHeading as="h2" effect="words" hover="color" className="font-heading text-3xl sm:text-4xl lg:text-5xl font-medium text-[#111827] leading-tight tracking-tight">
               Our Business <span className="text-[#3026B3]">Ecosystem</span>
             </AnimatedHeading>
 
@@ -295,14 +295,14 @@ export default function ServicesPage() {
 
                       {/* Category Tag with Emoji */}
                       <div className="absolute top-3 left-3 right-3 flex items-center justify-between">
-                        <span className="inline-flex items-center gap-1.5 rounded-full bg-black/60 backdrop-blur-md px-3 py-1 font-mono text-[10px] uppercase tracking-wider text-white border border-white/20">
+                        <span className="inline-flex items-center gap-1.5 rounded-full bg-black/60 backdrop-blur-md px-3 py-1 font-sans text-[10px] uppercase tracking-wider text-white border border-white/20">
                           <span>{biz.emoji}</span>
                           <span className="truncate max-w-[150px]">{biz.category}</span>
                         </span>
 
                         {/* Status Badge */}
                         <span
-                          className={`rounded-full px-2.5 py-0.5 text-[10px] font-mono uppercase tracking-wider font-semibold border ${
+                          className={`rounded-full px-2.5 py-0.5 text-[10px] font-sans uppercase tracking-wider font-semibold border ${
                             isActive
                               ? "bg-emerald-500/20 text-emerald-300 border-emerald-400/30"
                               : "bg-amber-500/20 text-amber-300 border-amber-400/30"
@@ -323,7 +323,7 @@ export default function ServicesPage() {
                     {/* Card Content */}
                     <div className="p-6 flex flex-col justify-between flex-1">
                       <div>
-                        <h3 className="font-serif text-xl sm:text-2xl font-medium text-[#111827] group-hover:text-[#3026B3] transition-colors duration-300">
+                        <h3 className="font-heading text-xl sm:text-2xl font-medium text-[#111827] group-hover:text-[#3026B3] transition-colors duration-300">
                           {biz.name}
                         </h3>
 
@@ -340,7 +340,7 @@ export default function ServicesPage() {
                             target="_blank"
                             rel="noopener noreferrer"
                             data-cursor="link"
-                            className="inline-flex items-center gap-1.5 font-mono text-xs font-bold uppercase tracking-wider text-[#3026B3] hover:text-[#211B72] transition-colors group/link fx-underline"
+                            className="inline-flex items-center gap-1.5 font-sans text-xs font-bold uppercase tracking-wider text-[#3026B3] hover:text-[#211B72] transition-colors group/link fx-underline"
                           >
                             <span>Visit Website</span>
                             <Icon
@@ -351,7 +351,7 @@ export default function ServicesPage() {
                             />
                           </a>
                         ) : (
-                          <span className="font-mono text-xs uppercase tracking-wider text-[#9A6200] font-semibold flex items-center gap-1.5">
+                          <span className="font-sans text-xs uppercase tracking-wider text-[#9A6200] font-semibold flex items-center gap-1.5">
                             <span className="h-1.5 w-1.5 rounded-full bg-[#FFB000] animate-pulse" />
                             <span>Coming Soon</span>
                           </span>
@@ -374,12 +374,12 @@ export default function ServicesPage() {
       <SectionTransition withDivider className="relative overflow-hidden bg-[#FAF9F6] py-12 sm:py-16 border-b border-[#E3E5EF]">
         <div className="container-x relative z-10">
           <div className="max-w-3xl text-center mx-auto mb-14">
-            <div className="inline-flex items-center gap-2 rounded-full border border-[#3026B3]/25 bg-[#3026B3]/8 px-4 py-1 font-mono text-[11px] uppercase tracking-[0.26em] text-[#3026B3] font-bold shadow-xs mb-4">
+            <div className="inline-flex items-center gap-2 rounded-full border border-[#3026B3]/25 bg-[#3026B3]/8 px-4 py-1 font-sans text-[11px] uppercase tracking-[0.26em] text-[#3026B3] font-bold shadow-xs mb-4">
               <span className="h-2 w-2 rounded-full bg-[#3026B3]" />
               <span>HOW THEY CONNECT</span>
             </div>
 
-            <AnimatedHeading as="h2" effect="words" hover="color" className="font-serif text-3xl sm:text-4xl lg:text-5xl font-normal text-[#111827] leading-tight tracking-tight">
+            <AnimatedHeading as="h2" effect="words" hover="color" className="font-heading text-3xl sm:text-4xl lg:text-5xl font-medium text-[#111827] leading-tight tracking-tight">
               Different Businesses. <span className="text-[#3026B3]">One Ecosystem.</span>
             </AnimatedHeading>
 
@@ -396,10 +396,10 @@ export default function ServicesPage() {
                 data-cursor="card"
                 className="inline-flex flex-col items-center rounded-2xl border border-[#3026B3]/40 bg-gradient-to-r from-[#211B72] via-[#3026B3] to-[#211B72] px-8 py-4 text-white shadow-xl transition-all duration-300 hover:scale-105 fx-glow-indigo"
               >
-                <span className="font-mono text-[10px] uppercase tracking-[0.28em] text-[#FFB000] font-bold">
+                <span className="font-sans text-[10px] uppercase tracking-[0.28em] text-[#FFB000] font-bold">
                   THE ECOSYSTEM CORE
                 </span>
-                <span className="font-serif text-2xl sm:text-3xl font-medium tracking-tight mt-0.5">
+                <span className="font-heading text-2xl sm:text-3xl font-medium tracking-tight mt-0.5">
                   BHARATX GROUP
                 </span>
               </div>
@@ -417,10 +417,10 @@ export default function ServicesPage() {
                   <div className="h-9 w-9 rounded-xl bg-[#3026B3]/10 text-[#3026B3] flex items-center justify-center mx-auto mb-3 transition-transform duration-300 group-hover:scale-110 group-hover:rotate-6">
                     <Icon name="hard-hat" width={18} height={18} />
                   </div>
-                  <span className="font-mono text-xs uppercase tracking-[0.24em] text-[#3026B3] font-bold block">
+                  <span className="font-sans text-xs uppercase tracking-[0.24em] text-[#3026B3] font-bold block">
                     BUILD
                   </span>
-                  <h4 className="font-serif text-xl font-medium text-[#111827] mt-1 group-hover:text-[#3026B3] transition-colors">
+                  <h4 className="font-heading text-xl font-medium text-[#111827] mt-1 group-hover:text-[#3026B3] transition-colors">
                     New Businesses
                   </h4>
                   <p className="mt-2 text-xs text-[#596579] leading-relaxed">
@@ -438,10 +438,10 @@ export default function ServicesPage() {
                   <div className="h-9 w-9 rounded-xl bg-[#15966B]/15 text-[#15966B] flex items-center justify-center mx-auto mb-3 transition-transform duration-300 group-hover:scale-110 group-hover:rotate-6">
                     <Icon name="cog" width={18} height={18} />
                   </div>
-                  <span className="font-mono text-xs uppercase tracking-[0.24em] text-[#15966B] font-bold block">
+                  <span className="font-sans text-xs uppercase tracking-[0.24em] text-[#15966B] font-bold block">
                     OPERATE
                   </span>
-                  <h4 className="font-serif text-xl font-medium text-[#111827] mt-1 group-hover:text-[#15966B] transition-colors">
+                  <h4 className="font-heading text-xl font-medium text-[#111827] mt-1 group-hover:text-[#15966B] transition-colors">
                     Core Companies
                   </h4>
                   <p className="mt-2 text-xs text-[#596579] leading-relaxed">
@@ -459,10 +459,10 @@ export default function ServicesPage() {
                   <div className="h-9 w-9 rounded-xl bg-[#00B8D9]/15 text-[#008299] flex items-center justify-center mx-auto mb-3 transition-transform duration-300 group-hover:scale-110 group-hover:rotate-6">
                     <Icon name="landmark" width={18} height={18} />
                   </div>
-                  <span className="font-mono text-xs uppercase tracking-[0.24em] text-[#008299] font-bold block">
+                  <span className="font-sans text-xs uppercase tracking-[0.24em] text-[#008299] font-bold block">
                     INVEST
                   </span>
-                  <h4 className="font-serif text-xl font-medium text-[#111827] mt-1 group-hover:text-[#008299] transition-colors">
+                  <h4 className="font-heading text-xl font-medium text-[#111827] mt-1 group-hover:text-[#008299] transition-colors">
                     Ventures
                   </h4>
                   <p className="mt-2 text-xs text-[#596579] leading-relaxed">
@@ -484,10 +484,10 @@ export default function ServicesPage() {
               data-cursor="card"
               className="rounded-2xl border border-[#15966B]/40 bg-gradient-to-r from-[#0F766E] via-[#15966B] to-[#0F766E] p-6 text-center text-white shadow-xl transition-all duration-300 hover:scale-[1.02] fx-glow-gold"
             >
-              <span className="font-mono text-[10px] uppercase tracking-[0.28em] text-[#FFB000] font-bold block mb-1">
+              <span className="font-sans text-[10px] uppercase tracking-[0.28em] text-[#FFB000] font-bold block mb-1">
                 NATIONAL VALUE CREATION
               </span>
-              <h3 className="font-serif text-2xl sm:text-3xl font-medium tracking-tight text-white transition-colors duration-300 hover:text-gold-400">
+              <h3 className="font-heading text-2xl sm:text-3xl font-medium tracking-tight text-white transition-colors duration-300 hover:text-gold-400">
                 IMPACT
               </h3>
               <p className="mt-2 text-xs sm:text-sm text-slate-100 font-normal max-w-xl mx-auto">
@@ -502,12 +502,12 @@ export default function ServicesPage() {
       <SectionTransition withDivider className="relative overflow-hidden bg-white py-12 sm:py-16 border-b border-[#E3E5EF]">
         <div className="container-x relative z-10">
           <div className="max-w-3xl text-center mx-auto mb-14">
-            <div className="inline-flex items-center gap-2 rounded-full border border-[#FFB000]/40 bg-[#FFB000]/10 px-4 py-1 font-mono text-[11px] uppercase tracking-[0.26em] text-[#9A6200] font-bold shadow-xs mb-4">
+            <div className="inline-flex items-center gap-2 rounded-full border border-[#FFB000]/40 bg-[#FFB000]/10 px-4 py-1 font-sans text-[11px] uppercase tracking-[0.26em] text-[#9A6200] font-bold shadow-xs mb-4">
               <span className="h-2 w-2 rounded-full bg-[#FFB000]" />
               <span>WHAT’S NEXT</span>
             </div>
 
-            <AnimatedHeading as="h2" effect="words" hover="color" className="font-serif text-3xl sm:text-4xl lg:text-5xl font-normal text-[#111827] leading-tight tracking-tight">
+            <AnimatedHeading as="h2" effect="words" hover="color" className="font-heading text-3xl sm:text-4xl lg:text-5xl font-medium text-[#111827] leading-tight tracking-tight">
               The Portfolio Is <span className="text-[#3026B3]">Growing</span>
             </AnimatedHeading>
 
@@ -525,14 +525,14 @@ export default function ServicesPage() {
                   className="group rounded-2xl border border-[#E3E5EF] bg-[#FAF9F6] p-6 shadow-xs transition-all duration-300 hover:bg-white hover:border-[#3026B3] hover:shadow-xl fx-lift h-full"
                 >
                   <div className="flex items-center justify-between mb-3">
-                    <span className={`inline-flex items-center gap-1.5 rounded-full ${item.bg} ${item.text} px-3 py-1 font-mono text-[10px] uppercase tracking-wider font-bold`}>
+                    <span className={`inline-flex items-center gap-1.5 rounded-full ${item.bg} ${item.text} px-3 py-1 font-sans text-[10px] uppercase tracking-wider font-bold`}>
                       <span className="h-1.5 w-1.5 rounded-full animate-pulse" style={{ backgroundColor: item.accent }} />
                       <span>Horizon</span>
                     </span>
-                    <span className="text-xs font-mono text-[#596579]">2026+</span>
+                    <span className="text-xs font-sans text-[#596579]">2026+</span>
                   </div>
 
-                  <h3 className="font-serif text-xl font-medium text-[#111827] group-hover:text-[#3026B3] transition-colors duration-300">
+                  <h3 className="font-heading text-xl font-medium text-[#111827] group-hover:text-[#3026B3] transition-colors duration-300">
                     {item.title}
                   </h3>
 
@@ -554,13 +554,13 @@ export default function ServicesPage() {
         <div className="container-x relative z-10">
           <div className="max-w-4xl mx-auto text-center">
             {/* Eyebrow */}
-            <div className="inline-flex items-center gap-2 rounded-full border border-[#FFB000]/40 bg-[#FFB000]/15 px-4 py-1 font-mono text-[11px] uppercase tracking-[0.28em] text-[#FFB000] font-bold shadow-xs mb-6">
+            <div className="inline-flex items-center gap-2 rounded-full border border-[#FFB000]/40 bg-[#FFB000]/15 px-4 py-1 font-sans text-[11px] uppercase tracking-[0.28em] text-[#FFB000] font-bold shadow-xs mb-6">
               <span className="h-2 w-2 rounded-full bg-[#FFB000] shadow-[0_0_8px_#FFB000]" />
               <span>PARTNER WITH US</span>
             </div>
 
             {/* Headline */}
-            <AnimatedHeading as="h2" effect="words" hover="color" className="font-serif text-3xl sm:text-5xl md:text-6xl font-normal leading-[1.1] tracking-tight text-white">
+            <AnimatedHeading as="h2" effect="words" hover="color" className="font-heading text-3xl sm:text-5xl md:text-6xl font-medium leading-[1.1] tracking-tight text-white">
               Interested in Building With BharatX?
             </AnimatedHeading>
 

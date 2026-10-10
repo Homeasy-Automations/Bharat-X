@@ -84,7 +84,7 @@ export function MobileMenu({ open, onClose }: { open: boolean; onClose: () => vo
 
             {/* Core Sectors */}
             <div className="mt-10">
-              <div className="mb-3 font-mono text-[10px] uppercase tracking-[0.28em] text-[#3026B3] dark:text-gold-400 font-semibold">
+              <div className="mb-3 font-sans text-[10px] uppercase tracking-[0.28em] text-[#3026B3] dark:text-gold-400 font-semibold">
                 Core Operating Sectors
               </div>
               <div className="grid grid-cols-2 gap-2">
@@ -96,8 +96,8 @@ export function MobileMenu({ open, onClose }: { open: boolean; onClose: () => vo
                     data-cursor="card"
                     className="flex flex-col gap-1 rounded-xl border border-[#E3E5EF] bg-white dark:border-white/10 dark:bg-white/[0.03] p-3 text-left transition-all hover:border-[#3026B3] fx-lift shadow-xs"
                   >
-                    <span className="font-mono text-[9px] text-[#3026B3] dark:text-gold-400 font-semibold">0{i + 1}</span>
-                    <span className="truncate text-[13px] font-medium text-ink-900 dark:text-white">
+                    <span className="font-sans text-[9px] text-[#3026B3] dark:text-gold-400 font-semibold">0{i + 1}</span>
+                    <span className="truncate text-[12.5px] font-medium text-ink-900 dark:text-white">
                       {svc.name}
                     </span>
                   </Link>
@@ -130,7 +130,7 @@ export function MobileMenu({ open, onClose }: { open: boolean; onClose: () => vo
                   </a>
                 ))}
               </div>
-              <p className="mt-5 text-center font-mono text-[10px] uppercase tracking-[0.2em] text-[#596579]">
+              <p className="mt-5 text-center font-sans text-[10px] uppercase tracking-[0.2em] text-[#596579]">
                 BharatX Group — {location.pathname}
               </p>
             </div>
@@ -143,7 +143,7 @@ export function MobileMenu({ open, onClose }: { open: boolean; onClose: () => vo
 
 function mobileLinkClass(isActive: boolean): string {
   return cn(
-    "flex items-center gap-3.5 border-b border-[#E3E5EF] dark:border-white/10 py-3 sm:py-3.5 font-display text-[17px] sm:text-[19px] font-medium tracking-tight transition-colors",
+    "flex items-center gap-3.5 border-b border-[#E3E5EF] dark:border-white/10 py-3 sm:py-3.5 font-sans text-[17px] sm:text-[19px] font-medium tracking-tight transition-colors",
     isActive ? "text-[#3026B3] dark:text-gold-400 font-semibold" : "text-ink-900 dark:text-white hover:text-[#3026B3] dark:hover:text-gold-300",
   );
 }

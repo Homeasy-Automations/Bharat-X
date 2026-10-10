@@ -164,7 +164,7 @@ export default function ContactPage() {
 
   const getLabelClass = (hasError: boolean, isValid: boolean, isActive: boolean) => {
     const base =
-      "block text-xs font-mono font-bold uppercase tracking-wider mb-2 transition-colors duration-200";
+      "block text-xs font-sans font-bold uppercase tracking-wider mb-2 transition-colors duration-200";
     if (hasError) return `${base} text-red-600`;
     if (isValid) return `${base} text-emerald-700`;
     if (isActive) return `${base} text-[#3026B3]`;
@@ -254,7 +254,7 @@ export default function ContactPage() {
               initial={{ opacity: 0, y: 12 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5 }}
-              className="inline-flex items-center gap-2 rounded-full border border-white/25 bg-black/45 backdrop-blur-md px-4 py-1 font-mono text-[11px] uppercase tracking-[0.28em] text-[#FFB000] mb-5 shadow-sm"
+              className="inline-flex items-center gap-2 rounded-full border border-white/25 bg-black/45 backdrop-blur-md px-4 py-1 font-sans text-[11px] uppercase tracking-[0.28em] text-[#FFB000] mb-5 shadow-sm"
             >
               <span className="h-2 w-2 rounded-full bg-[#FFB000] shadow-[0_0_8px_#FFB000]" />
               <span>CONTACT BHARATX</span>
@@ -265,7 +265,7 @@ export default function ContactPage() {
               as="h1"
               effect="words"
               hover="gradient"
-              className="font-serif text-4xl sm:text-5xl md:text-6xl lg:text-[4.2rem] font-normal leading-[1.08] tracking-tight text-white drop-shadow-sm"
+              className="font-heading text-4xl sm:text-5xl md:text-6xl lg:text-[4.2rem] font-medium leading-[1.1] tracking-tight text-white drop-shadow-sm"
             >
               Let’s Build What <span className="text-[#FFB000]">Comes Next.</span>
             </AnimatedHeading>
@@ -325,7 +325,7 @@ export default function ContactPage() {
       <SectionTransition id="contact-options" divider className="relative overflow-hidden bg-white py-12 sm:py-16 border-b border-[#E3E5EF]">
         <div className="container-x relative z-10">
           <div className="max-w-3xl text-center mx-auto mb-16">
-            <div className="inline-flex items-center gap-2 rounded-full border border-[#3026B3]/25 bg-[#3026B3]/8 px-4 py-1 font-mono text-[11px] uppercase tracking-[0.26em] text-[#3026B3] font-bold shadow-xs mb-4">
+            <div className="inline-flex items-center gap-2 rounded-full border border-[#3026B3]/25 bg-[#3026B3]/8 px-4 py-1 font-sans text-[11px] uppercase tracking-[0.26em] text-[#3026B3] font-bold shadow-xs mb-4">
               <span className="h-2 w-2 rounded-full bg-[#3026B3]" />
               <span>CONTACT PATHWAYS</span>
             </div>
@@ -334,7 +334,7 @@ export default function ContactPage() {
               as="h2"
               effect="mask"
               hover="color"
-              className="font-serif text-3xl sm:text-4xl lg:text-5xl font-normal text-[#111827] leading-tight tracking-tight"
+              className="font-heading text-3xl sm:text-4xl lg:text-5xl font-medium text-[#111827] leading-tight tracking-tight"
             >
               Choose Your <span className="text-[#3026B3]">Pathway</span>
             </AnimatedHeading>
@@ -354,7 +354,7 @@ export default function ContactPage() {
                     <Icon name="handshake" width={22} height={22} />
                   </div>
 
-                  <AnimatedHeading as="h3" effect="blur" hover="shift" className="font-serif text-2xl font-medium text-[#111827] group-hover:text-[#3026B3] transition-colors">
+                  <AnimatedHeading as="h3" effect="blur" hover="shift" className="font-heading text-2xl font-medium text-[#111827] group-hover:text-[#3026B3] transition-colors">
                     Business Partnerships
                   </AnimatedHeading>
 
@@ -368,7 +368,7 @@ export default function ContactPage() {
                     type="button"
                     data-cursor="button"
                     onClick={() => handleSelectOption("Business Partnership")}
-                    className="inline-flex items-center gap-1.5 font-mono text-xs font-bold uppercase tracking-wider text-[#3026B3] group/link"
+                    className="inline-flex items-center gap-1.5 font-sans text-xs font-bold uppercase tracking-wider text-[#3026B3] group/link"
                   >
                     <span>Discuss a Partnership</span>
                     <Icon name="arrow-right" width={13} height={13} className="transition-transform group-hover/link:translate-x-1" />
@@ -385,7 +385,7 @@ export default function ContactPage() {
                     <Icon name="landmark" width={22} height={22} />
                   </div>
 
-                  <AnimatedHeading as="h3" effect="blur" hover="shift" className="font-serif text-2xl font-medium text-[#111827] group-hover:text-[#211B72] transition-colors">
+                  <AnimatedHeading as="h3" effect="blur" hover="shift" className="font-heading text-2xl font-medium text-[#111827] group-hover:text-[#211B72] transition-colors">
                     Investors &amp; Capital
                   </AnimatedHeading>
 
@@ -399,7 +399,7 @@ export default function ContactPage() {
                     type="button"
                     data-cursor="button"
                     onClick={() => handleSelectOption("Investment / Capital")}
-                    className="inline-flex items-center gap-1.5 font-mono text-xs font-bold uppercase tracking-wider text-[#211B72] group/link"
+                    className="inline-flex items-center gap-1.5 font-sans text-xs font-bold uppercase tracking-wider text-[#211B72] group/link"
                   >
                     <span>Connect With Ventures</span>
                     <Icon name="arrow-right" width={13} height={13} className="transition-transform group-hover/link:translate-x-1" />
@@ -416,7 +416,7 @@ export default function ContactPage() {
                     <Icon name="rocket" width={22} height={22} />
                   </div>
 
-                  <AnimatedHeading as="h3" effect="blur" hover="shift" className="font-serif text-2xl font-medium text-[#111827] group-hover:text-[#008299] transition-colors">
+                  <AnimatedHeading as="h3" effect="blur" hover="shift" className="font-heading text-2xl font-medium text-[#111827] group-hover:text-[#008299] transition-colors">
                     Entrepreneurs &amp; Founders
                   </AnimatedHeading>
 
@@ -430,7 +430,7 @@ export default function ContactPage() {
                     type="button"
                     data-cursor="button"
                     onClick={() => handleSelectOption("Venture Building")}
-                    className="inline-flex items-center gap-1.5 font-mono text-xs font-bold uppercase tracking-wider text-[#008299] group/link"
+                    className="inline-flex items-center gap-1.5 font-sans text-xs font-bold uppercase tracking-wider text-[#008299] group/link"
                   >
                     <span>Build With Us</span>
                     <Icon name="arrow-right" width={13} height={13} className="transition-transform group-hover/link:translate-x-1" />
@@ -447,7 +447,7 @@ export default function ContactPage() {
                     <Icon name="briefcase" width={22} height={22} />
                   </div>
 
-                  <AnimatedHeading as="h3" effect="blur" hover="shift" className="font-serif text-2xl font-medium text-[#111827] group-hover:text-[#15966B] transition-colors">
+                  <AnimatedHeading as="h3" effect="blur" hover="shift" className="font-heading text-2xl font-medium text-[#111827] group-hover:text-[#15966B] transition-colors">
                     Careers
                   </AnimatedHeading>
 
@@ -460,7 +460,7 @@ export default function ContactPage() {
                   <Link
                     to="/careers"
                     data-cursor="button"
-                    className="inline-flex items-center gap-1.5 font-mono text-xs font-bold uppercase tracking-wider text-[#15966B] group/link"
+                    className="inline-flex items-center gap-1.5 font-sans text-xs font-bold uppercase tracking-wider text-[#15966B] group/link"
                   >
                     <span>Explore Careers</span>
                     <Icon name="arrow-right" width={13} height={13} className="transition-transform group-hover/link:translate-x-1" />
@@ -477,7 +477,7 @@ export default function ContactPage() {
         <div className="container-x relative z-10">
           <div className="max-w-3xl mx-auto">
             <div className="text-center mb-12">
-              <div className="inline-flex items-center gap-2 rounded-full border border-[#3026B3]/25 bg-[#3026B3]/8 px-4 py-1 font-mono text-[11px] uppercase tracking-[0.26em] text-[#3026B3] font-bold shadow-xs mb-4">
+              <div className="inline-flex items-center gap-2 rounded-full border border-[#3026B3]/25 bg-[#3026B3]/8 px-4 py-1 font-sans text-[11px] uppercase tracking-[0.26em] text-[#3026B3] font-bold shadow-xs mb-4">
                 <span className="h-2 w-2 rounded-full bg-[#3026B3]" />
                 <span>DIRECT INQUIRY</span>
               </div>
@@ -486,7 +486,7 @@ export default function ContactPage() {
                 as="h2"
                 effect="words"
                 hover="gradient"
-                className="font-serif text-3xl sm:text-4xl lg:text-5xl font-normal text-[#111827] leading-tight tracking-tight"
+                className="font-heading text-3xl sm:text-4xl lg:text-5xl font-medium text-[#111827] leading-tight tracking-tight"
               >
                 Start a <span className="text-[#3026B3]">Conversation</span>
               </AnimatedHeading>
@@ -511,7 +511,7 @@ export default function ContactPage() {
                       <Icon name="check" width={32} height={32} strokeWidth={2.5} />
                     </div>
 
-                    <h3 className="font-serif text-2xl sm:text-3xl font-medium text-[#111827] mb-3 transition-colors duration-300 hover:text-[#3026B3]">
+                    <h3 className="font-heading text-2xl sm:text-3xl font-medium text-[#111827] mb-3 transition-colors duration-300 hover:text-[#3026B3]">
                       Message Received
                     </h3>
 
@@ -532,7 +532,7 @@ export default function ContactPage() {
                         setTouched({});
                         setErrorMsg(null);
                       }}
-                      className="mt-8 inline-flex items-center gap-2 rounded-full border border-[#E3E5EF] bg-[#FAF9F6] hover:bg-slate-100 text-[#111827] px-6 py-2.5 text-xs font-mono font-bold uppercase tracking-wider transition-colors fx-lift"
+                      className="mt-8 inline-flex items-center gap-2 rounded-full border border-[#E3E5EF] bg-[#FAF9F6] hover:bg-slate-100 text-[#111827] px-6 py-2.5 text-xs font-sans font-bold uppercase tracking-wider transition-colors fx-lift"
                     >
                       <span>Send Another Inquiry</span>
                     </button>
@@ -894,7 +894,7 @@ export default function ContactPage() {
                           Tell us briefly about your opportunity <span className="text-red-500">*</span>
                         </label>
                         <span
-                          className={`font-mono text-[11px] ${
+                          className={`font-sans text-[11px] ${
                             message.trim().length >= 10
                               ? "text-emerald-600 font-semibold"
                               : touched.message && message.trim().length < 10
@@ -976,7 +976,7 @@ export default function ContactPage() {
       <SectionTransition divider className="relative overflow-hidden bg-white py-12 sm:py-16 border-b border-[#E3E5EF]">
         <div className="container-x relative z-10">
           <div className="max-w-3xl text-center mx-auto mb-14">
-            <div className="inline-flex items-center gap-2 rounded-full border border-[#15966B]/30 bg-[#15966B]/10 px-4 py-1 font-mono text-[11px] uppercase tracking-[0.26em] text-[#15966B] font-bold shadow-xs mb-4">
+            <div className="inline-flex items-center gap-2 rounded-full border border-[#15966B]/30 bg-[#15966B]/10 px-4 py-1 font-sans text-[11px] uppercase tracking-[0.26em] text-[#15966B] font-bold shadow-xs mb-4">
               <span className="h-2 w-2 rounded-full bg-[#15966B]" />
               <span>GROUP OFFICE</span>
             </div>
@@ -985,7 +985,7 @@ export default function ContactPage() {
               as="h2"
               effect="mask"
               hover="color"
-              className="font-serif text-3xl sm:text-4xl lg:text-5xl font-normal text-[#111827] leading-tight tracking-tight"
+              className="font-heading text-3xl sm:text-4xl lg:text-5xl font-medium text-[#111827] leading-tight tracking-tight"
             >
               BharatX Group <span className="text-[#3026B3]">Office</span>
             </AnimatedHeading>
@@ -998,10 +998,10 @@ export default function ContactPage() {
           <div data-cursor="card" className="max-w-4xl mx-auto rounded-3xl border border-[#E3E5EF] bg-[#FAF9F6] p-8 sm:p-12 shadow-lg fx-lift">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
               <div>
-                <span className="font-mono text-xs uppercase tracking-[0.26em] text-[#3026B3] font-bold block mb-1">
+                <span className="font-sans text-xs uppercase tracking-[0.26em] text-[#3026B3] font-bold block mb-1">
                   BHARATX GROUP
                 </span>
-                <AnimatedHeading as="h3" effect="blur" hover="shift" className="font-serif text-2xl font-medium text-[#111827] mb-4">
+                <AnimatedHeading as="h3" effect="blur" hover="shift" className="font-heading text-2xl font-medium text-[#111827] mb-4">
                   Registered / Corporate Office
                 </AnimatedHeading>
 
@@ -1009,7 +1009,7 @@ export default function ContactPage() {
                   {brandConfig.address.full}
                 </p>
 
-                <div className="space-y-3 font-mono text-xs text-[#111827]">
+                <div className="space-y-3 font-sans text-xs text-[#111827]">
                   <div className="flex items-center gap-3">
                     <span className="text-[#596579] uppercase tracking-wider w-24">Email</span>
                     <a
@@ -1047,7 +1047,7 @@ export default function ContactPage() {
                     target="_blank"
                     rel="noopener noreferrer"
                     data-cursor="button"
-                    className="inline-flex items-center gap-2 rounded-full bg-white border border-[#E3E5EF] hover:border-[#3026B3] hover:text-[#3026B3] text-[#111827] px-6 py-3 text-xs font-mono font-bold uppercase tracking-wider shadow-xs transition-all fx-lift"
+                    className="inline-flex items-center gap-2 rounded-full bg-white border border-[#E3E5EF] hover:border-[#3026B3] hover:text-[#3026B3] text-[#111827] px-6 py-3 text-xs font-sans font-bold uppercase tracking-wider shadow-xs transition-all fx-lift"
                   >
                     <span>Get Directions</span>
                     <Icon name="arrow-up-right" width={14} height={14} />
@@ -1060,18 +1060,18 @@ export default function ContactPage() {
                 <div className="flex items-center justify-between">
                   <div className="flex items-center gap-2">
                     <span className="h-2.5 w-2.5 rounded-full bg-emerald-500 animate-ping" />
-                    <span className="font-mono text-[11px] uppercase tracking-wider text-emerald-700 font-bold">
+                    <span className="font-sans text-[11px] uppercase tracking-wider text-emerald-700 font-bold">
                       Secretariat Active
                     </span>
                   </div>
-                  <span className="font-mono text-xs text-[#596579]">New Delhi, India</span>
+                  <span className="font-sans text-xs text-[#596579]">New Delhi, India</span>
                 </div>
 
                 <div className="my-6 text-center">
                   <div className="h-12 w-12 rounded-2xl bg-[#3026B3]/10 text-[#3026B3] flex items-center justify-center mx-auto mb-3 fx-icon-pop">
                     <Icon name="building-2" width={24} height={24} />
                   </div>
-                  <span className="font-serif text-lg font-medium text-[#111827] block">
+                  <span className="font-heading text-lg font-medium text-[#111827] block">
                     Pan-India Operating Presence
                   </span>
                   <span className="text-xs text-[#596579] mt-1 block">
@@ -1080,7 +1080,7 @@ export default function ContactPage() {
                 </div>
 
                 <div className="pt-3 border-t border-[#E3E5EF] text-center">
-                  <span className="font-mono text-[10px] uppercase tracking-wider text-[#8E9BAE]">
+                  <span className="font-sans text-[10px] uppercase tracking-wider text-[#8E9BAE]">
                     ISO Certified Corporate Governance
                   </span>
                 </div>
@@ -1098,7 +1098,7 @@ export default function ContactPage() {
         <div className="container-x relative z-10">
           <div className="max-w-4xl mx-auto text-center">
             {/* Eyebrow */}
-            <div className="inline-flex items-center gap-2 rounded-full border border-[#FFB000]/40 bg-[#FFB000]/15 px-4 py-1 font-mono text-[11px] uppercase tracking-[0.28em] text-[#FFB000] font-bold shadow-xs mb-6">
+            <div className="inline-flex items-center gap-2 rounded-full border border-[#FFB000]/40 bg-[#FFB000]/15 px-4 py-1 font-sans text-[11px] uppercase tracking-[0.28em] text-[#FFB000] font-bold shadow-xs mb-6">
               <span className="h-2 w-2 rounded-full bg-[#FFB000] shadow-[0_0_8px_#FFB000]" />
               <span>CO-BUILD THE FUTURE</span>
             </div>
@@ -1108,7 +1108,7 @@ export default function ContactPage() {
               as="h2"
               effect="words"
               hover="gradient"
-              className="font-serif text-3xl sm:text-5xl md:text-6xl font-normal leading-[1.1] tracking-tight text-white"
+              className="font-heading text-3xl sm:text-5xl md:text-6xl font-medium leading-[1.1] tracking-tight text-white"
             >
               Have an Idea Worth Building?
             </AnimatedHeading>
@@ -1150,7 +1150,7 @@ export default function ContactPage() {
 
             {/* Signature Conclusion */}
             <div className="mt-12 pt-8 border-t border-white/15 max-w-xl mx-auto">
-              <p className="font-mono text-sm sm:text-base uppercase tracking-[0.24em] text-[#FFB000] font-bold">
+              <p className="font-sans text-sm sm:text-base uppercase tracking-[0.24em] text-[#FFB000] font-bold">
                 Building Businesses. Enabling Bharat.
               </p>
             </div>

@@ -45,7 +45,7 @@ export default function CompaniesPage() {
       <SectionTransition divider className="py-12 sm:py-16">
         <div className="container-x">
           <Reveal>
-            <div className="mb-12 flex items-center gap-4 font-mono text-[11px] uppercase tracking-[0.26em] text-ink-500">
+            <div className="mb-12 flex items-center gap-4 font-sans text-[11px] uppercase tracking-[0.26em] text-ink-500">
               <span className="text-gold-400">PORTFOLIO</span>
               <span aria-hidden className="h-px flex-1 bg-white/8" />
               <span>Full roster</span>
@@ -99,7 +99,7 @@ export default function CompaniesPage() {
               <StaggerItem key={c.t}>
                 <div data-cursor="card" className="h-full rounded-2xl border border-white/8 bg-night-850/70 p-7 fx-lift transition-all hover:border-white/20">
                   <IconBadge icon={c.icon} />
-                  <AnimatedHeading as="h3" effect="blur" hover="shift" className="mt-5 font-display text-xl font-semibold text-ink-50">
+                  <AnimatedHeading as="h3" effect="blur" hover="shift" className="mt-5 font-heading text-xl font-semibold text-ink-50">
                     {c.t}
                   </AnimatedHeading>
                   <p className="mt-3 text-[14px] leading-relaxed text-ink-400">{c.d}</p>
@@ -112,7 +112,7 @@ export default function CompaniesPage() {
               <div className="flex items-center gap-4">
                 <IconBadge icon="orbit" size="lg" />
                 <div>
-                  <h3 className="font-display text-lg font-semibold text-ink-50 transition-colors duration-300 hover:text-gold-400">
+                  <h3 className="font-heading text-lg font-semibold text-ink-50 transition-colors duration-300 hover:text-gold-400">
                     See portfolio companies, live, in one place
                   </h3>
                   <p className="mt-1 text-[13.5px] text-ink-400">
@@ -134,14 +134,14 @@ export default function CompaniesPage() {
       <SectionTransition divider={false} className="noise relative overflow-hidden border-t border-white/5 bg-night-950/60 py-12 sm:py-16">
         <div aria-hidden className="grid-bg grid-bg-fade absolute inset-0 opacity-40" />
         <div className="container-x relative text-center">
-          <h2 className="mx-auto max-w-3xl font-display text-3xl font-semibold leading-[1.15] tracking-tight text-ink-50 md:text-5xl">
+          <h2 className="mx-auto max-w-3xl font-heading text-3xl font-semibold leading-[1.15] tracking-tight text-ink-50 md:text-5xl">
             <MaskReveal>“Independent in the market.</MaskReveal>
             <MaskReveal delay={0.12}>
               <span className="text-pulse-400">Connected by design.”</span>
             </MaskReveal>
           </h2>
           <Reveal delay={0.2}>
-            <p className="mx-auto mt-6 flex max-w-md items-center justify-center gap-3 font-mono text-[11px] uppercase tracking-[0.24em] text-ink-500">
+            <p className="mx-auto mt-6 flex max-w-md items-center justify-center gap-3 font-sans text-[11px] uppercase tracking-[0.24em] text-ink-500">
               <span aria-hidden className="h-px w-8 bg-gold-400/50" />
               BharatX Group
               <span aria-hidden className="h-px w-8 bg-gold-400/50" />
@@ -149,7 +149,7 @@ export default function CompaniesPage() {
           </Reveal>
           <Reveal delay={0.3}>
             <div className="mt-10 flex items-center justify-center gap-6">
-              <Link to="/ecosystem" data-cursor="link" className="group inline-flex items-center gap-2 font-mono text-[11px] uppercase tracking-[0.2em] text-gold-400 transition-colors hover:text-gold-300 fx-underline">
+              <Link to="/ecosystem" data-cursor="link" className="group inline-flex items-center gap-2 font-sans text-[11px] uppercase tracking-[0.2em] text-gold-400 transition-colors hover:text-gold-300 fx-underline">
                 <Icon name="orbit" width={13} height={13} />
                 Open the ecosystem
                 <Icon name="arrow-right" width={13} height={13} className="transition-transform group-hover:translate-x-1" />

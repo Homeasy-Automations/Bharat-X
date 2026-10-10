@@ -167,7 +167,7 @@ export function RilHeroSection() {
             initial={{ opacity: 0, y: 14 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7 }}
-            className="mb-3.5 sm:mb-4 flex items-center gap-3 font-mono text-[11px] sm:text-[12px] uppercase tracking-[0.32em] text-[#FFB000]"
+            className="mb-3.5 sm:mb-4 flex items-center gap-3 font-sans text-[11px] sm:text-[12px] uppercase tracking-[0.32em] text-[#FFB000]"
           >
             <span className="h-1.5 w-1.5 rounded-full bg-[#FFB000] shadow-[0_0_8px_#FFB000]" />
             <span>BHARATX GROUP</span>
@@ -183,7 +183,7 @@ export function RilHeroSection() {
                 animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
                 exit={{ opacity: 0, y: -20, filter: "blur(4px)" }}
                 transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
-                className="font-serif text-3xl sm:text-4xl md:text-5xl lg:text-[3.25rem] xl:text-[3.85rem] font-normal leading-[1.08] tracking-tight text-white drop-shadow-[0_4px_30px_rgba(0,0,0,0.85)] whitespace-nowrap cursor-default transition-colors duration-300 hover:text-[#FFB000]"
+                className="font-heading text-3xl sm:text-4xl md:text-5xl lg:text-[3.25rem] xl:text-[3.85rem] font-medium leading-[1.1] tracking-tight text-white drop-shadow-[0_4px_30px_rgba(0,0,0,0.85)] min-h-[2.2em] text-balance lg:min-h-0 lg:whitespace-nowrap cursor-default transition-colors duration-300 hover:text-[#FFB000]"
               >
                 {current.heroTagline}
               </motion.h1>
@@ -218,7 +218,7 @@ export function RilHeroSection() {
             />
           </button>
 
-          <span className="font-mono text-[11px] font-bold text-[#FFB000] tracking-wider">
+          <span className="font-sans text-[11px] font-bold text-[#FFB000] tracking-wider">
             0{currentIndex + 1} / 0{heroSlides.length}
           </span>
 
@@ -233,7 +233,7 @@ export function RilHeroSection() {
             />
           </div>
 
-          <span className="font-mono text-[11px] font-semibold uppercase tracking-[0.2em] text-white">
+          <span className="font-sans text-[11px] font-semibold uppercase tracking-[0.2em] text-white">
             {current.shortLabel}
           </span>
         </div>
@@ -294,7 +294,7 @@ export function RilHeroSection() {
 
       {/* Subtle Bottom Scroll Hint */}
       <div className="absolute bottom-5 left-1/2 -translate-x-1/2 hidden md:flex flex-col items-center gap-1.5 text-white/50 pointer-events-none animate-bounce">
-        <span className="font-mono text-[9px] uppercase tracking-[0.3em]">scroll</span>
+        <span className="font-sans text-[9px] uppercase tracking-[0.3em]">scroll</span>
         <span className="h-5 w-px bg-gradient-to-b from-gold-400/80 to-transparent" />
       </div>
     </section>

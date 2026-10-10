@@ -186,14 +186,14 @@ export default function BharatXLabsPage() {
                 <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-gold-400 opacity-75" />
                 <span className="relative inline-flex h-2 w-2 rounded-full bg-gold-400" />
               </span>
-              <span className="font-mono text-xs font-semibold uppercase tracking-[0.25em] text-gold-400">
+              <span className="font-sans text-xs font-semibold uppercase tracking-[0.25em] text-gold-400">
                 Frontier R&D Division · In Stealth
               </span>
             </div>
           </Reveal>
 
           {/* Main Headline */}
-          <h1 className="mt-8 font-display font-bold uppercase tracking-tight text-white text-4xl sm:text-6xl md:text-7xl lg:text-[5rem] leading-[1.04]">
+          <h1 className="mt-8 font-heading font-semibold uppercase tracking-tight text-white text-4xl sm:text-6xl md:text-7xl lg:text-[5rem] leading-[1.1]">
             <MaskReveal>SOVEREIGN ARTIFICIAL</MaskReveal>
             <MaskReveal delay={0.15}>
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-pulse-400 via-white to-gold-400">
@@ -238,45 +238,41 @@ export default function BharatXLabsPage() {
             <div data-cursor="card" className="mt-16 mx-auto max-w-5xl grid grid-cols-2 lg:grid-cols-4 gap-4 rounded-2xl border border-white/10 bg-night-900/80 p-6 md:p-8 backdrop-blur-xl shadow-2xl fx-lift">
               <div className="border-r border-white/10 pr-4 last:border-r-0">
                 <div
-                  className="text-3xl md:text-4xl font-bold text-pulse-400 tracking-tight"
-                  style={{ fontFamily: "'Outfit', 'Space Grotesk', system-ui, sans-serif" }}
+                  className="font-heading text-3xl md:text-4xl font-semibold text-pulse-400 tracking-tight"
                 >
                   22+
                 </div>
-                <div className="mt-1 font-display text-[11px] font-medium uppercase tracking-wider text-ink-400">
+                <div className="mt-1 font-sans text-[11px] font-medium uppercase tracking-wider text-ink-400">
                   Scheduled Languages
                 </div>
               </div>
               <div className="border-r border-white/10 pr-4 last:border-r-0">
                 <div
-                  className="text-3xl md:text-4xl font-bold text-gold-400 tracking-tight"
-                  style={{ fontFamily: "'Outfit', 'Space Grotesk', system-ui, sans-serif" }}
+                  className="font-heading text-3xl md:text-4xl font-semibold text-gold-400 tracking-tight"
                 >
                   &lt; 15ms
                 </div>
-                <div className="mt-1 font-display text-[11px] font-medium uppercase tracking-wider text-ink-400">
+                <div className="mt-1 font-sans text-[11px] font-medium uppercase tracking-wider text-ink-400">
                   Edge Inference Target
                 </div>
               </div>
               <div className="border-r border-white/10 pr-4 last:border-r-0">
                 <div
-                  className="text-3xl md:text-4xl font-bold text-white tracking-tight"
-                  style={{ fontFamily: "'Outfit', 'Space Grotesk', system-ui, sans-serif" }}
+                  className="font-heading text-3xl md:text-4xl font-semibold text-white tracking-tight"
                 >
                   100%
                 </div>
-                <div className="mt-1 font-display text-[11px] font-medium uppercase tracking-wider text-ink-400">
+                <div className="mt-1 font-sans text-[11px] font-medium uppercase tracking-wider text-ink-400">
                   Sovereign Domestic IP
                 </div>
               </div>
               <div>
                 <div
-                  className="text-3xl md:text-4xl font-bold text-emerald-400 tracking-tight"
-                  style={{ fontFamily: "'Outfit', 'Space Grotesk', system-ui, sans-serif" }}
+                  className="font-heading text-3xl md:text-4xl font-semibold text-emerald-400 tracking-tight"
                 >
                   PQC
                 </div>
-                <div className="mt-1 font-display text-[11px] font-medium uppercase tracking-wider text-ink-400">
+                <div className="mt-1 font-sans text-[11px] font-medium uppercase tracking-wider text-ink-400">
                   Post-Quantum Security
                 </div>
               </div>
@@ -318,16 +314,16 @@ export default function BharatXLabsPage() {
                   <span className="h-3 w-3 rounded-full bg-rose-500/80" />
                   <span className="h-3 w-3 rounded-full bg-amber-500/80" />
                   <span className="h-3 w-3 rounded-full bg-emerald-500/80" />
-                  <span className="ml-2 font-mono text-xs text-ink-400">bharatx_labs_protocol_manifesto.md</span>
+                  <span className="ml-2 font-sans text-xs text-ink-400">bharatx_labs_protocol_manifesto.md</span>
                 </div>
-                <div className="mt-6 space-y-4 font-mono text-xs leading-relaxed text-ink-600 dark:text-ink-300">
+                <div className="mt-6 space-y-4 font-sans text-xs leading-relaxed text-ink-600 dark:text-ink-300">
                   <p className="text-pulse-400 font-semibold">// BHARATX LABS FIRST PRINCIPLES</p>
                   <p>1. DOMESTIC PRE-TRAINING: Every weight is computed on Indian soil, subject strictly to domestic jurisprudence.</p>
                   <p>2. PHYSICAL TESTBED REINFORCEMENT: Models are fine-tuned on real industrial telemetry, not synthetic web-scrape alone.</p>
                   <p>3. OPEN SCIENTIFIC ENGAGEMENT: Collaborative fellowship programs with India&apos;s leading technical institutes and researchers.</p>
                   <p>4. HARDENED EDGE SILICON: Intelligence must survive zero-connectivity nodes in rural farm gates and manufacturing floors.</p>
                 </div>
-                <div className="mt-6 pt-4 border-t border-slate-200/80 dark:border-white/10 flex items-center justify-between text-[11px] font-mono text-ink-400">
+                <div className="mt-6 pt-4 border-t border-slate-200/80 dark:border-white/10 flex items-center justify-between text-[11px] font-sans text-ink-400">
                   <span>STATUS: STEALTH INCUBATION</span>
                   <span className="text-gold-400 font-semibold">PHASE 01 COMPLIANT</span>
                 </div>
@@ -363,16 +359,16 @@ export default function BharatXLabsPage() {
                   <div>
                     <div className="flex items-center justify-between">
                       <IconBadge icon={p.icon} accent="#00f0ff" />
-                      <span className="font-mono text-3xl font-bold text-slate-200 dark:text-white/10 select-none">
+                      <span className="font-heading text-3xl font-semibold text-slate-200 dark:text-white/10 select-none">
                         {p.number}
                       </span>
                     </div>
 
-                    <span className="mt-5 block font-mono text-xs uppercase tracking-widest text-pulse-400">
+                    <span className="mt-5 block font-sans text-xs uppercase tracking-widest text-pulse-400">
                       {p.tagline}
                     </span>
 
-                    <AnimatedHeading as="h3" effect="blur" hover="shift" className="mt-2 font-display text-2xl font-bold tracking-tight text-ink-900 dark:text-ink-50">
+                    <AnimatedHeading as="h3" effect="blur" hover="shift" className="mt-2 font-heading text-2xl font-semibold tracking-tight text-ink-900 dark:text-ink-50">
                       {p.title}
                     </AnimatedHeading>
 
@@ -382,7 +378,7 @@ export default function BharatXLabsPage() {
                   </div>
 
                   <div className="mt-8 pt-6 border-t border-slate-100 dark:border-white/5">
-                    <span className="font-mono text-[10.5px] uppercase tracking-wider text-ink-400 block mb-3">
+                    <span className="font-sans text-[10.5px] uppercase tracking-wider text-ink-400 block mb-3">
                       Technical Specifications
                     </span>
                     <ul className="space-y-2">
@@ -425,16 +421,16 @@ export default function BharatXLabsPage() {
                   className="grid gap-6 rounded-2xl border border-slate-200/80 dark:border-white/10 bg-white dark:bg-night-850 p-6 md:p-8 lg:grid-cols-[180px_1fr_220px] lg:items-center shadow-sm fx-lift transition-all hover:border-slate-300 dark:hover:border-white/20"
                 >
                   <div>
-                    <span className="font-mono text-xs uppercase tracking-wider text-ink-400 block">
+                    <span className="font-sans text-xs uppercase tracking-wider text-ink-400 block">
                       {m.phase}
                     </span>
-                    <span className="font-display text-2xl font-bold text-ink-900 dark:text-ink-50">
+                    <span className="font-heading text-2xl font-semibold text-ink-900 dark:text-ink-50">
                       {m.timeline}
                     </span>
                   </div>
 
                   <div>
-                    <AnimatedHeading as="h4" effect="blur" hover="shift" className="font-display text-lg font-bold text-ink-900 dark:text-ink-50">
+                    <AnimatedHeading as="h4" effect="blur" hover="shift" className="font-heading text-lg font-semibold text-ink-900 dark:text-ink-50">
                       {m.title}
                     </AnimatedHeading>
                     <p className="mt-2 text-sm leading-relaxed text-ink-600 dark:text-ink-300">
@@ -444,7 +440,7 @@ export default function BharatXLabsPage() {
 
                   <div className="lg:text-right">
                     <span
-                      className={`inline-block rounded-full border px-3 py-1 font-mono text-[11px] font-semibold uppercase tracking-wider ${m.badgeColor}`}
+                      className={`inline-block rounded-full border px-3 py-1 font-sans text-[11px] font-semibold uppercase tracking-wider ${m.badgeColor}`}
                     >
                       {m.status}
                     </span>
@@ -460,10 +456,10 @@ export default function BharatXLabsPage() {
       <SectionTransition divider className="py-12 sm:py-16 border-t border-slate-200/80 dark:border-white/5">
         <div id="waitlist" className="container-x max-w-4xl">
           <div className="text-center">
-            <span className="inline-flex items-center gap-2 rounded-full border border-pulse-400/40 bg-pulse-400/10 px-3.5 py-1 font-mono text-xs font-semibold uppercase tracking-widest text-pulse-400">
+            <span className="inline-flex items-center gap-2 rounded-full border border-pulse-400/40 bg-pulse-400/10 px-3.5 py-1 font-sans text-xs font-semibold uppercase tracking-widest text-pulse-400">
               Academic & Industrial Fellowship
             </span>
-            <AnimatedHeading as="h2" effect="words" hover="gradient" className="mt-6 font-display text-3xl sm:text-4xl md:text-5xl font-bold text-ink-900 dark:text-ink-50">
+            <AnimatedHeading as="h2" effect="words" hover="gradient" className="mt-6 font-heading text-3xl sm:text-4xl md:text-5xl font-semibold text-ink-900 dark:text-ink-50">
               Join the Sovereign Frontier.
             </AnimatedHeading>
             <p className="mt-4 text-base text-ink-600 dark:text-ink-300 max-w-xl mx-auto">
@@ -477,7 +473,7 @@ export default function BharatXLabsPage() {
                 <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 fx-icon-pop">
                   <Icon name="shield-check" width={32} height={32} />
                 </div>
-                <h3 className="mt-6 font-display text-2xl font-bold text-ink-900 dark:text-ink-50 transition-colors duration-300 hover:text-gold-400">
+                <h3 className="mt-6 font-heading text-2xl font-semibold text-ink-900 dark:text-ink-50 transition-colors duration-300 hover:text-gold-400">
                   Application Logged into Secure Protocol
                 </h3>
                 <p className="mt-3 text-sm text-ink-600 dark:text-ink-300 max-w-md mx-auto">
@@ -500,7 +496,7 @@ export default function BharatXLabsPage() {
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div className="grid gap-6 sm:grid-cols-2">
                   <div>
-                    <label className="block font-mono text-xs font-semibold uppercase tracking-wider text-ink-600 dark:text-ink-300 mb-2">
+                    <label className="block font-sans text-xs font-semibold uppercase tracking-wider text-ink-600 dark:text-ink-300 mb-2">
                       Full Name *
                     </label>
                     <input
@@ -513,7 +509,7 @@ export default function BharatXLabsPage() {
                     />
                   </div>
                   <div>
-                    <label className="block font-mono text-xs font-semibold uppercase tracking-wider text-ink-600 dark:text-ink-300 mb-2">
+                    <label className="block font-sans text-xs font-semibold uppercase tracking-wider text-ink-600 dark:text-ink-300 mb-2">
                       Institutional Email *
                     </label>
                     <input
@@ -529,7 +525,7 @@ export default function BharatXLabsPage() {
 
                 <div className="grid gap-6 sm:grid-cols-2">
                   <div>
-                    <label className="block font-mono text-xs font-semibold uppercase tracking-wider text-ink-600 dark:text-ink-300 mb-2">
+                    <label className="block font-sans text-xs font-semibold uppercase tracking-wider text-ink-600 dark:text-ink-300 mb-2">
                       University / Enterprise
                     </label>
                     <input
@@ -541,7 +537,7 @@ export default function BharatXLabsPage() {
                     />
                   </div>
                   <div>
-                    <label className="block font-mono text-xs font-semibold uppercase tracking-wider text-ink-600 dark:text-ink-300 mb-2">
+                    <label className="block font-sans text-xs font-semibold uppercase tracking-wider text-ink-600 dark:text-ink-300 mb-2">
                       Primary Research Domain
                     </label>
                     <select
@@ -559,7 +555,7 @@ export default function BharatXLabsPage() {
                 </div>
 
                 <div>
-                  <label className="block font-mono text-xs font-semibold uppercase tracking-wider text-ink-600 dark:text-ink-300 mb-2">
+                  <label className="block font-sans text-xs font-semibold uppercase tracking-wider text-ink-600 dark:text-ink-300 mb-2">
                     Research Abstract or Collaboration Focus
                   </label>
                   <textarea
@@ -572,7 +568,7 @@ export default function BharatXLabsPage() {
                 </div>
 
                 <div className="pt-2 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
-                  <span className="font-mono text-xs text-ink-400">
+                  <span className="font-sans text-xs text-ink-400">
                     Encrypted submission. Subject to BharatX Data Governance.
                   </span>
                   <Button type="submit" variant="primary" size="lg" withArrow data-cursor="button" className="fx-shine">
@@ -588,7 +584,7 @@ export default function BharatXLabsPage() {
       {/* ── BHARATX ECOSYSTEM SYNERGY ──────────────────────────────── */}
       <SectionTransition divider={false} className="py-12 sm:py-16 border-t border-slate-200/80 dark:border-white/5 bg-slate-100/50 dark:bg-night-950">
         <div className="container-x text-center">
-          <span className="font-mono text-xs uppercase tracking-[0.25em] text-ink-400">
+          <span className="font-sans text-xs uppercase tracking-[0.25em] text-ink-400">
             Backed by BharatX Group Conglomerate Infrastructure
           </span>
           <div className="mt-8 flex flex-wrap items-center justify-center gap-3 sm:gap-6">

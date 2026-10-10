@@ -331,7 +331,7 @@ export default function AboutPage() {
               initial={{ opacity: 0, y: 12 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5 }}
-              className="inline-flex items-center gap-2 rounded-full border border-white/25 bg-black/45 backdrop-blur-md px-4 py-1 font-mono text-[11px] uppercase tracking-[0.28em] text-[#FFB000] mb-5 shadow-sm"
+              className="inline-flex items-center gap-2 rounded-full border border-white/25 bg-black/45 backdrop-blur-md px-4 py-1 font-sans text-[11px] uppercase tracking-[0.28em] text-[#FFB000] mb-5 shadow-sm"
             >
               <span className="h-2 w-2 rounded-full bg-[#FFB000] shadow-[0_0_8px_#FFB000] animate-pulse" />
               <span>ABOUT BHARATX GROUP</span>
@@ -342,7 +342,7 @@ export default function AboutPage() {
               initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.1 }}
-              className="font-serif text-4xl sm:text-5xl md:text-6xl lg:text-[4.2rem] font-normal leading-[1.08] tracking-tight text-white drop-shadow-sm hover:text-white"
+              className="font-heading text-4xl sm:text-5xl md:text-6xl lg:text-[4.2rem] font-medium leading-[1.1] tracking-tight text-white drop-shadow-sm hover:text-white"
             >
               Building Enterprises for a{" "}
               <span className="text-[#FFB000] hover:text-[#00B8D9] transition-colors duration-300">Growing Bharat.</span>
@@ -367,12 +367,12 @@ export default function AboutPage() {
           <div className="container-x relative z-10">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
               <div className="lg:col-span-6">
-                <div className="inline-flex items-center gap-2 rounded-full border border-[#3026B3]/25 bg-[#3026B3]/8 px-4 py-1 font-mono text-[11px] uppercase tracking-[0.26em] text-[#3026B3] font-bold shadow-xs mb-4">
+                <div className="inline-flex items-center gap-2 rounded-full border border-[#3026B3]/25 bg-[#3026B3]/8 px-4 py-1 font-sans text-[11px] uppercase tracking-[0.26em] text-[#3026B3] font-bold shadow-xs mb-4">
                   <span className="h-2 w-2 rounded-full bg-[#3026B3] animate-pulse" />
                   <span>WHO WE ARE</span>
                 </div>
 
-                <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-normal text-[#111827] leading-tight tracking-tight hover:text-[#211B72] transition-colors duration-300">
+                <h2 className="font-heading text-3xl sm:text-4xl lg:text-5xl font-medium text-[#111827] leading-tight tracking-tight hover:text-[#211B72] transition-colors duration-300">
                   More Than a <span className="text-[#3026B3] hover:text-[#FFB000] transition-colors duration-300">Group of Companies</span>
                 </h2>
 
@@ -397,7 +397,7 @@ export default function AboutPage() {
                   className="rounded-3xl border border-[#E3E5EF] bg-[#FAF9F6] p-7 sm:p-9 shadow-lg transition-all duration-300 hover:shadow-2xl fx-lift focus-visible:ring-2 focus-visible:ring-[#3026B3] focus:outline-none"
                 >
                   <div className="text-center mb-6">
-                    <span className="font-mono text-xs uppercase tracking-[0.24em] text-[#3026B3] font-bold block">
+                    <span className="font-sans text-xs uppercase tracking-[0.24em] text-[#3026B3] font-bold block">
                       The Value Creation Formula
                     </span>
                     <span className="text-xs text-[#596579] mt-1 block">
@@ -416,7 +416,7 @@ export default function AboutPage() {
                         <div className={`h-8 w-8 rounded-lg ${item.bg} ${item.text} flex items-center justify-center shrink-0 transition-transform duration-300 hover:scale-110`}>
                           <Icon name={item.icon} width={16} height={16} strokeWidth={2} />
                         </div>
-                        <span className="font-serif text-sm font-medium text-[#111827]">
+                        <span className="font-sans text-sm font-medium text-[#111827]">
                           {item.label}
                         </span>
                       </div>
@@ -424,7 +424,7 @@ export default function AboutPage() {
 
                     {/* Sixth slot: compounding operator icon */}
                     <div className="flex items-center justify-center rounded-xl border border-dashed border-[#CBD1E1] bg-white/50 p-3">
-                      <span className="font-mono text-xs text-[#596579] font-bold tracking-wider">
+                      <span className="font-sans text-xs text-[#596579] font-bold tracking-wider">
                         + SYNERGY
                       </span>
                     </div>
@@ -439,10 +439,10 @@ export default function AboutPage() {
 
                   {/* Result Node: Enduring Enterprises */}
                   <div className="rounded-2xl border border-[#3026B3]/40 bg-gradient-to-r from-[#211B72] via-[#3026B3] to-[#211B72] p-5 sm:p-6 text-center text-white shadow-xl fx-shine">
-                    <span className="font-mono text-[10px] uppercase tracking-[0.28em] text-[#FFB000] font-bold block mb-1">
+                    <span className="font-sans text-[10px] uppercase tracking-[0.28em] text-[#FFB000] font-bold block mb-1">
                       End State
                     </span>
-                    <h3 className="font-serif text-2xl sm:text-3xl font-medium tracking-tight text-white hover:text-[#FFB000] transition-colors duration-300">
+                    <h3 className="font-heading text-2xl sm:text-3xl font-medium tracking-tight text-white hover:text-[#FFB000] transition-colors duration-300">
                       Enduring Enterprises
                     </h3>
                     <p className="mt-2 text-xs sm:text-[13px] text-slate-200 font-normal">
@@ -463,12 +463,12 @@ export default function AboutPage() {
             {/* Enhanced 2-Column Split Header eliminates empty dead space */}
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start mb-12 sm:mb-16">
               <div className="lg:col-span-7">
-                <div className="inline-flex items-center gap-2 rounded-full border border-[#FFB000]/40 bg-[#FFB000]/10 px-4 py-1 font-mono text-[11px] uppercase tracking-[0.26em] text-[#9A6200] font-bold shadow-xs mb-4">
+                <div className="inline-flex items-center gap-2 rounded-full border border-[#FFB000]/40 bg-[#FFB000]/10 px-4 py-1 font-sans text-[11px] uppercase tracking-[0.26em] text-[#9A6200] font-bold shadow-xs mb-4">
                   <span className="h-2 w-2 rounded-full bg-[#FFB000] shadow-[0_0_8px_#FFB000] animate-pulse" />
                   <span>OUR PURPOSE</span>
                 </div>
 
-                <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-normal text-[#111827] leading-tight tracking-tight hover:text-[#211B72] transition-colors duration-300">
+                <h2 className="font-heading text-3xl sm:text-4xl lg:text-5xl font-medium text-[#111827] leading-tight tracking-tight hover:text-[#211B72] transition-colors duration-300">
                   Built Around India’s <span className="text-[#3026B3] hover:text-[#FFB000] transition-colors duration-300">Opportunity</span>
                 </h2>
 
@@ -493,7 +493,7 @@ export default function AboutPage() {
                       <Icon name="landmark" width={18} height={18} />
                     </div>
                     <div className="min-w-0 flex-1">
-                      <span className="font-mono text-[10px] uppercase tracking-[0.24em] text-[#FFB000] font-bold block">
+                      <span className="font-sans text-[10px] uppercase tracking-[0.24em] text-[#FFB000] font-bold block">
                         SOVEREIGN THESIS
                       </span>
                       <p className="mt-0.5 text-xs sm:text-[13px] text-[#111827] font-medium leading-snug">
@@ -521,16 +521,16 @@ export default function AboutPage() {
                         >
                           <Icon name={pillar.icon} width={22} height={22} strokeWidth={2} />
                         </div>
-                        <span className="font-mono text-xs font-bold text-[#596579]">
+                        <span className="font-sans text-xs font-bold text-[#596579]">
                           {pillar.step}
                         </span>
                       </div>
 
-                      <span className="font-mono text-[10.5px] uppercase tracking-wider text-[#596579] block mb-1">
+                      <span className="font-sans text-[10.5px] uppercase tracking-wider text-[#596579] block mb-1">
                         {pillar.descriptor}
                       </span>
 
-                      <h3 className="font-serif text-2xl font-medium tracking-tight text-[#111827] group-hover:text-[#3026B3] transition-colors">
+                      <h3 className="font-heading text-2xl font-medium tracking-tight text-[#111827] group-hover:text-[#3026B3] transition-colors">
                         {pillar.title}
                       </h3>
 
@@ -549,7 +549,7 @@ export default function AboutPage() {
                       </ul>
                     </div>
 
-                    <div className="mt-6 pt-4 border-t border-[#E3E5EF] flex items-center justify-between font-mono text-[10.5px] uppercase tracking-wider text-[#596579]">
+                    <div className="mt-6 pt-4 border-t border-[#E3E5EF] flex items-center justify-between font-sans text-[10.5px] uppercase tracking-wider text-[#596579]">
                       <span>Pillar Standard</span>
                       <span className={`h-2 w-2 rounded-full ${pillar.bgAccent} ${pillar.textAccent}`} />
                     </div>
@@ -566,12 +566,12 @@ export default function AboutPage() {
         <section className="relative overflow-hidden bg-white py-12 sm:py-16 border-b border-[#E3E5EF]">
           <div className="container-x relative z-10">
             <div className="max-w-3xl mb-12 sm:mb-16">
-              <div className="inline-flex items-center gap-2 rounded-full border border-[#3026B3]/25 bg-[#3026B3]/8 px-4 py-1 font-mono text-[11px] uppercase tracking-[0.26em] text-[#3026B3] font-bold shadow-xs mb-4">
+              <div className="inline-flex items-center gap-2 rounded-full border border-[#3026B3]/25 bg-[#3026B3]/8 px-4 py-1 font-sans text-[11px] uppercase tracking-[0.26em] text-[#3026B3] font-bold shadow-xs mb-4">
                 <Icon name="user-round" width={13} height={13} />
                 <span>GROUP LEADERSHIP</span>
               </div>
 
-              <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-normal text-[#111827] leading-tight tracking-tight hover:text-[#211B72] transition-colors duration-300">
+              <h2 className="font-heading text-3xl sm:text-4xl lg:text-5xl font-medium text-[#111827] leading-tight tracking-tight hover:text-[#211B72] transition-colors duration-300">
                 The Visionary Behind the <span className="text-[#3026B3] hover:text-[#FFB000] transition-colors duration-300">Standard.</span>
               </h2>
 
@@ -602,14 +602,14 @@ export default function AboutPage() {
                   <div className="relative z-10 p-6 sm:p-8 backdrop-blur-md bg-[#0B0F19]/85 border-t border-white/10 rounded-b-2xl">
                     <div className="flex items-center gap-2">
                       <span className="h-2 w-2 rounded-full bg-[#FFB000] shadow-[0_0_8px_#FFB000] animate-pulse" />
-                      <span className="font-mono text-[10.5px] uppercase tracking-[0.25em] text-[#FFB000] font-bold">
+                      <span className="font-sans text-[10.5px] uppercase tracking-[0.25em] text-[#FFB000] font-bold">
                         Founder &amp; Visionary
                       </span>
                     </div>
-                    <div className="mt-1 font-serif text-2xl sm:text-3xl font-medium text-white tracking-tight">
+                    <div className="mt-1 font-heading text-2xl sm:text-3xl font-medium text-white tracking-tight">
                       Pradeep Kumar
                     </div>
-                    <div className="mt-1 text-xs font-mono uppercase tracking-wider text-slate-300">
+                    <div className="mt-1 text-xs font-sans uppercase tracking-wider text-slate-300">
                       BharatX Group · Institutional Founder
                     </div>
                   </div>
@@ -619,12 +619,12 @@ export default function AboutPage() {
                 <div className="flex flex-col justify-between p-2 sm:p-4 lg:p-6 lg:pl-2">
                   <div>
                     {/* Vision Badge */}
-                    <div className="inline-flex items-center gap-2 rounded-full border border-[#FFB000]/40 bg-[#FFB000]/15 px-4 py-1.5 font-mono text-xs uppercase tracking-widest text-[#9A6200] font-bold mb-6 shadow-xs">
+                    <div className="inline-flex items-center gap-2 rounded-full border border-[#FFB000]/40 bg-[#FFB000]/15 px-4 py-1.5 font-sans text-xs uppercase tracking-widest text-[#9A6200] font-bold mb-6 shadow-xs">
                       <Icon name="sparkles" width={13} height={13} />
                       <span>National Economic Vision</span>
                     </div>
 
-                    <h3 className="font-serif text-2xl sm:text-3xl lg:text-4xl font-normal text-[#111827] tracking-tight leading-tight hover:text-[#3026B3] transition-colors duration-300">
+                    <h3 className="font-heading text-2xl sm:text-3xl lg:text-4xl font-medium text-[#111827] tracking-tight leading-tight hover:text-[#3026B3] transition-colors duration-300">
                       Architecting India’s <span className="text-[#3026B3] hover:text-[#FFB000] transition-colors duration-300">Next Economic Decade.</span>
                     </h3>
 
@@ -633,7 +633,7 @@ export default function AboutPage() {
                       data-cursor="card"
                       className="relative mt-6 rounded-2xl border-l-4 border-[#FFB000] border-y border-r border-[#E3E5EF] bg-white p-6 sm:p-7 shadow-xs transition-all duration-300 hover:shadow-lg fx-lift"
                     >
-                      <div aria-hidden className="absolute -top-3 right-6 font-serif text-7xl font-bold text-[#FFB000]/15 select-none pointer-events-none">
+                      <div aria-hidden className="absolute -top-3 right-6 font-heading text-7xl font-semibold text-[#FFB000]/15 select-none pointer-events-none">
                         “
                       </div>
                       <blockquote className="relative z-10 text-[15.5px] sm:text-[17px] font-normal leading-relaxed text-[#1F2937] italic">
@@ -643,7 +643,7 @@ export default function AboutPage() {
                         </strong>
                         , he is committed to building sustainable, technology-driven enterprises that strengthen India’s industrial ecosystem and contribute to the country’s long-term economic leadership.”
                       </blockquote>
-                      <div className="mt-4 flex items-center justify-between pt-3 border-t border-[#E3E5EF] text-xs font-mono text-[#596579]">
+                      <div className="mt-4 flex items-center justify-between pt-3 border-t border-[#E3E5EF] text-xs font-sans text-[#596579]">
                         <span className="text-[#9A6200] font-bold">— Pradeep Kumar</span>
                         <span className="font-medium text-[#111827]">BharatX Group</span>
                       </div>
@@ -663,7 +663,7 @@ export default function AboutPage() {
                             <Icon name={item.icon} width={20} height={20} strokeWidth={2} />
                           </div>
                           <div>
-                            <div className="font-serif text-base font-medium text-[#111827]">
+                            <div className="font-heading text-base font-medium text-[#111827]">
                               {item.title}
                             </div>
                             <p className="mt-1 text-xs sm:text-[13px] text-[#596579] leading-relaxed font-normal">
@@ -676,7 +676,7 @@ export default function AboutPage() {
                   </div>
 
                   {/* Trust & Alignment Footer Bar */}
-                  <div className="mt-8 pt-5 border-t border-[#E3E5EF] flex flex-wrap items-center justify-between gap-4 text-xs font-mono text-[#596579]">
+                  <div className="mt-8 pt-5 border-t border-[#E3E5EF] flex flex-wrap items-center justify-between gap-4 text-xs font-sans text-[#596579]">
                     <span className="flex items-center gap-2 text-[#111827] font-medium">
                       <Icon name="shield-check" width={16} height={16} className="text-[#15966B]" />
                       Constitutional Governance Standard
@@ -695,12 +695,12 @@ export default function AboutPage() {
         <section className="relative overflow-hidden bg-white py-12 sm:py-16 border-b border-[#E3E5EF]">
           <div className="container-x relative z-10">
             <div className="max-w-3xl text-center mx-auto mb-14">
-              <div className="inline-flex items-center gap-2 rounded-full border border-[#3026B3]/25 bg-[#3026B3]/8 px-4 py-1 font-mono text-[11px] uppercase tracking-[0.26em] text-[#3026B3] font-bold shadow-xs mb-4">
+              <div className="inline-flex items-center gap-2 rounded-full border border-[#3026B3]/25 bg-[#3026B3]/8 px-4 py-1 font-sans text-[11px] uppercase tracking-[0.26em] text-[#3026B3] font-bold shadow-xs mb-4">
                 <span className="h-2 w-2 rounded-full bg-[#3026B3] animate-pulse" />
                 <span>ECOSYSTEM ARCHITECTURE</span>
               </div>
 
-              <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-normal text-[#111827] leading-tight tracking-tight hover:text-[#211B72] transition-colors duration-300">
+              <h2 className="font-heading text-3xl sm:text-4xl lg:text-5xl font-medium text-[#111827] leading-tight tracking-tight hover:text-[#211B72] transition-colors duration-300">
                 One Group. Multiple <span className="text-[#3026B3] hover:text-[#FFB000] transition-colors duration-300">Growth Engines.</span>
               </h2>
 
@@ -714,10 +714,10 @@ export default function AboutPage() {
               {/* Tree Root: BHARATX GROUP */}
               <div className="flex flex-col items-center text-center">
                 <div className="inline-flex flex-col items-center rounded-2xl border border-[#3026B3]/40 bg-gradient-to-r from-[#211B72] via-[#3026B3] to-[#211B72] px-8 py-4 text-white shadow-xl fx-shine">
-                  <span className="font-mono text-[10px] uppercase tracking-[0.28em] text-[#FFB000] font-bold">
+                  <span className="font-sans text-[10px] uppercase tracking-[0.28em] text-[#FFB000] font-bold">
                     CONGLOMERATE CORE
                   </span>
-                  <span className="font-serif text-2xl sm:text-3xl font-medium tracking-tight mt-0.5 hover:text-[#FFB000] transition-colors duration-300">
+                  <span className="font-heading text-2xl sm:text-3xl font-medium tracking-tight mt-0.5 hover:text-[#FFB000] transition-colors duration-300">
                     BHARATX GROUP
                   </span>
                 </div>
@@ -735,14 +735,14 @@ export default function AboutPage() {
                       <>
                         <div>
                           <div className="flex items-center justify-between mb-2">
-                            <span className="font-mono text-[9.5px] uppercase tracking-wider font-bold" style={{ color: node.accent }}>
+                            <span className="font-sans text-[9.5px] uppercase tracking-wider font-bold" style={{ color: node.accent }}>
                               {node.sector}
                             </span>
-                            <span className="text-[9px] font-mono px-1.5 py-0.2 rounded border border-slate-200 text-[#596579]">
+                            <span className="text-[9px] font-sans px-1.5 py-0.2 rounded border border-slate-200 text-[#596579]">
                               {node.badge}
                             </span>
                           </div>
-                          <h4 className="font-serif text-base font-medium text-[#111827] group-hover:text-[#3026B3] transition-colors">
+                          <h4 className="font-heading text-base font-medium text-[#111827] group-hover:text-[#3026B3] transition-colors">
                             {node.company}
                           </h4>
                         </div>
@@ -753,7 +753,7 @@ export default function AboutPage() {
                               <img src={node.logo} alt="" className="max-h-full max-w-full object-contain" />
                             </div>
                           ) : (
-                            <span className="text-[10px] font-mono text-[#596579]">Horizon</span>
+                            <span className="text-[10px] font-sans text-[#596579]">Horizon</span>
                           )}
                           <Icon name="arrow-up-right" width={12} height={12} className="text-[#596579] group-hover:text-[#3026B3] transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
                         </div>
@@ -788,14 +788,14 @@ export default function AboutPage() {
                     <>
                       <div>
                         <div className="flex items-center justify-between mb-2">
-                          <span className="font-mono text-[9.5px] uppercase tracking-wider font-bold" style={{ color: node.accent }}>
+                          <span className="font-sans text-[9.5px] uppercase tracking-wider font-bold" style={{ color: node.accent }}>
                             {node.sector}
                           </span>
-                          <span className="text-[9px] font-mono px-1.5 py-0.2 rounded border border-slate-200 text-[#596579]">
+                          <span className="text-[9px] font-sans px-1.5 py-0.2 rounded border border-slate-200 text-[#596579]">
                             {node.badge}
                           </span>
                         </div>
-                        <h4 className="font-serif text-base font-medium text-[#111827] group-hover:text-[#3026B3] transition-colors">
+                        <h4 className="font-heading text-base font-medium text-[#111827] group-hover:text-[#3026B3] transition-colors">
                           {node.company}
                         </h4>
                       </div>
@@ -806,7 +806,7 @@ export default function AboutPage() {
                             <img src={node.logo} alt="" className="max-h-full max-w-full object-contain" />
                           </div>
                         ) : (
-                          <span className="text-[10px] font-mono text-[#596579]">Horizon</span>
+                          <span className="text-[10px] font-sans text-[#596579]">Horizon</span>
                         )}
                         <Icon name="arrow-up-right" width={12} height={12} className="text-[#596579] group-hover:text-[#3026B3] transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
                       </div>
@@ -840,14 +840,14 @@ export default function AboutPage() {
                     <>
                       <div>
                         <div className="flex items-center justify-between mb-2">
-                          <span className="font-mono text-[9.5px] uppercase tracking-wider font-bold" style={{ color: node.accent }}>
+                          <span className="font-sans text-[9.5px] uppercase tracking-wider font-bold" style={{ color: node.accent }}>
                             {node.sector}
                           </span>
-                          <span className="text-[9px] font-mono px-1.5 py-0.2 rounded border border-slate-200 text-[#596579]">
+                          <span className="text-[9px] font-sans px-1.5 py-0.2 rounded border border-slate-200 text-[#596579]">
                             {node.badge}
                           </span>
                         </div>
-                        <h4 className="font-serif text-base font-medium text-[#111827] group-hover:text-[#3026B3] transition-colors">
+                        <h4 className="font-heading text-base font-medium text-[#111827] group-hover:text-[#3026B3] transition-colors">
                           {node.company}
                         </h4>
                       </div>
@@ -858,7 +858,7 @@ export default function AboutPage() {
                             <img src={node.logo} alt="" className="max-h-full max-w-full object-contain" />
                           </div>
                         ) : (
-                          <span className="text-[10px] font-mono text-[#596579]">Horizon</span>
+                          <span className="text-[10px] font-sans text-[#596579]">Horizon</span>
                         )}
                         <Icon name="arrow-up-right" width={12} height={12} className="text-[#596579] group-hover:text-[#3026B3] transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
                       </div>
@@ -893,12 +893,12 @@ export default function AboutPage() {
         <section className="relative overflow-hidden bg-[#FAF9F6] py-12 sm:py-16 border-b border-[#E3E5EF]">
           <div className="container-x relative z-10">
             <div className="max-w-3xl text-center mx-auto mb-14">
-              <div className="inline-flex items-center gap-2 rounded-full border border-[#00B8D9]/30 bg-[#00B8D9]/10 px-4 py-1 font-mono text-[11px] uppercase tracking-[0.26em] text-[#008299] font-bold shadow-xs mb-4">
+              <div className="inline-flex items-center gap-2 rounded-full border border-[#00B8D9]/30 bg-[#00B8D9]/10 px-4 py-1 font-sans text-[11px] uppercase tracking-[0.26em] text-[#008299] font-bold shadow-xs mb-4">
                 <span className="h-2 w-2 rounded-full bg-[#00B8D9] animate-pulse" />
                 <span>HOW WE BUILD</span>
               </div>
 
-              <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-normal text-[#111827] leading-tight tracking-tight hover:text-[#211B72] transition-colors duration-300">
+              <h2 className="font-heading text-3xl sm:text-4xl lg:text-5xl font-medium text-[#111827] leading-tight tracking-tight hover:text-[#211B72] transition-colors duration-300">
                 From Opportunity to <span className="text-[#3026B3] hover:text-[#FFB000] transition-colors duration-300">Enterprise</span>
               </h2>
 
@@ -924,16 +924,16 @@ export default function AboutPage() {
                         >
                           <Icon name={step.icon} width={20} height={20} strokeWidth={2} />
                         </div>
-                        <span className="font-mono text-[10px] uppercase tracking-wider font-semibold px-2.5 py-1 rounded-full border border-slate-200/80 bg-slate-50 text-[#596579] group-hover:border-[#3026B3]/30 group-hover:text-[#3026B3] transition-colors">
+                        <span className="font-sans text-[10px] uppercase tracking-wider font-semibold px-2.5 py-1 rounded-full border border-slate-200/80 bg-slate-50 text-[#596579] group-hover:border-[#3026B3]/30 group-hover:text-[#3026B3] transition-colors">
                           {step.phase}
                         </span>
                       </div>
 
                       {/* Title & Tagline */}
-                      <h3 className="font-mono text-sm sm:text-base font-bold tracking-[0.16em] text-[#111827] uppercase group-hover:text-[#3026B3] transition-colors">
+                      <h3 className="font-sans text-sm sm:text-base font-bold tracking-[0.16em] text-[#111827] uppercase group-hover:text-[#3026B3] transition-colors">
                         {step.title}
                       </h3>
-                      <span className="font-mono text-[10px] uppercase tracking-wider text-[#9A6200] font-semibold block mt-1">
+                      <span className="font-sans text-[10px] uppercase tracking-wider text-[#9A6200] font-semibold block mt-1">
                         {step.tagline}
                       </span>
 
@@ -944,7 +944,7 @@ export default function AboutPage() {
                     </div>
 
                     {/* Bottom Deliverable / Focus Metric */}
-                    <div className="mt-6 pt-3.5 border-t border-[#E3E5EF] flex items-center justify-between font-mono text-[10px] text-[#596579]">
+                    <div className="mt-6 pt-3.5 border-t border-[#E3E5EF] flex items-center justify-between font-sans text-[10px] text-[#596579]">
                       <span className="uppercase tracking-wider text-[#8A94A6]">Focus</span>
                       <span className="font-semibold text-[#111827]">{step.deliverable}</span>
                     </div>
@@ -975,12 +975,12 @@ export default function AboutPage() {
         <section className="relative overflow-hidden bg-white py-12 sm:py-16 border-b border-[#E3E5EF]">
           <div className="container-x relative z-10">
             <div className="max-w-3xl text-center mx-auto mb-14">
-              <div className="inline-flex items-center gap-2 rounded-full border border-[#15966B]/30 bg-[#15966B]/10 px-4 py-1 font-mono text-[11px] uppercase tracking-[0.26em] text-[#15966B] font-bold shadow-xs mb-4">
+              <div className="inline-flex items-center gap-2 rounded-full border border-[#15966B]/30 bg-[#15966B]/10 px-4 py-1 font-sans text-[11px] uppercase tracking-[0.26em] text-[#15966B] font-bold shadow-xs mb-4">
                 <span className="h-2 w-2 rounded-full bg-[#15966B] animate-pulse" />
                 <span>WHAT GUIDES US</span>
               </div>
 
-              <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-normal text-[#111827] leading-tight tracking-tight hover:text-[#211B72] transition-colors duration-300">
+              <h2 className="font-heading text-3xl sm:text-4xl lg:text-5xl font-medium text-[#111827] leading-tight tracking-tight hover:text-[#211B72] transition-colors duration-300">
                 Our <span className="text-[#3026B3] hover:text-[#FFB000] transition-colors duration-300">Principles</span>
               </h2>
 
@@ -1003,10 +1003,10 @@ export default function AboutPage() {
                         <Icon name={p.icon} width={20} height={20} strokeWidth={2} />
                       </div>
                       <div>
-                        <span className="font-mono text-[10px] uppercase tracking-wider text-[#596579] block">
+                        <span className="font-sans text-[10px] uppercase tracking-wider text-[#596579] block">
                           Principle 0{idx + 1}
                         </span>
-                        <h3 className="font-serif text-xl font-medium text-[#111827] group-hover:text-[#3026B3] transition-colors">
+                        <h3 className="font-heading text-xl font-medium text-[#111827] group-hover:text-[#3026B3] transition-colors">
                           {p.title}
                         </h3>
                       </div>
@@ -1032,13 +1032,13 @@ export default function AboutPage() {
           <div className="container-x relative z-10">
             <div className="max-w-4xl mx-auto text-center">
               {/* Eyebrow */}
-              <div className="inline-flex items-center gap-2 rounded-full border border-[#FFB000]/40 bg-[#FFB000]/15 px-4 py-1 font-mono text-[11px] uppercase tracking-[0.28em] text-[#FFB000] font-bold shadow-xs mb-6 hover:bg-[#FFB000]/25 transition-colors">
+              <div className="inline-flex items-center gap-2 rounded-full border border-[#FFB000]/40 bg-[#FFB000]/15 px-4 py-1 font-sans text-[11px] uppercase tracking-[0.28em] text-[#FFB000] font-bold shadow-xs mb-6 hover:bg-[#FFB000]/25 transition-colors">
                 <span className="h-2 w-2 rounded-full bg-[#FFB000] shadow-[0_0_8px_#FFB000] animate-pulse" />
                 <span>THE JOURNEY AHEAD</span>
               </div>
 
               {/* Headline */}
-              <h2 className="font-serif text-3xl sm:text-5xl md:text-6xl font-normal leading-[1.1] tracking-tight text-white hover:text-white">
+              <h2 className="font-heading text-3xl sm:text-5xl md:text-6xl font-medium leading-[1.1] tracking-tight text-white hover:text-white">
                 The Journey Ahead
               </h2>
 
@@ -1053,7 +1053,7 @@ export default function AboutPage() {
 
               {/* Signature Statement */}
               <div className="mt-8 pt-8 border-t border-white/15 max-w-xl mx-auto">
-                <p className="font-mono text-sm sm:text-base uppercase tracking-[0.24em] text-[#FFB000] font-bold">
+                <p className="font-sans text-sm sm:text-base uppercase tracking-[0.24em] text-[#FFB000] font-bold">
                   Building Businesses. Enabling Bharat.
                 </p>
               </div>

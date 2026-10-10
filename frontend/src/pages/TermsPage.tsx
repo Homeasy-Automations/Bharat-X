@@ -78,7 +78,7 @@ export default function TermsPage() {
             {sections.map((s, i) => (
               <Reveal key={s.t} delay={Math.min(i * 0.04, 0.2)}>
                 <div data-cursor="card" className="p-4 rounded-xl transition-all duration-200 hover:bg-black/5 dark:hover:bg-white/5">
-                  <AnimatedHeading as="h2" effect="blur" hover="shift" className="font-display text-xl font-semibold text-ink-50">
+                  <AnimatedHeading as="h2" effect="blur" hover="shift" className="font-heading text-xl font-semibold text-ink-50">
                     {s.t}
                   </AnimatedHeading>
                   <p className="mt-3 text-[14.5px] leading-relaxed text-ink-400">{s.d}</p>
@@ -87,7 +87,7 @@ export default function TermsPage() {
             ))}
 
             <Reveal delay={0.2}>
-              <div data-cursor="card" className="mt-8 rounded-xl border border-slate-200/80 dark:border-white/8 bg-slate-50/80 dark:bg-night-900/60 p-5 font-mono text-xs text-ink-400 fx-lift transition-all">
+              <div data-cursor="card" className="mt-8 rounded-xl border border-slate-200/80 dark:border-white/8 bg-slate-50/80 dark:bg-night-900/60 p-5 font-sans text-xs text-ink-400 fx-lift transition-all">
                 <span className="font-semibold text-ink-200 dark:text-ink-100 uppercase tracking-wider block mb-1">
                   Registered Headquarters:
                 </span>

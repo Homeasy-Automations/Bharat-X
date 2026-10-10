@@ -97,11 +97,11 @@ export function StrategicTriadTabs() {
           <div className="border-b border-[#E3E5EF] dark:border-white/10 pb-6 mb-7 sm:mb-10">
             <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-6">
               <div>
-                <div className="flex items-center gap-2 font-mono text-[11px] uppercase tracking-[0.28em] text-[#3026B3] dark:text-gold-400 mb-2">
+                <div className="flex items-center gap-2 font-sans text-[11px] uppercase tracking-[0.28em] text-[#3026B3] dark:text-gold-400 mb-2">
                   <span className="text-[#FFB000] animate-pulse">◆</span>
                   <span>STRATEGIC STORY</span>
                 </div>
-                <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-normal text-[#111827] dark:text-white hover:text-[#3026B3] dark:hover:text-[#FFB000] transition-colors duration-300">
+                <h2 className="font-heading text-3xl sm:text-4xl lg:text-5xl font-medium text-[#111827] dark:text-white hover:text-[#3026B3] dark:hover:text-[#FFB000] transition-colors duration-300">
                   Sovereign Commitment
                 </h2>
               </div>
@@ -117,10 +117,10 @@ export function StrategicTriadTabs() {
                       data-cursor="button"
                       data-motion="true"
                       onClick={() => setActiveId(tab.id)}
-                      className={`relative rounded-full px-5 sm:px-6 py-2.5 font-serif text-sm sm:text-base transition-all duration-300 active:scale-95 ${
+                      className={`relative rounded-full px-5 sm:px-6 py-2.5 font-sans text-sm sm:text-base transition-all duration-300 active:scale-95 ${
                         isActive
                           ? "text-white font-semibold shadow-md"
-                          : "border border-[#E3E5EF] bg-white text-[#596579] hover:border-[#3026B3] hover:text-[#3026B3] dark:border-white/20 dark:bg-transparent dark:text-slate-300"
+                          : "border border-[#E3E5EF] bg-white font-medium text-[#596579] hover:border-[#3026B3] hover:text-[#3026B3] dark:border-white/20 dark:bg-transparent dark:text-slate-300"
                       }`}
                     >
                       {isActive && (
@@ -150,15 +150,15 @@ export function StrategicTriadTabs() {
             >
               {/* Left Narrative (7 cols) */}
               <div className="lg:col-span-6 xl:col-span-7">
-                <span className="font-mono text-[10.5px] uppercase tracking-[0.25em] text-[#3026B3] dark:text-gold-400 font-semibold">
+                <span className="font-sans text-[10.5px] uppercase tracking-[0.25em] text-[#3026B3] dark:text-gold-400 font-semibold">
                   {current.badge}
                 </span>
 
-                <h3 className="mt-3 font-serif text-2xl sm:text-3xl lg:text-4xl font-normal text-[#111827] dark:text-white leading-tight hover:text-[#3026B3] dark:hover:text-[#FFB000] transition-colors duration-300">
+                <h3 className="mt-3 font-heading text-2xl sm:text-3xl lg:text-4xl font-medium text-[#111827] dark:text-white leading-tight hover:text-[#3026B3] dark:hover:text-[#FFB000] transition-colors duration-300">
                   {current.headline}
                 </h3>
 
-                <div className="mt-5 space-y-4 text-sm sm:text-base text-[#596579] dark:text-slate-300 leading-relaxed font-body">
+                <div className="mt-5 space-y-4 text-sm sm:text-base text-[#596579] dark:text-slate-300 leading-relaxed font-sans">
                   {current.description.map((paragraph, idx) => (
                     <p key={idx}>{paragraph}</p>
                   ))}
@@ -169,12 +169,12 @@ export function StrategicTriadTabs() {
                   {current.metrics.map((m) => (
                     <div key={m.label} className="group">
                       <span
-                        className="block font-stat text-xl sm:text-2xl font-bold transition-transform duration-300 group-hover:scale-105"
+                        className="block font-heading text-xl sm:text-2xl font-semibold transition-transform duration-300 group-hover:scale-105"
                         style={{ color: m.color || "#3026B3" }}
                       >
                         {m.value}
                       </span>
-                      <span className="block font-mono text-[9.5px] uppercase tracking-wider text-[#596579] mt-0.5">
+                      <span className="block font-sans text-[9.5px] uppercase tracking-wider text-[#596579] mt-0.5">
                         {m.label}
                       </span>
                     </div>
@@ -207,7 +207,7 @@ export function StrategicTriadTabs() {
                         className="max-h-full max-w-full object-contain"
                       />
                     </div>
-                    <span className="font-mono text-xs text-[#596579] dark:text-slate-300">
+                    <span className="font-sans text-xs text-[#596579] dark:text-slate-300">
                       {current.companyName}
                     </span>
                   </div>
@@ -247,13 +247,13 @@ export function StrategicTriadTabs() {
                         className="max-h-full max-w-full object-contain"
                       />
                     </div>
-                    <span className="font-mono text-[10.5px] uppercase tracking-wider text-slate-200 font-semibold">
+                    <span className="font-sans text-[10.5px] uppercase tracking-wider text-slate-200 font-semibold">
                       {current.companyName}
                     </span>
                   </div>
 
                   {/* Bottom glassmorphic info bar */}
-                  <div className="absolute bottom-5 left-5 right-5 flex items-center justify-between text-xs font-mono uppercase tracking-wider text-[#FFB000] bg-black/75 backdrop-blur-md px-4 py-2.5 rounded-full border border-white/15">
+                  <div className="absolute bottom-5 left-5 right-5 flex items-center justify-between text-xs font-sans uppercase tracking-wider text-[#FFB000] bg-black/75 backdrop-blur-md px-4 py-2.5 rounded-full border border-white/15">
                     <span className="flex items-center gap-2">
                       <span className="h-1.5 w-1.5 rounded-full bg-[#FFB000] animate-pulse" />
                       <span>SOVEREIGNTY CHARTER</span>

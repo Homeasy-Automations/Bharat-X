@@ -11,7 +11,7 @@ export function Breadcrumbs({
 }) {
   return (
     <nav aria-label="Breadcrumb" className={className}>
-      <ol className="flex flex-wrap items-center gap-2 font-mono text-[11px] uppercase tracking-[0.18em] text-ink-500">
+      <ol className="flex flex-wrap items-center gap-2 font-sans text-[11px] uppercase tracking-[0.18em] text-ink-500">
         {items.map((item, i) => (
           <li key={i} className="flex items-center gap-2 group/crumb">
             {i > 0 && <ChevronRight size={11} aria-hidden className="text-ink-600 transition-transform duration-200 group-hover/crumb:translate-x-0.5" />}

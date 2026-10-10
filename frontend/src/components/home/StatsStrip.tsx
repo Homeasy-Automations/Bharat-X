@@ -25,12 +25,12 @@ export function StatsStrip() {
                 className="group flex flex-col items-start lg:items-center text-left lg:text-center border-l lg:border-l-0 lg:border-r last:border-r-0 border-[#E3E5EF] pl-5 lg:pl-0 lg:px-6 cursor-pointer"
               >
                 <span
-                  className="font-serif text-3xl sm:text-4xl md:text-5xl font-normal tracking-tight transition-transform duration-300 group-hover:scale-106"
+                  className="font-heading text-3xl sm:text-4xl md:text-5xl font-medium tracking-tight transition-transform duration-300 group-hover:scale-106"
                   style={{ color: item.color }}
                 >
                   {item.value}
                 </span>
-                <span className="mt-2 font-mono text-[10.5px] uppercase tracking-[0.22em] text-[#596579] group-hover:text-[#111827] transition-colors max-w-[200px]">
+                <span className="mt-2 font-sans text-[10.5px] uppercase tracking-[0.22em] text-[#596579] group-hover:text-[#111827] transition-colors max-w-[200px]">
                   {item.label}
                 </span>
               </motion.div>

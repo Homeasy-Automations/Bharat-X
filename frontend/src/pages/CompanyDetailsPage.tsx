@@ -90,7 +90,7 @@ function CompanyProfile({ company }: { company: (typeof companies)[number] }) {
                     </div>
                   ) : (
                     <span
-                      className="flex h-14 w-14 items-center justify-center rounded-2xl font-mono text-[15px] font-semibold shadow-lg backdrop-blur fx-lift"
+                      className="flex h-14 w-14 items-center justify-center rounded-2xl font-sans text-[15px] font-semibold shadow-lg backdrop-blur fx-lift"
                       style={{
                         color: company.accentColor,
                         background: "rgba(7,10,15,0.75)",
@@ -101,7 +101,7 @@ function CompanyProfile({ company }: { company: (typeof companies)[number] }) {
                     </span>
                   )}
                   <span
-                    className="flex items-center gap-2 rounded-full border px-4 py-1.5 font-mono text-[10.5px] uppercase tracking-[0.2em] backdrop-blur fx-lift"
+                    className="flex items-center gap-2 rounded-full border px-4 py-1.5 font-sans text-[10.5px] uppercase tracking-[0.2em] backdrop-blur fx-lift"
                     style={{
                       color: company.accentColor,
                       borderColor: `${company.accentColor}44`,
@@ -113,7 +113,7 @@ function CompanyProfile({ company }: { company: (typeof companies)[number] }) {
                   </span>
                 </div>
               </Reveal>
-              <h1 className="font-display text-4xl sm:text-5xl font-semibold leading-[1.02] tracking-tight text-ink-50 md:text-7xl">
+              <h1 className="font-heading text-4xl sm:text-5xl font-semibold leading-[1.1] tracking-tight text-ink-50 md:text-7xl">
                 <MaskReveal>{company.name}</MaskReveal>
               </h1>
               <Reveal delay={0.2}>
@@ -208,11 +208,11 @@ function CompanyProfile({ company }: { company: (typeof companies)[number] }) {
                 <TiltCard data-cursor="card" className="group h-full overflow-hidden rounded-2xl border border-white/8 bg-night-900/70 p-6 transition-colors duration-300 hover:border-white/18 fx-lift">
                   <div className="flex items-center justify-between">
                     <IconBadge icon={cap.icon} accent={company.accentColor} size="sm" />
-                    <span className="font-mono text-[11px] text-ink-600">
+                    <span className="font-sans text-[11px] text-ink-600">
                       {String(i + 1).padStart(2, "0")}
                     </span>
                   </div>
-                  <AnimatedHeading as="h3" effect="blur" hover="shift" className="mt-4 font-display text-[16.5px] font-semibold text-ink-50">
+                  <AnimatedHeading as="h3" effect="blur" hover="shift" className="mt-4 font-heading text-[16.5px] font-semibold text-ink-50">
                     {cap.title}
                   </AnimatedHeading>
                   <p className="mt-2 text-[13.5px] leading-relaxed text-ink-400">{cap.description}</p>
@@ -261,7 +261,7 @@ function CompanyProfile({ company }: { company: (typeof companies)[number] }) {
                     <Icon name={company.icon} width={18} height={18} />
                   </span>
                   <div>
-                    <AnimatedHeading as="h3" effect="blur" hover="shift" className="font-display text-lg font-semibold text-ink-50">
+                    <AnimatedHeading as="h3" effect="blur" hover="shift" className="font-heading text-lg font-semibold text-ink-50">
                       {a.title}
                     </AnimatedHeading>
                     <p className="mt-2 text-[14px] leading-relaxed text-ink-400">{a.description}</p>
@@ -289,8 +289,8 @@ function CompanyProfile({ company }: { company: (typeof companies)[number] }) {
                 {company.focusAreas.map((f, i) => (
                   <Reveal key={f} delay={i * 0.08}>
                     <div data-cursor="card" className="group flex items-center gap-6 py-6 transition-all hover:pl-2">
-                      <span className="font-mono text-sm text-gold-400">{String(i + 1).padStart(2, "0")}</span>
-                      <h3 className="font-display text-xl font-medium tracking-tight text-ink-100 transition-colors group-hover:text-white md:text-2xl">
+                      <span className="font-sans text-sm text-gold-400">{String(i + 1).padStart(2, "0")}</span>
+                      <h3 className="font-heading text-xl font-medium tracking-tight text-ink-100 transition-colors group-hover:text-white md:text-2xl">
                         {f}
                       </h3>
                       <span className="ml-auto h-px w-16 bg-white/10 transition-all duration-500 group-hover:w-24 group-hover:bg-gold-400/50" />
@@ -307,11 +307,11 @@ function CompanyProfile({ company }: { company: (typeof companies)[number] }) {
               />
               <div className="relative z-10 space-y-6">
                 <div className="flex items-center justify-between border-b border-white/10 pb-4">
-                  <span className="font-mono text-xs uppercase tracking-widest text-gold-400">
+                  <span className="font-sans text-xs uppercase tracking-widest text-gold-400">
                     Technical Architecture & Specifications
                   </span>
                   <span
-                    className="rounded-full px-3 py-1 font-mono text-[10px] border"
+                    className="rounded-full px-3 py-1 font-sans text-[10px] border"
                     style={{
                       color: company.accentColor,
                       borderColor: `${company.accentColor}40`,
@@ -327,8 +327,8 @@ function CompanyProfile({ company }: { company: (typeof companies)[number] }) {
                 <div className="grid grid-cols-2 gap-3 pt-2">
                   {company.capabilities.map((cap, idx) => (
                     <div key={cap.title} data-cursor="card" className="rounded-xl border border-white/8 bg-night-900/60 p-4 transition-all hover:border-white/20 fx-lift">
-                      <span className="font-mono text-[10px] uppercase text-ink-500">Tier {idx + 1}</span>
-                      <div className="mt-1 font-display text-sm font-semibold text-white">{cap.title}</div>
+                      <span className="font-sans text-[10px] uppercase text-ink-500">Tier {idx + 1}</span>
+                      <div className="mt-1 font-sans text-sm font-semibold text-white">{cap.title}</div>
                       <div className="mt-1 text-[11px] text-ink-400 leading-normal line-clamp-2">{cap.description}</div>
                     </div>
                   ))}
@@ -353,12 +353,12 @@ function CompanyProfile({ company }: { company: (typeof companies)[number] }) {
               <Reveal key={s.title} delay={i * 0.09}>
                 <div data-cursor="card" className="relative h-full rounded-2xl border border-white/8 bg-night-850/70 p-7 fx-lift transition-all hover:border-white/20">
                   <span
-                    className="font-mono text-4xl font-semibold"
+                    className="font-heading text-4xl font-semibold"
                     style={{ color: `${company.accentColor}55` }}
                   >
                     {String(i + 1).padStart(2, "0")}
                   </span>
-                  <AnimatedHeading as="h3" effect="blur" hover="shift" className="mt-4 font-display text-lg font-semibold text-ink-50">
+                  <AnimatedHeading as="h3" effect="blur" hover="shift" className="mt-4 font-heading text-lg font-semibold text-ink-50">
                     {s.title}
                   </AnimatedHeading>
                   <p className="mt-2.5 text-[13.5px] leading-relaxed text-ink-400">{s.description}</p>
@@ -383,17 +383,17 @@ function CompanyProfile({ company }: { company: (typeof companies)[number] }) {
           <div className="mx-auto max-w-3xl text-center">
             <Reveal>
               <span
-                className="mx-auto flex h-12 w-12 items-center justify-center rounded-full border font-display text-2xl fx-icon-pop"
+                className="mx-auto flex h-12 w-12 items-center justify-center rounded-full border font-heading text-2xl fx-icon-pop"
                 style={{ color: company.accentColor, borderColor: `${company.accentColor}44` }}
               >
                 “
               </span>
             </Reveal>
-            <h2 className="mt-8 font-display text-3xl font-semibold leading-[1.2] tracking-tight text-ink-50 md:text-[2.6rem]">
+            <h2 className="mt-8 font-heading text-3xl font-semibold leading-[1.2] tracking-tight text-ink-50 md:text-[2.6rem]">
               <MaskReveal>{company.vision}</MaskReveal>
             </h2>
             <Reveal delay={0.2}>
-              <p className="mt-8 font-mono text-[11px] uppercase tracking-[0.26em] text-ink-500">
+              <p className="mt-8 font-sans text-[11px] uppercase tracking-[0.26em] text-ink-500">
                 The vision — {company.name}
               </p>
             </Reveal>
@@ -451,7 +451,7 @@ function CompanyProfile({ company }: { company: (typeof companies)[number] }) {
 function MetaStat({ icon, label, value }: { icon: string; label: string; value: string }) {
   return (
     <div>
-      <div className="flex items-center gap-2 font-mono text-[9.5px] uppercase tracking-[0.2em] text-ink-500">
+      <div className="flex items-center gap-2 font-sans text-[9.5px] uppercase tracking-[0.2em] text-ink-500">
         <Icon name={icon} width={12} height={12} />
         {label}
       </div>

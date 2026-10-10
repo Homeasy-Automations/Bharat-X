@@ -11,7 +11,7 @@ export function ConglomerateManifesto() {
           <div className="mx-auto max-w-4xl text-center">
             {/* Institutional Eyebrow */}
             <Reveal>
-              <div className="inline-flex items-center gap-2 rounded-full border border-[#3026B3]/20 bg-white px-4 py-1.5 font-mono text-[11px] font-semibold uppercase tracking-[0.28em] text-[#3026B3] shadow-xs hover:border-[#3026B3] transition-colors">
+              <div className="inline-flex items-center gap-2 rounded-full border border-[#3026B3]/20 bg-white px-4 py-1.5 font-sans text-[11px] font-semibold uppercase tracking-[0.28em] text-[#3026B3] shadow-xs hover:border-[#3026B3] transition-colors">
                 <span className="text-[#FFB000] animate-pulse">◆</span>
                 <span>CONGLOMERATE SCALE &amp; PURPOSE</span>
               </div>
@@ -19,7 +19,7 @@ export function ConglomerateManifesto() {
 
             {/* Grand Headline in Serif */}
             <Reveal delay={0.1}>
-              <h2 className="mt-6 font-serif text-3xl sm:text-4xl md:text-5xl lg:text-[3.25rem] font-normal leading-[1.18] tracking-tight text-[#111827] dark:text-white hover:text-[#211B72] dark:hover:text-[#FFB000] transition-colors duration-300">
+              <h2 className="mt-6 font-heading text-3xl sm:text-4xl md:text-5xl lg:text-[3.25rem] font-medium leading-[1.18] tracking-tight text-[#111827] dark:text-white hover:text-[#211B72] dark:hover:text-[#FFB000] transition-colors duration-300">
                 An integrated conglomerate building{" "}
                 <span className="italic text-[#3026B3] dark:text-[#FFB000] hover:underline transition-all">critical technologies, infrastructure,</span>{" "}
                 and sovereign capabilities for Bharat.
@@ -27,7 +27,7 @@ export function ConglomerateManifesto() {
             </Reveal>
 
             <Reveal delay={0.2}>
-              <p className="mx-auto mt-6 max-w-2xl text-base sm:text-lg leading-relaxed text-[#596579] dark:text-slate-300 font-body">
+              <p className="mx-auto mt-6 max-w-2xl text-base sm:text-lg leading-relaxed text-[#596579] dark:text-slate-300 font-sans">
                 Operating across artificial intelligence, precision engineering, heavy infrastructure, and resilient food systems — engineered for generational longevity and national impact.
               </p>
             </Reveal>
@@ -73,7 +73,7 @@ export function ConglomerateManifesto() {
                 >
                   <div className="flex items-center justify-between">
                     <span
-                      className="font-mono text-[10px] font-semibold uppercase tracking-[0.2em]"
+                      className="font-sans text-[10px] font-semibold uppercase tracking-[0.2em]"
                       style={{ color: item.accent }}
                     >
                       {item.badge}
@@ -88,7 +88,7 @@ export function ConglomerateManifesto() {
                       <Icon name={item.icon} width={15} height={15} />
                     </div>
                   </div>
-                  <h3 className="mt-4 font-serif text-lg font-normal text-[#111827] dark:text-white group-hover:text-[#3026B3] dark:group-hover:text-[#FFB000] transition-colors duration-300">
+                  <h3 className="mt-4 font-heading text-lg font-medium text-[#111827] dark:text-white group-hover:text-[#3026B3] dark:group-hover:text-[#FFB000] transition-colors duration-300">
                     {item.title}
                   </h3>
                   <p className="mt-2 text-xs sm:text-[13px] leading-relaxed text-[#596579] dark:text-slate-300">

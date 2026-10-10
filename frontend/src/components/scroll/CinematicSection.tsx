@@ -92,7 +92,7 @@ export function CinematicSection({
           <Reveal>
             <div
               className={cn(
-                "mb-6 flex items-center gap-3 font-mono text-[11px] uppercase tracking-[0.3em] text-gold-400 group cursor-default",
+                "mb-6 flex items-center gap-3 font-sans text-[11px] uppercase tracking-[0.3em] text-gold-400 group cursor-default",
                 align === "center" && "justify-center",
               )}
             >
@@ -102,7 +102,7 @@ export function CinematicSection({
             </div>
           </Reveal>
         )}
-        <h2 className="font-display font-semibold leading-[1.08] sm:leading-[1.02] tracking-tight text-ink-50 text-[1.85rem] xs:text-3xl sm:text-4xl md:text-6xl lg:text-7xl transition-colors duration-300 hover:text-gold-400/90">
+        <h2 className="font-heading font-semibold leading-[1.1] sm:leading-[1.1] tracking-tight text-ink-50 text-[1.85rem] xs:text-3xl sm:text-4xl md:text-6xl lg:text-7xl transition-colors duration-300 hover:text-gold-400/90">
           {lines.map((line, i) => (
             <MaskReveal key={i} delay={0.06 * i} className="text-balance">
               {line}

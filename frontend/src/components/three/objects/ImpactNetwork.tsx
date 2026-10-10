@@ -88,7 +88,7 @@ function GrowthNetworkMesh() {
           </mesh>
           <Html center distanceFactor={11} position={[0, 0.35, 0]}>
             <span
-              className="rounded-full px-2 py-0.5 font-mono text-[8px] font-bold tracking-wider text-slate-800 bg-white/90 border shadow-xs whitespace-nowrap"
+              className="rounded-full px-2 py-0.5 font-sans text-[8px] font-bold tracking-wider text-slate-800 bg-white/90 border shadow-xs whitespace-nowrap"
               style={{ borderColor: b.color }}
             >
               {b.label}
