@@ -88,7 +88,7 @@ export default function InnovationPage() {
           <img
             src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=2400&q=85"
             alt=""
-            className="h-full w-full object-cover object-top filter brightness-[0.92] contrast-[1.15] transition-transform duration-1000 ease-out hover:scale-105"
+            className="h-full w-full object-cover object-top filter brightness-[0.92] contrast-[1.15] animate-hero-zoom"
             data-cursor="image"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/40 to-black/20" />

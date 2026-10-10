@@ -241,7 +241,7 @@ export default function ContactPage() {
           <img
             src="/assets/backgrounds/contact_hero.png"
             alt="BharatX Leadership, Infrastructure, and City Skyline"
-            className="h-full w-full object-cover object-center filter brightness-[0.88] contrast-[1.10] fx-zoom-img transition-transform duration-1000"
+            className="h-full w-full object-cover object-center filter brightness-[0.88] contrast-[1.10] animate-hero-zoom"
           />
         </div>
 

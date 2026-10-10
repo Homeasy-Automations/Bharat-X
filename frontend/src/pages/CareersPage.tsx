@@ -214,7 +214,7 @@ export default function CareersPage() {
           <img
             src="/assets/backgrounds/careers_hero.png"
             alt="BharatX Team Collaborating on Real Industrial and Engineering Projects"
-            className="h-full w-full object-cover object-center filter brightness-[0.88] contrast-[1.10] fx-zoom-img transition-transform duration-1000"
+            className="h-full w-full object-cover object-center filter brightness-[0.88] contrast-[1.10] animate-hero-zoom"
           />
         </div>
 

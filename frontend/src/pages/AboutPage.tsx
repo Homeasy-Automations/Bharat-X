@@ -318,7 +318,7 @@ export default function AboutPage() {
             src="/assets/backgrounds/about_hero.png"
             alt="India's Physical and Economic Transformation"
             data-cursor="image"
-            className="h-full w-full object-cover object-center filter brightness-[0.88] contrast-[1.12]"
+            className="h-full w-full object-cover object-center filter brightness-[0.88] contrast-[1.12] animate-hero-zoom"
           />
         </div>
 

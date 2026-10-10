@@ -50,7 +50,7 @@ export const servicesData: ServiceItem[] = [
     descriptor: "Connecting economic corridors through heavy civil engineering and arterial utilities.",
     fullNarrative:
       "Executed by BharatX Infratech, our civil engineering division builds the physical systems a growing country depends on: arterial transport surfaces, utility corridors, industrial estates, and urban facilities engineered for decades of heavy service.",
-    image: "/assets/backgrounds/infrastructure-real.jpg",
+    image: "/companies/bharatx-infratech/hero.jpg",
     companyName: "BharatX Infratech",
     companyLogo: "/Infra_logo1.png",
     companySlug: "bharatx-infratech",

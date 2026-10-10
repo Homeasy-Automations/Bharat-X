@@ -23,7 +23,7 @@ export default function IndustriesPage() {
           <img
             src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=2400&q=85"
             alt=""
-            className="h-full w-full object-cover object-top filter brightness-[0.92] contrast-[1.1] transition-transform duration-1000 ease-out hover:scale-105"
+            className="h-full w-full object-cover object-top filter brightness-[0.92] contrast-[1.1] animate-hero-zoom"
             data-cursor="image"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/40 to-black/20" />
