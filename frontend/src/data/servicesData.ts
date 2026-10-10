@@ -76,7 +76,7 @@ export const servicesData: ServiceItem[] = [
     descriptor: "Precision components, industrial casters, and heavy-duty mobility solutions.",
     fullNarrative:
       "Engineered by Casters Global, we design and manufacture precision caster wheels and mobility solutions for demanding applications in intralogistics, medical equipment, retail, and factory automation with strict dimensional tolerances.",
-    image: "/assets/backgrounds/craft-metal.jpg",
+    image: "/companies/casters-global/hero.jpg",
     companyName: "Casters Global",
     companyLogo: "/Casters_logo.png",
     companySlug: "casters-global",
