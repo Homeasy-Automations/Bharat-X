@@ -73,9 +73,9 @@ export function HomeImpactSection() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.1 }}
-            className="mt-6 font-heading text-3xl sm:text-4xl md:text-5xl font-medium leading-tight tracking-tight text-[#111827] transition-colors hover:text-[#15966B]"
+            className="mt-6 font-heading text-3xl sm:text-4xl md:text-6xl font-medium leading-tight tracking-tight text-[#111827] transition-colors hover:text-[#15966B]"
           >
-            Building Economic Value.{" "}
+            Building Economic Value.<br />
             <span className="text-[#15966B] hover:text-[#FFB000] transition-colors">Creating Wider Impact.</span>
           </motion.h2>
 

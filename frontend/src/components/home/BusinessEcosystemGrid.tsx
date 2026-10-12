@@ -4,6 +4,7 @@ import { Icon } from "../../utils/icons";
 import { SectionTransition } from "../motion/SectionTransition";
 import { Stagger, StaggerItem } from "../motion/Stagger";
 import { TiltCard } from "../three/TiltCard";
+import { EcosystemCardArt } from "./EcosystemCardArt";
 
 interface EcosystemCard {
   id: string;
@@ -117,6 +118,13 @@ const ecosystemCards: EcosystemCard[] = [
   },
 ];
 
+// Accent glow pooled bottom-right, where the sector illustration sits, clear of the copy.
+const storyGlow = (accent: string) =>
+  `radial-gradient(125% 90% at 100% 100%, ${accent}1F 0%, ${accent}0A 42%, transparent 72%), radial-gradient(65% 50% at 100% 0%, ${accent}0F 0%, transparent 70%)`;
+
+// Fades the illustration out toward the top-left so it never competes with the text.
+const artMask = "radial-gradient(120% 110% at 100% 100%, #000 40%, transparent 85%)";
+
 export function BusinessEcosystemGrid() {
   return (
     <SectionTransition
@@ -154,8 +162,21 @@ export function BusinessEcosystemGrid() {
                 data-cursor="card"
                 className={`group relative flex h-full flex-col justify-between rounded-2xl border border-[#E3E5EF] bg-[#FAF9F6] p-5 sm:p-6 shadow-xs transition-all duration-300 hover:bg-white hover:shadow-xl hover:-translate-y-1.5 focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-[#3026B3] ${card.borderHover}`}
               >
+                {/* Sector story backdrop */}
+                <div
+                  aria-hidden
+                  className="pointer-events-none absolute inset-0 overflow-hidden rounded-[inherit]"
+                  style={{ background: storyGlow(card.accent) }}
+                >
+                  <EcosystemCardArt
+                    id={card.id}
+                    className="absolute bottom-0 right-0 h-[60%] w-auto max-w-[82%] origin-bottom-right opacity-[0.3] transition-[opacity,transform] duration-500 group-hover:scale-[1.04] group-hover:opacity-[0.45]"
+                    style={{ color: card.accent, maskImage: artMask, WebkitMaskImage: artMask }}
+                  />
+                </div>
+
                 {/* Top: Sector Tag & Logo / Badge */}
-                <div>
+                <div className="relative">
                   <div className="flex items-center justify-between gap-2 mb-3.5">
                     <span
                       className={`inline-block font-sans text-[10px] font-bold uppercase tracking-[0.2em] px-2.5 py-0.5 rounded-md ${card.accentBg} ${card.accentText}`}
@@ -190,7 +211,7 @@ export function BusinessEcosystemGrid() {
                 </div>
 
                 {/* Bottom: Action & Arrow */}
-                <div className="mt-6 flex items-center justify-between pt-4 border-t border-[#E3E5EF]">
+                <div className="relative mt-6 flex items-center justify-between pt-4 border-t border-[#E3E5EF]">
                   <span className="font-sans text-[10.5px] uppercase tracking-[0.16em] text-[#596579] font-semibold group-hover:text-[#3026B3] transition-colors">
                     {isExternal ? "Visit Website" : card.isUpcoming ? "Learn More" : "Explore Entity"}
                   </span>
