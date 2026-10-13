@@ -6,6 +6,8 @@ import { SectionTransition } from "../components/motion/SectionTransition";
 import { Stagger, StaggerItem } from "../components/motion/Stagger";
 import { AnimatedHeading } from "../components/motion/AnimatedHeading";
 import { MagneticButton } from "../components/common/MagneticButton";
+import { tintOnDark } from "../components/common/CardArt";
+import { CardFill, CardPhoto, SectionPhoto, cardImage } from "../components/common/CardSurface";
 
 interface ImpactArea {
   id: string;
@@ -17,8 +19,6 @@ interface ImpactArea {
   logo?: string;
   image: string;
   accent: string;
-  bgAccent: string;
-  textAccent: string;
   link: string;
 }
 
@@ -34,8 +34,6 @@ const impactAreas: ImpactArea[] = [
     logo: "/Infra_logo1.png",
     image: "/companies/bharatx-infratech/hero.jpg",
     accent: "#3026B3",
-    bgAccent: "bg-[#3026B3]/10",
-    textAccent: "text-[#3026B3]",
     link: "/services#infrastructure",
   },
   {
@@ -49,8 +47,6 @@ const impactAreas: ImpactArea[] = [
     logo: "/Bharatxagro_logo.png",
     image: "/assets/backgrounds/agri-dusk.jpg",
     accent: "#15966B",
-    bgAccent: "bg-[#15966B]/15",
-    textAccent: "text-[#15966B]",
     link: "/services#agriculture",
   },
   {
@@ -64,8 +60,6 @@ const impactAreas: ImpactArea[] = [
     logo: "/Bharatxlabs_logo.svg",
     image: "/assets/backgrounds/impact-story.jpg",
     accent: "#15966B",
-    bgAccent: "bg-[#15966B]/15",
-    textAccent: "text-[#15966B]",
     link: "/services#foundation",
   },
   {
@@ -79,8 +73,6 @@ const impactAreas: ImpactArea[] = [
     logo: "/Ai-Experts_logo.png",
     image: "/companies/aixperts-labs/hero.jpg",
     accent: "#4B40D4",
-    bgAccent: "bg-[#4B40D4]/15",
-    textAccent: "text-[#4B40D4]",
     link: "/services#tech-ai",
   },
   {
@@ -93,8 +85,6 @@ const impactAreas: ImpactArea[] = [
     entityName: "BharatX Sustainability",
     image: "/assets/backgrounds/sustainability-story.jpg",
     accent: "#059669",
-    bgAccent: "bg-[#059669]/15",
-    textAccent: "text-[#059669]",
     link: "/services#sustainability",
   },
   {
@@ -108,74 +98,62 @@ const impactAreas: ImpactArea[] = [
     logo: "/Casters_logo.png",
     image: "/companies/casters-global/hero.jpg",
     accent: "#00B8D9",
-    bgAccent: "bg-[#00B8D9]/15",
-    textAccent: "text-[#008299]",
     link: "/services#manufacturing",
   },
 ];
 
-const commitmentPrinciples = [
+const commitmentPrinciples: { title: string; description: string; icon: string; accent: string; image: string }[] = [
   {
     title: "Economic Value",
     description: "Build businesses that generate sustainable economic activity.",
-    icon: "landmark" as const,
+    icon: "landmark",
     accent: "#3026B3",
-    bg: "bg-[#3026B3]/10",
-    text: "text-[#3026B3]",
+    image: cardImage("impact-08-commitment-economic-value"),
   },
   {
     title: "Employment & Skills",
     description: "Create meaningful opportunities and develop capable teams.",
-    icon: "users" as const,
+    icon: "users",
     accent: "#15966B",
-    bg: "bg-[#15966B]/15",
-    text: "text-[#15966B]",
+    image: cardImage("impact-09-commitment-employment-skills"),
   },
   {
     title: "Innovation",
     description: "Use technology and entrepreneurship to solve real problems.",
-    icon: "cpu" as const,
+    icon: "cpu",
     accent: "#00B8D9",
-    bg: "bg-[#00B8D9]/15",
-    text: "text-[#008299]",
+    image: cardImage("impact-10-commitment-innovation"),
   },
   {
     title: "Sustainability",
     description: "Improve resource efficiency and support more circular business models.",
-    icon: "recycle" as const,
+    icon: "recycle",
     accent: "#059669",
-    bg: "bg-[#059669]/15",
-    text: "text-[#059669]",
+    image: cardImage("impact-11-commitment-sustainability"),
   },
 ];
 
-const futureFocusAreas = [
+const futureFocusAreas: { step: string; headline: string; detail: string; icon: string; accent: string }[] = [
   {
     step: "BUILD",
     headline: "Create businesses that solve meaningful problems.",
     detail: "Targeting high-friction structural deficits across physical and industrial supply lines.",
-    icon: "hard-hat" as const,
+    icon: "hard-hat",
     accent: "#3026B3",
-    bgAccent: "bg-[#3026B3]/10",
-    textAccent: "text-[#3026B3]",
   },
   {
     step: "ENABLE",
     headline: "Create jobs, capabilities and opportunities.",
     detail: "Equipping grassroots producers, industrial trades, and engineering specialists across Bharat.",
-    icon: "trending-up" as const,
+    icon: "trending-up",
     accent: "#E09800",
-    bgAccent: "bg-[#FFB000]/15",
-    textAccent: "text-[#B87B00]",
   },
   {
     step: "SUSTAIN",
     headline: "Build more efficient and responsible systems.",
     detail: "Integrating low-carbon materials, resource recovery, and zero-effluent manufacturing standards.",
-    icon: "sparkles" as const,
+    icon: "sparkles",
     accent: "#15966B",
-    bgAccent: "bg-[#15966B]/15",
-    textAccent: "text-[#15966B]",
   },
 ];
 
@@ -280,82 +258,85 @@ export default function ImpactPage() {
 
             {/* Visual Formula: BUSINESS GROWTH -> ECONOMY | PEOPLE | ENVIRONMENT */}
             <div className="lg:col-span-6">
-              <div className="rounded-3xl border border-[#E3E5EF] bg-[#FAF9F6] p-7 sm:p-9 shadow-lg fx-lift">
-                {/* Root: BUSINESS GROWTH */}
-                <div className="text-center">
-                  <div
-                    data-cursor="card"
-                    className="inline-flex flex-col items-center rounded-2xl border border-[#3026B3]/40 bg-gradient-to-r from-[#211B72] via-[#3026B3] to-[#211B72] px-8 py-3.5 text-white shadow-lg transition-transform hover:scale-105 fx-glow-indigo"
-                  >
-                    <span className="font-sans text-[10px] uppercase tracking-[0.28em] text-[#FFB000] font-bold">
-                      FOUNDATIONAL CATALYST
-                    </span>
-                    <span className="font-heading text-xl sm:text-2xl font-medium tracking-tight mt-0.5">
-                      BUSINESS GROWTH
-                    </span>
+              <div className="relative overflow-hidden rounded-3xl border border-[#E3E5EF] bg-[#FAF9F6] p-7 sm:p-9 shadow-lg fx-lift">
+                <CardFill accent="#3026B3" tone="tint" />
+                <div className="relative">
+                  {/* Root: BUSINESS GROWTH */}
+                  <div className="text-center">
+                    <div
+                      data-cursor="card"
+                      className="inline-flex flex-col items-center rounded-2xl border border-[#3026B3]/40 bg-gradient-to-r from-[#211B72] via-[#3026B3] to-[#211B72] px-8 py-3.5 text-white shadow-lg transition-transform hover:scale-105 fx-glow-indigo"
+                    >
+                      <span className="font-sans text-[10px] uppercase tracking-[0.28em] text-[#FFB000] font-bold">
+                        FOUNDATIONAL CATALYST
+                      </span>
+                      <span className="font-heading text-xl sm:text-2xl font-medium tracking-tight mt-0.5">
+                        BUSINESS GROWTH
+                      </span>
+                    </div>
                   </div>
-                </div>
 
-                {/* Downward Connector */}
-                <div className="my-5 flex items-center justify-center">
-                  <div className="flex h-8 w-8 items-center justify-center rounded-full bg-[#3026B3] text-white shadow-md animate-bounce">
-                    <Icon name="arrow-right" width={14} height={14} className="rotate-90" strokeWidth={2.5} />
+                  {/* Downward Connector */}
+                  <div className="my-5 flex items-center justify-center">
+                    <div className="flex h-8 w-8 items-center justify-center rounded-full bg-[#3026B3] text-white shadow-md animate-bounce">
+                      <Icon name="arrow-right" width={14} height={14} className="rotate-90" strokeWidth={2.5} />
+                    </div>
                   </div>
+
+                  {/* 3 Outcome Pillars: ECONOMY | PEOPLE | ENVIRONMENT */}
+                  <Stagger staggerDelay={0.08} className="grid grid-cols-1 sm:grid-cols-3 gap-3.5">
+                    {/* Economy */}
+                    <StaggerItem>
+                      <div data-cursor="card" className="group rounded-2xl border border-[#3026B3]/25 border-t-4 border-t-[#3026B3] p-4 text-center shadow-xs transition-all duration-300 hover:border-[#3026B3] fx-lift h-full" style={{ backgroundColor: "color-mix(in srgb, #3026B3 9%, white)" }}>
+                        <div className="h-8 w-8 rounded-lg bg-[#3026B3] text-white shadow-xs flex items-center justify-center mx-auto mb-2 transition-transform duration-300 group-hover:scale-110 group-hover:rotate-6">
+                          <Icon name="landmark" width={16} height={16} />
+                        </div>
+                        <span className="font-sans text-[11px] font-bold uppercase tracking-wider text-[#3026B3] block">
+                          ECONOMY
+                        </span>
+                        <ul className="mt-3 space-y-1.5 text-xs sm:text-[13px] text-[#374151]">
+                          <li className="font-medium text-[#111827]">Jobs</li>
+                          <li className="font-medium text-[#111827]">Enterprises</li>
+                          <li className="font-medium text-[#111827]">Infrastructure</li>
+                        </ul>
+                      </div>
+                    </StaggerItem>
+
+                    {/* People */}
+                    <StaggerItem>
+                      <div data-cursor="card" className="group rounded-2xl border border-[#15966B]/25 border-t-4 border-t-[#15966B] p-4 text-center shadow-xs transition-all duration-300 hover:border-[#15966B] fx-lift h-full" style={{ backgroundColor: "color-mix(in srgb, #15966B 9%, white)" }}>
+                        <div className="h-8 w-8 rounded-lg bg-[#15966B] text-white shadow-xs flex items-center justify-center mx-auto mb-2 transition-transform duration-300 group-hover:scale-110 group-hover:rotate-6">
+                          <Icon name="users" width={16} height={16} />
+                        </div>
+                        <span className="font-sans text-[11px] font-bold uppercase tracking-wider text-[#15966B] block">
+                          PEOPLE
+                        </span>
+                        <ul className="mt-3 space-y-1.5 text-xs sm:text-[13px] text-[#374151]">
+                          <li className="font-medium text-[#111827]">Skills</li>
+                          <li className="font-medium text-[#111827]">Opportunity</li>
+                          <li className="font-medium text-[#111827]">Inclusion</li>
+                        </ul>
+                      </div>
+                    </StaggerItem>
+
+                    {/* Environment */}
+                    <StaggerItem>
+                      <div data-cursor="card" className="group rounded-2xl border border-[#00B8D9]/25 border-t-4 border-t-[#00B8D9] p-4 text-center shadow-xs transition-all duration-300 hover:border-[#00B8D9] fx-lift h-full" style={{ backgroundColor: "color-mix(in srgb, #00B8D9 9%, white)" }}>
+                        <div className="h-8 w-8 rounded-lg bg-[#008299] text-white shadow-xs flex items-center justify-center mx-auto mb-2 transition-transform duration-300 group-hover:scale-110 group-hover:rotate-6">
+                          <Icon name="recycle" width={16} height={16} />
+                        </div>
+                        <span className="font-sans text-[11px] font-bold uppercase tracking-wider text-[#008299] block">
+                          ENVIRONMENT
+                        </span>
+                        <ul className="mt-3 space-y-1.5 text-xs sm:text-[13px] text-[#374151]">
+                          <li className="font-medium text-[#111827]">Resource Efficiency</li>
+                          <li className="font-medium text-[#111827]">Circularity</li>
+                          <li className="font-medium text-[#111827]">Low-Carbon Systems</li>
+                        </ul>
+                      </div>
+                    </StaggerItem>
+                  </Stagger>
                 </div>
-
-                {/* 3 Outcome Pillars: ECONOMY | PEOPLE | ENVIRONMENT */}
-                <Stagger staggerDelay={0.08} className="grid grid-cols-1 sm:grid-cols-3 gap-3.5">
-                  {/* Economy */}
-                  <StaggerItem>
-                    <div data-cursor="card" className="group rounded-2xl border border-[#E3E5EF] bg-white p-4 text-center shadow-xs transition-all duration-300 hover:border-[#3026B3] fx-lift h-full">
-                      <div className="h-8 w-8 rounded-lg bg-[#3026B3]/10 text-[#3026B3] flex items-center justify-center mx-auto mb-2 transition-transform duration-300 group-hover:scale-110 group-hover:rotate-6">
-                        <Icon name="landmark" width={16} height={16} />
-                      </div>
-                      <span className="font-sans text-[11px] font-bold uppercase tracking-wider text-[#3026B3] block">
-                        ECONOMY
-                      </span>
-                      <ul className="mt-3 space-y-1.5 text-xs text-[#596579]">
-                        <li className="font-medium text-[#111827]">Jobs</li>
-                        <li className="font-medium text-[#111827]">Enterprises</li>
-                        <li className="font-medium text-[#111827]">Infrastructure</li>
-                      </ul>
-                    </div>
-                  </StaggerItem>
-
-                  {/* People */}
-                  <StaggerItem>
-                    <div data-cursor="card" className="group rounded-2xl border border-[#E3E5EF] bg-white p-4 text-center shadow-xs transition-all duration-300 hover:border-[#15966B] fx-lift h-full">
-                      <div className="h-8 w-8 rounded-lg bg-[#15966B]/15 text-[#15966B] flex items-center justify-center mx-auto mb-2 transition-transform duration-300 group-hover:scale-110 group-hover:rotate-6">
-                        <Icon name="users" width={16} height={16} />
-                      </div>
-                      <span className="font-sans text-[11px] font-bold uppercase tracking-wider text-[#15966B] block">
-                        PEOPLE
-                      </span>
-                      <ul className="mt-3 space-y-1.5 text-xs text-[#596579]">
-                        <li className="font-medium text-[#111827]">Skills</li>
-                        <li className="font-medium text-[#111827]">Opportunity</li>
-                        <li className="font-medium text-[#111827]">Inclusion</li>
-                      </ul>
-                    </div>
-                  </StaggerItem>
-
-                  {/* Environment */}
-                  <StaggerItem>
-                    <div data-cursor="card" className="group rounded-2xl border border-[#E3E5EF] bg-white p-4 text-center shadow-xs transition-all duration-300 hover:border-[#00B8D9] fx-lift h-full">
-                      <div className="h-8 w-8 rounded-lg bg-[#00B8D9]/15 text-[#008299] flex items-center justify-center mx-auto mb-2 transition-transform duration-300 group-hover:scale-110 group-hover:rotate-6">
-                        <Icon name="recycle" width={16} height={16} />
-                      </div>
-                      <span className="font-sans text-[11px] font-bold uppercase tracking-wider text-[#008299] block">
-                        ENVIRONMENT
-                      </span>
-                      <ul className="mt-3 space-y-1.5 text-xs text-[#596579]">
-                        <li className="font-medium text-[#111827]">Resource Efficiency</li>
-                        <li className="font-medium text-[#111827]">Circularity</li>
-                        <li className="font-medium text-[#111827]">Low-Carbon Systems</li>
-                      </ul>
-                    </div>
-                  </StaggerItem>
-                </Stagger>
               </div>
             </div>
           </div>
@@ -386,8 +367,9 @@ export default function ImpactPage() {
               <StaggerItem key={area.id} className="h-full">
                 <div
                   data-cursor="card"
-                  className="group flex flex-col h-full overflow-hidden rounded-2xl border border-[#E3E5EF] bg-white shadow-sm transition-all duration-300 hover:border-[#3026B3] hover:shadow-xl fx-lift"
+                  className="group relative flex flex-col h-full overflow-hidden rounded-2xl border border-white/10 bg-[#0D1026] shadow-md transition-all duration-300 hover:border-[#3026B3] hover:shadow-xl fx-lift"
                 >
+                  <CardFill accent={area.accent} />
                   {/* Image Container with Visual Depth */}
                   <div className="relative h-44 sm:h-48 w-full overflow-hidden bg-slate-900 shrink-0" data-cursor="image">
                     <img
@@ -414,27 +396,27 @@ export default function ImpactPage() {
                   </div>
 
                   {/* Card Body & Footer */}
-                  <div className="flex flex-1 flex-col justify-between p-5 sm:p-6">
+                  <div className="relative flex flex-1 flex-col justify-between p-5 sm:p-6">
                     <div className="flex-1 flex flex-col">
-                      <span className="font-sans text-[10px] uppercase tracking-[0.22em] font-bold block mb-1 truncate" style={{ color: area.accent }}>
+                      <span className="font-sans text-[10px] uppercase tracking-[0.22em] font-bold block mb-1 truncate text-white/90">
                         {area.entityName}
                       </span>
 
-                      <h3 className="font-heading text-xl sm:text-2xl font-medium text-[#111827] group-hover:text-[#3026B3] transition-colors leading-snug duration-300 min-h-[3.25rem] sm:min-h-[3.75rem] flex items-start">
+                      <h3 className="font-heading text-xl sm:text-2xl font-medium text-white group-hover:text-[#FFC94D] transition-colors leading-snug duration-300 min-h-[3.25rem] sm:min-h-[3.75rem] flex items-start">
                         {area.title}
                       </h3>
 
-                      <p className="mt-2.5 text-xs sm:text-[13.5px] text-[#596579] leading-relaxed font-normal min-h-[3.5rem] sm:min-h-[4rem]">
+                      <p className="mt-2.5 text-xs sm:text-[13.5px] text-white/90 leading-relaxed font-normal min-h-[3.5rem] sm:min-h-[4rem]">
                         {area.description}
                       </p>
                     </div>
 
                     {/* Footer Link */}
-                    <div className="mt-4 pt-3.5 border-t border-[#E3E5EF] flex items-center justify-between">
+                    <div className="mt-4 pt-3.5 border-t border-white/20 flex items-center justify-between">
                       <Link
                         to={area.link}
                         data-cursor="link"
-                        className="inline-flex items-center gap-1.5 font-sans text-xs font-bold uppercase tracking-wider text-[#3026B3] hover:text-[#211B72] transition-colors group/link fx-underline"
+                        className="inline-flex items-center gap-1.5 font-sans text-xs font-bold uppercase tracking-wider text-[#FFC94D] hover:text-white transition-colors group/link fx-underline"
                       >
                         <span>Explore Vertical</span>
                       </Link>
@@ -442,7 +424,7 @@ export default function ImpactPage() {
                       <Link
                         to={area.link}
                         aria-label={`Explore ${area.sector}`}
-                        className={`h-7 w-7 rounded-lg ${area.bgAccent} ${area.textAccent} flex items-center justify-center shrink-0 transition-transform duration-300 group-hover:scale-110 group-hover:rotate-6`}
+                        className="h-7 w-7 rounded-lg bg-white/15 ring-1 ring-white/25 text-white flex items-center justify-center shrink-0 transition-transform duration-300 group-hover:scale-110 group-hover:rotate-6"
                       >
                         <Icon name="arrow-right" width={13} height={13} />
                       </Link>
@@ -479,74 +461,98 @@ export default function ImpactPage() {
 
           {/* Clean 6-metric Framework Band */}
           <div className="grid grid-cols-2 lg:grid-cols-3 gap-5 max-w-5xl mx-auto">
-            <div data-cursor="card" className="group rounded-2xl border border-[#E3E5EF] bg-[#FAF9F6] p-6 sm:p-7 text-center transition-all duration-300 hover:border-[#3026B3] hover:bg-white hover:shadow-xl fx-lift">
+            <div
+              data-cursor="card"
+              className="group rounded-2xl border border-[#3026B3]/25 border-t-4 border-t-[#3026B3] p-6 sm:p-7 text-center transition-all duration-300 hover:border-[#3026B3] hover:shadow-xl fx-lift"
+              style={{ backgroundColor: "color-mix(in srgb, #3026B3 9%, white)" }}
+            >
               <span className="font-heading text-3xl sm:text-4xl font-semibold text-[#3026B3] block transition-transform duration-300 group-hover:scale-105">
                 8+
               </span>
               <span className="font-sans text-xs uppercase tracking-wider text-[#111827] font-semibold mt-1 block">
                 Businesses
               </span>
-              <span className="text-[11px] text-[#596579] mt-1 block">
+              <span className="text-xs sm:text-[13px] text-[#374151] mt-1 block">
                 Operating verticals &amp; incubating platforms
               </span>
             </div>
 
-            <div data-cursor="card" className="group rounded-2xl border border-[#E3E5EF] bg-[#FAF9F6] p-6 sm:p-7 text-center transition-all duration-300 hover:border-[#15966B] hover:bg-white hover:shadow-xl fx-lift">
+            <div
+              data-cursor="card"
+              className="group rounded-2xl border border-[#15966B]/25 border-t-4 border-t-[#15966B] p-6 sm:p-7 text-center transition-all duration-300 hover:border-[#15966B] hover:shadow-xl fx-lift"
+              style={{ backgroundColor: "color-mix(in srgb, #15966B 9%, white)" }}
+            >
               <span className="font-heading text-3xl sm:text-4xl font-semibold text-[#15966B] block transition-transform duration-300 group-hover:scale-105">
                 1,500+
               </span>
               <span className="font-sans text-xs uppercase tracking-wider text-[#111827] font-semibold mt-1 block">
                 Jobs
               </span>
-              <span className="text-[11px] text-[#596579] mt-1 block">
+              <span className="text-xs sm:text-[13px] text-[#374151] mt-1 block">
                 Engineers, operators, agronomists &amp; crew
               </span>
             </div>
 
-            <div data-cursor="card" className="group rounded-2xl border border-[#E3E5EF] bg-[#FAF9F6] p-6 sm:p-7 text-center transition-all duration-300 hover:border-[#00B8D9] hover:bg-white hover:shadow-xl fx-lift">
-              <span className="font-heading text-3xl sm:text-4xl font-semibold text-[#00B8D9] block transition-transform duration-300 group-hover:scale-105">
+            <div
+              data-cursor="card"
+              className="group rounded-2xl border border-[#00B8D9]/25 border-t-4 border-t-[#00B8D9] p-6 sm:p-7 text-center transition-all duration-300 hover:border-[#00B8D9] hover:shadow-xl fx-lift"
+              style={{ backgroundColor: "color-mix(in srgb, #00B8D9 9%, white)" }}
+            >
+              <span className="font-heading text-3xl sm:text-4xl font-semibold text-[#008299] block transition-transform duration-300 group-hover:scale-105">
                 50+
               </span>
               <span className="font-sans text-xs uppercase tracking-wider text-[#111827] font-semibold mt-1 block">
                 Projects
               </span>
-              <span className="text-[11px] text-[#596579] mt-1 block">
+              <span className="text-xs sm:text-[13px] text-[#374151] mt-1 block">
                 Civil works, industrial runs &amp; AI pipelines
               </span>
             </div>
 
-            <div data-cursor="card" className="group rounded-2xl border border-[#E3E5EF] bg-[#FAF9F6] p-6 sm:p-7 text-center transition-all duration-300 hover:border-[#E09800] hover:bg-white hover:shadow-xl fx-lift">
-              <span className="font-heading text-3xl sm:text-4xl font-semibold text-[#E09800] block transition-transform duration-300 group-hover:scale-105">
+            <div
+              data-cursor="card"
+              className="group rounded-2xl border border-[#E09800]/25 border-t-4 border-t-[#E09800] p-6 sm:p-7 text-center transition-all duration-300 hover:border-[#E09800] hover:shadow-xl fx-lift"
+              style={{ backgroundColor: "color-mix(in srgb, #E09800 9%, white)" }}
+            >
+              <span className="font-heading text-3xl sm:text-4xl font-semibold text-[#B87B00] block transition-transform duration-300 group-hover:scale-105">
                 14+
               </span>
               <span className="font-sans text-xs uppercase tracking-wider text-[#111827] font-semibold mt-1 block">
                 Locations
               </span>
-              <span className="text-[11px] text-[#596579] mt-1 block">
+              <span className="text-xs sm:text-[13px] text-[#374151] mt-1 block">
                 Tier-1 and Tier-2 growth corridors across India
               </span>
             </div>
 
-            <div data-cursor="card" className="group rounded-2xl border border-[#E3E5EF] bg-[#FAF9F6] p-6 sm:p-7 text-center transition-all duration-300 hover:border-[#4B40D4] hover:bg-white hover:shadow-xl fx-lift">
+            <div
+              data-cursor="card"
+              className="group rounded-2xl border border-[#4B40D4]/25 border-t-4 border-t-[#4B40D4] p-6 sm:p-7 text-center transition-all duration-300 hover:border-[#4B40D4] hover:shadow-xl fx-lift"
+              style={{ backgroundColor: "color-mix(in srgb, #4B40D4 9%, white)" }}
+            >
               <span className="font-heading text-3xl sm:text-4xl font-semibold text-[#4B40D4] block transition-transform duration-300 group-hover:scale-105">
                 18+
               </span>
               <span className="font-sans text-xs uppercase tracking-wider text-[#111827] font-semibold mt-1 block">
                 Markets
               </span>
-              <span className="text-[11px] text-[#596579] mt-1 block">
+              <span className="text-xs sm:text-[13px] text-[#374151] mt-1 block">
                 Domestic industrial networks &amp; export ports
               </span>
             </div>
 
-            <div data-cursor="card" className="group rounded-2xl border border-[#E3E5EF] bg-[#FAF9F6] p-6 sm:p-7 text-center transition-all duration-300 hover:border-[#15966B] hover:bg-white hover:shadow-xl fx-lift">
+            <div
+              data-cursor="card"
+              className="group rounded-2xl border border-[#15966B]/25 border-t-4 border-t-[#15966B] p-6 sm:p-7 text-center transition-all duration-300 hover:border-[#15966B] hover:shadow-xl fx-lift"
+              style={{ backgroundColor: "color-mix(in srgb, #15966B 9%, white)" }}
+            >
               <span className="font-heading text-3xl sm:text-4xl font-semibold text-[#15966B] block transition-transform duration-300 group-hover:scale-105">
                 10,000+
               </span>
               <span className="font-sans text-xs uppercase tracking-wider text-[#111827] font-semibold mt-1 block">
                 People Reached
               </span>
-              <span className="text-[11px] text-[#596579] mt-1 block">
+              <span className="text-xs sm:text-[13px] text-[#374151] mt-1 block">
                 Agrarian growers, technicians &amp; families
               </span>
             </div>
@@ -585,23 +591,27 @@ export default function ImpactPage() {
               <StaggerItem key={item.title}>
                 <div
                   data-cursor="card"
-                  className="group rounded-2xl border border-[#E3E5EF] bg-white p-6 sm:p-7 shadow-xs transition-all duration-300 hover:border-[#3026B3] hover:shadow-xl fx-lift flex flex-col justify-between h-full"
+                  className="group relative overflow-hidden rounded-2xl border border-white/10 bg-[#0D1026] p-6 sm:p-7 shadow-md transition-all duration-300 hover:border-[#3026B3] hover:shadow-xl fx-lift flex flex-col justify-between h-full"
                 >
-                  <div>
-                    <div className={`h-11 w-11 rounded-xl ${item.bg} ${item.text} flex items-center justify-center shrink-0 shadow-xs mb-4 transition-transform duration-300 group-hover:scale-110 group-hover:rotate-6`}>
+                  <CardPhoto src={item.image} accent={item.accent} />
+                  <div className="relative [text-shadow:0_0_2px_rgba(13,16,38,0.9),0_1px_12px_rgba(13,16,38,0.85)]">
+                    <div
+                      className="h-11 w-11 rounded-xl bg-white/10 ring-1 ring-white/20 backdrop-blur-sm flex items-center justify-center shrink-0 shadow-xs mb-4 transition-transform duration-300 group-hover:scale-110 group-hover:rotate-6"
+                      style={{ color: tintOnDark(item.accent) }}
+                    >
                       <Icon name={item.icon} width={20} height={20} strokeWidth={2} />
                     </div>
 
-                    <h3 className="font-heading text-xl font-medium text-[#111827] group-hover:text-[#3026B3] transition-colors duration-300">
+                    <h3 className="font-heading text-xl font-medium text-white group-hover:text-[#FFC94D] transition-colors duration-300">
                       {item.title}
                     </h3>
 
-                    <p className="mt-2.5 text-xs sm:text-[13px] text-[#596579] leading-relaxed font-normal">
+                    <p className="mt-2.5 text-xs sm:text-[13px] text-slate-200 leading-relaxed font-normal">
                       {item.description}
                     </p>
                   </div>
 
-                  <div className="mt-5 pt-3 border-t border-[#E3E5EF]/60 font-sans text-[9.5px] uppercase tracking-wider text-[#596579]">
+                  <div className="relative mt-5 pt-3 border-t border-white/20 font-sans text-[9.5px] uppercase tracking-wider text-white/85 [text-shadow:0_0_2px_rgba(13,16,38,0.9),0_1px_12px_rgba(13,16,38,0.85)]">
                     Commitment Standard
                   </div>
                 </div>
@@ -612,7 +622,10 @@ export default function ImpactPage() {
       </SectionTransition>
 
       {/* ── 06. THE FUTURE OF IMPACT (The Opportunity Ahead & Final CTA) ─────── */}
-      <SectionTransition className="relative overflow-hidden bg-gradient-to-br from-[#211B72] via-[#1D1763] to-[#120E3E] text-white py-12 sm:py-16">
+      <SectionTransition
+        backdrop={<SectionPhoto src={cardImage("impact-cta-opportunity-ahead")} />}
+        className="relative overflow-hidden bg-gradient-to-br from-[#211B72] via-[#1D1763] to-[#120E3E] text-white py-12 sm:py-16"
+      >
         {/* Ambient radial lighting */}
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 -z-10 h-[500px] w-[500px] sm:w-[700px] rounded-full bg-gradient-to-r from-[#3026B3]/30 via-[#FFB000]/20 to-transparent blur-[140px] pointer-events-none" />
 
@@ -640,24 +653,29 @@ export default function ImpactPage() {
                 <StaggerItem key={area.step}>
                   <div
                     data-cursor="card"
-                    className="group rounded-2xl border border-white/15 bg-white/5 backdrop-blur-md p-6 transition-all duration-300 hover:bg-white/10 hover:border-white/30 fx-lift h-full"
+                    className="group relative overflow-hidden rounded-2xl border border-white/15 bg-[#0D1026] p-6 shadow-md transition-all duration-300 hover:border-white/30 hover:shadow-xl fx-lift h-full"
                   >
-                    <div className="flex items-center justify-between mb-3">
-                      <span className="font-sans text-xs uppercase tracking-[0.24em] text-[#FFB000] font-bold">
-                        {area.step}
-                      </span>
-                      <div className="h-8 w-8 rounded-lg bg-white/10 text-white flex items-center justify-center transition-transform group-hover:scale-110">
-                        <Icon name={area.icon} width={16} height={16} />
+                    <CardFill accent={area.accent} />
+                    <div className="relative">
+                      <div className="flex items-center justify-between mb-3">
+                        <span className="font-sans text-xs uppercase tracking-[0.24em] font-bold text-white/90">
+                          {area.step}
+                        </span>
+                        <div
+                          className="h-8 w-8 rounded-lg bg-white/15 ring-1 ring-white/25 text-white flex items-center justify-center transition-transform group-hover:scale-110"
+                        >
+                          <Icon name={area.icon} width={16} height={16} />
+                        </div>
                       </div>
+
+                      <h4 className="font-heading text-lg font-medium text-white mb-2 leading-snug group-hover:text-[#FFC94D] transition-colors">
+                        {area.headline}
+                      </h4>
+
+                      <p className="text-xs sm:text-[13px] text-white/90 leading-relaxed font-normal">
+                        {area.detail}
+                      </p>
                     </div>
-
-                    <h4 className="font-heading text-lg font-medium text-white mb-2 leading-snug group-hover:text-[#FFB000] transition-colors">
-                      {area.headline}
-                    </h4>
-
-                    <p className="text-xs text-slate-300 leading-relaxed font-normal">
-                      {area.detail}
-                    </p>
                   </div>
                 </StaggerItem>
               ))}

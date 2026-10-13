@@ -5,47 +5,55 @@ import { SectionTransition } from "../components/motion/SectionTransition";
 import { Stagger, StaggerItem } from "../components/motion/Stagger";
 import { AnimatedHeading } from "../components/motion/AnimatedHeading";
 import { MagneticButton } from "../components/common/MagneticButton";
+import { tintOnDark } from "../components/common/CardArt";
+import { CardFill, CardPhoto, cardImage } from "../components/common/CardSurface";
 
-const innovationPillars = [
+const innovationPillars: { icon: string; title: string; desc: string; metric: string; image: string }[] = [
   {
     icon: "brain-circuit",
     title: "Applied Multilingual AI",
     desc: "Production-grade neural architectures natively tuned across 22 Indian regional dialects, eliminating black-box cloud dependence.",
     metric: "22+ Dialects",
+    image: cardImage("innovation-01-frontier-multilingual-ai"),
   },
   {
     icon: "cpu",
     title: "Sovereign Edge Computing",
     desc: "Industrial telemetry and real-time decision algorithms deployed on-premise for mission-critical manufacturing and civil works.",
     metric: "< 28ms Latency",
+    image: cardImage("innovation-02-frontier-edge-computing"),
   },
   {
     icon: "factory",
     title: "Precision Robotics & Tooling",
     desc: "Sub-micron computer vision inspection, automated weld robotics, and metallurgical casting certified to aerospace specifications.",
     metric: "Sub-Micron",
+    image: cardImage("innovation-03-frontier-precision-robotics"),
   },
   {
     icon: "sprout",
     title: "Agronomic Deep-Tech",
     desc: "Sensor-guided soil nutrient diagnostics, autonomous field mechanisation, and harvest optimization for resilient domestic yields.",
     metric: "2.4x Yield Multiplier",
+    image: cardImage("innovation-04-frontier-agronomic-deeptech"),
   },
   {
     icon: "shield-check",
     title: "Cryptographic Data Sovereignty",
     desc: "Complete domestic data residency and auditable operational intelligence protecting strategic national supply chains.",
     metric: "100% In-Country",
+    image: cardImage("innovation-05-frontier-data-sovereignty"),
   },
   {
     icon: "layers",
     title: "Cold Chain Traceability",
     desc: "Continuous IoT temperature monitoring and phytosanitary tracking from farm gate to international deepwater export terminals.",
     metric: "< 2% Post-Harvest Loss",
+    image: cardImage("innovation-06-frontier-cold-chain"),
   },
 ];
 
-const roadmapPhases = [
+const roadmapPhases: { number: string; phase: string; title: string; desc: string }[] = [
   {
     number: "01",
     phase: "Foundational Telemetry",
@@ -116,27 +124,27 @@ export default function InnovationPage() {
       <SectionTransition className="border-b border-[#E3E5EF] py-10 bg-[#FAF9F6]">
         <div className="container-x">
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 text-center">
-            <div data-cursor="card" className="p-4 rounded-2xl transition-all duration-300 fx-lift hover:bg-white hover:shadow-lg">
-              <span className="font-heading text-3xl sm:text-4xl font-semibold text-[#3026B3] block transition-transform hover:scale-105">22+</span>
-              <span className="font-sans text-[10px] uppercase tracking-wider text-[#596579] mt-1 block">
+            <div data-cursor="card" className="p-4 rounded-2xl bg-[#3026B3] shadow-md transition-all duration-300 fx-lift hover:shadow-lg">
+              <span className="font-heading text-3xl sm:text-4xl font-semibold text-white block transition-transform hover:scale-105">22+</span>
+              <span className="font-sans text-[10px] sm:text-[11px] uppercase tracking-wider text-white/90 mt-1 block">
                 Regional Indian Dialects Supported
               </span>
             </div>
-            <div data-cursor="card" className="p-4 rounded-2xl transition-all duration-300 fx-lift hover:bg-white hover:shadow-lg">
-              <span className="font-heading text-3xl sm:text-4xl font-semibold text-[#FFB000] block transition-transform hover:scale-105">Sub-Micron</span>
-              <span className="font-sans text-[10px] uppercase tracking-wider text-[#596579] mt-1 block">
+            <div data-cursor="card" className="p-4 rounded-2xl bg-[#211B72] shadow-md transition-all duration-300 fx-lift hover:shadow-lg">
+              <span className="font-heading text-3xl sm:text-4xl font-semibold text-[#FFC94D] block transition-transform hover:scale-105">Sub-Micron</span>
+              <span className="font-sans text-[10px] sm:text-[11px] uppercase tracking-wider text-white/90 mt-1 block">
                 Precision Tolerance Standards
               </span>
             </div>
-            <div data-cursor="card" className="p-4 rounded-2xl transition-all duration-300 fx-lift hover:bg-white hover:shadow-lg">
-              <span className="font-heading text-3xl sm:text-4xl font-semibold text-[#00B8D9] block transition-transform hover:scale-105">100%</span>
-              <span className="font-sans text-[10px] uppercase tracking-wider text-[#596579] mt-1 block">
+            <div data-cursor="card" className="p-4 rounded-2xl bg-[#008299] shadow-md transition-all duration-300 fx-lift hover:shadow-lg">
+              <span className="font-heading text-3xl sm:text-4xl font-semibold text-white block transition-transform hover:scale-105">100%</span>
+              <span className="font-sans text-[10px] sm:text-[11px] uppercase tracking-wider text-white/90 mt-1 block">
                 Domestic Data Residency
               </span>
             </div>
-            <div data-cursor="card" className="p-4 rounded-2xl transition-all duration-300 fx-lift hover:bg-white hover:shadow-lg">
-              <span className="font-heading text-3xl sm:text-4xl font-semibold text-[#15966B] block transition-transform hover:scale-105">&lt; 28ms</span>
-              <span className="font-sans text-[10px] uppercase tracking-wider text-[#596579] mt-1 block">
+            <div data-cursor="card" className="p-4 rounded-2xl bg-[#15966B] shadow-md transition-all duration-300 fx-lift hover:shadow-lg">
+              <span className="font-heading text-3xl sm:text-4xl font-semibold text-white block transition-transform hover:scale-105">&lt; 28ms</span>
+              <span className="font-sans text-[10px] sm:text-[11px] uppercase tracking-wider text-white/90 mt-1 block">
                 Edge Model Inference Latency
               </span>
             </div>
@@ -167,32 +175,26 @@ export default function InnovationPage() {
                 <StaggerItem key={p.title}>
                   <div
                     data-cursor="card"
-                    className="group flex flex-col justify-between h-full rounded-2xl border border-[#E3E5EF] bg-white p-7 transition-all duration-300 hover:border-[#3026B3] hover:shadow-2xl fx-lift"
+                    className="group relative overflow-hidden flex flex-col justify-between h-full rounded-2xl border border-white/10 bg-[#0D1026] p-7 shadow-md transition-all duration-300 hover:border-[#3026B3] hover:shadow-2xl fx-lift"
                   >
-                    <div>
+                    <CardPhoto src={p.image} accent={pillarColor} />
+                    <div className="relative [text-shadow:0_0_2px_rgba(13,16,38,0.9),0_1px_12px_rgba(13,16,38,0.85)]">
                       <div className="flex items-center justify-between mb-5">
                         <span
-                          className="flex h-10 w-10 items-center justify-center rounded-xl border border-[#E3E5EF] transition-transform duration-300 group-hover:scale-110 fx-icon-bounce"
-                          style={{ backgroundColor: `${pillarColor}15`, color: pillarColor }}
+                          className="flex h-10 w-10 items-center justify-center rounded-xl bg-white/10 ring-1 ring-white/20 backdrop-blur-sm transition-transform duration-300 group-hover:scale-110 fx-icon-bounce"
+                          style={{ color: tintOnDark(pillarColor) }}
                         >
                           <Icon name={p.icon} width={20} height={20} />
                         </span>
-                        <span
-                          className="font-sans text-xs font-semibold px-2.5 py-1 rounded-full border transition-transform group-hover:scale-105"
-                          style={{
-                            borderColor: `${pillarColor}40`,
-                            backgroundColor: `${pillarColor}10`,
-                            color: pillarColor,
-                          }}
-                        >
+                        <span className="font-sans text-xs font-semibold px-2.5 py-1 rounded-full border border-white/20 bg-white/15 text-white backdrop-blur-sm transition-transform group-hover:scale-105">
                           {p.metric}
                         </span>
                       </div>
 
-                      <h3 className="font-heading text-xl sm:text-2xl text-[#211B72] font-medium group-hover:text-[#3026B3] transition-colors duration-300">
+                      <h3 className="font-heading text-xl sm:text-2xl text-white font-medium group-hover:text-[#FFC94D] transition-colors duration-300">
                         {p.title}
                       </h3>
-                      <p className="mt-3 text-xs sm:text-sm text-[#596579] leading-relaxed font-sans">
+                      <p className="mt-3 text-xs sm:text-sm text-slate-200 leading-relaxed font-sans">
                         {p.desc}
                       </p>
                     </div>
@@ -224,17 +226,18 @@ export default function InnovationPage() {
                 <StaggerItem key={phase.number}>
                   <div
                     data-cursor="card"
-                    className="group rounded-2xl border border-[#E3E5EF] bg-white p-6 flex flex-col justify-between shadow-sm cursor-card hover:border-[#3026B3] transition-all duration-300 fx-lift hover:shadow-xl h-full"
+                    className="group relative overflow-hidden rounded-2xl border border-white/10 bg-[#0D1026] p-6 flex flex-col justify-between shadow-md cursor-card hover:border-[#3026B3] transition-all duration-300 fx-lift hover:shadow-xl h-full"
                   >
-                    <div>
+                    <CardFill accent={pColor} />
+                    <div className="relative">
                       <div className="flex items-center justify-between mb-4">
-                        <span className="font-sans text-xs font-bold transition-transform duration-300 group-hover:scale-125" style={{ color: pColor }}>
+                        <span className="font-sans text-xs font-bold text-white/90 transition-transform duration-300 group-hover:scale-125">
                           {phase.number}
                         </span>
-                        <span className="font-sans text-[10px] uppercase text-[#596579]">{phase.phase}</span>
+                        <span className="font-sans text-[10px] uppercase text-white/90">{phase.phase}</span>
                       </div>
-                      <h3 className="font-heading text-lg text-[#211B72] font-medium group-hover:text-[#3026B3] transition-colors">{phase.title}</h3>
-                      <p className="mt-2 text-xs sm:text-sm text-[#596579] leading-relaxed font-sans">
+                      <h3 className="font-heading text-lg text-white font-medium group-hover:text-[#FFC94D] transition-colors">{phase.title}</h3>
+                      <p className="mt-2 text-xs sm:text-sm text-white/90 leading-relaxed font-sans">
                         {phase.desc}
                       </p>
                     </div>

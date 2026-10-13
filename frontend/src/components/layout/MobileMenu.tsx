@@ -1,5 +1,5 @@
 import { AnimatePresence, motion } from "framer-motion";
-import { useEffect } from "react";
+import { useEffect, type CSSProperties } from "react";
 import { Link, NavLink, useLocation } from "react-router-dom";
 import { cn } from "../../utils/cn";
 import { Icon } from "../../utils/icons";
@@ -7,6 +7,16 @@ import { servicesData } from "../../data/servicesData";
 import { brandConfig } from "../../config/brand";
 import { navigation } from "../../data/navigation";
 import { Logo } from "./Logo";
+
+// Accent per operating sector, used for the sector tiles' tint, left border and index number.
+const sectorAccents: Record<string, string> = {
+  "tech-ai": "#4B40D4",
+  infrastructure: "#3026B3",
+  manufacturing: "#008299",
+  agriculture: "#15966B",
+  "climate-sustainability": "#047857",
+  finance: "#211B72",
+};
 
 const socialIcons: Record<string, string> = {
   LinkedIn: "arrow-up-right",
@@ -88,20 +98,30 @@ export function MobileMenu({ open, onClose }: { open: boolean; onClose: () => vo
                 Core Operating Sectors
               </div>
               <div className="grid grid-cols-2 gap-2">
-                {servicesData.map((svc, i) => (
-                  <Link
-                    key={svc.id}
-                    to={`/services#${svc.id}`}
-                    onClick={onClose}
-                    data-cursor="card"
-                    className="flex flex-col gap-1 rounded-xl border border-[#E3E5EF] bg-white dark:border-white/10 dark:bg-white/[0.03] p-3 text-left transition-all hover:border-[#3026B3] fx-lift shadow-xs"
-                  >
-                    <span className="font-sans text-[9px] text-[#3026B3] dark:text-gold-400 font-semibold">0{i + 1}</span>
-                    <span className="truncate text-[12.5px] font-medium text-ink-900 dark:text-white">
-                      {svc.name}
-                    </span>
-                  </Link>
-                ))}
+                {servicesData.map((svc, i) => {
+                  const accent = sectorAccents[svc.id] ?? "#3026B3";
+                  return (
+                    <Link
+                      key={svc.id}
+                      to={`/services#${svc.id}`}
+                      onClick={onClose}
+                      data-cursor="card"
+                      className="flex flex-col gap-1 rounded-xl border border-l-4 border-[color:var(--tile-border)] border-l-[color:var(--tile-accent)] p-3 text-left transition-all hover:border-[#3026B3] fx-lift shadow-xs"
+                      style={
+                        {
+                          backgroundColor: `color-mix(in srgb, ${accent} 9%, white)`,
+                          "--tile-border": `${accent}40`,
+                          "--tile-accent": accent,
+                        } as CSSProperties
+                      }
+                    >
+                      <span className="font-sans text-[9px] font-semibold" style={{ color: accent }}>
+                        0{i + 1}
+                      </span>
+                      <span className="truncate text-[12.5px] font-medium text-[#111827]">{svc.name}</span>
+                    </Link>
+                  );
+                })}
               </div>
             </div>
 

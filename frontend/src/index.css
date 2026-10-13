@@ -791,8 +791,23 @@ section:has(> .absolute) h3:hover,
 .bg-slate-900 h3:hover,
 .text-white h1:hover,
 .text-white h2:hover,
-.text-white h3:hover {
+.text-white h3:hover,
+.card-art[data-tone="dark"] ~ * h1:hover,
+.card-art[data-tone="dark"] ~ * h2:hover,
+.card-art[data-tone="dark"] ~ * h3:hover,
+.card-art[data-tone="dark"] ~ :is(h1, h2, h3):hover,
+.card-surface[data-tone="dark"] ~ * :is(h1, h2, h3):hover,
+.card-surface[data-tone="dark"] ~ :is(h1, h2, h3):hover {
   color: #FFB000 !important;
+}
+
+/* Light generated-art cards sit inside the bg-night Layout wrapper, which would otherwise
+   turn their hovered headings gold on a pale background; keep the light-surface indigo. */
+.card-art[data-tone="light"] ~ * :is(h1, h2, h3):hover,
+.card-art[data-tone="light"] ~ :is(h1, h2, h3):hover,
+.card-surface[data-tone="light"] ~ * :is(h1, h2, h3):hover,
+.card-surface[data-tone="light"] ~ :is(h1, h2, h3):hover {
+  color: #3026B3 !important;
 }
 
 /* ── Interactive card: lift, border glow, shadow escalation ──── */
@@ -929,6 +944,52 @@ button:hover img,
 @media (hover: hover) and (pointer: fine) {
   .fx-zoom-img:hover img {
     transform: scale(1.05);
+  }
+}
+
+/* Card surfaces (components/common/CardSurface): colour fills deepen and photos zoom while the card is hovered */
+.card-surface {
+  background-color: var(--card-bg);
+  transition: background-color var(--dur-base) ease;
+}
+
+*:hover > .card-surface {
+  background-color: var(--card-bg-hover);
+}
+
+/* The fill sits inside the card's border, so drop the card's own background to avoid a dark rim around it */
+:has(> .card-surface) {
+  background-color: transparent !important;
+}
+
+.card-surface img {
+  transition: transform var(--dur-slow) var(--ease-premium);
+}
+
+.card-photo-tint {
+  background-color: var(--card-bg-hover);
+  opacity: 0;
+  transition: opacity var(--dur-base) ease;
+}
+
+*:hover > .card-surface .card-photo-tint {
+  opacity: 0.35;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  *:hover > .card-surface img {
+    transform: scale(1.06);
+  }
+}
+
+/* Generated card art (components/common/CardArt) zooms when its card is hovered */
+.card-art svg {
+  transition: transform var(--dur-slow) var(--ease-premium);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  *:hover > .card-art svg {
+    transform: scale(1.06);
   }
 }
 
@@ -1235,6 +1296,8 @@ button:hover img,
   .fx-lift-glow-gold:hover,
   .fx-lift-glow-cyan:hover,
   .fx-zoom-img:hover img,
+  *:hover > .card-art svg,
+  *:hover > .card-surface img,
   .fx-arrow:hover svg,
   .fx-icon-pop:hover,
   .fx-icon-spin:hover,

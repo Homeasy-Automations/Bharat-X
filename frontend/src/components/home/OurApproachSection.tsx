@@ -2,62 +2,69 @@ import { motion } from "framer-motion";
 import { Icon } from "../../utils/icons";
 import { SectionTransition } from "../motion/SectionTransition";
 import { SpotlightCard } from "../motion/SpotlightCard";
+import { tintOnDark } from "../common/CardArt";
+import { CardPhoto, cardImage } from "../common/CardSurface";
 
-const approachSteps = [
+// Spotlight colours are light accent tints so the cursor glow shows over the photos.
+const approachSteps: {
+  num: string;
+  label: string;
+  description: string;
+  icon: string;
+  accent: string;
+  image: string;
+  borderHover: string;
+  spotlight: string;
+}[] = [
   {
     num: "01",
     label: "IDENTIFY",
     description: "Spot structural market gaps and high-conviction industrial opportunities across India.",
-    icon: "target" as const,
+    icon: "target",
     accent: "#3026B3",
-    bgAccent: "bg-[#3026B3]/10",
-    textAccent: "text-[#3026B3]",
+    image: cardImage("home-01-approach-identify"),
     borderHover: "hover:border-[#3026B3]",
-    spotlight: "rgba(48, 38, 179, 0.12)",
+    spotlight: "rgba(162, 157, 221, 0.2)",
   },
   {
     num: "02",
     label: "BUILD",
     description: "Assemble physical infrastructure, localized technology stacks, and operational leadership.",
-    icon: "hard-hat" as const,
+    icon: "hard-hat",
     accent: "#E09800",
-    bgAccent: "bg-[#FFB000]/15",
-    textAccent: "text-[#B87B00]",
+    image: cardImage("home-02-approach-build"),
     borderHover: "hover:border-[#FFB000]",
-    spotlight: "rgba(255, 176, 0, 0.15)",
+    spotlight: "rgba(241, 209, 140, 0.2)",
   },
   {
     num: "03",
     label: "INVEST",
     description: "Commit patient, long-horizon balance sheet capital and strategic resources.",
-    icon: "landmark" as const,
+    icon: "landmark",
     accent: "#00B8D9",
-    bgAccent: "bg-[#00B8D9]/15",
-    textAccent: "text-[#008299]",
+    image: cardImage("home-03-approach-invest"),
     borderHover: "hover:border-[#00B8D9]",
-    spotlight: "rgba(0, 184, 217, 0.14)",
+    spotlight: "rgba(140, 223, 238, 0.2)",
   },
   {
     num: "04",
     label: "SCALE",
     description: "Expand manufacturing capacity, distribution channels, and pan-India market reach.",
-    icon: "trending-up" as const,
+    icon: "trending-up",
     accent: "#15966B",
-    bgAccent: "bg-[#15966B]/15",
-    textAccent: "text-[#15966B]",
+    image: cardImage("home-04-approach-scale"),
     borderHover: "hover:border-[#15966B]",
-    spotlight: "rgba(21, 150, 107, 0.14)",
+    spotlight: "rgba(150, 208, 188, 0.2)",
   },
   {
     num: "05",
     label: "IMPACT",
     description: "Deliver compounding economic returns, job creation, and sovereign national capability.",
-    icon: "sparkles" as const,
+    icon: "sparkles",
     accent: "#4B40D4",
-    bgAccent: "bg-[#4B40D4]/15",
-    textAccent: "text-[#4B40D4]",
+    image: cardImage("home-05-approach-impact"),
     borderHover: "hover:border-[#4B40D4]",
-    spotlight: "rgba(75, 64, 212, 0.14)",
+    spotlight: "rgba(174, 169, 236, 0.2)",
   },
 ];
 
@@ -115,42 +122,48 @@ export function OurApproachSection() {
                 viewport={{ once: true }}
                 transition={{ duration: 0.45, delay: 0.08 * idx }}
               >
-                <SpotlightCard
-                  spotlightColor={step.spotlight}
+                {/* The card box carries the photo; SpotlightCard sits on top (transparent) so its cursor glow stays visible over it */}
+                <div
                   data-cursor="card"
-                  className={`group relative flex h-full flex-col justify-between rounded-2xl border border-[#E3E5EF] bg-white p-6 shadow-sm transition-all duration-300 hover:shadow-xl hover:-translate-y-1.5 focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-[#3026B3] ${step.borderHover}`}
+                  className={`group relative h-full rounded-2xl border border-white/10 bg-[#0D1026] shadow-md transition-all duration-300 hover:z-20 hover:shadow-xl hover:-translate-y-1.5 focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-[#3026B3] ${step.borderHover}`}
                 >
-                  {/* Step Top Bar */}
-                  <div>
+                  <CardPhoto src={step.image} accent={step.accent} />
+
+                  <SpotlightCard spotlightColor={step.spotlight} className="relative h-full rounded-[inherit] p-6 [text-shadow:0_0_2px_rgba(13,16,38,0.9),0_1px_12px_rgba(13,16,38,0.85)]">
+                    {/* Step Top Bar */}
                     <div className="flex items-center justify-between mb-4">
-                      <span className={`font-sans text-xs font-bold tracking-widest ${step.textAccent} transition-transform duration-300 group-hover:scale-125 inline-block origin-left`}>
+                      <span
+                        className="font-sans text-xs font-bold tracking-widest transition-transform duration-300 group-hover:scale-125 inline-block origin-left"
+                        style={{ color: tintOnDark(step.accent) }}
+                      >
                         {step.num}
                       </span>
                       <div
-                        className={`h-9 w-9 rounded-xl ${step.bgAccent} ${step.textAccent} flex items-center justify-center transition-transform duration-300 group-hover:scale-110 fx-icon-pop shadow-xs`}
+                        className="h-9 w-9 rounded-xl bg-white/10 ring-1 ring-white/20 backdrop-blur-sm flex items-center justify-center transition-transform duration-300 group-hover:scale-110 fx-icon-pop shadow-xs"
+                        style={{ color: tintOnDark(step.accent) }}
                       >
                         <Icon name={step.icon} width={18} height={18} strokeWidth={2} />
                       </div>
                     </div>
 
                     {/* Step Title */}
-                    <h3 className="font-sans text-sm sm:text-base font-bold tracking-[0.16em] text-[#111827] uppercase group-hover:text-[#3026B3] transition-colors">
+                    <h3 className="font-sans text-sm sm:text-base font-bold tracking-[0.16em] text-white uppercase group-hover:text-[#FFC94D] transition-colors">
                       {step.label}
                     </h3>
 
                     {/* Step Description */}
-                    <p className="mt-2.5 text-xs sm:text-[13px] text-[#596579] leading-relaxed font-normal">
+                    <p className="mt-2.5 text-xs sm:text-[13px] text-slate-200 leading-relaxed font-normal">
                       {step.description}
                     </p>
-                  </div>
+                  </SpotlightCard>
 
-                  {/* Arrow connector indicator on desktop */}
+                  {/* Arrow connector on desktop, centred in the gap to the next card */}
                   {idx < approachSteps.length - 1 && (
-                    <div className="hidden lg:flex absolute -right-3.5 top-1/2 -translate-y-1/2 z-20 h-7 w-7 rounded-full bg-white border border-[#E3E5EF] items-center justify-center text-[#3026B3] shadow-md group-hover:scale-115 group-hover:shadow-lg transition-all duration-300">
+                    <div className="hidden lg:flex absolute -right-5.5 top-1/2 -translate-y-1/2 z-20 h-7 w-7 rounded-full bg-white border border-[#E3E5EF] items-center justify-center text-[#3026B3] shadow-md group-hover:scale-115 group-hover:shadow-lg transition-all duration-300">
                       <Icon name="chevron-right" width={13} height={13} strokeWidth={2.5} />
                     </div>
                   )}
-                </SpotlightCard>
+                </div>
               </motion.div>
             ))}
           </div>

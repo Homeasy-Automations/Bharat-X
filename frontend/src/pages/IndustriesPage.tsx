@@ -6,6 +6,18 @@ import { SectionTransition } from "../components/motion/SectionTransition";
 import { Stagger, StaggerItem } from "../components/motion/Stagger";
 import { AnimatedHeading } from "../components/motion/AnimatedHeading";
 import { MagneticButton } from "../components/common/MagneticButton";
+import { CardFill } from "../components/common/CardSurface";
+
+/** Card colour per sector (keyed by servicesData id): tint accent, and a darker ink for text on the tint. */
+const sectorTone: Record<string, { accent: string; ink: string }> = {
+  "tech-ai": { accent: "#4B40D4", ink: "#3026B3" },
+  infrastructure: { accent: "#3026B3", ink: "#3026B3" },
+  manufacturing: { accent: "#00B8D9", ink: "#007A8F" },
+  agriculture: { accent: "#15966B", ink: "#0F7A56" },
+  "climate-sustainability": { accent: "#059669", ink: "#047857" },
+  finance: { accent: "#211B72", ink: "#211B72" },
+};
+const fallbackTone = { accent: "#3026B3", ink: "#3026B3" };
 
 export default function IndustriesPage() {
   usePageMeta({
@@ -51,122 +63,126 @@ export default function IndustriesPage() {
       <SectionTransition withDivider className="py-12 sm:py-16">
         <div className="container-x">
           <Stagger staggerDelay={0.08} className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-            {servicesData.map((svc, i) => (
-              <StaggerItem key={svc.id}>
-                <div
-                  data-cursor="card"
-                  className="group flex flex-col justify-between h-full rounded-3xl border border-[#E3E5EF] bg-white overflow-hidden shadow-xl transition-all duration-300 hover:border-[#3026B3] hover:shadow-2xl fx-lift"
-                >
-                  <div>
-                    {/* Visual Card Image */}
-                    <div className="relative h-56 w-full overflow-hidden" data-cursor="image">
-                      <img
-                        src={svc.image}
-                        alt={svc.name}
-                        className="h-full w-full object-cover object-top filter brightness-[0.98] contrast-[1.05] transition-transform duration-700 ease-out group-hover:scale-110"
-                        loading="lazy"
-                      />
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent transition-opacity duration-300 group-hover:from-black/80" />
-                      <span className="absolute top-4 left-4 rounded-full bg-black/70 backdrop-blur-md px-3 py-1 font-sans text-[9px] uppercase tracking-wider text-[#FFB000] border border-white/20 transition-transform group-hover:translate-y-[-2px]">
-                        0{i + 1} · {svc.shortLabel}
-                      </span>
-                    </div>
-
-                    {/* Card Content */}
-                    <div className="p-6 sm:p-7">
-                      <div className="flex items-center justify-between gap-3 mb-2">
-                        <span className="font-sans text-[10px] uppercase tracking-wider text-[#FFB000] font-semibold">
-                          {svc.eyebrow}
+            {servicesData.map((svc, i) => {
+              const tone = sectorTone[svc.id] ?? fallbackTone;
+              return (
+                <StaggerItem key={svc.id}>
+                  <div
+                    data-cursor="card"
+                    className="group relative flex flex-col justify-between h-full rounded-3xl border border-[#E3E5EF] bg-white overflow-hidden shadow-xl transition-all duration-300 hover:border-[#3026B3] hover:shadow-2xl fx-lift"
+                  >
+                    <CardFill accent={tone.accent} tone="tint" />
+                    <div className="relative">
+                      {/* Visual Card Image */}
+                      <div className="relative h-56 w-full overflow-hidden" data-cursor="image">
+                        <img
+                          src={svc.image}
+                          alt={svc.name}
+                          className="h-full w-full object-cover object-top filter brightness-[0.98] contrast-[1.05] transition-transform duration-700 ease-out group-hover:scale-110"
+                          loading="lazy"
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent transition-opacity duration-300 group-hover:from-black/80" />
+                        <span className="absolute top-4 left-4 rounded-full bg-black/70 backdrop-blur-md px-3 py-1 font-sans text-[9px] uppercase tracking-wider text-[#FFB000] border border-white/20 transition-transform group-hover:translate-y-[-2px]">
+                          0{i + 1} · {svc.shortLabel}
                         </span>
-                        <div className="flex items-center gap-1.5 rounded-full border border-[#E3E5EF] bg-[#FAF9F6] px-2.5 py-0.5">
-                          <span className="flex h-4 w-4 shrink-0 items-center justify-center rounded-full bg-white p-0.5 shadow-2xs border border-[#E3E5EF]">
-                            <img src={svc.companyLogo} alt={svc.companyName} className="h-full w-full object-contain" />
-                          </span>
-                          <span className="font-sans text-[9px] text-[#596579]">
-                            {svc.companyName}
-                          </span>
-                        </div>
                       </div>
-                      <h2 className="mt-2 font-heading text-2xl font-medium text-[#111827] group-hover:text-[#3026B3] transition-colors duration-300">
-                        {svc.name}
-                      </h2>
-                      <p className="mt-2 text-sm font-semibold text-[#3026B3]">
-                        {svc.descriptor}
-                      </p>
-                      <p className="mt-3 text-xs sm:text-sm text-[#596579] leading-relaxed font-sans">
-                        {svc.fullNarrative}
-                      </p>
 
-                      {/* Capabilities */}
-                      <div className="mt-5">
-                        <span className="block font-sans text-[9.5px] uppercase tracking-wider text-[#596579] mb-2 font-semibold">
-                          Key Capabilities
-                        </span>
-                        <div className="flex flex-wrap gap-1.5">
-                          {svc.capabilities.slice(0, 3).map((cap) => (
-                            <span
-                              key={cap}
-                              className="rounded-md border border-[#E3E5EF] bg-[#FAF9F6] px-2 py-0.5 text-[11px] text-[#211B72] font-medium transition-colors group-hover:border-[#3026B3]/40"
-                            >
-                              {cap}
+                      {/* Card Content */}
+                      <div className="p-6 sm:p-7">
+                        <div className="flex items-center justify-between gap-3 mb-2">
+                          <span className="font-sans text-[10px] uppercase tracking-wider text-[#9A6200] font-semibold">
+                            {svc.eyebrow}
+                          </span>
+                          <div className="flex items-center gap-1.5 rounded-full border border-[#E3E5EF] bg-white/90 px-2.5 py-0.5">
+                            <span className="flex h-4 w-4 shrink-0 items-center justify-center rounded-full bg-white p-0.5 shadow-2xs border border-[#E3E5EF]">
+                              <img src={svc.companyLogo} alt={svc.companyName} className="h-full w-full object-contain" />
                             </span>
-                          ))}
+                            <span className="font-sans text-[9px] text-[#374151]">
+                              {svc.companyName}
+                            </span>
+                          </div>
+                        </div>
+                        <h2 className="mt-2 font-heading text-2xl font-medium text-[#111827] group-hover:text-[#3026B3] transition-colors duration-300">
+                          {svc.name}
+                        </h2>
+                        <p className="mt-2 text-sm font-semibold text-[#3026B3]">
+                          {svc.descriptor}
+                        </p>
+                        <p className="mt-3 text-xs sm:text-sm text-[#374151] leading-relaxed font-sans">
+                          {svc.fullNarrative}
+                        </p>
+
+                        {/* Capabilities */}
+                        <div className="mt-5">
+                          <span className="block font-sans text-[9.5px] uppercase tracking-wider text-[#374151] mb-2 font-semibold">
+                            Key Capabilities
+                          </span>
+                          <div className="flex flex-wrap gap-1.5">
+                            {svc.capabilities.slice(0, 3).map((cap) => (
+                              <span
+                                key={cap}
+                                className="rounded-md border border-[#E3E5EF] bg-white/90 px-2 py-0.5 text-[11px] text-[#211B72] font-medium transition-colors group-hover:border-[#3026B3]/40"
+                              >
+                                {cap}
+                              </span>
+                            ))}
+                          </div>
                         </div>
                       </div>
                     </div>
-                  </div>
 
-                  {/* Card Footer */}
-                  <div className="p-6 sm:p-7 border-t border-[#E3E5EF] flex items-center justify-between">
-                    <div>
-                      <span
-                        className="block font-heading text-lg font-semibold transition-transform group-hover:scale-105"
-                        style={{ color: ["#3026B3", "#00B8D9", "#15966B", "#FFB000", "#3026B3", "#15966B"][i % 6] }}
+                    {/* Card Footer */}
+                    <div className="relative p-6 sm:p-7 border-t border-[#211B72]/10 flex items-center justify-between">
+                      <div>
+                        <span
+                          className="block font-heading text-lg font-semibold transition-transform group-hover:scale-105"
+                          style={{ color: tone.ink }}
+                        >
+                          {svc.stats[0]?.value}
+                        </span>
+                        <span className="block font-sans text-[9px] uppercase text-[#374151]">
+                          {svc.stats[0]?.label}
+                        </span>
+                      </div>
+
+                      <Link
+                        to={`/services#${svc.id}`}
+                        data-cursor="button"
+                        className="inline-flex items-center gap-1.5 rounded-full bg-[#3026B3] text-white hover:bg-[#211B72] px-4 py-2 text-xs font-semibold shadow-md transition-all fx-shine group/btn"
                       >
-                        {svc.stats[0]?.value}
-                      </span>
-                      <span className="block font-sans text-[9px] uppercase text-[#596579]">
-                        {svc.stats[0]?.label}
-                      </span>
+                        <span>Deep Dive</span>
+                        <Icon name="arrow-right" width={12} height={12} className="transition-transform group-hover/btn:translate-x-1" />
+                      </Link>
                     </div>
-
-                    <Link
-                      to={`/services#${svc.id}`}
-                      data-cursor="button"
-                      className="inline-flex items-center gap-1.5 rounded-full bg-[#3026B3] text-white hover:bg-[#211B72] px-4 py-2 text-xs font-semibold shadow-md transition-all fx-shine group/btn"
-                    >
-                      <span>Deep Dive</span>
-                      <Icon name="arrow-right" width={12} height={12} className="transition-transform group-hover/btn:translate-x-1" />
-                    </Link>
                   </div>
-                </div>
-              </StaggerItem>
-            ))}
+                </StaggerItem>
+              );
+            })}
           </Stagger>
 
           {/* Bottom CTA with Infrastructure Visual */}
           <div
             data-cursor="card"
-            className="relative overflow-hidden mt-20 rounded-3xl border border-[#E3E5EF] dark:border-white/10 bg-white dark:bg-night-900 p-8 sm:p-14 text-center max-w-4xl mx-auto shadow-xl fx-lift"
+            className="relative overflow-hidden mt-20 rounded-3xl border border-[#E3E5EF] bg-white p-8 sm:p-14 text-center max-w-4xl mx-auto shadow-xl fx-lift"
           >
             <div className="absolute inset-0 z-0">
               <img
                 src="/assets/backgrounds/infrastructure-real.jpg"
                 alt=""
-                className="h-full w-full object-cover object-top filter brightness-[0.92] dark:brightness-[0.45] contrast-[1.15]"
+                className="h-full w-full object-cover object-top filter brightness-[0.92] contrast-[1.15]"
                 loading="lazy"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-white via-white/80 to-transparent dark:from-night-950/85 dark:via-night-950/55 dark:to-night-950/75" />
+              <div className="absolute inset-0 bg-gradient-to-t from-white via-white/90 to-white/60" />
             </div>
 
             <div className="relative z-10">
-              <span className="font-sans text-xs uppercase tracking-[0.25em] text-[#3026B3] dark:text-gold-400 block mb-3 font-semibold">
+              <span className="font-sans text-xs uppercase tracking-[0.25em] text-[#3026B3] block mb-3 font-semibold">
                 CROSS-SECTOR COOPERATION
               </span>
-              <AnimatedHeading as="h3" effect="words" hover="color" className="font-heading text-3xl sm:text-4xl text-ink-900 dark:text-white font-medium">
+              <AnimatedHeading as="h3" effect="words" hover="color" className="font-heading text-3xl sm:text-4xl text-ink-900 font-medium">
                 Explore Institutional Sector Collaborations
               </AnimatedHeading>
-              <p className="mt-4 text-[#596579] dark:text-slate-300 text-sm sm:text-base max-w-xl mx-auto font-sans">
+              <p className="mt-4 text-[#374151] text-sm sm:text-base max-w-xl mx-auto font-sans">
                 Engage with our sector directors for infrastructure engineering, sovereign AI integration, and large-scale industrial partnerships.
               </p>
               <div className="mt-8">
@@ -175,7 +191,7 @@ export default function IndustriesPage() {
                     to="/contact"
                     data-cursor="button"
                     data-motion="true"
-                    className="inline-flex items-center gap-3 rounded-full bg-[#3026B3] text-white hover:bg-[#211B72] dark:bg-gold-500 dark:text-night-950 dark:hover:bg-gold-400 px-8 py-3.5 text-sm font-semibold transition-all shadow-md fx-shine active:scale-95"
+                    className="inline-flex items-center gap-3 rounded-full bg-[#3026B3] text-white hover:bg-[#211B72] px-8 py-3.5 text-sm font-semibold transition-all shadow-md fx-shine active:scale-95"
                   >
                     <span>Initiate Sector Inquiry</span>
                     <Icon name="arrow-right" width={14} height={14} />

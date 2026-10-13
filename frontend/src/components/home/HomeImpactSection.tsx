@@ -26,7 +26,7 @@ const impactAreas = [
     image: "/assets/backgrounds/craft-metal.jpg",
     link: "/impact#manufacturing",
     accent: "#00B8D9",
-    badgeBg: "bg-[#00B8D9]",
+    badgeBg: "bg-[#008299]",
   },
   {
     title: "Technology",
@@ -42,7 +42,7 @@ const impactAreas = [
     image: "/assets/backgrounds/sustainability-story.jpg",
     link: "/impact#sustainability",
     accent: "#10B981",
-    badgeBg: "bg-[#10B981]",
+    badgeBg: "bg-[#047857]",
   },
 ];
 

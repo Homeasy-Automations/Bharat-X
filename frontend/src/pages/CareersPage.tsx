@@ -8,43 +8,41 @@ import { SectionTransition } from "../components/motion/SectionTransition";
 import { Stagger, StaggerItem } from "../components/motion/Stagger";
 import { AnimatedHeading } from "../components/motion/AnimatedHeading";
 import { MagneticButton } from "../components/common/MagneticButton";
+import { tintOnDark } from "../components/common/CardArt";
+import { CardFill, CardPhoto, SectionPhoto, cardImage } from "../components/common/CardSurface";
 
-const whyPillars = [
+const whyPillars: { title: string; description: string; icon: string; accent: string; image: string }[] = [
   {
     title: "Ownership",
     description: "Take responsibility. Make decisions. Create outcomes.",
-    icon: "shield-check" as const,
+    icon: "shield-check",
     accent: "#3026B3",
-    bg: "bg-[#3026B3]/10",
-    text: "text-[#3026B3]",
+    image: cardImage("careers-01-value-ownership"),
   },
   {
     title: "Learning",
     description: "Work across industries and continuously build new capabilities.",
-    icon: "sparkles" as const,
+    icon: "sparkles",
     accent: "#E09800",
-    bg: "bg-[#FFB000]/15",
-    text: "text-[#B87B00]",
+    image: cardImage("careers-02-value-learning"),
   },
   {
     title: "Execution",
     description: "Turn ideas into measurable results.",
-    icon: "cog" as const,
+    icon: "cog",
     accent: "#00B8D9",
-    bg: "bg-[#00B8D9]/15",
-    text: "text-[#008299]",
+    image: cardImage("careers-03-value-execution"),
   },
   {
     title: "Impact",
     description: "See how your work contributes to businesses, people and communities.",
-    icon: "trending-up" as const,
+    icon: "trending-up",
     accent: "#15966B",
-    bg: "bg-[#15966B]/15",
-    text: "text-[#15966B]",
+    image: cardImage("careers-04-value-impact"),
   },
 ];
 
-const careerDomains = [
+const careerDomains: { name: string; emoji: string; roles: string; accent: string; link: string }[] = [
   {
     name: "Infrastructure",
     emoji: "🏗️",
@@ -103,38 +101,34 @@ const careerDomains = [
   },
 ];
 
-const culturePrinciples = [
+const culturePrinciples: { title: string; description: string; icon: string; accent: string; image: string }[] = [
   {
     title: "Think Big",
     description: "Look beyond the immediate task and understand the larger opportunity.",
-    icon: "target" as const,
+    icon: "target",
     accent: "#3026B3",
-    bg: "bg-[#3026B3]/10",
-    text: "text-[#3026B3]",
+    image: cardImage("careers-13-norm-think-big"),
   },
   {
     title: "Move Fast",
     description: "Test, learn and execute rather than waiting for perfect conditions.",
-    icon: "rocket" as const,
+    icon: "rocket",
     accent: "#00B8D9",
-    bg: "bg-[#00B8D9]/15",
-    text: "text-[#008299]",
+    image: cardImage("careers-14-norm-move-fast"),
   },
   {
     title: "Work Together",
     description: "Our businesses may operate in different sectors, but we share knowledge and capabilities.",
-    icon: "users" as const,
+    icon: "users",
     accent: "#15966B",
-    bg: "bg-[#15966B]/15",
-    text: "text-[#15966B]",
+    image: cardImage("careers-15-norm-work-together"),
   },
   {
     title: "Build for the Long Term",
     description: "Create systems, products and businesses that last.",
-    icon: "landmark" as const,
+    icon: "landmark",
     accent: "#211B72",
-    bg: "bg-[#211B72]/10",
-    text: "text-[#211B72]",
+    image: cardImage("careers-16-norm-long-term"),
   },
 ];
 
@@ -305,25 +299,31 @@ export default function CareersPage() {
               <StaggerItem key={p.title}>
                 <div
                   data-cursor="card"
-                  className="group rounded-2xl border border-[#E3E5EF] bg-[#FAF9F6] p-7 shadow-xs transition-all duration-300 hover:border-[#3026B3] hover:bg-white hover:shadow-xl fx-lift flex flex-col justify-between h-full"
+                  className="group relative overflow-hidden rounded-2xl border border-white/10 bg-[#0D1026] p-7 shadow-md transition-all duration-300 hover:border-[#3026B3] hover:shadow-xl fx-lift flex flex-col justify-between h-full"
                 >
-                  <div>
-                    <div className={`h-11 w-11 rounded-xl ${p.bg} ${p.text} flex items-center justify-center mb-5 transition-transform duration-300 group-hover:scale-110 group-hover:rotate-6 shadow-xs`}>
+                  <CardPhoto src={p.image} accent={p.accent} />
+                  <div className="relative [text-shadow:0_0_2px_rgba(13,16,38,0.9),0_1px_12px_rgba(13,16,38,0.85)]">
+                    <div
+                      className="h-11 w-11 rounded-xl bg-white/10 ring-1 ring-white/20 backdrop-blur-sm flex items-center justify-center mb-5 transition-transform duration-300 group-hover:scale-110 group-hover:rotate-6"
+                      style={{ color: tintOnDark(p.accent) }}
+                    >
                       <Icon name={p.icon} width={20} height={20} strokeWidth={2} />
                     </div>
 
-                    <AnimatedHeading as="h3" effect="blur" hover="shift" className="font-heading text-2xl font-medium text-[#111827] group-hover:text-[#3026B3] transition-colors">
+                    <AnimatedHeading as="h3" effect="blur" hover="shift" className="font-heading text-2xl font-medium text-white group-hover:text-[#FFC94D] transition-colors">
                       {p.title}
                     </AnimatedHeading>
 
-                    <p className="mt-3 text-xs sm:text-sm text-[#596579] leading-relaxed font-normal">
+                    <p className="mt-3 text-xs sm:text-sm text-slate-200 leading-relaxed font-normal">
                       {p.description}
                     </p>
                   </div>
 
-                  <div className="mt-6 pt-4 border-t border-[#E3E5EF] font-sans text-[10px] uppercase tracking-wider text-[#596579] flex items-center justify-between">
+                  <div
+                    className="relative mt-6 pt-4 border-t border-white/20 font-sans text-[10px] font-semibold uppercase tracking-wider text-white/85 [text-shadow:0_1px_3px_rgba(13,16,38,0.9)] flex items-center justify-between"
+                  >
                     <span>Core Value</span>
-                    <span className="opacity-0 group-hover:opacity-100 transition-opacity text-[#3026B3]">✦</span>
+                    <span className="opacity-0 group-hover:opacity-100 transition-opacity text-[#FFC94D]">✦</span>
                   </div>
                 </div>
               </StaggerItem>
@@ -362,26 +362,29 @@ export default function CareersPage() {
                 <Link
                   to={area.link}
                   data-cursor="card"
-                  className="group flex flex-col justify-between rounded-2xl border border-[#E3E5EF] bg-white p-6 shadow-xs transition-all duration-300 hover:border-[#3026B3] hover:shadow-lg fx-lift h-full"
+                  className="group relative overflow-hidden flex flex-col justify-between rounded-2xl border border-white/10 bg-[#0D1026] p-6 shadow-md transition-all duration-300 hover:border-[#3026B3] hover:shadow-lg fx-lift h-full"
                 >
-                  <div>
+                  <CardFill accent={area.accent} />
+                  <div className="relative">
                     <div className="flex items-center justify-between mb-3">
                       <span className="text-2xl transition-transform duration-300 group-hover:scale-125">{area.emoji}</span>
-                      <Icon name="arrow-up-right" width={14} height={14} className="text-[#596579] group-hover:text-[#3026B3] transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+                      <Icon name="arrow-up-right" width={14} height={14} className="text-white/90 group-hover:text-[#FFC94D] transition-all duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
                     </div>
 
-                    <AnimatedHeading as="h3" effect="blur" hover="shift" className="font-heading text-xl font-medium text-[#111827] group-hover:text-[#3026B3] transition-colors">
+                    <AnimatedHeading as="h3" effect="blur" hover="shift" className="font-heading text-xl font-medium text-white group-hover:text-[#FFC94D] transition-colors">
                       {area.name}
                     </AnimatedHeading>
 
-                    <p className="mt-3 text-xs sm:text-[13px] text-[#596579] leading-relaxed font-normal">
+                    <p className="mt-3 text-xs sm:text-[13px] text-white/90 leading-relaxed font-normal">
                       {area.roles}
                     </p>
                   </div>
 
-                  <div className="mt-5 pt-3 border-t border-[#E3E5EF] font-sans text-[9.5px] uppercase tracking-wider text-[#596579] flex items-center justify-between">
+                  <div
+                    className="relative mt-5 pt-3 border-t border-white/20 font-sans text-[9.5px] font-semibold uppercase tracking-wider text-white/90 flex items-center justify-between"
+                  >
                     <span>Explore Sector</span>
-                    <span className="text-[#3026B3] opacity-0 group-hover:opacity-100 transition-opacity">→</span>
+                    <span className="text-[#FFC94D] opacity-0 group-hover:opacity-100 transition-opacity">→</span>
                   </div>
                 </Link>
               </StaggerItem>
@@ -419,23 +422,29 @@ export default function CareersPage() {
               <StaggerItem key={item.title}>
                 <div
                   data-cursor="card"
-                  className="group rounded-2xl border border-[#E3E5EF] bg-[#FAF9F6] p-7 shadow-xs transition-all duration-300 hover:border-[#3026B3] hover:bg-white hover:shadow-xl fx-lift flex flex-col justify-between h-full"
+                  className="group relative overflow-hidden rounded-2xl border border-white/10 bg-[#0D1026] p-7 shadow-md transition-all duration-300 hover:border-[#3026B3] hover:shadow-xl fx-lift flex flex-col justify-between h-full"
                 >
-                  <div>
-                    <div className={`h-11 w-11 rounded-xl ${item.bg} ${item.text} flex items-center justify-center mb-5 transition-transform duration-300 group-hover:scale-110 group-hover:rotate-6 shadow-xs`}>
+                  <CardPhoto src={item.image} accent={item.accent} />
+                  <div className="relative [text-shadow:0_0_2px_rgba(13,16,38,0.9),0_1px_12px_rgba(13,16,38,0.85)]">
+                    <div
+                      className="h-11 w-11 rounded-xl bg-white/10 ring-1 ring-white/20 backdrop-blur-sm flex items-center justify-center mb-5 transition-transform duration-300 group-hover:scale-110 group-hover:rotate-6"
+                      style={{ color: tintOnDark(item.accent) }}
+                    >
                       <Icon name={item.icon} width={20} height={20} strokeWidth={2} />
                     </div>
 
-                    <AnimatedHeading as="h3" effect="blur" hover="shift" className="font-heading text-2xl font-medium text-[#111827] group-hover:text-[#3026B3] transition-colors">
+                    <AnimatedHeading as="h3" effect="blur" hover="shift" className="font-heading text-2xl font-medium text-white group-hover:text-[#FFC94D] transition-colors">
                       {item.title}
                     </AnimatedHeading>
 
-                    <p className="mt-3 text-xs sm:text-sm text-[#596579] leading-relaxed font-normal">
+                    <p className="mt-3 text-xs sm:text-sm text-slate-200 leading-relaxed font-normal">
                       {item.description}
                     </p>
                   </div>
 
-                  <div className="mt-6 pt-3 border-t border-[#E3E5EF] font-sans text-[10px] uppercase tracking-wider text-[#596579]">
+                  <div
+                    className="relative mt-6 pt-3 border-t border-white/20 font-sans text-[10px] font-semibold uppercase tracking-wider text-white/85 [text-shadow:0_1px_3px_rgba(13,16,38,0.9)]"
+                  >
                     Operating Norm
                   </div>
                 </div>
@@ -444,8 +453,8 @@ export default function CareersPage() {
           </Stagger>
 
           {/* Central Anchor Statement */}
-          <div data-cursor="card" className="mt-14 max-w-2xl mx-auto rounded-2xl border border-[#3026B3]/30 bg-[#3026B3]/5 p-6 text-center shadow-xs fx-lift transition-all duration-300 hover:border-[#3026B3]">
-            <p className="font-heading text-base sm:text-lg font-medium text-[#111827] leading-relaxed">
+          <div data-cursor="card" className="mt-14 max-w-2xl mx-auto rounded-2xl border border-white/10 border-b-4 border-b-[#FFB000] bg-[#211B72] p-6 text-center shadow-md fx-lift transition-all duration-300 hover:border-[#FFB000]">
+            <p className="font-heading text-base sm:text-lg font-medium text-white leading-relaxed">
               “We value initiative over hierarchy and outcomes over activity.”
             </p>
           </div>
@@ -481,11 +490,18 @@ export default function CareersPage() {
 
           <div className="max-w-4xl mx-auto">
             {/* Opportunities Table / Clean Status Card */}
-            <div data-cursor="card" className="rounded-3xl border border-[#E3E5EF] bg-white overflow-hidden shadow-md mb-8 fx-lift transition-all duration-300">
+            <div
+              data-cursor="card"
+              className="relative rounded-3xl border border-[#3026B3]/20 border-t-4 border-t-[#3026B3] overflow-hidden shadow-md mb-8 fx-lift transition-all duration-300"
+              style={{ backgroundColor: "color-mix(in srgb, #3026B3 6%, white)" }}
+            >
               <div className="overflow-x-auto">
                 <table className="w-full text-left text-sm border-collapse">
                   <thead>
-                    <tr className="border-b border-[#E3E5EF] bg-[#FAF9F6] font-sans text-xs uppercase tracking-wider text-[#596579]">
+                    <tr
+                      className="border-b border-[#3026B3]/15 font-sans text-xs uppercase tracking-wider text-[#211B72]"
+                      style={{ backgroundColor: "color-mix(in srgb, #3026B3 12%, white)" }}
+                    >
                       <th className="py-4 px-6">Role</th>
                       <th className="py-4 px-6">Business</th>
                       <th className="py-4 px-6">Location</th>
@@ -494,10 +510,10 @@ export default function CareersPage() {
                     </tr>
                   </thead>
                   <tbody>
-                    <tr className="border-b border-[#E3E5EF] hover:bg-slate-50 transition-colors">
+                    <tr className="border-b border-[#3026B3]/15 hover:bg-white/70 transition-colors">
                       <td className="py-4 px-6 font-medium text-[#111827]">Civil Project Director</td>
-                      <td className="py-4 px-6 text-[#596579]">BharatX Infratech</td>
-                      <td className="py-4 px-6 text-[#596579]">New Delhi / On-site</td>
+                      <td className="py-4 px-6 text-[#374151]">BharatX Infratech</td>
+                      <td className="py-4 px-6 text-[#374151]">New Delhi / On-site</td>
                       <td className="py-4 px-6 text-xs font-sans text-[#3026B3]">Full-time</td>
                       <td className="py-4 px-6 text-right">
                         <button
@@ -514,10 +530,10 @@ export default function CareersPage() {
                         </button>
                       </td>
                     </tr>
-                    <tr className="border-b border-[#E3E5EF] hover:bg-slate-50 transition-colors">
+                    <tr className="border-b border-[#3026B3]/15 hover:bg-white/70 transition-colors">
                       <td className="py-4 px-6 font-medium text-[#111827]">Lead Applied AI Engineer</td>
-                      <td className="py-4 px-6 text-[#596579]">Aixperts Labs</td>
-                      <td className="py-4 px-6 text-[#596579]">Bengaluru / Hybrid</td>
+                      <td className="py-4 px-6 text-[#374151]">Aixperts Labs</td>
+                      <td className="py-4 px-6 text-[#374151]">Bengaluru / Hybrid</td>
                       <td className="py-4 px-6 text-xs font-sans text-[#3026B3]">Full-time</td>
                       <td className="py-4 px-6 text-right">
                         <button
@@ -534,10 +550,10 @@ export default function CareersPage() {
                         </button>
                       </td>
                     </tr>
-                    <tr className="border-b border-[#E3E5EF] hover:bg-slate-50 transition-colors">
+                    <tr className="border-b border-[#3026B3]/15 hover:bg-white/70 transition-colors">
                       <td className="py-4 px-6 font-medium text-[#111827]">Industrial Quality &amp; Tooling Lead</td>
-                      <td className="py-4 px-6 text-[#596579]">Casters Global</td>
-                      <td className="py-4 px-6 text-[#596579]">Industrial Corridor / Plant</td>
+                      <td className="py-4 px-6 text-[#374151]">Casters Global</td>
+                      <td className="py-4 px-6 text-[#374151]">Industrial Corridor / Plant</td>
                       <td className="py-4 px-6 text-xs font-sans text-[#3026B3]">Full-time</td>
                       <td className="py-4 px-6 text-right">
                         <button
@@ -559,8 +575,11 @@ export default function CareersPage() {
               </div>
 
               {/* No suitable openings banner & CTA */}
-              <div className="p-8 bg-[#FAF9F6] border-t border-[#E3E5EF] text-center">
-                <p className="text-sm text-[#596579] max-w-lg mx-auto">
+              <div
+                className="p-8 border-t border-[#3026B3]/15 text-center"
+                style={{ backgroundColor: "color-mix(in srgb, #3026B3 12%, white)" }}
+              >
+                <p className="text-sm text-[#374151] max-w-lg mx-auto">
                   Don't see your specific role listed? We are always interested in meeting talented people who want to build with us.
                 </p>
                 <button
@@ -584,7 +603,10 @@ export default function CareersPage() {
                   transition={{ duration: 0.35 }}
                   className="overflow-hidden"
                 >
-                  <div className="rounded-3xl border border-[#E3E5EF] bg-white p-7 sm:p-12 shadow-xl mb-12 fx-lift">
+                  <div
+                    className="relative rounded-3xl border border-[#3026B3]/20 border-t-4 border-t-[#3026B3] p-7 sm:p-12 shadow-xl mb-12 fx-lift"
+                    style={{ backgroundColor: "color-mix(in srgb, #3026B3 9%, white)" }}
+                  >
                     <div className="text-center mb-8">
                       <span className="font-sans text-[11px] uppercase tracking-[0.24em] text-[#3026B3] font-bold block">
                         TALENT BUREAU
@@ -592,7 +614,7 @@ export default function CareersPage() {
                       <AnimatedHeading as="h3" effect="mask" hover="color" className="font-heading text-2xl sm:text-3xl font-medium text-[#111827] mt-1">
                         Submit Your Profile
                       </AnimatedHeading>
-                      <p className="text-xs sm:text-sm text-[#596579] mt-2 max-w-md mx-auto">
+                      <p className="text-xs sm:text-sm text-[#374151] mt-2 max-w-md mx-auto">
                         Share your background, portfolio, or target vertical. Our talent leadership reviews every submission.
                       </p>
                     </div>
@@ -605,7 +627,7 @@ export default function CareersPage() {
                         <h4 className="font-heading text-2xl font-medium text-[#111827] transition-colors duration-300 hover:text-[#3026B3]">
                           Profile Received
                         </h4>
-                        <p className="text-sm text-[#596579] mt-2 max-w-md mx-auto">
+                        <p className="text-sm text-[#374151] mt-2 max-w-md mx-auto">
                           Thank you for your interest in building with BharatX Group. Our recruiting leadership will review your credentials and connect with you.
                         </p>
                       </div>
@@ -628,7 +650,7 @@ export default function CareersPage() {
                               value={name}
                               onChange={(e) => setName(e.target.value)}
                               placeholder="Your full name"
-                              className="w-full rounded-xl border border-[#E3E5EF] bg-[#FAF9F6] px-4 py-3 text-sm text-[#111827] transition-all duration-200 focus:border-[#3026B3] focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#3026B3]/20 hover:border-[#3026B3]/50"
+                              className="w-full rounded-xl border border-[#C9CBE3] bg-white px-4 py-3 text-sm text-[#111827] transition-all duration-200 focus:border-[#3026B3] focus:outline-none focus:ring-2 focus:ring-[#3026B3]/30 hover:border-[#3026B3]/50"
                             />
                           </div>
 
@@ -642,7 +664,7 @@ export default function CareersPage() {
                               value={email}
                               onChange={(e) => setEmail(e.target.value)}
                               placeholder="name@email.com"
-                              className="w-full rounded-xl border border-[#E3E5EF] bg-[#FAF9F6] px-4 py-3 text-sm text-[#111827] transition-all duration-200 focus:border-[#3026B3] focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#3026B3]/20 hover:border-[#3026B3]/50"
+                              className="w-full rounded-xl border border-[#C9CBE3] bg-white px-4 py-3 text-sm text-[#111827] transition-all duration-200 focus:border-[#3026B3] focus:outline-none focus:ring-2 focus:ring-[#3026B3]/30 hover:border-[#3026B3]/50"
                             />
                           </div>
                         </div>
@@ -657,7 +679,7 @@ export default function CareersPage() {
                               value={phone}
                               onChange={(e) => setPhone(e.target.value)}
                               placeholder="+91 XXXXX XXXXX"
-                              className="w-full rounded-xl border border-[#E3E5EF] bg-[#FAF9F6] px-4 py-3 text-sm text-[#111827] transition-all duration-200 focus:border-[#3026B3] focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#3026B3]/20 hover:border-[#3026B3]/50"
+                              className="w-full rounded-xl border border-[#C9CBE3] bg-white px-4 py-3 text-sm text-[#111827] transition-all duration-200 focus:border-[#3026B3] focus:outline-none focus:ring-2 focus:ring-[#3026B3]/30 hover:border-[#3026B3]/50"
                             />
                           </div>
 
@@ -670,7 +692,7 @@ export default function CareersPage() {
                               value={position}
                               onChange={(e) => setPosition(e.target.value)}
                               placeholder="e.g. Mechanical Engineer, AI Specialist"
-                              className="w-full rounded-xl border border-[#E3E5EF] bg-[#FAF9F6] px-4 py-3 text-sm text-[#111827] transition-all duration-200 focus:border-[#3026B3] focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#3026B3]/20 hover:border-[#3026B3]/50"
+                              className="w-full rounded-xl border border-[#C9CBE3] bg-white px-4 py-3 text-sm text-[#111827] transition-all duration-200 focus:border-[#3026B3] focus:outline-none focus:ring-2 focus:ring-[#3026B3]/30 hover:border-[#3026B3]/50"
                             />
                           </div>
                         </div>
@@ -683,7 +705,7 @@ export default function CareersPage() {
                             <select
                               value={vertical}
                               onChange={(e) => setVertical(e.target.value)}
-                              className="w-full rounded-xl border border-[#E3E5EF] bg-[#FAF9F6] px-4 py-3 text-sm text-[#111827] transition-all duration-200 focus:border-[#3026B3] focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#3026B3]/20 hover:border-[#3026B3]/50"
+                              className="w-full rounded-xl border border-[#C9CBE3] bg-white px-4 py-3 text-sm text-[#111827] transition-all duration-200 focus:border-[#3026B3] focus:outline-none focus:ring-2 focus:ring-[#3026B3]/30 hover:border-[#3026B3]/50"
                             >
                               {verticalsList.map((v) => (
                                 <option key={v} value={v}>
@@ -702,7 +724,7 @@ export default function CareersPage() {
                               value={location}
                               onChange={(e) => setLocation(e.target.value)}
                               placeholder="e.g. New Delhi, Bengaluru, Plant Site"
-                              className="w-full rounded-xl border border-[#E3E5EF] bg-[#FAF9F6] px-4 py-3 text-sm text-[#111827] transition-all duration-200 focus:border-[#3026B3] focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#3026B3]/20 hover:border-[#3026B3]/50"
+                              className="w-full rounded-xl border border-[#C9CBE3] bg-white px-4 py-3 text-sm text-[#111827] transition-all duration-200 focus:border-[#3026B3] focus:outline-none focus:ring-2 focus:ring-[#3026B3]/30 hover:border-[#3026B3]/50"
                             />
                           </div>
                         </div>
@@ -716,7 +738,7 @@ export default function CareersPage() {
                             value={linkedin}
                             onChange={(e) => setLinkedin(e.target.value)}
                             placeholder="https://linkedin.com/in/yourprofile"
-                            className="w-full rounded-xl border border-[#E3E5EF] bg-[#FAF9F6] px-4 py-3 text-sm text-[#111827] transition-all duration-200 focus:border-[#3026B3] focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#3026B3]/20 hover:border-[#3026B3]/50"
+                            className="w-full rounded-xl border border-[#C9CBE3] bg-white px-4 py-3 text-sm text-[#111827] transition-all duration-200 focus:border-[#3026B3] focus:outline-none focus:ring-2 focus:ring-[#3026B3]/30 hover:border-[#3026B3]/50"
                           />
                         </div>
 
@@ -729,7 +751,7 @@ export default function CareersPage() {
                             value={intro}
                             onChange={(e) => setIntro(e.target.value)}
                             placeholder="Tell us about the problems you've solved and what capabilities you bring."
-                            className="w-full rounded-xl border border-[#E3E5EF] bg-[#FAF9F6] px-4 py-3 text-sm text-[#111827] transition-all duration-200 focus:border-[#3026B3] focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#3026B3]/20 hover:border-[#3026B3]/50 resize-y"
+                            className="w-full rounded-xl border border-[#C9CBE3] bg-white px-4 py-3 text-sm text-[#111827] transition-all duration-200 focus:border-[#3026B3] focus:outline-none focus:ring-2 focus:ring-[#3026B3]/30 hover:border-[#3026B3]/50 resize-y"
                           />
                         </div>
 
@@ -754,7 +776,11 @@ export default function CareersPage() {
       </SectionTransition>
 
       {/* ── 06. FINAL CTA (Ready to Build With Us?) ───────────────────────── */}
-      <SectionTransition divider={false} className="relative overflow-hidden bg-gradient-to-br from-[#211B72] via-[#1D1763] to-[#120E3E] text-white py-12 sm:py-16">
+      <SectionTransition
+        divider={false}
+        backdrop={<SectionPhoto src={cardImage("careers-cta-join-builders")} />}
+        className="relative overflow-hidden bg-gradient-to-br from-[#211B72] via-[#1D1763] to-[#120E3E] text-white py-12 sm:py-16"
+      >
         {/* Ambient radial lighting */}
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 -z-10 h-[500px] w-[500px] sm:w-[700px] rounded-full bg-gradient-to-r from-[#3026B3]/30 via-[#FFB000]/20 to-transparent blur-[140px] pointer-events-none" />
 

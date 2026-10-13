@@ -4,7 +4,7 @@ import { Icon } from "../../utils/icons";
 import { SectionTransition } from "../motion/SectionTransition";
 import { Stagger, StaggerItem } from "../motion/Stagger";
 import { TiltCard } from "../three/TiltCard";
-import { EcosystemCardArt } from "./EcosystemCardArt";
+import { CardFill } from "../common/CardSurface";
 
 interface EcosystemCard {
   id: string;
@@ -14,7 +14,7 @@ interface EcosystemCard {
   to: string;
   logo?: string;
   accent: string;
-  accentBg: string;
+  /** Darker accent shade for the arrow icon on its white circle. */
   accentText: string;
   borderHover: string;
   isUpcoming?: boolean;
@@ -29,7 +29,6 @@ const ecosystemCards: EcosystemCard[] = [
     to: "/services#infrastructure",
     logo: "/Infra_logo1.png",
     accent: "#3026B3",
-    accentBg: "bg-[#3026B3]/10",
     accentText: "text-[#3026B3]",
     borderHover: "hover:border-[#3026B3]",
   },
@@ -41,7 +40,6 @@ const ecosystemCards: EcosystemCard[] = [
     to: "/services#agriculture",
     logo: "/Bharatxagro_logo.png",
     accent: "#15966B",
-    accentBg: "bg-[#15966B]/10",
     accentText: "text-[#15966B]",
     borderHover: "hover:border-[#15966B]",
   },
@@ -53,7 +51,6 @@ const ecosystemCards: EcosystemCard[] = [
     to: "/services#finance",
     logo: "/Ventures_logo.png",
     accent: "#211B72",
-    accentBg: "bg-[#211B72]/10",
     accentText: "text-[#211B72]",
     borderHover: "hover:border-[#211B72]",
   },
@@ -65,7 +62,6 @@ const ecosystemCards: EcosystemCard[] = [
     to: "/services#climate-sustainability",
     logo: "/Bharatxlabs_logo.svg",
     accent: "#0D9488",
-    accentBg: "bg-[#14B8A6]/10",
     accentText: "text-[#0F766E]",
     borderHover: "hover:border-[#0D9488]",
   },
@@ -77,7 +73,6 @@ const ecosystemCards: EcosystemCard[] = [
     to: "/services#manufacturing",
     logo: "/Casters_logo.png",
     accent: "#00B8D9",
-    accentBg: "bg-[#00B8D9]/10",
     accentText: "text-[#008299]",
     borderHover: "hover:border-[#00B8D9]",
   },
@@ -89,7 +84,6 @@ const ecosystemCards: EcosystemCard[] = [
     to: "/services#tech-ai",
     logo: "/Ai-Experts_logo.png",
     accent: "#4B40D4",
-    accentBg: "bg-[#4B40D4]/10",
     accentText: "text-[#4B40D4]",
     borderHover: "hover:border-[#4B40D4]",
   },
@@ -100,7 +94,6 @@ const ecosystemCards: EcosystemCard[] = [
     description: "High-efficiency sustainable packaging materials, corrugated boxes and industrial protection.",
     to: "/services#packaging",
     accent: "#D97706",
-    accentBg: "bg-[#F59E0B]/10",
     accentText: "text-[#B45309]",
     borderHover: "hover:border-[#D97706]",
   },
@@ -111,19 +104,11 @@ const ecosystemCards: EcosystemCard[] = [
     description: "Industrial resource recovery, closed-loop waste management and zero-effluent technologies.",
     to: "#what-comes-next",
     accent: "#059669",
-    accentBg: "bg-[#10B981]/10",
     accentText: "text-[#047857]",
     borderHover: "hover:border-[#059669]",
     isUpcoming: true,
   },
 ];
-
-// Accent glow pooled bottom-right, where the sector illustration sits, clear of the copy.
-const storyGlow = (accent: string) =>
-  `radial-gradient(125% 90% at 100% 100%, ${accent}1F 0%, ${accent}0A 42%, transparent 72%), radial-gradient(65% 50% at 100% 0%, ${accent}0F 0%, transparent 70%)`;
-
-// Fades the illustration out toward the top-left so it never competes with the text.
-const artMask = "radial-gradient(120% 110% at 100% 100%, #000 40%, transparent 85%)";
 
 export function BusinessEcosystemGrid() {
   return (
@@ -160,36 +145,23 @@ export function BusinessEcosystemGrid() {
                 maxTilt={5}
                 glare={true}
                 data-cursor="card"
-                className={`group relative flex h-full flex-col justify-between rounded-2xl border border-[#E3E5EF] bg-[#FAF9F6] p-5 sm:p-6 shadow-xs transition-all duration-300 hover:bg-white hover:shadow-xl hover:-translate-y-1.5 focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-[#3026B3] ${card.borderHover}`}
+                className={`group relative flex h-full flex-col justify-between rounded-2xl border border-white/10 bg-[#0D1026] p-5 sm:p-6 shadow-md transition-all duration-300 hover:shadow-xl hover:-translate-y-1.5 focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-[#3026B3] ${card.borderHover}`}
               >
-                {/* Sector story backdrop */}
-                <div
-                  aria-hidden
-                  className="pointer-events-none absolute inset-0 overflow-hidden rounded-[inherit]"
-                  style={{ background: storyGlow(card.accent) }}
-                >
-                  <EcosystemCardArt
-                    id={card.id}
-                    className="absolute bottom-0 right-0 h-[60%] w-auto max-w-[82%] origin-bottom-right opacity-[0.3] transition-[opacity,transform] duration-500 group-hover:scale-[1.04] group-hover:opacity-[0.45]"
-                    style={{ color: card.accent, maskImage: artMask, WebkitMaskImage: artMask }}
-                  />
-                </div>
+                <CardFill accent={card.accent} />
 
                 {/* Top: Sector Tag & Logo / Badge */}
                 <div className="relative">
                   <div className="flex items-center justify-between gap-2 mb-3.5">
-                    <span
-                      className={`inline-block font-sans text-[10px] font-bold uppercase tracking-[0.2em] px-2.5 py-0.5 rounded-md ${card.accentBg} ${card.accentText}`}
-                    >
+                    <span className="inline-block font-sans text-[10px] font-bold uppercase tracking-[0.2em] px-2.5 py-0.5 rounded-md bg-white/15 text-white">
                       {card.sector}
                     </span>
 
                     {card.isUpcoming ? (
-                      <span className="inline-block rounded-md border border-amber-500/30 bg-amber-50 px-2 py-0.5 font-sans text-[9px] font-bold uppercase tracking-wider text-amber-700">
+                      <span className="inline-block rounded-md border border-amber-300 bg-amber-50 px-2 py-0.5 font-sans text-[9px] font-bold uppercase tracking-wider text-amber-800">
                         Upcoming
                       </span>
                     ) : card.logo ? (
-                      <div className="h-8 w-8 rounded-lg bg-white p-1 border border-[#E3E5EF] flex items-center justify-center shrink-0 shadow-xs transition-transform duration-300 group-hover:scale-110 fx-icon-pop">
+                      <div className="h-8 w-8 rounded-lg bg-white p-1 border border-white/60 flex items-center justify-center shrink-0 shadow-xs transition-transform duration-300 group-hover:scale-110 fx-icon-pop">
                         <img
                           src={card.logo}
                           alt=""
@@ -200,22 +172,24 @@ export function BusinessEcosystemGrid() {
                   </div>
 
                   {/* Company Name */}
-                  <h3 className="font-heading text-xl sm:text-[1.35rem] font-medium tracking-tight text-[#111827] group-hover:text-[#3026B3] transition-colors">
+                  <h3 className="font-heading text-xl sm:text-[1.35rem] font-medium tracking-tight text-white group-hover:text-[#FFC94D] transition-colors">
                     {card.company}
                   </h3>
 
                   {/* One-Line Description */}
-                  <p className="mt-2.5 text-xs sm:text-[13px] leading-relaxed text-[#596579] font-normal">
+                  <p className="mt-2.5 text-xs sm:text-[13px] leading-relaxed text-white/90 font-normal">
                     {card.description}
                   </p>
                 </div>
 
                 {/* Bottom: Action & Arrow */}
-                <div className="relative mt-6 flex items-center justify-between pt-4 border-t border-[#E3E5EF]">
-                  <span className="font-sans text-[10.5px] uppercase tracking-[0.16em] text-[#596579] font-semibold group-hover:text-[#3026B3] transition-colors">
+                <div className="relative mt-6 flex items-center justify-between pt-4 border-t border-white/20">
+                  <span className="font-sans text-[10.5px] uppercase tracking-[0.16em] text-white/85 font-semibold group-hover:text-[#FFC94D] transition-colors">
                     {isExternal ? "Visit Website" : card.isUpcoming ? "Learn More" : "Explore Entity"}
                   </span>
-                  <div className="flex h-8 w-8 items-center justify-center rounded-full bg-white border border-[#E3E5EF] text-[#111827] transition-all duration-300 group-hover:bg-[#3026B3] group-hover:text-white group-hover:border-[#3026B3] group-hover:translate-x-0.5 group-hover:-translate-y-0.5 shadow-xs">
+                  <div
+                    className={`flex h-8 w-8 items-center justify-center rounded-full bg-white border border-white ${card.accentText} transition-all duration-300 group-hover:bg-[#FFC94D] group-hover:border-[#FFC94D] group-hover:text-[#211B72] group-hover:translate-x-0.5 group-hover:-translate-y-0.5 shadow-xs`}
+                  >
                     <Icon name="arrow-up-right" width={14} height={14} strokeWidth={2.2} />
                   </div>
                 </div>

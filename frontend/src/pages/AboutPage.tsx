@@ -4,6 +4,8 @@ import { usePageMeta } from "../hooks/usePageMeta";
 import { Icon } from "../utils/icons";
 import { SectionTransition } from "../components/motion/SectionTransition";
 import { Stagger, StaggerItem } from "../components/motion/Stagger";
+import { tintOnDark } from "../components/common/CardArt";
+import { CardFill, CardPhoto, SectionPhoto, cardImage } from "../components/common/CardSurface";
 
 // ── 02. Formula items for "Who We Are" ──────────────────────────────
 const formulaInputs = [
@@ -27,9 +29,8 @@ const purposePillars = [
       "Rigorous institutional governance",
     ],
     icon: "hard-hat" as const,
+    image: cardImage("about-03-purpose-build"),
     accent: "#3026B3",
-    bgAccent: "bg-[#3026B3]/10",
-    textAccent: "text-[#3026B3]",
     borderHover: "hover:border-[#3026B3]",
   },
   {
@@ -43,9 +44,8 @@ const purposePillars = [
       "Global export trade corridors",
     ],
     icon: "trending-up" as const,
+    image: cardImage("about-04-purpose-scale"),
     accent: "#E09800",
-    bgAccent: "bg-[#FFB000]/15",
-    textAccent: "text-[#B87B00]",
     borderHover: "hover:border-[#FFB000]",
   },
   {
@@ -59,9 +59,8 @@ const purposePillars = [
       "Generational enterprise value",
     ],
     icon: "sparkles" as const,
+    image: cardImage("about-05-purpose-impact"),
     accent: "#15966B",
-    bgAccent: "bg-[#15966B]/15",
-    textAccent: "text-[#15966B]",
     borderHover: "hover:border-[#15966B]",
   },
 ];
@@ -187,9 +186,8 @@ const buildTimeline = [
     description: "Pinpointing generational gaps across India's physical and digital economic landscape.",
     deliverable: "Problem Validation",
     icon: "target" as const,
+    image: cardImage("about-16-stage-identify"),
     accent: "#3026B3",
-    bgAccent: "bg-[#3026B3]/10",
-    textAccent: "text-[#3026B3]",
     borderHover: "hover:border-[#3026B3]",
   },
   {
@@ -199,9 +197,8 @@ const buildTimeline = [
     description: "Engineering foundational operating companies, products, and domestic production capabilities.",
     deliverable: "Greenfield Ops",
     icon: "hard-hat" as const,
+    image: cardImage("about-17-stage-build"),
     accent: "#E09800",
-    bgAccent: "bg-[#FFB000]/15",
-    textAccent: "text-[#B87B00]",
     borderHover: "hover:border-[#FFB000]",
   },
   {
@@ -211,9 +208,8 @@ const buildTimeline = [
     description: "Deploying patient balance-sheet capital, sovereign technology, and top operator talent.",
     deliverable: "Growth Enablers",
     icon: "landmark" as const,
+    image: cardImage("about-18-stage-invest"),
     accent: "#00B8D9",
-    bgAccent: "bg-[#00B8D9]/15",
-    textAccent: "text-[#008299]",
     borderHover: "hover:border-[#00B8D9]",
   },
   {
@@ -223,9 +219,8 @@ const buildTimeline = [
     description: "Expanding cross-sector synergies, operations, and global export trade corridors.",
     deliverable: "Ecosystem Growth",
     icon: "trending-up" as const,
+    image: cardImage("about-19-stage-scale"),
     accent: "#15966B",
-    bgAccent: "bg-[#15966B]/15",
-    textAccent: "text-[#15966B]",
     borderHover: "hover:border-[#15966B]",
   },
   {
@@ -235,9 +230,8 @@ const buildTimeline = [
     description: "Compounding sustainable economic momentum and generational institutional value.",
     deliverable: "National Resilience",
     icon: "sparkles" as const,
+    image: cardImage("about-20-stage-impact"),
     accent: "#4B40D4",
-    bgAccent: "bg-[#4B40D4]/15",
-    textAccent: "text-[#4B40D4]",
     borderHover: "hover:border-[#4B40D4]",
   },
 ];
@@ -249,8 +243,6 @@ const principles = [
     description: "We think like builders and act with ownership.",
     icon: "rocket" as const,
     color: "#3026B3",
-    bg: "bg-[#3026B3]/10",
-    text: "text-[#3026B3]",
     borderHover: "hover:border-[#3026B3]",
   },
   {
@@ -258,8 +250,6 @@ const principles = [
     description: "Ideas matter only when they translate into results.",
     icon: "check" as const,
     color: "#00B8D9",
-    bg: "bg-[#00B8D9]/15",
-    text: "text-[#008299]",
     borderHover: "hover:border-[#00B8D9]",
   },
   {
@@ -267,8 +257,6 @@ const principles = [
     description: "We build businesses for enduring value, not short-term visibility.",
     icon: "trending-up" as const,
     color: "#15966B",
-    bg: "bg-[#15966B]/15",
-    text: "text-[#15966B]",
     borderHover: "hover:border-[#15966B]",
   },
   {
@@ -276,8 +264,6 @@ const principles = [
     description: "We use technology to improve how businesses operate and scale.",
     icon: "cpu" as const,
     color: "#4B40D4",
-    bg: "bg-[#4B40D4]/15",
-    text: "text-[#4B40D4]",
     borderHover: "hover:border-[#4B40D4]",
   },
   {
@@ -285,8 +271,6 @@ const principles = [
     description: "Growth must create value for businesses, people and the wider ecosystem.",
     icon: "shield-check" as const,
     color: "#D97706",
-    bg: "bg-[#F59E0B]/15",
-    text: "text-[#B45309]",
     borderHover: "hover:border-[#F59E0B]",
   },
   {
@@ -294,11 +278,56 @@ const principles = [
     description: "We build sovereign enterprise capabilities that strengthen India's economic foundation.",
     icon: "badge-check" as const,
     color: "#211B72",
-    bg: "bg-[#211B72]/10",
-    text: "text-[#211B72]",
-    borderHover: "hover:border-[#211B72]",
+    borderHover: "hover:border-[#4B40D4]",
   },
 ];
+
+// ── Ecosystem tree node (dark generated art per company) ─────────────
+function EcosystemNodeCard({ node }: { node: EcosystemNode }) {
+  const isExternal = node.link.startsWith("http");
+  const nodeClasses =
+    "group relative overflow-hidden flex flex-col justify-between rounded-xl border border-white/10 bg-[#0D1026] p-4 shadow-md transition-all duration-300 hover:border-[#3026B3] hover:shadow-xl hover:-translate-y-1 fx-lift focus-visible:ring-2 focus-visible:ring-[#3026B3] focus:outline-none";
+
+  const nodeContent = (
+    <>
+      <CardFill accent={node.accent} />
+      <div className="relative">
+        <div className="flex items-center justify-between mb-2">
+          <span className="font-sans text-[9.5px] uppercase tracking-wider font-bold text-white/90">
+            {node.sector}
+          </span>
+          <span className="text-[9px] font-sans px-1.5 py-0.2 rounded border border-white/25 bg-white/15 text-white">
+            {node.badge}
+          </span>
+        </div>
+        <h4 className="font-heading text-base font-medium text-white group-hover:text-[#FFC94D] transition-colors">
+          {node.company}
+        </h4>
+      </div>
+
+      <div className="relative mt-3 pt-2 border-t border-white/20 flex items-center justify-between">
+        {node.logo ? (
+          <div className="h-5 w-5 rounded bg-white p-0.5 border border-white/25 flex items-center justify-center">
+            <img src={node.logo} alt="" className="max-h-full max-w-full object-contain" />
+          </div>
+        ) : (
+          <span className="text-[10px] font-sans text-white/90">Horizon</span>
+        )}
+        <Icon name="arrow-up-right" width={12} height={12} className="text-white/90 group-hover:text-[#FFC94D] transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+      </div>
+    </>
+  );
+
+  return isExternal ? (
+    <a href={node.link} target="_blank" rel="noopener noreferrer" data-cursor="card" className={nodeClasses}>
+      {nodeContent}
+    </a>
+  ) : (
+    <Link to={node.link} data-cursor="card" className={nodeClasses}>
+      {nodeContent}
+    </Link>
+  );
+}
 
 export default function AboutPage() {
   usePageMeta({
@@ -371,24 +400,30 @@ export default function AboutPage() {
                 <div
                   data-cursor="card"
                   tabIndex={0}
-                  className="rounded-3xl border border-[#E3E5EF] bg-[#FAF9F6] p-7 sm:p-9 shadow-lg transition-all duration-300 hover:shadow-2xl fx-lift focus-visible:ring-2 focus-visible:ring-[#3026B3] focus:outline-none"
+                  className="relative overflow-hidden rounded-3xl border border-[#E3E5EF] bg-white p-7 sm:p-9 shadow-lg transition-all duration-300 hover:shadow-2xl fx-lift focus-visible:ring-2 focus-visible:ring-[#3026B3] focus:outline-none"
                 >
-                  <div className="text-center mb-6">
+                  <CardFill accent="#3026B3" tone="tint" />
+                  <div className="relative text-center mb-6">
                     <span className="font-sans text-xs uppercase tracking-[0.24em] text-[#3026B3] font-bold block">
                       The Value Creation Formula
                     </span>
-                    <span className="text-xs text-[#596579] mt-1 block">
+                    <span className="text-xs sm:text-[13px] text-[#374151] mt-1 block">
                       How core capabilities compound across the ecosystem
                     </span>
                   </div>
 
                   {/* 5 Input Badges in a flexible grid */}
-                  <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
+                  <div className="relative grid grid-cols-2 sm:grid-cols-3 gap-3">
                     {formulaInputs.map((item) => (
                       <div
                         key={item.label}
                         data-cursor="card"
-                        className="flex items-center gap-2.5 rounded-xl border border-[#E3E5EF] bg-white p-3 shadow-xs transition-all duration-300 hover:shadow-md hover:-translate-y-0.5 fx-lift cursor-pointer"
+                        className="flex items-center gap-2.5 rounded-xl border border-l-4 p-3 shadow-xs transition-all duration-300 hover:shadow-md hover:-translate-y-0.5 fx-lift cursor-pointer"
+                        style={{
+                          backgroundColor: `color-mix(in srgb, ${item.color} 9%, white)`,
+                          borderColor: `${item.color}40`,
+                          borderLeftColor: item.color,
+                        }}
                       >
                         <div className={`h-8 w-8 rounded-lg ${item.bg} ${item.text} flex items-center justify-center shrink-0 transition-transform duration-300 hover:scale-110`}>
                           <Icon name={item.icon} width={16} height={16} strokeWidth={2} />
@@ -400,15 +435,15 @@ export default function AboutPage() {
                     ))}
 
                     {/* Sixth slot: compounding operator icon */}
-                    <div className="flex items-center justify-center rounded-xl border border-dashed border-[#CBD1E1] bg-white/50 p-3">
-                      <span className="font-sans text-xs text-[#596579] font-bold tracking-wider">
+                    <div className="flex items-center justify-center rounded-xl border border-dashed border-[#3026B3]/35 bg-[color-mix(in_srgb,#3026B3_6%,white)] p-3">
+                      <span className="font-sans text-xs text-[#211B72] font-bold tracking-wider">
                         + SYNERGY
                       </span>
                     </div>
                   </div>
 
                   {/* Downward Arrow Connector */}
-                  <div className="my-5 flex items-center justify-center">
+                  <div className="relative my-5 flex items-center justify-center">
                     <div className="flex h-9 w-9 items-center justify-center rounded-full bg-[#3026B3] text-white shadow-md transition-transform duration-300 hover:scale-110">
                       <Icon name="arrow-right" width={16} height={16} className="rotate-90" strokeWidth={2.5} />
                     </div>
@@ -463,17 +498,18 @@ export default function AboutPage() {
                 <div
                   data-cursor="card"
                   tabIndex={0}
-                  className="mt-6 rounded-2xl border border-[#E3E5EF] bg-white p-5 shadow-xs transition-all duration-300 hover:shadow-md hover:border-[#3026B3]/30 fx-lift focus-visible:ring-2 focus-visible:ring-[#3026B3] focus:outline-none"
+                  className="relative overflow-hidden mt-6 rounded-2xl border border-white/10 bg-[#0D1026] p-5 shadow-md transition-all duration-300 hover:shadow-xl hover:border-[#3026B3] fx-lift focus-visible:ring-2 focus-visible:ring-[#3026B3] focus:outline-none"
                 >
-                  <div className="flex items-start gap-3.5">
-                    <div className="h-10 w-10 rounded-xl bg-[#3026B3]/10 text-[#3026B3] flex items-center justify-center shrink-0 shadow-xs">
+                  <CardFill accent="#3026B3" />
+                  <div className="relative flex items-start gap-3.5">
+                    <div className="h-10 w-10 rounded-xl bg-white/15 ring-1 ring-white/25 text-white flex items-center justify-center shrink-0 shadow-xs">
                       <Icon name="landmark" width={18} height={18} />
                     </div>
                     <div className="min-w-0 flex-1">
-                      <span className="font-sans text-[10px] uppercase tracking-[0.24em] text-[#FFB000] font-bold block">
+                      <span className="font-sans text-[10px] uppercase tracking-[0.24em] text-[#FFC94D] font-bold block">
                         SOVEREIGN THESIS
                       </span>
-                      <p className="mt-0.5 text-xs sm:text-[13px] text-[#111827] font-medium leading-snug">
+                      <p className="mt-0.5 text-xs sm:text-[13px] text-white font-medium leading-snug">
                         Operator-led balance-sheet compounding across India's foundational industrial sectors.
                       </p>
                     </div>
@@ -489,46 +525,48 @@ export default function AboutPage() {
                   <div
                     data-cursor="card"
                     tabIndex={0}
-                    className={`group relative flex flex-col justify-between h-full rounded-2xl border border-[#E3E5EF] bg-white p-7 sm:p-8 shadow-sm transition-all duration-300 hover:shadow-xl hover:-translate-y-2 fx-lift focus-visible:ring-2 focus-visible:ring-[#3026B3] focus:outline-none ${pillar.borderHover}`}
+                    className={`group relative overflow-hidden flex flex-col justify-between h-full rounded-2xl border border-white/10 bg-[#0D1026] p-7 sm:p-8 shadow-md transition-all duration-300 hover:shadow-xl hover:-translate-y-2 fx-lift focus-visible:ring-2 focus-visible:ring-[#3026B3] focus:outline-none ${pillar.borderHover}`}
                   >
-                    <div>
+                    <CardPhoto src={pillar.image} accent={pillar.accent} />
+                    <div className="relative [text-shadow:0_0_2px_rgba(13,16,38,0.9),0_1px_12px_rgba(13,16,38,0.85)]">
                       <div className="flex items-center justify-between mb-5">
                         <div
-                          className={`flex h-12 w-12 items-center justify-center rounded-xl ${pillar.bgAccent} ${pillar.textAccent} transition-transform duration-300 group-hover:scale-110 shadow-xs fx-icon-pop`}
+                          className="flex h-12 w-12 items-center justify-center rounded-xl bg-white/10 ring-1 ring-white/20 backdrop-blur-sm transition-transform duration-300 group-hover:scale-110 shadow-xs fx-icon-pop"
+                          style={{ color: tintOnDark(pillar.accent) }}
                         >
                           <Icon name={pillar.icon} width={22} height={22} strokeWidth={2} />
                         </div>
-                        <span className="font-sans text-xs font-bold text-[#596579]">
+                        <span className="font-sans text-xs font-bold" style={{ color: tintOnDark(pillar.accent) }}>
                           {pillar.step}
                         </span>
                       </div>
 
-                      <span className="font-sans text-[10.5px] uppercase tracking-wider text-[#596579] block mb-1">
+                      <span className="font-sans text-[10.5px] uppercase tracking-wider text-white/80 block mb-1">
                         {pillar.descriptor}
                       </span>
 
-                      <h3 className="font-heading text-2xl font-medium tracking-tight text-[#111827] group-hover:text-[#3026B3] transition-colors">
+                      <h3 className="font-heading text-2xl font-medium tracking-tight text-white group-hover:text-[#FFC94D] transition-colors">
                         {pillar.title}
                       </h3>
 
-                      <p className="mt-3 text-sm text-[#596579] leading-relaxed font-normal">
+                      <p className="mt-3 text-sm text-slate-200 leading-relaxed font-normal">
                         {pillar.description}
                       </p>
 
                       {/* Bullet points */}
-                      <ul className="mt-5 space-y-2 border-t border-[#E3E5EF] pt-4">
+                      <ul className="mt-5 space-y-2 border-t border-white/15 pt-4">
                         {pillar.points.map((pt) => (
-                          <li key={pt} className="flex items-center gap-2 text-xs text-[#111827]">
-                            <span className={`h-1.5 w-1.5 rounded-full ${pillar.bgAccent} ${pillar.textAccent} shrink-0`} />
+                          <li key={pt} className="flex items-center gap-2 text-xs text-slate-100">
+                            <span className="h-1.5 w-1.5 rounded-full shrink-0" style={{ backgroundColor: tintOnDark(pillar.accent) }} />
                             <span>{pt}</span>
                           </li>
                         ))}
                       </ul>
                     </div>
 
-                    <div className="mt-6 pt-4 border-t border-[#E3E5EF] flex items-center justify-between font-sans text-[10.5px] uppercase tracking-wider text-[#596579]">
+                    <div className="relative [text-shadow:0_0_2px_rgba(13,16,38,0.9),0_1px_12px_rgba(13,16,38,0.85)] mt-6 pt-4 border-t border-white/15 flex items-center justify-between font-sans text-[10.5px] uppercase tracking-wider text-slate-300">
                       <span>Pillar Standard</span>
-                      <span className={`h-2 w-2 rounded-full ${pillar.bgAccent} ${pillar.textAccent}`} />
+                      <span className="h-2 w-2 rounded-full" style={{ backgroundColor: tintOnDark(pillar.accent) }} />
                     </div>
                   </div>
                 </StaggerItem>
@@ -557,10 +595,8 @@ export default function AboutPage() {
               </p>
             </div>
 
-            <div className="relative overflow-hidden rounded-3xl border border-[#E3E5EF] bg-[#FAF9F6] p-4 sm:p-6 lg:p-8 shadow-xl">
-              {/* Ambient atmospheric lighting */}
-              <div aria-hidden className="pointer-events-none absolute -right-24 -top-24 h-96 w-96 rounded-full bg-[#FFB000]/10 blur-3xl" />
-              <div aria-hidden className="pointer-events-none absolute -left-24 -bottom-24 h-96 w-96 rounded-full bg-[#3026B3]/[0.06] blur-3xl" />
+            <div className="relative overflow-hidden rounded-3xl border border-[#E3E5EF] bg-white p-4 sm:p-6 lg:p-8 shadow-xl">
+              <CardFill accent="#3026B3" tone="tint" />
 
               <div className="relative z-10 grid items-stretch gap-8 lg:grid-cols-[0.85fr_1.15fr]">
                 {/* Portrait Column */}
@@ -608,21 +644,21 @@ export default function AboutPage() {
                     {/* Featured Decorated Quote Block */}
                     <div
                       data-cursor="card"
-                      className="relative mt-6 rounded-2xl border-l-4 border-[#FFB000] border-y border-r border-[#E3E5EF] bg-white p-6 sm:p-7 shadow-xs transition-all duration-300 hover:shadow-lg fx-lift"
+                      className="relative overflow-hidden mt-6 rounded-2xl border-l-4 border-l-[#FFB000] border-y border-r border-white/10 bg-[#211B72] p-6 sm:p-7 shadow-md transition-all duration-300 hover:shadow-lg fx-lift"
                     >
-                      <div aria-hidden className="absolute -top-3 right-6 font-heading text-7xl font-semibold text-[#FFB000]/15 select-none pointer-events-none">
+                      <div aria-hidden className="absolute -top-3 right-6 font-heading text-7xl font-semibold text-[#FFB000]/20 select-none pointer-events-none">
                         “
                       </div>
-                      <blockquote className="relative z-10 text-[15.5px] sm:text-[17px] font-normal leading-relaxed text-[#1F2937] italic">
+                      <blockquote className="relative z-10 text-[15.5px] sm:text-[17px] font-normal leading-relaxed text-white italic">
                         “Aligned with the national vision of{" "}
-                        <strong className="text-[#3026B3] not-italic font-semibold">
+                        <strong className="text-[#FFC94D] not-italic font-semibold">
                           Viksit Bharat 2047
                         </strong>
                         , he is committed to building sustainable, technology-driven enterprises that strengthen India’s industrial ecosystem and contribute to the country’s long-term economic leadership.”
                       </blockquote>
-                      <div className="mt-4 flex items-center justify-between pt-3 border-t border-[#E3E5EF] text-xs font-sans text-[#596579]">
-                        <span className="text-[#9A6200] font-bold">— Pradeep Kumar</span>
-                        <span className="font-medium text-[#111827]">BharatX Group</span>
+                      <div className="relative mt-4 flex items-center justify-between pt-3 border-t border-white/15 text-xs font-sans text-slate-200">
+                        <span className="text-[#FFC94D] font-bold">— Pradeep Kumar</span>
+                        <span className="font-medium text-slate-200">BharatX Group</span>
                       </div>
                     </div>
 
@@ -632,7 +668,11 @@ export default function AboutPage() {
                         <div
                           key={item.title}
                           data-cursor="card"
-                          className={`flex items-start gap-4 rounded-xl border border-[#E3E5EF] bg-white p-4 transition-all duration-300 hover:shadow-md hover:-translate-y-1 fx-lift ${item.borderHover}`}
+                          className={`flex items-start gap-4 rounded-xl border border-l-4 border-[#E3E5EF] p-4 transition-all duration-300 hover:shadow-md hover:-translate-y-1 fx-lift ${item.borderHover}`}
+                          style={{
+                            backgroundColor: `color-mix(in srgb, ${item.accent} 9%, white)`,
+                            borderLeftColor: item.accent,
+                          }}
                         >
                           <div
                             className={`flex h-10 w-10 shrink-0 items-center justify-center rounded-xl ${item.bgAccent} ${item.textAccent} shadow-xs fx-icon-pop`}
@@ -643,7 +683,7 @@ export default function AboutPage() {
                             <div className="font-heading text-base font-medium text-[#111827]">
                               {item.title}
                             </div>
-                            <p className="mt-1 text-xs sm:text-[13px] text-[#596579] leading-relaxed font-normal">
+                            <p className="mt-1 text-xs sm:text-[13px] text-[#374151] leading-relaxed font-normal">
                               {item.desc}
                             </p>
                           </div>
@@ -653,7 +693,7 @@ export default function AboutPage() {
                   </div>
 
                   {/* Trust & Alignment Footer Bar */}
-                  <div className="mt-8 pt-5 border-t border-[#E3E5EF] flex flex-wrap items-center justify-between gap-4 text-xs font-sans text-[#596579]">
+                  <div className="mt-8 pt-5 border-t border-[#E3E5EF] flex flex-wrap items-center justify-between gap-4 text-xs font-sans text-[#374151]">
                     <span className="flex items-center gap-2 text-[#111827] font-medium">
                       <Icon name="shield-check" width={16} height={16} className="text-[#15966B]" />
                       Constitutional Governance Standard
@@ -687,9 +727,10 @@ export default function AboutPage() {
             </div>
 
             {/* Visual Architecture Tree */}
-            <div className="max-w-5xl mx-auto rounded-3xl border border-[#E3E5EF] bg-[#FAF9F6] p-6 sm:p-10 shadow-lg">
+            <div className="relative overflow-hidden max-w-5xl mx-auto rounded-3xl border border-[#E3E5EF] bg-white p-6 sm:p-10 shadow-lg">
+              <CardFill accent="#3026B3" tone="tint" />
               {/* Tree Root: BHARATX GROUP */}
-              <div className="flex flex-col items-center text-center">
+              <div className="relative flex flex-col items-center text-center">
                 <div className="inline-flex flex-col items-center rounded-2xl border border-[#3026B3]/40 bg-gradient-to-r from-[#211B72] via-[#3026B3] to-[#211B72] px-8 py-4 text-white shadow-xl fx-shine">
                   <span className="font-sans text-[10px] uppercase tracking-[0.28em] text-[#FFB000] font-bold">
                     CONGLOMERATE CORE
@@ -702,161 +743,41 @@ export default function AboutPage() {
               </div>
 
               {/* Level 1: 4 Core Pillar Verticals */}
-              <div className="mt-2">
+              <div className="relative mt-2">
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3.5">
-                  {tier1EcosystemNodes.map((node) => {
-                    const isExternal = node.link.startsWith("http");
-                    const nodeClasses = "group flex flex-col justify-between rounded-xl border border-[#E3E5EF] bg-white p-4 shadow-xs transition-all duration-300 hover:border-[#3026B3] hover:shadow-xl hover:-translate-y-1 fx-lift focus-visible:ring-2 focus-visible:ring-[#3026B3] focus:outline-none";
-
-                    const nodeContent = (
-                      <>
-                        <div>
-                          <div className="flex items-center justify-between mb-2">
-                            <span className="font-sans text-[9.5px] uppercase tracking-wider font-bold" style={{ color: node.accent }}>
-                              {node.sector}
-                            </span>
-                            <span className="text-[9px] font-sans px-1.5 py-0.2 rounded border border-slate-200 text-[#596579]">
-                              {node.badge}
-                            </span>
-                          </div>
-                          <h4 className="font-heading text-base font-medium text-[#111827] group-hover:text-[#3026B3] transition-colors">
-                            {node.company}
-                          </h4>
-                        </div>
-
-                        <div className="mt-3 pt-2 border-t border-[#E3E5EF] flex items-center justify-between">
-                          {node.logo ? (
-                            <div className="h-5 w-5 rounded bg-white p-0.5 border border-[#E3E5EF] flex items-center justify-center">
-                              <img src={node.logo} alt="" className="max-h-full max-w-full object-contain" />
-                            </div>
-                          ) : (
-                            <span className="text-[10px] font-sans text-[#596579]">Horizon</span>
-                          )}
-                          <Icon name="arrow-up-right" width={12} height={12} className="text-[#596579] group-hover:text-[#3026B3] transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-                        </div>
-                      </>
-                    );
-
-                    return isExternal ? (
-                      <a key={node.company} href={node.link} target="_blank" rel="noopener noreferrer" data-cursor="card" className={nodeClasses}>
-                        {nodeContent}
-                      </a>
-                    ) : (
-                      <Link key={node.company} to={node.link} data-cursor="card" className={nodeClasses}>
-                        {nodeContent}
-                      </Link>
-                    );
-                  })}
+                  {tier1EcosystemNodes.map((node) => (
+                    <EcosystemNodeCard key={node.company} node={node} />
+                  ))}
                 </div>
               </div>
 
               {/* Connecting Vertical Trunk */}
-              <div className="flex flex-col items-center my-4">
+              <div className="relative flex flex-col items-center my-4">
                 <div className="h-6 w-px bg-[#3026B3]/30" />
               </div>
 
               {/* Level 2: 3 Operating Entities */}
-              <div className="max-w-4xl mx-auto grid grid-cols-1 sm:grid-cols-3 gap-3.5">
-                {tier2EcosystemNodes.map((node) => {
-                  const isExternal = node.link.startsWith("http");
-                  const nodeClasses = "group flex flex-col justify-between rounded-xl border border-[#E3E5EF] bg-white p-4 shadow-xs transition-all duration-300 hover:border-[#3026B3] hover:shadow-xl hover:-translate-y-1 fx-lift focus-visible:ring-2 focus-visible:ring-[#3026B3] focus:outline-none";
-
-                  const nodeContent = (
-                    <>
-                      <div>
-                        <div className="flex items-center justify-between mb-2">
-                          <span className="font-sans text-[9.5px] uppercase tracking-wider font-bold" style={{ color: node.accent }}>
-                            {node.sector}
-                          </span>
-                          <span className="text-[9px] font-sans px-1.5 py-0.2 rounded border border-slate-200 text-[#596579]">
-                            {node.badge}
-                          </span>
-                        </div>
-                        <h4 className="font-heading text-base font-medium text-[#111827] group-hover:text-[#3026B3] transition-colors">
-                          {node.company}
-                        </h4>
-                      </div>
-
-                      <div className="mt-3 pt-2 border-t border-[#E3E5EF] flex items-center justify-between">
-                        {node.logo ? (
-                          <div className="h-5 w-5 rounded bg-white p-0.5 border border-[#E3E5EF] flex items-center justify-center">
-                            <img src={node.logo} alt="" className="max-h-full max-w-full object-contain" />
-                          </div>
-                        ) : (
-                          <span className="text-[10px] font-sans text-[#596579]">Horizon</span>
-                        )}
-                        <Icon name="arrow-up-right" width={12} height={12} className="text-[#596579] group-hover:text-[#3026B3] transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-                      </div>
-                    </>
-                  );
-
-                  return isExternal ? (
-                    <a key={node.company} href={node.link} target="_blank" rel="noopener noreferrer" data-cursor="card" className={nodeClasses}>
-                      {nodeContent}
-                    </a>
-                  ) : (
-                    <Link key={node.company} to={node.link} data-cursor="card" className={nodeClasses}>
-                      {nodeContent}
-                    </Link>
-                  );
-                })}
+              <div className="relative max-w-4xl mx-auto grid grid-cols-1 sm:grid-cols-3 gap-3.5">
+                {tier2EcosystemNodes.map((node) => (
+                  <EcosystemNodeCard key={node.company} node={node} />
+                ))}
               </div>
 
               {/* Connecting Trunk to Anchor */}
-              <div className="flex flex-col items-center my-4">
+              <div className="relative flex flex-col items-center my-4">
                 <div className="h-6 w-px bg-[#3026B3]/30" />
               </div>
 
               {/* Level 3: Future Expansion */}
-              <div className="max-w-xs sm:max-w-sm mx-auto">
-                {tier3EcosystemNodes.map((node) => {
-                  const isExternal = node.link.startsWith("http");
-                  const nodeClasses = "group flex flex-col justify-between rounded-xl border border-[#E3E5EF] bg-white p-4 shadow-xs transition-all duration-300 hover:border-[#3026B3] hover:shadow-xl hover:-translate-y-1 fx-lift focus-visible:ring-2 focus-visible:ring-[#3026B3] focus:outline-none";
-
-                  const nodeContent = (
-                    <>
-                      <div>
-                        <div className="flex items-center justify-between mb-2">
-                          <span className="font-sans text-[9.5px] uppercase tracking-wider font-bold" style={{ color: node.accent }}>
-                            {node.sector}
-                          </span>
-                          <span className="text-[9px] font-sans px-1.5 py-0.2 rounded border border-slate-200 text-[#596579]">
-                            {node.badge}
-                          </span>
-                        </div>
-                        <h4 className="font-heading text-base font-medium text-[#111827] group-hover:text-[#3026B3] transition-colors">
-                          {node.company}
-                        </h4>
-                      </div>
-
-                      <div className="mt-3 pt-2 border-t border-[#E3E5EF] flex items-center justify-between">
-                        {node.logo ? (
-                          <div className="h-5 w-5 rounded bg-white p-0.5 border border-[#E3E5EF] flex items-center justify-center">
-                            <img src={node.logo} alt="" className="max-h-full max-w-full object-contain" />
-                          </div>
-                        ) : (
-                          <span className="text-[10px] font-sans text-[#596579]">Horizon</span>
-                        )}
-                        <Icon name="arrow-up-right" width={12} height={12} className="text-[#596579] group-hover:text-[#3026B3] transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-                      </div>
-                    </>
-                  );
-
-                  return isExternal ? (
-                    <a key={node.company} href={node.link} target="_blank" rel="noopener noreferrer" data-cursor="card" className={nodeClasses}>
-                      {nodeContent}
-                    </a>
-                  ) : (
-                    <Link key={node.company} to={node.link} data-cursor="card" className={nodeClasses}>
-                      {nodeContent}
-                    </Link>
-                  );
-                })}
+              <div className="relative max-w-xs sm:max-w-sm mx-auto">
+                {tier3EcosystemNodes.map((node) => (
+                  <EcosystemNodeCard key={node.company} node={node} />
+                ))}
               </div>
 
               {/* Subtext Statement */}
-              <div className="mt-8 text-center pt-6 border-t border-[#E3E5EF]">
-                <p className="text-xs sm:text-sm text-[#596579] max-w-2xl mx-auto leading-relaxed">
+              <div className="relative mt-8 text-center pt-6 border-t border-[#E3E5EF]">
+                <p className="text-xs sm:text-sm text-[#374151] max-w-2xl mx-auto leading-relaxed">
                   Each business operates with its own market focus and capabilities while benefiting from the broader BharatX ecosystem.
                 </p>
               </div>
@@ -891,39 +812,41 @@ export default function AboutPage() {
                   <div
                     data-cursor="card"
                     tabIndex={0}
-                    className={`group relative flex flex-col justify-between h-full rounded-2xl border border-[#E3E5EF] bg-white p-6 shadow-sm transition-all duration-300 hover:shadow-xl hover:-translate-y-2 fx-lift focus-visible:ring-2 focus-visible:ring-[#3026B3] focus:outline-none ${step.borderHover}`}
+                    className={`group relative flex flex-col justify-between h-full rounded-2xl border border-white/10 bg-[#0D1026] p-6 shadow-md transition-all duration-300 hover:shadow-xl hover:-translate-y-2 fx-lift focus-visible:ring-2 focus-visible:ring-[#3026B3] focus:outline-none ${step.borderHover}`}
                   >
-                    <div>
+                    <CardPhoto src={step.image} accent={step.accent} />
+                    <div className="relative [text-shadow:0_0_2px_rgba(13,16,38,0.9),0_1px_12px_rgba(13,16,38,0.85)]">
                       {/* Top Bar: Icon on left, Phase Badge on right */}
                       <div className="flex items-center justify-between mb-5">
                         <div
-                          className={`h-11 w-11 rounded-2xl ${step.bgAccent} ${step.textAccent} flex items-center justify-center transition-transform duration-300 group-hover:scale-110 shadow-xs border border-transparent group-hover:border-current/20 fx-icon-pop`}
+                          className="h-11 w-11 rounded-2xl bg-white/10 ring-1 ring-white/20 backdrop-blur-sm flex items-center justify-center transition-transform duration-300 group-hover:scale-110 shadow-xs fx-icon-pop"
+                          style={{ color: tintOnDark(step.accent) }}
                         >
                           <Icon name={step.icon} width={20} height={20} strokeWidth={2} />
                         </div>
-                        <span className="font-sans text-[10px] uppercase tracking-wider font-semibold px-2.5 py-1 rounded-full border border-slate-200/80 bg-slate-50 text-[#596579] group-hover:border-[#3026B3]/30 group-hover:text-[#3026B3] transition-colors">
+                        <span className="font-sans text-[10px] uppercase tracking-wider font-semibold px-2.5 py-1 rounded-full border border-white/20 bg-white/15 text-white group-hover:border-[#FFC94D]/60 group-hover:text-[#FFC94D] transition-colors">
                           {step.phase}
                         </span>
                       </div>
 
                       {/* Title & Tagline */}
-                      <h3 className="font-sans text-sm sm:text-base font-bold tracking-[0.16em] text-[#111827] uppercase group-hover:text-[#3026B3] transition-colors">
+                      <h3 className="font-sans text-sm sm:text-base font-bold tracking-[0.16em] text-white uppercase group-hover:text-[#FFC94D] transition-colors">
                         {step.title}
                       </h3>
-                      <span className="font-sans text-[10px] uppercase tracking-wider text-[#9A6200] font-semibold block mt-1">
+                      <span className="font-sans text-[10px] uppercase tracking-wider font-semibold block mt-1 text-[#FFC94D]">
                         {step.tagline}
                       </span>
 
                       {/* Description */}
-                      <p className="mt-3 text-xs sm:text-[13px] text-[#596579] leading-relaxed font-normal">
+                      <p className="mt-3 text-xs sm:text-[13px] text-slate-200 leading-relaxed font-normal">
                         {step.description}
                       </p>
                     </div>
 
                     {/* Bottom Deliverable / Focus Metric */}
-                    <div className="mt-6 pt-3.5 border-t border-[#E3E5EF] flex items-center justify-between font-sans text-[10px] text-[#596579]">
-                      <span className="uppercase tracking-wider text-[#8A94A6]">Focus</span>
-                      <span className="font-semibold text-[#111827]">{step.deliverable}</span>
+                    <div className="relative [text-shadow:0_0_2px_rgba(13,16,38,0.9),0_1px_12px_rgba(13,16,38,0.85)] mt-6 pt-3.5 border-t border-white/15 flex items-center justify-between font-sans text-[10px] text-slate-300">
+                      <span className="uppercase tracking-wider text-slate-300">Focus</span>
+                      <span className="font-semibold text-white">{step.deliverable}</span>
                     </div>
 
                     {/* Connecting arrow indicator on desktop */}
@@ -973,23 +896,24 @@ export default function AboutPage() {
                   <div
                     data-cursor="card"
                     tabIndex={0}
-                    className={`group h-full rounded-2xl border border-[#E3E5EF] bg-[#FAF9F6] p-6 sm:p-7 shadow-xs transition-all duration-300 hover:bg-white hover:shadow-xl hover:-translate-y-1.5 fx-lift focus-visible:ring-2 focus-visible:ring-[#3026B3] focus:outline-none ${p.borderHover}`}
+                    className={`group relative overflow-hidden h-full rounded-2xl border border-white/10 bg-[#0D1026] p-6 sm:p-7 shadow-md transition-all duration-300 hover:shadow-xl hover:-translate-y-1.5 fx-lift focus-visible:ring-2 focus-visible:ring-[#3026B3] focus:outline-none ${p.borderHover}`}
                   >
-                    <div className="flex items-center gap-3.5 mb-4">
-                      <div className={`h-11 w-11 rounded-xl ${p.bg} ${p.text} flex items-center justify-center shrink-0 shadow-xs transition-transform duration-300 group-hover:scale-110 fx-icon-pop`}>
+                    <CardFill accent={p.color} />
+                    <div className="relative flex items-center gap-3.5 mb-4">
+                      <div className="h-11 w-11 rounded-xl bg-white/15 ring-1 ring-white/25 text-white flex items-center justify-center shrink-0 shadow-xs transition-transform duration-300 group-hover:scale-110 fx-icon-pop">
                         <Icon name={p.icon} width={20} height={20} strokeWidth={2} />
                       </div>
                       <div>
-                        <span className="font-sans text-[10px] uppercase tracking-wider text-[#596579] block">
+                        <span className="font-sans text-[10px] uppercase tracking-wider block text-[#FFC94D]">
                           Principle 0{idx + 1}
                         </span>
-                        <h3 className="font-heading text-xl font-medium text-[#111827] group-hover:text-[#3026B3] transition-colors">
+                        <h3 className="font-heading text-xl font-medium text-white group-hover:text-[#FFC94D] transition-colors">
                           {p.title}
                         </h3>
                       </div>
                     </div>
 
-                    <p className="text-xs sm:text-[13px] text-[#596579] leading-relaxed font-normal">
+                    <p className="relative text-xs sm:text-[13px] text-white/90 leading-relaxed font-normal">
                       {p.description}
                     </p>
                   </div>
@@ -1003,6 +927,7 @@ export default function AboutPage() {
       {/* ── 07. CLOSING / LEADERSHIP STATEMENT (The Journey Ahead) ─────── */}
       <SectionTransition>
         <section className="relative overflow-hidden bg-gradient-to-br from-[#211B72] via-[#1D1763] to-[#120E3E] text-white py-12 sm:py-16">
+          <SectionPhoto src={cardImage("about-cta-journey-ahead")} />
           {/* Ambient radial lighting */}
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 -z-10 h-[500px] w-[500px] sm:w-[700px] rounded-full bg-gradient-to-r from-[#3026B3]/30 via-[#FFB000]/20 to-transparent blur-[140px] pointer-events-none" />
 

@@ -9,6 +9,66 @@ import { SectionTransition } from "../components/motion/SectionTransition";
 import { Stagger, StaggerItem } from "../components/motion/Stagger";
 import { AnimatedHeading } from "../components/motion/AnimatedHeading";
 import { MagneticButton } from "../components/common/MagneticButton";
+import { CardFill, CardPhoto, SectionPhoto, cardImage } from "../components/common/CardSurface";
+
+// Contact pathway cards. `option` pre-selects the form's interest; `to` links out instead.
+const pathways: {
+  key: string;
+  icon: string;
+  title: string;
+  description: string;
+  accent: string;
+  borderHover: string;
+  image: string;
+  cta: string;
+  option?: string;
+  to?: string;
+}[] = [
+  {
+    key: "partnerships",
+    icon: "handshake",
+    title: "Business Partnerships",
+    description: "For companies, institutions and organisations interested in partnerships, projects or commercial opportunities.",
+    accent: "#3026B3",
+    borderHover: "hover:border-[#3026B3]",
+    image: cardImage("contact-01-pathway-partnerships"),
+    cta: "Discuss a Partnership",
+    option: "Business Partnership",
+  },
+  {
+    key: "investors",
+    icon: "landmark",
+    title: "Investors & Capital",
+    description: "For investors, funds and strategic partners interested in BharatX and its venture-building ecosystem.",
+    accent: "#211B72",
+    borderHover: "hover:border-[#211B72]",
+    image: cardImage("contact-02-pathway-investors"),
+    cta: "Connect With Ventures",
+    option: "Investment / Capital",
+  },
+  {
+    key: "founders",
+    icon: "rocket",
+    title: "Entrepreneurs & Founders",
+    description: "For entrepreneurs interested in building, partnering or exploring opportunities with BharatX.",
+    accent: "#00B8D9",
+    borderHover: "hover:border-[#00B8D9]",
+    image: cardImage("contact-03-pathway-founders"),
+    cta: "Build With Us",
+    option: "Venture Building",
+  },
+  {
+    key: "careers",
+    icon: "briefcase",
+    title: "Careers",
+    description: "Looking to join one of the businesses within the BharatX ecosystem?",
+    accent: "#15966B",
+    borderHover: "hover:border-[#15966B]",
+    image: cardImage("contact-04-pathway-careers"),
+    cta: "Explore Careers",
+    to: "/careers",
+  },
+];
 
 const interestOptions = [
   "Business Partnership",
@@ -141,14 +201,14 @@ export default function ContactPage() {
 
     // 1. Wrong data: red border immediately
     if (hasError) {
-      return `${base} border-2 border-red-500 bg-red-50/20 text-red-900 placeholder:text-red-300 ${
+      return `${base} border-2 border-red-500 bg-white text-red-900 placeholder:text-red-300 ${
         isActive ? "ring-2 ring-red-500/25" : ""
       }`;
     }
 
     // 2. Correction done: green border immediately
     if (isValid) {
-      return `${base} border-2 border-emerald-500 bg-emerald-50/20 text-[#111827] placeholder:text-[#8E9BAE] ${
+      return `${base} border-2 border-emerald-500 bg-white text-[#111827] placeholder:text-[#8E9BAE] ${
         isActive ? "ring-2 ring-emerald-500/25" : ""
       }`;
     }
@@ -159,7 +219,7 @@ export default function ContactPage() {
     }
 
     // Idle neutral state
-    return `${base} border border-[#E3E5EF] bg-[#FAF9F6] text-[#111827] placeholder:text-[#8E9BAE] hover:border-[#CBD1E1]`;
+    return `${base} border border-[#D5D8E6] bg-white text-[#111827] placeholder:text-[#8E9BAE] hover:border-[#B4BBD3]`;
   };
 
   const getLabelClass = (hasError: boolean, isValid: boolean, isActive: boolean) => {
@@ -323,128 +383,56 @@ export default function ContactPage() {
 
           {/* 4 Clear Option Cards Grid */}
           <Stagger className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
-            {/* 1. Business Partnerships */}
-            <StaggerItem>
-              <div data-cursor="card" className="group rounded-2xl border border-[#E3E5EF] bg-[#FAF9F6] p-7 shadow-xs transition-all duration-300 hover:border-[#3026B3] hover:bg-white hover:shadow-xl fx-lift flex flex-col justify-between h-full">
-                <div>
-                  <div className="h-11 w-11 rounded-xl bg-[#3026B3]/10 text-[#3026B3] flex items-center justify-center mb-5 transition-transform duration-300 group-hover:scale-110 group-hover:rotate-6">
-                    <Icon name="handshake" width={22} height={22} />
-                  </div>
-
-                  <AnimatedHeading as="h3" effect="blur" hover="shift" className="font-heading text-2xl font-medium text-[#111827] group-hover:text-[#3026B3] transition-colors">
-                    Business Partnerships
-                  </AnimatedHeading>
-
-                  <p className="mt-3 text-xs sm:text-sm text-[#596579] leading-relaxed font-normal">
-                    For companies, institutions and organisations interested in partnerships, projects or commercial opportunities.
-                  </p>
-                </div>
-
-                <div className="mt-6 pt-4 border-t border-[#E3E5EF]">
-                  <button
-                    type="button"
-                    data-cursor="button"
-                    onClick={() => handleSelectOption("Business Partnership")}
-                    className="inline-flex items-center gap-1.5 font-sans text-xs font-bold uppercase tracking-wider text-[#3026B3] group/link"
+            {pathways.map((p) => {
+              const ctaClass =
+                "inline-flex items-center gap-1.5 font-sans text-xs font-bold uppercase tracking-wider text-[#FFC94D] hover:text-white transition-colors group/link";
+              const ctaBody = (
+                <>
+                  <span>{p.cta}</span>
+                  <Icon name="arrow-right" width={13} height={13} className="transition-transform group-hover/link:translate-x-1" />
+                </>
+              );
+              return (
+                <StaggerItem key={p.key}>
+                  <div
+                    data-cursor="card"
+                    className={`group relative overflow-hidden rounded-2xl border border-white/10 bg-[#0D1026] text-white p-7 shadow-md transition-all duration-300 hover:shadow-xl fx-lift flex flex-col justify-between h-full ${p.borderHover}`}
                   >
-                    <span>Discuss a Partnership</span>
-                    <Icon name="arrow-right" width={13} height={13} className="transition-transform group-hover/link:translate-x-1" />
-                  </button>
-                </div>
-              </div>
-            </StaggerItem>
+                    <CardPhoto src={p.image} accent={p.accent} />
+                    <div className="relative [text-shadow:0_0_2px_rgba(13,16,38,0.9),0_1px_12px_rgba(13,16,38,0.85)]">
+                      <div className="h-11 w-11 rounded-xl bg-white/15 ring-1 ring-white/25 backdrop-blur-sm text-white flex items-center justify-center mb-5 transition-transform duration-300 group-hover:scale-110 group-hover:rotate-6">
+                        <Icon name={p.icon} width={22} height={22} />
+                      </div>
 
-            {/* 2. Investors & Capital */}
-            <StaggerItem>
-              <div data-cursor="card" className="group rounded-2xl border border-[#E3E5EF] bg-[#FAF9F6] p-7 shadow-xs transition-all duration-300 hover:border-[#211B72] hover:bg-white hover:shadow-xl fx-lift flex flex-col justify-between h-full">
-                <div>
-                  <div className="h-11 w-11 rounded-xl bg-[#211B72]/10 text-[#211B72] flex items-center justify-center mb-5 transition-transform duration-300 group-hover:scale-110 group-hover:rotate-6">
-                    <Icon name="landmark" width={22} height={22} />
+                      <AnimatedHeading as="h3" effect="blur" hover="shift" className="font-heading text-2xl font-medium text-white group-hover:text-[#FFC94D] transition-colors">
+                        {p.title}
+                      </AnimatedHeading>
+
+                      <p className="mt-3 text-xs sm:text-sm text-slate-100 leading-relaxed font-normal">
+                        {p.description}
+                      </p>
+                    </div>
+
+                    <div className="relative mt-6 pt-4 border-t border-white/20 [text-shadow:0_1px_8px_rgba(13,16,38,0.8)]">
+                      {p.to ? (
+                        <Link to={p.to} data-cursor="button" className={ctaClass}>
+                          {ctaBody}
+                        </Link>
+                      ) : (
+                        <button
+                          type="button"
+                          data-cursor="button"
+                          onClick={() => p.option && handleSelectOption(p.option)}
+                          className={ctaClass}
+                        >
+                          {ctaBody}
+                        </button>
+                      )}
+                    </div>
                   </div>
-
-                  <AnimatedHeading as="h3" effect="blur" hover="shift" className="font-heading text-2xl font-medium text-[#111827] group-hover:text-[#211B72] transition-colors">
-                    Investors &amp; Capital
-                  </AnimatedHeading>
-
-                  <p className="mt-3 text-xs sm:text-sm text-[#596579] leading-relaxed font-normal">
-                    For investors, funds and strategic partners interested in BharatX and its venture-building ecosystem.
-                  </p>
-                </div>
-
-                <div className="mt-6 pt-4 border-t border-[#E3E5EF]">
-                  <button
-                    type="button"
-                    data-cursor="button"
-                    onClick={() => handleSelectOption("Investment / Capital")}
-                    className="inline-flex items-center gap-1.5 font-sans text-xs font-bold uppercase tracking-wider text-[#211B72] group/link"
-                  >
-                    <span>Connect With Ventures</span>
-                    <Icon name="arrow-right" width={13} height={13} className="transition-transform group-hover/link:translate-x-1" />
-                  </button>
-                </div>
-              </div>
-            </StaggerItem>
-
-            {/* 3. Entrepreneurs & Founders */}
-            <StaggerItem>
-              <div data-cursor="card" className="group rounded-2xl border border-[#E3E5EF] bg-[#FAF9F6] p-7 shadow-xs transition-all duration-300 hover:border-[#00B8D9] hover:bg-white hover:shadow-xl fx-lift flex flex-col justify-between h-full">
-                <div>
-                  <div className="h-11 w-11 rounded-xl bg-[#00B8D9]/15 text-[#008299] flex items-center justify-center mb-5 transition-transform duration-300 group-hover:scale-110 group-hover:rotate-6">
-                    <Icon name="rocket" width={22} height={22} />
-                  </div>
-
-                  <AnimatedHeading as="h3" effect="blur" hover="shift" className="font-heading text-2xl font-medium text-[#111827] group-hover:text-[#008299] transition-colors">
-                    Entrepreneurs &amp; Founders
-                  </AnimatedHeading>
-
-                  <p className="mt-3 text-xs sm:text-sm text-[#596579] leading-relaxed font-normal">
-                    For entrepreneurs interested in building, partnering or exploring opportunities with BharatX.
-                  </p>
-                </div>
-
-                <div className="mt-6 pt-4 border-t border-[#E3E5EF]">
-                  <button
-                    type="button"
-                    data-cursor="button"
-                    onClick={() => handleSelectOption("Venture Building")}
-                    className="inline-flex items-center gap-1.5 font-sans text-xs font-bold uppercase tracking-wider text-[#008299] group/link"
-                  >
-                    <span>Build With Us</span>
-                    <Icon name="arrow-right" width={13} height={13} className="transition-transform group-hover/link:translate-x-1" />
-                  </button>
-                </div>
-              </div>
-            </StaggerItem>
-
-            {/* 4. Careers */}
-            <StaggerItem>
-              <div data-cursor="card" className="group rounded-2xl border border-[#E3E5EF] bg-[#FAF9F6] p-7 shadow-xs transition-all duration-300 hover:border-[#15966B] hover:bg-white hover:shadow-xl fx-lift flex flex-col justify-between h-full">
-                <div>
-                  <div className="h-11 w-11 rounded-xl bg-[#15966B]/15 text-[#15966B] flex items-center justify-center mb-5 transition-transform duration-300 group-hover:scale-110 group-hover:rotate-6">
-                    <Icon name="briefcase" width={22} height={22} />
-                  </div>
-
-                  <AnimatedHeading as="h3" effect="blur" hover="shift" className="font-heading text-2xl font-medium text-[#111827] group-hover:text-[#15966B] transition-colors">
-                    Careers
-                  </AnimatedHeading>
-
-                  <p className="mt-3 text-xs sm:text-sm text-[#596579] leading-relaxed font-normal">
-                    Looking to join one of the businesses within the BharatX ecosystem?
-                  </p>
-                </div>
-
-                <div className="mt-6 pt-4 border-t border-[#E3E5EF]">
-                  <Link
-                    to="/careers"
-                    data-cursor="button"
-                    className="inline-flex items-center gap-1.5 font-sans text-xs font-bold uppercase tracking-wider text-[#15966B] group/link"
-                  >
-                    <span>Explore Careers</span>
-                    <Icon name="arrow-right" width={13} height={13} className="transition-transform group-hover/link:translate-x-1" />
-                  </Link>
-                </div>
-              </div>
-            </StaggerItem>
+                </StaggerItem>
+              );
+            })}
           </Stagger>
         </div>
       </SectionTransition>
@@ -474,7 +462,15 @@ export default function ContactPage() {
             </div>
 
             {/* Form Container */}
-            <div data-cursor="card" className="rounded-3xl border border-[#E3E5EF] bg-white p-7 sm:p-12 shadow-xl fx-lift">
+            <div
+              data-cursor="card"
+              className="rounded-3xl border border-t-4 p-7 sm:p-12 shadow-xl fx-lift"
+              style={{
+                backgroundColor: "color-mix(in srgb, #3026B3 7%, white)",
+                borderColor: "#3026B333",
+                borderTopColor: "#3026B3",
+              }}
+            >
               <AnimatePresence mode="wait">
                 {submitted ? (
                   <motion.div
@@ -492,7 +488,7 @@ export default function ContactPage() {
                       Message Received
                     </h3>
 
-                    <p className="text-base sm:text-lg text-[#596579] max-w-lg mx-auto leading-relaxed">
+                    <p className="text-base sm:text-lg text-[#374151] max-w-lg mx-auto leading-relaxed">
                       Thank you for reaching out to BharatX. Our team will review your message and get back to you.
                     </p>
 
@@ -509,7 +505,7 @@ export default function ContactPage() {
                         setTouched({});
                         setErrorMsg(null);
                       }}
-                      className="mt-8 inline-flex items-center gap-2 rounded-full border border-[#E3E5EF] bg-[#FAF9F6] hover:bg-slate-100 text-[#111827] px-6 py-2.5 text-xs font-sans font-bold uppercase tracking-wider transition-colors fx-lift"
+                      className="mt-8 inline-flex items-center gap-2 rounded-full border border-[#E3E5EF] bg-white hover:bg-slate-100 text-[#111827] px-6 py-2.5 text-xs font-sans font-bold uppercase tracking-wider transition-colors fx-lift"
                     >
                       <span>Send Another Inquiry</span>
                     </button>
@@ -683,7 +679,7 @@ export default function ContactPage() {
                             activeField === "phone",
                           )}
                         >
-                          Phone Number <span className="text-xs font-normal text-[#8E9BAE] lowercase">(optional)</span>
+                          Phone Number <span className="text-xs font-normal text-[#4B5563] lowercase">(optional)</span>
                         </label>
                         <div className="relative">
                           <input
@@ -756,7 +752,7 @@ export default function ContactPage() {
                             activeField === "organization",
                           )}
                         >
-                          Organisation / Company <span className="text-xs font-normal text-[#8E9BAE] lowercase">(optional)</span>
+                          Organisation / Company <span className="text-xs font-normal text-[#4B5563] lowercase">(optional)</span>
                         </label>
                         <div className="relative">
                           <input
@@ -876,7 +872,7 @@ export default function ContactPage() {
                               ? "text-emerald-600 font-semibold"
                               : touched.message && message.trim().length < 10
                               ? "text-red-600 font-semibold"
-                              : "text-[#8E9BAE]"
+                              : "text-[#4B5563]"
                           }`}
                         >
                           {message.trim().length} / 10 min chars
@@ -936,7 +932,7 @@ export default function ContactPage() {
                         />
                       </button>
 
-                      <div className="flex items-center gap-2 text-xs text-[#596579]">
+                      <div className="flex items-center gap-2 text-xs sm:text-[13px] text-[#374151]">
                         <span className="h-1.5 w-1.5 rounded-full bg-emerald-500" />
                         <span>Direct response from leadership within 24–48 hours</span>
                       </div>
@@ -972,8 +968,9 @@ export default function ContactPage() {
             </p>
           </div>
 
-          <div data-cursor="card" className="max-w-4xl mx-auto rounded-3xl border border-[#E3E5EF] bg-[#FAF9F6] p-8 sm:p-12 shadow-lg fx-lift">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+          <div data-cursor="card" className="relative overflow-hidden max-w-4xl mx-auto rounded-3xl border border-[#15966B]/25 border-t-4 border-t-[#15966B] bg-white p-8 sm:p-12 shadow-lg fx-lift">
+            <CardFill accent="#15966B" tone="tint" />
+            <div className="relative grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
               <div>
                 <span className="font-sans text-xs uppercase tracking-[0.26em] text-[#3026B3] font-bold block mb-1">
                   BHARATX GROUP
@@ -982,13 +979,13 @@ export default function ContactPage() {
                   Registered / Corporate Office
                 </AnimatedHeading>
 
-                <p className="text-sm text-[#596579] leading-relaxed mb-6 font-normal">
+                <p className="text-sm text-[#374151] leading-relaxed mb-6 font-normal">
                   {brandConfig.address.full}
                 </p>
 
-                <div className="space-y-3 font-sans text-xs text-[#111827]">
+                <div className="space-y-3 font-sans text-xs sm:text-[13px] text-[#111827]">
                   <div className="flex items-center gap-3">
-                    <span className="text-[#596579] uppercase tracking-wider w-24">Email</span>
+                    <span className="text-[#374151] uppercase tracking-wider w-24">Email</span>
                     <a
                       href="mailto:contact@bharatx.group"
                       data-cursor="link"
@@ -999,7 +996,7 @@ export default function ContactPage() {
                   </div>
 
                   <div className="flex items-center gap-3">
-                    <span className="text-[#596579] uppercase tracking-wider w-24">Phone</span>
+                    <span className="text-[#374151] uppercase tracking-wider w-24">Phone</span>
                     <a
                       href={`tel:${brandConfig.contact.phoneTel}`}
                       data-cursor="link"
@@ -1010,10 +1007,10 @@ export default function ContactPage() {
                   </div>
 
                   <div className="flex items-start gap-3 pt-1">
-                    <span className="text-[#596579] uppercase tracking-wider w-24">Hours</span>
+                    <span className="text-[#374151] uppercase tracking-wider w-24">Hours</span>
                     <div>
                       <span className="font-semibold block">Monday – Saturday</span>
-                      <span className="text-[#596579] text-[11px] block">10:00 AM – 6:00 PM IST</span>
+                      <span className="text-[#374151] text-[11px] sm:text-xs block">10:00 AM – 6:00 PM IST</span>
                     </div>
                   </div>
                 </div>
@@ -1033,31 +1030,34 @@ export default function ContactPage() {
               </div>
 
               {/* Visual Map / Graphic Panel */}
-              <div data-cursor="card" className="rounded-2xl border border-[#E3E5EF] bg-white p-6 shadow-sm flex flex-col justify-between h-full min-h-[220px] fx-lift">
-                <div className="flex items-center justify-between">
+              <div data-cursor="card" className="relative overflow-hidden rounded-2xl border border-white/10 bg-[#0D1026] text-white p-6 shadow-md flex flex-col justify-between h-full min-h-[220px] fx-lift">
+                <CardFill accent="#3026B3" />
+                <div className="relative flex items-center justify-between">
                   <div className="flex items-center gap-2">
-                    <span className="h-2.5 w-2.5 rounded-full bg-emerald-500 animate-ping" />
-                    <span className="font-sans text-[11px] uppercase tracking-wider text-emerald-700 font-bold">
+                    <span className="h-2.5 w-2.5 rounded-full bg-emerald-400 animate-ping" />
+                    <span className="font-sans text-[11px] uppercase tracking-wider text-emerald-300 font-bold">
                       Secretariat Active
                     </span>
                   </div>
-                  <span className="font-sans text-xs text-[#596579]">New Delhi, India</span>
+                  <span className="font-sans text-xs text-white/90">New Delhi, India</span>
                 </div>
 
-                <div className="my-6 text-center">
-                  <div className="h-12 w-12 rounded-2xl bg-[#3026B3]/10 text-[#3026B3] flex items-center justify-center mx-auto mb-3 fx-icon-pop">
+                <div className="relative my-6 text-center">
+                  <div
+                    className="h-12 w-12 rounded-2xl bg-white/15 ring-1 ring-white/25 text-white flex items-center justify-center mx-auto mb-3 fx-icon-pop"
+                  >
                     <Icon name="building-2" width={24} height={24} />
                   </div>
-                  <span className="font-heading text-lg font-medium text-[#111827] block">
+                  <span className="font-heading text-lg font-medium text-white block">
                     Pan-India Operating Presence
                   </span>
-                  <span className="text-xs text-[#596579] mt-1 block">
+                  <span className="text-xs sm:text-[13px] text-white/90 mt-1 block">
                     Anchoring civil, agrarian, industrial &amp; digital operations
                   </span>
                 </div>
 
-                <div className="pt-3 border-t border-[#E3E5EF] text-center">
-                  <span className="font-sans text-[10px] uppercase tracking-wider text-[#8E9BAE]">
+                <div className="relative pt-3 border-t border-white/20 text-center">
+                  <span className="font-sans text-[10px] uppercase tracking-wider text-white/85">
                     ISO Certified Corporate Governance
                   </span>
                 </div>
@@ -1068,7 +1068,11 @@ export default function ContactPage() {
       </SectionTransition>
 
       {/* ── 05. FINAL CTA (Have an Idea Worth Building?) ──────────────────── */}
-      <SectionTransition divider={false} className="relative overflow-hidden bg-gradient-to-br from-[#211B72] via-[#1D1763] to-[#120E3E] text-white py-12 sm:py-16">
+      <SectionTransition
+        divider={false}
+        backdrop={<SectionPhoto src={cardImage("contact-cta-co-build")} />}
+        className="relative overflow-hidden bg-gradient-to-br from-[#211B72] via-[#1D1763] to-[#120E3E] text-white py-12 sm:py-16"
+      >
         {/* Ambient radial lighting */}
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 -z-10 h-[500px] w-[500px] sm:w-[700px] rounded-full bg-gradient-to-r from-[#3026B3]/30 via-[#FFB000]/20 to-transparent blur-[140px] pointer-events-none" />
 

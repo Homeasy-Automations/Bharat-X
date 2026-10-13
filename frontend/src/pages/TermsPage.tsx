@@ -68,7 +68,7 @@ export default function TermsPage() {
       <SectionTransition divider={false} className="py-12 sm:py-16">
         <div className="container-x max-w-3xl">
           <Reveal>
-            <p className="mb-10 rounded-xl border border-white/8 bg-night-850/70 p-5 text-[13.5px] leading-relaxed text-ink-400 fx-lift transition-all">
+            <p className="mb-10 rounded-xl border border-[#FFB000]/40 border-l-4 border-l-[#FFB000] bg-[color-mix(in_srgb,#FFB000_14%,white)] p-5 text-[13.5px] leading-relaxed text-[#374151] fx-lift transition-all">
               Last updated: 25 September 2026. By using this website you agree
               to these terms. If you are acting on behalf of an organisation,
               you confirm you have authority to bind it.
@@ -77,18 +77,22 @@ export default function TermsPage() {
           <div className="flex flex-col gap-8">
             {sections.map((s, i) => (
               <Reveal key={s.t} delay={Math.min(i * 0.04, 0.2)}>
-                <div data-cursor="card" className="p-4 rounded-xl transition-all duration-200 hover:bg-black/5 dark:hover:bg-white/5">
-                  <AnimatedHeading as="h2" effect="blur" hover="shift" className="font-heading text-xl font-semibold text-ink-50">
+                {/* Legal copy: opaque soft tint + accent rule; the `!` hovers beat the global card/heading hover overrides */}
+                <div
+                  data-cursor="card"
+                  className="p-5 sm:p-6 rounded-xl border border-[#3026B3]/15 border-l-4 border-l-[#3026B3] bg-[color-mix(in_srgb,#3026B3_7%,white)] transition-all duration-200 hover:bg-[color-mix(in_srgb,#3026B3_11%,white)] hover:border-l-[#3026B3]!"
+                >
+                  <AnimatedHeading as="h2" effect="blur" hover="shift" className="font-heading text-xl font-semibold text-[#211B72] hover:text-[#3026B3]!">
                     {s.t}
                   </AnimatedHeading>
-                  <p className="mt-3 text-[14.5px] leading-relaxed text-ink-400">{s.d}</p>
+                  <p className="mt-3 text-[14.5px] leading-relaxed text-[#374151]">{s.d}</p>
                 </div>
               </Reveal>
             ))}
 
             <Reveal delay={0.2}>
-              <div data-cursor="card" className="mt-8 rounded-xl border border-slate-200/80 dark:border-white/8 bg-slate-50/80 dark:bg-night-900/60 p-5 font-sans text-xs text-ink-400 fx-lift transition-all">
-                <span className="font-semibold text-ink-200 dark:text-ink-100 uppercase tracking-wider block mb-1">
+              <div data-cursor="card" className="mt-8 rounded-xl border border-[#211B72] border-t-4 border-t-[#FFB000] bg-[#211B72] p-5 font-sans text-xs sm:text-[13px] text-slate-200 shadow-md fx-lift transition-all hover:border-t-[#FFB000]!">
+                <span className="font-semibold text-[#FFC94D] uppercase tracking-wider block mb-1">
                   Registered Headquarters:
                 </span>
                 <p>BharatX Group · Building no. 511 First Floor, Motilal Nehru Complex, New Delhi 110017, India</p>

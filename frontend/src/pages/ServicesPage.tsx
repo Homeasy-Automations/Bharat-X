@@ -6,6 +6,8 @@ import { SectionTransition } from "../components/motion/SectionTransition";
 import { Stagger, StaggerItem } from "../components/motion/Stagger";
 import { AnimatedHeading } from "../components/motion/AnimatedHeading";
 import { MagneticButton } from "../components/common/MagneticButton";
+import { tintOnDark } from "../components/common/CardArt";
+import { CardFill, CardPhoto, SectionPhoto, cardImage } from "../components/common/CardSurface";
 
 interface BusinessVertical {
   id: string;
@@ -18,8 +20,6 @@ interface BusinessVertical {
   logo?: string;
   image: string;
   accent: string;
-  bgAccent: string;
-  textAccent: string;
   icon: string;
 }
 
@@ -35,8 +35,6 @@ const businessPortfolio: BusinessVertical[] = [
     logo: "/Infra_logo1.png",
     image: "/companies/bharatx-infratech/hero.jpg",
     accent: "#3026B3",
-    bgAccent: "bg-[#3026B3]/10",
-    textAccent: "text-[#3026B3]",
     icon: "hard-hat",
   },
   {
@@ -50,8 +48,6 @@ const businessPortfolio: BusinessVertical[] = [
     logo: "/Bharatxagro_logo.png",
     image: "/assets/backgrounds/agri-dusk.jpg",
     accent: "#15966B",
-    bgAccent: "bg-[#15966B]/15",
-    textAccent: "text-[#15966B]",
     icon: "sprout",
   },
   {
@@ -65,8 +61,6 @@ const businessPortfolio: BusinessVertical[] = [
     logo: "/Ventures_logo.png",
     image: "/companies/bharatx-ventures/hero.jpg",
     accent: "#211B72",
-    bgAccent: "bg-[#211B72]/10",
-    textAccent: "text-[#211B72]",
     icon: "landmark",
   },
   {
@@ -79,8 +73,6 @@ const businessPortfolio: BusinessVertical[] = [
     logo: "/Bharatxlabs_logo.svg",
     image: "/assets/backgrounds/impact-story.jpg",
     accent: "#15966B",
-    bgAccent: "bg-[#15966B]/15",
-    textAccent: "text-[#15966B]",
     icon: "sparkles",
   },
   {
@@ -94,8 +86,6 @@ const businessPortfolio: BusinessVertical[] = [
     logo: "/Casters_logo.png",
     image: "/companies/casters-global/hero.jpg",
     accent: "#00B8D9",
-    bgAccent: "bg-[#00B8D9]/15",
-    textAccent: "text-[#008299]",
     icon: "cog",
   },
   {
@@ -109,8 +99,6 @@ const businessPortfolio: BusinessVertical[] = [
     logo: "/Ai-Experts_logo.png",
     image: "/companies/aixperts-labs/hero.jpg",
     accent: "#4B40D4",
-    bgAccent: "bg-[#4B40D4]/15",
-    textAccent: "text-[#4B40D4]",
     icon: "cpu",
   },
   {
@@ -123,8 +111,6 @@ const businessPortfolio: BusinessVertical[] = [
     websiteUrl: "https://srm-enterprises-psi.vercel.app/",
     image: "/assets/backgrounds/packaging.jpg",
     accent: "#D97706",
-    bgAccent: "bg-[#F59E0B]/15",
-    textAccent: "text-[#B45309]",
     icon: "boxes",
   },
   {
@@ -136,33 +122,28 @@ const businessPortfolio: BusinessVertical[] = [
     status: "Coming Soon",
     image: "/assets/backgrounds/sustainability-story.jpg",
     accent: "#059669",
-    bgAccent: "bg-[#059669]/15",
-    textAccent: "text-[#059669]",
     icon: "recycle",
   },
 ];
 
-const futureHorizons = [
+const futureHorizons: { title: string; description: string; accent: string; image: string }[] = [
   {
     title: "Packaging",
     description: "Eco-conscious materials, automated barrier packaging, and supply-chain logistics containers.",
     accent: "#D97706",
-    bg: "bg-[#F59E0B]/10",
-    text: "text-[#B45309]",
+    image: cardImage("services-13-horizon-packaging"),
   },
   {
     title: "Circular Economy",
     description: "Industrial waste recovery, closed-loop polymer recycling, and zero-effluent manufacturing systems.",
     accent: "#059669",
-    bg: "bg-[#059669]/10",
-    text: "text-[#059669]",
+    image: cardImage("services-14-horizon-circular-economy"),
   },
   {
     title: "New Industrial Businesses",
     description: "Advanced metallurgy, automated robotics components, and high-spec sovereign civil technologies.",
     accent: "#3026B3",
-    bg: "bg-[#3026B3]/10",
-    text: "text-[#3026B3]",
+    image: cardImage("services-15-horizon-new-industrial"),
   },
 ];
 
@@ -258,8 +239,10 @@ export default function ServicesPage() {
                   <div
                     id={biz.id}
                     data-cursor="card"
-                    className="group scroll-mt-28 flex flex-col justify-between overflow-hidden rounded-2xl border border-[#E3E5EF] bg-[#FAF9F6] transition-all duration-300 hover:border-[#3026B3] hover:bg-white fx-lift hover:shadow-2xl h-full"
+                    className="group relative scroll-mt-28 flex flex-col justify-between overflow-hidden rounded-2xl border border-white/10 bg-[#0D1026] shadow-md transition-all duration-300 hover:border-[#3026B3] fx-lift hover:shadow-2xl h-full"
                   >
+                    <CardFill accent={biz.accent} />
+
                     {/* Top Thumbnail Image */}
                     <div className="relative h-44 w-full overflow-hidden bg-slate-900" data-cursor="image">
                       <img
@@ -279,10 +262,10 @@ export default function ServicesPage() {
 
                         {/* Status Badge */}
                         <span
-                          className={`rounded-full px-2.5 py-0.5 text-[10px] font-sans uppercase tracking-wider font-semibold border ${
+                          className={`shrink-0 whitespace-nowrap rounded-full px-2.5 py-0.5 text-[10px] font-sans uppercase tracking-wider font-semibold border backdrop-blur-md ${
                             isActive
-                              ? "bg-emerald-500/20 text-emerald-300 border-emerald-400/30"
-                              : "bg-amber-500/20 text-amber-300 border-amber-400/30"
+                              ? "bg-emerald-950/75 text-emerald-300 border-emerald-400/40"
+                              : "bg-amber-950/75 text-amber-300 border-amber-400/40"
                           }`}
                         >
                           {biz.status}
@@ -298,26 +281,26 @@ export default function ServicesPage() {
                     </div>
 
                     {/* Card Content */}
-                    <div className="p-6 flex flex-col justify-between flex-1">
+                    <div className="relative p-6 flex flex-col justify-between flex-1">
                       <div>
-                        <h3 className="font-heading text-xl sm:text-2xl font-medium text-[#111827] group-hover:text-[#3026B3] transition-colors duration-300">
+                        <h3 className="font-heading text-xl sm:text-2xl font-medium text-white group-hover:text-[#FFC94D] transition-colors duration-300">
                           {biz.name}
                         </h3>
 
-                        <p className="mt-3 text-xs sm:text-sm text-[#596579] leading-relaxed font-normal">
+                        <p className="mt-3 text-xs sm:text-sm text-white/90 leading-relaxed font-normal">
                           {biz.description}
                         </p>
                       </div>
 
                       {/* Action Link / Status Footer */}
-                      <div className="mt-6 pt-4 border-t border-[#E3E5EF] flex items-center justify-between">
+                      <div className="mt-6 pt-4 border-t border-white/20 flex items-center justify-between">
                         {isActive && biz.websiteUrl ? (
                           <a
                             href={biz.websiteUrl}
                             target="_blank"
                             rel="noopener noreferrer"
                             data-cursor="link"
-                            className="inline-flex items-center gap-1.5 font-sans text-xs font-bold uppercase tracking-wider text-[#3026B3] hover:text-[#211B72] transition-colors group/link fx-underline"
+                            className="inline-flex items-center gap-1.5 font-sans text-xs font-bold uppercase tracking-wider text-white/90 hover:text-[#FFC94D] transition-colors group/link fx-underline"
                           >
                             <span>Visit Website</span>
                             <Icon
@@ -328,13 +311,13 @@ export default function ServicesPage() {
                             />
                           </a>
                         ) : (
-                          <span className="font-sans text-xs uppercase tracking-wider text-[#9A6200] font-semibold flex items-center gap-1.5">
+                          <span className="font-sans text-xs uppercase tracking-wider text-[#FFC94D] font-semibold flex items-center gap-1.5">
                             <span className="h-1.5 w-1.5 rounded-full bg-[#FFB000] animate-pulse" />
                             <span>Coming Soon</span>
                           </span>
                         )}
 
-                        <div className={`h-7 w-7 rounded-lg ${biz.bgAccent} ${biz.textAccent} flex items-center justify-center shrink-0 transition-transform duration-300 group-hover:scale-110 group-hover:rotate-6`}>
+                        <div className="h-7 w-7 rounded-lg bg-white/15 ring-1 ring-white/25 text-white flex items-center justify-center shrink-0 transition-transform duration-300 group-hover:scale-110 group-hover:rotate-6">
                           <Icon name={biz.icon} width={14} height={14} strokeWidth={2} />
                         </div>
                       </div>
@@ -366,110 +349,122 @@ export default function ServicesPage() {
           </div>
 
           {/* Interactive Flow Architecture: BUILD | OPERATE | INVEST -> IMPACT */}
-          <div className="max-w-4xl mx-auto rounded-3xl border border-[#E3E5EF] bg-white p-7 sm:p-12 shadow-xl fx-lift">
-            {/* Top Root: BHARATX GROUP */}
-            <div className="flex flex-col items-center text-center">
+          <div className="relative overflow-hidden max-w-4xl mx-auto rounded-3xl border border-[#E3E5EF] bg-white p-7 sm:p-12 shadow-xl fx-lift">
+            <CardFill accent="#3026B3" tone="tint" />
+            <div className="relative">
+              {/* Top Root: BHARATX GROUP */}
+              <div className="flex flex-col items-center text-center">
+                <div
+                  data-cursor="card"
+                  className="inline-flex flex-col items-center rounded-2xl border border-[#3026B3]/40 bg-gradient-to-r from-[#211B72] via-[#3026B3] to-[#211B72] px-8 py-4 text-white shadow-xl transition-all duration-300 hover:scale-105 fx-glow-indigo"
+                >
+                  <span className="font-sans text-[10px] uppercase tracking-[0.28em] text-[#FFB000] font-bold">
+                    THE ECOSYSTEM CORE
+                  </span>
+                  <span className="font-heading text-2xl sm:text-3xl font-medium tracking-tight mt-0.5">
+                    BHARATX GROUP
+                  </span>
+                </div>
+                <div className="h-8 w-px bg-[#3026B3]/40 my-1 animate-pulse" />
+              </div>
+
+              {/* Tri-Column Engine: BUILD | OPERATE | INVEST */}
+              <Stagger staggerDelay={0.1} className="grid grid-cols-1 md:grid-cols-3 gap-5 mt-3">
+                {/* Pillar 1: BUILD */}
+                <StaggerItem>
+                  <div
+                    data-cursor="card"
+                    className="group relative overflow-hidden rounded-2xl border border-white/10 bg-[#0D1026] p-6 text-center shadow-md transition-all duration-300 hover:border-[#3026B3] hover:shadow-xl fx-lift h-full"
+                  >
+                    <CardFill accent="#3026B3" />
+                    <div className="relative">
+                      <div className="h-9 w-9 rounded-xl bg-white/15 ring-1 ring-white/25 text-white flex items-center justify-center mx-auto mb-3 transition-transform duration-300 group-hover:scale-110 group-hover:rotate-6">
+                        <Icon name="hard-hat" width={18} height={18} />
+                      </div>
+                      <span className="font-sans text-xs uppercase tracking-[0.24em] font-bold block text-[#FFC94D]">
+                        BUILD
+                      </span>
+                      <h4 className="font-heading text-xl font-medium text-white mt-1 group-hover:text-[#FFC94D] transition-colors">
+                        New Businesses
+                      </h4>
+                      <p className="mt-2 text-xs sm:text-[13px] text-white/90 leading-relaxed">
+                        Incubating new industrial and technological opportunities with native capabilities.
+                      </p>
+                    </div>
+                  </div>
+                </StaggerItem>
+
+                {/* Pillar 2: OPERATE */}
+                <StaggerItem>
+                  <div
+                    data-cursor="card"
+                    className="group relative overflow-hidden rounded-2xl border border-white/10 bg-[#0D1026] p-6 text-center shadow-md transition-all duration-300 hover:border-[#15966B] hover:shadow-xl fx-lift h-full"
+                  >
+                    <CardFill accent="#15966B" />
+                    <div className="relative">
+                      <div className="h-9 w-9 rounded-xl bg-white/15 ring-1 ring-white/25 text-white flex items-center justify-center mx-auto mb-3 transition-transform duration-300 group-hover:scale-110 group-hover:rotate-6">
+                        <Icon name="cog" width={18} height={18} />
+                      </div>
+                      <span className="font-sans text-xs uppercase tracking-[0.24em] font-bold block text-[#FFC94D]">
+                        OPERATE
+                      </span>
+                      <h4 className="font-heading text-xl font-medium text-white mt-1 group-hover:text-[#FFC94D] transition-colors">
+                        Core Companies
+                      </h4>
+                      <p className="mt-2 text-xs sm:text-[13px] text-white/90 leading-relaxed">
+                        Executing across infrastructure, agro commodities, precision casters and applied AI.
+                      </p>
+                    </div>
+                  </div>
+                </StaggerItem>
+
+                {/* Pillar 3: INVEST */}
+                <StaggerItem>
+                  <div
+                    data-cursor="card"
+                    className="group relative overflow-hidden rounded-2xl border border-white/10 bg-[#0D1026] p-6 text-center shadow-md transition-all duration-300 hover:border-[#00B8D9] hover:shadow-xl fx-lift h-full"
+                  >
+                    <CardFill accent="#00B8D9" />
+                    <div className="relative">
+                      <div className="h-9 w-9 rounded-xl bg-white/15 ring-1 ring-white/25 text-white flex items-center justify-center mx-auto mb-3 transition-transform duration-300 group-hover:scale-110 group-hover:rotate-6">
+                        <Icon name="landmark" width={18} height={18} />
+                      </div>
+                      <span className="font-sans text-xs uppercase tracking-[0.24em] font-bold block text-[#FFC94D]">
+                        INVEST
+                      </span>
+                      <h4 className="font-heading text-xl font-medium text-white mt-1 group-hover:text-[#FFC94D] transition-colors">
+                        Ventures
+                      </h4>
+                      <p className="mt-2 text-xs sm:text-[13px] text-white/90 leading-relaxed">
+                        Deploying patient balance-sheet capital, strategy and governance to accelerate growth.
+                      </p>
+                    </div>
+                  </div>
+                </StaggerItem>
+              </Stagger>
+
+              {/* Downward Connector to Impact */}
+              <div className="my-6 flex items-center justify-center">
+                <div className="flex h-9 w-9 items-center justify-center rounded-full bg-[#15966B] text-white shadow-md animate-bounce">
+                  <Icon name="arrow-right" width={16} height={16} className="rotate-90" strokeWidth={2.5} />
+                </div>
+              </div>
+
+              {/* Convergence Output: IMPACT */}
               <div
                 data-cursor="card"
-                className="inline-flex flex-col items-center rounded-2xl border border-[#3026B3]/40 bg-gradient-to-r from-[#211B72] via-[#3026B3] to-[#211B72] px-8 py-4 text-white shadow-xl transition-all duration-300 hover:scale-105 fx-glow-indigo"
+                className="rounded-2xl border border-[#15966B]/40 bg-gradient-to-r from-[#0F766E] via-[#15966B] to-[#0F766E] p-6 text-center text-white shadow-xl transition-all duration-300 hover:scale-[1.02] fx-glow-gold"
               >
-                <span className="font-sans text-[10px] uppercase tracking-[0.28em] text-[#FFB000] font-bold">
-                  THE ECOSYSTEM CORE
+                <span className="font-sans text-[10px] uppercase tracking-[0.28em] text-[#FFB000] font-bold block mb-1">
+                  NATIONAL VALUE CREATION
                 </span>
-                <span className="font-heading text-2xl sm:text-3xl font-medium tracking-tight mt-0.5">
-                  BHARATX GROUP
-                </span>
+                <h3 className="font-heading text-2xl sm:text-3xl font-medium tracking-tight text-white transition-colors duration-300 hover:text-gold-400">
+                  IMPACT
+                </h3>
+                <p className="mt-2 text-xs sm:text-sm text-slate-100 font-normal max-w-xl mx-auto">
+                  Creating lasting economic resilience, high-quality jobs, and sustainable industrial progress across Bharat.
+                </p>
               </div>
-              <div className="h-8 w-px bg-[#3026B3]/40 my-1 animate-pulse" />
-            </div>
-
-            {/* Tri-Column Engine: BUILD | OPERATE | INVEST */}
-            <Stagger staggerDelay={0.1} className="grid grid-cols-1 md:grid-cols-3 gap-5 mt-3">
-              {/* Pillar 1: BUILD */}
-              <StaggerItem>
-                <div
-                  data-cursor="card"
-                  className="group rounded-2xl border border-[#E3E5EF] bg-[#FAF9F6] p-6 text-center transition-all duration-300 hover:border-[#3026B3] hover:shadow-xl fx-lift h-full"
-                >
-                  <div className="h-9 w-9 rounded-xl bg-[#3026B3]/10 text-[#3026B3] flex items-center justify-center mx-auto mb-3 transition-transform duration-300 group-hover:scale-110 group-hover:rotate-6">
-                    <Icon name="hard-hat" width={18} height={18} />
-                  </div>
-                  <span className="font-sans text-xs uppercase tracking-[0.24em] text-[#3026B3] font-bold block">
-                    BUILD
-                  </span>
-                  <h4 className="font-heading text-xl font-medium text-[#111827] mt-1 group-hover:text-[#3026B3] transition-colors">
-                    New Businesses
-                  </h4>
-                  <p className="mt-2 text-xs text-[#596579] leading-relaxed">
-                    Incubating new industrial and technological opportunities with native capabilities.
-                  </p>
-                </div>
-              </StaggerItem>
-
-              {/* Pillar 2: OPERATE */}
-              <StaggerItem>
-                <div
-                  data-cursor="card"
-                  className="group rounded-2xl border border-[#E3E5EF] bg-[#FAF9F6] p-6 text-center transition-all duration-300 hover:border-[#15966B] hover:shadow-xl fx-lift h-full"
-                >
-                  <div className="h-9 w-9 rounded-xl bg-[#15966B]/15 text-[#15966B] flex items-center justify-center mx-auto mb-3 transition-transform duration-300 group-hover:scale-110 group-hover:rotate-6">
-                    <Icon name="cog" width={18} height={18} />
-                  </div>
-                  <span className="font-sans text-xs uppercase tracking-[0.24em] text-[#15966B] font-bold block">
-                    OPERATE
-                  </span>
-                  <h4 className="font-heading text-xl font-medium text-[#111827] mt-1 group-hover:text-[#15966B] transition-colors">
-                    Core Companies
-                  </h4>
-                  <p className="mt-2 text-xs text-[#596579] leading-relaxed">
-                    Executing across infrastructure, agro commodities, precision casters and applied AI.
-                  </p>
-                </div>
-              </StaggerItem>
-
-              {/* Pillar 3: INVEST */}
-              <StaggerItem>
-                <div
-                  data-cursor="card"
-                  className="group rounded-2xl border border-[#E3E5EF] bg-[#FAF9F6] p-6 text-center transition-all duration-300 hover:border-[#00B8D9] hover:shadow-xl fx-lift h-full"
-                >
-                  <div className="h-9 w-9 rounded-xl bg-[#00B8D9]/15 text-[#008299] flex items-center justify-center mx-auto mb-3 transition-transform duration-300 group-hover:scale-110 group-hover:rotate-6">
-                    <Icon name="landmark" width={18} height={18} />
-                  </div>
-                  <span className="font-sans text-xs uppercase tracking-[0.24em] text-[#008299] font-bold block">
-                    INVEST
-                  </span>
-                  <h4 className="font-heading text-xl font-medium text-[#111827] mt-1 group-hover:text-[#008299] transition-colors">
-                    Ventures
-                  </h4>
-                  <p className="mt-2 text-xs text-[#596579] leading-relaxed">
-                    Deploying patient balance-sheet capital, strategy and governance to accelerate growth.
-                  </p>
-                </div>
-              </StaggerItem>
-            </Stagger>
-
-            {/* Downward Connector to Impact */}
-            <div className="my-6 flex items-center justify-center">
-              <div className="flex h-9 w-9 items-center justify-center rounded-full bg-[#15966B] text-white shadow-md animate-bounce">
-                <Icon name="arrow-right" width={16} height={16} className="rotate-90" strokeWidth={2.5} />
-              </div>
-            </div>
-
-            {/* Convergence Output: IMPACT */}
-            <div
-              data-cursor="card"
-              className="rounded-2xl border border-[#15966B]/40 bg-gradient-to-r from-[#0F766E] via-[#15966B] to-[#0F766E] p-6 text-center text-white shadow-xl transition-all duration-300 hover:scale-[1.02] fx-glow-gold"
-            >
-              <span className="font-sans text-[10px] uppercase tracking-[0.28em] text-[#FFB000] font-bold block mb-1">
-                NATIONAL VALUE CREATION
-              </span>
-              <h3 className="font-heading text-2xl sm:text-3xl font-medium tracking-tight text-white transition-colors duration-300 hover:text-gold-400">
-                IMPACT
-              </h3>
-              <p className="mt-2 text-xs sm:text-sm text-slate-100 font-normal max-w-xl mx-auto">
-                Creating lasting economic resilience, high-quality jobs, and sustainable industrial progress across Bharat.
-              </p>
             </div>
           </div>
         </div>
@@ -499,23 +494,26 @@ export default function ServicesPage() {
               <StaggerItem key={item.title}>
                 <div
                   data-cursor="card"
-                  className="group rounded-2xl border border-[#E3E5EF] bg-[#FAF9F6] p-6 shadow-xs transition-all duration-300 hover:bg-white hover:border-[#3026B3] hover:shadow-xl fx-lift h-full"
+                  className="group relative overflow-hidden rounded-2xl border border-white/10 bg-[#0D1026] p-6 shadow-md transition-all duration-300 hover:border-[#3026B3] hover:shadow-xl fx-lift h-full"
                 >
-                  <div className="flex items-center justify-between mb-3">
-                    <span className={`inline-flex items-center gap-1.5 rounded-full ${item.bg} ${item.text} px-3 py-1 font-sans text-[10px] uppercase tracking-wider font-bold`}>
-                      <span className="h-1.5 w-1.5 rounded-full animate-pulse" style={{ backgroundColor: item.accent }} />
-                      <span>Horizon</span>
-                    </span>
-                    <span className="text-xs font-sans text-[#596579]">2026+</span>
+                  <CardPhoto src={item.image} accent={item.accent} />
+                  <div className="relative [text-shadow:0_0_2px_rgba(13,16,38,0.9),0_1px_12px_rgba(13,16,38,0.85)]">
+                    <div className="flex items-center justify-between mb-3">
+                      <span className="inline-flex items-center gap-1.5 rounded-full bg-white/15 ring-1 ring-white/20 backdrop-blur-sm text-white px-3 py-1 font-sans text-[10px] uppercase tracking-wider font-bold">
+                        <span className="h-1.5 w-1.5 rounded-full animate-pulse" style={{ backgroundColor: tintOnDark(item.accent) }} />
+                        <span>Horizon</span>
+                      </span>
+                      <span className="text-xs font-sans text-white/80">2026+</span>
+                    </div>
+
+                    <h3 className="font-heading text-xl font-medium text-white group-hover:text-[#FFC94D] transition-colors duration-300">
+                      {item.title}
+                    </h3>
+
+                    <p className="mt-2.5 text-xs sm:text-[13px] text-slate-200 leading-relaxed">
+                      {item.description}
+                    </p>
                   </div>
-
-                  <h3 className="font-heading text-xl font-medium text-[#111827] group-hover:text-[#3026B3] transition-colors duration-300">
-                    {item.title}
-                  </h3>
-
-                  <p className="mt-2.5 text-xs sm:text-[13px] text-[#596579] leading-relaxed">
-                    {item.description}
-                  </p>
                 </div>
               </StaggerItem>
             ))}
@@ -524,7 +522,10 @@ export default function ServicesPage() {
       </SectionTransition>
 
       {/* ── 05. FINAL CTA (Interested in Building With BharatX?) ─────────────── */}
-      <SectionTransition className="relative overflow-hidden bg-gradient-to-br from-[#211B72] via-[#1D1763] to-[#120E3E] text-white py-12 sm:py-16">
+      <SectionTransition
+        backdrop={<SectionPhoto src={cardImage("services-cta-partner")} />}
+        className="relative overflow-hidden bg-gradient-to-br from-[#211B72] via-[#1D1763] to-[#120E3E] text-white py-12 sm:py-16"
+      >
         {/* Ambient radial lighting */}
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 -z-10 h-[500px] w-[500px] sm:w-[700px] rounded-full bg-gradient-to-r from-[#3026B3]/30 via-[#FFB000]/20 to-transparent blur-[140px] pointer-events-none" />
 

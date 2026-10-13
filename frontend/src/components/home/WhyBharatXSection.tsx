@@ -2,45 +2,45 @@ import { motion } from "framer-motion";
 import { Icon } from "../../utils/icons";
 import { SectionTransition } from "../motion/SectionTransition";
 import { Stagger, StaggerItem } from "../motion/Stagger";
+import { CardFill } from "../common/CardSurface";
 
-const pillars = [
+const pillars: {
+  title: string;
+  description: string;
+  icon: string;
+  accent: string;
+  borderHover: string;
+  glowClass: string;
+}[] = [
   {
     title: "Capital",
     description: "Access to capital and financial resources.",
-    icon: "landmark" as const,
+    icon: "landmark",
     accent: "#3026B3",
-    bgAccent: "bg-[#3026B3]/10",
-    textAccent: "text-[#3026B3]",
     borderHover: "hover:border-[#3026B3]",
     glowClass: "fx-lift-glow-indigo",
   },
   {
     title: "Technology",
     description: "AI, automation and digital capabilities.",
-    icon: "cpu" as const,
+    icon: "cpu",
     accent: "#00B8D9",
-    bgAccent: "bg-[#00B8D9]/15",
-    textAccent: "text-[#008299]",
     borderHover: "hover:border-[#00B8D9]",
     glowClass: "fx-lift-glow-cyan",
   },
   {
     title: "Execution",
     description: "Real operating experience across industries.",
-    icon: "cog" as const,
+    icon: "cog",
     accent: "#D97706",
-    bgAccent: "bg-[#F59E0B]/15",
-    textAccent: "text-[#B45309]",
     borderHover: "hover:border-[#D97706]",
     glowClass: "fx-lift-glow-gold",
   },
   {
     title: "Ecosystem",
     description: "Cross-business capabilities, partnerships and market access.",
-    icon: "network" as const,
+    icon: "network",
     accent: "#15966B",
-    bgAccent: "bg-[#15966B]/15",
-    textAccent: "text-[#15966B]",
     borderHover: "hover:border-[#15966B]",
     glowClass: "fx-lift-glow-cyan",
   },
@@ -77,36 +77,35 @@ export function WhyBharatXSection() {
             <StaggerItem key={pillar.title}>
               <div
                 data-cursor="card"
-                className={`group relative flex h-full flex-col justify-between overflow-hidden rounded-2xl border border-[#E3E5EF] bg-[#FAF9F6] p-6 shadow-xs transition-all duration-300 hover:bg-white hover:shadow-xl hover:-translate-y-2 focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-[#3026B3] ${pillar.borderHover} ${pillar.glowClass}`}
+                className={`group relative flex h-full flex-col justify-between overflow-hidden rounded-2xl border border-white/10 bg-[#0D1026] p-6 shadow-md transition-all duration-300 hover:shadow-xl hover:-translate-y-2 focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-[#3026B3] ${pillar.borderHover} ${pillar.glowClass}`}
               >
-                {/* Coloured top-border that draws in on hover */}
+                <CardFill accent={pillar.accent} />
+
+                {/* Gold top-border that draws in on hover */}
                 <span
                   aria-hidden
-                  className="absolute inset-x-0 top-0 h-[3px] w-0 transition-all duration-400 ease-out group-hover:w-full"
-                  style={{ backgroundColor: pillar.accent }}
+                  className="absolute inset-x-0 top-0 z-10 h-[3px] w-0 bg-[#FFC94D] transition-all duration-400 ease-out group-hover:w-full"
                 />
 
-                <div>
-                  <div
-                    className={`mb-5 flex h-12 w-12 items-center justify-center rounded-xl ${pillar.bgAccent} ${pillar.textAccent} transition-transform duration-500 group-hover:rotate-[360deg] shadow-xs`}
-                  >
+                <div className="relative">
+                  <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-xl bg-white/15 ring-1 ring-white/25 text-white transition-transform duration-500 group-hover:rotate-[360deg] shadow-xs">
                     <Icon name={pillar.icon} width={22} height={22} strokeWidth={2} />
                   </div>
 
-                  <h3 className="font-heading text-xl sm:text-2xl font-medium tracking-tight text-[#111827] group-hover:text-[#3026B3] transition-colors">
+                  <h3 className="font-heading text-xl sm:text-2xl font-medium tracking-tight text-white group-hover:text-[#FFC94D] transition-colors">
                     {pillar.title}
                   </h3>
 
-                  <p className="mt-2.5 text-xs sm:text-[13px] leading-relaxed text-[#596579] font-normal">
+                  <p className="mt-2.5 text-xs sm:text-[13px] leading-relaxed text-slate-200 font-normal">
                     {pillar.description}
                   </p>
                 </div>
 
-                <div className="mt-6 pt-4 border-t border-[#E3E5EF] flex items-center justify-between font-sans text-[10.5px] uppercase tracking-wider text-[#596579]">
+                <div className="relative mt-6 pt-4 border-t border-white/20 flex items-center justify-between font-sans text-[10.5px] uppercase tracking-wider text-white/85">
                   <span className="transition-transform duration-300 group-hover:translate-x-1">
                     Pillar 0{idx + 1}
                   </span>
-                  <span className={`h-2 w-2 rounded-full ${pillar.bgAccent} ${pillar.textAccent} transition-transform duration-300 group-hover:scale-125`} />
+                  <span className="h-2 w-2 rounded-full bg-[#FFC94D] transition-transform duration-300 group-hover:scale-125" />
                 </div>
               </div>
             </StaggerItem>

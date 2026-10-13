@@ -6,18 +6,28 @@ import { SectionTransition } from "../components/motion/SectionTransition";
 import { Stagger, StaggerItem } from "../components/motion/Stagger";
 import { AnimatedHeading } from "../components/motion/AnimatedHeading";
 import { MagneticButton } from "../components/common/MagneticButton";
+import { CardFill, CardPhoto, SectionPhoto, cardImage } from "../components/common/CardSurface";
 
 // ── 02. Formula items for "Our Philosophy" ───────────────────────────
 const philosophyInputs = [
-  { label: "Opportunity", icon: "target" as const, color: "#3026B3", bg: "bg-[#3026B3]/10", text: "text-[#3026B3]" },
-  { label: "People", icon: "users" as const, color: "#15966B", bg: "bg-[#15966B]/15", text: "text-[#15966B]" },
-  { label: "Capital", icon: "landmark" as const, color: "#E09800", bg: "bg-[#FFB000]/15", text: "text-[#B87B00]" },
-  { label: "Technology", icon: "cpu" as const, color: "#00B8D9", bg: "bg-[#00B8D9]/15", text: "text-[#008299]" },
-  { label: "Execution", icon: "cog" as const, color: "#4B40D4", bg: "bg-[#4B40D4]/15", text: "text-[#4B40D4]" },
+  { label: "Opportunity", icon: "target" as const, color: "#3026B3" },
+  { label: "People", icon: "users" as const, color: "#15966B" },
+  { label: "Capital", icon: "landmark" as const, color: "#E09800" },
+  { label: "Technology", icon: "cpu" as const, color: "#00B8D9" },
+  { label: "Execution", icon: "cog" as const, color: "#4B40D4" },
 ];
 
 // ── 03. Five-Step Build Cycle ─────────────────────────────────────────
-const buildCycleSteps = [
+const buildCycleSteps: {
+  step: string;
+  name: string;
+  tagline: string;
+  description: string;
+  icon: string;
+  accent: string;
+  borderHover: string;
+  image: string;
+}[] = [
   {
     step: "01",
     name: "IDENTIFY",
@@ -25,9 +35,8 @@ const buildCycleSteps = [
     description: "We look for meaningful problems, market gaps and emerging opportunities where a strong business can be built.",
     icon: "target" as const,
     accent: "#3026B3",
-    bgAccent: "bg-[#3026B3]/10",
-    textAccent: "text-[#3026B3]",
     borderHover: "hover:border-[#3026B3]",
+    image: cardImage("how-we-build-02-step-identify"),
   },
   {
     step: "02",
@@ -36,9 +45,8 @@ const buildCycleSteps = [
     description: "We develop the product, business model, team and operating foundation required to create a viable enterprise.",
     icon: "hard-hat" as const,
     accent: "#E09800",
-    bgAccent: "bg-[#FFB000]/15",
-    textAccent: "text-[#B87B00]",
     borderHover: "hover:border-[#FFB000]",
+    image: cardImage("how-we-build-03-step-build"),
   },
   {
     step: "03",
@@ -47,9 +55,8 @@ const buildCycleSteps = [
     description: "We bring together capital, technology, talent, partnerships and strategic capabilities.",
     icon: "landmark" as const,
     accent: "#00B8D9",
-    bgAccent: "bg-[#00B8D9]/15",
-    textAccent: "text-[#008299]",
     borderHover: "hover:border-[#00B8D9]",
+    image: cardImage("how-we-build-04-step-invest"),
   },
   {
     step: "04",
@@ -58,9 +65,8 @@ const buildCycleSteps = [
     description: "We strengthen operations, distribution, technology, market access and organisational capability.",
     icon: "trending-up" as const,
     accent: "#15966B",
-    bgAccent: "bg-[#15966B]/15",
-    textAccent: "text-[#15966B]",
     borderHover: "hover:border-[#15966B]",
+    image: cardImage("how-we-build-05-step-scale"),
   },
   {
     step: "05",
@@ -69,66 +75,55 @@ const buildCycleSteps = [
     description: "We measure success through business performance, jobs, innovation, infrastructure, sustainability and wider economic contribution.",
     icon: "sparkles" as const,
     accent: "#4B40D4",
-    bgAccent: "bg-[#4B40D4]/15",
-    textAccent: "text-[#4B40D4]",
     borderHover: "hover:border-[#4B40D4]",
+    image: cardImage("how-we-build-06-step-impact"),
   },
 ];
 
 // ── 04. Five Pillars of BharatX Advantage ─────────────────────────────
-const bharatxAdvantage = [
+const bharatxAdvantage: { pillar: string; description: string; icon: string; color: string }[] = [
   {
     pillar: "Capital",
     description: "Financial resources and access to strategic capital.",
     icon: "landmark" as const,
     color: "#3026B3",
-    bg: "bg-[#3026B3]/10",
-    text: "text-[#3026B3]",
   },
   {
     pillar: "Technology",
     description: "AI, automation and digital capabilities.",
     icon: "cpu" as const,
     color: "#4B40D4",
-    bg: "bg-[#4B40D4]/15",
-    text: "text-[#4B40D4]",
   },
   {
     pillar: "Talent",
     description: "Entrepreneurs, operators, specialists and domain expertise.",
     icon: "users" as const,
     color: "#15966B",
-    bg: "bg-[#15966B]/15",
-    text: "text-[#15966B]",
   },
   {
     pillar: "Execution",
     description: "Hands-on operating and implementation capability.",
     icon: "cog" as const,
     color: "#00B8D9",
-    bg: "bg-[#00B8D9]/15",
-    text: "text-[#008299]",
   },
   {
     pillar: "Ecosystem",
     description: "Partnerships, businesses, networks and market access.",
     icon: "layers" as const,
     color: "#D97706",
-    bg: "bg-[#F59E0B]/15",
-    text: "text-[#B45309]",
   },
 ];
 
 // ── 05. Eight Sectors Where We Build ──────────────────────────────────
-const buildSectors = [
-  { name: "Infrastructure", tag: "Civil & Transport Assets", emoji: "🏗️", link: "/services#infrastructure", accent: "#3026B3" },
-  { name: "Agriculture", tag: "Agro Commodities & Export", emoji: "🌾", link: "/services#agriculture", accent: "#15966B" },
-  { name: "Manufacturing", tag: "Precision Casters & Mobility", emoji: "⚙️", link: "/services#manufacturing", accent: "#00B8D9" },
-  { name: "Technology", tag: "Applied AI & Automation", emoji: "🤖", link: "/services#tech-ai", accent: "#4B40D4" },
-  { name: "Packaging", tag: "Sustainable Industrial Barriers", emoji: "📦", link: "/services#packaging", accent: "#D97706" },
-  { name: "Sustainability", tag: "Circularity & Net-Zero Systems", emoji: "♻️", link: "/services#sustainability", accent: "#059669" },
-  { name: "Venture Building", tag: "Capital & Enterprise GTM", emoji: "💼", link: "/services#ventures", accent: "#211B72" },
-  { name: "Social Impact", tag: "Knowledge & Education Labs", emoji: "🌱", link: "/services#foundation", accent: "#15966B" },
+const buildSectors: { name: string; tag: string; emoji: string; link: string; accent: string; image: string }[] = [
+  { name: "Infrastructure", tag: "Civil & Transport Assets", emoji: "🏗️", link: "/services#infrastructure", accent: "#3026B3", image: cardImage("how-we-build-12-sector-infrastructure") },
+  { name: "Agriculture", tag: "Agro Commodities & Export", emoji: "🌾", link: "/services#agriculture", accent: "#15966B", image: cardImage("how-we-build-13-sector-agriculture") },
+  { name: "Manufacturing", tag: "Precision Casters & Mobility", emoji: "⚙️", link: "/services#manufacturing", accent: "#00B8D9", image: cardImage("how-we-build-14-sector-manufacturing") },
+  { name: "Technology", tag: "Applied AI & Automation", emoji: "🤖", link: "/services#tech-ai", accent: "#4B40D4", image: cardImage("how-we-build-15-sector-technology") },
+  { name: "Packaging", tag: "Sustainable Industrial Barriers", emoji: "📦", link: "/services#packaging", accent: "#D97706", image: cardImage("how-we-build-16-sector-packaging") },
+  { name: "Sustainability", tag: "Circularity & Net-Zero Systems", emoji: "♻️", link: "/services#sustainability", accent: "#059669", image: cardImage("how-we-build-17-sector-sustainability") },
+  { name: "Venture Building", tag: "Capital & Enterprise GTM", emoji: "💼", link: "/services#ventures", accent: "#211B72", image: cardImage("how-we-build-18-sector-venture-building") },
+  { name: "Social Impact", tag: "Knowledge & Education Labs", emoji: "🌱", link: "/services#foundation", accent: "#15966B", image: cardImage("how-we-build-19-sector-social-impact") },
 ];
 
 export default function HowWeBuildPage() {
@@ -224,65 +219,73 @@ export default function HowWeBuildPage() {
 
             {/* Visual Formula: Opportunity + People + Capital + Technology + Execution -> Enterprise */}
             <div className="lg:col-span-6">
-              <div className="rounded-3xl border border-[#E3E5EF] bg-[#FAF9F6] p-7 sm:p-9 shadow-lg fx-lift">
-                <div className="text-center mb-6">
-                  <span className="font-sans text-xs uppercase tracking-[0.24em] text-[#3026B3] font-bold block">
-                    The Enterprise Engine
-                  </span>
-                  <span className="text-xs text-[#596579] mt-1 block">
-                    How core capabilities assemble into enduring institutions
-                  </span>
-                </div>
+              <div className="relative overflow-hidden rounded-3xl border border-[#E3E5EF] bg-[#F4F3FB] p-7 sm:p-9 shadow-lg fx-lift">
+                <CardFill accent="#3026B3" tone="tint" />
+                <div className="relative">
+                  <div className="text-center mb-6">
+                    <span className="font-sans text-xs uppercase tracking-[0.24em] text-[#3026B3] font-bold block">
+                      The Enterprise Engine
+                    </span>
+                    <span className="text-xs sm:text-[13px] text-[#374151] mt-1 block">
+                      How core capabilities assemble into enduring institutions
+                    </span>
+                  </div>
 
-                {/* 5 Input Badges */}
-                <Stagger staggerDelay={0.06} className="grid grid-cols-2 sm:grid-cols-3 gap-3">
-                  {philosophyInputs.map((item) => (
-                    <StaggerItem key={item.label}>
-                      <div
-                        data-cursor="card"
-                        className="flex items-center gap-2.5 rounded-xl border border-[#E3E5EF] bg-white p-3 shadow-xs transition-all hover:shadow-md fx-lift h-full"
-                      >
-                        <div className={`h-8 w-8 rounded-lg ${item.bg} ${item.text} flex items-center justify-center shrink-0 transition-transform group-hover:scale-110`}>
-                          <Icon name={item.icon} width={16} height={16} strokeWidth={2} />
+                  {/* 5 Input Badges */}
+                  <Stagger staggerDelay={0.06} className="grid grid-cols-2 sm:grid-cols-3 gap-3">
+                    {philosophyInputs.map((item) => (
+                      <StaggerItem key={item.label}>
+                        <div
+                          data-cursor="card"
+                          className="group flex items-center gap-2 sm:gap-2.5 rounded-xl border border-l-4 p-2.5 sm:p-3 shadow-xs transition-all hover:shadow-md fx-lift h-full"
+                          style={{ backgroundColor: `color-mix(in srgb, ${item.color} 9%, white)`, borderColor: `${item.color}40`, borderLeftColor: item.color }}
+                        >
+                          <div
+                            className="h-8 w-8 rounded-lg text-white flex items-center justify-center shrink-0 transition-transform group-hover:scale-110"
+                            style={{ backgroundColor: item.color }}
+                          >
+                            <Icon name={item.icon} width={16} height={16} strokeWidth={2} />
+                          </div>
+                          <span className="font-sans text-sm font-medium text-[#111827]">
+                            {item.label}
+                          </span>
                         </div>
-                        <span className="font-sans text-sm font-medium text-[#111827]">
-                          {item.label}
+                      </StaggerItem>
+                    ))}
+
+                    {/* 6th Slot: Compounding Catalyst */}
+                    <StaggerItem>
+                      <div className="flex items-center justify-center rounded-xl border border-dashed border-[#211B72]/35 bg-[color-mix(in_srgb,#211B72_7%,white)] p-3 h-full">
+                        <span className="font-sans text-xs text-[#211B72] font-bold tracking-wider">
+                          + DISCIPLINE
                         </span>
                       </div>
                     </StaggerItem>
-                  ))}
+                  </Stagger>
 
-                  {/* 6th Slot: Compounding Catalyst */}
-                  <StaggerItem>
-                    <div className="flex items-center justify-center rounded-xl border border-dashed border-[#CBD1E1] bg-white/50 p-3 h-full">
-                      <span className="font-sans text-xs text-[#596579] font-bold tracking-wider">
-                        + DISCIPLINE
-                      </span>
+                  {/* Downward Connector */}
+                  <div className="my-5 flex items-center justify-center">
+                    <div className="flex h-9 w-9 items-center justify-center rounded-full bg-[#3026B3] text-white shadow-md animate-bounce">
+                      <Icon name="arrow-right" width={16} height={16} className="rotate-90" strokeWidth={2.5} />
                     </div>
-                  </StaggerItem>
-                </Stagger>
-
-                {/* Downward Connector */}
-                <div className="my-5 flex items-center justify-center">
-                  <div className="flex h-9 w-9 items-center justify-center rounded-full bg-[#3026B3] text-white shadow-md animate-bounce">
-                    <Icon name="arrow-right" width={16} height={16} className="rotate-90" strokeWidth={2.5} />
                   </div>
-                </div>
 
-                {/* Result Node: Enterprise */}
-                <div
-                  data-cursor="card"
-                  className="rounded-2xl border border-[#3026B3]/40 bg-gradient-to-r from-[#211B72] via-[#3026B3] to-[#211B72] p-5 sm:p-6 text-center text-white shadow-xl transition-all duration-300 hover:scale-[1.02] fx-glow-indigo"
-                >
-                  <span className="font-sans text-[10px] uppercase tracking-[0.28em] text-[#FFB000] font-bold block mb-1">
-                    CENTRAL OUTCOME
-                  </span>
-                  <h3 className="font-heading text-2xl sm:text-3xl font-medium tracking-tight text-white transition-colors duration-300 hover:text-gold-400">
-                    Enterprise
-                  </h3>
-                  <p className="mt-2 text-xs sm:text-[13px] text-slate-200 font-normal">
-                    Self-sustaining, profitable, and structurally vital to India’s compounding growth.
-                  </p>
+                  {/* Result Node: Enterprise */}
+                  <div
+                    data-cursor="card"
+                    className="rounded-2xl border border-[#3026B3]/40 bg-gradient-to-r from-[#211B72] via-[#3026B3] to-[#211B72] p-5 sm:p-6 text-center text-white shadow-xl transition-all duration-300 hover:scale-[1.02] fx-glow-indigo"
+                  >
+                    <span className="font-sans text-[10px] uppercase tracking-[0.28em] text-[#FFB000] font-bold block mb-1">
+                      CENTRAL OUTCOME
+                    </span>
+                    {/* `!` keeps the gold hover: the panel's light card-surface rule would otherwise force indigo on this dark box */}
+                    <h3 className="font-heading text-2xl sm:text-3xl font-medium tracking-tight text-white transition-colors duration-300 hover:text-gold-400!">
+                      Enterprise
+                    </h3>
+                    <p className="mt-2 text-xs sm:text-[13px] text-slate-200 font-normal">
+                      Self-sustaining, profitable, and structurally vital to India’s compounding growth.
+                    </p>
+                  </div>
                 </div>
               </div>
             </div>
@@ -314,29 +317,30 @@ export default function HowWeBuildPage() {
               <StaggerItem key={step.name}>
                 <div
                   data-cursor="card"
-                  className={`group relative flex flex-col justify-between rounded-2xl border border-[#E3E5EF] bg-white p-6 sm:p-7 shadow-sm transition-all duration-300 hover:shadow-2xl fx-lift h-full ${step.borderHover}`}
+                  className={`group relative flex flex-col justify-between rounded-2xl border border-white/10 bg-[#0D1026] p-6 sm:p-7 shadow-md transition-all duration-300 hover:shadow-2xl fx-lift h-full ${step.borderHover}`}
                 >
-                  <div>
+                  {/* No overflow-hidden: the connector chevron overhangs the edge; CardPhoto clips itself */}
+                  <CardPhoto src={step.image} accent={step.accent} />
+                  <div className="relative [text-shadow:0_0_2px_rgba(13,16,38,0.9),0_1px_12px_rgba(13,16,38,0.85)]">
                     <div className="flex items-center justify-between mb-4">
-                      <span className={`font-sans text-xs font-bold tracking-widest ${step.textAccent} transition-transform duration-300 group-hover:scale-110`}>
+                      {/* White, not tintOnDark: it must also read on the solid fallback colour until the photo exists */}
+                      <span className="font-sans text-xs font-bold tracking-widest text-white/90 transition-transform duration-300 group-hover:scale-110">
                         {step.step}
                       </span>
-                      <div
-                        className={`h-9 w-9 rounded-xl ${step.bgAccent} ${step.textAccent} flex items-center justify-center transition-transform duration-300 group-hover:scale-110 group-hover:rotate-6 shadow-xs`}
-                      >
+                      <div className="h-9 w-9 rounded-xl bg-white/15 ring-1 ring-white/25 text-white backdrop-blur-sm flex items-center justify-center transition-transform duration-300 group-hover:scale-110 group-hover:rotate-6 shadow-xs">
                         <Icon name={step.icon} width={18} height={18} strokeWidth={2} />
                       </div>
                     </div>
 
-                    <h3 className="font-sans text-sm sm:text-base font-bold tracking-[0.16em] text-[#111827] uppercase group-hover:text-[#3026B3] transition-colors">
+                    <h3 className="font-sans text-sm sm:text-base font-bold tracking-[0.16em] text-white uppercase group-hover:text-[#FFC94D] transition-colors">
                       {step.name}
                     </h3>
 
-                    <p className="mt-1 text-xs font-sans font-semibold text-[#3026B3]">
+                    <p className="mt-1 text-xs sm:text-[13px] font-sans font-semibold text-white/90">
                       {step.tagline}
                     </p>
 
-                    <p className="mt-3 text-xs sm:text-[13px] text-[#596579] leading-relaxed font-normal">
+                    <p className="mt-3 text-xs sm:text-[13px] text-slate-200 leading-relaxed font-normal">
                       {step.description}
                     </p>
                   </div>
@@ -384,23 +388,24 @@ export default function HowWeBuildPage() {
               <StaggerItem key={item.pillar}>
                 <div
                   data-cursor="card"
-                  className="group rounded-2xl border border-[#E3E5EF] bg-[#FAF9F6] p-6 shadow-xs transition-all duration-300 hover:bg-white hover:border-[#3026B3] hover:shadow-2xl fx-lift flex flex-col justify-between h-full"
+                  className="group relative overflow-hidden rounded-2xl border border-white/10 bg-[#0D1026] p-6 shadow-md transition-all duration-300 hover:border-[#3026B3] hover:shadow-2xl fx-lift flex flex-col justify-between h-full"
                 >
-                  <div>
-                    <div className={`h-11 w-11 rounded-xl ${item.bg} ${item.text} flex items-center justify-center shrink-0 shadow-xs mb-4 transition-transform duration-300 group-hover:scale-110 group-hover:rotate-6`}>
+                  <CardFill accent={item.color} />
+                  <div className="relative">
+                    <div className="h-11 w-11 rounded-xl bg-white/15 ring-1 ring-white/25 text-white flex items-center justify-center shrink-0 shadow-xs mb-4 transition-transform duration-300 group-hover:scale-110 group-hover:rotate-6">
                       <Icon name={item.icon} width={20} height={20} strokeWidth={2} />
                     </div>
 
-                    <h3 className="font-heading text-xl font-medium text-[#111827] group-hover:text-[#3026B3] transition-colors duration-300">
+                    <h3 className="font-heading text-xl font-medium text-white group-hover:text-[#FFC94D] transition-colors duration-300">
                       {item.pillar}
                     </h3>
 
-                    <p className="mt-2 text-xs sm:text-[13px] text-[#596579] leading-relaxed font-normal">
+                    <p className="mt-2 text-xs sm:text-[13px] text-white/90 leading-relaxed font-normal">
                       {item.description}
                     </p>
                   </div>
 
-                  <div className="mt-4 pt-3 border-t border-[#E3E5EF]/60 font-sans text-[9px] uppercase tracking-wider text-[#596579]">
+                  <div className="relative mt-4 pt-3 border-t border-white/20 font-sans text-[9px] uppercase tracking-wider text-white/90">
                     Institutional Pillar
                   </div>
                 </div>
@@ -409,8 +414,8 @@ export default function HowWeBuildPage() {
           </Stagger>
 
           {/* Central Anchor Line */}
-          <div className="mt-14 max-w-2xl mx-auto rounded-2xl border border-[#3026B3]/30 bg-[#3026B3]/5 p-6 text-center shadow-xs fx-lift">
-            <p className="font-heading text-base sm:text-lg font-medium text-[#111827] leading-relaxed">
+          <div className="mt-14 max-w-2xl mx-auto rounded-2xl border border-[#211B72] border-t-4 border-t-[#FFB000] bg-[#211B72] p-6 text-center shadow-md fx-lift">
+            <p className="font-heading text-base sm:text-lg font-medium text-white leading-relaxed">
               “When these capabilities come together, opportunities become scalable businesses.”
             </p>
           </div>
@@ -442,20 +447,21 @@ export default function HowWeBuildPage() {
                 <Link
                   to={sector.link}
                   data-cursor="card"
-                  className="group flex items-center justify-between rounded-xl border border-[#E3E5EF] bg-white p-4 shadow-xs transition-all duration-300 hover:border-[#3026B3] hover:shadow-xl fx-lift h-full"
+                  className="group relative overflow-hidden flex items-center justify-between rounded-xl border border-white/10 bg-[#0D1026] p-4 shadow-md transition-all duration-300 hover:border-[#3026B3] hover:shadow-xl fx-lift h-full"
                 >
-                  <div className="flex items-center gap-3">
+                  <CardPhoto src={sector.image} accent={sector.accent} />
+                  <div className="relative flex items-center gap-3 [text-shadow:0_0_2px_rgba(13,16,38,0.9),0_1px_12px_rgba(13,16,38,0.85)]">
                     <span className="text-xl transition-transform group-hover:scale-125 duration-300">{sector.emoji}</span>
                     <div>
-                      <h4 className="font-heading text-base font-medium text-[#111827] group-hover:text-[#3026B3] transition-colors">
+                      <h4 className="font-heading text-base font-medium text-white group-hover:text-[#FFC94D] transition-colors">
                         {sector.name}
                       </h4>
-                      <span className="text-[11px] font-sans text-[#596579] block">
+                      <span className="text-[11px] sm:text-xs font-sans text-slate-200 block">
                         {sector.tag}
                       </span>
                     </div>
                   </div>
-                  <Icon name="arrow-up-right" width={14} height={14} className="text-[#596579] group-hover:text-[#3026B3] transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+                  <Icon name="arrow-up-right" width={14} height={14} className="relative text-white/80 group-hover:text-[#FFC94D] transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
                 </Link>
               </StaggerItem>
             ))}
@@ -464,7 +470,10 @@ export default function HowWeBuildPage() {
       </SectionTransition>
 
       {/* ── 06. CLOSING CTA (The Next Business Could Be Built Here.) ─────────── */}
-      <SectionTransition className="relative overflow-hidden bg-gradient-to-br from-[#211B72] via-[#1D1763] to-[#120E3E] text-white py-12 sm:py-16">
+      <SectionTransition
+        backdrop={<SectionPhoto src={cardImage("how-we-build-cta-next-venture")} />}
+        className="relative overflow-hidden bg-gradient-to-br from-[#211B72] via-[#1D1763] to-[#120E3E] text-white py-12 sm:py-16"
+      >
         {/* Ambient radial lighting */}
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 -z-10 h-[500px] w-[500px] sm:w-[700px] rounded-full bg-gradient-to-r from-[#3026B3]/30 via-[#FFB000]/20 to-transparent blur-[140px] pointer-events-none" />
 

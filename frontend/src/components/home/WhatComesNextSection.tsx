@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { Icon } from "../../utils/icons";
 import { SectionTransition } from "../motion/SectionTransition";
 import { Stagger, StaggerItem } from "../motion/Stagger";
+import { CardFill } from "../common/CardSurface";
 
 const upcomingCards = [
   {
@@ -78,8 +79,11 @@ export function WhatComesNextSection() {
                 <div
                   data-cursor="card"
                   tabIndex={0}
-                  className="group relative flex flex-col h-full overflow-hidden rounded-2xl border border-[#E3E5EF] bg-[#FAF9F6] shadow-sm transition-all duration-300 hover:bg-white hover:shadow-xl hover:-translate-y-1 fx-shine fx-rotate-card focus-visible:ring-2 focus-visible:ring-[#3026B3] focus:outline-none"
+                  className="group relative flex flex-col h-full overflow-hidden rounded-2xl border border-white/10 bg-[#0D1026] shadow-md transition-all duration-300 hover:shadow-xl hover:-translate-y-1 fx-shine fx-rotate-card focus-visible:ring-2 focus-visible:ring-[#3026B3] focus:outline-none"
                 >
+                  {/* Solid accent fill behind the copy panel (starts where the h-48 / sm:h-52 photo banner ends) */}
+                  <CardFill accent={card.accent} className="top-48 sm:top-52 rounded-t-none" />
+
                   {/* Image banner */}
                   <div className="relative h-48 sm:h-52 w-full overflow-hidden shrink-0">
                     <img
@@ -90,19 +94,22 @@ export function WhatComesNextSection() {
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
 
-                    <span
-                      className={`absolute top-4 left-4 rounded-md border px-3 py-1 font-sans text-[10px] font-bold uppercase tracking-wider shadow-xs fx-pulse-ring ${card.tagStyle}`}
-                    >
-                      {card.tag}
-                    </span>
+                    {/* Positioned wrapper: .fx-pulse-ring forces position:relative on the tag itself */}
+                    <div className="absolute top-4 left-4">
+                      <span
+                        className={`inline-block rounded-md border px-3 py-1 font-sans text-[10px] font-bold uppercase tracking-wider shadow-xs fx-pulse-ring ${card.tagStyle}`}
+                      >
+                        {card.tag}
+                      </span>
+                    </div>
                   </div>
 
                   {/* Text content */}
-                  <div className="flex flex-1 flex-col p-6 sm:p-7">
-                    <h3 className="font-heading text-2xl font-medium tracking-tight text-[#111827] group-hover:text-[#3026B3] transition-colors duration-300">
+                  <div className="relative flex flex-1 flex-col p-6 sm:p-7">
+                    <h3 className="font-heading text-2xl font-medium tracking-tight text-white group-hover:text-[#FFC94D] transition-colors duration-300">
                       {card.title}
                     </h3>
-                    <p className="mt-3 text-sm text-[#596579] leading-relaxed font-normal">
+                    <p className="mt-3 text-sm text-white/90 leading-relaxed font-normal">
                       {card.description}
                     </p>
                   </div>

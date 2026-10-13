@@ -5,18 +5,20 @@ import { SectionTransition } from "../components/motion/SectionTransition";
 import { Stagger, StaggerItem } from "../components/motion/Stagger";
 import { AnimatedHeading } from "../components/motion/AnimatedHeading";
 import { MagneticButton } from "../components/common/MagneticButton";
+import { tintOnDark } from "../components/common/CardArt";
+import { CardFill, CardPhoto, cardImage } from "../components/common/CardSurface";
 
 const governance = [
-  { icon: "scale", t: "Clear Division of Decision Rights", d: "Group stewardship governs capital discipline, risk management, and shared standards. Tactical execution belongs to sector teams.", color: "#3026B3" },
-  { icon: "file-check", t: "Standardised Quality & Safety", d: "Quality, material integrity, and cryptographic data protocols are applied uniformly with auditable public accounting.", color: "#00B8D9" },
-  { icon: "eye", t: "Independent Standards Oversight", d: "Each operating sector is benchmarked against international standards by the group's standards oversight council.", color: "#FFB000" },
-  { icon: "shield-check", t: "Institutional Compliance", d: "Regulatory, phytosanitary, and trade compliance is embedded into foundational processes from day one.", color: "#15966B" },
+  { icon: "scale", t: "Clear Division of Decision Rights", d: "Group stewardship governs capital discipline, risk management, and shared standards. Tactical execution belongs to sector teams.", color: "#3026B3", image: cardImage("leadership-02-governance-decision-rights") },
+  { icon: "file-check", t: "Standardised Quality & Safety", d: "Quality, material integrity, and cryptographic data protocols are applied uniformly with auditable public accounting.", color: "#00B8D9", image: cardImage("leadership-03-governance-quality-safety") },
+  { icon: "eye", t: "Independent Standards Oversight", d: "Each operating sector is benchmarked against international standards by the group's standards oversight council.", color: "#FFB000", image: cardImage("leadership-04-governance-standards-oversight") },
+  { icon: "shield-check", t: "Institutional Compliance", d: "Regulatory, phytosanitary, and trade compliance is embedded into foundational processes from day one.", color: "#15966B", image: cardImage("leadership-05-governance-compliance") },
 ];
 
 const operating = [
   { n: "01", t: "The group sets the standard; the sector sets the pace.", d: "Standards are non-negotiable. Execution is owned at the sector level, with authentic decision rights and measurable KPIs.", color: "#3026B3" },
   { n: "02", t: "Capital discipline, not bureaucratic delay.", d: "Capital allocation follows evidence and multi-decade compounding — reviewed transparently across all sectors.", color: "#00B8D9" },
-  { n: "03", t: "Synergies are proved, not mandated.", d: "Any cross-sector collaboration must create demonstrable economic and operational value before resources are committed.", color: "#00B8D9" },
+  { n: "03", t: "Synergies are proved, not mandated.", d: "Any cross-sector collaboration must create demonstrable economic and operational value before resources are committed.", color: "#E09800" },
   { n: "04", t: "Data sovereignty is absolute.", d: "Confidentiality, client data residency, and cryptographic isolation between sectors are maintained as constitutional rules.", color: "#15966B" },
 ];
 
@@ -64,7 +66,8 @@ export default function LeadershipPage() {
       <SectionTransition withDivider className="py-12 sm:py-16 border-b border-[#E3E5EF]">
         <div className="container-x">
           <div data-cursor="card" className="relative overflow-hidden rounded-3xl border border-[#E3E5EF] bg-white shadow-xl p-6 sm:p-10 lg:p-12 fx-lift">
-            <div className="grid items-stretch gap-10 lg:grid-cols-12">
+            <CardFill accent="#3026B3" tone="tint" />
+            <div className="relative grid items-stretch gap-10 lg:grid-cols-12">
               {/* Portrait */}
               <div className="lg:col-span-5 relative min-h-[360px] sm:min-h-[400px] lg:h-[610px] rounded-2xl overflow-hidden border border-[#E3E5EF] group" data-cursor="image">
                 <img
@@ -84,11 +87,11 @@ export default function LeadershipPage() {
                   Architecting <span className="text-[#3026B3]">Sovereign Industrial Depth</span> for Bharat.
                 </AnimatedHeading>
 
-                <div className="mt-6 rounded-2xl border-l-4 border-[#3026B3] bg-[#FAF9F6] p-6 shadow-xs fx-lift">
-                  <blockquote className="text-base sm:text-lg font-heading italic text-[#211B72] leading-relaxed">
-                    “Aligned with the national vision of <span className="text-[#3026B3] font-semibold not-italic">Viksit Bharat 2047</span>, we are committed to building sustainable, technology-driven industrial foundations that eliminate critical external dependencies and secure multi-generational prosperity.”
+                <div className="mt-6 rounded-2xl border-l-4 border-[#FFB000] bg-[#211B72] p-6 shadow-md fx-lift">
+                  <blockquote className="text-base sm:text-lg font-heading italic text-white leading-relaxed">
+                    “Aligned with the national vision of <span className="text-[#FFC94D] font-semibold not-italic">Viksit Bharat 2047</span>, we are committed to building sustainable, technology-driven industrial foundations that eliminate critical external dependencies and secure multi-generational prosperity.”
                   </blockquote>
-                  <div className="mt-3 text-xs font-sans text-[#3026B3] font-semibold flex items-center gap-1.5">
+                  <div className="mt-3 text-xs font-sans text-[#C7C2FF] font-semibold flex items-center gap-1.5">
                     <span className="text-[#FFB000]">◆</span>
                     <span>Pradeep Kumar, Institutional Founder</span>
                   </div>
@@ -115,16 +118,21 @@ export default function LeadershipPage() {
                       color: "#15966B",
                     },
                   ].map((m) => (
-                    <div key={m.title} data-cursor="card" className="flex items-start gap-3 rounded-xl border border-[#E3E5EF] bg-[#F7F7FC] p-3.5 transition-all duration-300 hover:border-[#3026B3] fx-lift">
+                    <div
+                      key={m.title}
+                      data-cursor="card"
+                      className="group flex items-start gap-3 rounded-xl border border-l-4 p-3.5 transition-all duration-300 hover:border-[#3026B3] fx-lift"
+                      style={{ backgroundColor: `color-mix(in srgb, ${m.color} 9%, white)`, borderColor: `${m.color}40`, borderLeftColor: m.color }}
+                    >
                       <div
-                        className="flex h-8 w-8 items-center justify-center rounded-lg shrink-0 mt-0.5 transition-transform group-hover:scale-110"
-                        style={{ backgroundColor: `${m.color}15`, color: m.color }}
+                        className="flex h-8 w-8 items-center justify-center rounded-lg shrink-0 mt-0.5 text-white transition-transform group-hover:scale-110"
+                        style={{ backgroundColor: m.color }}
                       >
                         <Icon name={m.icon} width={18} height={18} />
                       </div>
                       <div>
-                        <span className="font-heading text-base text-[#211B72] block font-medium">{m.title}</span>
-                        <span className="text-xs text-[#596579] leading-relaxed block mt-0.5 font-sans">{m.desc}</span>
+                        <span className="font-heading text-base text-[#111827] block font-medium">{m.title}</span>
+                        <span className="text-xs sm:text-[13px] text-[#374151] leading-relaxed block mt-0.5 font-sans">{m.desc}</span>
                       </div>
                     </div>
                   ))}
@@ -155,17 +163,18 @@ export default function LeadershipPage() {
               <StaggerItem key={g.t}>
                 <div
                   data-cursor="card"
-                  className="group rounded-2xl border border-[#E3E5EF] bg-white p-7 flex gap-4 items-start shadow-sm cursor-card hover:border-[#3026B3] transition-all duration-300 fx-lift hover:shadow-xl h-full"
+                  className="group relative overflow-hidden rounded-2xl border border-white/10 bg-[#0D1026] p-7 flex gap-4 items-start shadow-md cursor-card hover:border-[#FFC94D] transition-all duration-300 fx-lift hover:shadow-xl h-full"
                 >
+                  <CardPhoto src={g.image} accent={g.color} />
                   <span
-                    className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl border border-[#E3E5EF] transition-transform duration-300 group-hover:scale-110 group-hover:rotate-6"
-                    style={{ backgroundColor: `${g.color}15`, color: g.color }}
+                    className="relative flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-white/10 ring-1 ring-white/20 backdrop-blur-sm transition-transform duration-300 group-hover:scale-110 group-hover:rotate-6"
+                    style={{ color: tintOnDark(g.color) }}
                   >
                     <Icon name={g.icon} width={20} height={20} />
                   </span>
-                  <div>
-                    <h3 className="font-heading text-xl text-[#211B72] font-medium group-hover:text-[#3026B3] transition-colors">{g.t}</h3>
-                    <p className="mt-2 text-xs sm:text-sm text-[#596579] leading-relaxed font-sans">{g.d}</p>
+                  <div className="relative">
+                    <h3 className="font-heading text-xl text-white font-medium group-hover:text-[#FFC94D] transition-colors">{g.t}</h3>
+                    <p className="mt-2 text-xs sm:text-sm text-slate-200 leading-relaxed font-sans">{g.d}</p>
                   </div>
                 </div>
               </StaggerItem>
@@ -191,17 +200,15 @@ export default function LeadershipPage() {
               <StaggerItem key={op.n}>
                 <div
                   data-cursor="card"
-                  className="group rounded-2xl border border-[#E3E5EF] bg-white p-6 flex flex-col justify-between shadow-sm cursor-card hover:border-[#3026B3] transition-all duration-300 fx-lift hover:shadow-xl h-full"
+                  className="group relative overflow-hidden rounded-2xl border border-white/10 bg-[#0D1026] p-6 flex flex-col justify-between shadow-md cursor-card hover:border-[#FFC94D] transition-all duration-300 fx-lift hover:shadow-xl h-full"
                 >
-                  <div>
-                    <span
-                      className="font-sans text-xs font-bold block mb-3 transition-transform duration-300 group-hover:scale-125"
-                      style={{ color: op.color }}
-                    >
+                  <CardFill accent={op.color} />
+                  <div className="relative">
+                    <span className="font-sans text-xs font-bold block mb-3 text-[#FFC94D] transition-transform duration-300 group-hover:scale-125">
                       {op.n}
                     </span>
-                    <h3 className="font-heading text-lg text-[#211B72] font-medium group-hover:text-[#3026B3] transition-colors">{op.t}</h3>
-                    <p className="mt-2 text-xs sm:text-sm text-[#596579] leading-relaxed font-sans">{op.d}</p>
+                    <h3 className="font-heading text-lg text-white font-medium group-hover:text-[#FFC94D] transition-colors">{op.t}</h3>
+                    <p className="mt-2 text-xs sm:text-sm text-white/90 leading-relaxed font-sans">{op.d}</p>
                   </div>
                 </div>
               </StaggerItem>
