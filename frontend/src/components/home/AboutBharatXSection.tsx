@@ -24,11 +24,11 @@ const corePillars = [
     subtext: "Capital Compounding & Market Expansion",
     icon: "trending-up" as const,
     image: "/assets/backgrounds/conglomerate-panorama.jpg",
-    accent: "#FFB000",
-    textAccent: "text-[#FFC94D]",
-    hoverText: "group-hover:text-[#FFC94D]",
-    tint: "from-[#B87B00]/40",
-    borderHover: "hover:border-[#FFB000]",
+    accent: "#FE7701",
+    textAccent: "text-[#FEA04D]",
+    hoverText: "group-hover:text-[#FEA04D]",
+    tint: "from-[#B75601]/40",
+    borderHover: "hover:border-[#FE7701]",
     glowClass: "fx-lift-glow-gold",
   },
   {
@@ -78,9 +78,9 @@ export function AboutBharatXSection() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
-            className="inline-flex items-center gap-2 rounded-full border border-[#FFB000]/40 bg-[#FFB000]/10 px-4 py-1 font-sans text-[11px] uppercase tracking-[0.26em] text-[#9A6200] font-bold shadow-xs cursor-default"
+            className="inline-flex items-center gap-2 rounded-full border border-[#FE7701]/40 bg-[#FE7701]/10 px-4 py-1 font-sans text-[11px] uppercase tracking-[0.26em] text-[#984701] font-bold shadow-xs cursor-default"
           >
-            <span className="h-2 w-2 rounded-full bg-[#FFB000] shadow-[0_0_8px_#FFB000] transition-transform duration-300 group-hover/header:scale-125" />
+            <span className="h-2 w-2 rounded-full bg-[#FE7701] shadow-[0_0_8px_#FE7701] transition-transform duration-300 group-hover/header:scale-125" />
             <span>WHO WE ARE</span>
           </motion.div>
 
@@ -93,7 +93,7 @@ export function AboutBharatXSection() {
             className="mt-6 font-heading text-3xl sm:text-4xl md:text-5xl lg:text-[3.25rem] font-medium leading-[1.12] tracking-tight text-[#111827] transition-colors hover:text-[#3026B3]"
           >
             Building Across India’s{" "}
-            <span className="text-[#3026B3] hover:text-[#FFB000] transition-colors">Growth Economy</span>
+            <span className="text-[#3026B3] hover:text-[#FE7701] transition-colors">Growth Economy</span>
           </motion.h2>
 
           {/* Short High-Contrast Copy */}

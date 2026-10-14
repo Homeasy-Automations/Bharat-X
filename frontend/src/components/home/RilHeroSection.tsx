@@ -166,11 +166,11 @@ export function RilHeroSection() {
             initial={{ opacity: 0, y: 14 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7 }}
-            className="mb-3.5 sm:mb-4 flex items-center gap-3 font-sans text-[11px] sm:text-[12px] uppercase tracking-[0.32em] text-[#FFB000]"
+            className="mb-3.5 sm:mb-4 flex items-center gap-3 font-sans text-[11px] sm:text-[12px] uppercase tracking-[0.32em] text-[#FE7701]"
           >
-            <span className="h-1.5 w-1.5 rounded-full bg-[#FFB000] shadow-[0_0_8px_#FFB000]" />
+            <span className="h-1.5 w-1.5 rounded-full bg-[#FE7701] shadow-[0_0_8px_#FE7701]" />
             <span>BHARATX GROUP</span>
-            <span aria-hidden className="h-px w-10 sm:w-16 bg-[#FFB000]/40" />
+            <span aria-hidden className="h-px w-10 sm:w-16 bg-[#FE7701]/40" />
           </motion.div>*/}
 
           {/* Three or four word Hero Tagline that changes dynamically with images */}
@@ -182,7 +182,7 @@ export function RilHeroSection() {
                 animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
                 exit={{ opacity: 0, y: -20, filter: "blur(4px)" }}
                 transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
-                className="font-heading text-3xl sm:text-4xl md:text-5xl lg:text-[3.25rem] xl:text-[3.85rem] font-medium leading-[1.1] tracking-tight text-white drop-shadow-[0_4px_30px_rgba(0,0,0,0.85)] min-h-[2.2em] text-balance lg:min-h-0 lg:whitespace-nowrap cursor-default transition-colors duration-300 hover:text-[#FFB000]"
+                className="font-heading text-3xl sm:text-4xl md:text-5xl lg:text-[3.25rem] xl:text-[3.85rem] font-medium leading-[1.1] tracking-tight text-white drop-shadow-[0_4px_30px_rgba(0,0,0,0.85)] min-h-[2.2em] text-balance lg:min-h-0 lg:whitespace-nowrap cursor-default transition-colors duration-300 hover:text-[#FE7701]"
               >
                 {current.heroTagline}
               </motion.h1>
@@ -194,7 +194,7 @@ export function RilHeroSection() {
               initial={{ scaleX: 0 }}
               animate={{ scaleX: 1 }}
               transition={{ duration: 0.7, delay: 0.15, ease: [0.22, 1, 0.36, 1] }}
-              className="origin-left mt-4 sm:mt-5 h-[3.5px] w-24 sm:w-32 md:w-40 rounded-full bg-[#FFB000] shadow-[0_0_12px_rgba(255,176,0,0.5)]"
+              className="origin-left mt-4 sm:mt-5 h-[3.5px] w-24 sm:w-32 md:w-40 rounded-full bg-[#FE7701] shadow-[0_0_12px_rgba(254,119,1,0.5)]"
             />
           </div>
         </div>
@@ -209,15 +209,15 @@ export function RilHeroSection() {
             data-cursor="button"
             onClick={() => setIsPaused((p) => !p)}
             aria-label={isPaused ? "Play slide rotation" : "Pause slide rotation"}
-            className="flex h-5 w-5 items-center justify-center rounded-full text-[#FFB000] hover:scale-110 transition-transform"
+            className="flex h-5 w-5 items-center justify-center rounded-full text-[#FE7701] hover:scale-110 transition-transform"
           >
             <span
-              className={`block h-2 w-2 rounded-full bg-[#FFB000] ${isPaused ? "opacity-40" : "animate-pulse"
+              className={`block h-2 w-2 rounded-full bg-[#FE7701] ${isPaused ? "opacity-40" : "animate-pulse"
                 }`}
             />
           </button>
 
-          <span className="font-sans text-[11px] font-bold text-[#FFB000] tracking-wider">
+          <span className="font-sans text-[11px] font-bold text-[#FE7701] tracking-wider">
             0{currentIndex + 1} / 0{heroSlides.length}
           </span>
 
@@ -247,7 +247,7 @@ export function RilHeroSection() {
               duration: isPaused ? 0 : SLIDE_DURATION / 1000,
               ease: "linear",
             }}
-            className="h-full bg-[#FFB000] shadow-[0_0_8px_rgba(255,176,0,0.6)]"
+            className="h-full bg-[#FE7701] shadow-[0_0_8px_rgba(254,119,1,0.6)]"
           />
         </div>
 
@@ -272,7 +272,7 @@ export function RilHeroSection() {
                 onClick={() => handleSelect(idx)}
                 aria-label={`Jump to ${s.name}`}
                 className={`h-1.5 rounded-full transition-all duration-300 ${idx === currentIndex
-                  ? "w-6 bg-[#FFB000] shadow-[0_0_8px_#FFB000]"
+                  ? "w-6 bg-[#FE7701] shadow-[0_0_8px_#FE7701]"
                   : "w-2 bg-white/30 hover:bg-white/60"
                   }`}
               />

@@ -11,7 +11,7 @@ const upcomingCards = [
     description: "Building efficient and sustainable packaging solutions.",
     image: "/assets/slides/msme.png",
     tag: "Incubating",
-    tagStyle: "border-amber-300 bg-amber-50 text-amber-800",
+    tagStyle: "border-orange-300 bg-orange-50 text-orange-800",
     accent: "#D97706",
   },
   {
@@ -44,9 +44,9 @@ export function WhatComesNextSection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5 }}
-              className="inline-flex items-center gap-2 rounded-full border border-[#FFB000]/40 bg-[#FFB000]/10 px-4 py-1 font-sans text-[11px] uppercase tracking-[0.26em] text-[#9A6200] font-bold shadow-xs hover:border-[#FFB000] transition-colors"
+              className="inline-flex items-center gap-2 rounded-full border border-[#FE7701]/40 bg-[#FE7701]/10 px-4 py-1 font-sans text-[11px] uppercase tracking-[0.26em] text-[#984701] font-bold shadow-xs hover:border-[#FE7701] transition-colors"
             >
-              <span className="h-2 w-2 rounded-full bg-[#FFB000] shadow-[0_0_8px_#FFB000] animate-pulse" />
+              <span className="h-2 w-2 rounded-full bg-[#FE7701] shadow-[0_0_8px_#FE7701] animate-pulse" />
               <span>BUILDING WHAT COMES NEXT</span>
             </motion.div>
 
@@ -58,7 +58,7 @@ export function WhatComesNextSection() {
               className="mt-6 font-heading text-3xl sm:text-4xl md:text-5xl font-medium leading-tight tracking-tight text-[#111827] hover:text-[#211B72] transition-colors duration-300"
             >
               The Next Chapter Is{" "}
-              <span className="text-[#3026B3] hover:text-[#FFB000] transition-colors duration-300">Already Taking Shape.</span>
+              <span className="text-[#3026B3] hover:text-[#FE7701] transition-colors duration-300">Already Taking Shape.</span>
             </motion.h2>
 
             <motion.p
@@ -106,7 +106,7 @@ export function WhatComesNextSection() {
 
                   {/* Text content */}
                   <div className="relative flex flex-1 flex-col p-6 sm:p-7">
-                    <h3 className="font-heading text-2xl font-medium tracking-tight text-white group-hover:text-[#FFC94D] transition-colors duration-300">
+                    <h3 className="font-heading text-2xl font-medium tracking-tight text-white group-hover:text-[#FEA04D] transition-colors duration-300">
                       {card.title}
                     </h3>
                     <p className="mt-3 text-sm text-white/90 leading-relaxed font-normal">
@@ -124,14 +124,14 @@ export function WhatComesNextSection() {
               to="/services"
               data-cursor="button"
               data-motion="true"
-              className="group inline-flex items-center justify-center gap-3 rounded-full bg-[#3026B3] hover:bg-[#211B72] text-white px-8 py-4 font-sans text-xs uppercase tracking-[0.2em] font-semibold shadow-md shadow-[#3026B3]/25 transition-all duration-300 hover:shadow-xl hover:scale-105 active:scale-95 focus-visible:ring-2 focus-visible:ring-[#FFB000]"
+              className="group inline-flex items-center justify-center gap-3 rounded-full bg-[#3026B3] hover:bg-[#211B72] text-white px-8 py-4 font-sans text-xs uppercase tracking-[0.2em] font-semibold shadow-md shadow-[#3026B3]/25 transition-all duration-300 hover:shadow-xl hover:scale-105 active:scale-95 focus-visible:ring-2 focus-visible:ring-[#FE7701]"
             >
               <span>Explore Our Future Businesses</span>
               <Icon
                 name="arrow-right"
                 width={14}
                 height={14}
-                className="transition-transform duration-300 group-hover:translate-x-1 text-[#FFB000]"
+                className="transition-transform duration-300 group-hover:translate-x-1 text-[#FE7701]"
               />
             </Link>
           </div>

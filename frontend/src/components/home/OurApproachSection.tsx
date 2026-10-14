@@ -32,9 +32,9 @@ const approachSteps: {
     label: "BUILD",
     description: "Assemble physical infrastructure, localized technology stacks, and operational leadership.",
     icon: "hard-hat",
-    accent: "#E09800",
+    accent: "#E06901",
     image: cardImage("home-02-approach-build"),
-    borderHover: "hover:border-[#FFB000]",
+    borderHover: "hover:border-[#FE7701]",
     spotlight: "rgba(241, 209, 140, 0.2)",
   },
   {
@@ -148,7 +148,7 @@ export function OurApproachSection() {
                     </div>
 
                     {/* Step Title */}
-                    <h3 className="font-sans text-sm sm:text-base font-bold tracking-[0.16em] text-white uppercase group-hover:text-[#FFC94D] transition-colors">
+                    <h3 className="font-sans text-sm sm:text-base font-bold tracking-[0.16em] text-white uppercase group-hover:text-[#FEA04D] transition-colors">
                       {step.label}
                     </h3>
 

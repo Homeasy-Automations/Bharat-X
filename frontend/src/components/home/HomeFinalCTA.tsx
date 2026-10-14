@@ -11,7 +11,7 @@ export function HomeFinalCTA() {
       <section className="relative overflow-hidden bg-gradient-to-br from-[#211B72] via-[#1D1763] to-[#120E3E] text-white py-12 sm:py-16">
         <SectionPhoto src={cardImage("home-cta-collaborate")} />
         {/* Ambient background lighting */}
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 -z-10 h-[500px] w-[500px] sm:w-[700px] rounded-full bg-gradient-to-r from-[#3026B3]/30 via-[#FFB000]/20 to-transparent blur-[140px] pointer-events-none" />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 -z-10 h-[500px] w-[500px] sm:w-[700px] rounded-full bg-gradient-to-r from-[#3026B3]/30 via-[#FE7701]/20 to-transparent blur-[140px] pointer-events-none" />
 
         <div className="container-x relative z-10">
           <div className="mx-auto max-w-4xl text-center">
@@ -21,9 +21,9 @@ export function HomeFinalCTA() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5 }}
-              className="inline-flex items-center gap-2 rounded-full border border-[#FFB000]/40 bg-[#FFB000]/15 px-4 py-1 font-sans text-[11px] uppercase tracking-[0.28em] text-[#FFB000] font-bold shadow-xs hover:bg-[#FFB000]/25 transition-colors"
+              className="inline-flex items-center gap-2 rounded-full border border-[#FE7701]/40 bg-[#FE7701]/15 px-4 py-1 font-sans text-[11px] uppercase tracking-[0.28em] text-[#FE7701] font-bold shadow-xs hover:bg-[#FE7701]/25 transition-colors"
             >
-              <span className="h-2 w-2 rounded-full bg-[#FFB000] shadow-[0_0_8px_#FFB000] animate-pulse" />
+              <span className="h-2 w-2 rounded-full bg-[#FE7701] shadow-[0_0_8px_#FE7701] animate-pulse" />
               <span>LET'S COLLABORATE</span>
             </motion.div>
 
@@ -36,7 +36,7 @@ export function HomeFinalCTA() {
               className="mt-6 font-heading text-3xl sm:text-5xl md:text-6xl lg:text-[4rem] font-medium leading-[1.1] tracking-tight text-white drop-shadow-sm hover:text-white"
             >
               Let’s Build{" "}
-              <span className="text-[#FFB000] hover:text-[#00B8D9] transition-colors duration-300">What Comes Next.</span>
+              <span className="text-[#FE7701] hover:text-[#00B8D9] transition-colors duration-300">What Comes Next.</span>
             </motion.h2>
 
             {/* Copy */}
@@ -63,7 +63,7 @@ export function HomeFinalCTA() {
                   to="/contact"
                   data-cursor="button"
                   data-motion="true"
-                  className="group inline-flex items-center justify-center gap-3 rounded-full bg-[#FFB000] hover:bg-[#e09800] text-[#111827] px-8 sm:px-10 py-4 text-[15px] font-bold shadow-xl shadow-black/20 transition-all duration-300 hover:scale-105 active:scale-95 fx-shine focus-visible:ring-2 focus-visible:ring-white"
+                  className="group inline-flex items-center justify-center gap-3 rounded-full bg-[#FE7701] hover:bg-[#e06901] text-[#111827] px-8 sm:px-10 py-4 text-[15px] font-bold shadow-xl shadow-black/20 transition-all duration-300 hover:scale-105 active:scale-95 fx-shine focus-visible:ring-2 focus-visible:ring-white"
                 >
                   <span>Partner With BharatX</span>
                   <Icon
@@ -79,7 +79,7 @@ export function HomeFinalCTA() {
                 to="/services"
                 data-cursor="button"
                 data-motion="true"
-                className="inline-flex items-center justify-center gap-2 rounded-full border border-white/30 bg-white/10 hover:bg-white/20 px-8 py-4 text-[15px] font-semibold text-white transition-all duration-300 hover:border-white shadow-xs active:scale-95 focus-visible:ring-2 focus-visible:ring-[#FFB000]"
+                className="inline-flex items-center justify-center gap-2 rounded-full border border-white/30 bg-white/10 hover:bg-white/20 px-8 py-4 text-[15px] font-semibold text-white transition-all duration-300 hover:border-white shadow-xs active:scale-95 focus-visible:ring-2 focus-visible:ring-[#FE7701]"
               >
                 <span>Explore Businesses</span>
               </Link>

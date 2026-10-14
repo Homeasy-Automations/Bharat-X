@@ -54,7 +54,7 @@ function BridgeMesh() {
           <boxGeometry args={[0.7, 1.6, 0.7]} />
           <meshStandardMaterial
             color="#0f172a"
-            emissive="#f5b84d"
+            emissive="#fea04d"
             emissiveIntensity={0.7}
             metalness={0.9}
             roughness={0.2}
@@ -62,10 +62,10 @@ function BridgeMesh() {
         </mesh>
         <mesh position={[0, 0, 0]}>
           <boxGeometry args={[0.85, 1.8, 0.85]} />
-          <meshBasicMaterial color="#f5b84d" wireframe transparent opacity={0.35} />
+          <meshBasicMaterial color="#fea04d" wireframe transparent opacity={0.35} />
         </mesh>
         <Html center distanceFactor={10} position={[0, 1.25, 0]}>
-          <span className="font-sans text-[9px] font-bold uppercase tracking-wider text-amber-950 bg-amber-200/95 px-2 py-0.5 rounded-full border border-amber-500 shadow-sm">
+          <span className="font-sans text-[9px] font-bold uppercase tracking-wider text-orange-950 bg-orange-200/95 px-2 py-0.5 rounded-full border border-orange-500 shadow-sm">
             BHARATX GROUP
           </span>
         </Html>
@@ -74,7 +74,7 @@ function BridgeMesh() {
       {/* The Central Illuminated Bridge Cables */}
       <Line
         points={[[-2.2, 0.5, 0], [0, 0.1, 0], [2.2, 0.5, 0]]}
-        color="#f5b84d"
+        color="#fea04d"
         lineWidth={3.0}
         transparent
         opacity={0.9}
@@ -100,7 +100,7 @@ function BridgeMesh() {
           <octahedronGeometry args={[0.38, 0]} />
           <meshStandardMaterial
             color="#ffffff"
-            emissive="#f5b84d"
+            emissive="#fea04d"
             emissiveIntensity={2.0}
             roughness={0.1}
             metalness={0.95}
@@ -117,9 +117,9 @@ function BridgeMesh() {
         </Html>
       </group>
 
-      <pointLight position={[0, 0, 0.5]} intensity={18} color="#f5b84d" distance={6} />
+      <pointLight position={[0, 0, 0.5]} intensity={18} color="#fea04d" distance={6} />
       <pointLight position={[-2.2, 0, 0.5]} intensity={12} color="#0284c7" distance={5} />
-      <pointLight position={[2.2, 0, 0.5]} intensity={12} color="#f5b84d" distance={5} />
+      <pointLight position={[2.2, 0, 0.5]} intensity={12} color="#fea04d" distance={5} />
     </group>
   );
 }

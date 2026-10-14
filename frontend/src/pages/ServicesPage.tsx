@@ -78,7 +78,7 @@ const businessPortfolio: BusinessVertical[] = [
     description: "Building initiatives around education, skills and social development.",
     status: "Coming Soon",
     image: "/assets/backgrounds/impact-story.jpg",
-    accent: "#E09800",
+    accent: "#E06901",
     icon: "graduation-cap",
   },
   {
@@ -182,7 +182,7 @@ export default function ServicesPage() {
               data-cursor="text"
             >
               Building Across India’s{" "}
-              <span className="text-[#FFB000] hover:text-[#ffd166] transition-colors duration-300">Growth Economy.</span>
+              <span className="text-[#FE7701] hover:text-[#fead67] transition-colors duration-300">Growth Economy.</span>
             </motion.h1>
 
             {/* CTA */}
@@ -197,7 +197,7 @@ export default function ServicesPage() {
                   to="/contact"
                   data-cursor="button"
                   data-motion="true"
-                  className="group inline-flex items-center justify-center gap-2.5 rounded-full bg-[#FFB000] hover:bg-[#e09800] text-[#111827] px-8 py-4 text-[15px] font-bold shadow-xl shadow-black/20 transition-all duration-300 fx-shine active:scale-95"
+                  className="group inline-flex items-center justify-center gap-2.5 rounded-full bg-[#FE7701] hover:bg-[#e06901] text-[#111827] px-8 py-4 text-[15px] font-bold shadow-xl shadow-black/20 transition-all duration-300 fx-shine active:scale-95"
                 >
                   <span>Partner With Us</span>
                   <Icon
@@ -258,7 +258,7 @@ export default function ServicesPage() {
                       {/* Category Tag */}
                       <div className="absolute top-3 left-3 right-3 flex items-center justify-between">
                         <span className="inline-flex items-center gap-1.5 rounded-full bg-black/60 backdrop-blur-md px-3 py-1 font-sans text-[10px] uppercase tracking-wider text-white border border-white/20">
-                          <DuotoneIcon name={biz.icon} size={13} className="shrink-0 text-[#FFC94D]" />
+                          <DuotoneIcon name={biz.icon} size={13} className="shrink-0 text-[#FEA04D]" />
                           <span className="truncate max-w-[150px]">{biz.category}</span>
                         </span>
 
@@ -267,7 +267,7 @@ export default function ServicesPage() {
                           className={`shrink-0 whitespace-nowrap rounded-full px-2.5 py-0.5 text-[10px] font-sans uppercase tracking-wider font-semibold border backdrop-blur-md ${
                             isActive
                               ? "bg-emerald-950/75 text-emerald-300 border-emerald-400/40"
-                              : "bg-amber-950/75 text-amber-300 border-amber-400/40"
+                              : "bg-orange-950/75 text-orange-300 border-orange-400/40"
                           }`}
                         >
                           {biz.status}
@@ -285,7 +285,7 @@ export default function ServicesPage() {
                     {/* Card Content */}
                     <div className="relative p-6 flex flex-col justify-between flex-1">
                       <div>
-                        <h3 className="font-heading text-xl sm:text-2xl font-medium text-white group-hover:text-[#FFC94D] transition-colors duration-300">
+                        <h3 className="font-heading text-xl sm:text-2xl font-medium text-white group-hover:text-[#FEA04D] transition-colors duration-300">
                           {biz.name}
                         </h3>
 
@@ -302,7 +302,7 @@ export default function ServicesPage() {
                             target="_blank"
                             rel="noopener noreferrer"
                             data-cursor="link"
-                            className="inline-flex items-center gap-1.5 font-sans text-xs font-bold uppercase tracking-wider text-white/90 hover:text-[#FFC94D] transition-colors group/link fx-underline"
+                            className="inline-flex items-center gap-1.5 font-sans text-xs font-bold uppercase tracking-wider text-white/90 hover:text-[#FEA04D] transition-colors group/link fx-underline"
                           >
                             <span>Visit Website</span>
                             <Icon
@@ -313,8 +313,8 @@ export default function ServicesPage() {
                             />
                           </a>
                         ) : (
-                          <span className="font-sans text-xs uppercase tracking-wider text-[#FFC94D] font-semibold flex items-center gap-1.5">
-                            <span className="h-1.5 w-1.5 rounded-full bg-[#FFB000] animate-pulse" />
+                          <span className="font-sans text-xs uppercase tracking-wider text-[#FEA04D] font-semibold flex items-center gap-1.5">
+                            <span className="h-1.5 w-1.5 rounded-full bg-[#FE7701] animate-pulse" />
                             <span>Coming Soon</span>
                           </span>
                         )}
@@ -363,7 +363,7 @@ export default function ServicesPage() {
                   data-cursor="card"
                   className="inline-flex flex-col items-center rounded-2xl border border-[#3026B3]/40 bg-gradient-to-r from-[#211B72] via-[#3026B3] to-[#211B72] px-8 py-4 text-white shadow-xl transition-all duration-300 hover:scale-105 fx-glow-indigo"
                 >
-                  <span className="font-sans text-[10px] uppercase tracking-[0.28em] text-[#FFB000] font-bold">
+                  <span className="font-sans text-[10px] uppercase tracking-[0.28em] text-[#FE7701] font-bold">
                     THE ECOSYSTEM CORE
                   </span>
                   <span className="font-heading text-2xl sm:text-3xl font-medium tracking-tight mt-0.5">
@@ -389,10 +389,10 @@ export default function ServicesPage() {
                         size={36}
                         className="mx-auto mb-3 transition-transform duration-300 group-hover:scale-110 group-hover:rotate-6"
                       />
-                      <span className="font-sans text-xs uppercase tracking-[0.24em] font-bold block text-[#FFC94D]">
+                      <span className="font-sans text-xs uppercase tracking-[0.24em] font-bold block text-[#FEA04D]">
                         BUILD
                       </span>
-                      <h4 className="font-heading text-xl font-medium text-white mt-1 group-hover:text-[#FFC94D] transition-colors">
+                      <h4 className="font-heading text-xl font-medium text-white mt-1 group-hover:text-[#FEA04D] transition-colors">
                         New Businesses
                       </h4>
                       <p className="mt-2 text-xs sm:text-[13px] text-white/90 leading-relaxed">
@@ -416,10 +416,10 @@ export default function ServicesPage() {
                         size={36}
                         className="mx-auto mb-3 transition-transform duration-300 group-hover:scale-110 group-hover:rotate-6"
                       />
-                      <span className="font-sans text-xs uppercase tracking-[0.24em] font-bold block text-[#FFC94D]">
+                      <span className="font-sans text-xs uppercase tracking-[0.24em] font-bold block text-[#FEA04D]">
                         OPERATE
                       </span>
-                      <h4 className="font-heading text-xl font-medium text-white mt-1 group-hover:text-[#FFC94D] transition-colors">
+                      <h4 className="font-heading text-xl font-medium text-white mt-1 group-hover:text-[#FEA04D] transition-colors">
                         Core Companies
                       </h4>
                       <p className="mt-2 text-xs sm:text-[13px] text-white/90 leading-relaxed">
@@ -443,10 +443,10 @@ export default function ServicesPage() {
                         size={36}
                         className="mx-auto mb-3 transition-transform duration-300 group-hover:scale-110 group-hover:rotate-6"
                       />
-                      <span className="font-sans text-xs uppercase tracking-[0.24em] font-bold block text-[#FFC94D]">
+                      <span className="font-sans text-xs uppercase tracking-[0.24em] font-bold block text-[#FEA04D]">
                         INVEST
                       </span>
-                      <h4 className="font-heading text-xl font-medium text-white mt-1 group-hover:text-[#FFC94D] transition-colors">
+                      <h4 className="font-heading text-xl font-medium text-white mt-1 group-hover:text-[#FEA04D] transition-colors">
                         Ventures
                       </h4>
                       <p className="mt-2 text-xs sm:text-[13px] text-white/90 leading-relaxed">
@@ -469,7 +469,7 @@ export default function ServicesPage() {
                 data-cursor="card"
                 className="rounded-2xl border border-[#15966B]/40 bg-gradient-to-r from-[#0F766E] via-[#15966B] to-[#0F766E] p-6 text-center text-white shadow-xl transition-all duration-300 hover:scale-[1.02] fx-glow-gold"
               >
-                <span className="font-sans text-[10px] uppercase tracking-[0.28em] text-[#FFB000] font-bold block mb-1">
+                <span className="font-sans text-[10px] uppercase tracking-[0.28em] text-[#FE7701] font-bold block mb-1">
                   NATIONAL VALUE CREATION
                 </span>
                 <h3 className="font-heading text-2xl sm:text-3xl font-medium tracking-tight text-white transition-colors duration-300 hover:text-gold-400">
@@ -488,8 +488,8 @@ export default function ServicesPage() {
       <SectionTransition withDivider className="relative overflow-hidden bg-white py-12 sm:py-16 border-b border-[#E3E5EF]">
         <div className="container-x relative z-10">
           <div className="max-w-3xl text-center mx-auto mb-14">
-            <div className="inline-flex items-center gap-2 rounded-full border border-[#FFB000]/40 bg-[#FFB000]/10 px-4 py-1 font-sans text-[11px] uppercase tracking-[0.26em] text-[#9A6200] font-bold shadow-xs mb-4">
-              <span className="h-2 w-2 rounded-full bg-[#FFB000]" />
+            <div className="inline-flex items-center gap-2 rounded-full border border-[#FE7701]/40 bg-[#FE7701]/10 px-4 py-1 font-sans text-[11px] uppercase tracking-[0.26em] text-[#984701] font-bold shadow-xs mb-4">
+              <span className="h-2 w-2 rounded-full bg-[#FE7701]" />
               <span>WHAT’S NEXT</span>
             </div>
 
@@ -520,7 +520,7 @@ export default function ServicesPage() {
                       <span className="text-xs font-sans text-white/80">2026+</span>
                     </div>
 
-                    <h3 className="font-heading text-xl font-medium text-white group-hover:text-[#FFC94D] transition-colors duration-300">
+                    <h3 className="font-heading text-xl font-medium text-white group-hover:text-[#FEA04D] transition-colors duration-300">
                       {item.title}
                     </h3>
 
@@ -541,13 +541,13 @@ export default function ServicesPage() {
         className="relative overflow-hidden bg-gradient-to-br from-[#211B72] via-[#1D1763] to-[#120E3E] text-white py-12 sm:py-16"
       >
         {/* Ambient radial lighting */}
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 -z-10 h-[500px] w-[500px] sm:w-[700px] rounded-full bg-gradient-to-r from-[#3026B3]/30 via-[#FFB000]/20 to-transparent blur-[140px] pointer-events-none" />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 -z-10 h-[500px] w-[500px] sm:w-[700px] rounded-full bg-gradient-to-r from-[#3026B3]/30 via-[#FE7701]/20 to-transparent blur-[140px] pointer-events-none" />
 
         <div className="container-x relative z-10">
           <div className="max-w-4xl mx-auto text-center">
             {/* Eyebrow */}
-            <div className="inline-flex items-center gap-2 rounded-full border border-[#FFB000]/40 bg-[#FFB000]/15 px-4 py-1 font-sans text-[11px] uppercase tracking-[0.28em] text-[#FFB000] font-bold shadow-xs mb-6">
-              <span className="h-2 w-2 rounded-full bg-[#FFB000] shadow-[0_0_8px_#FFB000]" />
+            <div className="inline-flex items-center gap-2 rounded-full border border-[#FE7701]/40 bg-[#FE7701]/15 px-4 py-1 font-sans text-[11px] uppercase tracking-[0.28em] text-[#FE7701] font-bold shadow-xs mb-6">
+              <span className="h-2 w-2 rounded-full bg-[#FE7701] shadow-[0_0_8px_#FE7701]" />
               <span>PARTNER WITH US</span>
             </div>
 
@@ -568,7 +568,7 @@ export default function ServicesPage() {
                   to="/contact"
                   data-cursor="button"
                   data-motion="true"
-                  className="group inline-flex items-center justify-center gap-3 rounded-full bg-[#FFB000] hover:bg-[#e09800] text-[#111827] px-8 sm:px-9 py-4 text-[15px] font-bold shadow-xl shadow-black/20 transition-all duration-300 fx-shine active:scale-95"
+                  className="group inline-flex items-center justify-center gap-3 rounded-full bg-[#FE7701] hover:bg-[#e06901] text-[#111827] px-8 sm:px-9 py-4 text-[15px] font-bold shadow-xl shadow-black/20 transition-all duration-300 fx-shine active:scale-95"
                 >
                   <span>Partner With Us</span>
                   <Icon

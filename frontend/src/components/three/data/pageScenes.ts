@@ -28,7 +28,7 @@ export const pageScenes: Record<string, PageSceneConfig> = {
     lighting: {
       ambient: 0.85,
       keyColor: "#ffffff",
-      rimColor: "#f5b84d",
+      rimColor: "#fea04d",
       pointIntensity: 18,
     },
   },
@@ -100,7 +100,7 @@ export const pageScenes: Record<string, PageSceneConfig> = {
     lighting: {
       ambient: 0.85,
       keyColor: "#ffffff",
-      rimColor: "#f5b84d",
+      rimColor: "#fea04d",
       pointIntensity: 20,
     },
   },
@@ -124,7 +124,7 @@ export const pageScenes: Record<string, PageSceneConfig> = {
     lighting: {
       ambient: 0.85,
       keyColor: "#ffffff",
-      rimColor: "#f5b84d",
+      rimColor: "#fea04d",
       pointIntensity: 18,
     },
   },

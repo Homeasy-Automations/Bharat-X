@@ -94,7 +94,7 @@ const roadmapMilestones = [
     phase: "Phase 02",
     timeline: "Q4 2026",
     status: "Upcoming Milestone",
-    badgeColor: "text-amber-400 border-amber-400/30 bg-amber-400/10",
+    badgeColor: "text-orange-400 border-orange-400/30 bg-orange-400/10",
     title: "Sovereign Pre-Training on Domestic Green Compute Clusters",
     description:
       "Initiating pre-training runs on our dedicated high-density GPU/NPU cluster powered by 100% renewable domestic power. Benchmarking against standard global frontier baselines.",
@@ -312,7 +312,7 @@ export default function BharatXLabsPage() {
               <div data-cursor="card" className="rounded-3xl border border-slate-200/90 dark:border-white/10 bg-white dark:bg-night-850 p-8 shadow-xl fx-lift">
                 <div className="flex items-center gap-3 border-b border-slate-200/80 dark:border-white/10 pb-4">
                   <span className="h-3 w-3 rounded-full bg-rose-500/80" />
-                  <span className="h-3 w-3 rounded-full bg-amber-500/80" />
+                  <span className="h-3 w-3 rounded-full bg-orange-500/80" />
                   <span className="h-3 w-3 rounded-full bg-emerald-500/80" />
                   <span className="ml-2 font-sans text-xs text-ink-400">bharatx_labs_protocol_manifesto.md</span>
                 </div>

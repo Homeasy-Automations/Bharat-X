@@ -11,13 +11,13 @@ import { NIGHT, WHITE, hexToRgb, hue, mix, rgb, rgba, whiteContrast } from "../.
  * group-hover:rotate-6, fx-icon-pop…) go in `className` as before.
  */
 
-/** Gold (the brand highlight) for the inner fill, except on amber/gold tiles where it would vanish. */
-const GOLD = "#FFC94D";
+/** The brand highlight (a light tint of the logo orange) for the inner fill, except on orange tiles where it would vanish. */
+const HIGHLIGHT = "#FEA04D";
 const WARM_HUES: [number, number] = [20, 60];
 
 function tileColours(accent: string) {
   const base = hexToRgb(accent);
-  // Darken light accents (cyan, gold) toward navy just enough for the white glyph to read (3:1, graphics).
+  // Darken light accents (cyan, orange) toward navy just enough for the white glyph to read (3:1, graphics).
   let t = 0;
   while (whiteContrast(mix(base, NIGHT, t)) < 3 && t < 0.9) t += 0.05;
   const mid = mix(base, NIGHT, t);
@@ -28,7 +28,7 @@ function tileColours(accent: string) {
     "--fi-base": rgb(mid),
     "--fi-lo": rgb(mix(mid, NIGHT, 0.35)),
     "--fi-glow": rgba(base, 0.5),
-    "--fi-sec": warm ? "rgba(255, 255, 255, 0.42)" : GOLD,
+    "--fi-sec": warm ? "rgba(255, 255, 255, 0.42)" : HIGHLIGHT,
   };
 }
 

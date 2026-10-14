@@ -40,8 +40,8 @@ function PortalMesh() {
       <mesh ref={portalRing2} position={[0, 0, 0.2]}>
         <torusGeometry args={[1.8, 0.035, 16, 90]} />
         <meshStandardMaterial
-          color="#f5b84d"
-          emissive="#f5b84d"
+          color="#fea04d"
+          emissive="#fea04d"
           emissiveIntensity={0.8}
           metalness={0.85}
           roughness={0.2}
@@ -89,7 +89,7 @@ function PortalMesh() {
       </mesh>
 
       <pointLight position={[0, 0, 0.5]} intensity={18} color="#38bdf8" distance={8} />
-      <pointLight position={[0, 0, -1.2]} intensity={22} color="#f5b84d" distance={10} />
+      <pointLight position={[0, 0, -1.2]} intensity={22} color="#fea04d" distance={10} />
     </group>
   );
 }

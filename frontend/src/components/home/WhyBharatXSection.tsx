@@ -63,7 +63,7 @@ export function WhyBharatXSection() {
           </div>
 
           <h2 className="mt-4 font-heading text-3xl sm:text-4xl md:text-6xl font-medium leading-tight tracking-tight text-[#111827] transition-colors hover:text-[#3026B3]">
-            More Than Capital.<br /> <span className="text-[#3026B3] hover:text-[#FFB000] transition-colors">More Than Strategy.</span>
+            More Than Capital.<br /> <span className="text-[#3026B3] hover:text-[#FE7701] transition-colors">More Than Strategy.</span>
           </h2>
 
           <p className="mt-3 text-base text-[#596579] max-w-2xl leading-relaxed">
@@ -84,7 +84,7 @@ export function WhyBharatXSection() {
                 {/* Gold top-border that draws in on hover */}
                 <span
                   aria-hidden
-                  className="absolute inset-x-0 top-0 z-10 h-[3px] w-0 bg-[#FFC94D] transition-all duration-400 ease-out group-hover:w-full"
+                  className="absolute inset-x-0 top-0 z-10 h-[3px] w-0 bg-[#FEA04D] transition-all duration-400 ease-out group-hover:w-full"
                 />
 
                 <div className="relative">
@@ -95,7 +95,7 @@ export function WhyBharatXSection() {
                     className="mb-5 transition-transform duration-500 group-hover:rotate-[360deg]"
                   />
 
-                  <h3 className="font-heading text-xl sm:text-2xl font-medium tracking-tight text-white group-hover:text-[#FFC94D] transition-colors">
+                  <h3 className="font-heading text-xl sm:text-2xl font-medium tracking-tight text-white group-hover:text-[#FEA04D] transition-colors">
                     {pillar.title}
                   </h3>
 
@@ -108,7 +108,7 @@ export function WhyBharatXSection() {
                   <span className="transition-transform duration-300 group-hover:translate-x-1">
                     Pillar 0{idx + 1}
                   </span>
-                  <span className="h-2 w-2 rounded-full bg-[#FFC94D] transition-transform duration-300 group-hover:scale-125" />
+                  <span className="h-2 w-2 rounded-full bg-[#FEA04D] transition-transform duration-300 group-hover:scale-125" />
                 </div>
               </div>
             </StaggerItem>
@@ -124,15 +124,15 @@ export function WhyBharatXSection() {
           className="fx-shine group/banner mt-12 sm:mt-14 relative overflow-hidden rounded-3xl border border-[#3026B3]/30 bg-gradient-to-r from-[#211B72] via-[#3026B3] to-[#211B72] p-8 sm:p-12 md:p-14 text-center text-white shadow-2xl transition-all duration-300 hover:shadow-[0_20px_50px_rgba(48,38,179,0.35)]"
         >
           {/* Subtle gold line accent */}
-          <div className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-transparent via-[#FFB000] to-transparent opacity-80 transition-all duration-300 group-hover/banner:opacity-100" />
+          <div className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-transparent via-[#FE7701] to-transparent opacity-80 transition-all duration-300 group-hover/banner:opacity-100" />
 
-          <p className="font-sans text-[11px] uppercase tracking-[0.28em] text-[#FFB000] font-bold mb-3">
+          <p className="font-sans text-[11px] uppercase tracking-[0.28em] text-[#FE7701] font-bold mb-3">
             Operating Thesis
           </p>
 
           <blockquote className="font-heading text-2xl sm:text-3xl md:text-4xl lg:text-[2.6rem] font-medium leading-tight tracking-tight text-white max-w-4xl mx-auto drop-shadow-sm transition-transform duration-300 group-hover/banner:scale-[1.01]">
             “We don’t just back businesses.{" "}
-            <span className="text-[#FFB000]">We help build them.</span>”
+            <span className="text-[#FE7701]">We help build them.</span>”
           </blockquote>
 
           <p className="mt-4 text-xs sm:text-sm text-slate-200 max-w-xl mx-auto leading-relaxed">

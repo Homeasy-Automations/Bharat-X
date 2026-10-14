@@ -113,7 +113,7 @@ export function Navbar() {
                 <div className="flex items-center gap-5 text-white/70">
                   <Link
                     to="/services"
-                    className="hover:text-[#FFB000] transition-colors flex items-center gap-1.5"
+                    className="hover:text-[#FE7701] transition-colors flex items-center gap-1.5"
                   >
                     <DuotoneIcon name="layers" size={12} />
                     <span>Our Services</span>
@@ -121,14 +121,14 @@ export function Navbar() {
 
                   <Link
                     to="/about"
-                    className="hover:text-[#FFB000] transition-colors"
+                    className="hover:text-[#FE7701] transition-colors"
                   >
                     Governance
                   </Link>
 
                   <Link
                     to="/contact"
-                    className="hover:text-[#FFB000] transition-colors text-[#FFB000] font-medium"
+                    className="hover:text-[#FE7701] transition-colors text-[#FE7701] font-medium"
                   >
                     Quick Inquire →
                   </Link>
@@ -256,8 +256,8 @@ function NavItem({
               ? "text-[#3026B3] font-semibold"
               : "text-[#111827] hover:text-[#3026B3] hover:bg-[#3026B3]/8"
             : active
-              ? "text-[#FFB000] font-semibold drop-shadow-[0_1px_3px_rgba(0,0,0,0.5)]"
-              : "text-white drop-shadow-[0_1px_2px_rgba(0,0,0,0.4)] hover:text-[#FFB000] hover:bg-white/10",
+              ? "text-[#FE7701] font-semibold drop-shadow-[0_1px_3px_rgba(0,0,0,0.5)]"
+              : "text-white drop-shadow-[0_1px_2px_rgba(0,0,0,0.4)] hover:text-[#FE7701] hover:bg-white/10",
         )}
       >
         {active && (
@@ -277,7 +277,7 @@ function NavItem({
             "shrink-0 transition-transform duration-300 group-hover:scale-110 fx-icon-pop",
             scrolled
               ? active ? "text-[#3026B3]" : "text-[#596579] group-hover:text-[#3026B3]"
-              : active ? "text-[#FFB000]" : "text-[#FFB000] group-hover:text-white",
+              : active ? "text-[#FE7701]" : "text-[#FE7701] group-hover:text-white",
           )}
         />
         <span className="whitespace-nowrap">{item.label}</span>
@@ -289,7 +289,7 @@ function NavItem({
             strokeWidth={2}
             className={cn(
               "transition-transform duration-200 opacity-70 group-hover:opacity-100",
-              isMegaOpen ? "rotate-180 text-[#FFB000]" : "",
+              isMegaOpen ? "rotate-180 text-[#FE7701]" : "",
             )}
           />
         )}
@@ -297,7 +297,7 @@ function NavItem({
           aria-hidden
           className={cn(
             "absolute inset-x-3 -bottom-0.5 h-0.5 origin-center transition-transform duration-300 rounded-full",
-            scrolled ? "bg-[#3026B3]" : "bg-[#FFB000]",
+            scrolled ? "bg-[#3026B3]" : "bg-[#FE7701]",
             active ? "scale-x-100" : "scale-x-0 group-hover:scale-x-100",
           )}
         />
@@ -317,7 +317,7 @@ function MegaPanel({ kind, className }: { kind: Exclude<MegaKey, null>; classNam
 function ServicesMega() {
   const [preview, setPreview] = useState(0);
   const activeSvc = servicesData[preview] ?? servicesData[0];
-  const accentColors = ["#3026B3", "#FFB000", "#00B8D9", "#15966B", "#211B72", "#3026B3"];
+  const accentColors = ["#3026B3", "#FE7701", "#00B8D9", "#15966B", "#211B72", "#3026B3"];
 
   return (
     <div className="container-x grid grid-cols-[1fr_340px] gap-8 py-8">
@@ -380,7 +380,7 @@ function ServicesMega() {
         ))}
         <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent" />
         <div className="absolute bottom-3 left-4 right-4">
-          <span className="font-sans text-[10px] uppercase tracking-[0.2em] text-[#FFB000] block">
+          <span className="font-sans text-[10px] uppercase tracking-[0.2em] text-[#FE7701] block">
             {activeSvc.shortLabel}
           </span>
           <span className="text-white text-xs line-clamp-1 mt-0.5 font-medium">

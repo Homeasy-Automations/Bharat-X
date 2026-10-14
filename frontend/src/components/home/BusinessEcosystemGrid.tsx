@@ -71,9 +71,9 @@ const ecosystemCards: EcosystemCard[] = [
     company: "BharatX Foundation",
     description: "Education, skills and community programmes that widen opportunity across India.",
     to: "/services#foundation",
-    accent: "#E09800",
+    accent: "#E06901",
     accentText: "text-[#B45309]",
-    borderHover: "hover:border-[#E09800]",
+    borderHover: "hover:border-[#E06901]",
   },
   {
     id: "manuf",
@@ -167,7 +167,7 @@ export function BusinessEcosystemGrid() {
                     </span>
 
                     {card.isUpcoming ? (
-                      <span className="inline-block rounded-md border border-amber-300 bg-amber-50 px-2 py-0.5 font-sans text-[9px] font-bold uppercase tracking-wider text-amber-800">
+                      <span className="inline-block rounded-md border border-orange-300 bg-orange-50 px-2 py-0.5 font-sans text-[9px] font-bold uppercase tracking-wider text-orange-800">
                         Upcoming
                       </span>
                     ) : card.logo ? (
@@ -182,7 +182,7 @@ export function BusinessEcosystemGrid() {
                   </div>
 
                   {/* Company Name */}
-                  <h3 className="font-heading text-xl sm:text-[1.35rem] font-medium tracking-tight text-white group-hover:text-[#FFC94D] transition-colors">
+                  <h3 className="font-heading text-xl sm:text-[1.35rem] font-medium tracking-tight text-white group-hover:text-[#FEA04D] transition-colors">
                     {card.company}
                   </h3>
 
@@ -194,11 +194,11 @@ export function BusinessEcosystemGrid() {
 
                 {/* Bottom: Action & Arrow */}
                 <div className="relative mt-6 flex items-center justify-between pt-4 border-t border-white/20">
-                  <span className="font-sans text-[10.5px] uppercase tracking-[0.16em] text-white/85 font-semibold group-hover:text-[#FFC94D] transition-colors">
+                  <span className="font-sans text-[10.5px] uppercase tracking-[0.16em] text-white/85 font-semibold group-hover:text-[#FEA04D] transition-colors">
                     {isExternal ? "Visit Website" : card.isUpcoming ? "Learn More" : "Explore Entity"}
                   </span>
                   <div
-                    className={`flex h-8 w-8 items-center justify-center rounded-full bg-white border border-white ${card.accentText} transition-all duration-300 group-hover:bg-[#FFC94D] group-hover:border-[#FFC94D] group-hover:text-[#211B72] group-hover:translate-x-0.5 group-hover:-translate-y-0.5 shadow-xs`}
+                    className={`flex h-8 w-8 items-center justify-center rounded-full bg-white border border-white ${card.accentText} transition-all duration-300 group-hover:bg-[#FEA04D] group-hover:border-[#FEA04D] group-hover:text-[#211B72] group-hover:translate-x-0.5 group-hover:-translate-y-0.5 shadow-xs`}
                   >
                     <Icon name="arrow-up-right" width={14} height={14} strokeWidth={2.2} />
                   </div>

@@ -32,7 +32,7 @@ function CompassMesh() {
         <sphereGeometry args={[0.55, 32, 32]} />
         <meshStandardMaterial
           color="#0f172a"
-          emissive="#f5b84d"
+          emissive="#fea04d"
           emissiveIntensity={0.8}
           metalness={0.92}
           roughness={0.15}
@@ -41,7 +41,7 @@ function CompassMesh() {
 
       {/* Central Vision Crest */}
       <Html center distanceFactor={10} position={[0, 0, 0.6]}>
-        <span className="font-sans text-[9px] font-extrabold uppercase tracking-[0.25em] text-amber-950 bg-amber-300/90 px-2 py-0.5 rounded-full border border-amber-500 shadow-sm">
+        <span className="font-sans text-[9px] font-extrabold uppercase tracking-[0.25em] text-orange-950 bg-orange-300/90 px-2 py-0.5 rounded-full border border-orange-500 shadow-sm">
           VISION
         </span>
       </Html>
@@ -49,7 +49,7 @@ function CompassMesh() {
       {/* Outer Azimuth Degree Dial Ring */}
       <mesh ref={azimuthRing} rotation={[0, 0, 0]}>
         <torusGeometry args={[2.2, 0.035, 16, 120]} />
-        <meshStandardMaterial color="#f5b84d" metalness={0.85} roughness={0.2} />
+        <meshStandardMaterial color="#fea04d" metalness={0.85} roughness={0.2} />
       </mesh>
 
       {/* Inner Astrolabe Ring */}
@@ -64,8 +64,8 @@ function CompassMesh() {
         <mesh position={[0, 1.3, 0]}>
           <coneGeometry args={[0.18, 1.4, 4]} />
           <meshStandardMaterial
-            color="#f5b84d"
-            emissive="#f5b84d"
+            color="#fea04d"
+            emissive="#fea04d"
             emissiveIntensity={1.2}
             metalness={0.9}
             roughness={0.15}
@@ -77,7 +77,7 @@ function CompassMesh() {
           <octahedronGeometry args={[0.22, 0]} />
           <meshStandardMaterial
             color="#ffffff"
-            emissive="#f5b84d"
+            emissive="#fea04d"
             emissiveIntensity={2.5}
           />
         </mesh>
@@ -103,7 +103,7 @@ function CompassMesh() {
 
       {/* Direction Cardinal Labels */}
       {[
-        { t: "N", pos: [0, 2.55, 0], col: "#f5b84d" },
+        { t: "N", pos: [0, 2.55, 0], col: "#fea04d" },
         { t: "S", pos: [0, -2.55, 0], col: "#64748b" },
         { t: "E", pos: [2.55, 0, 0], col: "#64748b" },
         { t: "W", pos: [-2.55, 0, 0], col: "#64748b" },

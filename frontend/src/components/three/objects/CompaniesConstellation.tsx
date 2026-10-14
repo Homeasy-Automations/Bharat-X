@@ -33,7 +33,7 @@ function ConstellationMesh() {
         <icosahedronGeometry args={[0.7, 1]} />
         <meshStandardMaterial
           color="#0f172a"
-          emissive="#f5b84d"
+          emissive="#fea04d"
           emissiveIntensity={0.8}
           roughness={0.15}
           metalness={0.9}

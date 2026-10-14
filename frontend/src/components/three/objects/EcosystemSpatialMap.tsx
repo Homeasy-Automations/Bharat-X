@@ -18,7 +18,7 @@ const capabilityNodes: CapabilityNode[] = [
   { label: "INFRASTRUCTURE", pos: [1.6, 1.2, -0.5], color: "#38bdf8" },
   { label: "PRECISION CASTER", pos: [1.9, -1.0, 0.6], color: "#3b82f6" },
   { label: "AGRO-SCIENCE", pos: [-0.4, 1.8, 0.4], color: "#10b981" },
-  { label: "VENTURE CAPITAL", pos: [0.3, -1.8, -0.4], color: "#f5b84d" },
+  { label: "VENTURE CAPITAL", pos: [0.3, -1.8, -0.4], color: "#fea04d" },
 ];
 
 function SpatialMapMesh({
@@ -43,7 +43,7 @@ function SpatialMapMesh({
         <octahedronGeometry args={[0.7, 0]} />
         <meshStandardMaterial
           color="#0f172a"
-          emissive="#f5b84d"
+          emissive="#fea04d"
           emissiveIntensity={0.8}
           roughness={0.15}
           metalness={0.9}
@@ -54,7 +54,7 @@ function SpatialMapMesh({
         <meshBasicMaterial color="#0284c7" wireframe transparent opacity={0.35} />
       </mesh>
       <Html center distanceFactor={10} position={[0, 0.9, 0]}>
-        <span className="rounded-full px-2.5 py-0.5 font-sans text-[9px] font-bold text-amber-900 bg-amber-200/90 border border-amber-400 shadow-sm">
+        <span className="rounded-full px-2.5 py-0.5 font-sans text-[9px] font-bold text-orange-900 bg-orange-200/90 border border-orange-400 shadow-sm">
           BHARATX GROUP
         </span>
       </Html>
