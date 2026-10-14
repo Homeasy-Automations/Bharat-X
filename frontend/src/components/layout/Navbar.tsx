@@ -112,7 +112,7 @@ export function Navbar() {
 
                 <div className="flex items-center gap-5 text-white/70">
                   <Link
-                    to="/services"
+                    to="/verticals"
                     className="hover:text-[#FE7701] transition-colors flex items-center gap-1.5"
                   >
                     <DuotoneIcon name="layers" size={12} />
@@ -327,7 +327,7 @@ function ServicesMega() {
           return (
             <Link
               key={svc.id}
-              to={`/services#${svc.id}`}
+              to={`/verticals#${svc.id}`}
               onMouseEnter={() => setPreview(i)}
               onFocus={() => setPreview(i)}
               className="group flex items-start gap-3.5 rounded-xl border border-transparent p-3.5 transition-all duration-300 hover:border-[#E3E5EF] hover:bg-[#F7F7FC] hover:shadow-sm"

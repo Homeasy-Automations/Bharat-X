@@ -103,7 +103,7 @@ export function MobileMenu({ open, onClose }: { open: boolean; onClose: () => vo
                   return (
                     <Link
                       key={svc.id}
-                      to={`/services#${svc.id}`}
+                      to={`/verticals#${svc.id}`}
                       onClick={onClose}
                       data-cursor="card"
                       className="flex flex-col gap-1 rounded-xl border border-l-4 border-[color:var(--tile-border)] border-l-[color:var(--tile-accent)] p-3 text-left transition-all hover:border-[#3026B3] fx-lift shadow-xs"
@@ -127,7 +127,7 @@ export function MobileMenu({ open, onClose }: { open: boolean; onClose: () => vo
 
             <div className="mt-auto pt-10">
               <Link
-                to="/services"
+                to="/verticals"
                 onClick={onClose}
                 data-cursor="button"
                 className="group flex items-center justify-center gap-2 rounded-full bg-[#3026B3] px-6 py-3.5 text-sm font-semibold text-white shadow-md shadow-[#3026B3]/25 transition-all hover:bg-[#211B72] fx-press fx-shine dark:bg-gold-500 dark:text-night-950 dark:hover:bg-gold-400"

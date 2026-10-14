@@ -9,7 +9,6 @@ import { CardFill } from "../common/CardSurface";
 interface EcosystemCard {
   id: string;
   sector: string;
-  company: string;
   description: string;
   to: string;
   logo?: string;
@@ -17,16 +16,14 @@ interface EcosystemCard {
   /** Darker accent shade for the arrow icon on its white circle. */
   accentText: string;
   borderHover: string;
-  isUpcoming?: boolean;
 }
 
 const ecosystemCards: EcosystemCard[] = [
   {
     id: "labs",
     sector: "Innovation & Research",
-    company: "BharatX Labs",
     description: "Deep-tech climate R&D, open environmental telemetry and applied research.",
-    to: "/services#labs",
+    to: "/verticals#labs",
     logo: "/Bharatxlabs_logo.svg",
     accent: "#0D9488",
     accentText: "text-[#0F766E]",
@@ -35,20 +32,28 @@ const ecosystemCards: EcosystemCard[] = [
   {
     id: "ventures",
     sector: "Capital & Venture Building",
-    company: "BharatX Ventures",
     description: "Patient balance-sheet capital, venture architecture and generational enterprise scaling.",
-    to: "/services#ventures",
+    to: "/verticals#ventures",
     logo: "/Ventures_logo.png",
     accent: "#211B72",
     accentText: "text-[#211B72]",
     borderHover: "hover:border-[#211B72]",
   },
   {
+    id: "tech-ai",
+    sector: "Deep-Tech & AI",
+    description: "Enterprise artificial intelligence platforms, sovereign compute and automation systems.",
+    to: "/verticals#tech-ai",
+    logo: "/Ai-Experts_logo.png",
+    accent: "#4B40D4",
+    accentText: "text-[#4B40D4]",
+    borderHover: "hover:border-[#4B40D4]",
+  },
+  {
     id: "agri",
     sector: "Agriculture & Food",
-    company: "BharatX Agro",
     description: "Origin sourcing, certified processing and high-integrity agri-commodity supply chains.",
-    to: "/services#agriculture",
+    to: "/verticals#agriculture",
     logo: "/Bharatxagro_logo.png",
     accent: "#15966B",
     accentText: "text-[#15966B]",
@@ -57,9 +62,8 @@ const ecosystemCards: EcosystemCard[] = [
   {
     id: "infra",
     sector: "Infrastructure & Engineering",
-    company: "BharatX Infratech",
     description: "Arterial transport, civil engineering and sovereign industrial infrastructure.",
-    to: "/services#infrastructure",
+    to: "/verticals#infrastructure",
     logo: "/Infra_logo1.png",
     accent: "#3026B3",
     accentText: "text-[#3026B3]",
@@ -68,9 +72,8 @@ const ecosystemCards: EcosystemCard[] = [
   {
     id: "foundation",
     sector: "Education & Social Impact",
-    company: "BharatX Foundation",
     description: "Education, skills and community programmes that widen opportunity across India.",
-    to: "/services#foundation",
+    to: "/verticals#foundation",
     accent: "#E06901",
     accentText: "text-[#B45309]",
     borderHover: "hover:border-[#E06901]",
@@ -78,45 +81,21 @@ const ecosystemCards: EcosystemCard[] = [
   {
     id: "manuf",
     sector: "Industrial Manufacturing",
-    company: "Casters Global",
     description: "Precision mobility solutions, heavy-duty industrial casters and automation engineering.",
-    to: "/services#manufacturing",
+    to: "/verticals#manufacturing",
     logo: "/Casters_logo.png",
     accent: "#00B8D9",
     accentText: "text-[#008299]",
     borderHover: "hover:border-[#00B8D9]",
   },
   {
-    id: "tech-ai",
-    sector: "Technology & AI",
-    company: "Aixperts Labs",
-    description: "Enterprise artificial intelligence platforms, sovereign compute and automation systems.",
-    to: "/services#tech-ai",
-    logo: "/Ai-Experts_logo.png",
-    accent: "#4B40D4",
-    accentText: "text-[#4B40D4]",
-    borderHover: "hover:border-[#4B40D4]",
-  },
-  {
     id: "packaging",
     sector: "Packaging & Materials",
-    company: "BharatX Enterprises",
     description: "High-efficiency sustainable packaging materials, corrugated boxes and industrial protection.",
-    to: "/services#packaging",
+    to: "/verticals#packaging",
     accent: "#D97706",
     accentText: "text-[#B45309]",
     borderHover: "hover:border-[#D97706]",
-  },
-  {
-    id: "sustainability",
-    sector: "Sustainability & Circular Economy",
-    company: "Coming Soon",
-    description: "Industrial resource recovery, closed-loop waste management and zero-effluent technologies.",
-    to: "#what-comes-next",
-    accent: "#059669",
-    accentText: "text-[#047857]",
-    borderHover: "hover:border-[#059669]",
-    isUpcoming: true,
   },
 ];
 
@@ -125,8 +104,7 @@ export function BusinessEcosystemGrid() {
     <SectionTransition
       id="businesses"
       aria-label="Our Business Ecosystem"
-      className="relative overflow-hidden bg-white py-12 sm:py-16 border-b border-[#E3E5EF]"
-      withDivider
+      className="relative overflow-hidden bg-white py-8 sm:py-12"
     >
       <div className="container-x relative z-10">
         {/* Header */}
@@ -141,12 +119,12 @@ export function BusinessEcosystemGrid() {
           </h2>
 
           <p className="mt-3 text-base text-[#596579] max-w-2xl leading-relaxed">
-            Nine foundational verticals powering modern India across physical infrastructure, real-economy production, intelligent technology, and strategic capital.
+            Eight foundational verticals powering modern India across physical infrastructure, real-economy production, intelligent technology, and strategic capital.
           </p>
         </div>
 
         {/* 4×2 Compact High-Contrast Grid with Stagger & TiltCard */}
-        <Stagger className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5">
+        <Stagger className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5">
           {ecosystemCards.map((card) => {
             const isExternal = card.to.startsWith("http");
 
@@ -159,18 +137,14 @@ export function BusinessEcosystemGrid() {
               >
                 <CardFill accent={card.accent} />
 
-                {/* Top: Sector Tag & Logo / Badge */}
+                {/* Top: Vertical Name & Logo */}
                 <div className="relative">
-                  <div className="flex items-center justify-between gap-2 mb-3.5">
-                    <span className="inline-block font-sans text-[10px] font-bold uppercase tracking-[0.2em] px-2.5 py-0.5 rounded-md bg-white/15 text-white">
+                  <div className="flex items-start justify-between gap-3">
+                    <h3 className="font-heading text-xl sm:text-[1.35rem] font-medium leading-snug tracking-tight text-white group-hover:text-[#FEA04D] transition-colors">
                       {card.sector}
-                    </span>
+                    </h3>
 
-                    {card.isUpcoming ? (
-                      <span className="inline-block rounded-md border border-orange-300 bg-orange-50 px-2 py-0.5 font-sans text-[9px] font-bold uppercase tracking-wider text-orange-800">
-                        Upcoming
-                      </span>
-                    ) : card.logo ? (
+                    {card.logo ? (
                       <div className="h-8 w-8 rounded-lg bg-white p-1 border border-white/60 flex items-center justify-center shrink-0 shadow-xs transition-transform duration-300 group-hover:scale-110 fx-icon-pop">
                         <img
                           src={card.logo}
@@ -181,11 +155,6 @@ export function BusinessEcosystemGrid() {
                     ) : null}
                   </div>
 
-                  {/* Company Name */}
-                  <h3 className="font-heading text-xl sm:text-[1.35rem] font-medium tracking-tight text-white group-hover:text-[#FEA04D] transition-colors">
-                    {card.company}
-                  </h3>
-
                   {/* One-Line Description */}
                   <p className="mt-2.5 text-xs sm:text-[13px] leading-relaxed text-white/90 font-normal">
                     {card.description}
@@ -195,7 +164,7 @@ export function BusinessEcosystemGrid() {
                 {/* Bottom: Action & Arrow */}
                 <div className="relative mt-6 flex items-center justify-between pt-4 border-t border-white/20">
                   <span className="font-sans text-[10.5px] uppercase tracking-[0.16em] text-white/85 font-semibold group-hover:text-[#FEA04D] transition-colors">
-                    {isExternal ? "Visit Website" : card.isUpcoming ? "Learn More" : "Explore Entity"}
+                    {isExternal ? "Visit Website" : "Explore Entity"}
                   </span>
                   <div
                     className={`flex h-8 w-8 items-center justify-center rounded-full bg-white border border-white ${card.accentText} transition-all duration-300 group-hover:bg-[#FEA04D] group-hover:border-[#FEA04D] group-hover:text-[#211B72] group-hover:translate-x-0.5 group-hover:-translate-y-0.5 shadow-xs`}

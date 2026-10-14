@@ -58,7 +58,7 @@ function CompanyProfile({ company }: { company: (typeof companies)[number] }) {
   return (
     <>
       {/* ── HERO ────────────────────────────────────────────── */}
-      <SectionTransition divider={false} className="relative flex min-h-[86vh] items-end overflow-hidden pb-16 pt-36 md:pb-20">
+      <SectionTransition className="relative flex min-h-[86vh] items-end overflow-hidden pb-16 pt-36 md:pb-20">
         <img
           src={company.heroImage}
           alt={`${company.name} — ${company.category}`}
@@ -162,7 +162,7 @@ function CompanyProfile({ company }: { company: (typeof companies)[number] }) {
       </SectionTransition>
 
       {/* ── ABOUT ───────────────────────────────────────────── */}
-      <SectionTransition divider className="py-12 sm:py-16">
+      <SectionTransition className="py-8 sm:py-12">
         <div className="container-x grid gap-12 lg:grid-cols-[0.85fr_1.15fr]">
           <div className="lg:sticky lg:top-28 lg:self-start">
             <SectionHeader
@@ -194,7 +194,7 @@ function CompanyProfile({ company }: { company: (typeof companies)[number] }) {
       </SectionTransition>
 
       {/* ── CAPABILITIES ─────────────────────────────────────── */}
-      <SectionTransition divider className="border-t border-white/5 bg-night-850/50 py-12 sm:py-16">
+      <SectionTransition className="bg-night-850/50 py-8 sm:py-12">
         <div className="container-x">
           <SectionHeader
             icon="cog"
@@ -235,7 +235,7 @@ function CompanyProfile({ company }: { company: (typeof companies)[number] }) {
       />
 
       {/* ── APPLICATIONS ─────────────────────────────────────── */}
-      <SectionTransition divider className="py-12 sm:py-16">
+      <SectionTransition className="py-8 sm:py-12">
         <div className="container-x">
           <SectionHeader
             icon="boxes"
@@ -274,7 +274,7 @@ function CompanyProfile({ company }: { company: (typeof companies)[number] }) {
       </SectionTransition>
 
       {/* ── FOCUS + SHOWCASE 3D ──────────────────────────────── */}
-      <SectionTransition divider className="relative overflow-hidden border-t border-white/5 bg-night-950/70 py-12 sm:py-16">
+      <SectionTransition className="relative overflow-hidden bg-night-950/70 py-8 sm:py-12">
         <div ref={showcaseRef}>
           <div aria-hidden className="grid-bg grid-bg-fade absolute inset-0 opacity-40" />
           <div className="container-x relative grid items-center gap-12 lg:grid-cols-2">
@@ -340,7 +340,7 @@ function CompanyProfile({ company }: { company: (typeof companies)[number] }) {
       </SectionTransition>
 
       {/* ── HOW WE WORK ──────────────────────────────────────── */}
-      <SectionTransition divider className="py-12 sm:py-16">
+      <SectionTransition className="py-8 sm:py-12">
         <div className="container-x">
           <SectionHeader
             icon="workflow"
@@ -373,7 +373,7 @@ function CompanyProfile({ company }: { company: (typeof companies)[number] }) {
       </SectionTransition>
 
       {/* ── VISION ───────────────────────────────────────────── */}
-      <SectionTransition divider={false} className="noise relative overflow-hidden border-t border-white/5 bg-night-950/60 py-12 sm:py-16">
+      <SectionTransition className="noise relative overflow-hidden bg-night-950/60 py-8 sm:py-12">
         <div
           aria-hidden
           className="absolute left-1/2 top-0 h-40 w-[40rem] -translate-x-1/2 rounded-full blur-3xl"
@@ -402,7 +402,7 @@ function CompanyProfile({ company }: { company: (typeof companies)[number] }) {
       </SectionTransition>
 
       {/* ── RELATED ──────────────────────────────────────────── */}
-      <SectionTransition divider className="py-12 sm:py-16">
+      <SectionTransition className="py-8 sm:py-12">
         <div className="container-x">
           <SectionHeader
             icon="orbit"
@@ -415,7 +415,7 @@ function CompanyProfile({ company }: { company: (typeof companies)[number] }) {
 
       {/* ── WEBSITE VIEWER ───────────────────────────────────── */}
       {site && (
-        <SectionTransition divider className="border-t border-white/5 bg-night-850/50 py-12 sm:py-16">
+        <SectionTransition className="bg-night-850/50 py-8 sm:py-12">
           <div className="container-x">
             <div className="flex flex-wrap items-end justify-between gap-6">
               <SectionHeader

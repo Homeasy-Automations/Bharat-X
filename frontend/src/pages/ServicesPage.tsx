@@ -48,6 +48,18 @@ const businessPortfolio: BusinessVertical[] = [
     icon: "landmark",
   },
   {
+    id: "tech-ai",
+    category: "Deep-Tech & AI",
+    name: "Aixperts Labs",
+    description: "Building AI, automation and digital solutions for modern businesses.",
+    status: "Active",
+    websiteUrl: "https://aixpertslabs.com",
+    logo: "/Ai-Experts_logo.png",
+    image: "/companies/aixperts-labs/hero.jpg",
+    accent: "#4B40D4",
+    icon: "cpu",
+  },
+  {
     id: "agriculture",
     category: "Agriculture & Food",
     name: "BharatX Agro",
@@ -92,18 +104,6 @@ const businessPortfolio: BusinessVertical[] = [
     image: "/companies/casters-global/hero.jpg",
     accent: "#00B8D9",
     icon: "cog",
-  },
-  {
-    id: "tech-ai",
-    category: "Technology & AI",
-    name: "Aixperts Labs",
-    description: "Building AI, automation and digital solutions for modern businesses.",
-    status: "Active",
-    websiteUrl: "https://aixpertslabs.com",
-    logo: "/Ai-Experts_logo.png",
-    image: "/companies/aixperts-labs/hero.jpg",
-    accent: "#4B40D4",
-    icon: "cpu",
   },
   {
     id: "packaging",
@@ -154,13 +154,13 @@ export default function ServicesPage() {
     title: "Our Businesses | BharatX Group — Building Across India's Growth Economy",
     description:
       "BharatX Group builds and operates businesses across infrastructure, agriculture, manufacturing, technology, packaging and sustainability — supported by capital, venture building and social impact initiatives.",
-    path: "/services",
+    path: "/verticals",
   });
 
   return (
     <main className="w-full min-h-screen bg-[#FAF9F6] text-[#111827]">
       {/* ── 01. HERO (Our Businesses — Building Across India's Growth Economy) ── */}
-      <section className="relative overflow-hidden min-h-[90vh] lg:min-h-screen w-full flex items-end justify-start pt-32 sm:pt-36 md:pt-40 pb-16 sm:pb-20 lg:pb-24 border-b border-[#E3E5EF]">
+      <section className="relative overflow-hidden min-h-[90vh] lg:min-h-screen w-full flex items-end justify-start pt-32 sm:pt-36 md:pt-40 pb-16 sm:pb-20 lg:pb-24">
         {/* Full-bleed background panorama */}
         <div className="absolute inset-0 z-0 overflow-hidden">
           <img
@@ -214,7 +214,7 @@ export default function ServicesPage() {
       </section>
 
       {/* ── 02. BUSINESS PORTFOLIO (Our Business Ecosystem — 8 Verticals Grid) ── */}
-      <SectionTransition withDivider className="relative overflow-hidden bg-white py-12 sm:py-16 border-b border-[#E3E5EF]">
+      <SectionTransition className="relative overflow-hidden bg-white py-8 sm:py-12">
         <div className="container-x relative z-10">
           <div className="max-w-3xl mb-14">
             <div className="inline-flex items-center gap-2 rounded-full border border-[#3026B3]/25 bg-[#3026B3]/8 px-4 py-1 font-sans text-[11px] uppercase tracking-[0.26em] text-[#3026B3] font-bold shadow-xs mb-4 hover:border-[#3026B3] transition-colors">
@@ -265,8 +265,8 @@ export default function ServicesPage() {
                         {/* Status Badge */}
                         <span
                           className={`shrink-0 whitespace-nowrap rounded-full px-2.5 py-0.5 text-[10px] font-sans uppercase tracking-wider font-semibold border backdrop-blur-md ${isActive
-                              ? "bg-emerald-950/75 text-emerald-300 border-emerald-400/40"
-                              : "bg-orange-950/75 text-orange-300 border-orange-400/40"
+                            ? "bg-emerald-950/75 text-emerald-300 border-emerald-400/40"
+                            : "bg-orange-950/75 text-orange-300 border-orange-400/40"
                             }`}
                         >
                           {biz.status}
@@ -335,7 +335,7 @@ export default function ServicesPage() {
       </SectionTransition>
 
       {/* ── 03. HOW THEY CONNECT (Different Businesses. One Ecosystem.) ─────────── */}
-      <SectionTransition withDivider className="relative overflow-hidden bg-[#FAF9F6] py-12 sm:py-16 border-b border-[#E3E5EF]">
+      <SectionTransition className="relative overflow-hidden bg-[#FAF9F6] py-8 sm:py-12">
         <div className="container-x relative z-10">
           <div className="max-w-3xl text-center mx-auto mb-14">
             <div className="inline-flex items-center gap-2 rounded-full border border-[#3026B3]/25 bg-[#3026B3]/8 px-4 py-1 font-sans text-[11px] uppercase tracking-[0.26em] text-[#3026B3] font-bold shadow-xs mb-4">
@@ -484,7 +484,7 @@ export default function ServicesPage() {
       </SectionTransition>
 
       {/* ── 04. WHAT’S NEXT (The Portfolio Is Growing — 3 Small Tags/Cards) ──── */}
-      <SectionTransition withDivider className="relative overflow-hidden bg-white py-12 sm:py-16 border-b border-[#E3E5EF]">
+      <SectionTransition className="relative overflow-hidden bg-white py-8 sm:py-12">
         <div className="container-x relative z-10">
           <div className="max-w-3xl text-center mx-auto mb-14">
             <div className="inline-flex items-center gap-2 rounded-full border border-[#FE7701]/40 bg-[#FE7701]/10 px-4 py-1 font-sans text-[11px] uppercase tracking-[0.26em] text-[#984701] font-bold shadow-xs mb-4">
@@ -537,7 +537,7 @@ export default function ServicesPage() {
       {/* ── 05. FINAL CTA (Interested in Building With BharatX?) ─────────────── */}
       <SectionTransition
         backdrop={<SectionPhoto src={cardImage("services-cta-partner")} />}
-        className="relative overflow-hidden bg-gradient-to-br from-[#211B72] via-[#1D1763] to-[#120E3E] text-white py-12 sm:py-16"
+        className="relative overflow-hidden bg-gradient-to-br from-[#211B72] via-[#1D1763] to-[#120E3E] text-white py-8 sm:py-12"
       >
         {/* Ambient radial lighting */}
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 -z-10 h-[500px] w-[500px] sm:w-[700px] rounded-full bg-gradient-to-r from-[#3026B3]/30 via-[#FE7701]/20 to-transparent blur-[140px] pointer-events-none" />

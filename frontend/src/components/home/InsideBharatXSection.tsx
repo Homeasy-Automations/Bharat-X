@@ -6,8 +6,8 @@ import { FeatureIcon } from "../common/FeatureIcon";
 
 export function InsideBharatXSection() {
   return (
-    <SectionTransition withDivider id="inside-bharatx" aria-label="Inside BharatX - Insights and Careers">
-      <section className="relative overflow-hidden bg-[#FAF9F6] py-12 sm:py-16 border-b border-[#E3E5EF]">
+    <SectionTransition id="inside-bharatx" aria-label="Inside BharatX - Insights and Careers">
+      <section className="relative overflow-hidden bg-[#FAF9F6] py-8 sm:py-12">
         <div className="container-x relative z-10">
           {/* Header */}
           <div className="max-w-3xl mb-8 sm:mb-10">

@@ -25,7 +25,7 @@ const pressReleases: PressRelease[] = [
       "BharatX Group announces expansion of sovereign AI compute nodes and integrated freight corridors across 5 key states.",
     excerpt:
       "A strategic capital deployment consolidating domestic physical connectivity with indigenous multilingual automation to enhance India's industrial manufacturing competitiveness.",
-    link: "/services#tech-ai",
+    link: "/verticals#tech-ai",
     image: "/assets/backgrounds/infrastructure-real.jpg",
   },
   {
@@ -37,7 +37,7 @@ const pressReleases: PressRelease[] = [
       "Operationalisation of high-performance multilingual neural decision models across 22 regional Indian languages.",
     excerpt:
       "Delivering voice, document triage, and automated telemetry directly to enterprise operations without reliance on foreign black-box dependencies.",
-    link: "/services#tech-ai",
+    link: "/verticals#tech-ai",
     image: "/assets/backgrounds/ai-circuit.jpg",
   },
   {
@@ -49,7 +49,7 @@ const pressReleases: PressRelease[] = [
       "Farm-gate cold chain traceability network expands across 1,200+ certified growers and 5,000+ MT commodities.",
     excerpt:
       "Delivering origin-authenticated agricultural commodities and unbroken temperature-controlled corridors directly into global export channels.",
-    link: "/services#agriculture",
+    link: "/verticals#agriculture",
     image: "/assets/backgrounds/hero-field.jpg",
   },
   {
@@ -61,7 +61,7 @@ const pressReleases: PressRelease[] = [
       "Commissioning of automated high-tolerance robotic production line for specialized industrial hardware.",
     excerpt:
       "Sub-micron metallurgical casting and certified fatigue-resistant components engineered to stringent global aerospace and defense standards.",
-    link: "/services#manufacturing",
+    link: "/verticals#manufacturing",
     image: "/assets/backgrounds/craft-metal.jpg",
   },
 ];
@@ -71,8 +71,8 @@ export function InstitutionalNewsroom() {
   const listItems = pressReleases.slice(1);
 
   return (
-    <SectionTransition withDivider>
-      <section className="relative overflow-hidden py-12 sm:py-16 border-t border-[#E3E5EF] bg-[#F7F7FC] text-[#111827] dark:bg-night-950 dark:text-white">
+    <SectionTransition>
+      <section className="relative overflow-hidden py-8 sm:py-12 bg-[#F7F7FC] text-[#111827] dark:bg-night-950 dark:text-white">
         <div className="container-x relative z-10">
           {/* Header */}
           <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-6 mb-7 sm:mb-10">

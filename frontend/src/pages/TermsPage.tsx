@@ -65,7 +65,7 @@ export default function TermsPage() {
         visualPlacement="right"
         backgroundImage="/assets/backgrounds/sovereign-conglomerate.jpg"
       />
-      <SectionTransition divider={false} className="py-12 sm:py-16">
+      <SectionTransition className="py-8 sm:py-12">
         <div className="container-x max-w-3xl">
           <Reveal>
             <p className="mb-10 rounded-xl border border-[#FE7701]/40 border-l-4 border-l-[#FE7701] bg-[color-mix(in_srgb,#FE7701_14%,white)] p-5 text-[13.5px] leading-relaxed text-[#374151] fx-lift transition-all">

@@ -12,7 +12,7 @@ export function RilServicesSection() {
   const activeService = servicesData[activeIndex];
 
   return (
-    <SectionTransition withDivider id="services" aria-label="BharatX Core Services & Sectors">
+    <SectionTransition id="services" aria-label="BharatX Core Services & Sectors">
       <section className="relative w-full bg-night-950 text-white overflow-hidden">
         {/* ── DESKTOP RIL-STYLE FULL-BLEED INTERACTIVE CROSSFADE CONTAINER ── */}
         <div className="hidden lg:relative lg:flex lg:min-h-[820px] lg:h-[90vh] lg:max-h-[960px] w-full items-center">

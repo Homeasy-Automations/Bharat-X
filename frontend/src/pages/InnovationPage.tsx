@@ -89,9 +89,9 @@ export default function InnovationPage() {
   });
 
   return (
-    <main className="min-h-screen bg-[#FAF9F6] text-[#111827] pt-24 pb-20">
+    <main className="min-h-screen bg-[#FAF9F6] text-[#111827] pt-24 pb-8">
       {/* ── 1. RIL-STYLE INNOVATION HERO ────────────────────────────────── */}
-      <section className="relative overflow-hidden py-20 sm:py-28 border-b border-[#E3E5EF]">
+      <section className="relative overflow-hidden py-12 sm:py-16">
         <div className="absolute inset-0 z-0 overflow-hidden">
           <img
             src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=2400&q=85"
@@ -121,7 +121,7 @@ export default function InnovationPage() {
       </section>
 
       {/* ── 2. METRICS BANNER ───────────────────────────────────────────── */}
-      <SectionTransition className="border-b border-[#E3E5EF] py-10 bg-[#FAF9F6]">
+      <SectionTransition className="py-8 bg-[#FAF9F6]">
         <div className="container-x">
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 text-center">
             <div data-cursor="card" className="p-4 rounded-2xl bg-[#3026B3] shadow-md transition-all duration-300 fx-lift hover:shadow-lg">
@@ -153,7 +153,7 @@ export default function InnovationPage() {
       </SectionTransition>
 
       {/* ── 3. SIX INNOVATION PILLARS ───────────────────────────────────── */}
-      <SectionTransition withDivider className="py-12 sm:py-16 border-b border-[#E3E5EF]">
+      <SectionTransition className="py-8 sm:py-12">
         <div className="container-x">
           <div className="max-w-2xl mb-7 sm:mb-10">
             <span className="font-sans text-[10.5px] uppercase tracking-[0.24em] text-[#3026B3] font-semibold">
@@ -207,7 +207,7 @@ export default function InnovationPage() {
       </SectionTransition>
 
       {/* ── 4. ROADMAP TIMELINE ─────────────────────────────────────────── */}
-      <SectionTransition withDivider className="relative overflow-hidden py-12 sm:py-16 border-t border-[#E3E5EF]">
+      <SectionTransition className="relative overflow-hidden py-8 sm:py-12">
         <div className="container-x relative z-10">
           <div className="max-w-2xl mb-14">
             <span className="font-sans text-[10.5px] uppercase tracking-[0.24em] text-[#3026B3] font-semibold">

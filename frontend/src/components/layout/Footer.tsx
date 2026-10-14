@@ -40,7 +40,7 @@ import FooterOrbScene from "../three/FooterOrbScene";
               />
             </Link>
             <Link
-              to="/services"
+              to="/verticals"
               className="inline-flex w-full sm:w-auto items-center justify-center gap-3 rounded-full border border-[#E3E5EF] bg-white px-8 py-4 text-[15px] font-semibold text-[#111827] shadow-sm transition-all duration-300 hover:border-[#3026B3] hover:text-[#3026B3] hover:shadow-md dark:border-white/15 dark:bg-white/[0.06] dark:text-white dark:hover:border-[#FE7701]"
             >
               Explore Services

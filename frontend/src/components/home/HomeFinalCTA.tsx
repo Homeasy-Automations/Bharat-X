@@ -8,7 +8,7 @@ import { SectionTransition } from "../motion/SectionTransition";
 export function HomeFinalCTA() {
   return (
     <SectionTransition aria-label="Final Call to Action">
-      <section className="relative overflow-hidden bg-gradient-to-br from-[#211B72] via-[#1D1763] to-[#120E3E] text-white py-12 sm:py-16">
+      <section className="relative overflow-hidden bg-gradient-to-br from-[#211B72] via-[#1D1763] to-[#120E3E] text-white py-8 sm:py-12">
         <SectionPhoto src={cardImage("home-cta-collaborate")} />
         {/* Ambient background lighting */}
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 -z-10 h-[500px] w-[500px] sm:w-[700px] rounded-full bg-gradient-to-r from-[#3026B3]/30 via-[#FE7701]/20 to-transparent blur-[140px] pointer-events-none" />
@@ -76,7 +76,7 @@ export function HomeFinalCTA() {
               </MagneticButton>
 
               <Link
-                to="/services"
+                to="/verticals"
                 data-cursor="button"
                 data-motion="true"
                 className="inline-flex items-center justify-center gap-2 rounded-full border border-white/30 bg-white/10 hover:bg-white/20 px-8 py-4 text-[15px] font-semibold text-white transition-all duration-300 hover:border-white shadow-xs active:scale-95 focus-visible:ring-2 focus-visible:ring-[#FE7701]"

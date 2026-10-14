@@ -49,7 +49,7 @@ export function NotFoundPage() {
             </Link>
           </MagneticButton>
           <Link
-            to="/services"
+            to="/verticals"
             data-cursor="button"
             className="inline-flex w-full sm:w-auto items-center justify-center gap-3 rounded-full border border-white/15 px-8 py-4 text-[15px] font-semibold text-ink-100 transition-colors hover:border-white/35 hover:bg-white/5 fx-lift"
           >
@@ -57,7 +57,7 @@ export function NotFoundPage() {
           </Link>
         </div>
         <div className="mt-16 flex flex-wrap items-center justify-center gap-x-6 gap-y-3 font-sans text-[10px] uppercase tracking-[0.24em] text-ink-600">
-          <Link to="/services" data-cursor="link" className="transition-colors hover:text-ink-300 fx-underline">Services</Link>
+          <Link to="/verticals" data-cursor="link" className="transition-colors hover:text-ink-300 fx-underline">Services</Link>
           <span aria-hidden>·</span>
           <Link to="/industries" data-cursor="link" className="transition-colors hover:text-ink-300 fx-underline">Industries</Link>
           <span aria-hidden>·</span>

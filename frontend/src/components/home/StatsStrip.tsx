@@ -11,7 +11,7 @@ const stats = [
 export function StatsStrip() {
   return (
     <SectionTransition>
-      <section className="relative overflow-hidden border-y border-[#E3E5EF] bg-[#FAF9F6] py-12 md:py-16">
+      <section className="relative overflow-hidden bg-[#FAF9F6] py-8 md:py-12">
         <div className="container-x relative z-10">
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 md:gap-12">
             {stats.map((item, index) => (

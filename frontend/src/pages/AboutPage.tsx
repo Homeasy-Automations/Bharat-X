@@ -106,7 +106,7 @@ const tier1EcosystemNodes: EcosystemNode[] = [
     sector: "Innovation",
     company: "BharatX Labs",
     logo: "/Bharatxlabs_logo.svg",
-    link: "/services#labs",
+    link: "/verticals#labs",
     accent: "#0D9488",
     badge: "Active",
   },
@@ -114,7 +114,7 @@ const tier1EcosystemNodes: EcosystemNode[] = [
     sector: "Venture Building",
     company: "BharatX Ventures",
     logo: "/Ventures_logo.png",
-    link: "/services#ventures",
+    link: "/verticals#ventures",
     accent: "#211B72",
     badge: "Active",
   },
@@ -122,7 +122,7 @@ const tier1EcosystemNodes: EcosystemNode[] = [
     sector: "Agriculture",
     company: "BharatX Agro",
     logo: "/Bharatxagro_logo.png",
-    link: "/services#agriculture",
+    link: "/verticals#agriculture",
     accent: "#15966B",
     badge: "Active",
   },
@@ -130,14 +130,14 @@ const tier1EcosystemNodes: EcosystemNode[] = [
     sector: "Infrastructure",
     company: "BharatX Infratech",
     logo: "/Infra_logo1.png",
-    link: "/services#infrastructure",
+    link: "/verticals#infrastructure",
     accent: "#3026B3",
     badge: "Active",
   },
   {
     sector: "Social Impact",
     company: "BharatX Foundation",
-    link: "/services#foundation",
+    link: "/verticals#foundation",
     accent: "#E06901",
     badge: "Active",
   },
@@ -148,7 +148,7 @@ const tier2EcosystemNodes: EcosystemNode[] = [
     sector: "Technology",
     company: "Aixperts Labs",
     logo: "/Ai-Experts_logo.png",
-    link: "/services#tech-ai",
+    link: "/verticals#tech-ai",
     accent: "#4B40D4",
     badge: "Active",
   },
@@ -156,14 +156,14 @@ const tier2EcosystemNodes: EcosystemNode[] = [
     sector: "Manufacturing",
     company: "Casters Global",
     logo: "/Casters_logo.png",
-    link: "/services#manufacturing",
+    link: "/verticals#manufacturing",
     accent: "#00B8D9",
     badge: "Active",
   },
   {
     sector: "Packaging",
     company: "BharatX Enterprises",
-    link: "/services#packaging",
+    link: "/verticals#packaging",
     accent: "#D97706",
     badge: "Active",
   },
@@ -342,7 +342,7 @@ export default function AboutPage() {
   return (
     <main className="w-full min-h-screen bg-[#FAF9F6] text-[#111827]">
       {/* ── 01. HERO (Building Enterprises for a Growing Bharat) ─────── */}
-      <section className="relative overflow-hidden min-h-[92vh] lg:min-h-screen w-full flex items-end justify-start pt-32 sm:pt-36 md:pt-40 pb-16 sm:pb-20 lg:pb-24 border-b border-[#E3E5EF]">
+      <section className="relative overflow-hidden min-h-[92vh] lg:min-h-screen w-full flex items-end justify-start pt-32 sm:pt-36 md:pt-40 pb-16 sm:pb-20 lg:pb-24">
         {/* Wide-format cinematic transformation image filling the entire frame */}
         <div className="absolute inset-0 z-0">
           <img
@@ -370,8 +370,8 @@ export default function AboutPage() {
       </section>
 
       {/* ── 02. WHO WE ARE (More Than a Group of Companies) ───────────── */}
-      <SectionTransition withDivider>
-        <section className="relative overflow-hidden bg-white py-12 sm:py-16 border-b border-[#E3E5EF]">
+      <SectionTransition>
+        <section className="relative overflow-hidden bg-white py-8 sm:py-12">
           <div className="container-x relative z-10">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
               <div className="lg:col-span-6">
@@ -474,8 +474,8 @@ export default function AboutPage() {
       </SectionTransition>
 
       {/* ── 03. WHY BHARATX EXISTS (Built Around India's Opportunity) ─── */}
-      <SectionTransition withDivider>
-        <section className="relative overflow-hidden bg-[#FAF9F6] py-12 sm:py-16 border-b border-[#E3E5EF]">
+      <SectionTransition>
+        <section className="relative overflow-hidden bg-[#FAF9F6] py-8 sm:py-12">
           <div className="container-x relative z-10">
             {/* Enhanced 2-Column Split Header eliminates empty dead space */}
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start mb-12 sm:mb-16">
@@ -580,8 +580,8 @@ export default function AboutPage() {
       </SectionTransition>
 
       {/* ── GROUP LEADERSHIP (The Visionary Behind the Standard) ─────────── */}
-      <SectionTransition withDivider>
-        <section className="relative overflow-hidden bg-white py-12 sm:py-16 border-b border-[#E3E5EF]">
+      <SectionTransition>
+        <section className="relative overflow-hidden bg-white py-8 sm:py-12">
           <div className="container-x relative z-10">
             <div className="max-w-3xl mb-12 sm:mb-16">
               <div className="inline-flex items-center gap-2 rounded-full border border-[#3026B3]/25 bg-[#3026B3]/8 px-4 py-1 font-sans text-[11px] uppercase tracking-[0.26em] text-[#3026B3] font-bold shadow-xs mb-4">
@@ -707,8 +707,8 @@ export default function AboutPage() {
       </SectionTransition>
 
       {/* ── 04. OUR BUSINESS ECOSYSTEM (One Group. Multiple Growth Engines) ─ */}
-      <SectionTransition withDivider>
-        <section className="relative overflow-hidden bg-white py-12 sm:py-16 border-b border-[#E3E5EF]">
+      <SectionTransition>
+        <section className="relative overflow-hidden bg-white py-8 sm:py-12">
           <div className="container-x relative z-10">
             <div className="max-w-3xl text-center mx-auto mb-14">
               <div className="inline-flex items-center gap-2 rounded-full border border-[#3026B3]/25 bg-[#3026B3]/8 px-4 py-1 font-sans text-[11px] uppercase tracking-[0.26em] text-[#3026B3] font-bold shadow-xs mb-4">
@@ -786,8 +786,8 @@ export default function AboutPage() {
       </SectionTransition>
 
       {/* ── 05. HOW WE BUILD (From Opportunity to Enterprise) ─────────── */}
-      <SectionTransition withDivider>
-        <section className="relative overflow-hidden bg-[#FAF9F6] py-12 sm:py-16 border-b border-[#E3E5EF]">
+      <SectionTransition>
+        <section className="relative overflow-hidden bg-[#FAF9F6] py-8 sm:py-12">
           <div className="container-x relative z-10">
             <div className="max-w-3xl text-center mx-auto mb-14">
               <div className="inline-flex items-center gap-2 rounded-full border border-[#00B8D9]/30 bg-[#00B8D9]/10 px-4 py-1 font-sans text-[11px] uppercase tracking-[0.26em] text-[#008299] font-bold shadow-xs mb-4">
@@ -870,8 +870,8 @@ export default function AboutPage() {
       </SectionTransition>
 
       {/* ── 06. OUR PRINCIPLES (What Guides Us) ────────────────────────── */}
-      <SectionTransition withDivider>
-        <section className="relative overflow-hidden bg-white py-12 sm:py-16 border-b border-[#E3E5EF]">
+      <SectionTransition>
+        <section className="relative overflow-hidden bg-white py-8 sm:py-12">
           <div className="container-x relative z-10">
             <div className="max-w-3xl text-center mx-auto mb-14">
               <div className="inline-flex items-center gap-2 rounded-full border border-[#15966B]/30 bg-[#15966B]/10 px-4 py-1 font-sans text-[11px] uppercase tracking-[0.26em] text-[#15966B] font-bold shadow-xs mb-4">
@@ -928,7 +928,7 @@ export default function AboutPage() {
 
       {/* ── 07. CLOSING / LEADERSHIP STATEMENT (The Journey Ahead) ─────── */}
       <SectionTransition>
-        <section className="relative overflow-hidden bg-gradient-to-br from-[#211B72] via-[#1D1763] to-[#120E3E] text-white py-12 sm:py-16">
+        <section className="relative overflow-hidden bg-gradient-to-br from-[#211B72] via-[#1D1763] to-[#120E3E] text-white py-8 sm:py-12">
           <SectionPhoto src={cardImage("about-cta-journey-ahead")} />
           {/* Ambient radial lighting */}
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 -z-10 h-[500px] w-[500px] sm:w-[700px] rounded-full bg-gradient-to-r from-[#3026B3]/30 via-[#FE7701]/20 to-transparent blur-[140px] pointer-events-none" />
@@ -965,7 +965,7 @@ export default function AboutPage() {
               {/* CTAs */}
               <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
                 <Link
-                  to="/services"
+                  to="/verticals"
                   data-cursor="button"
                   data-motion="true"
                   className="group inline-flex items-center justify-center gap-3 rounded-full bg-[#FE7701] hover:bg-[#e06901] text-[#111827] px-8 sm:px-9 py-4 text-[15px] font-bold shadow-xl shadow-black/20 transition-all duration-300 hover:scale-105 active:scale-95 fx-shine"

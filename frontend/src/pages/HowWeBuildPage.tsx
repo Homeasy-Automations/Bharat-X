@@ -117,15 +117,15 @@ const bharatxAdvantage: { pillar: string; description: string; icon: string; col
 
 // ── 05. Nine Sectors Where We Build ───────────────────────────────────
 const buildSectors: { name: string; tag: string; icon: string; link: string; accent: string; image: string }[] = [
-  { name: "Innovation", tag: "Research & Deep-Tech Labs", icon: "flask-conical", link: "/services#labs", accent: "#0D9488", image: cardImage("how-we-build-20-sector-innovation") },
-  { name: "Venture Building", tag: "Capital & Enterprise GTM", icon: "landmark", link: "/services#ventures", accent: "#211B72", image: cardImage("how-we-build-18-sector-venture-building") },
-  { name: "Agriculture", tag: "Agro Commodities & Export", icon: "sprout", link: "/services#agriculture", accent: "#15966B", image: cardImage("how-we-build-13-sector-agriculture") },
-  { name: "Infrastructure", tag: "Civil & Transport Assets", icon: "hard-hat", link: "/services#infrastructure", accent: "#3026B3", image: cardImage("how-we-build-12-sector-infrastructure") },
-  { name: "Social Impact", tag: "Education & Community Programmes", icon: "graduation-cap", link: "/services#foundation", accent: "#E06901", image: cardImage("how-we-build-19-sector-social-impact") },
-  { name: "Manufacturing", tag: "Precision Casters & Mobility", icon: "cog", link: "/services#manufacturing", accent: "#00B8D9", image: cardImage("how-we-build-14-sector-manufacturing") },
-  { name: "Technology", tag: "Applied AI & Automation", icon: "cpu", link: "/services#tech-ai", accent: "#4B40D4", image: cardImage("how-we-build-15-sector-technology") },
-  { name: "Packaging", tag: "Sustainable Industrial Barriers", icon: "boxes", link: "/services#packaging", accent: "#D97706", image: cardImage("how-we-build-16-sector-packaging") },
-  { name: "Sustainability", tag: "Circularity & Net-Zero Systems", icon: "recycle", link: "/services#sustainability", accent: "#059669", image: cardImage("how-we-build-17-sector-sustainability") },
+  { name: "Innovation", tag: "Research & Deep-Tech Labs", icon: "flask-conical", link: "/verticals#labs", accent: "#0D9488", image: cardImage("how-we-build-20-sector-innovation") },
+  { name: "Venture Building", tag: "Capital & Enterprise GTM", icon: "landmark", link: "/verticals#ventures", accent: "#211B72", image: cardImage("how-we-build-18-sector-venture-building") },
+  { name: "Agriculture", tag: "Agro Commodities & Export", icon: "sprout", link: "/verticals#agriculture", accent: "#15966B", image: cardImage("how-we-build-13-sector-agriculture") },
+  { name: "Infrastructure", tag: "Civil & Transport Assets", icon: "hard-hat", link: "/verticals#infrastructure", accent: "#3026B3", image: cardImage("how-we-build-12-sector-infrastructure") },
+  { name: "Social Impact", tag: "Education & Community Programmes", icon: "graduation-cap", link: "/verticals#foundation", accent: "#E06901", image: cardImage("how-we-build-19-sector-social-impact") },
+  { name: "Manufacturing", tag: "Precision Casters & Mobility", icon: "cog", link: "/verticals#manufacturing", accent: "#00B8D9", image: cardImage("how-we-build-14-sector-manufacturing") },
+  { name: "Technology", tag: "Applied AI & Automation", icon: "cpu", link: "/verticals#tech-ai", accent: "#4B40D4", image: cardImage("how-we-build-15-sector-technology") },
+  { name: "Packaging", tag: "Sustainable Industrial Barriers", icon: "boxes", link: "/verticals#packaging", accent: "#D97706", image: cardImage("how-we-build-16-sector-packaging") },
+  { name: "Sustainability", tag: "Circularity & Net-Zero Systems", icon: "recycle", link: "/verticals#sustainability", accent: "#059669", image: cardImage("how-we-build-17-sector-sustainability") },
 ];
 
 export default function HowWeBuildPage() {
@@ -139,7 +139,7 @@ export default function HowWeBuildPage() {
   return (
     <main className="w-full min-h-screen bg-[#FAF9F6] text-[#111827]">
       {/* ── 01. HERO (From Opportunity to Impact) ─────────────────────────── */}
-      <section className="relative overflow-hidden min-h-[92vh] lg:min-h-screen w-full flex items-end justify-start pt-32 sm:pt-36 md:pt-40 pb-16 sm:pb-20 lg:pb-24 border-b border-[#E3E5EF]">
+      <section className="relative overflow-hidden min-h-[92vh] lg:min-h-screen w-full flex items-end justify-start pt-32 sm:pt-36 md:pt-40 pb-16 sm:pb-20 lg:pb-24">
         {/* Abstract/Industrial Progression Background Image: Blueprint -> Factory -> Tech -> People */}
         <div className="absolute inset-0 z-0 overflow-hidden">
           <img
@@ -197,7 +197,7 @@ export default function HowWeBuildPage() {
       </section>
 
       {/* ── 02. OUR PHILOSOPHY (We Are Builders, Not Just Investors.) ─────── */}
-      <SectionTransition withDivider className="relative overflow-hidden bg-white py-12 sm:py-16 border-b border-[#E3E5EF]">
+      <SectionTransition className="relative overflow-hidden bg-white py-8 sm:py-12">
         <div className="container-x relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
             <div className="lg:col-span-6">
@@ -296,7 +296,7 @@ export default function HowWeBuildPage() {
       </SectionTransition>
 
       {/* ── 03. THE BHARATX BUILD CYCLE (Our Five-Step Approach) ─────────── */}
-      <SectionTransition withDivider id="build-cycle" className="relative overflow-hidden bg-[#FAF9F6] py-12 sm:py-16 border-b border-[#E3E5EF]">
+      <SectionTransition id="build-cycle" className="relative overflow-hidden bg-[#FAF9F6] py-8 sm:py-12">
         <div className="container-x relative z-10">
           <div className="max-w-3xl text-center mx-auto mb-16">
             <div className="inline-flex items-center gap-2 rounded-full border border-[#00B8D9]/30 bg-[#00B8D9]/10 px-4 py-1 font-sans text-[11px] uppercase tracking-[0.26em] text-[#008299] font-bold shadow-xs mb-4">
@@ -370,7 +370,7 @@ export default function HowWeBuildPage() {
       </SectionTransition>
 
       {/* ── 04. WHAT WE BRING (The BharatX Advantage — Five Pillars) ───────── */}
-      <SectionTransition withDivider className="relative overflow-hidden bg-white py-12 sm:py-16 border-b border-[#E3E5EF]">
+      <SectionTransition className="relative overflow-hidden bg-white py-8 sm:py-12">
         <div className="container-x relative z-10">
           <div className="max-w-3xl text-center mx-auto mb-14">
             <div className="inline-flex items-center gap-2 rounded-full border border-[#15966B]/30 bg-[#15966B]/10 px-4 py-1 font-sans text-[11px] uppercase tracking-[0.26em] text-[#15966B] font-bold shadow-xs mb-4">
@@ -431,7 +431,7 @@ export default function HowWeBuildPage() {
       </SectionTransition>
 
       {/* ── 05. WHERE WE BUILD (Building Across the Real and Digital Economy) ── */}
-      <SectionTransition withDivider className="relative overflow-hidden bg-[#FAF9F6] py-12 sm:py-16 border-b border-[#E3E5EF]">
+      <SectionTransition className="relative overflow-hidden bg-[#FAF9F6] py-8 sm:py-12">
         <div className="container-x relative z-10">
           <div className="max-w-3xl text-center mx-auto mb-14">
             <div className="inline-flex items-center gap-2 rounded-full border border-[#3026B3]/25 bg-[#3026B3]/8 px-4 py-1 font-sans text-[11px] uppercase tracking-[0.26em] text-[#3026B3] font-bold shadow-xs mb-4">
@@ -485,7 +485,7 @@ export default function HowWeBuildPage() {
       {/* ── 06. CLOSING CTA (The Next Business Could Be Built Here.) ─────────── */}
       <SectionTransition
         backdrop={<SectionPhoto src={cardImage("how-we-build-cta-next-venture")} />}
-        className="relative overflow-hidden bg-gradient-to-br from-[#211B72] via-[#1D1763] to-[#120E3E] text-white py-12 sm:py-16"
+        className="relative overflow-hidden bg-gradient-to-br from-[#211B72] via-[#1D1763] to-[#120E3E] text-white py-8 sm:py-12"
       >
         {/* Ambient radial lighting */}
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 -z-10 h-[500px] w-[500px] sm:w-[700px] rounded-full bg-gradient-to-r from-[#3026B3]/30 via-[#FE7701]/20 to-transparent blur-[140px] pointer-events-none" />
@@ -528,7 +528,7 @@ export default function HowWeBuildPage() {
               </MagneticButton>
 
               <Link
-                to="/services"
+                to="/verticals"
                 data-cursor="button"
                 className="inline-flex items-center justify-center gap-2 rounded-full border border-white/30 bg-white/10 hover:bg-white/20 px-8 py-4 text-[15px] font-semibold text-white transition-all duration-300 hover:border-white shadow-xs fx-lift"
               >

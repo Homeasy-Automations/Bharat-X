@@ -90,8 +90,8 @@ export function StrategicTriadTabs() {
   const current = triadData.find((t) => t.id === activeId) ?? triadData[0];
 
   return (
-    <SectionTransition withDivider>
-      <section className="relative overflow-hidden py-12 sm:py-16 border-t border-[#E3E5EF] bg-[#FAF9F6] text-[#111827] dark:bg-night-950 dark:text-white">
+    <SectionTransition>
+      <section className="relative overflow-hidden py-8 sm:py-12 bg-[#FAF9F6] text-[#111827] dark:bg-night-950 dark:text-white">
         <div className="container-x relative z-10">
           {/* RIL-Style Horizontal Story Tab Navigation Header */}
           <div className="border-b border-[#E3E5EF] dark:border-white/10 pb-6 mb-7 sm:mb-10">

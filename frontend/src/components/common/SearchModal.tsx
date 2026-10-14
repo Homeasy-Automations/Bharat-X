@@ -124,7 +124,7 @@ export function SearchModal({ open, onClose }: SearchModalProps) {
                         key={s.id}
                         type="button"
                         data-cursor="button"
-                        onClick={() => handleSelect(`/services#${s.id}`)}
+                        onClick={() => handleSelect(`/verticals#${s.id}`)}
                         className="group relative flex items-center gap-3 rounded-xl p-2.5 text-left transition-all duration-200 hover:bg-[#FAF9F6] hover:translate-x-1 dark:hover:bg-white/[0.05]"
                       >
                         <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-[#FAF9F6] border border-[#E3E5EF] font-sans text-[11px] font-bold text-[#3026B3] transition-transform duration-200 group-hover:scale-110">

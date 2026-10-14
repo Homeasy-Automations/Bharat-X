@@ -34,7 +34,7 @@ const impactAreas: ImpactArea[] = [
     logo: "/Bharatxlabs_logo.svg",
     image: "/assets/backgrounds/innovation-story.jpg",
     accent: "#0D9488",
-    link: "/services#labs",
+    link: "/verticals#labs",
   },
   {
     id: "agriculture",
@@ -47,7 +47,7 @@ const impactAreas: ImpactArea[] = [
     logo: "/Bharatxagro_logo.png",
     image: "/assets/backgrounds/agri-dusk.jpg",
     accent: "#15966B",
-    link: "/services#agriculture",
+    link: "/verticals#agriculture",
   },
   {
     id: "infrastructure",
@@ -60,7 +60,7 @@ const impactAreas: ImpactArea[] = [
     logo: "/Infra_logo1.png",
     image: "/companies/bharatx-infratech/hero.jpg",
     accent: "#3026B3",
-    link: "/services#infrastructure",
+    link: "/verticals#infrastructure",
   },
   {
     id: "people",
@@ -72,7 +72,7 @@ const impactAreas: ImpactArea[] = [
     entityName: "BharatX Foundation",
     image: "/assets/backgrounds/impact-story.jpg",
     accent: "#E06901",
-    link: "/services#foundation",
+    link: "/verticals#foundation",
   },
   {
     id: "technology",
@@ -85,7 +85,7 @@ const impactAreas: ImpactArea[] = [
     logo: "/Ai-Experts_logo.png",
     image: "/companies/aixperts-labs/hero.jpg",
     accent: "#4B40D4",
-    link: "/services#tech-ai",
+    link: "/verticals#tech-ai",
   },
   {
     id: "sustainability",
@@ -97,7 +97,7 @@ const impactAreas: ImpactArea[] = [
     entityName: "BharatX Sustainability",
     image: "/assets/backgrounds/sustainability-story.jpg",
     accent: "#059669",
-    link: "/services#sustainability",
+    link: "/verticals#sustainability",
   },
   {
     id: "manufacturing",
@@ -110,7 +110,7 @@ const impactAreas: ImpactArea[] = [
     logo: "/Casters_logo.png",
     image: "/companies/casters-global/hero.jpg",
     accent: "#00B8D9",
-    link: "/services#manufacturing",
+    link: "/verticals#manufacturing",
   },
 ];
 
@@ -180,7 +180,7 @@ export default function ImpactPage() {
   return (
     <main className="w-full min-h-screen bg-[#FAF9F6] text-[#111827]">
       {/* ── 01. HERO (Building Businesses. Creating Wider Value.) ─────────── */}
-      <section className="relative overflow-hidden min-h-[92vh] lg:min-h-screen w-full flex items-end justify-start pt-32 sm:pt-36 md:pt-40 pb-16 sm:pb-20 lg:pb-24 border-b border-[#E3E5EF]">
+      <section className="relative overflow-hidden min-h-[92vh] lg:min-h-screen w-full flex items-end justify-start pt-32 sm:pt-36 md:pt-40 pb-16 sm:pb-20 lg:pb-24">
         {/* Full-bleed authentic hero background image */}
         <div className="absolute inset-0 z-0 overflow-hidden">
           <img
@@ -234,7 +234,7 @@ export default function ImpactPage() {
               </MagneticButton>
 
               <Link
-                to="/services"
+                to="/verticals"
                 data-cursor="button"
                 className="inline-flex items-center justify-center gap-2 rounded-full border border-white/30 bg-white/10 hover:bg-white/20 px-8 py-4 text-[15px] font-semibold text-white transition-all backdrop-blur-sm fx-lift"
               >
@@ -246,7 +246,7 @@ export default function ImpactPage() {
       </section>
 
       {/* ── 02. OUR IMPACT PHILOSOPHY (Growth Should Create More Than Profit.) ── */}
-      <SectionTransition withDivider className="relative overflow-hidden bg-white py-12 sm:py-16 border-b border-[#E3E5EF]">
+      <SectionTransition className="relative overflow-hidden bg-white py-8 sm:py-12">
         <div className="container-x relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
             <div className="lg:col-span-6">
@@ -365,7 +365,7 @@ export default function ImpactPage() {
       </SectionTransition>
 
       {/* ── 03. WHERE WE CREATE IMPACT (Impact Across the Economy — 6 Large Cards) ── */}
-      <SectionTransition withDivider id="impact-areas" className="relative overflow-hidden bg-[#FAF9F6] py-12 sm:py-16 border-b border-[#E3E5EF]">
+      <SectionTransition id="impact-areas" className="relative overflow-hidden bg-[#FAF9F6] py-8 sm:py-12">
         <div className="container-x relative z-10">
           <div className="max-w-3xl mb-16">
             <div className="inline-flex items-center gap-2 rounded-full border border-[#3026B3]/25 bg-[#3026B3]/8 px-4 py-1 font-sans text-[11px] uppercase tracking-[0.26em] text-[#3026B3] font-bold shadow-xs mb-4">
@@ -459,7 +459,7 @@ export default function ImpactPage() {
       </SectionTransition>
 
       {/* ── 04. IMPACT IN NUMBERS (Our Growing Footprint — Measuring What Matters) ── */}
-      <SectionTransition withDivider className="relative overflow-hidden bg-white py-12 sm:py-16 border-b border-[#E3E5EF]">
+      <SectionTransition className="relative overflow-hidden bg-white py-8 sm:py-12">
         <div className="container-x relative z-10">
           <div className="max-w-3xl text-center mx-auto mb-14">
             <div className="inline-flex items-center gap-2 rounded-full border border-[#00B8D9]/30 bg-[#00B8D9]/10 px-4 py-1 font-sans text-[11px] uppercase tracking-[0.26em] text-[#008299] font-bold shadow-xs mb-4">
@@ -589,7 +589,7 @@ export default function ImpactPage() {
       </SectionTransition>
 
       {/* ── 05. OUR COMMITMENT (Building Responsibly — Four Principles) ─────── */}
-      <SectionTransition withDivider className="relative overflow-hidden bg-[#FAF9F6] py-12 sm:py-16 border-b border-[#E3E5EF]">
+      <SectionTransition className="relative overflow-hidden bg-[#FAF9F6] py-8 sm:py-12">
         <div className="container-x relative z-10">
           <div className="max-w-3xl text-center mx-auto mb-14">
             <div className="inline-flex items-center gap-2 rounded-full border border-[#3026B3]/25 bg-[#3026B3]/8 px-4 py-1 font-sans text-[11px] uppercase tracking-[0.26em] text-[#3026B3] font-bold shadow-xs mb-4">
@@ -645,7 +645,7 @@ export default function ImpactPage() {
       {/* ── 06. THE FUTURE OF IMPACT (The Opportunity Ahead & Final CTA) ─────── */}
       <SectionTransition
         backdrop={<SectionPhoto src={cardImage("impact-cta-opportunity-ahead")} />}
-        className="relative overflow-hidden bg-gradient-to-br from-[#211B72] via-[#1D1763] to-[#120E3E] text-white py-12 sm:py-16"
+        className="relative overflow-hidden bg-gradient-to-br from-[#211B72] via-[#1D1763] to-[#120E3E] text-white py-8 sm:py-12"
       >
         {/* Ambient radial lighting */}
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 -z-10 h-[500px] w-[500px] sm:w-[700px] rounded-full bg-gradient-to-r from-[#3026B3]/30 via-[#FE7701]/20 to-transparent blur-[140px] pointer-events-none" />
@@ -728,7 +728,7 @@ export default function ImpactPage() {
                 </MagneticButton>
 
                 <Link
-                  to="/services"
+                  to="/verticals"
                   data-cursor="button"
                   className="inline-flex items-center justify-center gap-2 rounded-full border border-white/30 bg-white/10 hover:bg-white/20 px-8 py-4 text-[15px] font-semibold text-white transition-all duration-300 hover:border-white shadow-xs fx-lift"
                 >

@@ -28,9 +28,9 @@ export default function IndustriesPage() {
   });
 
   return (
-    <main className="min-h-screen bg-[#FAF9F6] text-[#111827] pt-24 pb-20">
+    <main className="min-h-screen bg-[#FAF9F6] text-[#111827] pt-24 pb-8">
       {/* ── 1. RIL-STYLE SECTOR HERO ────────────────────────────────────── */}
-      <section className="relative overflow-hidden py-20 sm:py-28 border-b border-[#E3E5EF]">
+      <section className="relative overflow-hidden py-12 sm:py-16">
         <div className="absolute inset-0 z-0 overflow-hidden">
           <img
             src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=2400&q=85"
@@ -60,7 +60,7 @@ export default function IndustriesPage() {
       </section>
 
       {/* ── 2. SECTORS SHOWCASE (Visual cards with zero company names) ──── */}
-      <SectionTransition withDivider className="py-12 sm:py-16">
+      <SectionTransition className="py-8 sm:py-12">
         <div className="container-x">
           <Stagger staggerDelay={0.08} className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
             {servicesData.map((svc, i) => {
@@ -146,7 +146,7 @@ export default function IndustriesPage() {
                       </div>
 
                       <Link
-                        to={`/services#${svc.id}`}
+                        to={`/verticals#${svc.id}`}
                         data-cursor="button"
                         className="inline-flex items-center gap-1.5 rounded-full bg-[#3026B3] text-white hover:bg-[#211B72] px-4 py-2 text-xs font-semibold shadow-md transition-all fx-shine group/btn"
                       >

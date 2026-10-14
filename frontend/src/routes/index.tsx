@@ -1,4 +1,4 @@
-import { Navigate, Route, Routes } from "react-router-dom";
+import { Navigate, Route, Routes, useLocation } from "react-router-dom";
 import { Layout } from "../components/layout/Layout";
 import AboutPage from "../pages/AboutPage";
 import CareersPage from "../pages/CareersPage";
@@ -14,6 +14,12 @@ import PrivacyPage from "../pages/PrivacyPage";
 import ServicesPage from "../pages/ServicesPage";
 import TermsPage from "../pages/TermsPage";
 
+/** Old /services URLs (incl. #section anchors) forward to /verticals. */
+function ServicesRedirect() {
+  const { search, hash } = useLocation();
+  return <Navigate to={{ pathname: "/verticals", search, hash }} replace />;
+}
+
 export function AppRoutes() {
   return (
     <Routes>
@@ -22,12 +28,13 @@ export function AppRoutes() {
         <Route index element={<HomePage />} />
         <Route path="about" element={<AboutPage />} />
         <Route path="how-we-build" element={<HowWeBuildPage />} />
-        <Route path="services" element={<ServicesPage />} />
+        <Route path="verticals" element={<ServicesPage />} />
+        <Route path="services" element={<ServicesRedirect />} />
         <Route path="businesses" element={<ServicesPage />} />
-        <Route path="companies" element={<Navigate to="/services" replace />} />
-        <Route path="companies/:slug" element={<Navigate to="/services" replace />} />
-        <Route path="bharatx-labs" element={<Navigate to="/services" replace />} />
-        <Route path="ecosystem" element={<Navigate to="/services" replace />} />
+        <Route path="companies" element={<Navigate to="/verticals" replace />} />
+        <Route path="companies/:slug" element={<Navigate to="/verticals" replace />} />
+        <Route path="bharatx-labs" element={<Navigate to="/verticals" replace />} />
+        <Route path="ecosystem" element={<Navigate to="/verticals" replace />} />
         <Route path="industries" element={<IndustriesPage />} />
         <Route path="innovation" element={<InnovationPage />} />
         <Route path="impact" element={<ImpactPage />} />

@@ -48,63 +48,63 @@ const careerDomains: { name: string; icon: string; roles: string; accent: string
     icon: "flask-conical",
     roles: "Research • Innovation • Prototyping • Entrepreneurship",
     accent: "#0D9488",
-    link: "/services#labs",
+    link: "/verticals#labs",
   },
   {
     name: "Ventures & Strategy",
     icon: "landmark",
     roles: "Investment • Consulting • Strategy • Business Development",
     accent: "#211B72",
-    link: "/services#ventures",
+    link: "/verticals#ventures",
   },
   {
     name: "Agriculture & Food",
     icon: "sprout",
     roles: "Operations • Supply Chain • Export • Business Development",
     accent: "#15966B",
-    link: "/services#agriculture",
+    link: "/verticals#agriculture",
   },
   {
     name: "Infrastructure",
     icon: "hard-hat",
     roles: "Engineering • Project Management • Operations • Procurement",
     accent: "#3026B3",
-    link: "/services#infrastructure",
+    link: "/verticals#infrastructure",
   },
   {
     name: "Foundation",
     icon: "graduation-cap",
     roles: "Education • Programs • Community • Social Impact",
     accent: "#E06901",
-    link: "/services#foundation",
+    link: "/verticals#foundation",
   },
   {
     name: "Manufacturing",
     icon: "cog",
     roles: "Engineering • Production • Quality • Sales",
     accent: "#00B8D9",
-    link: "/services#manufacturing",
+    link: "/verticals#manufacturing",
   },
   {
     name: "Technology & AI",
     icon: "cpu",
     roles: "Software • AI • Product • Design • Data",
     accent: "#4B40D4",
-    link: "/services#tech-ai",
+    link: "/verticals#tech-ai",
   },
   {
     name: "Packaging",
     icon: "boxes",
     roles: "Product • Manufacturing • Operations • Sales",
     accent: "#D97706",
-    link: "/services#packaging",
+    link: "/verticals#packaging",
   },
   {
     name: "Sustainability",
     icon: "recycle",
     roles: "Waste Management • Operations • Sustainability • Circular Economy",
     accent: "#059669",
-    link: "/services#sustainability",
+    link: "/verticals#sustainability",
   },
 ];
 
@@ -210,7 +210,7 @@ export default function CareersPage() {
   return (
     <main className="w-full min-h-screen bg-[#FAF9F6] text-[#111827]">
       {/* ── 01. HERO (Careers at BharatX — Build What Matters.) ────────────── */}
-      <section className="relative overflow-hidden min-h-[92vh] lg:min-h-screen w-full flex items-end justify-start pt-32 sm:pt-36 md:pt-40 pb-16 sm:pb-20 lg:pb-24 border-b border-[#E3E5EF]">
+      <section className="relative overflow-hidden min-h-[92vh] lg:min-h-screen w-full flex items-end justify-start pt-32 sm:pt-36 md:pt-40 pb-16 sm:pb-20 lg:pb-24">
         {/* Full-bleed authentic team collaboration background image */}
         <div className="absolute inset-0 z-0">
           <img
@@ -275,7 +275,7 @@ export default function CareersPage() {
       </section>
 
       {/* ── 02. WHY BHARATX (More Than a Job. A Chance to Build.) ──────────── */}
-      <SectionTransition divider className="relative overflow-hidden bg-white py-12 sm:py-16 border-b border-[#E3E5EF]">
+      <SectionTransition className="relative overflow-hidden bg-white py-8 sm:py-12">
         <div className="container-x relative z-10">
           <div className="max-w-3xl mb-16">
             <div className="inline-flex items-center gap-2 rounded-full border border-[#3026B3]/25 bg-[#3026B3]/8 px-4 py-1 font-sans text-[11px] uppercase tracking-[0.26em] text-[#3026B3] font-bold shadow-xs mb-4">
@@ -341,7 +341,7 @@ export default function CareersPage() {
       </SectionTransition>
 
       {/* ── 03. WHERE YOU CAN BUILD (Find Your Place in the Ecosystem — 8 Areas) ── */}
-      <SectionTransition divider className="relative overflow-hidden bg-[#FAF9F6] py-12 sm:py-16 border-b border-[#E3E5EF]">
+      <SectionTransition className="relative overflow-hidden bg-[#FAF9F6] py-8 sm:py-12">
         <div className="container-x relative z-10">
           <div className="max-w-3xl text-center mx-auto mb-16">
             <div className="inline-flex items-center gap-2 rounded-full border border-[#15966B]/30 bg-[#15966B]/10 px-4 py-1 font-sans text-[11px] uppercase tracking-[0.26em] text-[#15966B] font-bold shadow-xs mb-4">
@@ -407,7 +407,7 @@ export default function CareersPage() {
       </SectionTransition>
 
       {/* ── 04. HOW WE WORK (Built for People Who Take Ownership) ─────────── */}
-      <SectionTransition divider className="relative overflow-hidden bg-white py-12 sm:py-16 border-b border-[#E3E5EF]">
+      <SectionTransition className="relative overflow-hidden bg-white py-8 sm:py-12">
         <div className="container-x relative z-10">
           <div className="max-w-3xl text-center mx-auto mb-16">
             <div className="inline-flex items-center gap-2 rounded-full border border-[#00B8D9]/30 bg-[#00B8D9]/10 px-4 py-1 font-sans text-[11px] uppercase tracking-[0.26em] text-[#008299] font-bold shadow-xs mb-4">
@@ -475,7 +475,7 @@ export default function CareersPage() {
       </SectionTransition>
 
       {/* ── 05. OPEN OPPORTUNITIES (Find Your Next Opportunity / Send Profile) ── */}
-      <SectionTransition divider className="relative overflow-hidden bg-[#FAF9F6] py-12 sm:py-16 border-b border-[#E3E5EF]">
+      <SectionTransition className="relative overflow-hidden bg-[#FAF9F6] py-8 sm:py-12">
         <div id="open-opportunities" className="container-x relative z-10">
           <div className="max-w-3xl text-center mx-auto mb-14">
             <div className="inline-flex items-center gap-2 rounded-full border border-[#3026B3]/25 bg-[#3026B3]/8 px-4 py-1 font-sans text-[11px] uppercase tracking-[0.26em] text-[#3026B3] font-bold shadow-xs mb-4">
@@ -790,9 +790,8 @@ export default function CareersPage() {
 
       {/* ── 06. FINAL CTA (Ready to Build With Us?) ───────────────────────── */}
       <SectionTransition
-        divider={false}
         backdrop={<SectionPhoto src={cardImage("careers-cta-join-builders")} />}
-        className="relative overflow-hidden bg-gradient-to-br from-[#211B72] via-[#1D1763] to-[#120E3E] text-white py-12 sm:py-16"
+        className="relative overflow-hidden bg-gradient-to-br from-[#211B72] via-[#1D1763] to-[#120E3E] text-white py-8 sm:py-12"
       >
         {/* Ambient radial lighting */}
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 -z-10 h-[500px] w-[500px] sm:w-[700px] rounded-full bg-gradient-to-r from-[#3026B3]/30 via-[#FE7701]/20 to-transparent blur-[140px] pointer-events-none" />

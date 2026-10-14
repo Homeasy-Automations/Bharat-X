@@ -31,9 +31,9 @@ export default function LeadershipPage() {
   });
 
   return (
-    <main className="min-h-screen bg-[#FAF9F6] text-[#111827] pt-24 pb-20">
+    <main className="min-h-screen bg-[#FAF9F6] text-[#111827] pt-24 pb-8">
       {/* ── 1. RIL-STYLE LEADERSHIP HERO ────────────────────────────────── */}
-      <section className="relative overflow-hidden py-20 sm:py-28 border-b border-[#E3E5EF]">
+      <section className="relative overflow-hidden py-12 sm:py-16">
         <div className="absolute inset-0 z-0 overflow-hidden">
           <img
             src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=2400&q=85"
@@ -63,7 +63,7 @@ export default function LeadershipPage() {
       </section>
 
       {/* ── 2. FOUNDER'S CHARTER PROFILE ───────────────────────────────── */}
-      <SectionTransition withDivider className="py-12 sm:py-16 border-b border-[#E3E5EF]">
+      <SectionTransition className="py-8 sm:py-12">
         <div className="container-x">
           <div data-cursor="card" className="relative overflow-hidden rounded-3xl border border-[#E3E5EF] bg-white shadow-xl p-6 sm:p-10 lg:p-12 fx-lift">
             <CardFill accent="#3026B3" tone="tint" />
@@ -144,7 +144,7 @@ export default function LeadershipPage() {
       </SectionTransition>
 
       {/* ── 3. GOVERNANCE & DIVISION OF POWER ────────────────────────────── */}
-      <SectionTransition withDivider className="py-12 sm:py-16 border-b border-[#E3E5EF]">
+      <SectionTransition className="py-8 sm:py-12">
         <div className="container-x">
           <div className="max-w-2xl mb-7 sm:mb-10">
             <span className="font-sans text-[10.5px] uppercase tracking-[0.24em] text-[#3026B3] font-semibold">
@@ -184,7 +184,7 @@ export default function LeadershipPage() {
       </SectionTransition>
 
       {/* ── 4. OPERATING PRINCIPLES ─────────────────────────────────────── */}
-      <SectionTransition withDivider className="py-12 sm:py-16">
+      <SectionTransition className="py-8 sm:py-12">
         <div className="container-x">
           <div className="max-w-2xl mb-12">
             <span className="font-sans text-[10.5px] uppercase tracking-[0.24em] text-[#3026B3] font-semibold">

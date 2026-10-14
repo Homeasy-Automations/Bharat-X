@@ -34,8 +34,8 @@ const upcomingCards = [
 
 export function WhatComesNextSection() {
   return (
-    <SectionTransition withDivider id="what-comes-next" aria-label="Building What Comes Next">
-      <section className="relative overflow-hidden bg-white py-12 sm:py-16 border-b border-[#E3E5EF]">
+    <SectionTransition id="what-comes-next" aria-label="Building What Comes Next">
+      <section className="relative overflow-hidden bg-white py-8 sm:py-12">
         <div className="container-x relative z-10">
           {/* Header */}
           <div className="mx-auto max-w-3xl text-center">
@@ -121,7 +121,7 @@ export function WhatComesNextSection() {
           {/* Action Button: Explore Our Future Businesses → */}
           <div className="mt-12 sm:mt-14 text-center">
             <Link
-              to="/services"
+              to="/verticals"
               data-cursor="button"
               data-motion="true"
               className="group inline-flex items-center justify-center gap-3 rounded-full bg-[#3026B3] hover:bg-[#211B72] text-white px-8 py-4 font-sans text-xs uppercase tracking-[0.2em] font-semibold shadow-md shadow-[#3026B3]/25 transition-all duration-300 hover:shadow-xl hover:scale-105 active:scale-95 focus-visible:ring-2 focus-visible:ring-[#FE7701]"

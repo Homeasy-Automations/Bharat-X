@@ -296,7 +296,7 @@ export default function ContactPage() {
   return (
     <main className="w-full min-h-screen bg-[#FAF9F6] text-[#111827]">
       {/* ── 01. HERO (Contact BharatX — Let's Build What Comes Next.) ─────── */}
-      <section className="relative overflow-hidden min-h-[92vh] lg:min-h-screen w-full flex items-end justify-start pt-32 sm:pt-36 md:pt-40 pb-16 sm:pb-20 lg:pb-24 border-b border-[#E3E5EF]">
+      <section className="relative overflow-hidden min-h-[92vh] lg:min-h-screen w-full flex items-end justify-start pt-32 sm:pt-36 md:pt-40 pb-16 sm:pb-20 lg:pb-24">
         {/* Full-bleed authentic panoramic visual */}
         <div className="absolute inset-0 z-0">
           <img
@@ -360,7 +360,7 @@ export default function ContactPage() {
       </section>
 
       {/* ── 02. CONTACT OPTIONS (Clear Pathways for Visitors) ─────────────── */}
-      <SectionTransition id="contact-options" divider className="relative overflow-hidden bg-white py-12 sm:py-16 border-b border-[#E3E5EF]">
+      <SectionTransition id="contact-options" className="relative overflow-hidden bg-white py-8 sm:py-12">
         <div className="container-x relative z-10">
           <div className="max-w-3xl text-center mx-auto mb-16">
             <div className="inline-flex items-center gap-2 rounded-full border border-[#3026B3]/25 bg-[#3026B3]/8 px-4 py-1 font-sans text-[11px] uppercase tracking-[0.26em] text-[#3026B3] font-bold shadow-xs mb-4">
@@ -442,7 +442,7 @@ export default function ContactPage() {
       </SectionTransition>
 
       {/* ── 03. MAIN CONTACT FORM (Start a Conversation) ──────────────────── */}
-      <SectionTransition id="contact-form-section" divider className="relative overflow-hidden bg-[#FAF9F6] py-12 sm:py-16 border-b border-[#E3E5EF]">
+      <SectionTransition id="contact-form-section" className="relative overflow-hidden bg-[#FAF9F6] py-8 sm:py-12">
         <div className="container-x relative z-10">
           <div className="max-w-3xl mx-auto">
             <div className="text-center mb-12">
@@ -950,7 +950,7 @@ export default function ContactPage() {
       </SectionTransition>
 
       {/* ── 04. BHARATX GROUP OFFICE (Clean Office & Contact Directory) ───── */}
-      <SectionTransition divider className="relative overflow-hidden bg-white py-12 sm:py-16 border-b border-[#E3E5EF]">
+      <SectionTransition className="relative overflow-hidden bg-white py-8 sm:py-12">
         <div className="container-x relative z-10">
           <div className="max-w-3xl text-center mx-auto mb-14">
             <div className="inline-flex items-center gap-2 rounded-full border border-[#15966B]/30 bg-[#15966B]/10 px-4 py-1 font-sans text-[11px] uppercase tracking-[0.26em] text-[#15966B] font-bold shadow-xs mb-4">
@@ -1069,9 +1069,8 @@ export default function ContactPage() {
 
       {/* ── 05. FINAL CTA (Have an Idea Worth Building?) ──────────────────── */}
       <SectionTransition
-        divider={false}
         backdrop={<SectionPhoto src={cardImage("contact-cta-co-build")} />}
-        className="relative overflow-hidden bg-gradient-to-br from-[#211B72] via-[#1D1763] to-[#120E3E] text-white py-12 sm:py-16"
+        className="relative overflow-hidden bg-gradient-to-br from-[#211B72] via-[#1D1763] to-[#120E3E] text-white py-8 sm:py-12"
       >
         {/* Ambient radial lighting */}
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 -z-10 h-[500px] w-[500px] sm:w-[700px] rounded-full bg-gradient-to-r from-[#3026B3]/30 via-[#FE7701]/20 to-transparent blur-[140px] pointer-events-none" />
@@ -1121,7 +1120,7 @@ export default function ContactPage() {
               </MagneticButton>
 
               <Link
-                to="/services"
+                to="/verticals"
                 data-cursor="button"
                 className="inline-flex items-center justify-center gap-2 rounded-full border border-white/30 bg-white/10 hover:bg-white/20 px-8 py-4 text-[15px] font-semibold text-white transition-all backdrop-blur-sm fx-lift"
               >

@@ -3,7 +3,7 @@ import type { NavItem } from "../types";
 export const navigation: NavItem[] = [
   { label: "Home", to: "/", icon: "orbit" },
   { label: "About", to: "/about", icon: "info" },
-  { label: "Businesses", to: "/services", icon: "layers", mega: "services" },
+  { label: "Businesses", to: "/verticals", icon: "layers", mega: "services" },
   { label: "How We Build", to: "/how-we-build", icon: "workflow" },
   { label: "Impact", to: "/impact", icon: "leaf" },
   { label: "Careers", to: "/careers", icon: "briefcase" },
@@ -18,14 +18,14 @@ export const contactRoute = {
 
 export const footerSections = {
   businesses: [
-    { label: "BharatX Labs", to: "/services#labs" },
-    { label: "BharatX Ventures", to: "/services#ventures" },
-    // { label: "BharatX Agro", to: "/services#agriculture" },
-    { label: "BharatX Infratech", to: "/services#infrastructure" },
-    { label: "BharatX Foundation", to: "/services#foundation" },
-    { label: "Casters Global", to: "/services#manufacturing" },
-    { label: "BharatX Enterprises", to: "/services#packaging" },
-    { label: "Aixperts Labs", to: "/services#tech-ai" },
+    { label: "BharatX Labs", to: "/verticals#labs" },
+    { label: "BharatX Ventures", to: "/verticals#ventures" },
+    // { label: "BharatX Agro", to: "/verticals#agriculture" },
+    { label: "BharatX Infratech", to: "/verticals#infrastructure" },
+    { label: "BharatX Foundation", to: "/verticals#foundation" },
+    { label: "Casters Global", to: "/verticals#manufacturing" },
+    { label: "BharatX Enterprises", to: "/verticals#packaging" },
+    { label: "Aixperts Labs", to: "/verticals#tech-ai" },
     { label: "BharatX Sustainability", to: "/#what-comes-next" },
   ],
   group: [

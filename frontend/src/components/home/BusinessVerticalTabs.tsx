@@ -13,8 +13,8 @@ export function BusinessVerticalTabs() {
   const activeCompany = companies[activeTab] ?? companies[0];
 
   return (
-    <SectionTransition withDivider>
-      <section className="relative overflow-hidden py-12 sm:py-16 bg-night-950/20 dark:bg-night-950/40">
+    <SectionTransition>
+      <section className="relative overflow-hidden py-8 sm:py-12 bg-night-950/20 dark:bg-night-950/40">
         {/* Background radial accent */}
         <div
           aria-hidden
