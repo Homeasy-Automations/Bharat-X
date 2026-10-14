@@ -1092,6 +1092,48 @@ button:hover img,
   }
 }
 
+/* Feature icon tile (components/common/FeatureIcon). In a layer so utilities like mx-auto or absolute still win. */
+@layer components {
+  .feature-icon {
+    position: relative;
+    display: flex;
+    flex-shrink: 0;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    background: linear-gradient(150deg, var(--fi-hi) 0%, var(--fi-base) 52%, var(--fi-lo) 100%);
+    box-shadow:
+      inset 0 1px 0 rgb(255 255 255 / 0.5),
+      inset 0 -3px 8px rgb(13 16 38 / 0.28),
+      0 0 0 1px rgb(255 255 255 / 0.14),
+      0 10px 22px -8px var(--fi-glow);
+  }
+
+  /* Glossy sheen across the top half */
+  .feature-icon::before {
+    content: "";
+    position: absolute;
+    inset: 2px 2px auto;
+    height: 46%;
+    border-radius: inherit;
+    border-bottom-left-radius: 50% 10px;
+    border-bottom-right-radius: 50% 10px;
+    background: linear-gradient(rgb(255 255 255 / 0.34), rgb(255 255 255 / 0));
+    pointer-events: none;
+  }
+
+  .feature-icon svg {
+    position: relative;
+    filter: drop-shadow(0 1px 1px rgb(13 16 38 / 0.35));
+  }
+
+  /* Phosphor draws the duotone back layer at opacity 0.2; fill it gold instead */
+  .feature-icon svg path[opacity] {
+    fill: var(--fi-sec);
+    opacity: 1;
+  }
+}
+
 /* Icon Animations */
 .fx-icon-pop {
   transition: transform var(--dur-fast) var(--ease-snappy);

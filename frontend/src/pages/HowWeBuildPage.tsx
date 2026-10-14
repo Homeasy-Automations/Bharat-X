@@ -7,6 +7,7 @@ import { Stagger, StaggerItem } from "../components/motion/Stagger";
 import { AnimatedHeading } from "../components/motion/AnimatedHeading";
 import { MagneticButton } from "../components/common/MagneticButton";
 import { CardFill, CardPhoto, SectionPhoto, cardImage } from "../components/common/CardSurface";
+import { FeatureIcon } from "../components/common/FeatureIcon";
 
 // ── 02. Formula items for "Our Philosophy" ───────────────────────────
 const philosophyInputs = [
@@ -115,15 +116,15 @@ const bharatxAdvantage: { pillar: string; description: string; icon: string; col
 ];
 
 // ── 05. Eight Sectors Where We Build ──────────────────────────────────
-const buildSectors: { name: string; tag: string; emoji: string; link: string; accent: string; image: string }[] = [
-  { name: "Infrastructure", tag: "Civil & Transport Assets", emoji: "🏗️", link: "/services#infrastructure", accent: "#3026B3", image: cardImage("how-we-build-12-sector-infrastructure") },
-  { name: "Agriculture", tag: "Agro Commodities & Export", emoji: "🌾", link: "/services#agriculture", accent: "#15966B", image: cardImage("how-we-build-13-sector-agriculture") },
-  { name: "Manufacturing", tag: "Precision Casters & Mobility", emoji: "⚙️", link: "/services#manufacturing", accent: "#00B8D9", image: cardImage("how-we-build-14-sector-manufacturing") },
-  { name: "Technology", tag: "Applied AI & Automation", emoji: "🤖", link: "/services#tech-ai", accent: "#4B40D4", image: cardImage("how-we-build-15-sector-technology") },
-  { name: "Packaging", tag: "Sustainable Industrial Barriers", emoji: "📦", link: "/services#packaging", accent: "#D97706", image: cardImage("how-we-build-16-sector-packaging") },
-  { name: "Sustainability", tag: "Circularity & Net-Zero Systems", emoji: "♻️", link: "/services#sustainability", accent: "#059669", image: cardImage("how-we-build-17-sector-sustainability") },
-  { name: "Venture Building", tag: "Capital & Enterprise GTM", emoji: "💼", link: "/services#ventures", accent: "#211B72", image: cardImage("how-we-build-18-sector-venture-building") },
-  { name: "Social Impact", tag: "Knowledge & Education Labs", emoji: "🌱", link: "/services#foundation", accent: "#15966B", image: cardImage("how-we-build-19-sector-social-impact") },
+const buildSectors: { name: string; tag: string; icon: string; link: string; accent: string; image: string }[] = [
+  { name: "Infrastructure", tag: "Civil & Transport Assets", icon: "hard-hat", link: "/services#infrastructure", accent: "#3026B3", image: cardImage("how-we-build-12-sector-infrastructure") },
+  { name: "Agriculture", tag: "Agro Commodities & Export", icon: "sprout", link: "/services#agriculture", accent: "#15966B", image: cardImage("how-we-build-13-sector-agriculture") },
+  { name: "Manufacturing", tag: "Precision Casters & Mobility", icon: "cog", link: "/services#manufacturing", accent: "#00B8D9", image: cardImage("how-we-build-14-sector-manufacturing") },
+  { name: "Technology", tag: "Applied AI & Automation", icon: "cpu", link: "/services#tech-ai", accent: "#4B40D4", image: cardImage("how-we-build-15-sector-technology") },
+  { name: "Packaging", tag: "Sustainable Industrial Barriers", icon: "boxes", link: "/services#packaging", accent: "#D97706", image: cardImage("how-we-build-16-sector-packaging") },
+  { name: "Sustainability", tag: "Circularity & Net-Zero Systems", icon: "recycle", link: "/services#sustainability", accent: "#059669", image: cardImage("how-we-build-17-sector-sustainability") },
+  { name: "Venture Building", tag: "Capital & Enterprise GTM", icon: "landmark", link: "/services#ventures", accent: "#211B72", image: cardImage("how-we-build-18-sector-venture-building") },
+  { name: "Social Impact", tag: "Knowledge & Education Labs", icon: "sparkles", link: "/services#foundation", accent: "#15966B", image: cardImage("how-we-build-19-sector-social-impact") },
 ];
 
 export default function HowWeBuildPage() {
@@ -240,12 +241,12 @@ export default function HowWeBuildPage() {
                           className="group flex items-center gap-2 sm:gap-2.5 rounded-xl border border-l-4 p-2.5 sm:p-3 shadow-xs transition-all hover:shadow-md fx-lift h-full"
                           style={{ backgroundColor: `color-mix(in srgb, ${item.color} 9%, white)`, borderColor: `${item.color}40`, borderLeftColor: item.color }}
                         >
-                          <div
-                            className="h-8 w-8 rounded-lg text-white flex items-center justify-center shrink-0 transition-transform group-hover:scale-110"
-                            style={{ backgroundColor: item.color }}
-                          >
-                            <Icon name={item.icon} width={16} height={16} strokeWidth={2} />
-                          </div>
+                          <FeatureIcon
+                            name={item.icon}
+                            accent={item.color}
+                            size={32}
+                            className="transition-transform group-hover:scale-110"
+                          />
                           <span className="font-sans text-sm font-medium text-[#111827]">
                             {item.label}
                           </span>
@@ -327,9 +328,12 @@ export default function HowWeBuildPage() {
                       <span className="font-sans text-xs font-bold tracking-widest text-white/90 transition-transform duration-300 group-hover:scale-110">
                         {step.step}
                       </span>
-                      <div className="h-9 w-9 rounded-xl bg-white/15 ring-1 ring-white/25 text-white backdrop-blur-sm flex items-center justify-center transition-transform duration-300 group-hover:scale-110 group-hover:rotate-6 shadow-xs">
-                        <Icon name={step.icon} width={18} height={18} strokeWidth={2} />
-                      </div>
+                      <FeatureIcon
+                        name={step.icon}
+                        accent={step.accent}
+                        size={36}
+                        className="transition-transform duration-300 group-hover:scale-110 group-hover:rotate-6"
+                      />
                     </div>
 
                     <h3 className="font-sans text-sm sm:text-base font-bold tracking-[0.16em] text-white uppercase group-hover:text-[#FFC94D] transition-colors">
@@ -392,9 +396,12 @@ export default function HowWeBuildPage() {
                 >
                   <CardFill accent={item.color} />
                   <div className="relative">
-                    <div className="h-11 w-11 rounded-xl bg-white/15 ring-1 ring-white/25 text-white flex items-center justify-center shrink-0 shadow-xs mb-4 transition-transform duration-300 group-hover:scale-110 group-hover:rotate-6">
-                      <Icon name={item.icon} width={20} height={20} strokeWidth={2} />
-                    </div>
+                    <FeatureIcon
+                      name={item.icon}
+                      accent={item.color}
+                      size={44}
+                      className="mb-4 transition-transform duration-300 group-hover:scale-110 group-hover:rotate-6"
+                    />
 
                     <h3 className="font-heading text-xl font-medium text-white group-hover:text-[#FFC94D] transition-colors duration-300">
                       {item.pillar}
@@ -451,7 +458,12 @@ export default function HowWeBuildPage() {
                 >
                   <CardPhoto src={sector.image} accent={sector.accent} />
                   <div className="relative flex items-center gap-3 [text-shadow:0_0_2px_rgba(13,16,38,0.9),0_1px_12px_rgba(13,16,38,0.85)]">
-                    <span className="text-xl transition-transform group-hover:scale-125 duration-300">{sector.emoji}</span>
+                    <FeatureIcon
+                      name={sector.icon}
+                      accent={sector.accent}
+                      size={36}
+                      className="transition-transform duration-300 group-hover:scale-110"
+                    />
                     <div>
                       <h4 className="font-heading text-base font-medium text-white group-hover:text-[#FFC94D] transition-colors">
                         {sector.name}

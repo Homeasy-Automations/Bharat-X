@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { Icon } from "../../utils/icons";
 import { SectionTransition } from "../motion/SectionTransition";
+import { FeatureIcon } from "../common/FeatureIcon";
 
 export function InsideBharatXSection() {
   return (
@@ -50,9 +51,12 @@ export function InsideBharatXSection() {
                 <span className="font-sans text-[11px] uppercase tracking-[0.24em] text-[#FFB000] font-bold">
                   Ideas &amp; Perspectives
                 </span>
-                <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-white/15 backdrop-blur-md text-[#FFB000] shadow-sm transition-transform duration-300 group-hover:scale-110 group-hover:rotate-6">
-                  <Icon name="lightbulb" width={18} height={18} />
-                </div>
+                <FeatureIcon
+                  name="lightbulb"
+                  accent="#FFB000"
+                  size={40}
+                  className="transition-transform duration-300 group-hover:scale-110 group-hover:rotate-6"
+                />
               </div>
 
               {/* Content & Action */}
@@ -107,9 +111,12 @@ export function InsideBharatXSection() {
                 <span className="font-sans text-[11px] uppercase tracking-[0.24em] text-[#00B8D9] font-bold">
                   Talent &amp; Leadership
                 </span>
-                <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-white/15 backdrop-blur-md text-[#00B8D9] shadow-sm transition-transform duration-300 group-hover:scale-110 group-hover:-rotate-6">
-                  <Icon name="briefcase" width={18} height={18} />
-                </div>
+                <FeatureIcon
+                  name="briefcase"
+                  accent="#00B8D9"
+                  size={40}
+                  className="transition-transform duration-300 group-hover:scale-110 group-hover:-rotate-6"
+                />
               </div>
 
               {/* Content & Action */}

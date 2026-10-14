@@ -10,6 +10,7 @@ import { Stagger, StaggerItem } from "../components/motion/Stagger";
 import { AnimatedHeading } from "../components/motion/AnimatedHeading";
 import { MagneticButton } from "../components/common/MagneticButton";
 import { CardFill, CardPhoto, SectionPhoto, cardImage } from "../components/common/CardSurface";
+import { FeatureIcon } from "../components/common/FeatureIcon";
 
 // Contact pathway cards. `option` pre-selects the form's interest; `to` links out instead.
 const pathways: {
@@ -400,9 +401,12 @@ export default function ContactPage() {
                   >
                     <CardPhoto src={p.image} accent={p.accent} />
                     <div className="relative [text-shadow:0_0_2px_rgba(13,16,38,0.9),0_1px_12px_rgba(13,16,38,0.85)]">
-                      <div className="h-11 w-11 rounded-xl bg-white/15 ring-1 ring-white/25 backdrop-blur-sm text-white flex items-center justify-center mb-5 transition-transform duration-300 group-hover:scale-110 group-hover:rotate-6">
-                        <Icon name={p.icon} width={22} height={22} />
-                      </div>
+                      <FeatureIcon
+                        name={p.icon}
+                        accent={p.accent}
+                        size={44}
+                        className="mb-5 transition-transform duration-300 group-hover:scale-110 group-hover:rotate-6"
+                      />
 
                       <AnimatedHeading as="h3" effect="blur" hover="shift" className="font-heading text-2xl font-medium text-white group-hover:text-[#FFC94D] transition-colors">
                         {p.title}
@@ -1043,11 +1047,7 @@ export default function ContactPage() {
                 </div>
 
                 <div className="relative my-6 text-center">
-                  <div
-                    className="h-12 w-12 rounded-2xl bg-white/15 ring-1 ring-white/25 text-white flex items-center justify-center mx-auto mb-3 fx-icon-pop"
-                  >
-                    <Icon name="building-2" width={24} height={24} />
-                  </div>
+                  <FeatureIcon name="building-2" accent="#FFB000" size={48} className="mx-auto mb-3 fx-icon-pop" />
                   <span className="font-heading text-lg font-medium text-white block">
                     Pan-India Operating Presence
                   </span>

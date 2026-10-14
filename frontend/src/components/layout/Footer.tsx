@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { brandConfig } from "../../config/brand";
 import { footerSections } from "../../data/navigation";
-import { Icon } from "../../utils/icons";
+import { DuotoneIcon, Icon } from "../../utils/icons";
 import FooterOrbScene from "../three/FooterOrbScene";
 
 /*export function FooterCTA() {
@@ -12,7 +12,7 @@ import FooterOrbScene from "../three/FooterOrbScene";
       <div className="container-x relative flex flex-col items-center justify-between gap-10 lg:flex-row">
         <div className="max-w-2xl text-center lg:text-left">
           <div className="mb-4 inline-flex items-center gap-2.5 rounded-full border border-[#FFB000]/30 bg-[#FFB000]/10 px-3.5 py-1 font-sans text-[11px] uppercase tracking-[0.28em] text-[#FFB000]">
-            <Icon name="sparkles" width={12} height={12} />
+            <DuotoneIcon name="sparkles" size={14} />
             <span>Connect with BharatX Group</span>
           </div>
           <h2 className="font-heading text-3xl font-medium leading-[1.1] tracking-tight text-ink-900 dark:text-ink-50 sm:text-4xl md:text-5xl lg:text-6xl transition-colors duration-300 hover:text-[#3026B3] dark:hover:text-gold-400">
@@ -96,7 +96,7 @@ export function Footer() {
             {/* 1. Businesses */}
             <nav aria-label="Businesses">
               <div className="mb-3.5 flex items-center gap-2 font-sans text-[11px] uppercase tracking-[0.24em] text-[#111827] font-bold">
-                <Icon name="layers" width={13} height={13} className="text-[#3026B3]" />
+                <DuotoneIcon name="layers" size={14} className="text-[#3026B3]" />
                 Businesses
               </div>
               <ul className="flex flex-col gap-1.5">
@@ -121,7 +121,7 @@ export function Footer() {
             {/* 2. Group */}
             <nav aria-label="Group">
               <div className="mb-3.5 flex items-center gap-2 font-sans text-[11px] uppercase tracking-[0.24em] text-[#111827] font-bold">
-                <Icon name="building-2" width={13} height={13} className="text-[#3026B3] fx-icon-pop" />
+                <DuotoneIcon name="building-2" size={14} className="text-[#3026B3] fx-icon-pop" />
                 Group
               </div>
               <ul className="flex flex-col gap-1.5">
@@ -146,7 +146,7 @@ export function Footer() {
             {/* 3. Connect */}
             <nav aria-label="Connect">
               <div className="mb-3.5 flex items-center gap-2 font-sans text-[11px] uppercase tracking-[0.24em] text-[#111827] font-bold">
-                <Icon name="share-2" width={13} height={13} className="text-[#3026B3] fx-icon-pop" />
+                <DuotoneIcon name="share-2" size={14} className="text-[#3026B3] fx-icon-pop" />
                 Connect
               </div>
               <ul className="flex flex-col gap-1.5">
@@ -179,7 +179,7 @@ export function Footer() {
             {/* 4. Address */}
             <div aria-label="Address">
               <div className="mb-3.5 flex items-center gap-2 font-sans text-[11px] uppercase tracking-[0.24em] text-[#111827] font-bold">
-                <Icon name="map-pin" width={13} height={13} className="text-[#3026B3]" />
+                <DuotoneIcon name="map-pin" size={14} className="text-[#3026B3]" />
                 Address
               </div>
               <address className="not-italic text-[13px] leading-snug text-[#596579] space-y-2">
@@ -196,7 +196,7 @@ export function Footer() {
                       href={`tel:${brandConfig.contact.phoneTel}`}
                       className="inline-flex items-center gap-2 text-[#596579] hover:text-[#3026B3] transition-colors"
                     >
-                      <Icon name="phone" width={13} height={13} className="shrink-0 text-[#00B8D9]" />
+                      <DuotoneIcon name="phone" size={14} className="shrink-0 text-[#00B8D9]" />
                       <span>{brandConfig.contact.phoneFormatted}</span>
                     </a>
                   </div>
@@ -205,7 +205,7 @@ export function Footer() {
                       href={`mailto:${brandConfig.contact.email}`}
                       className="inline-flex items-center gap-2 text-[#596579] hover:text-[#3026B3] transition-colors"
                     >
-                      <Icon name="mail" width={13} height={13} className="shrink-0 text-[#FFB000]" />
+                      <DuotoneIcon name="mail" size={14} className="shrink-0 text-[#FFB000]" />
                       <span>{brandConfig.contact.email}</span>
                     </a>
                   </div>

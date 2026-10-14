@@ -1,5 +1,6 @@
 import { useState, type CSSProperties, type ReactNode } from "react";
 import { cn } from "../../utils/cn";
+import { NIGHT, WHITE, hexToRgb, mix, rgb, whiteContrast } from "../../utils/color";
 
 /**
  * Card backgrounds without SVG art.
@@ -15,33 +16,6 @@ import { cn } from "../../utils/cn";
  * and keep the card's content in `relative` wrappers so it paints above.
  */
 
-type Rgb = [number, number, number];
-
-const NIGHT: Rgb = [13, 16, 38];
-const WHITE: Rgb = [255, 255, 255];
-
-function hexToRgb(hex: string): Rgb {
-  const h = hex.replace("#", "");
-  const full = h.length === 3 ? h.replace(/./g, (c) => c + c) : h;
-  const n = parseInt(full, 16);
-  return [(n >> 16) & 255, (n >> 8) & 255, n & 255];
-}
-
-const mix = (a: Rgb, b: Rgb, t: number): Rgb => [
-  Math.round(a[0] + (b[0] - a[0]) * t),
-  Math.round(a[1] + (b[1] - a[1]) * t),
-  Math.round(a[2] + (b[2] - a[2]) * t),
-];
-const rgb = (c: Rgb) => `rgb(${c[0]}, ${c[1]}, ${c[2]})`;
-
-function luminance(c: Rgb) {
-  const [r, g, b] = c.map((v) => {
-    const s = v / 255;
-    return s <= 0.03928 ? s / 12.92 : ((s + 0.055) / 1.055) ** 2.4;
-  });
-  return 0.2126 * r + 0.7152 * g + 0.0722 * b;
-}
-
 /**
  * The accent, darkened toward the brand navy until white text clears 4.5:1, and a deeper shade for hover.
  * `deep` darkens further so accent-tinted icons (tintOnDark) stay legible on a photo card awaiting its image.
@@ -49,7 +23,7 @@ function luminance(c: Rgb) {
 function solidShades(accent: string, deep = false) {
   const base = hexToRgb(accent);
   let t = 0;
-  while (1.05 / (luminance(mix(base, NIGHT, t)) + 0.05) < 4.6 && t < 0.9) t += 0.05;
+  while (whiteContrast(mix(base, NIGHT, t)) < 4.6 && t < 0.9) t += 0.05;
   if (deep) t = Math.max(t, 0.6);
   return { rest: mix(base, NIGHT, t), hover: mix(base, NIGHT, Math.min(t + 0.25, 0.92)) };
 }

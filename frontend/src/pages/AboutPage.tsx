@@ -1,7 +1,8 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { usePageMeta } from "../hooks/usePageMeta";
-import { Icon } from "../utils/icons";
+import { DuotoneIcon, Icon } from "../utils/icons";
+import { FeatureIcon } from "../components/common/FeatureIcon";
 import { SectionTransition } from "../components/motion/SectionTransition";
 import { Stagger, StaggerItem } from "../components/motion/Stagger";
 import { tintOnDark } from "../components/common/CardArt";
@@ -9,11 +10,11 @@ import { CardFill, CardPhoto, SectionPhoto, cardImage } from "../components/comm
 
 // ── 02. Formula items for "Who We Are" ──────────────────────────────
 const formulaInputs = [
-  { label: "Businesses", icon: "layers" as const, color: "#3026B3", bg: "bg-[#3026B3]/10", text: "text-[#3026B3]" },
-  { label: "Capital", icon: "landmark" as const, color: "#E09800", bg: "bg-[#FFB000]/15", text: "text-[#B87B00]" },
-  { label: "Technology", icon: "cpu" as const, color: "#00B8D9", bg: "bg-[#00B8D9]/15", text: "text-[#008299]" },
-  { label: "Talent", icon: "users" as const, color: "#15966B", bg: "bg-[#15966B]/15", text: "text-[#15966B]" },
-  { label: "Execution", icon: "cog" as const, color: "#4B40D4", bg: "bg-[#4B40D4]/15", text: "text-[#4B40D4]" },
+  { label: "Businesses", icon: "layers" as const, color: "#3026B3" },
+  { label: "Capital", icon: "landmark" as const, color: "#E09800" },
+  { label: "Technology", icon: "cpu" as const, color: "#00B8D9" },
+  { label: "Talent", icon: "users" as const, color: "#15966B" },
+  { label: "Execution", icon: "cog" as const, color: "#4B40D4" },
 ];
 
 // ── 03. Three Pillars for "Why BharatX Exists" ────────────────────────
@@ -70,8 +71,6 @@ const leadershipMandates = [
   {
     icon: "compass",
     accent: "#FFB000",
-    bgAccent: "bg-[#FFB000]/15",
-    textAccent: "text-[#9A6200]",
     borderHover: "hover:border-[#FFB000]/40",
     title: "Sovereign Industrial Capacity",
     desc: "Engineering domestic manufacturing, resilient infrastructure, and high-duty cycle systems designed for decades of compounding value.",
@@ -79,8 +78,6 @@ const leadershipMandates = [
   {
     icon: "cpu",
     accent: "#3026B3",
-    bgAccent: "bg-[#3026B3]/10",
-    textAccent: "text-[#3026B3]",
     borderHover: "hover:border-[#3026B3]/30",
     title: "Indigenous Technology & Silicon",
     desc: "Fostering frontier AI foundational models, robotics, and deeptech skunkworks to eliminate reliance on foreign black-box dependencies.",
@@ -88,8 +85,6 @@ const leadershipMandates = [
   {
     icon: "orbit",
     accent: "#15966B",
-    bgAccent: "bg-[#15966B]/15",
-    textAccent: "text-[#15966B]",
     borderHover: "hover:border-[#15966B]/40",
     title: "Interconnected Economic Engine",
     desc: "Unifying cross-sector operating businesses under one institutional standard of quality, capital discipline, and governance.",
@@ -425,9 +420,12 @@ export default function AboutPage() {
                           borderLeftColor: item.color,
                         }}
                       >
-                        <div className={`h-8 w-8 rounded-lg ${item.bg} ${item.text} flex items-center justify-center shrink-0 transition-transform duration-300 hover:scale-110`}>
-                          <Icon name={item.icon} width={16} height={16} strokeWidth={2} />
-                        </div>
+                        <FeatureIcon
+                          name={item.icon}
+                          accent={item.color}
+                          size={32}
+                          className="transition-transform duration-300 hover:scale-110"
+                        />
                         <span className="font-sans text-sm font-medium text-[#111827]">
                           {item.label}
                         </span>
@@ -502,9 +500,7 @@ export default function AboutPage() {
                 >
                   <CardFill accent="#3026B3" />
                   <div className="relative flex items-start gap-3.5">
-                    <div className="h-10 w-10 rounded-xl bg-white/15 ring-1 ring-white/25 text-white flex items-center justify-center shrink-0 shadow-xs">
-                      <Icon name="landmark" width={18} height={18} />
-                    </div>
+                    <FeatureIcon name="landmark" accent="#3026B3" size={40} />
                     <div className="min-w-0 flex-1">
                       <span className="font-sans text-[10px] uppercase tracking-[0.24em] text-[#FFC94D] font-bold block">
                         SOVEREIGN THESIS
@@ -530,12 +526,12 @@ export default function AboutPage() {
                     <CardPhoto src={pillar.image} accent={pillar.accent} />
                     <div className="relative [text-shadow:0_0_2px_rgba(13,16,38,0.9),0_1px_12px_rgba(13,16,38,0.85)]">
                       <div className="flex items-center justify-between mb-5">
-                        <div
-                          className="flex h-12 w-12 items-center justify-center rounded-xl bg-white/10 ring-1 ring-white/20 backdrop-blur-sm transition-transform duration-300 group-hover:scale-110 shadow-xs fx-icon-pop"
-                          style={{ color: tintOnDark(pillar.accent) }}
-                        >
-                          <Icon name={pillar.icon} width={22} height={22} strokeWidth={2} />
-                        </div>
+                        <FeatureIcon
+                          name={pillar.icon}
+                          accent={pillar.accent}
+                          size={48}
+                          className="transition-transform duration-300 group-hover:scale-110 fx-icon-pop"
+                        />
                         <span className="font-sans text-xs font-bold" style={{ color: tintOnDark(pillar.accent) }}>
                           {pillar.step}
                         </span>
@@ -582,7 +578,7 @@ export default function AboutPage() {
           <div className="container-x relative z-10">
             <div className="max-w-3xl mb-12 sm:mb-16">
               <div className="inline-flex items-center gap-2 rounded-full border border-[#3026B3]/25 bg-[#3026B3]/8 px-4 py-1 font-sans text-[11px] uppercase tracking-[0.26em] text-[#3026B3] font-bold shadow-xs mb-4">
-                <Icon name="user-round" width={13} height={13} />
+                <DuotoneIcon name="user-round" size={14} />
                 <span>GROUP LEADERSHIP</span>
               </div>
 
@@ -633,7 +629,7 @@ export default function AboutPage() {
                   <div>
                     {/* Vision Badge */}
                     <div className="inline-flex items-center gap-2 rounded-full border border-[#FFB000]/40 bg-[#FFB000]/15 px-4 py-1.5 font-sans text-xs uppercase tracking-widest text-[#9A6200] font-bold mb-6 shadow-xs">
-                      <Icon name="sparkles" width={13} height={13} />
+                      <DuotoneIcon name="sparkles" size={14} />
                       <span>National Economic Vision</span>
                     </div>
 
@@ -674,11 +670,7 @@ export default function AboutPage() {
                             borderLeftColor: item.accent,
                           }}
                         >
-                          <div
-                            className={`flex h-10 w-10 shrink-0 items-center justify-center rounded-xl ${item.bgAccent} ${item.textAccent} shadow-xs fx-icon-pop`}
-                          >
-                            <Icon name={item.icon} width={20} height={20} strokeWidth={2} />
-                          </div>
+                          <FeatureIcon name={item.icon} accent={item.accent} size={40} className="fx-icon-pop" />
                           <div>
                             <div className="font-heading text-base font-medium text-[#111827]">
                               {item.title}
@@ -695,7 +687,7 @@ export default function AboutPage() {
                   {/* Trust & Alignment Footer Bar */}
                   <div className="mt-8 pt-5 border-t border-[#E3E5EF] flex flex-wrap items-center justify-between gap-4 text-xs font-sans text-[#374151]">
                     <span className="flex items-center gap-2 text-[#111827] font-medium">
-                      <Icon name="shield-check" width={16} height={16} className="text-[#15966B]" />
+                      <DuotoneIcon name="shield-check" size={17} className="text-[#15966B]" />
                       Constitutional Governance Standard
                     </span>
                     <span className="text-[#9A6200] font-bold">Viksit Bharat 2047 Committed</span>
@@ -818,12 +810,12 @@ export default function AboutPage() {
                     <div className="relative [text-shadow:0_0_2px_rgba(13,16,38,0.9),0_1px_12px_rgba(13,16,38,0.85)]">
                       {/* Top Bar: Icon on left, Phase Badge on right */}
                       <div className="flex items-center justify-between mb-5">
-                        <div
-                          className="h-11 w-11 rounded-2xl bg-white/10 ring-1 ring-white/20 backdrop-blur-sm flex items-center justify-center transition-transform duration-300 group-hover:scale-110 shadow-xs fx-icon-pop"
-                          style={{ color: tintOnDark(step.accent) }}
-                        >
-                          <Icon name={step.icon} width={20} height={20} strokeWidth={2} />
-                        </div>
+                        <FeatureIcon
+                          name={step.icon}
+                          accent={step.accent}
+                          size={44}
+                          className="transition-transform duration-300 group-hover:scale-110 fx-icon-pop"
+                        />
                         <span className="font-sans text-[10px] uppercase tracking-wider font-semibold px-2.5 py-1 rounded-full border border-white/20 bg-white/15 text-white group-hover:border-[#FFC94D]/60 group-hover:text-[#FFC94D] transition-colors">
                           {step.phase}
                         </span>
@@ -900,9 +892,12 @@ export default function AboutPage() {
                   >
                     <CardFill accent={p.color} />
                     <div className="relative flex items-center gap-3.5 mb-4">
-                      <div className="h-11 w-11 rounded-xl bg-white/15 ring-1 ring-white/25 text-white flex items-center justify-center shrink-0 shadow-xs transition-transform duration-300 group-hover:scale-110 fx-icon-pop">
-                        <Icon name={p.icon} width={20} height={20} strokeWidth={2} />
-                      </div>
+                      <FeatureIcon
+                        name={p.icon}
+                        accent={p.color}
+                        size={44}
+                        className="transition-transform duration-300 group-hover:scale-110 fx-icon-pop"
+                      />
                       <div>
                         <span className="font-sans text-[10px] uppercase tracking-wider block text-[#FFC94D]">
                           Principle 0{idx + 1}

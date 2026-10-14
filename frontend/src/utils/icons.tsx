@@ -79,11 +79,75 @@ import {
   Volume2,
   type LucideIcon,
 } from "lucide-react";
+import {
+  Bank as PhBank,
+  Boat as PhBoat,
+  Brain as PhBrain,
+  Briefcase as PhBriefcase,
+  Buildings as PhBuildings,
+  Certificate as PhCertificate,
+  CheckCircle as PhCheckCircle,
+  ClipboardText as PhClipboardText,
+  Clock as PhClock,
+  Compass as PhCompass,
+  Cpu as PhCpu,
+  Database as PhDatabase,
+  EnvelopeSimple as PhEnvelopeSimple,
+  Eye as PhEye,
+  Factory as PhFactory,
+  FileText as PhFileText,
+  Flask as PhFlask,
+  Gauge as PhGauge,
+  GearSix as PhGearSix,
+  GlobeHemisphereEast as PhGlobeHemisphereEast,
+  GraduationCap as PhGraduationCap,
+  Grains as PhGrains,
+  Graph as PhGraph,
+  Handshake as PhHandshake,
+  HardHat as PhHardHat,
+  Headset as PhHeadset,
+  Heart as PhHeart,
+  Info as PhInfo,
+  Leaf as PhLeaf,
+  Lightbulb as PhLightbulb,
+  MapPin as PhMapPin,
+  Medal as PhMedal,
+  Newspaper as PhNewspaper,
+  Package as PhPackage,
+  PencilRuler as PhPencilRuler,
+  Phone as PhPhone,
+  Planet as PhPlanet,
+  Plant as PhPlant,
+  Pulse as PhPulse,
+  Recycle as PhRecycle,
+  Robot as PhRobot,
+  RocketLaunch as PhRocketLaunch,
+  Scales as PhScales,
+  Scan as PhScan,
+  SealCheck as PhSealCheck,
+  ShareNetwork as PhShareNetwork,
+  ShieldCheck as PhShieldCheck,
+  Snowflake as PhSnowflake,
+  Sparkle as PhSparkle,
+  SquaresFour as PhSquaresFour,
+  Stack as PhStack,
+  Target as PhTarget,
+  TreeStructure as PhTreeStructure,
+  TrendUp as PhTrendUp,
+  Truck as PhTruck,
+  User as PhUser,
+  UsersThree as PhUsersThree,
+  Wrench as PhWrench,
+  type Icon as PhosphorIcon,
+} from "@phosphor-icons/react";
 
 /**
- * Central icon registry. Data files reference icons by string key so the
- * same records can later come from the database. Lucide is the ONLY icon
- * system used across the site (Section 40A).
+ * Central icon registries. Data files reference icons by string key so the
+ * same records can later come from the database.
+ *
+ * - `Icon` (Lucide line icons) is for interface glyphs: arrows, chevrons, close, menu, checks, alerts.
+ * - `DuotoneIcon` (Phosphor duotone) is for content icons: the subject of a card, step, pillar or
+ *   heading. Inside a card, wrap it in <FeatureIcon> (components/common) for the glossy tile.
  */
 export const iconMap: Record<string, LucideIcon> = {
   activity: Activity,
@@ -173,4 +237,81 @@ export interface IconProps extends React.SVGProps<SVGSVGElement> {
 export function Icon({ name, ...props }: IconProps) {
   const Cmp = iconMap[name] ?? Info;
   return <Cmp {...props} />;
+}
+
+/** Duotone counterparts, keyed like `iconMap` so the same data works with either. */
+export const duotoneIconMap: Record<string, PhosphorIcon> = {
+  activity: PhPulse,
+  award: PhMedal,
+  "badge-check": PhSealCheck,
+  beaker: PhFlask,
+  bot: PhRobot,
+  boxes: PhPackage,
+  "brain-circuit": PhBrain,
+  briefcase: PhBriefcase,
+  "building-2": PhBuildings,
+  check: PhCheckCircle,
+  "clipboard-list": PhClipboardText,
+  clock: PhClock,
+  cog: PhGearSix,
+  compass: PhCompass,
+  cpu: PhCpu,
+  database: PhDatabase,
+  eye: PhEye,
+  factory: PhFactory,
+  "file-check": PhCertificate,
+  "file-text": PhFileText,
+  "flask-conical": PhFlask,
+  gauge: PhGauge,
+  globe: PhGlobeHemisphereEast,
+  "graduation-cap": PhGraduationCap,
+  "grid-3x3": PhSquaresFour,
+  handshake: PhHandshake,
+  "hard-hat": PhHardHat,
+  headphones: PhHeadset,
+  heart: PhHeart,
+  info: PhInfo,
+  landmark: PhBank,
+  layers: PhStack,
+  leaf: PhLeaf,
+  lightbulb: PhLightbulb,
+  mail: PhEnvelopeSimple,
+  "map-pin": PhMapPin,
+  network: PhGraph,
+  newspaper: PhNewspaper,
+  orbit: PhPlanet,
+  package: PhPackage,
+  "pencil-ruler": PhPencilRuler,
+  phone: PhPhone,
+  recycle: PhRecycle,
+  rocket: PhRocketLaunch,
+  scale: PhScales,
+  "scan-eye": PhScan,
+  "share-2": PhShareNetwork,
+  "shield-check": PhShieldCheck,
+  ship: PhBoat,
+  snowflake: PhSnowflake,
+  sparkles: PhSparkle,
+  sprout: PhPlant,
+  target: PhTarget,
+  "trending-up": PhTrendUp,
+  truck: PhTruck,
+  "user-round": PhUser,
+  users: PhUsersThree,
+  wheat: PhGrains,
+  workflow: PhTreeStructure,
+  wrench: PhWrench,
+};
+
+export interface DuotoneIconProps {
+  name: string;
+  /** Pixel size (square). */
+  size?: number;
+  className?: string;
+}
+
+/** Decorative two-tone icon; the back layer is currentColor at 20% unless CSS recolours it (see .feature-icon). */
+export function DuotoneIcon({ name, size = 16, className }: DuotoneIconProps) {
+  const Cmp = duotoneIconMap[name] ?? PhInfo;
+  return <Cmp weight="duotone" size={size} className={className} aria-hidden focusable={false} />;
 }

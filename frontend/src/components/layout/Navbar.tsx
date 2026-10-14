@@ -8,7 +8,7 @@ import {
 import { useEffect, useState } from "react";
 import { Link, NavLink, useLocation } from "react-router-dom";
 import { cn } from "../../utils/cn";
-import { Icon } from "../../utils/icons";
+import { DuotoneIcon, Icon } from "../../utils/icons";
 import { MobileMenu } from "./MobileMenu";
 import { navigation } from "../../data/navigation";
 import { servicesData } from "../../data/servicesData";
@@ -115,7 +115,7 @@ export function Navbar() {
                     to="/services"
                     className="hover:text-[#FFB000] transition-colors flex items-center gap-1.5"
                   >
-                    <Icon name="layers" width={11} height={11} />
+                    <DuotoneIcon name="layers" size={12} />
                     <span>Our Services</span>
                   </Link>
 
@@ -270,11 +270,9 @@ function NavItem({
             transition={{ type: "spring", stiffness: 380, damping: 30 }}
           />
         )}
-        <Icon
+        <DuotoneIcon
           name={item.icon}
-          width={13.5}
-          height={13.5}
-          strokeWidth={1.8}
+          size={15}
           className={cn(
             "shrink-0 transition-transform duration-300 group-hover:scale-110 fx-icon-pop",
             scrolled

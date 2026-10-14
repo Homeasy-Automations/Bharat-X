@@ -1,18 +1,18 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { usePageMeta } from "../hooks/usePageMeta";
-import { Icon } from "../utils/icons";
+import { DuotoneIcon, Icon } from "../utils/icons";
 import { SectionTransition } from "../components/motion/SectionTransition";
 import { Stagger, StaggerItem } from "../components/motion/Stagger";
 import { AnimatedHeading } from "../components/motion/AnimatedHeading";
 import { MagneticButton } from "../components/common/MagneticButton";
 import { tintOnDark } from "../components/common/CardArt";
 import { CardFill, CardPhoto, SectionPhoto, cardImage } from "../components/common/CardSurface";
+import { FeatureIcon } from "../components/common/FeatureIcon";
 
 interface BusinessVertical {
   id: string;
   category: string;
-  emoji: string;
   name: string;
   description: string;
   status: "Active" | "Coming Soon";
@@ -27,7 +27,6 @@ const businessPortfolio: BusinessVertical[] = [
   {
     id: "infrastructure",
     category: "Infrastructure & Engineering",
-    emoji: "🏗️",
     name: "BharatX Infratech",
     description: "Building infrastructure and engineering capabilities for a growing India.",
     status: "Active",
@@ -40,7 +39,6 @@ const businessPortfolio: BusinessVertical[] = [
   {
     id: "agriculture",
     category: "Agriculture & Food",
-    emoji: "🌾",
     name: "BharatX Agro",
     description: "Connecting agricultural products, value addition and Indian capabilities with global markets.",
     status: "Active",
@@ -53,7 +51,6 @@ const businessPortfolio: BusinessVertical[] = [
   {
     id: "ventures",
     category: "Capital & Venture Building",
-    emoji: "💼",
     name: "BharatX Ventures",
     description: "Combining capital, strategy and execution to build and scale enterprises.",
     status: "Active",
@@ -66,7 +63,6 @@ const businessPortfolio: BusinessVertical[] = [
   {
     id: "foundation",
     category: "Knowledge & Social Impact",
-    emoji: "🌱",
     name: "BharatX Labs Foundation",
     description: "Building initiatives around education, innovation, entrepreneurship and social development.",
     status: "Coming Soon",
@@ -78,7 +74,6 @@ const businessPortfolio: BusinessVertical[] = [
   {
     id: "manufacturing",
     category: "Industrial Manufacturing",
-    emoji: "⚙️",
     name: "Casters Global",
     description: "Engineering precision mobility and caster solutions for industrial applications.",
     status: "Active",
@@ -91,7 +86,6 @@ const businessPortfolio: BusinessVertical[] = [
   {
     id: "tech-ai",
     category: "Technology & AI",
-    emoji: "🤖",
     name: "Aixperts Labs",
     description: "Building AI, automation and digital solutions for modern businesses.",
     status: "Active",
@@ -104,7 +98,6 @@ const businessPortfolio: BusinessVertical[] = [
   {
     id: "packaging",
     category: "Packaging & Materials",
-    emoji: "📦",
     name: "SRM Enterprises",
     description: "Complete industrial packaging materials, corrugated boxes, protective cushioning and bulk logistics containers.",
     status: "Active",
@@ -116,7 +109,6 @@ const businessPortfolio: BusinessVertical[] = [
   {
     id: "sustainability",
     category: "Waste Management & Sustainability",
-    emoji: "♻️",
     name: "BharatX Sustainability",
     description: "Building solutions around waste management, recycling, resource recovery and the circular economy.",
     status: "Coming Soon",
@@ -253,10 +245,10 @@ export default function ServicesPage() {
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
 
-                      {/* Category Tag with Emoji */}
+                      {/* Category Tag */}
                       <div className="absolute top-3 left-3 right-3 flex items-center justify-between">
                         <span className="inline-flex items-center gap-1.5 rounded-full bg-black/60 backdrop-blur-md px-3 py-1 font-sans text-[10px] uppercase tracking-wider text-white border border-white/20">
-                          <span>{biz.emoji}</span>
+                          <DuotoneIcon name={biz.icon} size={13} className="shrink-0 text-[#FFC94D]" />
                           <span className="truncate max-w-[150px]">{biz.category}</span>
                         </span>
 
@@ -317,9 +309,12 @@ export default function ServicesPage() {
                           </span>
                         )}
 
-                        <div className="h-7 w-7 rounded-lg bg-white/15 ring-1 ring-white/25 text-white flex items-center justify-center shrink-0 transition-transform duration-300 group-hover:scale-110 group-hover:rotate-6">
-                          <Icon name={biz.icon} width={14} height={14} strokeWidth={2} />
-                        </div>
+                        <FeatureIcon
+                          name={biz.icon}
+                          accent={biz.accent}
+                          size={28}
+                          className="transition-transform duration-300 group-hover:scale-110 group-hover:rotate-6"
+                        />
                       </div>
                     </div>
                   </div>
@@ -378,9 +373,12 @@ export default function ServicesPage() {
                   >
                     <CardFill accent="#3026B3" />
                     <div className="relative">
-                      <div className="h-9 w-9 rounded-xl bg-white/15 ring-1 ring-white/25 text-white flex items-center justify-center mx-auto mb-3 transition-transform duration-300 group-hover:scale-110 group-hover:rotate-6">
-                        <Icon name="hard-hat" width={18} height={18} />
-                      </div>
+                      <FeatureIcon
+                        name="hard-hat"
+                        accent="#3026B3"
+                        size={36}
+                        className="mx-auto mb-3 transition-transform duration-300 group-hover:scale-110 group-hover:rotate-6"
+                      />
                       <span className="font-sans text-xs uppercase tracking-[0.24em] font-bold block text-[#FFC94D]">
                         BUILD
                       </span>
@@ -402,9 +400,12 @@ export default function ServicesPage() {
                   >
                     <CardFill accent="#15966B" />
                     <div className="relative">
-                      <div className="h-9 w-9 rounded-xl bg-white/15 ring-1 ring-white/25 text-white flex items-center justify-center mx-auto mb-3 transition-transform duration-300 group-hover:scale-110 group-hover:rotate-6">
-                        <Icon name="cog" width={18} height={18} />
-                      </div>
+                      <FeatureIcon
+                        name="cog"
+                        accent="#15966B"
+                        size={36}
+                        className="mx-auto mb-3 transition-transform duration-300 group-hover:scale-110 group-hover:rotate-6"
+                      />
                       <span className="font-sans text-xs uppercase tracking-[0.24em] font-bold block text-[#FFC94D]">
                         OPERATE
                       </span>
@@ -426,9 +427,12 @@ export default function ServicesPage() {
                   >
                     <CardFill accent="#00B8D9" />
                     <div className="relative">
-                      <div className="h-9 w-9 rounded-xl bg-white/15 ring-1 ring-white/25 text-white flex items-center justify-center mx-auto mb-3 transition-transform duration-300 group-hover:scale-110 group-hover:rotate-6">
-                        <Icon name="landmark" width={18} height={18} />
-                      </div>
+                      <FeatureIcon
+                        name="landmark"
+                        accent="#00B8D9"
+                        size={36}
+                        className="mx-auto mb-3 transition-transform duration-300 group-hover:scale-110 group-hover:rotate-6"
+                      />
                       <span className="font-sans text-xs uppercase tracking-[0.24em] font-bold block text-[#FFC94D]">
                         INVEST
                       </span>

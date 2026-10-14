@@ -5,8 +5,8 @@ import { SectionTransition } from "../components/motion/SectionTransition";
 import { Stagger, StaggerItem } from "../components/motion/Stagger";
 import { AnimatedHeading } from "../components/motion/AnimatedHeading";
 import { MagneticButton } from "../components/common/MagneticButton";
-import { tintOnDark } from "../components/common/CardArt";
 import { CardFill, CardPhoto, cardImage } from "../components/common/CardSurface";
+import { FeatureIcon } from "../components/common/FeatureIcon";
 
 const innovationPillars: { icon: string; title: string; desc: string; metric: string; image: string }[] = [
   {
@@ -180,12 +180,12 @@ export default function InnovationPage() {
                     <CardPhoto src={p.image} accent={pillarColor} />
                     <div className="relative [text-shadow:0_0_2px_rgba(13,16,38,0.9),0_1px_12px_rgba(13,16,38,0.85)]">
                       <div className="flex items-center justify-between mb-5">
-                        <span
-                          className="flex h-10 w-10 items-center justify-center rounded-xl bg-white/10 ring-1 ring-white/20 backdrop-blur-sm transition-transform duration-300 group-hover:scale-110 fx-icon-bounce"
-                          style={{ color: tintOnDark(pillarColor) }}
-                        >
-                          <Icon name={p.icon} width={20} height={20} />
-                        </span>
+                        <FeatureIcon
+                          name={p.icon}
+                          accent={pillarColor}
+                          size={40}
+                          className="transition-transform duration-300 group-hover:scale-110 fx-icon-bounce"
+                        />
                         <span className="font-sans text-xs font-semibold px-2.5 py-1 rounded-full border border-white/20 bg-white/15 text-white backdrop-blur-sm transition-transform group-hover:scale-105">
                           {p.metric}
                         </span>

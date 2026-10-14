@@ -5,8 +5,8 @@ import { SectionTransition } from "../components/motion/SectionTransition";
 import { Stagger, StaggerItem } from "../components/motion/Stagger";
 import { AnimatedHeading } from "../components/motion/AnimatedHeading";
 import { MagneticButton } from "../components/common/MagneticButton";
-import { tintOnDark } from "../components/common/CardArt";
 import { CardFill, CardPhoto, cardImage } from "../components/common/CardSurface";
+import { FeatureIcon } from "../components/common/FeatureIcon";
 
 const governance = [
   { icon: "scale", t: "Clear Division of Decision Rights", d: "Group stewardship governs capital discipline, risk management, and shared standards. Tactical execution belongs to sector teams.", color: "#3026B3", image: cardImage("leadership-02-governance-decision-rights") },
@@ -124,12 +124,12 @@ export default function LeadershipPage() {
                       className="group flex items-start gap-3 rounded-xl border border-l-4 p-3.5 transition-all duration-300 hover:border-[#3026B3] fx-lift"
                       style={{ backgroundColor: `color-mix(in srgb, ${m.color} 9%, white)`, borderColor: `${m.color}40`, borderLeftColor: m.color }}
                     >
-                      <div
-                        className="flex h-8 w-8 items-center justify-center rounded-lg shrink-0 mt-0.5 text-white transition-transform group-hover:scale-110"
-                        style={{ backgroundColor: m.color }}
-                      >
-                        <Icon name={m.icon} width={18} height={18} />
-                      </div>
+                      <FeatureIcon
+                        name={m.icon}
+                        accent={m.color}
+                        size={32}
+                        className="mt-0.5 transition-transform group-hover:scale-110"
+                      />
                       <div>
                         <span className="font-heading text-base text-[#111827] block font-medium">{m.title}</span>
                         <span className="text-xs sm:text-[13px] text-[#374151] leading-relaxed block mt-0.5 font-sans">{m.desc}</span>
@@ -166,12 +166,12 @@ export default function LeadershipPage() {
                   className="group relative overflow-hidden rounded-2xl border border-white/10 bg-[#0D1026] p-7 flex gap-4 items-start shadow-md cursor-card hover:border-[#FFC94D] transition-all duration-300 fx-lift hover:shadow-xl h-full"
                 >
                   <CardPhoto src={g.image} accent={g.color} />
-                  <span
-                    className="relative flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-white/10 ring-1 ring-white/20 backdrop-blur-sm transition-transform duration-300 group-hover:scale-110 group-hover:rotate-6"
-                    style={{ color: tintOnDark(g.color) }}
-                  >
-                    <Icon name={g.icon} width={20} height={20} />
-                  </span>
+                  <FeatureIcon
+                    name={g.icon}
+                    accent={g.color}
+                    size={40}
+                    className="transition-transform duration-300 group-hover:scale-110 group-hover:rotate-6"
+                  />
                   <div className="relative">
                     <h3 className="font-heading text-xl text-white font-medium group-hover:text-[#FFC94D] transition-colors">{g.t}</h3>
                     <p className="mt-2 text-xs sm:text-sm text-slate-200 leading-relaxed font-sans">{g.d}</p>

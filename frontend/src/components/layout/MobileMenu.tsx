@@ -2,7 +2,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import { useEffect, type CSSProperties } from "react";
 import { Link, NavLink, useLocation } from "react-router-dom";
 import { cn } from "../../utils/cn";
-import { Icon } from "../../utils/icons";
+import { DuotoneIcon, Icon } from "../../utils/icons";
 import { servicesData } from "../../data/servicesData";
 import { brandConfig } from "../../config/brand";
 import { navigation } from "../../data/navigation";
@@ -85,7 +85,7 @@ export function MobileMenu({ open, onClose }: { open: boolean; onClose: () => vo
                     className={({ isActive }) => cn(mobileLinkClass(isActive), "group fx-arrow")}
                     onClick={onClose}
                   >
-                    <Icon name={item.icon} width={16} height={16} className="transition-transform group-hover:scale-115 fx-icon-pop" />
+                    <DuotoneIcon name={item.icon} size={17} className="transition-transform group-hover:scale-115 fx-icon-pop" />
                     <span className="fx-underline">{item.label}</span>
                   </NavLink>
                 </motion.div>

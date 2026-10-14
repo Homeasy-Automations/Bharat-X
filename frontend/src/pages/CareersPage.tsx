@@ -8,8 +8,8 @@ import { SectionTransition } from "../components/motion/SectionTransition";
 import { Stagger, StaggerItem } from "../components/motion/Stagger";
 import { AnimatedHeading } from "../components/motion/AnimatedHeading";
 import { MagneticButton } from "../components/common/MagneticButton";
-import { tintOnDark } from "../components/common/CardArt";
 import { CardFill, CardPhoto, SectionPhoto, cardImage } from "../components/common/CardSurface";
+import { FeatureIcon } from "../components/common/FeatureIcon";
 
 const whyPillars: { title: string; description: string; icon: string; accent: string; image: string }[] = [
   {
@@ -42,59 +42,59 @@ const whyPillars: { title: string; description: string; icon: string; accent: st
   },
 ];
 
-const careerDomains: { name: string; emoji: string; roles: string; accent: string; link: string }[] = [
+const careerDomains: { name: string; icon: string; roles: string; accent: string; link: string }[] = [
   {
     name: "Infrastructure",
-    emoji: "🏗️",
+    icon: "hard-hat",
     roles: "Engineering • Project Management • Operations • Procurement",
     accent: "#3026B3",
     link: "/services#infrastructure",
   },
   {
     name: "Agriculture & Food",
-    emoji: "🌾",
+    icon: "sprout",
     roles: "Operations • Supply Chain • Export • Business Development",
     accent: "#15966B",
     link: "/services#agriculture",
   },
   {
     name: "Manufacturing",
-    emoji: "⚙️",
+    icon: "cog",
     roles: "Engineering • Production • Quality • Sales",
     accent: "#00B8D9",
     link: "/services#manufacturing",
   },
   {
     name: "Technology & AI",
-    emoji: "🤖",
+    icon: "cpu",
     roles: "Software • AI • Product • Design • Data",
     accent: "#4B40D4",
     link: "/services#tech-ai",
   },
   {
     name: "Packaging",
-    emoji: "📦",
+    icon: "boxes",
     roles: "Product • Manufacturing • Operations • Sales",
     accent: "#D97706",
     link: "/services#packaging",
   },
   {
     name: "Sustainability",
-    emoji: "♻️",
+    icon: "recycle",
     roles: "Waste Management • Operations • Sustainability • Circular Economy",
     accent: "#059669",
     link: "/services#sustainability",
   },
   {
     name: "Ventures & Strategy",
-    emoji: "💼",
+    icon: "landmark",
     roles: "Investment • Consulting • Strategy • Business Development",
     accent: "#211B72",
     link: "/services#ventures",
   },
   {
     name: "Foundation",
-    emoji: "🌱",
+    icon: "sparkles",
     roles: "Education • Programs • Community • Social Impact",
     accent: "#15966B",
     link: "/services#foundation",
@@ -303,12 +303,12 @@ export default function CareersPage() {
                 >
                   <CardPhoto src={p.image} accent={p.accent} />
                   <div className="relative [text-shadow:0_0_2px_rgba(13,16,38,0.9),0_1px_12px_rgba(13,16,38,0.85)]">
-                    <div
-                      className="h-11 w-11 rounded-xl bg-white/10 ring-1 ring-white/20 backdrop-blur-sm flex items-center justify-center mb-5 transition-transform duration-300 group-hover:scale-110 group-hover:rotate-6"
-                      style={{ color: tintOnDark(p.accent) }}
-                    >
-                      <Icon name={p.icon} width={20} height={20} strokeWidth={2} />
-                    </div>
+                    <FeatureIcon
+                      name={p.icon}
+                      accent={p.accent}
+                      size={44}
+                      className="mb-5 transition-transform duration-300 group-hover:scale-110 group-hover:rotate-6"
+                    />
 
                     <AnimatedHeading as="h3" effect="blur" hover="shift" className="font-heading text-2xl font-medium text-white group-hover:text-[#FFC94D] transition-colors">
                       {p.title}
@@ -367,7 +367,12 @@ export default function CareersPage() {
                   <CardFill accent={area.accent} />
                   <div className="relative">
                     <div className="flex items-center justify-between mb-3">
-                      <span className="text-2xl transition-transform duration-300 group-hover:scale-125">{area.emoji}</span>
+                      <FeatureIcon
+                        name={area.icon}
+                        accent={area.accent}
+                        size={36}
+                        className="transition-transform duration-300 group-hover:scale-110"
+                      />
                       <Icon name="arrow-up-right" width={14} height={14} className="text-white/90 group-hover:text-[#FFC94D] transition-all duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
                     </div>
 
@@ -426,12 +431,12 @@ export default function CareersPage() {
                 >
                   <CardPhoto src={item.image} accent={item.accent} />
                   <div className="relative [text-shadow:0_0_2px_rgba(13,16,38,0.9),0_1px_12px_rgba(13,16,38,0.85)]">
-                    <div
-                      className="h-11 w-11 rounded-xl bg-white/10 ring-1 ring-white/20 backdrop-blur-sm flex items-center justify-center mb-5 transition-transform duration-300 group-hover:scale-110 group-hover:rotate-6"
-                      style={{ color: tintOnDark(item.accent) }}
-                    >
-                      <Icon name={item.icon} width={20} height={20} strokeWidth={2} />
-                    </div>
+                    <FeatureIcon
+                      name={item.icon}
+                      accent={item.accent}
+                      size={44}
+                      className="mb-5 transition-transform duration-300 group-hover:scale-110 group-hover:rotate-6"
+                    />
 
                     <AnimatedHeading as="h3" effect="blur" hover="shift" className="font-heading text-2xl font-medium text-white group-hover:text-[#FFC94D] transition-colors">
                       {item.title}

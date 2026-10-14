@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Icon } from "../../utils/icons";
+import { FeatureIcon } from "../common/FeatureIcon";
 import { SectionTransition } from "../motion/SectionTransition";
 import { Stagger, StaggerItem } from "../motion/Stagger";
 import { CardFill } from "../common/CardSurface";
@@ -88,9 +88,12 @@ export function WhyBharatXSection() {
                 />
 
                 <div className="relative">
-                  <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-xl bg-white/15 ring-1 ring-white/25 text-white transition-transform duration-500 group-hover:rotate-[360deg] shadow-xs">
-                    <Icon name={pillar.icon} width={22} height={22} strokeWidth={2} />
-                  </div>
+                  <FeatureIcon
+                    name={pillar.icon}
+                    accent={pillar.accent}
+                    size={48}
+                    className="mb-5 transition-transform duration-500 group-hover:rotate-[360deg]"
+                  />
 
                   <h3 className="font-heading text-xl sm:text-2xl font-medium tracking-tight text-white group-hover:text-[#FFC94D] transition-colors">
                     {pillar.title}

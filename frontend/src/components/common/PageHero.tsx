@@ -1,6 +1,6 @@
 import type { ReactNode } from "react";
 import { cn } from "../../utils/cn";
-import { Icon } from "../../utils/icons";
+import { DuotoneIcon } from "../../utils/icons";
 import { Breadcrumbs } from "./Breadcrumbs";
 import { MaskReveal, Reveal } from "./Reveal";
 
@@ -39,7 +39,7 @@ export function PageHero({
       <Reveal immediate>
         <div className="group/eyebrow mb-6 inline-flex items-center gap-3 font-sans text-[11px] uppercase tracking-[0.3em] text-gold-400 cursor-default">
           <span className="flex h-7 w-7 items-center justify-center rounded-full border border-gold-400/30 bg-gold-400/10 transition-transform duration-300 group-hover/eyebrow:scale-110 fx-icon-pop">
-            <Icon name={icon} width={13} height={13} strokeWidth={1.6} />
+            <DuotoneIcon name={icon} size={15} />
           </span>
           <span className="transition-colors group-hover/eyebrow:text-gold-300">{eyebrow}</span>
           <span aria-hidden className="h-px w-12 bg-gold-400/50 transition-all duration-300 group-hover/eyebrow:w-20 group-hover/eyebrow:bg-gold-400" />

@@ -6,8 +6,8 @@ import { SectionTransition } from "../components/motion/SectionTransition";
 import { Stagger, StaggerItem } from "../components/motion/Stagger";
 import { AnimatedHeading } from "../components/motion/AnimatedHeading";
 import { MagneticButton } from "../components/common/MagneticButton";
-import { tintOnDark } from "../components/common/CardArt";
 import { CardFill, CardPhoto, SectionPhoto, cardImage } from "../components/common/CardSurface";
+import { FeatureIcon } from "../components/common/FeatureIcon";
 
 interface ImpactArea {
   id: string;
@@ -288,9 +288,12 @@ export default function ImpactPage() {
                     {/* Economy */}
                     <StaggerItem>
                       <div data-cursor="card" className="group rounded-2xl border border-[#3026B3]/25 border-t-4 border-t-[#3026B3] p-4 text-center shadow-xs transition-all duration-300 hover:border-[#3026B3] fx-lift h-full" style={{ backgroundColor: "color-mix(in srgb, #3026B3 9%, white)" }}>
-                        <div className="h-8 w-8 rounded-lg bg-[#3026B3] text-white shadow-xs flex items-center justify-center mx-auto mb-2 transition-transform duration-300 group-hover:scale-110 group-hover:rotate-6">
-                          <Icon name="landmark" width={16} height={16} />
-                        </div>
+                        <FeatureIcon
+                          name="landmark"
+                          accent="#3026B3"
+                          size={32}
+                          className="mx-auto mb-2 transition-transform duration-300 group-hover:scale-110 group-hover:rotate-6"
+                        />
                         <span className="font-sans text-[11px] font-bold uppercase tracking-wider text-[#3026B3] block">
                           ECONOMY
                         </span>
@@ -305,9 +308,12 @@ export default function ImpactPage() {
                     {/* People */}
                     <StaggerItem>
                       <div data-cursor="card" className="group rounded-2xl border border-[#15966B]/25 border-t-4 border-t-[#15966B] p-4 text-center shadow-xs transition-all duration-300 hover:border-[#15966B] fx-lift h-full" style={{ backgroundColor: "color-mix(in srgb, #15966B 9%, white)" }}>
-                        <div className="h-8 w-8 rounded-lg bg-[#15966B] text-white shadow-xs flex items-center justify-center mx-auto mb-2 transition-transform duration-300 group-hover:scale-110 group-hover:rotate-6">
-                          <Icon name="users" width={16} height={16} />
-                        </div>
+                        <FeatureIcon
+                          name="users"
+                          accent="#15966B"
+                          size={32}
+                          className="mx-auto mb-2 transition-transform duration-300 group-hover:scale-110 group-hover:rotate-6"
+                        />
                         <span className="font-sans text-[11px] font-bold uppercase tracking-wider text-[#15966B] block">
                           PEOPLE
                         </span>
@@ -322,9 +328,12 @@ export default function ImpactPage() {
                     {/* Environment */}
                     <StaggerItem>
                       <div data-cursor="card" className="group rounded-2xl border border-[#00B8D9]/25 border-t-4 border-t-[#00B8D9] p-4 text-center shadow-xs transition-all duration-300 hover:border-[#00B8D9] fx-lift h-full" style={{ backgroundColor: "color-mix(in srgb, #00B8D9 9%, white)" }}>
-                        <div className="h-8 w-8 rounded-lg bg-[#008299] text-white shadow-xs flex items-center justify-center mx-auto mb-2 transition-transform duration-300 group-hover:scale-110 group-hover:rotate-6">
-                          <Icon name="recycle" width={16} height={16} />
-                        </div>
+                        <FeatureIcon
+                          name="recycle"
+                          accent="#00B8D9"
+                          size={32}
+                          className="mx-auto mb-2 transition-transform duration-300 group-hover:scale-110 group-hover:rotate-6"
+                        />
                         <span className="font-sans text-[11px] font-bold uppercase tracking-wider text-[#008299] block">
                           ENVIRONMENT
                         </span>
@@ -595,12 +604,12 @@ export default function ImpactPage() {
                 >
                   <CardPhoto src={item.image} accent={item.accent} />
                   <div className="relative [text-shadow:0_0_2px_rgba(13,16,38,0.9),0_1px_12px_rgba(13,16,38,0.85)]">
-                    <div
-                      className="h-11 w-11 rounded-xl bg-white/10 ring-1 ring-white/20 backdrop-blur-sm flex items-center justify-center shrink-0 shadow-xs mb-4 transition-transform duration-300 group-hover:scale-110 group-hover:rotate-6"
-                      style={{ color: tintOnDark(item.accent) }}
-                    >
-                      <Icon name={item.icon} width={20} height={20} strokeWidth={2} />
-                    </div>
+                    <FeatureIcon
+                      name={item.icon}
+                      accent={item.accent}
+                      size={44}
+                      className="mb-4 transition-transform duration-300 group-hover:scale-110 group-hover:rotate-6"
+                    />
 
                     <h3 className="font-heading text-xl font-medium text-white group-hover:text-[#FFC94D] transition-colors duration-300">
                       {item.title}
@@ -661,11 +670,12 @@ export default function ImpactPage() {
                         <span className="font-sans text-xs uppercase tracking-[0.24em] font-bold text-white/90">
                           {area.step}
                         </span>
-                        <div
-                          className="h-8 w-8 rounded-lg bg-white/15 ring-1 ring-white/25 text-white flex items-center justify-center transition-transform group-hover:scale-110"
-                        >
-                          <Icon name={area.icon} width={16} height={16} />
-                        </div>
+                        <FeatureIcon
+                          name={area.icon}
+                          accent={area.accent}
+                          size={32}
+                          className="transition-transform group-hover:scale-110"
+                        />
                       </div>
 
                       <h4 className="font-heading text-lg font-medium text-white mb-2 leading-snug group-hover:text-[#FFC94D] transition-colors">

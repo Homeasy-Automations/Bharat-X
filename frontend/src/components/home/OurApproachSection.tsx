@@ -4,6 +4,7 @@ import { SectionTransition } from "../motion/SectionTransition";
 import { SpotlightCard } from "../motion/SpotlightCard";
 import { tintOnDark } from "../common/CardArt";
 import { CardPhoto, cardImage } from "../common/CardSurface";
+import { FeatureIcon } from "../common/FeatureIcon";
 
 // Spotlight colours are light accent tints so the cursor glow shows over the photos.
 const approachSteps: {
@@ -138,12 +139,12 @@ export function OurApproachSection() {
                       >
                         {step.num}
                       </span>
-                      <div
-                        className="h-9 w-9 rounded-xl bg-white/10 ring-1 ring-white/20 backdrop-blur-sm flex items-center justify-center transition-transform duration-300 group-hover:scale-110 fx-icon-pop shadow-xs"
-                        style={{ color: tintOnDark(step.accent) }}
-                      >
-                        <Icon name={step.icon} width={18} height={18} strokeWidth={2} />
-                      </div>
+                      <FeatureIcon
+                        name={step.icon}
+                        accent={step.accent}
+                        size={36}
+                        className="transition-transform duration-300 group-hover:scale-110 fx-icon-pop"
+                      />
                     </div>
 
                     {/* Step Title */}

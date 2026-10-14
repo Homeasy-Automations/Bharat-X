@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { Icon } from "../../utils/icons";
+import { FeatureIcon } from "../common/FeatureIcon";
 import { SectionTransition } from "../motion/SectionTransition";
 
 // Accent colours are lightened tints so they stay legible on the dark image overlays.
@@ -10,7 +11,7 @@ const corePillars = [
     subtext: "Enterprise Creation & Core Operations",
     icon: "hard-hat" as const,
     image: "/companies/bharatx-infratech/hero.jpg",
-    iconBg: "bg-[#3026B3]/45",
+    accent: "#3026B3",
     textAccent: "text-[#B9B4FF]",
     hoverText: "group-hover:text-[#B9B4FF]",
     tint: "from-[#3026B3]/45",
@@ -23,7 +24,7 @@ const corePillars = [
     subtext: "Capital Compounding & Market Expansion",
     icon: "trending-up" as const,
     image: "/assets/backgrounds/conglomerate-panorama.jpg",
-    iconBg: "bg-[#FFB000]/25",
+    accent: "#FFB000",
     textAccent: "text-[#FFC94D]",
     hoverText: "group-hover:text-[#FFC94D]",
     tint: "from-[#B87B00]/40",
@@ -36,7 +37,7 @@ const corePillars = [
     subtext: "Technology, Talent & Future Capabilities",
     icon: "brain-circuit" as const,
     image: "/companies/aixperts-labs/hero.jpg",
-    iconBg: "bg-[#00B8D9]/25",
+    accent: "#00B8D9",
     textAccent: "text-[#67E8F9]",
     hoverText: "group-hover:text-[#67E8F9]",
     tint: "from-[#0E7490]/45",
@@ -49,7 +50,7 @@ const corePillars = [
     subtext: "Sovereign Resilience & National Progress",
     icon: "sparkles" as const,
     image: "/assets/backgrounds/impact-story.jpg",
-    iconBg: "bg-[#15966B]/35",
+    accent: "#15966B",
     textAccent: "text-[#6EE7B7]",
     hoverText: "group-hover:text-[#6EE7B7]",
     tint: "from-[#15966B]/45",
@@ -136,12 +137,12 @@ export function AboutBharatXSection() {
                 </div>
 
                 <div className="relative z-10 flex flex-col items-center [text-shadow:0_1px_10px_rgba(0,0,0,0.45)]">
-                  {/* Colored Icon Circle */}
-                  <div
-                    className={`mb-4 flex h-12 w-12 items-center justify-center rounded-xl ring-1 ring-white/20 backdrop-blur-md ${pillar.iconBg} ${pillar.textAccent} transition-transform duration-300 group-hover:scale-110 fx-icon-pop shadow-xs`}
-                  >
-                    <Icon name={pillar.icon} width={22} height={22} strokeWidth={2} />
-                  </div>
+                  <FeatureIcon
+                    name={pillar.icon}
+                    accent={pillar.accent}
+                    size={48}
+                    className="mb-4 transition-transform duration-300 group-hover:scale-110 fx-icon-pop"
+                  />
 
                   {/* Step indicator */}
                   <span className={`font-sans text-xs font-bold tracking-[0.2em] ${pillar.textAccent} mb-1.5 transition-transform duration-300 group-hover:scale-105`}>
