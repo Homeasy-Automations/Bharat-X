@@ -264,11 +264,10 @@ export default function ServicesPage() {
 
                         {/* Status Badge */}
                         <span
-                          className={`shrink-0 whitespace-nowrap rounded-full px-2.5 py-0.5 text-[10px] font-sans uppercase tracking-wider font-semibold border backdrop-blur-md ${
-                            isActive
+                          className={`shrink-0 whitespace-nowrap rounded-full px-2.5 py-0.5 text-[10px] font-sans uppercase tracking-wider font-semibold border backdrop-blur-md ${isActive
                               ? "bg-emerald-950/75 text-emerald-300 border-emerald-400/40"
                               : "bg-orange-950/75 text-orange-300 border-orange-400/40"
-                          }`}
+                            }`}
                         >
                           {biz.status}
                         </span>
@@ -305,12 +304,12 @@ export default function ServicesPage() {
                             className="inline-flex items-center gap-1.5 font-sans text-xs font-bold uppercase tracking-wider text-white/90 hover:text-[#FEA04D] transition-colors group/link fx-underline"
                           >
                             <span>Visit Website</span>
-                            <Icon
-                              name="arrow-up-right"
-                              width={13}
-                              height={13}
-                              className="transition-transform group-hover/link:translate-x-0.5 group-hover/link:-translate-y-0.5"
-                            />
+                            {/* <Icon 
+                              // name="arrow-up-right"
+                              // width={13}
+                              // height={13}
+                              // className="transition-transform group-hover/link:translate-x-0.5 group-hover/link:-translate-y-0.5"
+                            // >*/}
                           </a>
                         ) : (
                           <span className="font-sans text-xs uppercase tracking-wider text-[#FEA04D] font-semibold flex items-center gap-1.5">
