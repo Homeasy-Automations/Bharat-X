@@ -14,8 +14,8 @@ const sectorTone: Record<string, { accent: string; ink: string }> = {
   infrastructure: { accent: "#3026B3", ink: "#3026B3" },
   manufacturing: { accent: "#00B8D9", ink: "#007A8F" },
   agriculture: { accent: "#15966B", ink: "#0F7A56" },
-  "climate-sustainability": { accent: "#059669", ink: "#047857" },
-  finance: { accent: "#211B72", ink: "#211B72" },
+  labs: { accent: "#059669", ink: "#047857" },
+  ventures: { accent: "#211B72", ink: "#211B72" },
 };
 const fallbackTone = { accent: "#3026B3", ink: "#3026B3" };
 

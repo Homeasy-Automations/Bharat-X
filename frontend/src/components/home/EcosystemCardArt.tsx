@@ -293,7 +293,7 @@ function AixpertsArt() {
   );
 }
 
-/* ── SRM Enterprises: sustainable corrugated packaging ── */
+/* ── BharatX Enterprises: sustainable corrugated packaging ── */
 
 const boxBig = isoBox(196, 150, 40, 34, 42);
 const boxMid = isoBox(138, 150, 30, 26, 30);

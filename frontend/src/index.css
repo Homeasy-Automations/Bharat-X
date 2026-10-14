@@ -957,6 +957,18 @@ button:hover img,
   background-color: var(--card-bg-hover);
 }
 
+/* Solid colour fills: a soft light sheen from the top-left corner keeps them luminous */
+.card-surface[data-vivid] {
+  background-image: linear-gradient(135deg, rgb(255 255 255 / 0.14) 0%, rgb(255 255 255 / 0) 55%);
+}
+
+/* …and a faint shadow keeps small white text crisp on the brighter shades (layered so a card's own text-shadow wins) */
+@layer components {
+  .card-surface[data-vivid] ~ * {
+    text-shadow: 0 1px 2px rgb(13 16 38 / 0.3);
+  }
+}
+
 /* The fill sits inside the card's border, so drop the card's own background to avoid a dark rim around it */
 :has(> .card-surface) {
   background-color: transparent !important;

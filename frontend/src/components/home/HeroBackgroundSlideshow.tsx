@@ -21,7 +21,7 @@ const slides: SlideItem[] = [
     id: "packaging",
     image: "/assets/hero2.png",
     sector: "Packaging & Industrial Protection",
-    company: "SRM Enterprises",
+    company: "BharatX Enterprises",
     tagline: "High-efficiency corrugated packaging engineered for enterprise scale",
   },
   {

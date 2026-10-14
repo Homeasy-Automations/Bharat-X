@@ -115,16 +115,17 @@ const bharatxAdvantage: { pillar: string; description: string; icon: string; col
   },
 ];
 
-// ── 05. Eight Sectors Where We Build ──────────────────────────────────
+// ── 05. Nine Sectors Where We Build ───────────────────────────────────
 const buildSectors: { name: string; tag: string; icon: string; link: string; accent: string; image: string }[] = [
-  { name: "Infrastructure", tag: "Civil & Transport Assets", icon: "hard-hat", link: "/services#infrastructure", accent: "#3026B3", image: cardImage("how-we-build-12-sector-infrastructure") },
+  { name: "Innovation", tag: "Research & Deep-Tech Labs", icon: "flask-conical", link: "/services#labs", accent: "#0D9488", image: cardImage("how-we-build-20-sector-innovation") },
+  { name: "Venture Building", tag: "Capital & Enterprise GTM", icon: "landmark", link: "/services#ventures", accent: "#211B72", image: cardImage("how-we-build-18-sector-venture-building") },
   { name: "Agriculture", tag: "Agro Commodities & Export", icon: "sprout", link: "/services#agriculture", accent: "#15966B", image: cardImage("how-we-build-13-sector-agriculture") },
+  { name: "Infrastructure", tag: "Civil & Transport Assets", icon: "hard-hat", link: "/services#infrastructure", accent: "#3026B3", image: cardImage("how-we-build-12-sector-infrastructure") },
+  { name: "Social Impact", tag: "Education & Community Programmes", icon: "graduation-cap", link: "/services#foundation", accent: "#E09800", image: cardImage("how-we-build-19-sector-social-impact") },
   { name: "Manufacturing", tag: "Precision Casters & Mobility", icon: "cog", link: "/services#manufacturing", accent: "#00B8D9", image: cardImage("how-we-build-14-sector-manufacturing") },
   { name: "Technology", tag: "Applied AI & Automation", icon: "cpu", link: "/services#tech-ai", accent: "#4B40D4", image: cardImage("how-we-build-15-sector-technology") },
   { name: "Packaging", tag: "Sustainable Industrial Barriers", icon: "boxes", link: "/services#packaging", accent: "#D97706", image: cardImage("how-we-build-16-sector-packaging") },
   { name: "Sustainability", tag: "Circularity & Net-Zero Systems", icon: "recycle", link: "/services#sustainability", accent: "#059669", image: cardImage("how-we-build-17-sector-sustainability") },
-  { name: "Venture Building", tag: "Capital & Enterprise GTM", icon: "landmark", link: "/services#ventures", accent: "#211B72", image: cardImage("how-we-build-18-sector-venture-building") },
-  { name: "Social Impact", tag: "Knowledge & Education Labs", icon: "sparkles", link: "/services#foundation", accent: "#15966B", image: cardImage("how-we-build-19-sector-social-impact") },
 ];
 
 export default function HowWeBuildPage() {
@@ -447,8 +448,8 @@ export default function HowWeBuildPage() {
             </p>
           </div>
 
-          {/* Clean Set of 8 Sectors */}
-          <Stagger staggerDelay={0.06} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 max-w-5xl mx-auto">
+          {/* Clean Set of 9 Sectors */}
+          <Stagger staggerDelay={0.06} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 max-w-5xl mx-auto">
             {buildSectors.map((sector) => (
               <StaggerItem key={sector.name}>
                 <Link

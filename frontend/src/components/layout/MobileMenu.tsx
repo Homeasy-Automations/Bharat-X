@@ -14,8 +14,8 @@ const sectorAccents: Record<string, string> = {
   infrastructure: "#3026B3",
   manufacturing: "#008299",
   agriculture: "#15966B",
-  "climate-sustainability": "#047857",
-  finance: "#211B72",
+  labs: "#047857",
+  ventures: "#211B72",
 };
 
 const socialIcons: Record<string, string> = {

@@ -103,11 +103,19 @@ interface EcosystemNode {
 
 const tier1EcosystemNodes: EcosystemNode[] = [
   {
-    sector: "Infrastructure",
-    company: "BharatX Infratech",
-    logo: "/Infra_logo1.png",
-    link: "/services#infrastructure",
-    accent: "#3026B3",
+    sector: "Innovation",
+    company: "BharatX Labs",
+    logo: "/Bharatxlabs_logo.svg",
+    link: "/services#labs",
+    accent: "#0D9488",
+    badge: "Active",
+  },
+  {
+    sector: "Venture Building",
+    company: "BharatX Ventures",
+    logo: "/Ventures_logo.png",
+    link: "/services#ventures",
+    accent: "#211B72",
     badge: "Active",
   },
   {
@@ -119,19 +127,18 @@ const tier1EcosystemNodes: EcosystemNode[] = [
     badge: "Active",
   },
   {
-    sector: "Venture Building",
-    company: "BharatX Ventures",
-    logo: "/Ventures_logo.png",
-    link: "/services#finance",
-    accent: "#211B72",
+    sector: "Infrastructure",
+    company: "BharatX Infratech",
+    logo: "/Infra_logo1.png",
+    link: "/services#infrastructure",
+    accent: "#3026B3",
     badge: "Active",
   },
   {
-    sector: "Knowledge & Impact",
-    company: "BharatX Labs Foundation",
-    logo: "/Bharatxlabs_logo.svg",
-    link: "/services#climate-sustainability",
-    accent: "#0D9488",
+    sector: "Social Impact",
+    company: "BharatX Foundation",
+    link: "/services#foundation",
+    accent: "#E09800",
     badge: "Active",
   },
 ];
@@ -155,7 +162,7 @@ const tier2EcosystemNodes: EcosystemNode[] = [
   },
   {
     sector: "Packaging",
-    company: "SRM Enterprises",
+    company: "BharatX Enterprises",
     link: "/services#packaging",
     accent: "#D97706",
     badge: "Active",
@@ -719,7 +726,7 @@ export default function AboutPage() {
             </div>
 
             {/* Visual Architecture Tree */}
-            <div className="relative overflow-hidden max-w-5xl mx-auto rounded-3xl border border-[#E3E5EF] bg-white p-6 sm:p-10 shadow-lg">
+            <div className="relative overflow-hidden max-w-6xl mx-auto rounded-3xl border border-[#E3E5EF] bg-white p-6 sm:p-10 shadow-lg">
               <CardFill accent="#3026B3" tone="tint" />
               {/* Tree Root: BHARATX GROUP */}
               <div className="relative flex flex-col items-center text-center">
@@ -734,9 +741,9 @@ export default function AboutPage() {
                 <div className="h-8 w-px bg-[#3026B3]/40 my-1" />
               </div>
 
-              {/* Level 1: 4 Core Pillar Verticals */}
+              {/* Level 1: the five BharatX-branded businesses (on two-column tablets the fifth spans the row) */}
               <div className="relative mt-2">
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3.5">
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-3.5 sm:[&>*:last-child]:col-span-2 lg:[&>*:last-child]:col-span-1">
                   {tier1EcosystemNodes.map((node) => (
                     <EcosystemNodeCard key={node.company} node={node} />
                   ))}

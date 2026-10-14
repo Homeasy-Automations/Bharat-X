@@ -22,15 +22,26 @@ interface EcosystemCard {
 
 const ecosystemCards: EcosystemCard[] = [
   {
-    id: "infra",
-    sector: "Infrastructure & Engineering",
-    company: "BharatX Infratech",
-    description: "Arterial transport, civil engineering and sovereign industrial infrastructure.",
-    to: "/services#infrastructure",
-    logo: "/Infra_logo1.png",
-    accent: "#3026B3",
-    accentText: "text-[#3026B3]",
-    borderHover: "hover:border-[#3026B3]",
+    id: "labs",
+    sector: "Innovation & Research",
+    company: "BharatX Labs",
+    description: "Deep-tech climate R&D, open environmental telemetry and applied research.",
+    to: "/services#labs",
+    logo: "/Bharatxlabs_logo.svg",
+    accent: "#0D9488",
+    accentText: "text-[#0F766E]",
+    borderHover: "hover:border-[#0D9488]",
+  },
+  {
+    id: "ventures",
+    sector: "Capital & Venture Building",
+    company: "BharatX Ventures",
+    description: "Patient balance-sheet capital, venture architecture and generational enterprise scaling.",
+    to: "/services#ventures",
+    logo: "/Ventures_logo.png",
+    accent: "#211B72",
+    accentText: "text-[#211B72]",
+    borderHover: "hover:border-[#211B72]",
   },
   {
     id: "agri",
@@ -44,26 +55,25 @@ const ecosystemCards: EcosystemCard[] = [
     borderHover: "hover:border-[#15966B]",
   },
   {
-    id: "ventures",
-    sector: "Capital & Venture Building",
-    company: "BharatX Ventures",
-    description: "Patient balance-sheet capital, venture architecture and generational enterprise scaling.",
-    to: "/services#finance",
-    logo: "/Ventures_logo.png",
-    accent: "#211B72",
-    accentText: "text-[#211B72]",
-    borderHover: "hover:border-[#211B72]",
+    id: "infra",
+    sector: "Infrastructure & Engineering",
+    company: "BharatX Infratech",
+    description: "Arterial transport, civil engineering and sovereign industrial infrastructure.",
+    to: "/services#infrastructure",
+    logo: "/Infra_logo1.png",
+    accent: "#3026B3",
+    accentText: "text-[#3026B3]",
+    borderHover: "hover:border-[#3026B3]",
   },
   {
-    id: "labs",
-    sector: "Knowledge & Impact",
-    company: "BharatX Labs Foundation",
-    description: "Deep-tech climate R&D, open environmental telemetry and societal impact initiatives.",
-    to: "/services#climate-sustainability",
-    logo: "/Bharatxlabs_logo.svg",
-    accent: "#0D9488",
-    accentText: "text-[#0F766E]",
-    borderHover: "hover:border-[#0D9488]",
+    id: "foundation",
+    sector: "Education & Social Impact",
+    company: "BharatX Foundation",
+    description: "Education, skills and community programmes that widen opportunity across India.",
+    to: "/services#foundation",
+    accent: "#E09800",
+    accentText: "text-[#B45309]",
+    borderHover: "hover:border-[#E09800]",
   },
   {
     id: "manuf",
@@ -90,7 +100,7 @@ const ecosystemCards: EcosystemCard[] = [
   {
     id: "packaging",
     sector: "Packaging & Materials",
-    company: "SRM Enterprises",
+    company: "BharatX Enterprises",
     description: "High-efficiency sustainable packaging materials, corrugated boxes and industrial protection.",
     to: "/services#packaging",
     accent: "#D97706",
@@ -131,12 +141,12 @@ export function BusinessEcosystemGrid() {
           </h2>
 
           <p className="mt-3 text-base text-[#596579] max-w-2xl leading-relaxed">
-            Eight foundational verticals powering modern India across physical infrastructure, real-economy production, intelligent technology, and strategic capital.
+            Nine foundational verticals powering modern India across physical infrastructure, real-economy production, intelligent technology, and strategic capital.
           </p>
         </div>
 
         {/* 4×2 Compact High-Contrast Grid with Stagger & TiltCard */}
-        <Stagger className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5">
+        <Stagger className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5">
           {ecosystemCards.map((card) => {
             const isExternal = card.to.startsWith("http");
 

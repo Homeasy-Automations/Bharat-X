@@ -25,28 +25,15 @@ interface BusinessVertical {
 
 const businessPortfolio: BusinessVertical[] = [
   {
-    id: "infrastructure",
-    category: "Infrastructure & Engineering",
-    name: "BharatX Infratech",
-    description: "Building infrastructure and engineering capabilities for a growing India.",
-    status: "Active",
-    websiteUrl: "https://bharatxinfratech.com",
-    logo: "/Infra_logo1.png",
-    image: "/companies/bharatx-infratech/hero.jpg",
-    accent: "#3026B3",
-    icon: "hard-hat",
-  },
-  {
-    id: "agriculture",
-    category: "Agriculture & Food",
-    name: "BharatX Agro",
-    description: "Connecting agricultural products, value addition and Indian capabilities with global markets.",
-    status: "Active",
-    websiteUrl: "https://bharatxagro.com",
-    logo: "/Bharatxagro_logo.png",
-    image: "/assets/backgrounds/agri-dusk.jpg",
-    accent: "#15966B",
-    icon: "sprout",
+    id: "labs",
+    category: "Innovation & Research",
+    name: "BharatX Labs",
+    description: "Building initiatives around research, innovation and entrepreneurship that grow into new ventures.",
+    status: "Coming Soon",
+    logo: "/Bharatxlabs_logo.svg",
+    image: "/assets/backgrounds/innovation-story.jpg",
+    accent: "#0D9488",
+    icon: "flask-conical",
   },
   {
     id: "ventures",
@@ -61,15 +48,38 @@ const businessPortfolio: BusinessVertical[] = [
     icon: "landmark",
   },
   {
-    id: "foundation",
-    category: "Knowledge & Social Impact",
-    name: "BharatX Labs Foundation",
-    description: "Building initiatives around education, innovation, entrepreneurship and social development.",
-    status: "Coming Soon",
-    logo: "/Bharatxlabs_logo.svg",
-    image: "/assets/backgrounds/impact-story.jpg",
+    id: "agriculture",
+    category: "Agriculture & Food",
+    name: "BharatX Agro",
+    description: "Connecting agricultural products, value addition and Indian capabilities with global markets.",
+    status: "Active",
+    websiteUrl: "https://bharatxagro.com",
+    logo: "/Bharatxagro_logo.png",
+    image: "/assets/backgrounds/agri-dusk.jpg",
     accent: "#15966B",
-    icon: "sparkles",
+    icon: "sprout",
+  },
+  {
+    id: "infrastructure",
+    category: "Infrastructure & Engineering",
+    name: "BharatX Infratech",
+    description: "Building infrastructure and engineering capabilities for a growing India.",
+    status: "Active",
+    websiteUrl: "https://bharatxinfratech.com",
+    logo: "/Infra_logo1.png",
+    image: "/companies/bharatx-infratech/hero.jpg",
+    accent: "#3026B3",
+    icon: "hard-hat",
+  },
+  {
+    id: "foundation",
+    category: "Education & Social Impact",
+    name: "BharatX Foundation",
+    description: "Building initiatives around education, skills and social development.",
+    status: "Coming Soon",
+    image: "/assets/backgrounds/impact-story.jpg",
+    accent: "#E09800",
+    icon: "graduation-cap",
   },
   {
     id: "manufacturing",
@@ -98,7 +108,7 @@ const businessPortfolio: BusinessVertical[] = [
   {
     id: "packaging",
     category: "Packaging & Materials",
-    name: "SRM Enterprises",
+    name: "BharatX Enterprises",
     description: "Complete industrial packaging materials, corrugated boxes, protective cushioning and bulk logistics containers.",
     status: "Active",
     websiteUrl: "https://srm-enterprises-psi.vercel.app/",
@@ -217,12 +227,12 @@ export default function ServicesPage() {
             </AnimatedHeading>
 
             <p className="mt-4 text-base sm:text-lg text-[#596579] leading-relaxed">
-              Eight operating verticals engineered for scale, operational autonomy, and compound value across Bharat.
+              Nine operating verticals engineered for scale, operational autonomy, and compound value across Bharat.
             </p>
           </div>
 
           {/* Clean 8-Card Grid (4 cols on lg, 2 cols on md, 1 col on mobile) */}
-          <Stagger staggerDelay={0.08} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <Stagger staggerDelay={0.08} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {businessPortfolio.map((biz) => {
               const isActive = biz.status === "Active";
 

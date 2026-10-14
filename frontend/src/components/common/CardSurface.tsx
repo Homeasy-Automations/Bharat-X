@@ -1,6 +1,6 @@
 import { useState, type CSSProperties, type ReactNode } from "react";
 import { cn } from "../../utils/cn";
-import { NIGHT, WHITE, hexToRgb, mix, rgb, whiteContrast } from "../../utils/color";
+import { NIGHT, WHITE, hexToRgb, mix, rgb, shade, whiteContrast } from "../../utils/color";
 
 /**
  * Card backgrounds without SVG art.
@@ -17,15 +17,21 @@ import { NIGHT, WHITE, hexToRgb, mix, rgb, whiteContrast } from "../../utils/col
  */
 
 /**
- * The accent, darkened toward the brand navy until white text clears 4.5:1, and a deeper shade for hover.
- * `deep` darkens further so accent-tinted icons (tintOnDark) stay legible on a photo card awaiting its image.
+ * The accent, darkened only as far as white text needs (3.5:1) and keeping its saturation, so cyan, green and
+ * amber stay vivid instead of turning teal, olive or brown; hover deepens it past 4.5:1.
+ * `deep` (under a photo) instead blends toward the brand navy, so the card reads as dark while its image is missing.
  */
 function solidShades(accent: string, deep = false) {
   const base = hexToRgb(accent);
-  let t = 0;
-  while (whiteContrast(mix(base, NIGHT, t)) < 4.6 && t < 0.9) t += 0.05;
-  if (deep) t = Math.max(t, 0.6);
-  return { rest: mix(base, NIGHT, t), hover: mix(base, NIGHT, Math.min(t + 0.25, 0.92)) };
+  if (deep) {
+    let t = 0;
+    while (whiteContrast(mix(base, NIGHT, t)) < 4.6 && t < 0.9) t += 0.05;
+    t = Math.max(t, 0.6);
+    return { rest: mix(base, NIGHT, t), hover: mix(base, NIGHT, Math.min(t + 0.25, 0.92)) };
+  }
+  let k = 1;
+  while (whiteContrast(shade(base, k)) < 3.5 && k > 0.3) k -= 0.01;
+  return { rest: shade(base, k), hover: shade(base, k * 0.8) };
 }
 
 function tintShades(accent: string) {
@@ -54,6 +60,7 @@ export function CardFill({ accent, tone = "solid", deep = false, className, chil
     <div
       aria-hidden
       data-tone={tone === "solid" ? "dark" : "light"}
+      data-vivid={tone === "solid" && !deep ? "" : undefined}
       className={cn("card-surface pointer-events-none absolute inset-0 z-0 overflow-hidden rounded-[inherit]", className)}
       style={{ "--card-bg": rgb(rest), "--card-bg-hover": rgb(hover) } as CSSProperties}
     >

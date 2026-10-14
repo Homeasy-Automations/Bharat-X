@@ -24,17 +24,17 @@ interface ImpactArea {
 
 const impactAreas: ImpactArea[] = [
   {
-    id: "infrastructure",
+    id: "innovation",
     number: "01",
-    sector: "Infrastructure",
-    title: "Building the Foundations of Growth",
+    sector: "Innovation",
+    title: "Turning Research Into New Ventures",
     description:
-      "Through infrastructure and engineering, BharatX contributes to the physical assets that enable communities, businesses and economies to grow.",
-    entityName: "BharatX Infratech",
-    logo: "/Infra_logo1.png",
-    image: "/companies/bharatx-infratech/hero.jpg",
-    accent: "#3026B3",
-    link: "/services#infrastructure",
+      "Through BharatX Labs, we back research, experimentation and entrepreneurship that can grow into the next generation of Indian businesses.",
+    entityName: "BharatX Labs",
+    logo: "/Bharatxlabs_logo.svg",
+    image: "/assets/backgrounds/innovation-story.jpg",
+    accent: "#0D9488",
+    link: "/services#labs",
   },
   {
     id: "agriculture",
@@ -50,21 +50,33 @@ const impactAreas: ImpactArea[] = [
     link: "/services#agriculture",
   },
   {
-    id: "people-innovation",
+    id: "infrastructure",
     number: "03",
-    sector: "People & Innovation",
+    sector: "Infrastructure",
+    title: "Building the Foundations of Growth",
+    description:
+      "Through infrastructure and engineering, BharatX contributes to the physical assets that enable communities, businesses and economies to grow.",
+    entityName: "BharatX Infratech",
+    logo: "/Infra_logo1.png",
+    image: "/companies/bharatx-infratech/hero.jpg",
+    accent: "#3026B3",
+    link: "/services#infrastructure",
+  },
+  {
+    id: "people",
+    number: "04",
+    sector: "People & Education",
     title: "Investing in Human Potential",
     description:
-      "Through BharatX Labs Foundation and the wider Group ecosystem, we aim to support education, entrepreneurship, innovation, skills and opportunity.",
-    entityName: "BharatX Labs Foundation",
-    logo: "/Bharatxlabs_logo.svg",
+      "Through BharatX Foundation and the wider Group ecosystem, we aim to support education, skills and opportunity.",
+    entityName: "BharatX Foundation",
     image: "/assets/backgrounds/impact-story.jpg",
-    accent: "#15966B",
+    accent: "#E09800",
     link: "/services#foundation",
   },
   {
     id: "technology",
-    number: "04",
+    number: "05",
     sector: "Technology",
     title: "Making Businesses Smarter",
     description:
@@ -77,7 +89,7 @@ const impactAreas: ImpactArea[] = [
   },
   {
     id: "sustainability",
-    number: "05",
+    number: "06",
     sector: "Sustainability",
     title: "Turning Waste Into Opportunity",
     description:
@@ -89,7 +101,7 @@ const impactAreas: ImpactArea[] = [
   },
   {
     id: "manufacturing",
-    number: "06",
+    number: "07",
     sector: "Manufacturing",
     title: "Strengthening Industrial Capability",
     description:
@@ -371,7 +383,7 @@ export default function ImpactPage() {
           </div>
 
           {/* 6 Large Visual Cards Grid */}
-          <Stagger staggerDelay={0.08} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 auto-rows-fr items-stretch">
+          <Stagger staggerDelay={0.08} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 auto-rows-fr items-stretch lg:[&>*:last-child:nth-child(3n+1)]:col-start-2">
             {impactAreas.map((area) => (
               <StaggerItem key={area.id} className="h-full">
                 <div

@@ -19,6 +19,13 @@ export const mix = (a: Rgb, b: Rgb, t: number): Rgb => [
   Math.round(a[2] + (b[2] - a[2]) * t),
 ];
 
+/** Scales every channel, keeping hue and saturation: k < 1 darkens, k > 1 brightens. */
+export const shade = (c: Rgb, k: number): Rgb => [
+  Math.min(255, Math.round(c[0] * k)),
+  Math.min(255, Math.round(c[1] * k)),
+  Math.min(255, Math.round(c[2] * k)),
+];
+
 export const rgb = (c: Rgb) => `rgb(${c[0]}, ${c[1]}, ${c[2]})`;
 export const rgba = (c: Rgb, a: number) => `rgba(${c[0]}, ${c[1]}, ${c[2]}, ${a})`;
 

@@ -44,11 +44,18 @@ const whyPillars: { title: string; description: string; icon: string; accent: st
 
 const careerDomains: { name: string; icon: string; roles: string; accent: string; link: string }[] = [
   {
-    name: "Infrastructure",
-    icon: "hard-hat",
-    roles: "Engineering • Project Management • Operations • Procurement",
-    accent: "#3026B3",
-    link: "/services#infrastructure",
+    name: "Labs & Research",
+    icon: "flask-conical",
+    roles: "Research • Innovation • Prototyping • Entrepreneurship",
+    accent: "#0D9488",
+    link: "/services#labs",
+  },
+  {
+    name: "Ventures & Strategy",
+    icon: "landmark",
+    roles: "Investment • Consulting • Strategy • Business Development",
+    accent: "#211B72",
+    link: "/services#ventures",
   },
   {
     name: "Agriculture & Food",
@@ -56,6 +63,20 @@ const careerDomains: { name: string; icon: string; roles: string; accent: string
     roles: "Operations • Supply Chain • Export • Business Development",
     accent: "#15966B",
     link: "/services#agriculture",
+  },
+  {
+    name: "Infrastructure",
+    icon: "hard-hat",
+    roles: "Engineering • Project Management • Operations • Procurement",
+    accent: "#3026B3",
+    link: "/services#infrastructure",
+  },
+  {
+    name: "Foundation",
+    icon: "graduation-cap",
+    roles: "Education • Programs • Community • Social Impact",
+    accent: "#E09800",
+    link: "/services#foundation",
   },
   {
     name: "Manufacturing",
@@ -84,20 +105,6 @@ const careerDomains: { name: string; icon: string; roles: string; accent: string
     roles: "Waste Management • Operations • Sustainability • Circular Economy",
     accent: "#059669",
     link: "/services#sustainability",
-  },
-  {
-    name: "Ventures & Strategy",
-    icon: "landmark",
-    roles: "Investment • Consulting • Strategy • Business Development",
-    accent: "#211B72",
-    link: "/services#ventures",
-  },
-  {
-    name: "Foundation",
-    icon: "sparkles",
-    roles: "Education • Programs • Community • Social Impact",
-    accent: "#15966B",
-    link: "/services#foundation",
   },
 ];
 
@@ -134,14 +141,15 @@ const culturePrinciples: { title: string; description: string; icon: string; acc
 
 const verticalsList = [
   "General / Group Ecosystem",
-  "Infrastructure (BharatX Infratech)",
+  "Labs & Research (BharatX Labs)",
+  "Ventures & Strategy (BharatX Ventures)",
   "Agriculture (BharatX Agro)",
+  "Infrastructure (BharatX Infratech)",
+  "Foundation (BharatX Foundation)",
   "Manufacturing (Casters Global)",
   "Technology & AI (Aixperts Labs)",
-  "Packaging (SRM Enterprises)",
+  "Packaging (BharatX Enterprises)",
   "Sustainability (BharatX Sustainability)",
-  "Ventures & Strategy (BharatX Ventures)",
-  "Foundation (BharatX Labs Foundation)",
 ];
 
 export default function CareersPage() {
@@ -356,7 +364,7 @@ export default function CareersPage() {
           </div>
 
           {/* 8 Career Area Cards Grid */}
-          <Stagger className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5 max-w-6xl mx-auto">
+          <Stagger className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 max-w-6xl mx-auto">
             {careerDomains.map((area) => (
               <StaggerItem key={area.name}>
                 <Link
