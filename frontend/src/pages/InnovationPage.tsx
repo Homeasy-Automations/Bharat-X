@@ -121,7 +121,7 @@ export default function InnovationPage() {
       </section>
 
       {/* ── 2. METRICS BANNER ───────────────────────────────────────────── */}
-      <SectionTransition className="py-8 bg-[#FAF9F6]">
+      <SectionTransition className="py-6 bg-[#FAF9F6]">
         <div className="container-x">
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 text-center">
             <div data-cursor="card" className="p-4 rounded-2xl bg-[#3026B3] shadow-md transition-all duration-300 fx-lift hover:shadow-lg">
@@ -153,9 +153,9 @@ export default function InnovationPage() {
       </SectionTransition>
 
       {/* ── 3. SIX INNOVATION PILLARS ───────────────────────────────────── */}
-      <SectionTransition className="py-8 sm:py-12">
+      <SectionTransition className="py-6 sm:py-9">
         <div className="container-x">
-          <div className="max-w-2xl mb-7 sm:mb-10">
+          <div className="max-w-2xl mb-6 sm:mb-8">
             <span className="font-sans text-[10.5px] uppercase tracking-[0.24em] text-[#3026B3] font-semibold">
               CORE DISCIPLINES
             </span>
@@ -207,9 +207,9 @@ export default function InnovationPage() {
       </SectionTransition>
 
       {/* ── 4. ROADMAP TIMELINE ─────────────────────────────────────────── */}
-      <SectionTransition className="relative overflow-hidden py-8 sm:py-12">
+      <SectionTransition className="relative overflow-hidden py-6 sm:py-9">
         <div className="container-x relative z-10">
-          <div className="max-w-2xl mb-14">
+          <div className="max-w-2xl mb-10">
             <span className="font-sans text-[10.5px] uppercase tracking-[0.24em] text-[#3026B3] font-semibold">
               DEVELOPMENT HORIZON
             </span>

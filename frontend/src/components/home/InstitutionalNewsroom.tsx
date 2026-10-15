@@ -72,7 +72,7 @@ export function InstitutionalNewsroom() {
 
   return (
     <SectionTransition>
-      <section className="relative overflow-hidden py-8 sm:py-12 bg-[#F7F7FC] text-[#111827] dark:bg-night-950 dark:text-white">
+      <section className="relative overflow-hidden py-6 sm:py-9 bg-[#F7F7FC] text-[#111827] dark:bg-night-950 dark:text-white">
         <div className="container-x relative z-10">
           {/* Header */}
           <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-6 mb-7 sm:mb-10">

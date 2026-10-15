@@ -162,7 +162,7 @@ function CompanyProfile({ company }: { company: (typeof companies)[number] }) {
       </SectionTransition>
 
       {/* ── ABOUT ───────────────────────────────────────────── */}
-      <SectionTransition className="py-8 sm:py-12">
+      <SectionTransition className="py-6 sm:py-9">
         <div className="container-x grid gap-12 lg:grid-cols-[0.85fr_1.15fr]">
           <div className="lg:sticky lg:top-28 lg:self-start">
             <SectionHeader
@@ -194,7 +194,7 @@ function CompanyProfile({ company }: { company: (typeof companies)[number] }) {
       </SectionTransition>
 
       {/* ── CAPABILITIES ─────────────────────────────────────── */}
-      <SectionTransition className="bg-night-850/50 py-8 sm:py-12">
+      <SectionTransition className="bg-night-850/50 py-6 sm:py-9">
         <div className="container-x">
           <SectionHeader
             icon="cog"
@@ -235,7 +235,7 @@ function CompanyProfile({ company }: { company: (typeof companies)[number] }) {
       />
 
       {/* ── APPLICATIONS ─────────────────────────────────────── */}
-      <SectionTransition className="py-8 sm:py-12">
+      <SectionTransition className="py-6 sm:py-9">
         <div className="container-x">
           <SectionHeader
             icon="boxes"
@@ -274,7 +274,7 @@ function CompanyProfile({ company }: { company: (typeof companies)[number] }) {
       </SectionTransition>
 
       {/* ── FOCUS + SHOWCASE 3D ──────────────────────────────── */}
-      <SectionTransition className="relative overflow-hidden bg-night-950/70 py-8 sm:py-12">
+      <SectionTransition className="relative overflow-hidden bg-night-950/70 py-6 sm:py-9">
         <div ref={showcaseRef}>
           <div aria-hidden className="grid-bg grid-bg-fade absolute inset-0 opacity-40" />
           <div className="container-x relative grid items-center gap-12 lg:grid-cols-2">
@@ -340,7 +340,7 @@ function CompanyProfile({ company }: { company: (typeof companies)[number] }) {
       </SectionTransition>
 
       {/* ── HOW WE WORK ──────────────────────────────────────── */}
-      <SectionTransition className="py-8 sm:py-12">
+      <SectionTransition className="py-6 sm:py-9">
         <div className="container-x">
           <SectionHeader
             icon="workflow"
@@ -373,7 +373,7 @@ function CompanyProfile({ company }: { company: (typeof companies)[number] }) {
       </SectionTransition>
 
       {/* ── VISION ───────────────────────────────────────────── */}
-      <SectionTransition className="noise relative overflow-hidden bg-night-950/60 py-8 sm:py-12">
+      <SectionTransition className="noise relative overflow-hidden bg-night-950/60 py-6 sm:py-9">
         <div
           aria-hidden
           className="absolute left-1/2 top-0 h-40 w-[40rem] -translate-x-1/2 rounded-full blur-3xl"
@@ -402,7 +402,7 @@ function CompanyProfile({ company }: { company: (typeof companies)[number] }) {
       </SectionTransition>
 
       {/* ── RELATED ──────────────────────────────────────────── */}
-      <SectionTransition className="py-8 sm:py-12">
+      <SectionTransition className="py-6 sm:py-9">
         <div className="container-x">
           <SectionHeader
             icon="orbit"
@@ -415,7 +415,7 @@ function CompanyProfile({ company }: { company: (typeof companies)[number] }) {
 
       {/* ── WEBSITE VIEWER ───────────────────────────────────── */}
       {site && (
-        <SectionTransition className="bg-night-850/50 py-8 sm:py-12">
+        <SectionTransition className="bg-night-850/50 py-6 sm:py-9">
           <div className="container-x">
             <div className="flex flex-wrap items-end justify-between gap-6">
               <SectionHeader

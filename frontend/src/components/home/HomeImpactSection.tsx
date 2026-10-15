@@ -51,7 +51,7 @@ export function HomeImpactSection() {
     <SectionTransition
       id="impact"
       aria-label="Impact and Economic Value"
-      className="relative overflow-hidden bg-[#FAF9F6] py-8 sm:py-12"
+      className="relative overflow-hidden bg-[#FAF9F6] py-6 sm:py-9"
     >
       <div className="container-x relative z-10">
         {/* Header */}

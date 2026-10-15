@@ -63,7 +63,7 @@ export default function LeadershipPage() {
       </section>
 
       {/* ── 2. FOUNDER'S CHARTER PROFILE ───────────────────────────────── */}
-      <SectionTransition className="py-8 sm:py-12">
+      <SectionTransition className="py-6 sm:py-9">
         <div className="container-x">
           <div data-cursor="card" className="relative overflow-hidden rounded-3xl border border-[#E3E5EF] bg-white shadow-xl p-6 sm:p-10 lg:p-12 fx-lift">
             <CardFill accent="#3026B3" tone="tint" />
@@ -144,9 +144,9 @@ export default function LeadershipPage() {
       </SectionTransition>
 
       {/* ── 3. GOVERNANCE & DIVISION OF POWER ────────────────────────────── */}
-      <SectionTransition className="py-8 sm:py-12">
+      <SectionTransition className="py-6 sm:py-9">
         <div className="container-x">
-          <div className="max-w-2xl mb-7 sm:mb-10">
+          <div className="max-w-2xl mb-6 sm:mb-8">
             <span className="font-sans text-[10.5px] uppercase tracking-[0.24em] text-[#3026B3] font-semibold">
               BOARDROOM ARCHITECTURE
             </span>
@@ -184,9 +184,9 @@ export default function LeadershipPage() {
       </SectionTransition>
 
       {/* ── 4. OPERATING PRINCIPLES ─────────────────────────────────────── */}
-      <SectionTransition className="py-8 sm:py-12">
+      <SectionTransition className="py-6 sm:py-9">
         <div className="container-x">
-          <div className="max-w-2xl mb-12">
+          <div className="max-w-2xl mb-9">
             <span className="font-sans text-[10.5px] uppercase tracking-[0.24em] text-[#3026B3] font-semibold">
               EXECUTIVE CONSTITUTION
             </span>

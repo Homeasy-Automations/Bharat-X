@@ -60,7 +60,7 @@ export default function IndustriesPage() {
       </section>
 
       {/* ── 2. SECTORS SHOWCASE (Visual cards with zero company names) ──── */}
-      <SectionTransition className="py-8 sm:py-12">
+      <SectionTransition className="py-6 sm:py-9">
         <div className="container-x">
           <Stagger staggerDelay={0.08} className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
             {servicesData.map((svc, i) => {

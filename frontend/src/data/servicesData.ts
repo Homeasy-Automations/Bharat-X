@@ -153,9 +153,9 @@ export const servicesData: ServiceItem[] = [
     eyebrow: "PRECISION MOBILITY",
     descriptor: "Precision components, industrial casters, and heavy-duty mobility solutions.",
     fullNarrative:
-      "Engineered by Casters Global, we design and manufacture precision caster wheels and mobility solutions for demanding applications in intralogistics, medical equipment, retail, and factory automation with strict dimensional tolerances.",
+      "At BharatX Engineering, we design and manufacture precision caster wheels and mobility solutions for demanding applications in intralogistics, medical equipment, retail, and factory automation with strict dimensional tolerances.",
     image: "/companies/casters-global/hero.jpg",
-    companyName: "Casters Global",
+    companyName: "BharatX Engineering",
     companyLogo: "/Casters_logo.png",
     companySlug: "casters-global",
     website: "https://castersglobal.com/",

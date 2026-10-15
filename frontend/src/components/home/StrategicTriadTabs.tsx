@@ -48,7 +48,7 @@ const triadData: TriadItem[] = [
     headline: "Engineering India's Sovereign Multilingual Intelligence Layer.",
     description: [
       "Innovation is our core operating doctrine. Through Aixperts Labs, we engineer production neural architectures natively capable across 22 regional Indian languages, eliminating black-box cloud dependence for sovereign enterprises.",
-      "From sub-micron precision manufacturing tooling at Casters Global to autonomous edge document processing with 99.8% accuracy, we build deep-tech tailored to the operational demands of the subcontinent.",
+      "From sub-micron precision manufacturing tooling at BharatX Engineering to autonomous edge document processing with 99.8% accuracy, we build deep-tech tailored to the operational demands of the subcontinent.",
     ],
     metrics: [
       { label: "Indic Languages", value: "22 Dialects", color: "#3026B3" },
@@ -78,7 +78,7 @@ const triadData: TriadItem[] = [
     ],
     image: "/assets/backgrounds/impact-story.jpg",
     fallbackImage: "/assets/backgrounds/infrastructure-real.jpg",
-    companyName: "BharatX Infratech & Casters Global",
+    companyName: "BharatX Infratech & BharatX Engineering",
     companyLogo: "/Infra_logo1.png",
     route: "/impact",
     cta: "view societal impact report",
@@ -91,7 +91,7 @@ export function StrategicTriadTabs() {
 
   return (
     <SectionTransition>
-      <section className="relative overflow-hidden py-8 sm:py-12 bg-[#FAF9F6] text-[#111827] dark:bg-night-950 dark:text-white">
+      <section className="relative overflow-hidden py-6 sm:py-9 bg-[#FAF9F6] text-[#111827] dark:bg-night-950 dark:text-white">
         <div className="container-x relative z-10">
           {/* RIL-Style Horizontal Story Tab Navigation Header */}
           <div className="border-b border-[#E3E5EF] dark:border-white/10 pb-6 mb-7 sm:mb-10">

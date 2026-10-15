@@ -51,7 +51,7 @@ export function WhyBharatXSection() {
     <SectionTransition
       id="why-bharatx"
       aria-label="Why BharatX"
-      className="relative overflow-hidden bg-white py-8 sm:py-12"
+      className="relative overflow-hidden bg-white py-6 sm:py-9"
     >
       <div className="container-x relative z-10">
         {/* Header */}

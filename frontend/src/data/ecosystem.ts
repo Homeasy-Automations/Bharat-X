@@ -29,7 +29,7 @@ export const ecosystemSites: EcosystemSite[] = [
   {
     id: "casters",
     slug: "casters-global",
-    name: "Casters Global",
+    name: "BharatX Engineering",
     url: "https://castersglobal.com/",
     category: "Industrial Mobility",
   },

@@ -217,7 +217,7 @@ function LabsArt() {
   );
 }
 
-/* ── Casters Global: heavy-duty swivel caster drawn as a precision drawing ── */
+/* ── BharatX Engineering: heavy-duty swivel caster drawn as a precision drawing ── */
 
 function CastersArt() {
   return (

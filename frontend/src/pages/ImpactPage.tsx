@@ -106,7 +106,7 @@ const impactAreas: ImpactArea[] = [
     title: "Strengthening Industrial Capability",
     description:
       "Our manufacturing businesses contribute to India’s industrial ecosystem by developing products, engineering capabilities and domestic production capacity.",
-    entityName: "Casters Global",
+    entityName: "BharatX Engineering",
     logo: "/Casters_logo.png",
     image: "/companies/casters-global/hero.jpg",
     accent: "#00B8D9",
@@ -253,7 +253,7 @@ export default function ImpactPage() {
       </section>
 
       {/* ── 02. OUR IMPACT PHILOSOPHY (Growth Should Create More Than Profit.) ── */}
-      <SectionTransition className="relative overflow-hidden bg-white py-8 sm:py-12">
+      <SectionTransition className="relative overflow-hidden bg-white py-6 sm:py-9">
         <div className="container-x relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
             <div className="lg:col-span-6">
@@ -372,9 +372,9 @@ export default function ImpactPage() {
       </SectionTransition>
 
       {/* ── 03. WHERE WE CREATE IMPACT (Impact Across the Economy — 6 Large Cards) ── */}
-      <SectionTransition id="impact-areas" className="relative overflow-hidden bg-[#FAF9F6] py-8 sm:py-12">
+      <SectionTransition id="impact-areas" className="relative overflow-hidden bg-[#FAF9F6] py-6 sm:py-9">
         <div className="container-x relative z-10">
-          <div className="max-w-3xl mb-16">
+          <div className="max-w-3xl mb-10">
             <div className="inline-flex items-center gap-2 rounded-full border border-[#3026B3]/25 bg-[#3026B3]/8 px-4 py-1 font-sans text-[11px] uppercase tracking-[0.26em] text-[#3026B3] font-bold shadow-xs mb-4">
               <span className="h-2 w-2 rounded-full bg-[#3026B3]" />
               <span>WHERE WE CREATE IMPACT</span>
@@ -466,9 +466,9 @@ export default function ImpactPage() {
       </SectionTransition>
 
       {/* ── 04. IMPACT IN NUMBERS (Our Growing Footprint — Measuring What Matters) ── */}
-      <SectionTransition className="relative overflow-hidden bg-white py-8 sm:py-12">
+      <SectionTransition className="relative overflow-hidden bg-white py-6 sm:py-9">
         <div className="container-x relative z-10">
-          <div className="max-w-3xl text-center mx-auto mb-14">
+          <div className="max-w-3xl text-center mx-auto mb-10">
             <div className="inline-flex items-center gap-2 rounded-full border border-[#00B8D9]/30 bg-[#00B8D9]/10 px-4 py-1 font-sans text-[11px] uppercase tracking-[0.26em] text-[#008299] font-bold shadow-xs mb-4">
               <span className="h-2 w-2 rounded-full bg-[#00B8D9]" />
               <span>IMPACT IN NUMBERS</span>
@@ -596,9 +596,9 @@ export default function ImpactPage() {
       </SectionTransition>
 
       {/* ── 05. OUR COMMITMENT (Building Responsibly — Four Principles) ─────── */}
-      <SectionTransition className="relative overflow-hidden bg-[#FAF9F6] py-8 sm:py-12">
+      <SectionTransition className="relative overflow-hidden bg-[#FAF9F6] py-6 sm:py-9">
         <div className="container-x relative z-10">
-          <div className="max-w-3xl text-center mx-auto mb-14">
+          <div className="max-w-3xl text-center mx-auto mb-10">
             <div className="inline-flex items-center gap-2 rounded-full border border-[#3026B3]/25 bg-[#3026B3]/8 px-4 py-1 font-sans text-[11px] uppercase tracking-[0.26em] text-[#3026B3] font-bold shadow-xs mb-4">
               <span className="h-2 w-2 rounded-full bg-[#3026B3]" />
               <span>OUR COMMITMENT</span>
@@ -652,7 +652,7 @@ export default function ImpactPage() {
       {/* ── 06. THE FUTURE OF IMPACT (The Opportunity Ahead & Final CTA) ─────── */}
       <SectionTransition
         backdrop={<SectionPhoto src={cardImage("impact-cta-opportunity-ahead")} />}
-        className="relative overflow-hidden bg-gradient-to-br from-[#211B72] via-[#1D1763] to-[#120E3E] text-white py-8 sm:py-12"
+        className="relative overflow-hidden bg-gradient-to-br from-[#211B72] via-[#1D1763] to-[#120E3E] text-white py-6 sm:py-9"
       >
         {/* Ambient radial lighting */}
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 -z-10 h-[500px] w-[500px] sm:w-[700px] rounded-full bg-gradient-to-r from-[#3026B3]/30 via-[#FE7701]/20 to-transparent blur-[140px] pointer-events-none" />

@@ -196,7 +196,7 @@ export function RilServicesSection() {
 
       {/* ── MOBILE STACKED IMAGE CARDS (< lg SCREEN) ────────────────────── */}
       <div className="block lg:hidden px-4 py-16 sm:px-6">
-        <div className="mb-8 text-center sm:text-left">
+        <div className="mb-6 text-center sm:text-left">
           <div className="flex items-center justify-center sm:justify-start gap-2 font-sans text-[11px] uppercase tracking-[0.28em] text-gold-400">
             <span className="text-gold-400">◆</span>
             <span>OUR BUSINESSES & SERVICES</span>

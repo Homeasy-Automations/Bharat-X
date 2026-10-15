@@ -42,7 +42,7 @@ export default function CompaniesPage() {
       </PageHero>
 
       {/* Grid */}
-      <SectionTransition className="py-8 sm:py-12">
+      <SectionTransition className="py-6 sm:py-9">
         <div className="container-x">
           <Reveal>
             <div className="mb-12 flex items-center gap-4 font-sans text-[11px] uppercase tracking-[0.26em] text-ink-500">
@@ -56,7 +56,7 @@ export default function CompaniesPage() {
       </SectionTransition>
 
       {/* Stats strip */}
-      <SectionTransition className="bg-night-850/50 py-8 sm:py-12">
+      <SectionTransition className="bg-night-850/50 py-6 sm:py-9">
         <div className="container-x">
           <Stats
             items={[
@@ -70,7 +70,7 @@ export default function CompaniesPage() {
       </SectionTransition>
 
       {/* What connects them */}
-      <SectionTransition className="py-8 sm:py-12">
+      <SectionTransition className="py-6 sm:py-9">
         <div className="container-x">
           <SectionHeader
             icon="network"
@@ -131,7 +131,7 @@ export default function CompaniesPage() {
       </SectionTransition>
 
       {/* Statement */}
-      <SectionTransition className="noise relative overflow-hidden bg-night-950/60 py-8 sm:py-12">
+      <SectionTransition className="noise relative overflow-hidden bg-night-950/60 py-6 sm:py-9">
         <div aria-hidden className="grid-bg grid-bg-fade absolute inset-0 opacity-40" />
         <div className="container-x relative text-center">
           <h2 className="mx-auto max-w-3xl font-heading text-3xl font-semibold leading-[1.15] tracking-tight text-ink-50 md:text-5xl">

@@ -96,7 +96,7 @@ const businessPortfolio: BusinessVertical[] = [
   {
     id: "manufacturing",
     category: "Industrial Manufacturing",
-    name: "Casters Global",
+    name: "BharatX Engineering",
     description: "Engineering precision mobility and caster solutions for industrial applications.",
     status: "Active",
     websiteUrl: "https://castersglobal.com",
@@ -214,9 +214,9 @@ export default function ServicesPage() {
       </section>
 
       {/* ── 02. BUSINESS PORTFOLIO (Our Business Ecosystem — 8 Verticals Grid) ── */}
-      <SectionTransition className="relative overflow-hidden bg-white py-8 sm:py-12">
+      <SectionTransition className="relative overflow-hidden bg-white py-6 sm:py-9">
         <div className="container-x relative z-10">
-          <div className="max-w-3xl mb-14">
+          <div className="max-w-3xl mb-10">
             <div className="inline-flex items-center gap-2 rounded-full border border-[#3026B3]/25 bg-[#3026B3]/8 px-4 py-1 font-sans text-[11px] uppercase tracking-[0.26em] text-[#3026B3] font-bold shadow-xs mb-4 hover:border-[#3026B3] transition-colors">
               <span className="h-2 w-2 rounded-full bg-[#3026B3]" />
               <span>BUSINESS PORTFOLIO</span>
@@ -335,9 +335,9 @@ export default function ServicesPage() {
       </SectionTransition>
 
       {/* ── 03. HOW THEY CONNECT (Different Businesses. One Ecosystem.) ─────────── */}
-      <SectionTransition className="relative overflow-hidden bg-[#FAF9F6] py-8 sm:py-12">
+      <SectionTransition className="relative overflow-hidden bg-[#FAF9F6] py-6 sm:py-9">
         <div className="container-x relative z-10">
-          <div className="max-w-3xl text-center mx-auto mb-14">
+          <div className="max-w-3xl text-center mx-auto mb-10">
             <div className="inline-flex items-center gap-2 rounded-full border border-[#3026B3]/25 bg-[#3026B3]/8 px-4 py-1 font-sans text-[11px] uppercase tracking-[0.26em] text-[#3026B3] font-bold shadow-xs mb-4">
               <span className="h-2 w-2 rounded-full bg-[#3026B3]" />
               <span>HOW THEY CONNECT</span>
@@ -484,9 +484,9 @@ export default function ServicesPage() {
       </SectionTransition>
 
       {/* ── 04. WHAT’S NEXT (The Portfolio Is Growing — 3 Small Tags/Cards) ──── */}
-      <SectionTransition className="relative overflow-hidden bg-white py-8 sm:py-12">
+      <SectionTransition className="relative overflow-hidden bg-white py-6 sm:py-9">
         <div className="container-x relative z-10">
-          <div className="max-w-3xl text-center mx-auto mb-14">
+          <div className="max-w-3xl text-center mx-auto mb-10">
             <div className="inline-flex items-center gap-2 rounded-full border border-[#FE7701]/40 bg-[#FE7701]/10 px-4 py-1 font-sans text-[11px] uppercase tracking-[0.26em] text-[#984701] font-bold shadow-xs mb-4">
               <span className="h-2 w-2 rounded-full bg-[#FE7701]" />
               <span>WHAT’S NEXT</span>
@@ -537,7 +537,7 @@ export default function ServicesPage() {
       {/* ── 05. FINAL CTA (Interested in Building With BharatX?) ─────────────── */}
       <SectionTransition
         backdrop={<SectionPhoto src={cardImage("services-cta-partner")} />}
-        className="relative overflow-hidden bg-gradient-to-br from-[#211B72] via-[#1D1763] to-[#120E3E] text-white py-8 sm:py-12"
+        className="relative overflow-hidden bg-gradient-to-br from-[#211B72] via-[#1D1763] to-[#120E3E] text-white py-6 sm:py-9"
       >
         {/* Ambient radial lighting */}
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 -z-10 h-[500px] w-[500px] sm:w-[700px] rounded-full bg-gradient-to-r from-[#3026B3]/30 via-[#FE7701]/20 to-transparent blur-[140px] pointer-events-none" />

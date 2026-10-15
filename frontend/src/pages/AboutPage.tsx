@@ -396,7 +396,7 @@ export default function AboutPage() {
 
       {/* ── 02. WHO WE ARE (More Than a Group of Companies) ───────────── */}
       <SectionTransition>
-        <section className="relative overflow-hidden bg-white py-8 sm:py-12">
+        <section className="relative overflow-hidden bg-white py-6 sm:py-9">
           <div className="container-x relative z-10">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
               <div className="lg:col-span-6">
@@ -500,7 +500,7 @@ export default function AboutPage() {
 
       {/* ── VISION & MISSION (Where We're Headed and How We Get There) ──── */}
       <SectionTransition id="vision-mission" aria-label="Our Vision and Mission">
-        <section className="relative overflow-hidden bg-[#F6F6FD] py-8 sm:py-12">
+        <section className="relative overflow-hidden bg-[#F6F6FD] py-6 sm:py-9">
           {/* Light futuristic scene: holographic wash, perspective grid floor, orbit rings and wireframe cubes */}
           <div aria-hidden className="pointer-events-none absolute inset-0 overflow-hidden">
             <div className="absolute inset-0" style={{ background: visionMissionAurora }} />
@@ -547,7 +547,7 @@ export default function AboutPage() {
           </div>
 
           <div className="container-x relative z-10">
-            <div className="max-w-3xl text-center mx-auto mb-10 sm:mb-14">
+            <div className="max-w-3xl text-center mx-auto mb-8 sm:mb-10">
               <div className="inline-flex items-center gap-2 rounded-full border border-[#3026B3]/25 bg-white/80 px-4 py-1 font-sans text-[11px] uppercase tracking-[0.28em] text-[#3026B3] font-bold shadow-xs backdrop-blur-sm mb-5">
                 <span className="h-2 w-2 rounded-full bg-[#00B8D9] shadow-[0_0_8px_#00B8D9] animate-pulse" />
                 <span>WHAT DRIVES US</span>
@@ -649,7 +649,7 @@ export default function AboutPage() {
 
       {/* ── 03. WHY BHARATX EXISTS (Built Around India's Opportunity) ─── */}
       <SectionTransition>
-        <section className="relative overflow-hidden bg-white py-8 sm:py-12">
+        <section className="relative overflow-hidden bg-white py-6 sm:py-9">
           <div className="container-x relative z-10">
             {/* Enhanced 2-Column Split Header eliminates empty dead space */}
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start mb-12 sm:mb-16">
@@ -749,9 +749,9 @@ export default function AboutPage() {
 
       {/* ── GROUP LEADERSHIP (The Visionary Behind the Standard) ─────────── */}
       <SectionTransition>
-        <section className="relative overflow-hidden bg-[#FAF9F6] py-8 sm:py-12">
+        <section className="relative overflow-hidden bg-[#FAF9F6] py-6 sm:py-9">
           <div className="container-x relative z-10">
-            <div className="max-w-3xl mb-12 sm:mb-16">
+            <div className="max-w-3xl mb-9 sm:mb-11">
               <div className="inline-flex items-center gap-2 rounded-full border border-[#3026B3]/25 bg-[#3026B3]/8 px-4 py-1 font-sans text-[11px] uppercase tracking-[0.26em] text-[#3026B3] font-bold shadow-xs mb-4">
                 <DuotoneIcon name="user-round" size={14} />
                 <span>GROUP LEADERSHIP</span>
@@ -796,6 +796,18 @@ export default function AboutPage() {
                     <div className="mt-1 text-xs font-sans uppercase tracking-wider text-slate-300">
                       BharatX Group · Institutional Founder
                     </div>
+                    {/* Credentials */}
+                    <div className="mt-4 flex flex-wrap gap-2">
+                      {["IIT Delhi", "IIM"].map((school) => (
+                        <span
+                          key={school}
+                          className="inline-flex items-center gap-1.5 rounded-full border border-white/15 bg-white/10 px-3 py-1 font-sans text-[11px] font-semibold text-white"
+                        >
+                          <Icon name="graduation-cap" width={13} height={13} className="text-[#FEA04D]" />
+                          {school} Alumnus
+                        </span>
+                      ))}
+                    </div>
                   </div>
                 </div>
 
@@ -828,7 +840,7 @@ export default function AboutPage() {
                         , he is committed to building sustainable, technology-driven enterprises that strengthen India’s industrial ecosystem and contribute to the country’s long-term economic leadership.”
                       </blockquote>
                       <div className="relative mt-4 flex items-center justify-between pt-3 border-t border-white/15 text-xs font-sans text-slate-200">
-                        <span className="text-[#FEA04D] font-bold">— Pradeep Kumar</span>
+                        <span className="text-[#FEA04D] font-bold">— Pradeep Kumar IIT Delhi & IIM Allumini</span>
                         <span className="font-medium text-slate-200">BharatX Group</span>
                       </div>
                     </div>
@@ -876,9 +888,9 @@ export default function AboutPage() {
 
       {/* ── 04. OUR BUSINESS ECOSYSTEM (One Group. Multiple Growth Engines) ─ */}
       <SectionTransition>
-        <section className="relative overflow-hidden bg-white py-8 sm:py-12">
+        <section className="relative overflow-hidden bg-white py-6 sm:py-9">
           <div className="container-x relative z-10">
-            <div className="max-w-3xl text-center mx-auto mb-14">
+            <div className="max-w-3xl text-center mx-auto mb-10">
               <div className="inline-flex items-center gap-2 rounded-full border border-[#3026B3]/25 bg-[#3026B3]/8 px-4 py-1 font-sans text-[11px] uppercase tracking-[0.26em] text-[#3026B3] font-bold shadow-xs mb-4">
                 <span className="h-2 w-2 rounded-full bg-[#3026B3] animate-pulse" />
                 <span>ECOSYSTEM ARCHITECTURE</span>
@@ -955,9 +967,9 @@ export default function AboutPage() {
 
       {/* ── 06. OUR PRINCIPLES (What Guides Us) ────────────────────────── */}
       <SectionTransition>
-        <section className="relative overflow-hidden bg-[#FAF9F6] py-8 sm:py-12">
+        <section className="relative overflow-hidden bg-[#FAF9F6] py-6 sm:py-9">
           <div className="container-x relative z-10">
-            <div className="max-w-3xl text-center mx-auto mb-14">
+            <div className="max-w-3xl text-center mx-auto mb-10">
               <div className="inline-flex items-center gap-2 rounded-full border border-[#15966B]/30 bg-[#15966B]/10 px-4 py-1 font-sans text-[11px] uppercase tracking-[0.26em] text-[#15966B] font-bold shadow-xs mb-4">
                 <span className="h-2 w-2 rounded-full bg-[#15966B] animate-pulse" />
                 <span>WHAT GUIDES US</span>
@@ -1012,7 +1024,7 @@ export default function AboutPage() {
 
       {/* ── 07. CLOSING / LEADERSHIP STATEMENT (The Journey Ahead) ─────── */}
       <SectionTransition>
-        <section className="relative overflow-hidden bg-gradient-to-br from-[#211B72] via-[#1D1763] to-[#120E3E] text-white py-8 sm:py-12">
+        <section className="relative overflow-hidden bg-gradient-to-br from-[#211B72] via-[#1D1763] to-[#120E3E] text-white py-6 sm:py-9">
           <SectionPhoto src={cardImage("about-cta-journey-ahead")} />
           {/* Ambient radial lighting */}
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 -z-10 h-[500px] w-[500px] sm:w-[700px] rounded-full bg-gradient-to-r from-[#3026B3]/30 via-[#FE7701]/20 to-transparent blur-[140px] pointer-events-none" />

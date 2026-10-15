@@ -7,10 +7,10 @@ import { FeatureIcon } from "../common/FeatureIcon";
 export function InsideBharatXSection() {
   return (
     <SectionTransition id="inside-bharatx" aria-label="Inside BharatX - Insights and Careers">
-      <section className="relative overflow-hidden bg-[#FAF9F6] py-8 sm:py-12">
+      <section className="relative overflow-hidden bg-[#FAF9F6] py-6 sm:py-9">
         <div className="container-x relative z-10">
           {/* Header */}
-          <div className="max-w-3xl mb-8 sm:mb-10">
+          <div className="max-w-3xl mb-6 sm:mb-8">
             <div className="inline-flex items-center gap-2 rounded-full border border-[#3026B3]/25 bg-[#3026B3]/8 px-4 py-1 font-sans text-[11px] uppercase tracking-[0.26em] text-[#3026B3] font-bold shadow-xs hover:bg-[#3026B3]/15 transition-colors">
               <span className="h-2 w-2 rounded-full bg-[#3026B3] animate-pulse" />
               <span>INSIDE BHARATX</span>

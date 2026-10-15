@@ -35,7 +35,7 @@ const upcomingCards = [
 export function WhatComesNextSection() {
   return (
     <SectionTransition id="what-comes-next" aria-label="Building What Comes Next">
-      <section className="relative overflow-hidden bg-white py-8 sm:py-12">
+      <section className="relative overflow-hidden bg-white py-6 sm:py-9">
         <div className="container-x relative z-10">
           {/* Header */}
           <div className="mx-auto max-w-3xl text-center">

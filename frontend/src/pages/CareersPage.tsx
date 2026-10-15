@@ -146,7 +146,7 @@ const verticalsList = [
   "Agriculture (BharatX Agro)",
   "Infrastructure (BharatX Infratech)",
   "Foundation (BharatX Foundation)",
-  "Manufacturing (Casters Global)",
+  "Manufacturing (BharatX Engineering)",
   "Technology & AI (Aixperts Labs)",
   "Packaging (BharatX Enterprises)",
   "Sustainability (BharatX Sustainability)",
@@ -275,9 +275,9 @@ export default function CareersPage() {
       </section>
 
       {/* ── 02. WHY BHARATX (More Than a Job. A Chance to Build.) ──────────── */}
-      <SectionTransition className="relative overflow-hidden bg-white py-8 sm:py-12">
+      <SectionTransition className="relative overflow-hidden bg-white py-6 sm:py-9">
         <div className="container-x relative z-10">
-          <div className="max-w-3xl mb-16">
+          <div className="max-w-3xl mb-10">
             <div className="inline-flex items-center gap-2 rounded-full border border-[#3026B3]/25 bg-[#3026B3]/8 px-4 py-1 font-sans text-[11px] uppercase tracking-[0.26em] text-[#3026B3] font-bold shadow-xs mb-4">
               <span className="h-2 w-2 rounded-full bg-[#3026B3]" />
               <span>WHY BHARATX</span>
@@ -341,9 +341,9 @@ export default function CareersPage() {
       </SectionTransition>
 
       {/* ── 03. WHERE YOU CAN BUILD (Find Your Place in the Ecosystem — 8 Areas) ── */}
-      <SectionTransition className="relative overflow-hidden bg-[#FAF9F6] py-8 sm:py-12">
+      <SectionTransition className="relative overflow-hidden bg-[#FAF9F6] py-6 sm:py-9">
         <div className="container-x relative z-10">
-          <div className="max-w-3xl text-center mx-auto mb-16">
+          <div className="max-w-3xl text-center mx-auto mb-10">
             <div className="inline-flex items-center gap-2 rounded-full border border-[#15966B]/30 bg-[#15966B]/10 px-4 py-1 font-sans text-[11px] uppercase tracking-[0.26em] text-[#15966B] font-bold shadow-xs mb-4">
               <span className="h-2 w-2 rounded-full bg-[#15966B]" />
               <span>CAREER DOMAINS</span>
@@ -407,9 +407,9 @@ export default function CareersPage() {
       </SectionTransition>
 
       {/* ── 04. HOW WE WORK (Built for People Who Take Ownership) ─────────── */}
-      <SectionTransition className="relative overflow-hidden bg-white py-8 sm:py-12">
+      <SectionTransition className="relative overflow-hidden bg-white py-6 sm:py-9">
         <div className="container-x relative z-10">
-          <div className="max-w-3xl text-center mx-auto mb-16">
+          <div className="max-w-3xl text-center mx-auto mb-10">
             <div className="inline-flex items-center gap-2 rounded-full border border-[#00B8D9]/30 bg-[#00B8D9]/10 px-4 py-1 font-sans text-[11px] uppercase tracking-[0.26em] text-[#008299] font-bold shadow-xs mb-4">
               <span className="h-2 w-2 rounded-full bg-[#00B8D9]" />
               <span>OUR CULTURE</span>
@@ -475,9 +475,9 @@ export default function CareersPage() {
       </SectionTransition>
 
       {/* ── 05. OPEN OPPORTUNITIES (Find Your Next Opportunity / Send Profile) ── */}
-      <SectionTransition className="relative overflow-hidden bg-[#FAF9F6] py-8 sm:py-12">
+      <SectionTransition className="relative overflow-hidden bg-[#FAF9F6] py-6 sm:py-9">
         <div id="open-opportunities" className="container-x relative z-10">
-          <div className="max-w-3xl text-center mx-auto mb-14">
+          <div className="max-w-3xl text-center mx-auto mb-10">
             <div className="inline-flex items-center gap-2 rounded-full border border-[#3026B3]/25 bg-[#3026B3]/8 px-4 py-1 font-sans text-[11px] uppercase tracking-[0.26em] text-[#3026B3] font-bold shadow-xs mb-4">
               <span className="h-2 w-2 rounded-full bg-[#3026B3]" />
               <span>OPEN OPPORTUNITIES</span>
@@ -565,7 +565,7 @@ export default function CareersPage() {
                     </tr>
                     <tr className="border-b border-[#3026B3]/15 hover:bg-white/70 transition-colors">
                       <td className="py-4 px-6 font-medium text-[#111827]">Industrial Quality &amp; Tooling Lead</td>
-                      <td className="py-4 px-6 text-[#374151]">Casters Global</td>
+                      <td className="py-4 px-6 text-[#374151]">BharatX Engineering</td>
                       <td className="py-4 px-6 text-[#374151]">Industrial Corridor / Plant</td>
                       <td className="py-4 px-6 text-xs font-sans text-[#3026B3]">Full-time</td>
                       <td className="py-4 px-6 text-right">
@@ -574,7 +574,7 @@ export default function CareersPage() {
                           data-cursor="button"
                           onClick={() => {
                             setPosition("Industrial Quality & Tooling Lead");
-                            setVertical("Manufacturing (Casters Global)");
+                            setVertical("Manufacturing (BharatX Engineering)");
                             setShowProfileForm(true);
                           }}
                           className="font-sans text-xs font-bold uppercase tracking-wider text-[#3026B3] hover:underline"
@@ -791,7 +791,7 @@ export default function CareersPage() {
       {/* ── 06. FINAL CTA (Ready to Build With Us?) ───────────────────────── */}
       <SectionTransition
         backdrop={<SectionPhoto src={cardImage("careers-cta-join-builders")} />}
-        className="relative overflow-hidden bg-gradient-to-br from-[#211B72] via-[#1D1763] to-[#120E3E] text-white py-8 sm:py-12"
+        className="relative overflow-hidden bg-gradient-to-br from-[#211B72] via-[#1D1763] to-[#120E3E] text-white py-6 sm:py-9"
       >
         {/* Ambient radial lighting */}
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 -z-10 h-[500px] w-[500px] sm:w-[700px] rounded-full bg-gradient-to-r from-[#3026B3]/30 via-[#FE7701]/20 to-transparent blur-[140px] pointer-events-none" />

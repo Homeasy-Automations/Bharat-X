@@ -104,11 +104,11 @@ export function BusinessEcosystemGrid() {
     <SectionTransition
       id="businesses"
       aria-label="Our Business Ecosystem"
-      className="relative overflow-hidden bg-white py-8 sm:py-12"
+      className="relative overflow-hidden bg-white py-6 sm:py-9"
     >
       <div className="container-x relative z-10">
         {/* Header */}
-        <div className="max-w-3xl mb-8 sm:mb-10 group/header">
+        <div className="max-w-3xl mb-6 sm:mb-8 group/header">
           <div className="inline-flex items-center gap-2 rounded-full border border-[#3026B3]/25 bg-[#3026B3]/8 px-4 py-1 font-sans text-[11px] uppercase tracking-[0.26em] text-[#3026B3] font-bold shadow-xs cursor-default">
             <span className="h-2 w-2 rounded-full bg-[#3026B3] transition-transform duration-300 group-hover/header:scale-125" />
             <span>CORE VERTICALS</span>

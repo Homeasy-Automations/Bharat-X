@@ -28,7 +28,7 @@ const slides: SlideItem[] = [
     id: "manuf",
     image: "/assets/hero3.png",
     sector: "Precision Mobility & Manufacturing",
-    company: "Casters Global",
+    company: "BharatX Engineering",
     tagline: "High-spec industrial mobility and advanced manufacturing",
   },
   {

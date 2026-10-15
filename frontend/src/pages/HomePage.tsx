@@ -1,5 +1,6 @@
 import { usePageMeta } from "../hooks/usePageMeta";
 import { RilHeroSection } from "../components/home/RilHeroSection";
+import { StatsMarquee } from "../components/home/StatsMarquee";
 import { AboutBharatXSection } from "../components/home/AboutBharatXSection";
 import { BusinessEcosystemGrid } from "../components/home/BusinessEcosystemGrid";
 import { OurApproachSection } from "../components/home/OurApproachSection";
@@ -21,6 +22,9 @@ export default function HomePage() {
     <main className="w-full bg-[#FAF9F6] text-[#111827] min-h-screen">
       {/* ── 01. HERO (Brand First - Retained intact as requested) ── */}
       <RilHeroSection />
+
+      {/* ── STATS STRIP (Group figures, scrolling ticker) ───────── */}
+      <StatsMarquee />
 
       {/* ── 02. ABOUT BHARATX — WHO WE ARE ──────────────────────── */}
       <AboutBharatXSection />

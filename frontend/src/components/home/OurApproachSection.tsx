@@ -74,7 +74,7 @@ export function OurApproachSection() {
     <SectionTransition
       id="our-approach"
       aria-label="Our Approach"
-      className="relative overflow-hidden bg-[#FAF9F6] py-8 sm:py-12"
+      className="relative overflow-hidden bg-[#FAF9F6] py-6 sm:py-9"
     >
       <div className="container-x relative z-10">
         {/* Header */}

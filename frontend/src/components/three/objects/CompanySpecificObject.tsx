@@ -129,7 +129,7 @@ function StructuralArchMesh() {
 }
 
 function MobilitySystemMesh() {
-  // Casters Global: Precision mobility system & bearings
+  // BharatX Engineering: Precision mobility system & bearings
   const group = useRef<THREE.Group>(null);
   const wheel1 = useRef<THREE.Mesh>(null);
   const wheel2 = useRef<THREE.Mesh>(null);

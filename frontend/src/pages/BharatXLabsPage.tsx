@@ -45,7 +45,7 @@ const researchPillars: ResearchPillar[] = [
     icon: "cpu",
     tagline: "Sub-15ms Real-Time Inference on Industrial Edge",
     description:
-      "Deep integration of compressed neural networks directly into physical hardware—from robotic handling arms at Casters Global to high-throughput sorting corridors in BharatX Agro. Operates with ultra-low power in high-interference field environments.",
+      "Deep integration of compressed neural networks directly into physical hardware—from robotic handling arms at BharatX Engineering to high-throughput sorting corridors in BharatX Agro. Operates with ultra-low power in high-interference field environments.",
     specs: [
       "Sub-15ms end-to-end edge inference on embedded RISC-V & ARM silicon",
       "Offline-first operational autonomy during connectivity outages",
@@ -106,7 +106,7 @@ const roadmapMilestones = [
     badgeColor: "text-ink-400 border-white/10 bg-white/5",
     title: "Closed Industrial Alpha & Institutional Testbeds",
     description:
-      "Deploying model checkpoints across BharatX Group operating companies (Casters Global, BharatX Infratech, Aixperts Labs) for live production stress-testing.",
+      "Deploying model checkpoints across BharatX Group operating companies (BharatX Engineering, BharatX Infratech, Aixperts Labs) for live production stress-testing.",
   },
   {
     phase: "Phase 04",
@@ -282,7 +282,7 @@ export default function BharatXLabsPage() {
       </SectionTransition>
 
       {/* ── STRATEGIC MISSION & MANIFESTO ───────────────────────────── */}
-      <SectionTransition className="py-8 sm:py-12 bg-slate-50 dark:bg-night-900/50">
+      <SectionTransition className="py-6 sm:py-9 bg-slate-50 dark:bg-night-900/50">
         <div className="container-x">
           <div className="grid gap-12 lg:grid-cols-2 lg:items-center">
             <div>
@@ -334,7 +334,7 @@ export default function BharatXLabsPage() {
       </SectionTransition>
 
       {/* ── CORE RESEARCH PILLARS ──────────────────────────────────── */}
-      <SectionTransition className="py-8 sm:py-12">
+      <SectionTransition className="py-6 sm:py-9">
         <div className="container-x">
           <SectionHeader
             icon="brain-circuit"
@@ -398,7 +398,7 @@ export default function BharatXLabsPage() {
       </SectionTransition>
 
       {/* ── RESEARCH ROADMAP ────────────────────────────────────────── */}
-      <SectionTransition className="py-8 sm:py-12 bg-slate-50 dark:bg-night-900/40">
+      <SectionTransition className="py-6 sm:py-9 bg-slate-50 dark:bg-night-900/40">
         <div id="roadmap" className="container-x">
           <SectionHeader
             icon="workflow"
@@ -453,7 +453,7 @@ export default function BharatXLabsPage() {
       </SectionTransition>
 
       {/* ── EARLY RESEARCHER WAITLIST & FELLOWSHIP ─────────────────── */}
-      <SectionTransition className="py-8 sm:py-12">
+      <SectionTransition className="py-6 sm:py-9">
         <div id="waitlist" className="container-x max-w-4xl">
           <div className="text-center">
             <span className="inline-flex items-center gap-2 rounded-full border border-pulse-400/40 bg-pulse-400/10 px-3.5 py-1 font-sans text-xs font-semibold uppercase tracking-widest text-pulse-400">
@@ -582,7 +582,7 @@ export default function BharatXLabsPage() {
       </SectionTransition>
 
       {/* ── BHARATX ECOSYSTEM SYNERGY ──────────────────────────────── */}
-      <SectionTransition className="py-8 sm:py-12 bg-slate-100/50 dark:bg-night-950">
+      <SectionTransition className="py-6 sm:py-9 bg-slate-100/50 dark:bg-night-950">
         <div className="container-x text-center">
           <span className="font-sans text-xs uppercase tracking-[0.25em] text-ink-400">
             Backed by BharatX Group Conglomerate Infrastructure
