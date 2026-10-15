@@ -31,12 +31,11 @@ const visionMission = [
     ],
     step: "01",
     icon: "eye" as const,
-    accent: "#3026B3",
-    labelColor: "#3026B3",
-    titleColor: "text-[#211B72]",
-    ring: "from-[#3026B3] via-[#00B8D9] to-[#3026B3]/15",
-    medallion: "from-[#7B72FF] via-[#3026B3] to-[#211B72]",
-    glow: "rgba(48, 38, 179, 0.38)",
+    accentText: "text-[#5EE4F8]",
+    ring: "from-[#5EE4F8] via-[#00B8D9] to-[#3026B3]",
+    border: "from-[#5EE4F8]/50 via-white/10 to-white/5",
+    hairline: "via-[#5EE4F8]/70",
+    glow: "rgba(0, 184, 217, 0.35)",
   },
   {
     label: "Our Mission",
@@ -50,32 +49,15 @@ const visionMission = [
     ],
     step: "02",
     icon: "target" as const,
-    accent: "#E06901",
-    labelColor: "#B45309",
-    titleColor: "text-[#9A3412]",
-    ring: "from-[#FE7701] via-[#FEA04D] to-[#E06901]/15",
-    medallion: "from-[#FFB36B] via-[#FE7701] to-[#B45309]",
-    glow: "rgba(254, 119, 1, 0.36)",
+    accentText: "text-[#FEA04D]",
+    ring: "from-[#FEB473] via-[#FE7701] to-[#B45309]",
+    border: "from-[#FE7701]/50 via-white/10 to-white/5",
+    hairline: "via-[#FEA04D]/70",
+    glow: "rgba(254, 119, 1, 0.32)",
   },
 ];
 
-/** Soft brand-colour mesh behind the Vision & Mission section. */
-const visionMissionMesh = [
-  "radial-gradient(55% 45% at 12% 18%, rgba(48, 38, 179, 0.22), transparent 70%)",
-  "radial-gradient(45% 40% at 88% 10%, rgba(0, 184, 217, 0.18), transparent 70%)",
-  "radial-gradient(55% 50% at 86% 92%, rgba(254, 119, 1, 0.2), transparent 70%)",
-  "radial-gradient(40% 35% at 28% 96%, rgba(75, 64, 212, 0.14), transparent 70%)",
-  "linear-gradient(160deg, #F3F1FF 0%, #FAF9F6 50%, #FFF3E8 100%)",
-].join(", ");
-
-/** Glossy 3D sphere: lit from the top-left, shaded bottom-right, casting a coloured shadow. `scale` shrinks the shading for small orbs. */
-function orbStyle(light: string, mid: string, dark: string, glow: string, scale = 1) {
-  const px = (n: number) => `${Math.round(n * scale)}px`;
-  return {
-    background: `radial-gradient(circle at 32% 28%, ${light} 0%, ${mid} 42%, ${dark} 100%)`,
-    boxShadow: `inset ${px(-18)} ${px(-24)} ${px(48)} rgba(0, 0, 0, 0.28), inset ${px(14)} ${px(14)} ${px(30)} rgba(255, 255, 255, 0.35), 0 ${px(40)} ${px(70)} ${px(-25)} ${glow}`,
-  };
-}
+const romanNumerals = ["i", "ii", "iii", "iv"];
 
 // ── 03. Four Pillars for "Why BharatX Exists" ─────────────────────────
 const purposePillars = [
@@ -481,49 +463,44 @@ export default function AboutPage() {
 
       {/* ── VISION & MISSION (Where We're Headed and How We Get There) ──── */}
       <SectionTransition id="vision-mission" aria-label="Our Vision and Mission">
-        <section className="relative overflow-hidden bg-[#F5F4FF] py-8 sm:py-12">
-          {/* 3D gradient backdrop: brand mesh, a perspective grid floor and floating glossy orbs */}
+        <section className="noise relative overflow-hidden bg-[#120E3E] py-8 sm:py-12 text-white">
+          {/* Midnight-indigo backdrop: brand glows, concentric "focus" rings and a fading dot grid */}
           <div aria-hidden className="pointer-events-none absolute inset-0 overflow-hidden">
-            <div className="absolute inset-0" style={{ background: visionMissionMesh }} />
+            <div className="absolute inset-0 bg-gradient-to-br from-[#120E3E] via-[#1D1763] to-[#211B72]" />
+            <div className="absolute -left-32 -top-40 h-[30rem] w-[30rem] rounded-full bg-[#00B8D9]/20 blur-[120px]" />
+            <div className="absolute -bottom-48 -right-32 h-[32rem] w-[32rem] rounded-full bg-[#FE7701]/20 blur-[130px]" />
+            <div className="absolute left-1/2 top-[62%]">
+              {[360, 600, 840, 1080].map((size) => (
+                <span
+                  key={size}
+                  className="absolute left-0 top-0 -translate-x-1/2 -translate-y-1/2 rounded-full border border-white/[0.06]"
+                  style={{ width: size, height: size }}
+                />
+              ))}
+            </div>
             <div
-              className="grid-bg absolute -left-1/4 -right-1/4 -bottom-[18%] h-[65%] opacity-70"
+              className="absolute inset-0 opacity-[0.18]"
               style={{
-                transform: "perspective(900px) rotateX(62deg)",
-                transformOrigin: "50% 100%",
-                WebkitMaskImage: "linear-gradient(to top, black 15%, transparent 80%)",
-                maskImage: "linear-gradient(to top, black 15%, transparent 80%)",
+                backgroundImage: "radial-gradient(rgba(255, 255, 255, 0.55) 1px, transparent 1px)",
+                backgroundSize: "26px 26px",
+                WebkitMaskImage: "radial-gradient(ellipse 70% 55% at 50% 30%, black, transparent 75%)",
+                maskImage: "radial-gradient(ellipse 70% 55% at 50% 30%, black, transparent 75%)",
               }}
-            />
-            <div
-              className="animate-float absolute -left-24 top-[40%] h-56 w-56 rounded-full sm:h-72 sm:w-72"
-              style={orbStyle("#B3ADFF", "#4B40D4", "#211B72", "rgba(48, 38, 179, 0.55)")}
-            />
-            <div
-              className="animate-float absolute -right-20 -bottom-12 h-64 w-64 rounded-full sm:h-80 sm:w-80"
-              style={{ ...orbStyle("#FFD6AE", "#FE7701", "#B45309", "rgba(254, 119, 1, 0.5)"), animationDelay: "-2.5s" }}
-            />
-            <div
-              className="animate-float absolute right-[10%] top-10 hidden h-20 w-20 rounded-full md:block"
-              style={{ ...orbStyle("#D2F8FE", "#00B8D9", "#006E85", "rgba(0, 184, 217, 0.5)", 0.55), animationDelay: "-1.2s" }}
-            />
-            <div
-              className="animate-float absolute left-[8%] top-12 hidden h-10 w-10 rounded-full lg:block"
-              style={{ ...orbStyle("#FFE2C7", "#FEA04D", "#E06901", "rgba(254, 119, 1, 0.45)", 0.3), animationDelay: "-3.6s" }}
             />
           </div>
 
           <div className="container-x relative z-10">
-            <div className="max-w-3xl text-center mx-auto mb-10 sm:mb-12">
-              <div className="inline-flex items-center gap-2 rounded-full border border-[#3026B3]/25 bg-white/70 px-4 py-1 font-sans text-[11px] uppercase tracking-[0.26em] text-[#3026B3] font-bold shadow-xs backdrop-blur-sm mb-4">
-                <span className="h-2 w-2 rounded-full bg-[#3026B3] animate-pulse" />
+            <div className="max-w-3xl text-center mx-auto mb-10 sm:mb-14">
+              <div className="inline-flex items-center gap-2 rounded-full border border-[#FE7701]/40 bg-[#FE7701]/10 px-4 py-1 font-sans text-[11px] uppercase tracking-[0.28em] text-[#FEA04D] font-bold shadow-xs mb-5">
+                <span className="h-2 w-2 rounded-full bg-[#FE7701] shadow-[0_0_8px_#FE7701]" />
                 <span>WHAT DRIVES US</span>
               </div>
 
-              <h2 className="font-heading text-3xl sm:text-4xl lg:text-5xl font-medium text-[#111827] leading-tight tracking-tight hover:text-[#211B72] transition-colors duration-300">
-                Our Vision &amp; <span className="text-[#3026B3] hover:text-[#FE7701] transition-colors duration-300">Mission</span>
+              <h2 className="font-heading text-3xl sm:text-4xl lg:text-5xl font-medium text-white leading-tight tracking-tight">
+                Our Vision <span className="font-light italic text-[#FEA04D]">&amp;</span> Mission
               </h2>
 
-              <p className="mt-4 text-base sm:text-lg text-[#596579] leading-relaxed max-w-2xl mx-auto">
+              <p className="mt-4 text-base sm:text-lg text-slate-300 leading-relaxed max-w-2xl mx-auto">
                 Our vision sets the long-term ambition for the Group. Our mission is the work we do every day to get there.
               </p>
             </div>
@@ -531,62 +508,60 @@ export default function AboutPage() {
             <Stagger className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8">
               {visionMission.map((item) => (
                 <StaggerItem key={item.label}>
-                  {/* Gradient border ring around a frosted-glass card */}
+                  {/* Gradient hairline border around a dark glass panel */}
                   <div
                     data-cursor="card"
                     tabIndex={0}
-                    className={`group relative h-full rounded-[28px] bg-gradient-to-br ${item.ring} p-[1.5px] transition-all duration-500 hover:-translate-y-2 focus-visible:ring-2 focus-visible:ring-[#3026B3] focus:outline-none`}
-                    style={{ boxShadow: `0 30px 60px -28px ${item.glow}` }}
+                    className={`group relative h-full rounded-[28px] bg-gradient-to-b ${item.border} p-px transition-transform duration-500 hover:-translate-y-1.5 focus-visible:ring-2 focus-visible:ring-[#FEA04D] focus:outline-none`}
                   >
-                    <div className="relative flex h-full flex-col overflow-hidden rounded-[26.5px] bg-white/90 p-7 sm:p-10 backdrop-blur-xl">
-                      {/* Corner glow + outlined watermark number */}
+                    <div className="relative flex h-full flex-col overflow-hidden rounded-[27px] bg-[#16124A]/80 p-7 sm:p-10 backdrop-blur-xl">
                       <div
                         aria-hidden
-                        className="pointer-events-none absolute -right-20 -top-20 h-56 w-56 rounded-full opacity-50 blur-3xl transition-opacity duration-500 group-hover:opacity-90"
+                        className="pointer-events-none absolute -top-24 left-1/2 h-48 w-4/5 -translate-x-1/2 rounded-full opacity-40 blur-3xl transition-opacity duration-500 group-hover:opacity-90"
                         style={{ background: item.glow }}
                       />
+                      <span aria-hidden className={`absolute inset-x-10 top-0 h-px bg-gradient-to-r from-transparent ${item.hairline} to-transparent`} />
                       <span
                         aria-hidden
-                        className="pointer-events-none absolute right-6 top-2 hidden select-none font-heading text-[6rem] sm:block sm:text-[7.5rem] font-semibold leading-none text-transparent"
-                        style={{ WebkitTextStroke: `1.5px ${item.accent}38` }}
+                        className="pointer-events-none absolute -top-4 right-6 hidden select-none font-heading text-[9rem] leading-none text-transparent sm:block"
+                        style={{ WebkitTextStroke: "1px rgba(255, 255, 255, 0.08)" }}
                       >
                         {item.step}
                       </span>
 
-                      {/* 3D icon tile + label */}
+                      {/* Icon in a gradient ring + label */}
                       <div className="relative flex items-center gap-4">
                         <span
-                          className={`relative flex h-16 w-16 shrink-0 items-center justify-center rounded-2xl bg-gradient-to-br ${item.medallion} text-white transition-transform duration-500 group-hover:-rotate-6 group-hover:scale-105`}
-                          style={{ boxShadow: `0 16px 28px -10px ${item.glow}, inset 0 -6px 12px rgba(0, 0, 0, 0.25), inset 0 2px 0 rgba(255, 255, 255, 0.35)` }}
+                          className={`shrink-0 rounded-full bg-gradient-to-br ${item.ring} p-px transition-transform duration-500 group-hover:scale-105`}
+                          style={{ boxShadow: `0 0 32px -6px ${item.glow}` }}
                         >
-                          <span aria-hidden className="absolute inset-x-2.5 top-1.5 h-5 rounded-xl bg-white/25 blur-[2px]" />
-                          <Icon name={item.icon} width={28} height={28} strokeWidth={2} className="relative" />
+                          <span className="flex h-14 w-14 items-center justify-center rounded-full bg-[#141046]">
+                            <Icon name={item.icon} width={24} height={24} strokeWidth={1.8} className={item.accentText} />
+                          </span>
                         </span>
                         <div>
-                          <span className="block font-sans text-xs font-bold uppercase tracking-[0.3em]" style={{ color: item.labelColor }}>
-                            {item.label}
+                          <span className={`block font-sans text-[11px] font-bold uppercase tracking-[0.3em] ${item.accentText}`}>
+                            {item.step} · {item.label}
                           </span>
-                          <span className="mt-1 block text-sm text-[#596579]">{item.kicker}</span>
+                          <span className="mt-1 block text-sm text-slate-400">{item.kicker}</span>
                         </div>
                       </div>
 
-                      <h3 className={`relative mt-7 font-heading text-2xl sm:text-[2rem] font-medium leading-snug tracking-tight ${item.titleColor}`}>
+                      {/* The statement, set as a pull-quote */}
+                      <h3 className="relative mt-8 font-heading text-2xl sm:text-3xl lg:text-[2.1rem] font-medium leading-[1.2] tracking-tight text-white">
+                        <span aria-hidden className={item.accentText}>“</span>
                         {item.title}
+                        <span aria-hidden className={item.accentText}>”</span>
                       </h3>
 
-                      <p className="relative mt-4 mb-7 text-sm sm:text-base text-[#596579] leading-relaxed font-normal">
+                      <p className="relative mt-5 text-sm sm:text-base leading-relaxed text-slate-300">
                         {item.statement}
                       </p>
 
-                      <ul className="relative mt-auto grid gap-2.5">
-                        {item.points.map((pt) => (
-                          <li
-                            key={pt}
-                            className="flex items-center gap-3 rounded-xl border border-[#E3E5EF] bg-white/80 px-4 py-2.5 text-xs sm:text-sm text-[#374151] shadow-xs"
-                          >
-                            <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full text-white" style={{ background: item.accent }}>
-                              <Icon name="check" width={13} height={13} strokeWidth={3} />
-                            </span>
+                      <ul className="relative mt-auto pt-8">
+                        {item.points.map((pt, i) => (
+                          <li key={pt} className="flex items-center gap-4 border-t border-white/10 py-3.5 text-sm text-slate-200">
+                            <span className={`w-6 shrink-0 font-heading text-base italic ${item.accentText}`}>{romanNumerals[i]}</span>
                             <span>{pt}</span>
                           </li>
                         ))}
