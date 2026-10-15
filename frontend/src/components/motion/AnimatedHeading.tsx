@@ -1,5 +1,5 @@
 import { motion, useReducedMotion } from "framer-motion";
-import type { ElementType, ReactNode } from "react";
+import { Fragment, type ElementType, type ReactNode } from "react";
 import { cn } from "../../utils/cn";
 import { EASINGS, DURATIONS } from "./variants";
 
@@ -56,21 +56,28 @@ export function AnimatedHeading({
   }
 
   // Effect: Line-mask reveal
+  // The heading (not the clipped inner span) watches the viewport: a span that starts pushed out of its
+  // overflow-hidden box never counts as "in view", so it would never animate in.
   if (effect === "mask") {
-    const Tag = Component;
+    const MotionTag = motion[Component];
     return (
-      <Tag className={cn("overflow-hidden", className, hoverClass)}>
+      <MotionTag
+        className={cn("overflow-hidden", className, hoverClass)}
+        initial="hidden"
+        animate={immediate ? "visible" : undefined}
+        whileInView={immediate ? undefined : "visible"}
+        viewport={{ once: true, margin: "0px 0px 40px 0px" }}
+      >
         <motion.span
           className="block will-change-transform"
-          initial={{ y: "110%" }}
-          animate={immediate ? { y: "0%" } : undefined}
-          whileInView={immediate ? undefined : { y: "0%" }}
-          viewport={{ once: true, margin: "0px 0px 40px 0px" }}
-          transition={{ duration: DURATIONS.reveal, delay, ease: EASINGS.premium }}
+          variants={{
+            hidden: { y: "110%" },
+            visible: { y: "0%", transition: { duration: DURATIONS.reveal, delay, ease: EASINGS.premium } },
+          }}
         >
           {children}
         </motion.span>
-      </Tag>
+      </MotionTag>
     );
   }
 
@@ -92,30 +99,43 @@ export function AnimatedHeading({
   }
 
   // Effect: Word-by-word fade up if children is a plain string
+  // As with "mask", the heading watches the viewport and the words follow via variants.
+  // Words stay in normal text flow with real spaces, so wrapped lines follow the parent's text-align.
   if (effect === "words" && typeof children === "string") {
     const words = children.split(" ");
-    const Tag = Component;
+    const MotionTag = motion[Component];
+    // fx-gradient-text paints a clipped background through transparent text, but the moving word spans sit on
+    // their own layers outside that clip, so they'd render invisible. Word headings keep their own text colour.
+    const wordsHoverClass = hover === "gradient" ? "" : hoverClass;
     return (
-      <Tag className={cn("inline-flex flex-wrap gap-x-[0.25em]", className, hoverClass)}>
+      <MotionTag
+        className={cn("text-balance", className, wordsHoverClass)}
+        initial="hidden"
+        animate={immediate ? "visible" : undefined}
+        whileInView={immediate ? undefined : "visible"}
+        viewport={{ once: true, margin: "0px 0px 40px 0px" }}
+      >
         {words.map((word, i) => (
-          <span key={i} className="inline-block overflow-hidden">
-            <motion.span
-              className="inline-block will-change-transform"
-              initial={{ y: "115%", opacity: 0 }}
-              animate={immediate ? { y: "0%", opacity: 1 } : undefined}
-              whileInView={immediate ? undefined : { y: "0%", opacity: 1 }}
-              viewport={{ once: true, margin: "0px 0px 40px 0px" }}
-              transition={{
-                duration: 0.6,
-                delay: delay + i * 0.045,
-                ease: EASINGS.premium,
-              }}
-            >
-              {word}
-            </motion.span>
-          </span>
+          <Fragment key={i}>
+            {i > 0 && " "}
+            <span className="inline-block overflow-hidden align-top">
+              <motion.span
+                className="inline-block will-change-transform"
+                variants={{
+                  hidden: { y: "115%", opacity: 0 },
+                  visible: {
+                    y: "0%",
+                    opacity: 1,
+                    transition: { duration: 0.6, delay: delay + i * 0.045, ease: EASINGS.premium },
+                  },
+                }}
+              >
+                {word}
+              </motion.span>
+            </span>
+          </Fragment>
         ))}
-      </Tag>
+      </MotionTag>
     );
   }
 

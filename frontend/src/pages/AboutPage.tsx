@@ -28,9 +28,11 @@ const visionMission = [
       "Indian capability competing globally",
       "Shared prosperity across Bharat",
     ],
+    step: "01",
     icon: "eye" as const,
-    image: cardImage("about-21-vision"),
     accent: "#3026B3",
+    band: "from-[#211B72] via-[#3026B3] to-[#00B8D9]",
+    titleColor: "text-[#3026B3]",
     borderHover: "hover:border-[#3026B3]",
   },
   {
@@ -42,9 +44,11 @@ const visionMission = [
       "Combine capital, technology, talent and execution",
       "Create jobs, skills and lasting economic value",
     ],
+    step: "02",
     icon: "target" as const,
-    image: cardImage("about-22-mission"),
     accent: "#E06901",
+    band: "from-[#B45309] via-[#E06901] to-[#FE7701]",
+    titleColor: "text-[#B45309]",
     borderHover: "hover:border-[#FE7701]",
   },
 ];
@@ -208,65 +212,6 @@ const tier3EcosystemNodes: EcosystemNode[] = [
     link: "/#what-comes-next",
     accent: "#059669",
     badge: "Incubating",
-  },
-];
-
-// ── 05. Timeline steps for "How We Build" ──────────────────────────────
-const buildTimeline = [
-  {
-    phase: "Discovery",
-    title: "Identify",
-    tagline: "Structural Opportunities",
-    description: "Pinpointing generational gaps across India's physical and digital economic landscape.",
-    deliverable: "Problem Validation",
-    icon: "target" as const,
-    image: cardImage("about-16-stage-identify"),
-    accent: "#3026B3",
-    borderHover: "hover:border-[#3026B3]",
-  },
-  {
-    phase: "Creation",
-    title: "Build",
-    tagline: "Asset Architecture",
-    description: "Engineering foundational operating companies, products, and domestic production capabilities.",
-    deliverable: "Greenfield Ops",
-    icon: "hard-hat" as const,
-    image: cardImage("about-17-stage-build"),
-    accent: "#E06901",
-    borderHover: "hover:border-[#FE7701]",
-  },
-  {
-    phase: "Allocation",
-    title: "Invest",
-    tagline: "Capital & Compute",
-    description: "Deploying patient balance-sheet capital, sovereign technology, and top operator talent.",
-    deliverable: "Growth Enablers",
-    icon: "landmark" as const,
-    image: cardImage("about-18-stage-invest"),
-    accent: "#00B8D9",
-    borderHover: "hover:border-[#00B8D9]",
-  },
-  {
-    phase: "Acceleration",
-    title: "Scale",
-    tagline: "Market Expansion",
-    description: "Expanding cross-sector synergies, operations, and global export trade corridors.",
-    deliverable: "Ecosystem Growth",
-    icon: "trending-up" as const,
-    image: cardImage("about-19-stage-scale"),
-    accent: "#15966B",
-    borderHover: "hover:border-[#15966B]",
-  },
-  {
-    phase: "Stewardship",
-    title: "Impact",
-    tagline: "Enduring Value",
-    description: "Compounding sustainable economic momentum and generational institutional value.",
-    deliverable: "National Resilience",
-    icon: "sparkles" as const,
-    image: cardImage("about-20-stage-impact"),
-    accent: "#4B40D4",
-    borderHover: "hover:border-[#4B40D4]",
   },
 ];
 
@@ -507,10 +452,13 @@ export default function AboutPage() {
 
       {/* ── VISION & MISSION (Where We're Headed and How We Get There) ──── */}
       <SectionTransition id="vision-mission" aria-label="Our Vision and Mission">
-        <section className="relative overflow-hidden bg-[#FAF9F6] py-8 sm:py-12">
+        <section className="relative overflow-hidden bg-gradient-to-br from-[#ECEBFB] via-[#F7F7FC] to-[#FFF0E2] py-8 sm:py-12">
+          {/* Brand glows (indigo / cyan / saffron) over the soft gradient */}
+          <div aria-hidden className="aurora pointer-events-none absolute inset-0" />
+
           <div className="container-x relative z-10">
             <div className="max-w-3xl text-center mx-auto mb-10 sm:mb-12">
-              <div className="inline-flex items-center gap-2 rounded-full border border-[#3026B3]/25 bg-[#3026B3]/8 px-4 py-1 font-sans text-[11px] uppercase tracking-[0.26em] text-[#3026B3] font-bold shadow-xs mb-4">
+              <div className="inline-flex items-center gap-2 rounded-full border border-[#3026B3]/25 bg-white/70 px-4 py-1 font-sans text-[11px] uppercase tracking-[0.26em] text-[#3026B3] font-bold shadow-xs mb-4">
                 <span className="h-2 w-2 rounded-full bg-[#3026B3] animate-pulse" />
                 <span>WHAT DRIVES US</span>
               </div>
@@ -530,34 +478,34 @@ export default function AboutPage() {
                   <div
                     data-cursor="card"
                     tabIndex={0}
-                    className={`group relative overflow-hidden flex flex-col h-full rounded-3xl border border-white/10 bg-[#0D1026] p-7 sm:p-10 shadow-md transition-all duration-300 hover:shadow-2xl hover:-translate-y-1.5 fx-lift focus-visible:ring-2 focus-visible:ring-[#3026B3] focus:outline-none ${item.borderHover}`}
+                    className={`group relative overflow-hidden flex flex-col h-full rounded-3xl border border-[#E3E5EF] bg-white shadow-lg transition-all duration-300 hover:shadow-2xl hover:-translate-y-1.5 fx-lift focus-visible:ring-2 focus-visible:ring-[#3026B3] focus:outline-none ${item.borderHover}`}
                   >
-                    <CardPhoto src={item.image} accent={item.accent} />
-                    <div className="relative flex h-full flex-col [text-shadow:0_0_2px_rgba(13,16,38,0.9),0_1px_12px_rgba(13,16,38,0.85)]">
+                    {/* Colour band: icon + label */}
+                    <div className={`flex items-center justify-between gap-3 bg-gradient-to-r ${item.band} px-7 sm:px-9 py-4 text-white`}>
                       <div className="flex items-center gap-3">
-                        <FeatureIcon
-                          name={item.icon}
-                          accent={item.accent}
-                          size={48}
-                          className="transition-transform duration-300 group-hover:scale-110 fx-icon-pop"
-                        />
-                        <span className="font-sans text-xs uppercase tracking-[0.26em] font-bold" style={{ color: tintOnDark(item.accent) }}>
+                        <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-white/15 ring-1 ring-white/30 transition-transform duration-300 group-hover:scale-110">
+                          <Icon name={item.icon} width={20} height={20} strokeWidth={2.2} />
+                        </span>
+                        <span className="font-sans text-xs sm:text-[13px] uppercase tracking-[0.26em] font-bold">
                           {item.label}
                         </span>
                       </div>
+                      <span className="font-sans text-xs font-bold">{item.step}</span>
+                    </div>
 
-                      <h3 className="mt-6 font-heading text-2xl sm:text-3xl font-medium leading-snug tracking-tight text-white group-hover:text-[#FEA04D] transition-colors">
+                    <div className="flex flex-1 flex-col p-7 sm:p-9">
+                      <h3 className={`font-heading text-2xl sm:text-3xl font-medium leading-snug tracking-tight ${item.titleColor}`}>
                         {item.title}
                       </h3>
 
-                      <p className="mt-4 mb-6 text-sm sm:text-base text-slate-200 leading-relaxed font-normal">
+                      <p className="mt-4 mb-6 text-sm sm:text-base text-[#596579] leading-relaxed font-normal">
                         {item.statement}
                       </p>
 
-                      <ul className="mt-auto space-y-2.5 border-t border-white/15 pt-5">
+                      <ul className="mt-auto space-y-2.5 border-t border-[#E3E5EF] pt-5">
                         {item.points.map((pt) => (
-                          <li key={pt} className="flex items-center gap-2.5 text-xs sm:text-sm text-slate-100">
-                            <span className="h-1.5 w-1.5 rounded-full shrink-0" style={{ backgroundColor: tintOnDark(item.accent) }} />
+                          <li key={pt} className="flex items-center gap-2.5 text-xs sm:text-sm text-[#374151]">
+                            <span className="h-1.5 w-1.5 rounded-full shrink-0" style={{ backgroundColor: item.accent }} />
                             <span>{pt}</span>
                           </li>
                         ))}
@@ -883,93 +831,9 @@ export default function AboutPage() {
         </section>
       </SectionTransition>
 
-      {/* ── 05. HOW WE BUILD (From Opportunity to Enterprise) ─────────── */}
-      <SectionTransition>
-        <section className="relative overflow-hidden bg-[#FAF9F6] py-8 sm:py-12">
-          <div className="container-x relative z-10">
-            <div className="max-w-3xl text-center mx-auto mb-14">
-              <div className="inline-flex items-center gap-2 rounded-full border border-[#00B8D9]/30 bg-[#00B8D9]/10 px-4 py-1 font-sans text-[11px] uppercase tracking-[0.26em] text-[#008299] font-bold shadow-xs mb-4">
-                <span className="h-2 w-2 rounded-full bg-[#00B8D9] animate-pulse" />
-                <span>HOW WE BUILD</span>
-              </div>
-
-              <h2 className="font-heading text-3xl sm:text-4xl lg:text-5xl font-medium text-[#111827] leading-tight tracking-tight hover:text-[#211B72] transition-colors duration-300">
-                From Opportunity to <span className="text-[#3026B3] hover:text-[#FE7701] transition-colors duration-300">Enterprise</span>
-              </h2>
-
-              <p className="mt-3 text-base text-[#596579]">
-                A signature five-stage execution model transforming national structural opportunities into enduring institutions.
-              </p>
-            </div>
-
-            {/* Horizontal 5-Step Timeline */}
-            <Stagger className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4 lg:gap-3.5 relative">
-              {buildTimeline.map((step, idx) => (
-                <StaggerItem key={step.title}>
-                  <div
-                    data-cursor="card"
-                    tabIndex={0}
-                    className={`group relative flex flex-col justify-between h-full rounded-2xl border border-white/10 bg-[#0D1026] p-6 shadow-md transition-all duration-300 hover:shadow-xl hover:-translate-y-2 fx-lift focus-visible:ring-2 focus-visible:ring-[#3026B3] focus:outline-none ${step.borderHover}`}
-                  >
-                    <CardPhoto src={step.image} accent={step.accent} />
-                    <div className="relative [text-shadow:0_0_2px_rgba(13,16,38,0.9),0_1px_12px_rgba(13,16,38,0.85)]">
-                      {/* Top Bar: Icon on left, Phase Badge on right */}
-                      <div className="flex items-center justify-between mb-5">
-                        <FeatureIcon
-                          name={step.icon}
-                          accent={step.accent}
-                          size={44}
-                          className="transition-transform duration-300 group-hover:scale-110 fx-icon-pop"
-                        />
-                        <span className="font-sans text-[10px] uppercase tracking-wider font-semibold px-2.5 py-1 rounded-full border border-white/20 bg-white/15 text-white group-hover:border-[#FEA04D]/60 group-hover:text-[#FEA04D] transition-colors">
-                          {step.phase}
-                        </span>
-                      </div>
-
-                      {/* Title & Tagline */}
-                      <h3 className="font-sans text-sm sm:text-base font-bold tracking-[0.16em] text-white uppercase group-hover:text-[#FEA04D] transition-colors">
-                        {step.title}
-                      </h3>
-                      <span className="font-sans text-[10px] uppercase tracking-wider font-semibold block mt-1 text-[#FEA04D]">
-                        {step.tagline}
-                      </span>
-
-                      {/* Description */}
-                      <p className="mt-3 text-xs sm:text-[13px] text-slate-200 leading-relaxed font-normal">
-                        {step.description}
-                      </p>
-                    </div>
-
-                    {/* Bottom Deliverable / Focus Metric */}
-                    <div className="relative [text-shadow:0_0_2px_rgba(13,16,38,0.9),0_1px_12px_rgba(13,16,38,0.85)] mt-6 pt-3.5 border-t border-white/15 flex items-center justify-between font-sans text-[10px] text-slate-300">
-                      <span className="uppercase tracking-wider text-slate-300">Focus</span>
-                      <span className="font-semibold text-white">{step.deliverable}</span>
-                    </div>
-
-                    {/* Connecting arrow indicator on desktop */}
-                    {idx < buildTimeline.length - 1 && (
-                      <div className="hidden lg:flex absolute -right-3.5 top-1/2 -translate-y-1/2 z-20 h-7 w-7 rounded-full bg-white border border-[#E3E5EF] items-center justify-center text-[#596579] shadow-sm group-hover:text-[#3026B3] group-hover:scale-110 group-hover:shadow-md transition-all">
-                        <Icon name="chevron-right" width={13} height={13} strokeWidth={2.5} />
-                      </div>
-                    )}
-                  </div>
-                </StaggerItem>
-              ))}
-            </Stagger>
-
-            {/* Timeline Bottom Tagline */}
-            <div className="mt-12 text-center">
-              <p className="text-sm sm:text-base text-[#111827] font-medium max-w-xl mx-auto leading-relaxed">
-                Our approach is simple: build with discipline, scale with purpose and think long term.
-              </p>
-            </div>
-          </div>
-        </section>
-      </SectionTransition>
-
       {/* ── 06. OUR PRINCIPLES (What Guides Us) ────────────────────────── */}
       <SectionTransition>
-        <section className="relative overflow-hidden bg-white py-8 sm:py-12">
+        <section className="relative overflow-hidden bg-[#FAF9F6] py-8 sm:py-12">
           <div className="container-x relative z-10">
             <div className="max-w-3xl text-center mx-auto mb-14">
               <div className="inline-flex items-center gap-2 rounded-full border border-[#15966B]/30 bg-[#15966B]/10 px-4 py-1 font-sans text-[11px] uppercase tracking-[0.26em] text-[#15966B] font-bold shadow-xs mb-4">

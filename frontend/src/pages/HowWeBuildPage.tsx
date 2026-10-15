@@ -29,57 +29,57 @@ const buildCycleSteps: {
   borderHover: string;
   image: string;
 }[] = [
-  {
-    step: "01",
-    name: "IDENTIFY",
-    tagline: "Find the opportunity.",
-    description: "We look for meaningful problems, market gaps and emerging opportunities where a strong business can be built.",
-    icon: "target" as const,
-    accent: "#3026B3",
-    borderHover: "hover:border-[#3026B3]",
-    image: cardImage("how-we-build-02-step-identify"),
-  },
-  {
-    step: "02",
-    name: "BUILD",
-    tagline: "Turn opportunity into capability.",
-    description: "We develop the product, business model, team and operating foundation required to create a viable enterprise.",
-    icon: "hard-hat" as const,
-    accent: "#E06901",
-    borderHover: "hover:border-[#FE7701]",
-    image: cardImage("how-we-build-03-step-build"),
-  },
-  {
-    step: "03",
-    name: "INVEST",
-    tagline: "Put resources behind potential.",
-    description: "We bring together capital, technology, talent, partnerships and strategic capabilities.",
-    icon: "landmark" as const,
-    accent: "#00B8D9",
-    borderHover: "hover:border-[#00B8D9]",
-    image: cardImage("how-we-build-04-step-invest"),
-  },
-  {
-    step: "04",
-    name: "SCALE",
-    tagline: "Build for sustainable growth.",
-    description: "We strengthen operations, distribution, technology, market access and organisational capability.",
-    icon: "trending-up" as const,
-    accent: "#15966B",
-    borderHover: "hover:border-[#15966B]",
-    image: cardImage("how-we-build-05-step-scale"),
-  },
-  {
-    step: "05",
-    name: "IMPACT",
-    tagline: "Create lasting value.",
-    description: "We measure success through business performance, jobs, innovation, infrastructure, sustainability and wider economic contribution.",
-    icon: "sparkles" as const,
-    accent: "#4B40D4",
-    borderHover: "hover:border-[#4B40D4]",
-    image: cardImage("how-we-build-06-step-impact"),
-  },
-];
+    {
+      step: "01",
+      name: "IDENTIFY",
+      tagline: "Find the opportunity.",
+      description: "We look for meaningful problems, market gaps and emerging opportunities where a strong business can be built.",
+      icon: "target" as const,
+      accent: "#3026B3",
+      borderHover: "hover:border-[#3026B3]",
+      image: cardImage("how-we-build-02-step-identify"),
+    },
+    {
+      step: "02",
+      name: "BUILD",
+      tagline: "Turn opportunity into capability.",
+      description: "We develop the product, business model, team and operating foundation required to create a viable enterprise.",
+      icon: "hard-hat" as const,
+      accent: "#E06901",
+      borderHover: "hover:border-[#FE7701]",
+      image: cardImage("how-we-build-03-step-build"),
+    },
+    {
+      step: "03",
+      name: "INVEST",
+      tagline: "Put resources behind potential.",
+      description: "We bring together capital, technology, talent, partnerships and strategic capabilities.",
+      icon: "landmark" as const,
+      accent: "#00B8D9",
+      borderHover: "hover:border-[#00B8D9]",
+      image: cardImage("how-we-build-04-step-invest"),
+    },
+    {
+      step: "04",
+      name: "SCALE",
+      tagline: "Build for sustainable growth.",
+      description: "We strengthen operations, distribution, technology, market access and organisational capability.",
+      icon: "trending-up" as const,
+      accent: "#15966B",
+      borderHover: "hover:border-[#15966B]",
+      image: cardImage("how-we-build-05-step-scale"),
+    },
+    {
+      step: "05",
+      name: "IMPACT",
+      tagline: "Create lasting value.",
+      description: "We measure success through business performance, jobs, innovation, infrastructure, sustainability and wider economic contribution.",
+      icon: "sparkles" as const,
+      accent: "#4B40D4",
+      borderHover: "hover:border-[#4B40D4]",
+      image: cardImage("how-we-build-06-step-impact"),
+    },
+  ];
 
 // ── 04. Five Pillars of BharatX Advantage ─────────────────────────────
 const bharatxAdvantage: { pillar: string; description: string; icon: string; color: string }[] = [
@@ -499,12 +499,12 @@ export default function HowWeBuildPage() {
             </div>
 
             {/* Headline */}
-            <AnimatedHeading as="h2" effect="words" hover="color" className="font-heading text-3xl sm:text-5xl md:text-6xl font-medium leading-[1.1] tracking-tight text-white">
+            <AnimatedHeading as="h2" effect="words" hover="color" className="font-heading text-3xl sm:text-5xl md:text-6xl font-medium leading-[1.1] tracking-tight text-slate-200">
               The Next Business Could Be Built Here.
             </AnimatedHeading>
 
             {/* Copy */}
-            <p className="mt-6 text-base sm:text-lg md:text-xl font-normal leading-relaxed text-slate-200 max-w-2xl mx-auto">
+            <p className="mt-2 text-base sm:text-lg md:text-xl font-normal leading-relaxed text-slate-200 max-w-2xl mx-auto">
               We are always looking for entrepreneurs, partners, investors and opportunities that can become the foundation of the next BharatX business.
             </p>
 
