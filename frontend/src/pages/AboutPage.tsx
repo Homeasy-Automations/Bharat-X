@@ -21,6 +21,7 @@ const formulaInputs = [
 const visionMission = [
   {
     label: "Our Vision",
+    kicker: "Where we’re headed",
     title: "India’s Most Trusted Builder of Enduring Enterprises",
     statement: "To build a group of world-class Indian businesses that strengthen the nation’s infrastructure, industry and economy, and keep creating value for generations.",
     points: [
@@ -31,12 +32,15 @@ const visionMission = [
     step: "01",
     icon: "eye" as const,
     accent: "#3026B3",
-    band: "from-[#211B72] via-[#3026B3] to-[#00B8D9]",
-    titleColor: "text-[#3026B3]",
-    borderHover: "hover:border-[#3026B3]",
+    labelColor: "#3026B3",
+    titleColor: "text-[#211B72]",
+    ring: "from-[#3026B3] via-[#00B8D9] to-[#3026B3]/15",
+    medallion: "from-[#7B72FF] via-[#3026B3] to-[#211B72]",
+    glow: "rgba(48, 38, 179, 0.38)",
   },
   {
     label: "Our Mission",
+    kicker: "How we get there",
     title: "Building the Businesses India’s Growth Depends On",
     statement: "To identify India’s structural opportunities and build, operate and scale businesses that solve real-world problems, bringing together entrepreneurial thinking, operational capability, technology and capital.",
     points: [
@@ -47,11 +51,31 @@ const visionMission = [
     step: "02",
     icon: "target" as const,
     accent: "#E06901",
-    band: "from-[#B45309] via-[#E06901] to-[#FE7701]",
-    titleColor: "text-[#B45309]",
-    borderHover: "hover:border-[#FE7701]",
+    labelColor: "#B45309",
+    titleColor: "text-[#9A3412]",
+    ring: "from-[#FE7701] via-[#FEA04D] to-[#E06901]/15",
+    medallion: "from-[#FFB36B] via-[#FE7701] to-[#B45309]",
+    glow: "rgba(254, 119, 1, 0.36)",
   },
 ];
+
+/** Soft brand-colour mesh behind the Vision & Mission section. */
+const visionMissionMesh = [
+  "radial-gradient(55% 45% at 12% 18%, rgba(48, 38, 179, 0.22), transparent 70%)",
+  "radial-gradient(45% 40% at 88% 10%, rgba(0, 184, 217, 0.18), transparent 70%)",
+  "radial-gradient(55% 50% at 86% 92%, rgba(254, 119, 1, 0.2), transparent 70%)",
+  "radial-gradient(40% 35% at 28% 96%, rgba(75, 64, 212, 0.14), transparent 70%)",
+  "linear-gradient(160deg, #F3F1FF 0%, #FAF9F6 50%, #FFF3E8 100%)",
+].join(", ");
+
+/** Glossy 3D sphere: lit from the top-left, shaded bottom-right, casting a coloured shadow. `scale` shrinks the shading for small orbs. */
+function orbStyle(light: string, mid: string, dark: string, glow: string, scale = 1) {
+  const px = (n: number) => `${Math.round(n * scale)}px`;
+  return {
+    background: `radial-gradient(circle at 32% 28%, ${light} 0%, ${mid} 42%, ${dark} 100%)`,
+    boxShadow: `inset ${px(-18)} ${px(-24)} ${px(48)} rgba(0, 0, 0, 0.28), inset ${px(14)} ${px(14)} ${px(30)} rgba(255, 255, 255, 0.35), 0 ${px(40)} ${px(70)} ${px(-25)} ${glow}`,
+  };
+}
 
 // ── 03. Three Pillars for "Why BharatX Exists" ────────────────────────
 const purposePillars = [
@@ -452,13 +476,40 @@ export default function AboutPage() {
 
       {/* ── VISION & MISSION (Where We're Headed and How We Get There) ──── */}
       <SectionTransition id="vision-mission" aria-label="Our Vision and Mission">
-        <section className="relative overflow-hidden bg-gradient-to-br from-[#ECEBFB] via-[#F7F7FC] to-[#FFF0E2] py-8 sm:py-12">
-          {/* Brand glows (indigo / cyan / saffron) over the soft gradient */}
-          <div aria-hidden className="aurora pointer-events-none absolute inset-0" />
+        <section className="relative overflow-hidden bg-[#F5F4FF] py-8 sm:py-12">
+          {/* 3D gradient backdrop: brand mesh, a perspective grid floor and floating glossy orbs */}
+          <div aria-hidden className="pointer-events-none absolute inset-0 overflow-hidden">
+            <div className="absolute inset-0" style={{ background: visionMissionMesh }} />
+            <div
+              className="grid-bg absolute -left-1/4 -right-1/4 -bottom-[18%] h-[65%] opacity-70"
+              style={{
+                transform: "perspective(900px) rotateX(62deg)",
+                transformOrigin: "50% 100%",
+                WebkitMaskImage: "linear-gradient(to top, black 15%, transparent 80%)",
+                maskImage: "linear-gradient(to top, black 15%, transparent 80%)",
+              }}
+            />
+            <div
+              className="animate-float absolute -left-24 top-[40%] h-56 w-56 rounded-full sm:h-72 sm:w-72"
+              style={orbStyle("#B3ADFF", "#4B40D4", "#211B72", "rgba(48, 38, 179, 0.55)")}
+            />
+            <div
+              className="animate-float absolute -right-20 -bottom-12 h-64 w-64 rounded-full sm:h-80 sm:w-80"
+              style={{ ...orbStyle("#FFD6AE", "#FE7701", "#B45309", "rgba(254, 119, 1, 0.5)"), animationDelay: "-2.5s" }}
+            />
+            <div
+              className="animate-float absolute right-[10%] top-10 hidden h-20 w-20 rounded-full md:block"
+              style={{ ...orbStyle("#D2F8FE", "#00B8D9", "#006E85", "rgba(0, 184, 217, 0.5)", 0.55), animationDelay: "-1.2s" }}
+            />
+            <div
+              className="animate-float absolute left-[8%] top-12 hidden h-10 w-10 rounded-full lg:block"
+              style={{ ...orbStyle("#FFE2C7", "#FEA04D", "#E06901", "rgba(254, 119, 1, 0.45)", 0.3), animationDelay: "-3.6s" }}
+            />
+          </div>
 
           <div className="container-x relative z-10">
             <div className="max-w-3xl text-center mx-auto mb-10 sm:mb-12">
-              <div className="inline-flex items-center gap-2 rounded-full border border-[#3026B3]/25 bg-white/70 px-4 py-1 font-sans text-[11px] uppercase tracking-[0.26em] text-[#3026B3] font-bold shadow-xs mb-4">
+              <div className="inline-flex items-center gap-2 rounded-full border border-[#3026B3]/25 bg-white/70 px-4 py-1 font-sans text-[11px] uppercase tracking-[0.26em] text-[#3026B3] font-bold shadow-xs backdrop-blur-sm mb-4">
                 <span className="h-2 w-2 rounded-full bg-[#3026B3] animate-pulse" />
                 <span>WHAT DRIVES US</span>
               </div>
@@ -472,40 +523,65 @@ export default function AboutPage() {
               </p>
             </div>
 
-            <Stagger className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+            <Stagger className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8">
               {visionMission.map((item) => (
                 <StaggerItem key={item.label}>
+                  {/* Gradient border ring around a frosted-glass card */}
                   <div
                     data-cursor="card"
                     tabIndex={0}
-                    className={`group relative overflow-hidden flex flex-col h-full rounded-3xl border border-[#E3E5EF] bg-white shadow-lg transition-all duration-300 hover:shadow-2xl hover:-translate-y-1.5 fx-lift focus-visible:ring-2 focus-visible:ring-[#3026B3] focus:outline-none ${item.borderHover}`}
+                    className={`group relative h-full rounded-[28px] bg-gradient-to-br ${item.ring} p-[1.5px] transition-all duration-500 hover:-translate-y-2 focus-visible:ring-2 focus-visible:ring-[#3026B3] focus:outline-none`}
+                    style={{ boxShadow: `0 30px 60px -28px ${item.glow}` }}
                   >
-                    {/* Colour band: icon + label */}
-                    <div className={`flex items-center justify-between gap-3 bg-gradient-to-r ${item.band} px-7 sm:px-9 py-4 text-white`}>
-                      <div className="flex items-center gap-3">
-                        <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-white/15 ring-1 ring-white/30 transition-transform duration-300 group-hover:scale-110">
-                          <Icon name={item.icon} width={20} height={20} strokeWidth={2.2} />
-                        </span>
-                        <span className="font-sans text-xs sm:text-[13px] uppercase tracking-[0.26em] font-bold">
-                          {item.label}
-                        </span>
-                      </div>
-                      <span className="font-sans text-xs font-bold">{item.step}</span>
-                    </div>
+                    <div className="relative flex h-full flex-col overflow-hidden rounded-[26.5px] bg-white/90 p-7 sm:p-10 backdrop-blur-xl">
+                      {/* Corner glow + outlined watermark number */}
+                      <div
+                        aria-hidden
+                        className="pointer-events-none absolute -right-20 -top-20 h-56 w-56 rounded-full opacity-50 blur-3xl transition-opacity duration-500 group-hover:opacity-90"
+                        style={{ background: item.glow }}
+                      />
+                      <span
+                        aria-hidden
+                        className="pointer-events-none absolute right-6 top-2 hidden select-none font-heading text-[6rem] sm:block sm:text-[7.5rem] font-semibold leading-none text-transparent"
+                        style={{ WebkitTextStroke: `1.5px ${item.accent}38` }}
+                      >
+                        {item.step}
+                      </span>
 
-                    <div className="flex flex-1 flex-col p-7 sm:p-9">
-                      <h3 className={`font-heading text-2xl sm:text-3xl font-medium leading-snug tracking-tight ${item.titleColor}`}>
+                      {/* 3D icon tile + label */}
+                      <div className="relative flex items-center gap-4">
+                        <span
+                          className={`relative flex h-16 w-16 shrink-0 items-center justify-center rounded-2xl bg-gradient-to-br ${item.medallion} text-white transition-transform duration-500 group-hover:-rotate-6 group-hover:scale-105`}
+                          style={{ boxShadow: `0 16px 28px -10px ${item.glow}, inset 0 -6px 12px rgba(0, 0, 0, 0.25), inset 0 2px 0 rgba(255, 255, 255, 0.35)` }}
+                        >
+                          <span aria-hidden className="absolute inset-x-2.5 top-1.5 h-5 rounded-xl bg-white/25 blur-[2px]" />
+                          <Icon name={item.icon} width={28} height={28} strokeWidth={2} className="relative" />
+                        </span>
+                        <div>
+                          <span className="block font-sans text-xs font-bold uppercase tracking-[0.3em]" style={{ color: item.labelColor }}>
+                            {item.label}
+                          </span>
+                          <span className="mt-1 block text-sm text-[#596579]">{item.kicker}</span>
+                        </div>
+                      </div>
+
+                      <h3 className={`relative mt-7 font-heading text-2xl sm:text-[2rem] font-medium leading-snug tracking-tight ${item.titleColor}`}>
                         {item.title}
                       </h3>
 
-                      <p className="mt-4 mb-6 text-sm sm:text-base text-[#596579] leading-relaxed font-normal">
+                      <p className="relative mt-4 mb-7 text-sm sm:text-base text-[#596579] leading-relaxed font-normal">
                         {item.statement}
                       </p>
 
-                      <ul className="mt-auto space-y-2.5 border-t border-[#E3E5EF] pt-5">
+                      <ul className="relative mt-auto grid gap-2.5">
                         {item.points.map((pt) => (
-                          <li key={pt} className="flex items-center gap-2.5 text-xs sm:text-sm text-[#374151]">
-                            <span className="h-1.5 w-1.5 rounded-full shrink-0" style={{ backgroundColor: item.accent }} />
+                          <li
+                            key={pt}
+                            className="flex items-center gap-3 rounded-xl border border-[#E3E5EF] bg-white/80 px-4 py-2.5 text-xs sm:text-sm text-[#374151] shadow-xs"
+                          >
+                            <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full text-white" style={{ background: item.accent }}>
+                              <Icon name="check" width={13} height={13} strokeWidth={3} />
+                            </span>
                             <span>{pt}</span>
                           </li>
                         ))}
