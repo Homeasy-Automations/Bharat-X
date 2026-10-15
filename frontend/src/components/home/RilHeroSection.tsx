@@ -28,14 +28,14 @@ export const heroSlides: HeroSlide[] = [
     companyLogo: "/Ai-Experts_logo.png",
     heroTagline: "Intelligence Engineered For Bharat",
   },
-  {
-    id: "packaging",
-    name: "Packaging & Industrial Protection",
-    shortLabel: "PACKAGING & SCALE",
-    image: "/assets/hero3.png",
-    companyLogo: "/Bharatxlabs_logo.svg",
-    heroTagline: "Engineered For Enterprise Scale",
-  },
+  // {
+  //   id: "packaging",
+  //   name: "Packaging & Industrial Protection",
+  //   shortLabel: "PACKAGING & SCALE",
+  //   image: "/assets/hero3.png",
+  //   companyLogo: "/Bharatxlabs_logo.svg",
+  //   heroTagline: "Engineered For Enterprise Scale",
+  // },
   {
     id: "manufacturing",
     name: "Precision Mobility & Manufacturing",
