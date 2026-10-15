@@ -111,7 +111,7 @@ const businessPortfolio: BusinessVertical[] = [
     name: "BharatX Enterprises",
     description: "Complete industrial packaging materials, corrugated boxes, protective cushioning and bulk logistics containers.",
     status: "Active",
-    websiteUrl: "https://srm-enterprises-psi.vercel.app/",
+    websiteUrl: "https://srm.kynyx.com/",
     image: "/assets/backgrounds/packaging.jpg",
     accent: "#D97706",
     icon: "boxes",
