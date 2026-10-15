@@ -1,3 +1,4 @@
+import type { CSSProperties } from "react";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { usePageMeta } from "../hooks/usePageMeta";
@@ -31,10 +32,15 @@ const visionMission = [
     ],
     step: "01",
     icon: "eye" as const,
-    accentText: "text-[#5EE4F8]",
-    ring: "from-[#5EE4F8] via-[#00B8D9] to-[#3026B3]",
-    border: "from-[#5EE4F8]/50 via-white/10 to-white/5",
-    hairline: "via-[#5EE4F8]/70",
+    accentText: "text-[#3026B3]",
+    quote: "text-[#00B8D9]",
+    ring: "from-[#00B8D9] to-[#3026B3]",
+    border: "from-[#00B8D9]/70 via-[#3026B3]/15 to-white",
+    bracket: "border-[#00B8D9]",
+    hairline: "via-[#00B8D9]",
+    sweep: "via-[#00B8D9]/12",
+    trace: "from-[#00B8D9]/70 to-[#3026B3]/10",
+    node: "border-[#00B8D9]/60 shadow-[0_0_10px_rgba(0,184,217,0.35)]",
     glow: "rgba(0, 184, 217, 0.35)",
   },
   {
@@ -49,15 +55,46 @@ const visionMission = [
     ],
     step: "02",
     icon: "target" as const,
-    accentText: "text-[#FEA04D]",
-    ring: "from-[#FEB473] via-[#FE7701] to-[#B45309]",
-    border: "from-[#FE7701]/50 via-white/10 to-white/5",
-    hairline: "via-[#FEA04D]/70",
-    glow: "rgba(254, 119, 1, 0.32)",
+    accentText: "text-[#B45309]",
+    quote: "text-[#FE7701]",
+    ring: "from-[#FEB473] to-[#E06901]",
+    border: "from-[#FE7701]/70 via-[#FE7701]/15 to-white",
+    bracket: "border-[#FE7701]",
+    hairline: "via-[#FE7701]",
+    sweep: "via-[#FE7701]/10",
+    trace: "from-[#FE7701]/70 to-[#FE7701]/10",
+    node: "border-[#FE7701]/60 shadow-[0_0_10px_rgba(254,119,1,0.3)]",
+    glow: "rgba(254, 119, 1, 0.3)",
   },
 ];
 
 const romanNumerals = ["i", "ii", "iii", "iv"];
+
+/** Light holographic wash behind the Vision & Mission scene. */
+const visionMissionAurora = [
+  "radial-gradient(50% 40% at 8% 8%, rgba(0, 184, 217, 0.16), transparent 70%)",
+  "radial-gradient(45% 40% at 92% 12%, rgba(48, 38, 179, 0.14), transparent 70%)",
+  "radial-gradient(60% 45% at 50% 108%, rgba(254, 119, 1, 0.12), transparent 70%)",
+  "linear-gradient(180deg, #F7F7FD 0%, #F1F0FC 55%, #FBF7F2 100%)",
+].join(", ");
+
+/** HUD-style corner brackets for the Vision & Mission panels. */
+const hudCorners = [
+  "left-3 top-3 border-l-2 border-t-2 rounded-tl-lg",
+  "right-3 top-3 border-r-2 border-t-2 rounded-tr-lg",
+  "left-3 bottom-3 border-l-2 border-b-2 rounded-bl-lg",
+  "right-3 bottom-3 border-r-2 border-b-2 rounded-br-lg",
+];
+
+/** Isometric wireframe cube used as floating decoration. */
+function WireCube({ className, style }: { className?: string; style?: CSSProperties }) {
+  return (
+    <svg viewBox="0 0 100 100" fill="none" stroke="currentColor" strokeWidth="1.2" className={className} style={style} aria-hidden>
+      <path d="M50 6 L90 28 L90 72 L50 94 L10 72 L10 28 Z" />
+      <path d="M10 28 L50 50 L90 28 M50 50 L50 94" opacity="0.6" />
+    </svg>
+  );
+}
 
 // ── 03. Four Pillars for "Why BharatX Exists" ─────────────────────────
 const purposePillars = [
@@ -463,44 +500,67 @@ export default function AboutPage() {
 
       {/* ── VISION & MISSION (Where We're Headed and How We Get There) ──── */}
       <SectionTransition id="vision-mission" aria-label="Our Vision and Mission">
-        <section className="noise relative overflow-hidden bg-[#120E3E] py-8 sm:py-12 text-white">
-          {/* Midnight-indigo backdrop: brand glows, concentric "focus" rings and a fading dot grid */}
+        <section className="relative overflow-hidden bg-[#F6F6FD] py-8 sm:py-12">
+          {/* Light futuristic scene: holographic wash, perspective grid floor, orbit rings and wireframe cubes */}
           <div aria-hidden className="pointer-events-none absolute inset-0 overflow-hidden">
-            <div className="absolute inset-0 bg-gradient-to-br from-[#120E3E] via-[#1D1763] to-[#211B72]" />
-            <div className="absolute -left-32 -top-40 h-[30rem] w-[30rem] rounded-full bg-[#00B8D9]/20 blur-[120px]" />
-            <div className="absolute -bottom-48 -right-32 h-[32rem] w-[32rem] rounded-full bg-[#FE7701]/20 blur-[130px]" />
-            <div className="absolute left-1/2 top-[62%]">
-              {[360, 600, 840, 1080].map((size) => (
-                <span
-                  key={size}
-                  className="absolute left-0 top-0 -translate-x-1/2 -translate-y-1/2 rounded-full border border-white/[0.06]"
-                  style={{ width: size, height: size }}
-                />
-              ))}
+            <div className="absolute inset-0" style={{ background: visionMissionAurora }} />
+
+            {/* Grid floor receding to a glowing horizon */}
+            <div className="absolute inset-x-0 bottom-0 h-[72%] [perspective:700px]">
+              <div
+                className="absolute -inset-x-1/2 -bottom-1/4 top-0 origin-bottom"
+                style={{
+                  transform: "rotateX(63deg)",
+                  backgroundImage:
+                    "linear-gradient(rgba(48, 38, 179, 0.2) 1px, transparent 1px), linear-gradient(90deg, rgba(48, 38, 179, 0.2) 1px, transparent 1px)",
+                  backgroundSize: "56px 56px",
+                  WebkitMaskImage: "linear-gradient(to top, black 25%, transparent 92%)",
+                  maskImage: "linear-gradient(to top, black 25%, transparent 92%)",
+                }}
+              />
             </div>
-            <div
-              className="absolute inset-0 opacity-[0.18]"
-              style={{
-                backgroundImage: "radial-gradient(rgba(255, 255, 255, 0.55) 1px, transparent 1px)",
-                backgroundSize: "26px 26px",
-                WebkitMaskImage: "radial-gradient(ellipse 70% 55% at 50% 30%, black, transparent 75%)",
-                maskImage: "radial-gradient(ellipse 70% 55% at 50% 30%, black, transparent 75%)",
-              }}
-            />
+            <div className="absolute left-1/2 top-[44%] h-40 w-[75%] -translate-x-1/2 rounded-[100%] bg-[#00B8D9]/10 blur-3xl" />
+
+            {/* Tilted orbit rings with travelling light nodes */}
+            <div className="absolute left-1/2 top-[30%] [perspective:1200px]">
+              <div className="[transform-style:preserve-3d]" style={{ transform: "rotateX(72deg)" }}>
+                {[
+                  { size: 640, dur: "38s", dot: "bg-[#00B8D9] shadow-[0_0_14px_#00B8D9]", ring: "border-[#3026B3]/20" },
+                  { size: 900, dur: "56s", dot: "bg-[#FE7701] shadow-[0_0_14px_#FE7701]", ring: "border-[#00B8D9]/20" },
+                  { size: 1180, dur: "80s", dot: "bg-[#3026B3] shadow-[0_0_14px_#3026B3]", ring: "border-[#3026B3]/10" },
+                ].map((o) => (
+                  <div
+                    key={o.size}
+                    className={`absolute left-0 top-0 -translate-x-1/2 -translate-y-1/2 rounded-full border ${o.ring} animate-spin motion-reduce:animate-none`}
+                    style={{ width: o.size, height: o.size, animationDuration: o.dur }}
+                  >
+                    <span className={`absolute left-1/2 top-0 h-2.5 w-2.5 -translate-x-1/2 -translate-y-1/2 rounded-full ${o.dot}`} />
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Floating wireframe cubes */}
+            <WireCube className="animate-float absolute left-[6%] top-[12%] hidden h-20 w-20 text-[#3026B3]/25 lg:block" />
+            <WireCube className="animate-float absolute right-[7%] top-[22%] hidden h-12 w-12 text-[#00B8D9]/40 md:block" style={{ animationDelay: "-2s" }} />
+            <WireCube className="animate-float absolute bottom-[8%] right-[4%] hidden h-24 w-24 text-[#FE7701]/25 lg:block" style={{ animationDelay: "-3.5s" }} />
           </div>
 
           <div className="container-x relative z-10">
             <div className="max-w-3xl text-center mx-auto mb-10 sm:mb-14">
-              <div className="inline-flex items-center gap-2 rounded-full border border-[#FE7701]/40 bg-[#FE7701]/10 px-4 py-1 font-sans text-[11px] uppercase tracking-[0.28em] text-[#FEA04D] font-bold shadow-xs mb-5">
-                <span className="h-2 w-2 rounded-full bg-[#FE7701] shadow-[0_0_8px_#FE7701]" />
+              <div className="inline-flex items-center gap-2 rounded-full border border-[#3026B3]/25 bg-white/80 px-4 py-1 font-sans text-[11px] uppercase tracking-[0.28em] text-[#3026B3] font-bold shadow-xs backdrop-blur-sm mb-5">
+                <span className="h-2 w-2 rounded-full bg-[#00B8D9] shadow-[0_0_8px_#00B8D9] animate-pulse" />
                 <span>WHAT DRIVES US</span>
               </div>
 
-              <h2 className="font-heading text-3xl sm:text-4xl lg:text-5xl font-medium text-white leading-tight tracking-tight">
-                Our Vision <span className="font-light italic text-[#FEA04D]">&amp;</span> Mission
+              <h2 className="font-heading text-3xl sm:text-4xl lg:text-5xl font-medium text-[#111827] leading-tight tracking-tight">
+                Our{" "}
+                <span className="bg-gradient-to-r from-[#3026B3] to-[#00B8D9] bg-clip-text text-transparent">Vision</span>{" "}
+                <span className="font-light italic text-[#FE7701]">&amp;</span>{" "}
+                <span className="bg-gradient-to-r from-[#3026B3] to-[#00B8D9] bg-clip-text text-transparent">Mission</span>
               </h2>
 
-              <p className="mt-4 text-base sm:text-lg text-slate-300 leading-relaxed max-w-2xl mx-auto">
+              <p className="mt-4 text-base sm:text-lg text-[#596579] leading-relaxed max-w-2xl mx-auto">
                 Our vision sets the long-term ambition for the Group. Our mission is the work we do every day to get there.
               </p>
             </div>
@@ -508,23 +568,31 @@ export default function AboutPage() {
             <Stagger className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8">
               {visionMission.map((item) => (
                 <StaggerItem key={item.label}>
-                  {/* Gradient hairline border around a dark glass panel */}
+                  {/* Gradient border around a frosted-glass panel */}
                   <div
                     data-cursor="card"
                     tabIndex={0}
-                    className={`group relative h-full rounded-[28px] bg-gradient-to-b ${item.border} p-px transition-transform duration-500 hover:-translate-y-1.5 focus-visible:ring-2 focus-visible:ring-[#FEA04D] focus:outline-none`}
+                    className={`group relative h-full rounded-[26px] bg-gradient-to-br ${item.border} p-px shadow-[0_24px_60px_-30px_rgba(48,38,179,0.35)] transition-all duration-500 hover:-translate-y-1.5 hover:shadow-[0_30px_70px_-26px_var(--panel-glow)] focus-visible:ring-2 focus-visible:ring-[#3026B3] focus:outline-none`}
+                    style={{ "--panel-glow": item.glow } as CSSProperties}
                   >
-                    <div className="relative flex h-full flex-col overflow-hidden rounded-[27px] bg-[#16124A]/80 p-7 sm:p-10 backdrop-blur-xl">
-                      <div
-                        aria-hidden
-                        className="pointer-events-none absolute -top-24 left-1/2 h-48 w-4/5 -translate-x-1/2 rounded-full opacity-40 blur-3xl transition-opacity duration-500 group-hover:opacity-90"
-                        style={{ background: item.glow }}
-                      />
-                      <span aria-hidden className={`absolute inset-x-10 top-0 h-px bg-gradient-to-r from-transparent ${item.hairline} to-transparent`} />
+                    <div className="relative flex h-full flex-col overflow-hidden rounded-[25px] bg-white/75 p-7 sm:p-10 backdrop-blur-xl">
+                      {/* HUD corners, top hairline, hover light sweep and outlined watermark number */}
+                      {hudCorners.map((pos) => (
+                        <span
+                          key={pos}
+                          aria-hidden
+                          className={`pointer-events-none absolute h-4 w-4 ${pos} ${item.bracket} opacity-70 transition-all duration-500 group-hover:h-7 group-hover:w-7 group-hover:opacity-100`}
+                        />
+                      ))}
+                      <span aria-hidden className={`absolute inset-x-12 top-0 h-px bg-gradient-to-r from-transparent ${item.hairline} to-transparent`} />
                       <span
                         aria-hidden
-                        className="pointer-events-none absolute -top-4 right-6 hidden select-none font-heading text-[9rem] leading-none text-transparent sm:block"
-                        style={{ WebkitTextStroke: "1px rgba(255, 255, 255, 0.08)" }}
+                        className={`pointer-events-none absolute inset-y-0 -left-1/3 w-1/3 -skew-x-12 bg-gradient-to-r from-transparent ${item.sweep} to-transparent transition-transform duration-1000 ease-out group-hover:translate-x-[420%]`}
+                      />
+                      <span
+                        aria-hidden
+                        className="pointer-events-none absolute right-8 top-2 hidden select-none font-heading text-[8.5rem] leading-none text-transparent sm:block"
+                        style={{ WebkitTextStroke: "1px rgba(48, 38, 179, 0.1)" }}
                       >
                         {item.step}
                       </span>
@@ -532,10 +600,10 @@ export default function AboutPage() {
                       {/* Icon in a gradient ring + label */}
                       <div className="relative flex items-center gap-4">
                         <span
-                          className={`shrink-0 rounded-full bg-gradient-to-br ${item.ring} p-px transition-transform duration-500 group-hover:scale-105`}
-                          style={{ boxShadow: `0 0 32px -6px ${item.glow}` }}
+                          className={`shrink-0 rounded-full bg-gradient-to-br ${item.ring} p-[1.5px] transition-transform duration-500 group-hover:scale-105`}
+                          style={{ boxShadow: `0 10px 28px -8px ${item.glow}` }}
                         >
-                          <span className="flex h-14 w-14 items-center justify-center rounded-full bg-[#141046]">
+                          <span className="flex h-14 w-14 items-center justify-center rounded-full bg-white">
                             <Icon name={item.icon} width={24} height={24} strokeWidth={1.8} className={item.accentText} />
                           </span>
                         </span>
@@ -543,25 +611,29 @@ export default function AboutPage() {
                           <span className={`block font-sans text-[11px] font-bold uppercase tracking-[0.3em] ${item.accentText}`}>
                             {item.step} · {item.label}
                           </span>
-                          <span className="mt-1 block text-sm text-slate-400">{item.kicker}</span>
+                          <span className="mt-1 block text-sm text-[#596579]">{item.kicker}</span>
                         </div>
                       </div>
 
                       {/* The statement, set as a pull-quote */}
-                      <h3 className="relative mt-8 font-heading text-2xl sm:text-3xl lg:text-[2.1rem] font-medium leading-[1.2] tracking-tight text-white">
-                        <span aria-hidden className={item.accentText}>“</span>
+                      <h3 className="relative mt-8 font-heading text-2xl sm:text-3xl lg:text-[2.1rem] font-medium leading-[1.2] tracking-tight text-[#16124A]">
+                        <span aria-hidden className={item.quote}>“</span>
                         {item.title}
-                        <span aria-hidden className={item.accentText}>”</span>
+                        <span aria-hidden className={item.quote}>”</span>
                       </h3>
 
-                      <p className="relative mt-5 text-sm sm:text-base leading-relaxed text-slate-300">
+                      <p className="relative mt-5 text-sm sm:text-base leading-relaxed text-[#596579]">
                         {item.statement}
                       </p>
 
+                      {/* Points as nodes on a circuit trace */}
                       <ul className="relative mt-auto pt-8">
+                        <span aria-hidden className={`absolute bottom-5 left-3 top-[3.25rem] w-px bg-gradient-to-b ${item.trace}`} />
                         {item.points.map((pt, i) => (
-                          <li key={pt} className="flex items-center gap-4 border-t border-white/10 py-3.5 text-sm text-slate-200">
-                            <span className={`w-6 shrink-0 font-heading text-base italic ${item.accentText}`}>{romanNumerals[i]}</span>
+                          <li key={pt} className="relative flex items-center gap-4 py-2.5 text-sm text-[#374151]">
+                            <span className={`relative flex h-6 w-6 shrink-0 items-center justify-center rounded-full border bg-white font-heading text-[11px] italic ${item.node} ${item.accentText}`}>
+                              {romanNumerals[i]}
+                            </span>
                             <span>{pt}</span>
                           </li>
                         ))}
