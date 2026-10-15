@@ -37,20 +37,20 @@ export const heroSlides: HeroSlide[] = [
   //   heroTagline: "Engineered For Enterprise Scale",
   // },
   {
-    id: "manufacturing",
-    name: "Precision Mobility & Manufacturing",
-    shortLabel: "MANUFACTURING",
-    image: "/assets/hero4.png",
-    companyLogo: "/Casters_logo.png",
-    heroTagline: "Precision Engineering At Scale",
-  },
-  {
     id: "labs",
     name: "Sustainable Materials & Packaging Labs",
     shortLabel: "BHARATX LABS",
     image: "/assets/hero5.png",
     companyLogo: "/Bharatxlabs_logo.svg",
     heroTagline: "Ideas. People. Possibilities.",
+  },
+  {
+    id: "manufacturing",
+    name: "Precision Mobility & Manufacturing",
+    shortLabel: "MANUFACTURING",
+    image: "/assets/hero4.png",
+    companyLogo: "/Casters_logo.png",
+    heroTagline: "Precision Engineering At Scale",
   },
   {
     id: "civil",
