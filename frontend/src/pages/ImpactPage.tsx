@@ -167,6 +167,13 @@ const futureFocusAreas: { step: string; headline: string; detail: string; icon: 
     icon: "sparkles",
     accent: "#15966B",
   },
+  {
+    step: "MEASURE",
+    headline: "Hold every business to measurable outcomes.",
+    detail: "Tracking jobs created, resources saved and value generated, and reporting progress openly.",
+    icon: "gauge",
+    accent: "#00B8D9",
+  },
 ];
 
 export default function ImpactPage() {
@@ -651,7 +658,7 @@ export default function ImpactPage() {
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 -z-10 h-[500px] w-[500px] sm:w-[700px] rounded-full bg-gradient-to-r from-[#3026B3]/30 via-[#FE7701]/20 to-transparent blur-[140px] pointer-events-none" />
 
         <div className="container-x relative z-10">
-          <div className="max-w-4xl mx-auto text-center">
+          <div className="max-w-6xl mx-auto text-center">
             {/* Eyebrow */}
             <div className="inline-flex items-center gap-2 rounded-full border border-[#FE7701]/40 bg-[#FE7701]/15 px-4 py-1 font-sans text-[11px] uppercase tracking-[0.28em] text-[#FE7701] font-bold shadow-xs mb-6">
               <span className="h-2 w-2 rounded-full bg-[#FE7701] shadow-[0_0_8px_#FE7701]" />
@@ -668,8 +675,8 @@ export default function ImpactPage() {
               As BharatX expands into packaging, waste management, sustainability and new industrial businesses, our opportunity to create measurable impact grows with it.
             </p>
 
-            {/* Three Focus Areas: Build | Enable | Sustain */}
-            <Stagger staggerDelay={0.08} className="grid grid-cols-1 md:grid-cols-3 gap-5 mt-12 text-left">
+            {/* Four Focus Areas: Build | Enable | Sustain | Measure */}
+            <Stagger staggerDelay={0.08} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 mt-12 text-left">
               {futureFocusAreas.map((area) => (
                 <StaggerItem key={area.step}>
                   <div

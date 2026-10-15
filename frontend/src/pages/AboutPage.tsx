@@ -77,18 +77,14 @@ function orbStyle(light: string, mid: string, dark: string, glow: string, scale 
   };
 }
 
-// ── 03. Three Pillars for "Why BharatX Exists" ────────────────────────
+// ── 03. Four Pillars for "Why BharatX Exists" ─────────────────────────
 const purposePillars = [
   {
     step: "01",
     title: "Build",
     descriptor: "Inception & Incubation",
-    description: "We identify structural gaps in India's physical and digital core to engineer operating entities with deep sovereign resilience from day one.",
-    points: [
-      "Greenfield enterprise creation",
-      "Direct balance-sheet asset ownership",
-      "Rigorous institutional governance",
-    ],
+    description: "We spot structural gaps in India’s economy and build operating companies to fill them.",
+    points: ["Greenfield enterprise creation", "Governance from day one"],
     icon: "hard-hat" as const,
     image: cardImage("about-03-purpose-build"),
     accent: "#3026B3",
@@ -96,29 +92,32 @@ const purposePillars = [
   },
   {
     step: "02",
+    title: "Invest",
+    descriptor: "Capital & Commitment",
+    description: "We back every business with patient, long-horizon capital and strategic resources.",
+    points: ["Direct balance-sheet ownership", "Long-term capital, not quick exits"],
+    icon: "landmark" as const,
+    image: cardImage("about-06-purpose-invest"),
+    accent: "#00B8D9",
+    borderHover: "hover:border-[#00B8D9]",
+  },
+  {
+    step: "03",
     title: "Scale",
     descriptor: "Compounding & Execution",
-    description: "We deploy patient capital, proprietary technology, and disciplined execution to scale entities into domestic and international leaders.",
-    points: [
-      "Cross-conglomerate synergy",
-      "Automated intelligence & AI",
-      "Global export trade corridors",
-    ],
+    description: "We combine technology, talent and disciplined execution to grow businesses into leaders.",
+    points: ["Cross-group synergies", "Domestic and export growth"],
     icon: "trending-up" as const,
     image: cardImage("about-04-purpose-scale"),
     accent: "#E06901",
     borderHover: "hover:border-[#FE7701]",
   },
   {
-    step: "03",
+    step: "04",
     title: "Impact",
     descriptor: "Enduring Stewardship",
-    description: "We measure success by long-term economic momentum, high-integrity supply chains, and compounding value that outlasts market cycles.",
-    points: [
-      "Sovereign industrial security",
-      "Sustainable economic stewardship",
-      "Generational enterprise value",
-    ],
+    description: "We measure success by jobs, resilient supply chains and value that outlasts market cycles.",
+    points: ["Jobs, skills and local value", "Generational enterprise value"],
     icon: "sparkles" as const,
     image: cardImage("about-05-purpose-impact"),
     accent: "#15966B",
@@ -243,6 +242,7 @@ const tier3EcosystemNodes: EcosystemNode[] = [
 const principles = [
   {
     title: "Entrepreneurial",
+    image: cardImage("about-23-principle-entrepreneurial"),
     description: "We think like builders and act with ownership.",
     icon: "rocket" as const,
     color: "#3026B3",
@@ -250,6 +250,7 @@ const principles = [
   },
   {
     title: "Execution-Driven",
+    image: cardImage("about-24-principle-execution"),
     description: "Ideas matter only when they translate into results.",
     icon: "check" as const,
     color: "#00B8D9",
@@ -257,6 +258,7 @@ const principles = [
   },
   {
     title: "Long-Term",
+    image: cardImage("about-25-principle-long-term"),
     description: "We build businesses for enduring value, not short-term visibility.",
     icon: "trending-up" as const,
     color: "#15966B",
@@ -264,6 +266,7 @@ const principles = [
   },
   {
     title: "Technology-Enabled",
+    image: cardImage("about-26-principle-technology"),
     description: "We use technology to improve how businesses operate and scale.",
     icon: "cpu" as const,
     color: "#4B40D4",
@@ -271,6 +274,7 @@ const principles = [
   },
   {
     title: "Responsible",
+    image: cardImage("about-27-principle-responsible"),
     description: "Growth must create value for businesses, people and the wider ecosystem.",
     icon: "shield-check" as const,
     color: "#D97706",
@@ -278,6 +282,7 @@ const principles = [
   },
   {
     title: "Nation-First",
+    image: cardImage("about-28-principle-nation-first"),
     description: "We build sovereign enterprise capabilities that strengthen India's economic foundation.",
     icon: "badge-check" as const,
     color: "#211B72",
@@ -643,22 +648,22 @@ export default function AboutPage() {
               </div>
             </div>
 
-            {/* Three Enhanced Pillars: Build, Scale, Impact */}
-            <Stagger className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {/* Four Pillars: Build, Invest, Scale, Impact */}
+            <Stagger className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
               {purposePillars.map((pillar) => (
                 <StaggerItem key={pillar.title}>
                   <div
                     data-cursor="card"
                     tabIndex={0}
-                    className={`group relative overflow-hidden flex flex-col justify-between h-full rounded-2xl border border-white/10 bg-[#0D1026] p-7 sm:p-8 shadow-md transition-all duration-300 hover:shadow-xl hover:-translate-y-2 fx-lift focus-visible:ring-2 focus-visible:ring-[#3026B3] focus:outline-none ${pillar.borderHover}`}
+                    className={`group relative overflow-hidden flex flex-col h-full rounded-2xl border border-white/10 bg-[#0D1026] p-6 shadow-md transition-all duration-300 hover:shadow-xl hover:-translate-y-2 fx-lift focus-visible:ring-2 focus-visible:ring-[#3026B3] focus:outline-none ${pillar.borderHover}`}
                   >
                     <CardPhoto src={pillar.image} accent={pillar.accent} />
-                    <div className="relative [text-shadow:0_0_2px_rgba(13,16,38,0.9),0_1px_12px_rgba(13,16,38,0.85)]">
+                    <div className="relative flex h-full flex-col [text-shadow:0_0_2px_rgba(13,16,38,0.9),0_1px_12px_rgba(13,16,38,0.85)]">
                       <div className="flex items-center justify-between mb-5">
                         <FeatureIcon
                           name={pillar.icon}
                           accent={pillar.accent}
-                          size={48}
+                          size={44}
                           className="transition-transform duration-300 group-hover:scale-110 fx-icon-pop"
                         />
                         <span className="font-sans text-xs font-bold" style={{ color: tintOnDark(pillar.accent) }}>
@@ -674,12 +679,11 @@ export default function AboutPage() {
                         {pillar.title}
                       </h3>
 
-                      <p className="mt-3 text-sm text-slate-200 leading-relaxed font-normal">
+                      <p className="mt-3 mb-5 text-sm text-slate-200 leading-relaxed font-normal">
                         {pillar.description}
                       </p>
 
-                      {/* Bullet points */}
-                      <ul className="mt-5 space-y-2 border-t border-white/15 pt-4">
+                      <ul className="mt-auto space-y-2 border-t border-white/15 pt-4">
                         {pillar.points.map((pt) => (
                           <li key={pt} className="flex items-center gap-2 text-xs text-slate-100">
                             <span className="h-1.5 w-1.5 rounded-full shrink-0" style={{ backgroundColor: tintOnDark(pillar.accent) }} />
@@ -687,11 +691,6 @@ export default function AboutPage() {
                           </li>
                         ))}
                       </ul>
-                    </div>
-
-                    <div className="relative [text-shadow:0_0_2px_rgba(13,16,38,0.9),0_1px_12px_rgba(13,16,38,0.85)] mt-6 pt-4 border-t border-white/15 flex items-center justify-between font-sans text-[10.5px] uppercase tracking-wider text-slate-300">
-                      <span>Pillar Standard</span>
-                      <span className="h-2 w-2 rounded-full" style={{ backgroundColor: tintOnDark(pillar.accent) }} />
                     </div>
                   </div>
                 </StaggerItem>
@@ -935,8 +934,8 @@ export default function AboutPage() {
                     tabIndex={0}
                     className={`group relative overflow-hidden h-full rounded-2xl border border-white/10 bg-[#0D1026] p-6 sm:p-7 shadow-md transition-all duration-300 hover:shadow-xl hover:-translate-y-1.5 fx-lift focus-visible:ring-2 focus-visible:ring-[#3026B3] focus:outline-none ${p.borderHover}`}
                   >
-                    <CardFill accent={p.color} />
-                    <div className="relative flex items-center gap-3.5 mb-4">
+                    <CardPhoto src={p.image} accent={p.color} />
+                    <div className="relative flex items-center gap-3.5 mb-4 [text-shadow:0_0_2px_rgba(13,16,38,0.9),0_1px_12px_rgba(13,16,38,0.85)]">
                       <FeatureIcon
                         name={p.icon}
                         accent={p.color}
@@ -953,7 +952,7 @@ export default function AboutPage() {
                       </div>
                     </div>
 
-                    <p className="relative text-xs sm:text-[13px] text-white/90 leading-relaxed font-normal">
+                    <p className="relative text-xs sm:text-[13px] text-white/90 leading-relaxed font-normal [text-shadow:0_0_2px_rgba(13,16,38,0.9),0_1px_12px_rgba(13,16,38,0.85)]">
                       {p.description}
                     </p>
                   </div>
