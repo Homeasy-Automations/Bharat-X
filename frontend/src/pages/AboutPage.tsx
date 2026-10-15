@@ -17,6 +17,38 @@ const formulaInputs = [
   { label: "Execution", icon: "cog" as const, color: "#4B40D4" },
 ];
 
+// ── Vision & Mission ──────────────────────────────────────────────────
+const visionMission = [
+  {
+    label: "Our Vision",
+    title: "India’s Most Trusted Builder of Enduring Enterprises",
+    statement: "To build a group of world-class Indian businesses that strengthen the nation’s infrastructure, industry and economy, and keep creating value for generations.",
+    points: [
+      "Enterprises that outlast market cycles",
+      "Indian capability competing globally",
+      "Shared prosperity across Bharat",
+    ],
+    icon: "eye" as const,
+    image: cardImage("about-21-vision"),
+    accent: "#3026B3",
+    borderHover: "hover:border-[#3026B3]",
+  },
+  {
+    label: "Our Mission",
+    title: "Building the Businesses India’s Growth Depends On",
+    statement: "To identify India’s structural opportunities and build, operate and scale businesses that solve real-world problems, bringing together entrepreneurial thinking, operational capability, technology and capital.",
+    points: [
+      "Build in India’s essential growth sectors",
+      "Combine capital, technology, talent and execution",
+      "Create jobs, skills and lasting economic value",
+    ],
+    icon: "target" as const,
+    image: cardImage("about-22-mission"),
+    accent: "#E06901",
+    borderHover: "hover:border-[#FE7701]",
+  },
+];
+
 // ── 03. Three Pillars for "Why BharatX Exists" ────────────────────────
 const purposePillars = [
   {
@@ -473,9 +505,75 @@ export default function AboutPage() {
         </section>
       </SectionTransition>
 
+      {/* ── VISION & MISSION (Where We're Headed and How We Get There) ──── */}
+      <SectionTransition id="vision-mission" aria-label="Our Vision and Mission">
+        <section className="relative overflow-hidden bg-[#FAF9F6] py-8 sm:py-12">
+          <div className="container-x relative z-10">
+            <div className="max-w-3xl text-center mx-auto mb-10 sm:mb-12">
+              <div className="inline-flex items-center gap-2 rounded-full border border-[#3026B3]/25 bg-[#3026B3]/8 px-4 py-1 font-sans text-[11px] uppercase tracking-[0.26em] text-[#3026B3] font-bold shadow-xs mb-4">
+                <span className="h-2 w-2 rounded-full bg-[#3026B3] animate-pulse" />
+                <span>WHAT DRIVES US</span>
+              </div>
+
+              <h2 className="font-heading text-3xl sm:text-4xl lg:text-5xl font-medium text-[#111827] leading-tight tracking-tight hover:text-[#211B72] transition-colors duration-300">
+                Our Vision &amp; <span className="text-[#3026B3] hover:text-[#FE7701] transition-colors duration-300">Mission</span>
+              </h2>
+
+              <p className="mt-4 text-base sm:text-lg text-[#596579] leading-relaxed max-w-2xl mx-auto">
+                Our vision sets the long-term ambition for the Group. Our mission is the work we do every day to get there.
+              </p>
+            </div>
+
+            <Stagger className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+              {visionMission.map((item) => (
+                <StaggerItem key={item.label}>
+                  <div
+                    data-cursor="card"
+                    tabIndex={0}
+                    className={`group relative overflow-hidden flex flex-col h-full rounded-3xl border border-white/10 bg-[#0D1026] p-7 sm:p-10 shadow-md transition-all duration-300 hover:shadow-2xl hover:-translate-y-1.5 fx-lift focus-visible:ring-2 focus-visible:ring-[#3026B3] focus:outline-none ${item.borderHover}`}
+                  >
+                    <CardPhoto src={item.image} accent={item.accent} />
+                    <div className="relative flex h-full flex-col [text-shadow:0_0_2px_rgba(13,16,38,0.9),0_1px_12px_rgba(13,16,38,0.85)]">
+                      <div className="flex items-center gap-3">
+                        <FeatureIcon
+                          name={item.icon}
+                          accent={item.accent}
+                          size={48}
+                          className="transition-transform duration-300 group-hover:scale-110 fx-icon-pop"
+                        />
+                        <span className="font-sans text-xs uppercase tracking-[0.26em] font-bold" style={{ color: tintOnDark(item.accent) }}>
+                          {item.label}
+                        </span>
+                      </div>
+
+                      <h3 className="mt-6 font-heading text-2xl sm:text-3xl font-medium leading-snug tracking-tight text-white group-hover:text-[#FEA04D] transition-colors">
+                        {item.title}
+                      </h3>
+
+                      <p className="mt-4 mb-6 text-sm sm:text-base text-slate-200 leading-relaxed font-normal">
+                        {item.statement}
+                      </p>
+
+                      <ul className="mt-auto space-y-2.5 border-t border-white/15 pt-5">
+                        {item.points.map((pt) => (
+                          <li key={pt} className="flex items-center gap-2.5 text-xs sm:text-sm text-slate-100">
+                            <span className="h-1.5 w-1.5 rounded-full shrink-0" style={{ backgroundColor: tintOnDark(item.accent) }} />
+                            <span>{pt}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  </div>
+                </StaggerItem>
+              ))}
+            </Stagger>
+          </div>
+        </section>
+      </SectionTransition>
+
       {/* ── 03. WHY BHARATX EXISTS (Built Around India's Opportunity) ─── */}
       <SectionTransition>
-        <section className="relative overflow-hidden bg-[#FAF9F6] py-8 sm:py-12">
+        <section className="relative overflow-hidden bg-white py-8 sm:py-12">
           <div className="container-x relative z-10">
             {/* Enhanced 2-Column Split Header eliminates empty dead space */}
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start mb-12 sm:mb-16">
@@ -581,7 +679,7 @@ export default function AboutPage() {
 
       {/* ── GROUP LEADERSHIP (The Visionary Behind the Standard) ─────────── */}
       <SectionTransition>
-        <section className="relative overflow-hidden bg-white py-8 sm:py-12">
+        <section className="relative overflow-hidden bg-[#FAF9F6] py-8 sm:py-12">
           <div className="container-x relative z-10">
             <div className="max-w-3xl mb-12 sm:mb-16">
               <div className="inline-flex items-center gap-2 rounded-full border border-[#3026B3]/25 bg-[#3026B3]/8 px-4 py-1 font-sans text-[11px] uppercase tracking-[0.26em] text-[#3026B3] font-bold shadow-xs mb-4">

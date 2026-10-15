@@ -21,10 +21,18 @@ export const heroSlides: HeroSlide[] = [
     heroTagline: "Building Arteries Of Bharat",
   },
   {
+    id: "tech-ai",
+    name: "Technology, AI & Automation",
+    shortLabel: "TECHNOLOGY & AI",
+    image: "/assets/hero2.jpeg",
+    companyLogo: "/Ai-Experts_logo.png",
+    heroTagline: "Intelligence Engineered For Bharat",
+  },
+  {
     id: "packaging",
     name: "Packaging & Industrial Protection",
     shortLabel: "PACKAGING & SCALE",
-    image: "/assets/hero2.png",
+    image: "/assets/hero3.png",
     companyLogo: "/Bharatxlabs_logo.svg",
     heroTagline: "Engineered For Enterprise Scale",
   },
@@ -32,7 +40,7 @@ export const heroSlides: HeroSlide[] = [
     id: "manufacturing",
     name: "Precision Mobility & Manufacturing",
     shortLabel: "MANUFACTURING",
-    image: "/assets/hero3.png",
+    image: "/assets/hero4.png",
     companyLogo: "/Casters_logo.png",
     heroTagline: "Precision Engineering At Scale",
   },
@@ -40,7 +48,7 @@ export const heroSlides: HeroSlide[] = [
     id: "labs",
     name: "Sustainable Materials & Packaging Labs",
     shortLabel: "BHARATX LABS",
-    image: "/assets/hero4.png",
+    image: "/assets/hero5.png",
     companyLogo: "/Bharatxlabs_logo.svg",
     heroTagline: "Ideas. People. Possibilities.",
   },
@@ -48,7 +56,7 @@ export const heroSlides: HeroSlide[] = [
     id: "civil",
     name: "Heavy Civil & Transport Corridors",
     shortLabel: "HEAVY ENGINEERING",
-    image: "/assets/hero5.png",
+    image: "/assets/hero6.png",
     companyLogo: "/Infra_logo1.png",
     heroTagline: "Connecting India's Corridors",
   },
@@ -56,7 +64,7 @@ export const heroSlides: HeroSlide[] = [
     id: "sustainability",
     name: "Sustainability & Circular Economy",
     shortLabel: "CIRCULAR ECONOMY",
-    image: "/assets/hero6.png",
+    image: "/assets/hero7.png",
     companyLogo: "/Bharatxlabs_logo.svg",
     heroTagline: "Pioneering Sustainable Horizons",
   },
@@ -64,7 +72,7 @@ export const heroSlides: HeroSlide[] = [
     id: "clean-energy",
     name: "Renewable Energy & Solar Infrastructure",
     shortLabel: "CLEAN ENERGY",
-    image: "/assets/hero7.png",
+    image: "/assets/hero8.png",
     companyLogo: "/Bharatxlabs_logo.svg",
     heroTagline: "Powering Sovereign Clean Energy",
   },
@@ -72,7 +80,7 @@ export const heroSlides: HeroSlide[] = [
     id: "ecosystem",
     name: "Connected Conglomerate Operations",
     shortLabel: "BHARATX GROUP",
-    image: "/assets/hero8.png",
+    image: "/assets/hero9.png",
     companyLogo: "/bharatxgroup.png",
     heroTagline: "Building Businesses. Enabling Bharat.",
   },
@@ -84,7 +92,7 @@ export function RilHeroSection() {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isPaused, setIsPaused] = useState(false);
 
-  // Preload all 8 hero images immediately on mount
+  // Preload all hero images immediately on mount
   useEffect(() => {
     heroSlides.forEach((s) => {
       const img = new Image();
